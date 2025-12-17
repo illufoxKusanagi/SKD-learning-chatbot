@@ -1,0 +1,3 @@
+FROM pgvector/pgvector:pg17-trixie
+
+COPY init.sql /docker-entrypoint-initdb.d/init.sql

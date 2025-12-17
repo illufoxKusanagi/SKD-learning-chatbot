@@ -1,0 +1,12 @@
+node_modules
+
+# Git files
+.git
+.gitignore
+
+# Environment variables
+.env*
+
+# Logs
+npm-debug.log*
+yarn-error.log*
