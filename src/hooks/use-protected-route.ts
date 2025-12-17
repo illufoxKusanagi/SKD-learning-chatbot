@@ -1,18 +1,39 @@
 "use client";
 
 import { useAuth } from "@/app/context/auth-context";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { toast } from "sonner";
 
-export function useProtectedRoute() {
+interface UseProtectedRouteOptions {
+  redirectTo?: string;
+  message?: string;
+}
+
+export function useProtectedRoute(options: UseProtectedRouteOptions = {}) {
+  const {
+    redirectTo = "/auth/login",
+    message = "Silakan login terlebih dahulu untuk mengakses halaman ini",
+  } = options;
+
   const { isAuthenticated, isLoading } = useAuth();
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     if (!isLoading && !isAuthenticated) {
-      router.replace("/auth/login");
+      // Show toast message
+      toast.error(message);
+
+      // Redirect with return URL so user can be redirected back after login
+      const returnUrl = encodeURIComponent(pathname);
+      router.replace(
+        `${redirectTo}?returnUrl=${returnUrl}&message=${encodeURIComponent(
+          message
+        )}`
+      );
     }
-  }, [isAuthenticated, isLoading, router]);
+  }, [isAuthenticated, isLoading, router, redirectTo, message, pathname]);
 
   return {
     isAuthenticated,

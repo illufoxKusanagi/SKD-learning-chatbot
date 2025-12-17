@@ -3,7 +3,6 @@ import { Button } from "../ui/button";
 import { Textarea } from "../ui/textarea";
 import AddAttachment from "./add-attachment";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 type ChatInputProps = {
   onSendMessage: (message: string) => void;
@@ -15,7 +14,6 @@ export default function ChatInput({
   isLoading = false,
 }: ChatInputProps) {
   const [inputValue, setInputValue] = useState("");
-  const router = useRouter();
 
   const submitMessage = () => {
     if (!inputValue.trim() || isLoading) return;

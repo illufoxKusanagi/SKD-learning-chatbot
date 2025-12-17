@@ -32,7 +32,12 @@ export function AppSidebar() {
   const { open } = useSidebar();
   const [conversations, setChatHistory] = useState<ChatHistoryItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const { user, isAuthenticated } = useAuth();
+  const {
+    user,
+    isAuthenticated,
+    getAuthHeaders,
+    isLoading: authLoading,
+  } = useAuth();
   const data = {
     user: {
       name: user?.username || "Guest",
@@ -43,15 +48,23 @@ export function AppSidebar() {
 
   useEffect(() => {
     const fetchChatHistory = async () => {
-      // Edited Here: Only fetch chat history if user is authenticated
+      // Wait for auth to finish loading before checking authentication
+      if (authLoading) {
+        return;
+      }
+
+      // Only fetch chat history if user is authenticated
       if (!isAuthenticated || !user) {
         setChatHistory([]);
         setIsLoading(false);
         return;
       }
 
+      setIsLoading(true);
       try {
-        const response = await fetch("/api/chat/history");
+        const response = await fetch("/api/chat/history", {
+          headers: getAuthHeaders(),
+        });
         if (!response.ok) {
           if (response.status === 401) {
             console.warn("Unauthorized access to chat history");
@@ -60,8 +73,9 @@ export function AppSidebar() {
           }
           throw new Error(`HTTP error! status: ${response.status}`);
         }
-        const data = await response.json();
-        setChatHistory(data);
+        const result = await response.json();
+        // API returns { success: true, data: { chats: [...] } }
+        setChatHistory(result.data?.chats || []);
       } catch (error) {
         console.error("Failed to fetch chat history:", error);
         setChatHistory([]);
@@ -71,7 +85,7 @@ export function AppSidebar() {
     };
 
     fetchChatHistory();
-  }, [isAuthenticated, user]); // Edited Here: Added auth dependencies
+  }, [isAuthenticated, user, authLoading, getAuthHeaders]); // Wait for auth loading to complete
 
   return (
     <Sidebar variant="sidebar" collapsible="icon">

@@ -18,12 +18,17 @@ export function useChat() {
   });
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, isLoading: authLoading } = useAuth();
   const chatId = searchParams.get("id");
 
   const apiCall = useCallback(
     async (endpoint: string, options: RequestInit = {}) => {
       const token = localStorage.getItem("auth_token");
+      console.log(
+        `[useChat apiCall] Token present: ${!!token}, token length: ${
+          token?.length || 0
+        }`
+      );
       const response = await fetch(endpoint, {
         ...options,
         headers: {
@@ -43,6 +48,11 @@ export function useChat() {
 
   useEffect(() => {
     const loadHistory = async () => {
+      // Wait for auth to finish loading before making API calls
+      if (authLoading) {
+        return;
+      }
+
       if (!chatId) {
         // For guest users on /chat page, try to load from sessionStorage
         if (!isAuthenticated && window.location.pathname === "/chat") {
@@ -62,6 +72,14 @@ export function useChat() {
         setState((prev) => ({ ...prev, messages: [], isLoading: false }));
         return;
       }
+
+      // Don't try to fetch chat history if user is not authenticated
+      // The page component will handle the redirect
+      if (!isAuthenticated) {
+        setState((prev) => ({ ...prev, messages: [], isLoading: false }));
+        return;
+      }
+
       setState((prev) => ({ ...prev, isLoading: true, error: null }));
 
       try {
@@ -83,7 +101,7 @@ export function useChat() {
       }
     };
     loadHistory();
-  }, [chatId, isAuthenticated, apiCall]);
+  }, [chatId, isAuthenticated, authLoading, apiCall]);
 
   const handleSendMessage = useCallback(
     async (newUserMessage: string) => {

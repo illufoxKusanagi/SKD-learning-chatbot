@@ -25,8 +25,10 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useAuth } from "@/app/context/auth-context";
+import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 const schema = z.object({
   identifier: z.string().min(1, "Email atau password harus diisi"),
@@ -37,15 +39,27 @@ type FormData = z.infer<typeof schema>;
 
 export default function LoginPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
   const { login, isAuthenticated, isLoading } = useAuth();
+
+  // Get redirect params
+  const returnUrl = searchParams.get("returnUrl") || "/";
+  const redirectMessage = searchParams.get("message");
+
+  // Show redirect message on mount (only once)
+  useEffect(() => {
+    if (redirectMessage) {
+      toast.info(redirectMessage);
+    }
+  }, []); // Empty deps - only run once on mount
 
   // Edited here: Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated && !isLoading) {
-      console.log("User already authenticated, redirecting to home");
-      router.push("/");
+      console.log("User already authenticated, redirecting to:", returnUrl);
+      router.push(returnUrl);
     }
-  }, [isAuthenticated, isLoading, router]);
+  }, [isAuthenticated, isLoading, router, returnUrl]);
 
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -61,9 +75,9 @@ export default function LoginPage() {
 
       await login(data.identifier, data.password);
 
-      // Edited here: Show success message and redirect
+      // Edited here: Show success message and redirect to returnUrl
       toast.success(`Login berhasil, Okaerinasai, ${data.identifier}-san!`);
-      router.push("/");
+      router.push(returnUrl);
     } catch (error) {
       console.error("Login error:", error);
 
@@ -166,6 +180,13 @@ export default function LoginPage() {
             <Separator />
           </div>
           <Button variant="outline" className="w-full">
+            <Image
+              src="/google_icon.svg"
+              alt="Google logo"
+              width={16}
+              height={16}
+              className="mr-2"
+            />
             Masuk dengan Google
           </Button>
           <CardDescription className="text-center text-sm">

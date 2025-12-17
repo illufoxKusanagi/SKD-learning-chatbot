@@ -120,7 +120,7 @@ async function registerHandler(request: NextRequest & { validatedData?: any }) {
 }
 
 export function POST(request: NextRequest) {
-  withMiddleware(
+  return withMiddleware(
     createRateLimitMiddleware(3, 600000), // 3 requests per 10 minutes for registration
     createValidationMiddleware(registerSchema)
   )(request, registerHandler);

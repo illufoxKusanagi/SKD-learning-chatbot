@@ -17,7 +17,6 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { toast } from "sonner";
 import { z } from "zod";
-import { UserRole } from "@/lib/definitions";
 import {
   Form,
   FormControl,
@@ -26,13 +25,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
+import Image from "next/image";
 
 const schema = z.object({
   username: z
@@ -197,6 +190,13 @@ export default function RegisterPage() {
             <Separator />
           </div>
           <Button variant="outline" className="w-full">
+            <Image
+              src="/google_icon.svg"
+              alt="Google logo"
+              width={16}
+              height={16}
+              className="mr-2"
+            />
             Lanjutkan dengan Google
           </Button>
           <CardDescription className="text-center">

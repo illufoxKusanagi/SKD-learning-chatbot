@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import type { User } from "@/lib/types/auth";
-import { string, z } from "zod";
 import {
   createContext,
   ReactNode,
@@ -133,6 +132,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
         localStorage.setItem(AUTH_STORAGE_KEY, data.data.accessToken);
       }
 
+      if (data.success) {
+      }
+
       // Edited here: Map the response structure correctly
       const userData = {
         id: data.data.user.id,
@@ -150,7 +152,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       });
 
       console.log("Login successful, user set:", userData); // Debug log
-      toast.success(`Login berhasil, Okaerinasai, ${userData.username}-san!`);
+      // toast.success(`Login berhasil, Okaerinasai, ${userData.username}-san!`);
     } catch (error) {
       console.error("Login error:", error);
       setState((prev) => ({

@@ -5,6 +5,8 @@ const JWT_SECRET = process.env.JWT_SECRET || "your-secret-key";
 
 const publicRoutes = ["/", "/auth/login", "/auth/register", "/chat"];
 
+const protectedRoutes = ["/chat/history", "/chat/[id]"];
+
 // Edited Here: Make /api/chat public but keep /api/chat/history protected
 const publicApiRoutes = [
   "/api/auth/login",
@@ -64,6 +66,14 @@ export async function middleware(request: NextRequest) {
     }
 
     // For other API routes, allow them
+    return NextResponse.next();
+  }
+
+  const isProtectedRoute = protectedRoutes.some((route) =>
+    pathname.startsWith(route)
+  );
+
+  if (!isProtectedRoute) {
     return NextResponse.next();
   }
 

@@ -17,6 +17,7 @@ import HelpButton from "@/components/ui/help-button";
 import { useAuth } from "@/app/context/auth-context";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
 
 function TextBubble({
   role,
@@ -121,16 +122,31 @@ export default function ChatPage() {
   const [titleLoading, setTitleLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Edited Here: Remove authentication requirement - allow both authenticated and unauthenticated users
-  const { isAuthenticated, isLoading: authLoading, user } = useAuth();
+  const {
+    isAuthenticated,
+    isLoading: authLoading,
+    user,
+    getAuthHeaders,
+  } = useAuth();
 
-  // Removed the redirect logic that was preventing guest users from accessing specific chat IDs
-  // Guest users can now access both /chat and /chat?id=... URLs
+  // Redirect unauthenticated users trying to access specific chat IDs
+  useEffect(() => {
+    if (!authLoading && !isAuthenticated && chatId) {
+      toast.error("Silakan login terlebih dahulu untuk mengakses riwayat chat");
+      const returnUrl = encodeURIComponent(`/chat?id=${chatId}`);
+      router.replace(`/auth/login?returnUrl=${returnUrl}`);
+    }
+  }, [authLoading, isAuthenticated, chatId, router]);
 
   useEffect(() => {
     const fetchTitle = async () => {
-      // Edited Here: Only fetch title if user is authenticated and has access to chat history
-      if (!isAuthenticated || authLoading || !user) {
+      // Wait for auth to finish loading before making decisions
+      if (authLoading) {
+        return;
+      }
+
+      // If not authenticated, show default title
+      if (!isAuthenticated || !user) {
         if (chatId) {
           setChatTitle(`Chat #${chatId}`);
         } else {
@@ -146,7 +162,9 @@ export default function ChatPage() {
         console.log(`chat id adalah: ${chatId}`);
 
         try {
-          const response = await fetch(`/api/chat/title/${chatId}`);
+          const response = await fetch(`/api/chat/title/${chatId}`, {
+            headers: getAuthHeaders(),
+          });
           if (!response.ok) {
             if (response.status === 404) {
               throw new Error("Chat tidak ditemukan");

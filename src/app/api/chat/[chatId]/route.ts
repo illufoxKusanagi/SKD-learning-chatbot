@@ -28,16 +28,19 @@ async function getChatHandler(
 
   try {
     const authHeader = request.headers.get("authorization");
+    console.log(`[GET_CHAT] Auth header present: ${!!authHeader}, starts with Bearer: ${authHeader?.startsWith("Bearer ")}`);
     if (authHeader?.startsWith("Bearer ")) {
       const token = authHeader.substring(7);
+      console.log(`[GET_CHAT] Token length: ${token.length}, first 20 chars: ${token.substring(0, 20)}...`);
       const payload = verifyToken(token);
       if (payload.type === "access") {
         userId = payload.userId;
         isAuthenticated = true;
+        console.log(`[GET_CHAT] Authenticated user: ${userId}`);
       }
     }
-  } catch {
-    console.log(`[GET_CHAT] No valid auth token`);
+  } catch (error) {
+    console.log(`[GET_CHAT] No valid auth token, error:`, error);
   }
 
   try {
