@@ -1,18 +1,15 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { getDb } from "@/lib/db"; // Edited here: Fixed import
-import { ragData } from "@/lib/db/schema";
-import { desc, eq, like } from "drizzle-orm";
 
 interface RagDataItem {
   id: string;
   title?: string;
   content: string;
   source?: string;
-  data?: any;
-  createdAt: Date;
-  updatedAt: Date;
+  data?: Record<string, unknown>;
+  createdAt: string;
+  updatedAt: string;
 }
 
 export function useRagData() {
@@ -20,18 +17,31 @@ export function useRagData() {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const fetchData = useCallback(async () => {
+  const fetchData = useCallback(async (query?: string) => {
     try {
       setIsLoading(true);
       setError(null);
 
-      const db = getDb(); // Edited here: Get db instance
-      const results = await db
-        .select()
-        .from(ragData)
-        .orderBy(desc(ragData.createdAt));
+      const url = query
+        ? `/api/rag/data?q=${encodeURIComponent(query)}`
+        : "/api/rag/data";
 
-      setData(results);
+      const response = await fetch(url, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch RAG data");
+      }
+
+      const result = await response.json();
+      if (result.success && Array.isArray(result.data)) {
+        setData(result.data);
+      } else {
+        setData([]);
+      }
     } catch (err) {
       setError(err instanceof Error ? err.message : "Failed to fetch RAG data");
     } finally {
@@ -41,30 +51,7 @@ export function useRagData() {
 
   const searchData = useCallback(
     async (query: string) => {
-      if (!query.trim()) {
-        fetchData();
-        return;
-      }
-
-      try {
-        setIsLoading(true);
-        setError(null);
-
-        const db = getDb(); // Edited here: Get db instance
-        const results = await db
-          .select()
-          .from(ragData)
-          .where(like(ragData.content, `%${query}%`))
-          .orderBy(desc(ragData.createdAt));
-
-        setData(results);
-      } catch (err) {
-        setError(
-          err instanceof Error ? err.message : "Failed to search RAG data"
-        );
-      } finally {
-        setIsLoading(false);
-      }
+      fetchData(query);
     },
     [fetchData]
   );
@@ -77,7 +64,7 @@ export function useRagData() {
     data,
     isLoading,
     error,
-    refetch: fetchData,
+    refetch: () => fetchData(),
     search: searchData,
   };
 }

@@ -28,10 +28,18 @@ async function getChatHandler(
 
   try {
     const authHeader = request.headers.get("authorization");
-    console.log(`[GET_CHAT] Auth header present: ${!!authHeader}, starts with Bearer: ${authHeader?.startsWith("Bearer ")}`);
+    console.log(
+      `[GET_CHAT] Auth header present: ${!!authHeader}, starts with Bearer: ${authHeader?.startsWith(
+        "Bearer "
+      )}`
+    );
     if (authHeader?.startsWith("Bearer ")) {
       const token = authHeader.substring(7);
-      console.log(`[GET_CHAT] Token length: ${token.length}, first 20 chars: ${token.substring(0, 20)}...`);
+      console.log(
+        `[GET_CHAT] Token length: ${
+          token.length
+        }, first 20 chars: ${token.substring(0, 20)}...`
+      );
       const payload = verifyToken(token);
       if (payload.type === "access") {
         userId = payload.userId;
@@ -159,9 +167,9 @@ async function getChatHandler(
 // Hybrid delete handler
 async function deleteChatHandler(
   request: NextRequest,
-  { params }: { params: ChatParams }
+  { params }: { params: Promise<ChatParams> }
 ) {
-  const chatId = await params.chatId;
+  const chatId = (await params).chatId;
   let userId = null;
   let isAuthenticated = false;
 
@@ -177,7 +185,7 @@ async function deleteChatHandler(
       }
     }
   } catch (error) {
-    console.log("No valid auth token for delete operation");
+    console.log("No valid auth token for delete operation", error);
   }
 
   console.log(
@@ -269,7 +277,7 @@ export const GET = (
 
 export const DELETE = (
   request: NextRequest,
-  context: { params: ChatParams }
+  context: { params: Promise<ChatParams> }
 ) => {
   return withMiddleware(
     createRateLimitMiddleware(10, 60000) // 10 deletes per minute

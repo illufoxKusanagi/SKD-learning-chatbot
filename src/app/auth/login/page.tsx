@@ -25,7 +25,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useEffect, useMemo } from "react";
+import { useEffect, Suspense } from "react";
 import { useAuth } from "@/app/context/auth-context";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
@@ -37,7 +37,7 @@ const schema = z.object({
 
 type FormData = z.infer<typeof schema>;
 
-export default function LoginPage() {
+function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { login, isAuthenticated, isLoading } = useAuth();
@@ -51,6 +51,7 @@ export default function LoginPage() {
     if (redirectMessage) {
       toast.info(redirectMessage);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Empty deps - only run once on mount
 
   // Edited here: Redirect if already authenticated
@@ -201,5 +202,13 @@ export default function LoginPage() {
         </CardFooter>
       </Card>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <LoginContent />
+    </Suspense>
   );
 }

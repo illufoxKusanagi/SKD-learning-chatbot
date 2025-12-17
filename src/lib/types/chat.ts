@@ -1,8 +1,16 @@
+export interface Source {
+  title: string;
+  url?: string;
+  content?: string;
+  page?: number;
+  [key: string]: unknown;
+}
+
 export interface Message {
   content: string;
   role: "user" | "bot";
   timestamp?: string;
-  sources?: any[];
+  sources?: Source[];
 }
 
 export interface ChatState {

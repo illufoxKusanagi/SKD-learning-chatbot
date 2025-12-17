@@ -9,6 +9,10 @@ export interface AuthenticatedRequest extends NextRequest {
   };
 }
 
+export interface RequestWithValidation<T = unknown> extends NextRequest {
+  validatedData?: T;
+}
+
 export class ApiError extends Error {
   constructor(
     public message: string,
@@ -74,6 +78,7 @@ export function createValidationMiddleware<T>(
             dataToValidate = await req.json();
             // Edited here: Add debug logging
             console.log("[VALIDATION] Raw data received:", dataToValidate);
+            // eslint-disable-next-line @typescript-eslint/no-unused-vars
           } catch (error) {
             throw new ApiError(
               "Request body harus berupa JSON yang valid",
@@ -89,7 +94,7 @@ export function createValidationMiddleware<T>(
       console.log("[VALIDATION] Validated data:", validatedData);
 
       // Attach validated data to the request object
-      (req as any).validatedData = validatedData;
+      (req as RequestWithValidation<T>).validatedData = validatedData;
 
       return req;
     } catch (error) {
@@ -125,8 +130,11 @@ export function createRateLimitMiddleware(
   const requests = new Map<string, { count: number; resetTime: number }>();
 
   return async (req: NextRequest): Promise<NextRequest> => {
-    // Edited here: Enhanced IP detection for better rate limiting
-    const ip = req.ip || req.headers.get("x-forwarded-for") || "unknown";
+    // Edited here: Robust IP detection using standard headers to avoid type errors
+    const forwardedFor = req.headers.get("x-forwarded-for");
+    const realIp = req.headers.get("x-real-ip");
+    const ip =
+      forwardedFor?.split(",")[0]?.trim() || realIp?.trim() || "unknown";
     const now = Date.now();
     const resetTime = now + windowMs;
 

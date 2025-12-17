@@ -20,19 +20,27 @@ export async function generateEmbedding(content: string) {
       model: embeddingModel,
       contents: content.toLowerCase(),
     });
+
+    // Cast to any to handle SDK type variations
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const response = result as any;
     let embedding;
-    if (result.embedding?.values) {
-      embedding = result.embedding.values;
+
+    if (response.embedding?.values) {
+      embedding = response.embedding.values;
       console.log("Found embedding in result.embedding.values");
-    } else if (result.embeddings?.length > 0 && result.embeddings[0].values) {
-      embedding = result.embeddings[0].values;
+    } else if (
+      response.embeddings?.length > 0 &&
+      response.embeddings[0].values
+    ) {
+      embedding = response.embeddings[0].values;
       console.log("Found embedding in result.embeddings[0].values");
-    } else if (result.values) {
-      embedding = result.values;
-      console.log("Found embedding in result.values");
+    } else if (response.embeddings?.values) {
+      embedding = response.embeddings.values;
+      console.log("Found embedding in result.embeddings.values");
     } else {
       console.log("No embedding found in expected locations");
-      console.log("Available keys in result:", Object.keys(result));
+      console.log("Available keys in result:", Object.keys(response));
     }
 
     if (!embedding || !Array.isArray(embedding) || embedding.length === 0) {
@@ -45,7 +53,7 @@ export async function generateEmbedding(content: string) {
 
     const validEmbedding = embedding.map((value, index) => {
       const num =
-        typeof value === "number" ? value : parseFloat(value.toString());
+        typeof value === "number" ? value : parseFloat(value as string);
       if (isNaN(num)) {
         throw new Error(`Invalid embedding value at index ${index}: ${value}`);
       }

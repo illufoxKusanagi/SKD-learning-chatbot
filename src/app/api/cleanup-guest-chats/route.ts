@@ -1,10 +1,10 @@
 import { getDb } from "@/lib/db";
 import { conversations, messages } from "@/lib/db/schema";
 import { and, eq, isNotNull, lt } from "drizzle-orm";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 // This endpoint cleans up expired guest chats
-export async function DELETE(request: NextRequest) {
+export async function DELETE() {
   try {
     const db = getDb();
     const now = new Date();
@@ -35,15 +35,15 @@ export async function DELETE(request: NextRequest) {
     }
 
     // Delete the expired guest chats themselves
-    const deletedChats = await db
-      .delete(conversations)
-      .where(
-        and(
-          eq(conversations.isGuestChat, true),
-          isNotNull(conversations.expiresAt),
-          lt(conversations.expiresAt, now)
-        )
-      );
+    // const deletedChats = await db
+    //   .delete(conversations)
+    //   .where(
+    //     and(
+    //       eq(conversations.isGuestChat, true),
+    //       isNotNull(conversations.expiresAt),
+    //       lt(conversations.expiresAt, now)
+    //     )
+    //   );
 
     return NextResponse.json({
       success: true,

@@ -44,20 +44,27 @@ function TextBubble({
           <ReactMarkdown
             rehypePlugins={[rehypeRaw, rehypeHighlight]}
             components={{
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               h1: ({ node, ...props }) => (
                 <h1 className="text-2xl font-bold my-2" {...props} />
               ),
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               h2: ({ node, ...props }) => (
                 <h2 className="text-xl font-bold my-2" {...props} />
               ),
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               h3: ({ node, ...props }) => (
                 <h3 className="text-lg font-bold my-2" {...props} />
               ),
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               ul: ({ node, ...props }) => (
                 <ul className="list-disc my-2 pl-4" {...props} />
               ),
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               ol: ({ node, ...props }) => <ol className="my-2" {...props} />,
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               p: ({ node, ...props }) => <p className="mb-2" {...props} />,
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               a: ({ node, ...props }) => (
                 <a
                   className="text-blue-500 hover:underline"
@@ -66,6 +73,7 @@ function TextBubble({
                   {...props}
                 />
               ),
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
               code: ({ node, className, children, ...props }) => {
                 const match = /language-(\w+)/.exec(className || "");
                 return match ? (
@@ -112,7 +120,7 @@ function ChatHistory({
   );
 }
 
-export default function ChatPage() {
+function ChatContent() {
   const { messages, isLoading, handleSendMessage } = useChat();
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -196,6 +204,7 @@ export default function ChatPage() {
 
     fetchTitle();
     console.log(`isAuthenticated is: ${isAuthenticated}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chatId, isAuthenticated, authLoading, user]);
 
   console.log(`Is authenticated in chat page: ${isAuthenticated}`);
@@ -273,5 +282,13 @@ export default function ChatPage() {
         </div>
       </SidebarProvider>
     </div>
+  );
+}
+
+export default function ChatPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ChatContent />
+    </Suspense>
   );
 }

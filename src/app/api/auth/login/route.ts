@@ -2,10 +2,10 @@ import { z } from "zod";
 import { NextRequest, NextResponse } from "next/server";
 import {
   ApiError,
-  commonMiddleware,
   createRateLimitMiddleware,
   createValidationMiddleware,
   withMiddleware,
+  RequestWithValidation,
 } from "@/middleware/api";
 import { getDb } from "@/lib/db";
 import { users } from "@/lib/db/schema";
@@ -18,8 +18,10 @@ const loginSchema = z.object({
   password: z.string().min(1, "Masukkan password"),
 });
 
-async function loginHandler(request: NextRequest & { validatedData?: any }) {
-  const { identifier, password } = request.validatedData;
+async function loginHandler(
+  request: RequestWithValidation<z.infer<typeof loginSchema>>
+) {
+  const { identifier, password } = request.validatedData || {};
   if (!identifier || !password) {
     throw new ApiError(
       "Email/username dan password diperlukan",

@@ -1,11 +1,8 @@
 import { conversations, ragData } from "@/lib/db/schema";
-import { cosineDistance, sql, gt, desc, eq, and } from "drizzle-orm";
+import { sql, gt, desc, eq, and } from "drizzle-orm";
 import { getDb, ensureVectorExtension } from "@/lib/db/index"; // Edited here: Fixed import
 import { generateEmbedding } from "./embeddings.service";
-import {
-  searchWithDynamicCache,
-  createDynamicEmbeddingCache,
-} from "./dynamic-embedding-cache.service"; // Edited here: Fixed import to use functional approach
+import { createDynamicEmbeddingCache } from "./dynamic-embedding-cache.service"; // Edited here: Fixed import to use functional approach
 
 // Edited here: Use functional approach instead of class instantiation
 const embeddingCache = createDynamicEmbeddingCache();
@@ -14,7 +11,7 @@ export async function findRelevantContents(userQuery: string) {
   try {
     // Ensure vector extension is enabled before any vector operations
     await ensureVectorExtension();
-    
+
     console.log("[RAG SERVICE] Mencari konten relevan untuk:", userQuery);
 
     // Edited here: Use functional cache search instead of class method

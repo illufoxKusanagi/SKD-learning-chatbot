@@ -26,7 +26,7 @@ export async function POST(request: NextRequest) {
     console.log("Testing external search for:", query);
 
     const cacheHelper = new DynamicEmbeddingCacheHelper();
-    const results = await cacheHelper.search(query, 5);
+    const results = await cacheHelper.search(query);
 
     const responseContent =
       results.length > 0

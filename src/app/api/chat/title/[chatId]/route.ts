@@ -7,6 +7,7 @@ import {
   createRateLimitMiddleware,
   ApiError,
   AuthenticatedRequest,
+  RequestWithValidation,
 } from "@/middleware/api";
 import { eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
@@ -26,10 +27,10 @@ const updateTitleSchema = z.object({
 
 async function getChatTitleHandler(
   request: AuthenticatedRequest,
-  { params }: { params: ChatTitleParams }
+  { params }: { params: Promise<ChatTitleParams> }
 ) {
   const userId = request.user!.userId;
-  const chatId = params.chatId;
+  const chatId = (await params).chatId;
 
   // if (isNaN(chatId) || chatId <= 0) {
   //   throw new ApiError("ID chat tidak valid", 400, "INVALID_CHAT_ID");
@@ -86,12 +87,13 @@ async function getChatTitleHandler(
 }
 
 async function updateChatTitleHandler(
-  request: AuthenticatedRequest & { validatedData?: any },
+  request: AuthenticatedRequest &
+    RequestWithValidation<z.infer<typeof updateTitleSchema>>,
   { params }: { params: Promise<ChatTitleParams> }
 ) {
   const userId = request.user!.userId;
   const chatId = (await params).chatId;
-  const { title } = request.validatedData;
+  const { title } = request.validatedData || {};
 
   // if (isNaN(chatId) || chatId <= 0) {
   //   throw new ApiError("ID chat tidak valid", 400, "INVALID_CHAT_ID");
@@ -169,7 +171,7 @@ async function updateChatTitleHandler(
 
 export const GET = (
   request: NextRequest,
-  context: { params: ChatTitleParams }
+  context: { params: Promise<ChatTitleParams> }
 ) => {
   return withMiddleware(
     createRateLimitMiddleware(60, 60000),

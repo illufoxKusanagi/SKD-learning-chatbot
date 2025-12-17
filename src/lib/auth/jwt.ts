@@ -1,4 +1,4 @@
-import jwt from "jsonwebtoken";
+import jwt, { SignOptions } from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "my jwt token";
 const ACCESS_TOKEN_EXPIRES_IN = process.env.ACCESS_TOKEN_EXPIRES_IN || "3d";
@@ -15,13 +15,13 @@ export interface JwtPayload {
 // Edited here: Added your generateTokens function that auth routes expect
 export function generateTokens(userId: string, email: string) {
   const accessToken = jwt.sign({ userId, email, type: "access" }, JWT_SECRET, {
-    expiresIn: ACCESS_TOKEN_EXPIRES_IN,
+    expiresIn: ACCESS_TOKEN_EXPIRES_IN as SignOptions["expiresIn"],
   });
 
   const refreshToken = jwt.sign(
     { userId, email, type: "refresh" },
     JWT_SECRET,
-    { expiresIn: REFRESH_TOKEN_EXPIRES_IN }
+    { expiresIn: REFRESH_TOKEN_EXPIRES_IN as SignOptions["expiresIn"] }
   );
 
   return { accessToken, refreshToken };
@@ -30,6 +30,7 @@ export function generateTokens(userId: string, email: string) {
 export function verifyToken(token: string): JwtPayload {
   try {
     return jwt.verify(token, JWT_SECRET) as JwtPayload;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     throw new Error("Invalid or expired token");
   }
@@ -38,6 +39,7 @@ export function verifyToken(token: string): JwtPayload {
 export function decodeToken(token: string): JwtPayload | null {
   try {
     return jwt.decode(token) as JwtPayload;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return null;
   }

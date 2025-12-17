@@ -1,6 +1,6 @@
 import { getDb } from "@/lib/db"; // Edited here: Fixed import
 import { messages } from "@/lib/db/schema";
-import { eq, desc, asc } from "drizzle-orm";
+import { eq, asc } from "drizzle-orm";
 
 export async function getChatMessages(chatId: string) {
   const db = getDb(); // Edited here: Get db instance

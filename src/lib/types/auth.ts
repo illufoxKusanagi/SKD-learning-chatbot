@@ -1,5 +1,3 @@
-import { UserRole } from "../definitions";
-
 // src/types/auth.ts
 export interface User {
   id: string;

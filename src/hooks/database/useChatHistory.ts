@@ -1,16 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { getDb } from "@/lib/db"; // Edited here: Fixed import
-import { conversations } from "@/lib/db/schema";
-import { eq, desc } from "drizzle-orm";
 
 interface ChatHistoryItem {
-  id: number;
-  userId: string;
+  id: string;
   title: string;
-  messages: any[];
-  createdAt: Date;
+  createdAt: string;
+  messageCount: number;
+  lastMessage: string;
 }
 
 export function useChatHistory(userId: string) {
@@ -25,14 +22,22 @@ export function useChatHistory(userId: string) {
       setIsLoading(true);
       setError(null);
 
-      const db = getDb(); // Edited here: Get db instance
-      const results = await db
-        .select()
-        .from(conversations)
-        .where(eq(conversations.userId, userId))
-        .orderBy(desc(conversations.createdAt));
+      const response = await fetch("/api/chat/history", {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
 
-      setHistory(results);
+      if (!response.ok) {
+        throw new Error("Failed to fetch chat history");
+      }
+
+      const result = await response.json();
+      if (result.success && Array.isArray(result.data)) {
+        setHistory(result.data);
+      } else {
+        setHistory([]);
+      }
     } catch (err) {
       setError(
         err instanceof Error ? err.message : "Failed to fetch chat history"

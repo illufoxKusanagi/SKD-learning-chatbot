@@ -1,8 +1,10 @@
-export interface ApiResponse<T = any> {
+import { Message } from "./chat";
+
+export interface ApiResponse<T = unknown> {
   success: boolean;
   message: string;
   data?: T;
-  error?: any;
+  error?: unknown;
 }
 
 export interface PaginatedResponse<T> {
@@ -49,7 +51,7 @@ export interface AuthResponse {
 export interface ChatResponse {
   id: string;
   title: string;
-  messages: any[];
+  messages: Message[];
   createdAt: string;
   updatedAt: string;
 }

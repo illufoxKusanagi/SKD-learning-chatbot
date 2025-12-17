@@ -59,33 +59,33 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   // Edited here: Your superior centralized API call pattern
-  const apiCall = useCallback(
-    async (endpoint: string, options: RequestInit = {}) => {
-      const token = localStorage.getItem(AUTH_STORAGE_KEY);
-      const response = await fetch(`/api/auth${endpoint}`, {
-        ...options,
-        headers: {
-          "Content-Type": "application/json",
-          ...(token && { Authorization: `Bearer ${token}` }),
-          ...options.headers,
-        },
-      });
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.error || "Request failed");
-      }
-      return data;
-    },
-    []
-  );
+  // const apiCall = useCallback(
+  //   async (endpoint: string, options: RequestInit = {}) => {
+  //     const token = localStorage.getItem(AUTH_STORAGE_KEY);
+  //     const response = await fetch(`/api/auth${endpoint}`, {
+  //       ...options,
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         ...(token && { Authorization: `Bearer ${token}` }),
+  //         ...options.headers,
+  //       },
+  //     });
+  //     const data = await response.json();
+  //     if (!response.ok) {
+  //       throw new Error(data.error || "Request failed");
+  //     }
+  //     return data;
+  //   },
+  //   []
+  // );
 
-  const storeTokens = useCallback(
-    (accessToken: string, refreshToken: string) => {
-      localStorage.setItem(AUTH_STORAGE_KEY, accessToken);
-      localStorage.setItem(REFRESH_STORAGE_KEY, refreshToken);
-    },
-    []
-  );
+  // const storeTokens = useCallback(
+  //   (accessToken: string, refreshToken: string) => {
+  //     localStorage.setItem(AUTH_STORAGE_KEY, accessToken);
+  //     localStorage.setItem(REFRESH_STORAGE_KEY, refreshToken);
+  //   },
+  //   []
+  // );
 
   const clearTokens = useCallback(() => {
     localStorage.removeItem(AUTH_STORAGE_KEY);
@@ -109,6 +109,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       headers["Authorization"] = `Bearer ${token}`;
     }
     return headers;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const login = useCallback(async (identifier: string, password: string) => {
@@ -314,6 +315,7 @@ export function AuthProvider({ children }: AuthProviderProps) {
       isLoading: state.isLoading,
       hasToken: !!getToken(),
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.isAuthenticated, state.user, state.isLoading]);
 
   const value: AuthContextType = {

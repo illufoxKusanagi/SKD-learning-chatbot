@@ -7,7 +7,7 @@ import {
   ApiError,
   AuthenticatedRequest,
 } from "@/middleware/api";
-import { eq, desc, sql } from "drizzle-orm";
+import { eq, sql } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 
 async function getChatHistoryHandler(request: AuthenticatedRequest) {

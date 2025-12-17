@@ -6,7 +6,6 @@ import { hashPassword, verifyPassword } from "@/lib/auth/password";
 import { verifyToken as verifyJwtToken } from "@/lib/auth/jwt";
 import { generateTokens } from "@/lib/auth/jwt";
 import { getDb } from "@/lib/db";
-import { cookies } from "next/headers";
 
 const db = getDb();
 
@@ -24,6 +23,7 @@ export async function loginUser(data: LoginInput) {
     const { accessToken, refreshToken } = generateTokens(user.id, user.email);
 
     // TODO : Re-review this code, why i how to remove user id
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...userWithoutPassword } = user;
     return { user: userWithoutPassword, accessToken, refreshToken };
   } catch (error) {
@@ -54,7 +54,7 @@ export async function registerUser(data: RegisterInput) {
       newUser.id,
       newUser.email
     );
-
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...userWithoutPassword } = newUser;
     return { user: userWithoutPassword, accessToken, refreshToken };
   } catch (error) {
@@ -71,6 +71,7 @@ export async function verifyToken(token: string) {
       throw new ApiError("User not found", 404);
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const { password: _, ...userWithoutPassword } = user;
     return userWithoutPassword;
   } catch (error) {

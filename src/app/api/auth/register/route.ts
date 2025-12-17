@@ -5,6 +5,7 @@ import {
   createRateLimitMiddleware,
   createValidationMiddleware,
   withMiddleware,
+  RequestWithValidation,
 } from "@/middleware/api";
 import { getDb } from "@/lib/db";
 import { users } from "@/lib/db/schema";
@@ -26,7 +27,9 @@ const registerSchema = z.object({
 });
 
 // Edited here: Restored your original middleware-based register handler
-async function registerHandler(request: NextRequest & { validatedData?: any }) {
+async function registerHandler(
+  request: RequestWithValidation<z.infer<typeof registerSchema>>
+) {
   const { email, password, username } = request.validatedData || {};
   if (!email || !password || !username) {
     throw new ApiError(
@@ -59,8 +62,9 @@ async function registerHandler(request: NextRequest & { validatedData?: any }) {
     if (existingUsername) {
       throw new ApiError("Username already taken", 409);
     }
-  } catch (e: any) {
-    if (e?.code === "23505") {
+  } catch (e: unknown) {
+    const error = e as { code?: string };
+    if (error?.code === "23505") {
       throw new ApiError(
         "Email or username already registered",
         409,

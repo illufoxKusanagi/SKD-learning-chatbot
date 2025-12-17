@@ -1,5 +1,5 @@
 "use client";
-import { LogOut, Plus, User } from "lucide-react";
+import { Plus } from "lucide-react";
 
 import {
   Sidebar,
@@ -18,7 +18,6 @@ import { cn } from "@/lib/utils";
 import { NavUser } from "./nav-user";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
 import { useAuth } from "@/app/context/auth-context";
 
 interface ChatHistoryItem {

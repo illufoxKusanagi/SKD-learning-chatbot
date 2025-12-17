@@ -2,9 +2,34 @@ interface ExternalDocument {
   id: string;
   content: string;
   source: string;
-  metadata: any;
+  metadata: Record<string, unknown>;
   timestamp: Date;
   title?: string;
+}
+
+interface NewsArticle {
+  title: string;
+  description?: string;
+  source: { name: string };
+  publishedAt: string;
+  [key: string]: unknown;
+}
+
+interface Holiday {
+  localName: string;
+  date: string;
+  name: string;
+  [key: string]: unknown;
+}
+
+interface Country {
+  name: { common: string };
+  capital?: string[];
+  population?: number;
+  currencies?: Record<string, { name: string }>;
+  languages?: Record<string, string>;
+  cca3: string;
+  [key: string]: unknown;
 }
 
 export class ExternalAPIClient {
@@ -180,7 +205,7 @@ export class ExternalAPIClient {
 
       const data = await response.json();
 
-      return data.articles.map((article: any, index: number) => ({
+      return data.articles.map((article: NewsArticle, index: number) => ({
         id: `news_${Date.now()}_${index}`,
         content: `${article.title}. ${article.description || ""}. Sumber: ${
           article.source.name
@@ -218,7 +243,7 @@ export class ExternalAPIClient {
 
       const holidays = await response.json();
 
-      return holidays.map((holiday: any, index: number) => ({
+      return holidays.map((holiday: Holiday, index: number) => ({
         id: `holiday_${year}_${index}`,
         content: `Hari libur nasional: ${
           holiday.localName
@@ -258,7 +283,7 @@ export class ExternalAPIClient {
 
       const countries = await response.json();
 
-      return countries.slice(0, 2).map((country: any, index: number) => ({
+      return countries.slice(0, 2).map((country: Country, index: number) => ({
         id: `country_${country.cca3}_${index}`,
         content: `Informasi ${country.name.common}: Ibukota ${
           country.capital?.[0] || "tidak diketahui"

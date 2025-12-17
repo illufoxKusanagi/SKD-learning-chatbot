@@ -151,16 +151,7 @@ async function generateChatTitle(message: string): Promise<string> {
 // }
 
 // Edited here: Your original superior AI response generation
-async function generateAiResponse(
-  userMessage: string,
-  contextData: Array<{
-    title?: string;
-    source?: string;
-    content?: string;
-    data?: unknown;
-    similarity?: number;
-  }>
-) {
+async function generateAiResponse(userMessage: string) {
   try {
     // Context disabled - chatbot answers freely without RAG restrictions
     // const context =
@@ -363,7 +354,7 @@ async function hybridChatHandler(request: NextRequest) {
 
   // Generate AI response (works for both authenticated and guest users)
   const ragResults = await findRelevantContents(message);
-  const aiResponse = await generateAiResponse(message, ragResults);
+  const aiResponse = await generateAiResponse(message);
 
   // Save AI response for both authenticated and guest users
   let aiMessage = null;

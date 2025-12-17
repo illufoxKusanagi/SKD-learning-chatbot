@@ -11,9 +11,7 @@ if (!connectionString) {
 
 // Edited here: Simple connection setup - removed unnecessary complexity
 // Reason: Your original was over-engineered for a typical Next.js app
-const client = postgres(connectionString, {
-  prepare: false, // Recommended for serverless environments like Vercel
-});
+const client = postgres(connectionString, { prepare: false });
 
 const db = drizzle(client, { schema });
 

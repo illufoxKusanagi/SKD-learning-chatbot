@@ -3,17 +3,15 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/ui/app-sidebar";
 import MainContent from "@/components/chat/main-chat-page";
-import { useState } from "react";
 import Link from "next/link";
 import HelpButton from "@/components/ui/help-button";
 import ModeToggleButton from "@/components/ui/mode-toggle-button";
 import { useAuth } from "./context/auth-context";
 import { Button } from "@/components/ui/button";
-import { Bubbles } from "lucide-react";
+import { Suspense } from "react";
 
-export default function Home() {
-  const { isAuthenticated, user, isLoading } = useAuth();
-  const [dbStatus, setDbStatus] = useState<string>("");
+function HomeContent() {
+  const { isAuthenticated, user } = useAuth();
   // const [isDbLoading, setIsDbLoading] = useState<boolean>(false);
 
   console.log("Is authenticated in home page: ", isAuthenticated);
@@ -92,5 +90,13 @@ export default function Home() {
         </Button> */}
       </footer>
     </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <HomeContent />
+    </Suspense>
   );
 }
