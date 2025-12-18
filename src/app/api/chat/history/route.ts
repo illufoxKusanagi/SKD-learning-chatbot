@@ -2,16 +2,22 @@ import { getDb } from "@/lib/db";
 import { conversations, messages } from "@/lib/db/schema";
 import {
   withMiddleware,
-  createAuthMiddleware,
   createRateLimitMiddleware,
   ApiError,
-  AuthenticatedRequest,
 } from "@/middleware/api";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 import { eq, sql } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 
-async function getChatHistoryHandler(request: AuthenticatedRequest) {
-  const userId = request.user!.userId;
+async function getChatHistoryHandler(request: NextRequest) {
+  const session = await getServerSession(authOptions);
+
+  if (!session || !session.user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const userId = session.user.id;
 
   console.log(`[CHAT_HISTORY] Fetching history for user: ${userId}`);
 
@@ -76,7 +82,6 @@ async function getChatHistoryHandler(request: AuthenticatedRequest) {
 
 export const GET = (request: NextRequest) => {
   return withMiddleware(
-    createRateLimitMiddleware(30, 60000), // 30 requests per minute
-    createAuthMiddleware()
+    createRateLimitMiddleware(30, 60000) // 30 requests per minute
   )(request, getChatHistoryHandler);
 };

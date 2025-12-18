@@ -1,6 +1,6 @@
 "use client";
 
-import { useAuth } from "@/app/context/auth-context";
+import { useSession } from "next-auth/react";
 import { useRouter, usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { toast } from "sonner";
@@ -16,7 +16,9 @@ export function useProtectedRoute(options: UseProtectedRouteOptions = {}) {
     message = "Silakan login terlebih dahulu untuk mengakses halaman ini",
   } = options;
 
-  const { isAuthenticated, isLoading } = useAuth();
+  const { status } = useSession();
+  const isAuthenticated = status === "authenticated";
+  const isLoading = status === "loading";
   const router = useRouter();
   const pathname = usePathname();
 

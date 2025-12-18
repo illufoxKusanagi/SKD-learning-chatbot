@@ -75,7 +75,7 @@ function LoginContent() {
     setIsloading(true);
     try {
       const result = await signIn("credentials", {
-        email: data.identifier,
+        identifier: data.identifier,
         password: data.password,
         redirect: false,
       });

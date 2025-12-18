@@ -2,13 +2,13 @@ import { getDb } from "@/lib/db";
 import { conversations } from "@/lib/db/schema";
 import {
   withMiddleware,
-  createAuthMiddleware,
   createValidationMiddleware,
   createRateLimitMiddleware,
   ApiError,
-  AuthenticatedRequest,
   RequestWithValidation,
 } from "@/middleware/api";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 import { eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
@@ -26,15 +26,17 @@ const updateTitleSchema = z.object({
 });
 
 async function getChatTitleHandler(
-  request: AuthenticatedRequest,
+  request: NextRequest,
   { params }: { params: Promise<ChatTitleParams> }
 ) {
-  const userId = request.user!.userId;
-  const chatId = (await params).chatId;
+  const session = await getServerSession(authOptions);
 
-  // if (isNaN(chatId) || chatId <= 0) {
-  //   throw new ApiError("ID chat tidak valid", 400, "INVALID_CHAT_ID");
-  // }
+  if (!session || !session.user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const userId = session.user.id;
+  const chatId = (await params).chatId;
 
   try {
     const db = getDb();
@@ -87,13 +89,18 @@ async function getChatTitleHandler(
 }
 
 async function updateChatTitleHandler(
-  request: AuthenticatedRequest &
-    RequestWithValidation<z.infer<typeof updateTitleSchema>>,
+  request: RequestWithValidation<z.infer<typeof updateTitleSchema>>,
   { params }: { params: Promise<ChatTitleParams> }
 ) {
-  const userId = request.user!.userId;
+  const session = await getServerSession(authOptions);
+
+  if (!session || !session.user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  const userId = session.user.id;
   const chatId = (await params).chatId;
-  const { title } = request.validatedData || {};
+  const { title } = request.validatedData;
 
   // if (isNaN(chatId) || chatId <= 0) {
   //   throw new ApiError("ID chat tidak valid", 400, "INVALID_CHAT_ID");
@@ -173,10 +180,9 @@ export const GET = (
   request: NextRequest,
   context: { params: Promise<ChatTitleParams> }
 ) => {
-  return withMiddleware(
-    createRateLimitMiddleware(60, 60000),
-    createAuthMiddleware()
-  )(request, (req) => getChatTitleHandler(req, context));
+  return withMiddleware(createRateLimitMiddleware(60, 60000))(request, (req) =>
+    getChatTitleHandler(req, context)
+  );
 };
 
 export const PUT = (
@@ -185,7 +191,6 @@ export const PUT = (
 ) => {
   return withMiddleware(
     createRateLimitMiddleware(20, 60000),
-    createAuthMiddleware(),
     createValidationMiddleware(updateTitleSchema)
-  )(request, (req) => updateChatTitleHandler(req, context));
+  )(request, (req) => updateChatTitleHandler(req as any, context));
 };

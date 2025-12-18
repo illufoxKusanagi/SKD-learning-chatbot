@@ -2,8 +2,8 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/lib/db";
 import { users } from "@/lib/db/schema";
-import { eq } from "drizzle-orm";
-import { compare } from "bcryptjs"; // Ensure bcryptjs is installed
+import { eq, or } from "drizzle-orm";
+import { verifyPassword } from "@/lib/auth/password";
 
 export const authOptions: NextAuthOptions = {
   session: {
@@ -16,39 +16,51 @@ export const authOptions: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "Email", type: "email" },
+        identifier: { label: "Email or Username", type: "text" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
+        if (!credentials?.identifier || !credentials?.password) {
+          console.log("Missing credentials");
           return null;
         }
 
-        // Find user in DB
+        console.log(
+          `Attempting login for identifier: ${credentials.identifier}`
+        );
+
+        // Find user in DB by email OR username
         const user = await db.query.users.findFirst({
-          where: eq(users.email, credentials.email),
+          where: or(
+            eq(users.email, credentials.identifier),
+            eq(users.username, credentials.identifier)
+          ),
         });
 
         if (!user) {
+          console.log("User not found");
           return null;
         }
 
+        console.log("User found, verifying password...");
         // Verify password
-        const isPasswordValid = await compare(
+        const isPasswordValid = await verifyPassword(
           credentials.password,
           user.password
         );
 
         if (!isPasswordValid) {
+          console.log("Password verification failed");
           return null;
         }
 
+        console.log("Login successful");
         // Return user object (saved to JWT)
         return {
           id: user.id,
           email: user.email,
           name: user.username,
-          role: user.role, // Uncomment if role is added back
+          role: user.role,
         };
       },
     }),

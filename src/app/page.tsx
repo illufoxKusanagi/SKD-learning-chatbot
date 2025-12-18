@@ -6,13 +6,16 @@ import MainContent from "@/components/chat/main-chat-page";
 import Link from "next/link";
 import HelpButton from "@/components/ui/help-button";
 import ModeToggleButton from "@/components/ui/mode-toggle-button";
-import { useAuth } from "./context/auth-context";
+import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { Suspense } from "react";
 
 function HomeContent() {
-  const { isAuthenticated, user, isLoading } = useAuth();
-  // const [isDbLoading, setIsDbLoading] = useState<boolean>(false);
+  const { data: session, status } = useSession();
+  const isAuthenticated = status === "authenticated";
+  const isLoading = status === "loading";
+  const user = session?.user;
+
   console.log("Is authenticated in home page: ", isAuthenticated);
 
   if (isLoading) {
@@ -59,7 +62,9 @@ function HomeContent() {
             {isLoading ? (
               <p className="body-medium-regular">Loading...</p>
             ) : (
-              <p className="body-medium-regular">Halo, {user?.username}</p>
+              <p className="body-medium-regular">
+                Halo, {user?.name || user?.email}
+              </p>
             )}
           </div>
         )}

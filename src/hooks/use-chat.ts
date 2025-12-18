@@ -1,4 +1,4 @@
-import { useAuth } from "@/app/context/auth-context";
+import { useSession } from "next-auth/react";
 import { Message } from "@/lib/types/chat";
 import { useSearchParams, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
@@ -18,22 +18,17 @@ export function useChat() {
   });
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { isAuthenticated, isLoading: authLoading } = useAuth();
+  const { data: session, status } = useSession();
+  const isAuthenticated = status === "authenticated";
+  const authLoading = status === "loading";
   const chatId = searchParams.get("id");
 
   const apiCall = useCallback(
     async (endpoint: string, options: RequestInit = {}) => {
-      const token = localStorage.getItem("auth_token");
-      console.log(
-        `[useChat apiCall] Token present: ${!!token}, token length: ${
-          token?.length || 0
-        }`
-      );
       const response = await fetch(endpoint, {
         ...options,
         headers: {
           "Content-Type": "application/json",
-          ...(token && { Authorization: `Bearer ${token}` }),
           ...options.headers,
         },
       });
