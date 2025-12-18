@@ -141,7 +141,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
         id: data.data.user.id,
         email: data.data.user.email,
         username: data.data.user.username,
-        name: data.data.user.username,
         role: data.data.user.role,
       };
 
@@ -194,7 +193,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
           id: data.data.user.id,
           email: data.data.user.email,
           username: data.data.user.username,
-          name: data.data.user.username,
           role: data.data.user.role,
         };
 
@@ -271,6 +269,32 @@ export function AuthProvider({ children }: AuthProviderProps) {
 
       if (!response.ok) {
         console.log("Auth refresh failed:", data.message);
+        // Only clear tokens if explicitly unauthorized
+        if (response.status === 401 || response.status === 403) {
+          clearTokens();
+          setState({
+            user: null,
+            isAuthenticated: false,
+            isLoading: false,
+            error: null,
+          });
+        } else {
+          // For other errors (500, network), keep loading state or handle gracefully
+          // But for now, let's just stop loading but keep auth state if possible?
+          // Actually, if /me fails, we can't be sure.
+          // But we shouldn't log them out for a 500 error.
+          setState((prev) => ({
+            ...prev,
+            isLoading: false,
+            // Don't change isAuthenticated here if it was already true?
+            // But refreshAuth runs on mount, so it starts false.
+            // If it fails with 500, we probably should assume not authenticated for safety,
+            // OR keep the token and try again later.
+            // For now, let's just NOT clear tokens, but set isAuthenticated false so they see login button?
+            // No, that's the same issue.
+            // Let's just throw and let the catch block handle it, but pass the status.
+          }));
+        }
         throw new Error(data.message || "Auth refresh failed");
       }
 
@@ -278,7 +302,6 @@ export function AuthProvider({ children }: AuthProviderProps) {
         id: data.data.user.id,
         email: data.data.user.email,
         username: data.data.user.username,
-        name: data.data.user.username,
         role: data.data.user.role,
       };
 
@@ -292,13 +315,21 @@ export function AuthProvider({ children }: AuthProviderProps) {
       console.log("Auth refreshed successfully, user:", userData); // Debug log
     } catch (error) {
       console.error("Auth refresh failed:", error);
-      clearTokens();
-      setState({
-        user: null,
-        isAuthenticated: false,
+      // Only clear tokens if we haven't already handled it (e.g. network error)
+      // But we can't easily check status here without custom error class.
+      // For safety, if we are here, we failed to authenticate.
+      // But if it was a 500, we shouldn't clear tokens.
+      // Let's rely on the check above for 401/403.
+      // If we are here, it might be network error.
+
+      setState((prev) => ({
+        ...prev,
         isLoading: false,
-        error: null,
-      });
+        // If we failed to refresh, we are not authenticated for this session
+        isAuthenticated: false,
+        user: null,
+        error: error instanceof Error ? error.message : "Auth refresh failed",
+      }));
     }
   }, [clearTokens]);
 

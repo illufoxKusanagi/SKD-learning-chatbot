@@ -11,10 +11,17 @@ import { Button } from "@/components/ui/button";
 import { Suspense } from "react";
 
 function HomeContent() {
-  const { isAuthenticated, user } = useAuth();
+  const { isAuthenticated, user, isLoading } = useAuth();
   // const [isDbLoading, setIsDbLoading] = useState<boolean>(false);
-
   console.log("Is authenticated in home page: ", isAuthenticated);
+
+  if (isLoading) {
+    return (
+      <div className="flex h-screen items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+      </div>
+    );
+  }
 
   // const insertTestRagData = async () => {
   //   setIsDbLoading(true);
@@ -49,7 +56,11 @@ function HomeContent() {
           </Link>
         ) : (
           <div className="flex items-center">
-            <p className="body-medium-regular">Halo, {user?.username}</p>
+            {isLoading ? (
+              <p className="body-medium-regular">Loading...</p>
+            ) : (
+              <p className="body-medium-regular">Halo, {user?.username}</p>
+            )}
           </div>
         )}
       </div>

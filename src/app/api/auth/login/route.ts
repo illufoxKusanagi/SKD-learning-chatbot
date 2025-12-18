@@ -61,7 +61,7 @@ async function loginHandler(
     data: {
       user: {
         id: user.id,
-        name: user.username,
+        username: user.username,
         email: user.email,
         role: user.role,
       },
