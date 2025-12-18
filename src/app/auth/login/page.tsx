@@ -25,14 +25,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useEffect, Suspense } from "react";
-import { useAuth } from "@/app/context/auth-context";
+import React, { useEffect, Suspense, useState } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
 
 const schema = z.object({
-  identifier: z.string().min(1, "Email atau password harus diisi"),
-  password: z.string().min(1, "Password harus diisi"),
+  identifier: z.string().min(1, "Email atau Username harus diisi!"),
+  password: z.string().min(1, "Password harus diisi!"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -40,7 +40,9 @@ type FormData = z.infer<typeof schema>;
 function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { login, isAuthenticated, isLoading } = useAuth();
+  const { status } = useSession();
+  const [isLoading, setIsloading] = useState(false);
+  // const { login, isAuthenticated, isLoading } = useAuth();
 
   // Get redirect params
   const returnUrl = searchParams.get("returnUrl") || "/";
@@ -51,16 +53,15 @@ function LoginContent() {
     if (redirectMessage) {
       toast.info(redirectMessage);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Empty deps - only run once on mount
+  }, [redirectMessage]); // Empty deps - only run once on mount
 
   // Edited here: Redirect if already authenticated
   useEffect(() => {
-    if (isAuthenticated && !isLoading) {
+    if (status === "authenticated") {
       console.log("User already authenticated, redirecting to:", returnUrl);
       router.push(returnUrl);
     }
-  }, [isAuthenticated, isLoading, router, returnUrl]);
+  }, [status, router, returnUrl]);
 
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -71,41 +72,83 @@ function LoginContent() {
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
+    setIsloading(true);
     try {
-      console.log("Attempting login with:", data.identifier);
-
-      await login(data.identifier, data.password);
-
-      // Edited here: Show success message and redirect to returnUrl
-      toast.success(`Login berhasil, Okaerinasai, ${data.identifier}-san!`);
-      router.push(returnUrl);
-    } catch (error) {
-      console.error("Login error:", error);
-
-      // Edited here: Better error handling
-      if (error instanceof Error) {
-        if (
-          error.message.includes("Invalid credentials") ||
-          error.message.includes("tidak valid")
-        ) {
-          form.setError("root", {
-            type: "manual",
-            message: "Email/username atau password tidak valid",
-          });
-        } else {
-          form.setError("root", {
-            type: "manual",
-            message: error.message,
-          });
-        }
-      } else {
+      const result = await signIn("credentials", {
+        email: data.identifier,
+        password: data.password,
+        redirect: false,
+      });
+      if (result?.error) {
         form.setError("root", {
           type: "manual",
-          message: "Login gagal, silahkan coba lagi",
+          message: "Email/username atau password tidak valid",
         });
+        toast.error("Login gagal");
+      } else {
+        toast.success("Login berhasil, Selamat Datang!!");
+        router.push(returnUrl);
+        router.refresh();
       }
+    } catch (error) {
+      toast.error("Terjadi kesalahan saat login");
+      console.error("Login error:", error);
+    } finally {
+      setIsloading(false);
     }
   };
+
+  // const onSubmit: SubmitHandler<FormData> = async (data) => {
+  //   try {
+  //     console.log("Attempting login with:", data.identifier);
+
+  //     await login(data.identifier, data.password);
+
+  //     // Edited here: Show success message and redirect to returnUrl
+  //     toast.success(`Login berhasil, Okaerinasai, ${data.identifier}-san!`);
+  //     router.push(returnUrl);
+  //   } catch (error) {
+  //     console.error("Login error:", error);
+
+  //     // Edited here: Better error handling
+  //     if (error instanceof Error) {
+  //       if (
+  //         error.message.includes("Invalid credentials") ||
+  //         error.message.includes("tidak valid")
+  //       ) {
+  //         form.setError("root", {
+  //           type: "manual",
+  //           message: "Email/username atau password tidak valid",
+  //         });
+  //       } else {
+  //         form.setError("root", {
+  //           type: "manual",
+  //           message: error.message,
+  //         });
+  //       }
+  //     } else {
+  //       form.setError("root", {
+  //         type: "manual",
+  //         message: "Login gagal, silahkan coba lagi",
+  //       });
+  //     }
+  //   }
+  // };
+
+  // const onSubmit: async (e: React.FormEvent) => {
+  //   e.preventDefault();
+  //   setIsloading(true);
+  //   const result = await signIn("credentials", {
+  //     email, password, redirect: false,
+  //   })
+  //   if (result?.error) {
+  //     toast.error("Email/username atau password tidak valid");
+  //     setIsloading(false);
+  //   } else {
+  //     toast.success(`Login berhasil, Okaerinasai!`);
+  //     router.push (returnUrl);
+  //   }
+  // }
 
   if (isLoading) {
     return (
@@ -117,6 +160,7 @@ function LoginContent() {
       </div>
     );
   }
+
   return (
     <div className="flex h-screen items-center justify-center">
       <Card className="w-full max-w-xs">

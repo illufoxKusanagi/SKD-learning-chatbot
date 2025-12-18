@@ -13,7 +13,7 @@ if (!connectionString) {
 // Reason: Your original was over-engineered for a typical Next.js app
 const client = postgres(connectionString, { prepare: false });
 
-const db = drizzle(client, { schema });
+export const db = drizzle(client, { schema });
 
 // Ensure pgvector extension is enabled
 let extensionInitialized = false;
