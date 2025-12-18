@@ -5,7 +5,8 @@ import {
   createRateLimitMiddleware,
   ApiError,
 } from "@/middleware/api";
-import { verifyToken } from "@/lib/auth/jwt";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 import { eq, asc, sql } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -27,28 +28,14 @@ async function getChatHandler(
   const offset = (page - 1) * limit;
 
   try {
-    const authHeader = request.headers.get("authorization");
-    console.log(
-      `[GET_CHAT] Auth header present: ${!!authHeader}, starts with Bearer: ${authHeader?.startsWith(
-        "Bearer "
-      )}`
-    );
-    if (authHeader?.startsWith("Bearer ")) {
-      const token = authHeader.substring(7);
-      console.log(
-        `[GET_CHAT] Token length: ${
-          token.length
-        }, first 20 chars: ${token.substring(0, 20)}...`
-      );
-      const payload = verifyToken(token);
-      if (payload.type === "access") {
-        userId = payload.userId;
-        isAuthenticated = true;
-        console.log(`[GET_CHAT] Authenticated user: ${userId}`);
-      }
+    const session = await getServerSession(authOptions);
+    if (session?.user) {
+      userId = session.user.id;
+      isAuthenticated = true;
+      console.log(`[GET_CHAT] Authenticated user: ${userId}`);
     }
   } catch (error) {
-    console.log(`[GET_CHAT] No valid auth token, error:`, error);
+    console.log(`[GET_CHAT] Session check failed:`, error);
   }
 
   try {
@@ -175,17 +162,13 @@ async function deleteChatHandler(
 
   // Try to get user authentication
   try {
-    const authHeader = request.headers.get("authorization");
-    if (authHeader?.startsWith("Bearer ")) {
-      const token = authHeader.substring(7);
-      const payload = verifyToken(token);
-      if (payload.type === "access") {
-        userId = payload.userId;
-        isAuthenticated = true;
-      }
+    const session = await getServerSession(authOptions);
+    if (session?.user) {
+      userId = session.user.id;
+      isAuthenticated = true;
     }
   } catch (error) {
-    console.log("No valid auth token for delete operation", error);
+    console.log("Session check failed for delete operation", error);
   }
 
   console.log(

@@ -88,11 +88,8 @@ async function registerHandler(
     })
     .returning();
 
-  const { accessToken, refreshToken } = generateTokens(
-    newUser.id,
-    newUser.email
-    // newUser.role
-  );
+  // Removed token generation as we are using NextAuth
+  // The user will need to login after registration
 
   const response = NextResponse.json(
     {
@@ -105,20 +102,10 @@ async function registerHandler(
           username: newUser.username,
           role: newUser.role,
         },
-        accessToken,
       },
     },
     { status: 201 }
   );
-
-  // Set refresh token as HTTP-only cookie
-  response.cookies.set("refresh-token", refreshToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-    maxAge: 7 * 24 * 60 * 60, // 7 days (seconds)
-    // ensure cookie is sent to all routes
-  });
 
   return response;
 }
