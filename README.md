@@ -1,6 +1,6 @@
 <div align="center">
 
-# RAG Portal Informasi Publik Kabupaten Madiun
+# SKD CPNS & Sekolah Kedinasan Learning Chatbot
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -8,7 +8,7 @@
 [![Google AI](https://img.shields.io/badge/Google_AI-Gemini-4285F4?style=for-the-badge&logo=google)](https://ai.google.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-**An intelligent chatbot system powered by RAG (Retrieval-Augmented Generation) technology for Madiun Regency public information services**
+**An intelligent chatbot system powered by RAG (Retrieval-Augmented Generation) technology to help users learn about SKD CPNS and Sekolah Kedinasan**
 
 [Features](#-features) • [Demo](#-demo) • [Installation](#-installation) • [Usage](#-usage) • [Developer Guide](#-developer-guide) • [Contributing](#-contributing)
 
@@ -41,11 +41,11 @@
 
 ## 📖 About
 
-RAG Portal Informasi Publik is an AI-powered chatbot system designed to provide quick and accurate access to public information about Madiun Regency. Using advanced RAG (Retrieval-Augmented Generation) technology, the system retrieves relevant information from a curated database and generates contextual responses using Google's Gemini AI model.
+SKD CPNS & Sekolah Kedinasan Learning Chatbot is an AI-powered chatbot system designed to provide comprehensive learning assistance for SKD (Seleksi Kompetensi Dasar) CPNS and Sekolah Kedinasan entrance exams. Using advanced RAG (Retrieval-Augmented Generation) technology, the system retrieves relevant study materials, practice questions, and explanations to generate contextual responses using Google's Gemini AI model.
 
 ### Key Highlights
 
-- 🎯 **Accurate Information**: AI responses based on verified government data
+- 🎯 **Accurate Information**: AI responses based on verified study materials and regulations
 - 🔍 **Smart Search**: Vector-based semantic search with pgvector
 - 🌐 **Bilingual Support**: Primarily Indonesian with intelligent language detection
 - 🔐 **User Authentication**: Optional login to save chat history

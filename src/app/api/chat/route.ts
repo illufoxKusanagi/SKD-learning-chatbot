@@ -1,6 +1,6 @@
 import { getDb } from "@/lib/db";
 import { conversations, messages } from "@/lib/db/schema";
-import { findRelevantContents } from "@/lib/services/ai/rag.service";
+// import { findRelevantContents } from "@/lib/services/ai/rag.service";
 import {
   ApiError,
   withMiddleware,
@@ -33,7 +33,7 @@ const chatMessageSchema = z.object({
     .min(1, "Message cannot be empty")
     .max(4000, "Message is too long")
     .trim(),
-  chatId: z.string().uuid("Invalid chat ID format").optional(), // Only accept UUID strings
+  chatId: z.uuid("Invalid chat ID format").optional(), // Only accept UUID strings
 });
 
 // Edited here: Fixed generateChatTitle function that was missing
@@ -42,6 +42,9 @@ async function generateChatTitle(message: string): Promise<string> {
     const result = await genAI.models.generateContent({
       model: generativeModel,
       contents: `Generate a short, descriptive title (max 50 characters) for a chat that starts with: "${message}". Return only the title.`,
+      // config: {
+      //   tools: searchTool,
+      // },
     });
     const title = result.text?.trim() || "New Chat";
     return title.length > 50 ? title.substring(0, 47) + "..." : title;
@@ -176,13 +179,13 @@ async function generateAiResponse(userMessage: string) {
     //     : "KONTEKS: Tidak ada informasi spesifik ditemukan di database untuk pertanyaan ini.";
 
     const systemPrompt = `
-Anda adalah asisten AI yang membantu dan ramah.
-Tugas Anda adalah menjawab pertanyaan pengguna dengan akurat dan informatif.
+"Kamu adalah Tutor SKD CPNS yang ahli dan up-to-date. Tugasmu adalah membantu pengguna berlatih soal-soal SKD (TWK, TIU, TKP).
 
-PERATURAN:
-1. Gunakan Bahasa Indonesia
-2. Berikan jawaban yang terstruktur dan mudah dibaca
-3. Jawab pertanyaan pengguna sebaik mungkin
+ATURAN PENTING:
+
+- Jika pengguna meminta soal 'terbaru' atau bertanya tentang isu terkini (seperti IKN, kebijakan pemerintah baru), JANGAN mengarang jawaban. GUNAKAN tool googleSearch() untuk mencari referensi valid.
+- Berikan pembahasan yang jelas dan mendidik.
+- Sertakan sumber informasi jika kamu mengambil data dari internet."
 `;
 
     const augmentedPrompt = `${systemPrompt}\nPERTANYAAN PENGGUNA: "${userMessage}"\nJAWABAN ANDA:`;
@@ -190,6 +193,9 @@ PERATURAN:
     const result = await genAI.models.generateContent({
       model: generativeModel,
       contents: augmentedPrompt,
+      config: {
+        tools: [{ googleSearch: {} }],
+      },
     });
 
     return (
@@ -353,7 +359,7 @@ async function hybridChatHandler(request: NextRequest) {
   }
 
   // Generate AI response (works for both authenticated and guest users)
-  const ragResults = await findRelevantContents(message);
+  // const ragResults = await findRelevantContents(message);
   const aiResponse = await generateAiResponse(message);
 
   // Save AI response for both authenticated and guest users
@@ -398,10 +404,10 @@ async function hybridChatHandler(request: NextRequest) {
             role: "bot",
             content: aiResponse,
           },
-      sources: ragResults.map((r) => ({
-        title: r.title || "Internal Source",
-        source: r.source || "INTERNAL",
-      })),
+      // sources: ragResults.map((r) => ({
+      //   title: r.title || "Internal Source",
+      //   source: r.source || "INTERNAL",
+      // })),
     },
   });
 } // Export the new hybrid handler with rate limiting for guest users

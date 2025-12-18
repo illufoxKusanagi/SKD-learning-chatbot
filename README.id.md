@@ -1,6 +1,6 @@
 <div align="center">
 
-# RAG Portal Informasi Publik Kabupaten Madiun
+# Chatbot Pembelajaran SKD CPNS & Sekolah Kedinasan
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -8,7 +8,7 @@
 [![Google AI](https://img.shields.io/badge/Google_AI-Gemini-4285F4?style=for-the-badge&logo=google)](https://ai.google.dev/)
 [![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
-**Sistem chatbot cerdas berbasis teknologi RAG (Retrieval-Augmented Generation) untuk layanan informasi publik Kabupaten Madiun**
+**Sistem chatbot cerdas berbasis teknologi RAG (Retrieval-Augmented Generation) untuk membantu pengguna belajar SKD CPNS dan Sekolah Kedinasan**
 
 [Fitur](#-fitur) • [Demo](#-demo) • [Instalasi](#-instalasi) • [Penggunaan](#-penggunaan) • [Panduan Developer](#-panduan-developer) • [Kontribusi](#-kontribusi)
 
@@ -41,11 +41,11 @@
 
 ## 📖 Tentang
 
-RAG Portal Informasi Publik adalah sistem chatbot berbasis AI yang dirancang untuk memberikan akses cepat dan akurat terhadap informasi publik Kabupaten Madiun. Menggunakan teknologi RAG (Retrieval-Augmented Generation) yang canggih, sistem ini mengambil informasi relevan dari database yang telah dikurasi dan menghasilkan respons kontekstual menggunakan model AI Google Gemini.
+Chatbot Pembelajaran SKD CPNS & Sekolah Kedinasan adalah sistem chatbot berbasis AI yang dirancang untuk memberikan bantuan pembelajaran komprehensif untuk ujian SKD (Seleksi Kompetensi Dasar) CPNS dan Sekolah Kedinasan. Menggunakan teknologi RAG (Retrieval-Augmented Generation) yang canggih, sistem ini mengambil materi belajar, soal latihan, dan penjelasan yang relevan untuk menghasilkan respons kontekstual menggunakan model AI Google Gemini.
 
 ### Keunggulan Utama
 
-- 🎯 **Informasi Akurat**: Respons AI berdasarkan data pemerintah yang terverifikasi
+- 🎯 **Informasi Akurat**: Respons AI berdasarkan materi pembelajaran dan regulasi yang terverifikasi
 - 🔍 **Pencarian Cerdas**: Pencarian semantik berbasis vektor dengan pgvector
 - 🌐 **Dukungan Dwibahasa**: Utamanya Bahasa Indonesia dengan deteksi bahasa otomatis
 - 🔐 **Autentikasi Pengguna**: Login opsional untuk menyimpan riwayat chat
