@@ -25,14 +25,14 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
-import { useEffect, Suspense } from "react";
-import { useAuth } from "@/app/context/auth-context";
+import React, { useEffect, Suspense, useState } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
 
 const schema = z.object({
-  identifier: z.string().min(1, "Email atau password harus diisi"),
-  password: z.string().min(1, "Password harus diisi"),
+  identifier: z.string().min(1, "Email atau Username harus diisi!"),
+  password: z.string().min(1, "Password harus diisi!"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -40,27 +40,24 @@ type FormData = z.infer<typeof schema>;
 function LoginContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { login, isAuthenticated, isLoading } = useAuth();
+  const { status } = useSession();
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Get redirect params
   const returnUrl = searchParams.get("returnUrl") || "/";
   const redirectMessage = searchParams.get("message");
 
-  // Show redirect message on mount (only once)
   useEffect(() => {
     if (redirectMessage) {
       toast.info(redirectMessage);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Empty deps - only run once on mount
+  }, [redirectMessage]);
 
-  // Edited here: Redirect if already authenticated
   useEffect(() => {
-    if (isAuthenticated && !isLoading) {
+    if (status === "authenticated") {
       console.log("User already authenticated, redirecting to:", returnUrl);
       router.push(returnUrl);
     }
-  }, [isAuthenticated, isLoading, router, returnUrl]);
+  }, [status, router, returnUrl]);
 
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -71,39 +68,29 @@ function LoginContent() {
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
+    setIsLoading(true);
     try {
-      console.log("Attempting login with:", data.identifier);
-
-      await login(data.identifier, data.password);
-
-      // Edited here: Show success message and redirect to returnUrl
-      toast.success(`Login berhasil, Okaerinasai, ${data.identifier}-san!`);
-      router.push(returnUrl);
-    } catch (error) {
-      console.error("Login error:", error);
-
-      // Edited here: Better error handling
-      if (error instanceof Error) {
-        if (
-          error.message.includes("Invalid credentials") ||
-          error.message.includes("tidak valid")
-        ) {
-          form.setError("root", {
-            type: "manual",
-            message: "Email/username atau password tidak valid",
-          });
-        } else {
-          form.setError("root", {
-            type: "manual",
-            message: error.message,
-          });
-        }
-      } else {
+      const result = await signIn("credentials", {
+        identifier: data.identifier,
+        password: data.password,
+        redirect: false,
+      });
+      if (result?.error) {
         form.setError("root", {
           type: "manual",
-          message: "Login gagal, silahkan coba lagi",
+          message: "Email/username atau password tidak valid",
         });
+        toast.error("Login gagal");
+      } else {
+        toast.success("Login berhasil, Selamat Datang!!");
+        router.push(returnUrl);
+        router.refresh();
       }
+    } catch (error) {
+      toast.error("Terjadi kesalahan saat login");
+      console.error("Login error:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -117,6 +104,7 @@ function LoginContent() {
       </div>
     );
   }
+
   return (
     <div className="flex h-screen items-center justify-center">
       <Card className="w-full max-w-xs">

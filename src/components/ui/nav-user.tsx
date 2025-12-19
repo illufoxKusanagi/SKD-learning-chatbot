@@ -15,7 +15,7 @@ import {
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
 import Link from "next/link";
-import { useAuth } from "@/app/context/auth-context";
+import { signOut } from "next-auth/react";
 import { toast } from "sonner";
 
 export function NavUser({
@@ -27,13 +27,12 @@ export function NavUser({
     avatar: string;
   };
 }) {
-  const { logout } = useAuth();
   const handleLogout = () => {
     toast("Apakah anda yakin?", {
       description: "Anda akan login lagi nanti",
       action: {
         label: "Ya",
-        onClick: logout,
+        onClick: () => signOut({ callbackUrl: "/auth/login" }),
       },
     });
   };

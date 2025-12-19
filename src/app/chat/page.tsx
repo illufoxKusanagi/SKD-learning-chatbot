@@ -14,7 +14,7 @@ import rehypeHighlight from "rehype-highlight";
 import { useSearchParams, useRouter } from "next/navigation";
 import ModeToggleButton from "@/components/ui/mode-toggle-button";
 import HelpButton from "@/components/ui/help-button";
-import { useAuth } from "@/app/context/auth-context";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
@@ -130,12 +130,10 @@ function ChatContent() {
   const [titleLoading, setTitleLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
 
-  const {
-    isAuthenticated,
-    isLoading: authLoading,
-    user,
-    getAuthHeaders,
-  } = useAuth();
+  const { data: session, status } = useSession();
+  const isAuthenticated = status === "authenticated";
+  const authLoading = status === "loading";
+  const user = session?.user;
 
   // Redirect unauthenticated users trying to access specific chat IDs
   useEffect(() => {
@@ -170,9 +168,7 @@ function ChatContent() {
         console.log(`chat id adalah: ${chatId}`);
 
         try {
-          const response = await fetch(`/api/chat/title/${chatId}`, {
-            headers: getAuthHeaders(),
-          });
+          const response = await fetch(`/api/chat/title/${chatId}`);
           if (!response.ok) {
             if (response.status === 404) {
               throw new Error("Chat tidak ditemukan");
@@ -204,7 +200,6 @@ function ChatContent() {
 
     fetchTitle();
     console.log(`isAuthenticated is: ${isAuthenticated}`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chatId, isAuthenticated, authLoading, user]);
 
   console.log(`Is authenticated in chat page: ${isAuthenticated}`);
@@ -238,7 +233,9 @@ function ChatContent() {
         <HelpButton />
         {isAuthenticated ? (
           <div className="flex items-center gap-2 px-2 py-1">
-            <span className="body-medium-bold">Hello, {user?.username}</span>
+            <span className="body-medium-bold">
+              Hello, {user?.name || user?.email?.split("@")[0] || "User"}
+            </span>
           </div>
         ) : (
           <Link href={"/auth/login"}>

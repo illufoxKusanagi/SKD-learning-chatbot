@@ -18,7 +18,7 @@ import { cn } from "@/lib/utils";
 import { NavUser } from "./nav-user";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { useAuth } from "@/app/context/auth-context";
+import { useSession } from "next-auth/react";
 
 interface ChatHistoryItem {
   id: number;
@@ -31,15 +31,17 @@ export function AppSidebar() {
   const { open } = useSidebar();
   const [conversations, setChatHistory] = useState<ChatHistoryItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const {
-    user,
-    isAuthenticated,
-    getAuthHeaders,
-    isLoading: authLoading,
-  } = useAuth();
+  const { data: session, status } = useSession();
+  const isAuthenticated = status === "authenticated";
+  const authLoading = status === "loading";
+  const user = session?.user;
+
   const data = {
     user: {
-      name: user?.username || "Guest",
+      name:
+        user?.name ||
+        (user?.email ? user.email.split("@")[0] : undefined) ||
+        "User",
       email: user?.email || "guest@example.com",
       avatar: "/avatars/shadcn.jpg",
     },
@@ -61,9 +63,7 @@ export function AppSidebar() {
 
       setIsLoading(true);
       try {
-        const response = await fetch("/api/chat/history", {
-          headers: getAuthHeaders(),
-        });
+        const response = await fetch("/api/chat/history");
         if (!response.ok) {
           if (response.status === 401) {
             console.warn("Unauthorized access to chat history");
@@ -84,7 +84,7 @@ export function AppSidebar() {
     };
 
     fetchChatHistory();
-  }, [isAuthenticated, user, authLoading, getAuthHeaders]); // Wait for auth loading to complete
+  }, [isAuthenticated, user, authLoading]); // Wait for auth loading to complete
 
   return (
     <Sidebar variant="sidebar" collapsible="icon">

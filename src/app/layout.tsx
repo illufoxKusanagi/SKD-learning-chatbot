@@ -1,8 +1,8 @@
 import { Open_Sans } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "sonner";
-import { AuthProvider } from "@/app/context/auth-context";
+import AuthProviders from "@/components/providers/auth-provider";
 
 // TODO : Change app branding from public information RAG to SKD AI learning
 
@@ -25,12 +25,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${openSans.variable} ${openSans.className}`}>
-        <AuthProvider>
+        <AuthProviders>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
             {children}
             <Toaster />
           </ThemeProvider>
-        </AuthProvider>
+        </AuthProviders>
       </body>
     </html>
   );

@@ -1,16 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
-import {
-  ApiError,
-  AuthenticatedRequest,
-  createAuthMiddleware,
-  withMiddleware,
-} from "@/middleware/api";
+import { ApiError, withMiddleware } from "@/middleware/api";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 import { getDb } from "@/lib/db";
 import { users } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 
 // Edited here: Restored your original middleware-based me handler
-async function meHandler(req: AuthenticatedRequest) {
+async function meHandler(req: NextRequest) {
+  const session = await getServerSession(authOptions);
+
+  if (!session || !session.user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
   const db = getDb();
   const [user] = await db
     .select({
@@ -21,7 +24,7 @@ async function meHandler(req: AuthenticatedRequest) {
       createdAt: users.createdAt,
     })
     .from(users)
-    .where(eq(users.id, req.user!.userId))
+    .where(eq(users.id, session.user.id))
     .limit(1);
 
   if (!user) {
@@ -37,5 +40,5 @@ async function meHandler(req: AuthenticatedRequest) {
 
 // Edited here: Your original middleware composition approach
 export const GET = (request: NextRequest) => {
-  return withMiddleware(createAuthMiddleware())(request, meHandler);
+  return withMiddleware()(request, meHandler);
 };

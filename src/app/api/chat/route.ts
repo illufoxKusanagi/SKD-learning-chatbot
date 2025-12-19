@@ -6,7 +6,8 @@ import {
   withMiddleware,
   createRateLimitMiddleware,
 } from "@/middleware/api";
-import { verifyToken } from "@/lib/auth/jwt";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/auth";
 import { GoogleGenAI } from "@google/genai";
 import { eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
@@ -42,9 +43,6 @@ async function generateChatTitle(message: string): Promise<string> {
     const result = await genAI.models.generateContent({
       model: generativeModel,
       contents: `Generate a short, descriptive title (max 50 characters) for a chat that starts with: "${message}". Return only the title.`,
-      // config: {
-      //   tools: searchTool,
-      // },
     });
     const title = result.text?.trim() || "New Chat";
     return title.length > 50 ? title.substring(0, 47) + "..." : title;
@@ -217,16 +215,52 @@ async function hybridChatHandler(request: NextRequest) {
   let userId = null;
 
   try {
-    const authHeader = request.headers.get("authorization");
-    if (authHeader?.startsWith("Bearer ")) {
-      const token = authHeader.substring(7);
-      const payload = verifyToken(token);
-      if (payload.type === "access") {
-        userId = payload.userId;
-      }
+    const session = await getServerSession(authOptions);
+    if (session?.user?.id) {
+      userId = session.user.id;
     }
-  } catch {
-    // No valid auth token, continuing as guest user
+  } catch (error) {
+    // Distinguish between expected auth failures and unexpected internal errors
+    if (error instanceof Error) {
+      console.error("Error retrieving session in hybridChatHandler:", {
+        name: error.name,
+        message: error.message,
+        stack: error.stack,
+      });
+
+      const messageLower = error.message.toLowerCase();
+      const isAuthError =
+        error.name === "AuthError" ||
+        messageLower.includes("auth") ||
+        messageLower.includes("credential") ||
+        messageLower.includes("unauthorized") ||
+        messageLower.includes("forbidden");
+
+      if (!isAuthError) {
+        // Treat non-auth-related failures as internal errors instead of silently
+        // falling back to a guest user, to avoid masking configuration issues.
+        throw new ApiError(
+          "Failed to retrieve session",
+          500,
+          "SESSION_RETRIEVAL_ERROR"
+        );
+      }
+
+      // Auth-related error: continue as guest user
+      console.warn(
+        "Proceeding as guest user due to authentication-related session error."
+      );
+    } else {
+      console.error(
+        "Non-Error value thrown during session retrieval in hybridChatHandler:",
+        error
+      );
+      throw new ApiError(
+        "Failed to retrieve session",
+        500,
+        "SESSION_RETRIEVAL_ERROR"
+      );
+    }
   }
 
   // Convert chatId to ensure it's a valid UUID string for database

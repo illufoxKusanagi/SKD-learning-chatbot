@@ -11,7 +11,6 @@ import { getDb } from "@/lib/db";
 import { users } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { hashPassword } from "@/lib/auth/password";
-import { generateTokens } from "@/lib/auth/jwt";
 
 const registerSchema = z.object({
   email: z.email("Invalid email format").toLowerCase(),
@@ -88,12 +87,6 @@ async function registerHandler(
     })
     .returning();
 
-  const { accessToken, refreshToken } = generateTokens(
-    newUser.id,
-    newUser.email
-    // newUser.role
-  );
-
   const response = NextResponse.json(
     {
       success: true,
@@ -105,20 +98,10 @@ async function registerHandler(
           username: newUser.username,
           role: newUser.role,
         },
-        accessToken,
       },
     },
     { status: 201 }
   );
-
-  // Set refresh token as HTTP-only cookie
-  response.cookies.set("refresh-token", refreshToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
-    maxAge: 7 * 24 * 60 * 60, // 7 days (seconds)
-    // ensure cookie is sent to all routes
-  });
 
   return response;
 }
