@@ -114,54 +114,95 @@ GENERATIVE_MODEL=gemini-2.0-flash-thinking-exp-1219
 ```
 
 ##### Step 2: Update Service Layer (`src/lib/services/ai/gemini.service.ts`)
-We need to handle the streaming response from Google GenAI and safely parse the chunks to avoid TypeScript errors.
+Based on the [reference article](https://medium.com/@shaikhniamatullah/stream-ai-text-in-real-time-with-googles-gemini-api-using-angular-google-genai-56dc384f7836), we should use the simplified `chunk.text` property if available, which handles the extraction of text from candidates automatically.
 
 ```typescript
-import { GoogleGenerativeAI, Content } from "@google/genai";
+import { GoogleGenAI } from "@google/genai";
 
 // ... existing code ...
 
-export async function* generateAiResponse(
-  history: Content[],
-  message: string,
-  modelName: string = "gemini-2.0-flash-thinking-exp-1219"
-) {
-  const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY!);
-  const model = genAI.getGenerativeModel({ 
-    model: modelName,
-  });
+export async function* generateAiResponse(userMessage: string) {
+  try {
+    const systemPrompt = `...`; // Your system prompt
+    const augmentedPrompt = `${systemPrompt}\nPERTANYAAN PENGGUNA: "${userMessage}"\nJAWABAN ANDA:`;
 
-  const chat = model.startChat({ history });
-  const result = await chat.sendMessageStream(message);
+    // Ensure you are using a model that supports the features you need
+    // e.g., 'gemini-2.0-flash-thinking-exp-1219' for thinking mode
+    const response = await genAI.models.generateContentStream({
+      model: generativeModel,
+      contents: augmentedPrompt,
+      config: {
+        // Only include thinkingConfig if using a supported model
+        thinkingConfig: { includeThoughts: true }, 
+        tools: [{ googleSearch: {} }],
+      },
+    });
 
-  for await (const chunk of result.stream) {
-    // FIX: Check for candidates existence to avoid "possibly undefined" errors
-    const candidates = chunk.candidates;
-    if (!candidates || candidates.length === 0) continue;
-    
-    const parts = candidates[0].content.parts;
-    for (const part of parts) {
-      if (part.text) {
-        yield part.text; // Yield text chunks to the caller
+    for await (const chunk of response) {
+      // The SDK simplifies text extraction
+      if (chunk.text) {
+        yield chunk.text;
       }
+      
+      // For thinking mode, we might need to check candidates if chunk.text doesn't include thoughts
+      // But for basic streaming, chunk.text is the safest bet.
+      // If you need thoughts, check if the SDK exposes them on the chunk object
+      // or inspect chunk.candidates[0].content.parts for 'thought' fields.
     }
+  } catch (error) {
+    console.error("AI generation error:", error);
+    yield "Maaf, terjadi kesalahan dalam memproses pertanyaan Anda.";
   }
 }
 ```
 
 ##### Step 3: Update API Route (`src/app/api/chat/route.ts`)
-The API route must consume the generator and stream it back to the client using `ReadableStream`.
+The API route remains largely the same, consuming the generator.
 
 ```typescript
-import { generateAiResponse } from "@/lib/services/ai/gemini.service";
-
-// ... inside POST handler ...
+// ... inside hybridChatHandler ...
 
 const stream = new ReadableStream({
   async start(controller) {
     const encoder = new TextEncoder();
+    let fullAiResponse = "";
+    
     try {
-      const generator = generateAiResponse(history, message);
+      const generator = generateAiResponse(message);
+      
+      for await (const chunk of generator) {
+        // Send chunk to client
+        controller.enqueue(encoder.encode(chunk));
+        fullAiResponse += chunk; 
+      }
+      
+      controller.close();
+
+      // Save to Database
+      if (currentChatId) {
+         await db.insert(messages).values({
+            chatId: currentChatId,
+            role: "bot",
+            content: fullAiResponse,
+            createdAt: new Date(),
+         });
+      }
+      
+    } catch (error) {
+      controller.error(error);
+    }
+  }
+});
+// ...
+```
+
+##### Step 4: Update Frontend (UI Thinking)
+Modify chat components to handle the data stream containing "thought" and "answer" parts.
+1.  Update `useChat` hook to parse the stream.
+2.  Create a UI component (e.g., Accordion) to hide/show the AI's thinking process.
+
+```
+const generator = generateAiResponse(history, message);
       for await (const chunk of generator) {
         controller.enqueue(encoder.encode(chunk));
       }
@@ -179,8 +220,3 @@ return new Response(stream, {
   }
 });
 ```
-
-##### Step 4: Update Frontend (UI Thinking)
-Modify chat components to handle the data stream containing "thought" and "answer" parts.
-1.  Update `useChat` hook to parse the stream.
-2.  Create a UI component (e.g., Accordion) to hide/show the AI's thinking process.

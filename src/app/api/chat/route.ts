@@ -12,21 +12,11 @@ import { GoogleGenAI } from "@google/genai";
 import { eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 import z from "zod";
-
-const apiKey: string = process.env.GEMINI_API_KEY || "";
-const generativeModel: string =
-  process.env.GENERATIVE_MODEL || "gemini-2.5-flash-lite";
-
-if (!apiKey) {
-  console.error("Missing GEMINI_API_KEY");
-  throw new ApiError(
-    "Tidak dapat memproses respon chatbot, silahkan hubungi admin.",
-    500,
-    "API_CONFIG_ERROR"
-  );
-}
-
-const genAI = new GoogleGenAI({ apiKey });
+import {
+  generateAiResponse,
+  generateChatTitle,
+} from "@/lib/services/ai/gemini.service";
+// const genAI = new GoogleGenAI({ apiKey });
 
 const chatMessageSchema = z.object({
   message: z
@@ -38,19 +28,19 @@ const chatMessageSchema = z.object({
 });
 
 // Edited here: Fixed generateChatTitle function that was missing
-async function generateChatTitle(message: string): Promise<string> {
-  try {
-    const result = await genAI.models.generateContent({
-      model: generativeModel,
-      contents: `Generate a short, descriptive title (max 50 characters) for a chat that starts with: "${message}". Return only the title.`,
-    });
-    const title = result.text?.trim() || "New Chat";
-    return title.length > 50 ? title.substring(0, 47) + "..." : title;
-  } catch (error) {
-    console.error("Title generation error:", error);
-    return "New Chat";
-  }
-}
+// async function generateChatTitle(message: string): Promise<string> {
+//   try {
+//     const result = await genAI.models.generateContent({
+//       model: generativeModel,
+//       contents: `Generate a short, descriptive title (max 50 characters) for a chat that starts with: "${message}". Return only the title.`,
+//     });
+//     const title = result.text?.trim() || "New Chat";
+//     return title.length > 50 ? title.substring(0, 47) + "..." : title;
+//   } catch (error) {
+//     console.error("Title generation error:", error);
+//     return "New Chat";
+//   }
+// }
 
 // async function chatHandler(
 //   request: AuthenticatedRequest & { validatedData?: any }
@@ -152,58 +142,58 @@ async function generateChatTitle(message: string): Promise<string> {
 // }
 
 // Edited here: Your original superior AI response generation
-async function generateAiResponse(userMessage: string) {
-  try {
-    // Context disabled - chatbot answers freely without RAG restrictions
-    // const context =
-    //   contextData.length > 0
-    //     ? `
-    // KONTEKS INFORMASI:
-    // ${contextData
-    //   .map(
-    //     (item, index) => `
-    // [SUMBER ${index + 1}: ${
-    //       item.source?.toUpperCase() || "INTERNAL"
-    //     } - Relevansi: ${((item.similarity || 0) * 100).toFixed(1)}%]
-    // ${
-    //   typeof item.data === "object"
-    //     ? JSON.stringify(item.data, null, 2)
-    //     : item.content
-    // }
-    // ---`
-    //   )
-    //   .join("\n")}
-    // `
-    //     : "KONTEKS: Tidak ada informasi spesifik ditemukan di database untuk pertanyaan ini.";
+// async function generateAiResponse(userMessage: string) {
+//   try {
+//     // Context disabled - chatbot answers freely without RAG restrictions
+//     // const context =
+//     //   contextData.length > 0
+//     //     ? `
+//     // KONTEKS INFORMASI:
+//     // ${contextData
+//     //   .map(
+//     //     (item, index) => `
+//     // [SUMBER ${index + 1}: ${
+//     //       item.source?.toUpperCase() || "INTERNAL"
+//     //     } - Relevansi: ${((item.similarity || 0) * 100).toFixed(1)}%]
+//     // ${
+//     //   typeof item.data === "object"
+//     //     ? JSON.stringify(item.data, null, 2)
+//     //     : item.content
+//     // }
+//     // ---`
+//     //   )
+//     //   .join("\n")}
+//     // `
+//     //     : "KONTEKS: Tidak ada informasi spesifik ditemukan di database untuk pertanyaan ini.";
 
-    const systemPrompt = `
-"Kamu adalah Tutor SKD CPNS yang ahli dan up-to-date. Tugasmu adalah membantu pengguna berlatih soal-soal SKD (TWK, TIU, TKP).
+//     const systemPrompt = `
+// "Kamu adalah Tutor SKD CPNS yang ahli dan up-to-date. Tugasmu adalah membantu pengguna berlatih soal-soal SKD (TWK, TIU, TKP).
 
-ATURAN PENTING:
+// ATURAN PENTING:
 
-- Jika pengguna meminta soal 'terbaru' atau bertanya tentang isu terkini (seperti IKN, kebijakan pemerintah baru), JANGAN mengarang jawaban. GUNAKAN tool googleSearch() untuk mencari referensi valid.
-- Berikan pembahasan yang jelas dan mendidik.
-- Sertakan sumber informasi jika kamu mengambil data dari internet."
-`;
+// - Jika pengguna meminta soal 'terbaru' atau bertanya tentang isu terkini (seperti IKN, kebijakan pemerintah baru), JANGAN mengarang jawaban. GUNAKAN tool googleSearch() untuk mencari referensi valid.
+// - Berikan pembahasan yang jelas dan mendidik.
+// - Sertakan sumber informasi jika kamu mengambil data dari internet."
+// `;
 
-    const augmentedPrompt = `${systemPrompt}\nPERTANYAAN PENGGUNA: "${userMessage}"\nJAWABAN ANDA:`;
+//     const augmentedPrompt = `${systemPrompt}\nPERTANYAAN PENGGUNA: "${userMessage}"\nJAWABAN ANDA:`;
 
-    const result = await genAI.models.generateContent({
-      model: generativeModel,
-      contents: augmentedPrompt,
-      config: {
-        tools: [{ googleSearch: {} }],
-      },
-    });
+//     const result = await genAI.models.generateContent({
+//       model: generativeModel,
+//       contents: augmentedPrompt,
+//       config: {
+//         tools: [{ googleSearch: {} }],
+//       },
+//     });
 
-    return (
-      result.text || "Maaf, tidak dapat memproses permintaan Anda saat ini."
-    );
-  } catch (error) {
-    console.error("AI generation error:", error);
-    return "Maaf, terjadi kesalahan dalam memproses pertanyaan Anda. Silakan coba lagi.";
-  }
-}
+//     return (
+//       result.text || "Maaf, tidak dapat memproses permintaan Anda saat ini."
+//     );
+//   } catch (error) {
+//     console.error("AI generation error:", error);
+//     return "Maaf, terjadi kesalahan dalam memproses pertanyaan Anda. Silakan coba lagi.";
+//   }
+// }
 
 // Create a new handler that supports both authenticated and anonymous users
 async function hybridChatHandler(request: NextRequest) {
@@ -392,59 +382,47 @@ async function hybridChatHandler(request: NextRequest) {
     }
   }
 
-  // Generate AI response (works for both authenticated and guest users)
-  // const ragResults = await findRelevantContents(message);
-  const aiResponse = await generateAiResponse(message);
+  const stream = new ReadableStream({
+    async start(controller) {
+      const encoder = new TextEncoder();
+      let fullAiResponse = "";
 
-  // Save AI response for both authenticated and guest users
-  let aiMessage = null;
-  if (currentChatId) {
-    try {
-      [aiMessage] = await db
-        .insert(messages)
-        .values({
-          chatId: currentChatId,
-          role: "bot",
-          content: aiResponse,
-          createdAt: new Date(),
-        })
-        .returning();
-    } catch (error) {
-      console.error("Error saving AI response:", error);
-      // Continue without saving - user still gets response
-    }
-  }
+      try {
+        const generator = generateAiResponse(message);
 
-  return NextResponse.json({
-    success: true,
-    data: {
-      chatId: currentChatId, // Always return chatId for both user types
-      userMessage: userMessage
-        ? {
-            id: userMessage.id,
-            role: userMessage.role,
-            content: userMessage.content,
-            timestamp: userMessage.createdAt,
+        for await (const chunk of generator) {
+          // Send chunk to client
+          controller.enqueue(encoder.encode(chunk));
+          fullAiResponse += chunk;
+        }
+        controller.close();
+        if (currentChatId) {
+          try {
+            await db.insert(messages).values({
+              chatId: currentChatId,
+              role: "bot",
+              content: fullAiResponse,
+              createdAt: new Date(),
+            });
+          } catch (error) {
+            console.error("Error saving AI response:", error);
           }
-        : undefined,
-      aiMessage: aiMessage
-        ? {
-            id: aiMessage.id,
-            role: aiMessage.role,
-            content: aiMessage.content,
-            timestamp: aiMessage.createdAt,
-          }
-        : {
-            role: "bot",
-            content: aiResponse,
-          },
-      // sources: ragResults.map((r) => ({
-      //   title: r.title || "Internal Source",
-      //   source: r.source || "INTERNAL",
-      // })),
+        }
+      } catch (error) {
+        console.error("Streaming error:", error);
+        controller.error(error);
+      }
     },
   });
-} // Export the new hybrid handler with rate limiting for guest users
+
+  return new Response(stream, {
+    headers: {
+      "Content-Type": "text/plain; charset=utf-8",
+      "Transfer-Encoding": "chunked",
+      "X-Chat-Id": currentChatId || "", // Send Chat ID in header
+    },
+  });
+}
 export const POST = (request: NextRequest) =>
   withMiddleware(
     createRateLimitMiddleware(30, 60000) // 30 requests per minute for chat endpoint
