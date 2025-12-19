@@ -10,7 +10,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   pages: {
-    signIn: "/auth/login", // Redirect here if not authenticated
+    signIn: "/auth/login",
   },
   providers: [
     CredentialsProvider({
@@ -24,38 +24,24 @@ export const authOptions: NextAuthOptions = {
           console.log("Missing credentials");
           return null;
         }
-
-        console.log(
-          `Attempting login for identifier: ${credentials.identifier}`
-        );
-
-        // Find user in DB by email OR username
         const user = await db.query.users.findFirst({
           where: or(
             eq(users.email, credentials.identifier),
             eq(users.username, credentials.identifier)
           ),
         });
-
         if (!user) {
           console.log("User not found");
           return null;
         }
-
-        console.log("User found, verifying password...");
-        // Verify password
         const isPasswordValid = await verifyPassword(
           credentials.password,
           user.password
         );
 
         if (!isPasswordValid) {
-          console.log("Password verification failed");
           return null;
         }
-
-        console.log("Login successful");
-        // Return user object (saved to JWT)
         return {
           id: user.id,
           email: user.email,

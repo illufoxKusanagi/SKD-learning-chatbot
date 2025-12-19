@@ -18,7 +18,7 @@ export function useChat() {
   });
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const isAuthenticated = status === "authenticated";
   const authLoading = status === "loading";
   const chatId = searchParams.get("id");

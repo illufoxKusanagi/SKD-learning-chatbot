@@ -2,8 +2,7 @@ import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "sonner";
-// import { AuthProvider } from "@/app/context/auth-context";
-import AuthProviders from "@/components/providers/session-provider";
+import AuthProviders from "@/components/providers/auth-provider";
 
 // TODO : Change app branding from public information RAG to SKD AI learning
 

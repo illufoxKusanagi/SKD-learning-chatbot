@@ -100,7 +100,7 @@ async function updateChatTitleHandler(
 
   const userId = session.user.id;
   const chatId = (await params).chatId;
-  const { title } = request.validatedData;
+  const { title } = request.validatedData || {};
 
   // if (isNaN(chatId) || chatId <= 0) {
   //   throw new ApiError("ID chat tidak valid", 400, "INVALID_CHAT_ID");
@@ -192,5 +192,12 @@ export const PUT = (
   return withMiddleware(
     createRateLimitMiddleware(20, 60000),
     createValidationMiddleware(updateTitleSchema)
-  )(request, (req) => updateChatTitleHandler(req as any, context));
+  )(request, (req) =>
+    updateChatTitleHandler(
+      req as unknown as RequestWithValidation<
+        z.infer<typeof updateTitleSchema>
+      >,
+      context
+    )
+  );
 };

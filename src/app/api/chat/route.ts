@@ -220,8 +220,47 @@ async function hybridChatHandler(request: NextRequest) {
       userId = session.user.id;
     }
   } catch (error) {
-    console.error("Session check failed:", error);
-    // No valid auth session, continuing as guest user
+    // Distinguish between expected auth failures and unexpected internal errors
+    if (error instanceof Error) {
+      console.error("Error retrieving session in hybridChatHandler:", {
+        name: error.name,
+        message: error.message,
+        stack: error.stack,
+      });
+
+      const messageLower = error.message.toLowerCase();
+      const isAuthError =
+        error.name === "AuthError" ||
+        messageLower.includes("auth") ||
+        messageLower.includes("credential") ||
+        messageLower.includes("unauthorized") ||
+        messageLower.includes("forbidden");
+
+      if (!isAuthError) {
+        // Treat non-auth-related failures as internal errors instead of silently
+        // falling back to a guest user, to avoid masking configuration issues.
+        throw new ApiError(
+          "Failed to retrieve session",
+          500,
+          "SESSION_RETRIEVAL_ERROR"
+        );
+      }
+
+      // Auth-related error: continue as guest user
+      console.warn(
+        "Proceeding as guest user due to authentication-related session error."
+      );
+    } else {
+      console.error(
+        "Non-Error value thrown during session retrieval in hybridChatHandler:",
+        error
+      );
+      throw new ApiError(
+        "Failed to retrieve session",
+        500,
+        "SESSION_RETRIEVAL_ERROR"
+      );
+    }
   }
 
   // Convert chatId to ensure it's a valid UUID string for database

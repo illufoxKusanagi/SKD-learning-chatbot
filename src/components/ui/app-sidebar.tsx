@@ -38,7 +38,10 @@ export function AppSidebar() {
 
   const data = {
     user: {
-      name: user?.name || user?.email || "Guest",
+      name:
+        user?.name ||
+        (user?.email ? user.email.split("@")[0] : undefined) ||
+        "User",
       email: user?.email || "guest@example.com",
       avatar: "/avatars/shadcn.jpg",
     },

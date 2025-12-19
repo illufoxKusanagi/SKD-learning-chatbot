@@ -11,7 +11,6 @@ import { getDb } from "@/lib/db";
 import { users } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 import { hashPassword } from "@/lib/auth/password";
-import { generateTokens } from "@/lib/auth/jwt";
 
 const registerSchema = z.object({
   email: z.email("Invalid email format").toLowerCase(),
@@ -87,9 +86,6 @@ async function registerHandler(
       updatedAt: new Date(),
     })
     .returning();
-
-  // Removed token generation as we are using NextAuth
-  // The user will need to login after registration
 
   const response = NextResponse.json(
     {

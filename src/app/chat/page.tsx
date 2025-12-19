@@ -200,7 +200,6 @@ function ChatContent() {
 
     fetchTitle();
     console.log(`isAuthenticated is: ${isAuthenticated}`);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chatId, isAuthenticated, authLoading, user]);
 
   console.log(`Is authenticated in chat page: ${isAuthenticated}`);
@@ -235,7 +234,7 @@ function ChatContent() {
         {isAuthenticated ? (
           <div className="flex items-center gap-2 px-2 py-1">
             <span className="body-medium-bold">
-              Hello, {user?.name || user?.email}
+              Hello, {user?.name || user?.email?.split("@")[0] || "User"}
             </span>
           </div>
         ) : (

@@ -63,7 +63,7 @@ function HomeContent() {
               <p className="body-medium-regular">Loading...</p>
             ) : (
               <p className="body-medium-regular">
-                Halo, {user?.name || user?.email}
+                Hello, {user?.name || user?.email?.split("@")[0] || "User"}
               </p>
             )}
           </div>
