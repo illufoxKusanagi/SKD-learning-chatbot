@@ -415,13 +415,15 @@ async function hybridChatHandler(request: NextRequest) {
     },
   });
 
-  return new Response(stream, {
+  const response = new NextResponse(stream, {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "Transfer-Encoding": "chunked",
       "X-Chat-Id": currentChatId || "", // Send Chat ID in header
     },
   });
+
+  return response;
 }
 export const POST = (request: NextRequest) =>
   withMiddleware(
