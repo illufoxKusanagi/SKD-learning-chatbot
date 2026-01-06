@@ -11,6 +11,8 @@ import { useChat } from "@/hooks/use-chat";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
+import remarkBreaks from "remark-breaks";
+import remarkGfm from "remark-gfm";
 import { useSearchParams, useRouter } from "next/navigation";
 import ModeToggleButton from "@/components/ui/mode-toggle-button";
 import HelpButton from "@/components/ui/help-button";
@@ -42,6 +44,7 @@ function TextBubble({
       >
         <section className="prose prose-sm max-w-none">
           <ReactMarkdown
+            remarkPlugins={[remarkBreaks, remarkGfm]}
             rehypePlugins={[rehypeRaw, rehypeHighlight]}
             components={{
               // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -108,12 +111,21 @@ function ChatHistory({
   isLoading: boolean;
   messages: Message[];
 }) {
+  const lastMessage = messages[messages.length - 1];
+  const showThinking =
+    isLoading &&
+    (!lastMessage ||
+      lastMessage.role === "user" ||
+      (lastMessage.role === "bot" && !lastMessage.content));
+
   return (
     <div className="flex-1 space-y-4 overflow-y-auto p-4 pt-16">
-      {messages.map((msg, index) => (
-        <TextBubble key={index} role={msg.role} content={msg.content} />
-      ))}
-      {isLoading && (
+      {messages.map((msg, index) => {
+        // Don't render empty bot message if we are going to show "Thinking" instead
+        if (msg.role === "bot" && !msg.content && isLoading) return null;
+        return <TextBubble key={index} role={msg.role} content={msg.content} />;
+      })}
+      {showThinking && (
         <TextBubble role="bot" content="Bot sedang berpikir..." isThinking />
       )}
     </div>

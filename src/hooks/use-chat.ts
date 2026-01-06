@@ -107,51 +107,85 @@ export function useChat() {
         timestamp: new Date().toISOString(),
       };
 
-      // Always add user message to state (works for both authenticated and guest users)
       setState((prev) => ({
         ...prev,
-        messages: [...prev.messages, userMessage],
+        messages: [
+          ...prev.messages,
+          userMessage,
+          {
+            role: "bot",
+            content: "",
+            timestamp: new Date().toISOString(),
+          },
+        ],
         isLoading: true,
         error: null,
       }));
 
       try {
-        const data = await apiCall("/api/chat", {
+        const response = await fetch("/api/chat", {
           method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
           body: JSON.stringify({
             message: newUserMessage.trim(),
             chatId: chatId || undefined,
           }),
         });
-        const botMessage: Message = {
-          role: "bot",
-          content: data.data.aiMessage.content,
-          timestamp: new Date().toISOString(),
-          sources: data.data.sources,
-        };
 
-        // Always update the state with bot response
-        setState((prev) => ({
-          ...prev,
-          messages: [...prev.messages, botMessage],
-          isLoading: false,
-        }));
-
-        // Then handle redirects if needed
-        if (data.data.chatId && !chatId) {
-          // Both authenticated users and guest users get redirected to their specific chat
-          // Small delay to let state update, then redirect
-          setTimeout(() => router.push(`/chat?id=${data.data.chatId}`), 100);
-        } else if (!chatId && window.location.pathname === "/") {
-          // User on root page gets redirected to general chat page
-          // Save messages to sessionStorage for persistence across navigation
-          const allMessages = [...state.messages, userMessage, botMessage];
-          sessionStorage.setItem("guestMessages", JSON.stringify(allMessages));
-          setTimeout(() => router.push("/chat"), 100);
+        if (!response.ok) {
+          const errorData = await response.json().catch(() => ({}));
+          throw new Error(errorData.error || `HTTP ${response.status}`);
         }
 
-        if (data.data.sources && data.data.sources.length > 0) {
-          console.log("Data sources used : ", data.data.sources);
+        const newChatId = response.headers.get("X-Chat-Id");
+        if (!response.body) throw new Error("No response body");
+
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder();
+        let done = false;
+        let accumulatedContent = "";
+
+        while (!done) {
+          const { value, done: doneReading } = await reader.read();
+          done = doneReading;
+          const chunkValue = decoder.decode(value, { stream: !done });
+          accumulatedContent += chunkValue;
+
+          setState((prev) => {
+            const newMessages = [...prev.messages];
+            const lastMessageIndex = newMessages.length - 1;
+            if (lastMessageIndex >= 0) {
+              newMessages[lastMessageIndex] = {
+                ...newMessages[lastMessageIndex],
+                content: accumulatedContent,
+              };
+            }
+            return {
+              ...prev,
+              messages: newMessages,
+            };
+          });
+        }
+
+        setState((prev) => ({ ...prev, isLoading: false }));
+
+        // Handle redirects after stream is complete
+        if (newChatId && !chatId) {
+          setTimeout(() => router.push(`/chat?id=${newChatId}`), 100);
+        } else if (!chatId && window.location.pathname === "/") {
+          const allMessages = [
+            ...state.messages,
+            userMessage,
+            {
+              role: "bot",
+              content: accumulatedContent,
+              timestamp: new Date().toISOString(),
+            } as Message,
+          ];
+          sessionStorage.setItem("guestMessages", JSON.stringify(allMessages));
+          setTimeout(() => router.push("/chat"), 100);
         }
       } catch (error) {
         console.error("error sending message: ", error);
@@ -166,7 +200,7 @@ export function useChat() {
         toast.error("Gagal mengirim pesan");
       }
     },
-    [state.isLoading, state.messages, chatId, router, apiCall]
+    [state.isLoading, state.messages, chatId, router]
   );
 
   const clearError = useCallback(() => {

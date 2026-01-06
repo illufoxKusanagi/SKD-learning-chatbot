@@ -30,18 +30,23 @@ export async function generateChatTitle(message: string): Promise<string> {
   }
 }
 
-export async function generateAiResponse(userMessage: string) {
+export async function* generateAiResponse(userMessage: string) {
   try {
-    let answer = "";
-    let thoughts = "";
     const systemPrompt = `
-"Kamu adalah Tutor SKD CPNS yang ahli dan up-to-date. Tugasmu adalah membantu pengguna berlatih soal-soal SKD (TWK, TIU, TKP).
+Kamu adalah Tutor SKD CPNS yang ahli, ramah, dan up-to-date. Tugasmu adalah membantu pengguna berlatih soal-soal SKD (TWK, TIU, TKP) dengan penjelasan yang komprehensif dan mudah dipahami.
 
-ATURAN PENTING:
+ATURAN FORMATTING (WAJIB DIPATUHI):
+1. Gunakan format Markdown yang rapi.
+2. Jika memberikan soal pilihan ganda, setiap pilihan (a, b, c, d, e) HARUS berada di baris baru (newline).
+3. Gunakan **bold** untuk penekanan pada kata kunci atau jawaban yang benar.
+4. Pisahkan antara Soal, Pilihan Jawaban, dan Pembahasan dengan baris kosong agar mudah dibaca.
+5. Gunakan list (bullet points) atau penomoran untuk menjelaskan poin-poin penting.
 
-- Jika pengguna meminta soal 'terbaru' atau bertanya tentang isu terkini (seperti IKN, kebijakan pemerintah baru), JANGAN mengarang jawaban. GUNAKAN tool googleSearch() untuk mencari referensi valid.
-- Berikan pembahasan yang jelas dan mendidik.
-- Sertakan sumber informasi jika kamu mengambil data dari internet."
+ATURAN KONTEN:
+- Pastikan jawaban sesuai dengan kurikulum SKD CPNS terbaru, GUNAKAN tool googleSearch() untuk mencari referensi valid, dan JANGAN mengarang jawaban.
+- Jika pengguna meminta soal 'terbaru' atau bertanya tentang isu terkini (seperti IKN, kebijakan pemerintah baru).
+- Berikan pembahasan yang mendalam, bukan hanya kunci jawaban. Jelaskan MENGAPA jawaban tersebut benar dan mengapa pilihan lain salah.
+- Sertakan sumber informasi jika kamu mengambil data dari internet.
 `;
 
     const augmentedPrompt = `${systemPrompt}\nPERTANYAAN PENGGUNA: "${userMessage}"\nJAWABAN ANDA:`;
@@ -50,6 +55,7 @@ ATURAN PENTING:
       model: generativeModel,
       contents: augmentedPrompt,
       config: {
+        maxOutputTokens: 5120,
         thinkingConfig: {
           includeThoughts: true,
         },
@@ -58,34 +64,12 @@ ATURAN PENTING:
     });
 
     for await (const chunk of response) {
-      const candidates = chunk.candidates;
-      if (!candidates || candidates.length === 0) continue;
-
-      const content = candidates[0].content;
-      if (!content || !content.parts) continue;
-
-      for (const part of content.parts) {
-        if (!part.text) {
-          continue;
-        } else if (part.thought) {
-          if (!thoughts) {
-            console.log("Thoughts summary:");
-          }
-          console.log(part.text);
-          thoughts = thoughts + part.text;
-        } else {
-          if (!answer) {
-            console.log("Answer:");
-          }
-          console.log(part.text);
-          answer = answer + part.text;
-        }
+      if (chunk.text) {
+        yield chunk.text;
       }
     }
-
-    return answer || "Maaf, tidak dapat memproses permintaan Anda saat ini.";
   } catch (error) {
     console.error("AI generation error:", error);
-    return "Maaf, terjadi kesalahan dalam memproses pertanyaan Anda. Silakan coba lagi.";
+    yield "Maaf, terjadi kesalahan dalam memproses pertanyaan Anda. Silakan coba lagi.";
   }
 }
