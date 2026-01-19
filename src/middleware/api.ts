@@ -129,35 +129,79 @@ export function createRateLimitMiddleware(
 ) {
   const requests = new Map<string, { count: number; resetTime: number }>();
 
-  return async (req: NextRequest): Promise<NextRequest> => {
-    // Edited here: Robust IP detection using standard headers to avoid type errors
-    const forwardedFor = req.headers.get("x-forwarded-for");
-    const realIp = req.headers.get("x-real-ip");
-    const ip =
-      forwardedFor?.split(",")[0]?.trim() || realIp?.trim() || "unknown";
+  const cleanup = setInterval(() => {
     const now = Date.now();
-    const resetTime = now + windowMs;
-
-    const current = requests.get(ip);
-
-    if (!current) {
-      requests.set(ip, { count: 1, resetTime });
-      return req;
+    for (const [ip, data] of requests.entries()) {
+      if (now > data.resetTime) requests.delete(ip);
     }
+  }, windowMs);
+  if (cleanup.unref) cleanup.unref();
 
-    if (now > current.resetTime) {
-      requests.set(ip, { count: 1, resetTime });
-      return req;
-    }
+  return async (req: NextRequest): Promise<NextRequest> => {
+    const ip =
+      req.headers.get("cf-connecting-ip") ||
+      req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      req.headers.get("x-real-ip") ||
+      "unknown";
 
-    if (current.count >= maxRequests) {
-      throw new ApiError("Rate limit exceeded", 429, "RATE_LIMIT");
+    const now = Date.now();
+    let current = requests.get(ip);
+
+    if (!current || now > current.resetTime) {
+      current = { count: 0, resetTime: now + windowMs };
     }
 
     current.count++;
+    requests.set(ip, current);
+
+    if (current.count > maxRequests) {
+      console.warn(`[RateLimit] IP ${ip} blocked.`);
+      throw new ApiError(
+        "Terlalu banyak permintaan. Silakan coba lagi nanti.",
+        429,
+        "RATE_LIMIT_EXCEEDED"
+      );
+    }
+
     return req;
   };
 }
+
+// export function createRateLimitMiddleware(
+//   maxRequests: number = 60,
+//   windowMs: number = 60000
+// ) {
+//   const requests = new Map<string, { count: number; resetTime: number }>();
+
+//   return async (req: NextRequest): Promise<NextRequest> => {
+//     // Edited here: Robust IP detection using standard headers to avoid type errors
+//     const forwardedFor = req.headers.get("x-forwarded-for");
+//     const realIp = req.headers.get("x-real-ip");
+//     const ip =
+//       forwardedFor?.split(",")[0]?.trim() || realIp?.trim() || "unknown";
+//     const now = Date.now();
+//     const resetTime = now + windowMs;
+
+//     const current = requests.get(ip);
+
+//     if (!current) {
+//       requests.set(ip, { count: 1, resetTime });
+//       return req;
+//     }
+
+//     if (now > current.resetTime) {
+//       requests.set(ip, { count: 1, resetTime });
+//       return req;
+//     }
+
+//     if (current.count >= maxRequests) {
+//       throw new ApiError("Rate limit exceeded", 429, "RATE_LIMIT");
+//     }
+
+//     current.count++;
+//     return req;
+//   };
+// }
 
 export function handleApiError(error: unknown): NextResponse {
   console.error("API Error:", error);
