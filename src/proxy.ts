@@ -15,17 +15,14 @@ export default withAuth({
         "/help",
       ];
 
-      // Check if the current path starts with any of the public routes
       const isPublicRoute = publicRoutes.some((route) =>
-        pathname.startsWith(route)
+        pathname.startsWith(route),
       );
 
-      // If it's a public route, allow access
       if (isPublicRoute) {
         return true;
       }
 
-      // For all other routes (e.g. /profile, /settings), require authentication
       return !!token;
     },
   },
