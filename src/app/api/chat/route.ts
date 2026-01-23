@@ -8,7 +8,6 @@ import {
 } from "@/middleware/api";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
-import { GoogleGenAI } from "@google/genai";
 import { eq } from "drizzle-orm";
 import { NextRequest, NextResponse } from "next/server";
 import z from "zod";
@@ -232,23 +231,23 @@ async function hybridChatHandler(request: NextRequest) {
         throw new ApiError(
           "Failed to retrieve session",
           500,
-          "SESSION_RETRIEVAL_ERROR"
+          "SESSION_RETRIEVAL_ERROR",
         );
       }
 
       // Auth-related error: continue as guest user
       console.warn(
-        "Proceeding as guest user due to authentication-related session error."
+        "Proceeding as guest user due to authentication-related session error.",
       );
     } else {
       console.error(
         "Non-Error value thrown during session retrieval in hybridChatHandler:",
-        error
+        error,
       );
       throw new ApiError(
         "Failed to retrieve session",
         500,
-        "SESSION_RETRIEVAL_ERROR"
+        "SESSION_RETRIEVAL_ERROR",
       );
     }
   }
@@ -287,7 +286,7 @@ async function hybridChatHandler(request: NextRequest) {
           throw new ApiError(
             "Anda tidak memiliki akses ke chat ini",
             403,
-            "CHAT_ACCESS_DENIED"
+            "CHAT_ACCESS_DENIED",
           );
         }
       }
@@ -350,7 +349,7 @@ async function hybridChatHandler(request: NextRequest) {
           throw new ApiError(
             "Akses ditolak ke chat pengguna terdaftar",
             403,
-            "CHAT_ACCESS_DENIED"
+            "CHAT_ACCESS_DENIED",
           );
         }
         // Check if guest chat has expired
@@ -358,7 +357,7 @@ async function hybridChatHandler(request: NextRequest) {
           throw new ApiError(
             "Chat sementara telah kedaluwarsa",
             410,
-            "CHAT_EXPIRED"
+            "CHAT_EXPIRED",
           );
         }
       }
@@ -427,5 +426,5 @@ async function hybridChatHandler(request: NextRequest) {
 }
 export const POST = (request: NextRequest) =>
   withMiddleware(
-    createRateLimitMiddleware(30, 60000) // 30 requests per minute for chat endpoint
+    createRateLimitMiddleware(30, 60000), // 30 requests per minute for chat endpoint
   )(request, hybridChatHandler);
