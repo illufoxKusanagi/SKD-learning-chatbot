@@ -9,6 +9,7 @@ import {
   real,
   boolean,
   varchar,
+  index,
 } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
@@ -33,27 +34,36 @@ export const messages = pgTable("messages", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 });
 
-export const ragData = pgTable("rag_data", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  content: text("content").notNull(),
-  data: jsonb("data").notNull(),
-  embedding: vector("embedding", { dimensions: 768 }),
-  title: text("title"),
-  source: varchar("source", { length: 50 }).default("internal").notNull(),
-  external_id: varchar("external_id", { length: 255 }),
+export const ragData = pgTable(
+  "rag_data",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    content: text("content").notNull(),
+    data: jsonb("data").notNull(),
+    embedding: vector("embedding", { dimensions: 768 }),
+    title: text("title"),
+    source: varchar("source", { length: 50 }).default("internal").notNull(),
+    external_id: varchar("external_id", { length: 255 }),
 
-  is_cached: boolean("is_cached").default(false),
-  cache_expires_at: timestamp("cache_expires_at"),
-  last_fetched_at: timestamp("last_fetched_at"),
+    is_cached: boolean("is_cached").default(false),
+    cache_expires_at: timestamp("cache_expires_at"),
+    last_fetched_at: timestamp("last_fetched_at"),
 
-  similarity_score: real("similarity_score"),
-  fetch_count: integer("fetch_count").default(0),
+    similarity_score: real("similarity_score"),
+    fetch_count: integer("fetch_count").default(0),
 
-  api_response_metadata: jsonb("api_response_metadata"),
+    api_response_metadata: jsonb("api_response_metadata"),
 
-  createdAt: timestamp("created_at").defaultNow(),
-  updatedAt: timestamp("updated_at").defaultNow(),
-});
+    createdAt: timestamp("created_at").defaultNow(),
+    updatedAt: timestamp("updated_at").defaultNow(),
+  },
+  (table) => [
+    index("rag_data_embedding_idx").using(
+      "hnsw",
+      table.embedding.op("vector_cosine_ops")
+    ),
+  ]
+);
 
 export const conversations = pgTable("chat_history", {
   id: uuid("id").primaryKey().defaultRandom(),
@@ -65,6 +75,33 @@ export const conversations = pgTable("chat_history", {
   expiresAt: timestamp("expires_at"), // For auto-deletion
 });
 
+export const quizAttempts = pgTable("quiz_attempts", {
+  id: uuid("id").primaryKey().defaultRandom(),
+  chatId: uuid("chat_id")
+    .references(() => conversations.id, { onDelete: "cascade" })
+    .notNull(),
+  userId: uuid("user_id").references(() => users.id, { onDelete: "cascade" }),
+  ragSourceId: varchar("rag_source_id", { length: 255 }),
+  category: varchar("category", { length: 10 }).notNull(),
+  subtopic: text("subtopic").notNull(),
+  questionStem: text("question_stem").notNull(),
+  options: jsonb("options")
+    .$type<{ A: string; B: string; C: string; D: string; E: string }>()
+    .notNull(),
+  correctOption: varchar("correct_option", { length: 5 }).notNull(),
+  scoringRubric: jsonb("scoring_rubric")
+    .$type<{ A: number; B: number; C: number; D: number; E: number }>()
+    .notNull(),
+  rubricRationale: text("rubric_rationale").notNull(),
+  userAnswer: varchar("user_answer", { length: 5 }),
+  scoreEarned: integer("score_earned"),
+  maxScore: integer("max_score").default(5).notNull(),
+  aiExplanation: text("ai_explanation"),
+  status: varchar("status", { length: 20 }).default("pending").notNull(),
+  createdAt: timestamp("created_at").defaultNow().notNull(),
+  answeredAt: timestamp("answered_at"),
+});
+
 export type InsertUser = typeof users.$inferInsert;
 export type SelectUser = typeof users.$inferSelect;
 
@@ -73,3 +110,8 @@ export type SelectRagData = typeof ragData.$inferSelect;
 
 export type Insertconversations = typeof conversations.$inferInsert;
 export type Selectconversations = typeof conversations.$inferSelect;
+
+export type QuizAttempt = typeof quizAttempts.$inferSelect;
+export type NewQuizAttempt = typeof quizAttempts.$inferInsert;
+export type QuizOptions = { A: string; B: string; C: string; D: string; E: string };
+export type QuizScoringRubric = { A: number; B: number; C: number; D: number; E: number };

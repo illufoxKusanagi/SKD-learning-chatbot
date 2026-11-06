@@ -1,7 +1,10 @@
 import postgres from "postgres";
 import { drizzle } from "drizzle-orm/postgres-js";
-import { eq, or, sql } from "drizzle-orm";
+import { eq, or, sql, and, desc } from "drizzle-orm";
 import * as schema from "./schema";
+
+// Re-export common drizzle operators
+export { eq, or, sql, and, desc } from "drizzle-orm";
 
 const connectionString = process.env.DATABASE_URL;
 
@@ -15,17 +18,72 @@ const client = postgres(connectionString, { prepare: false });
 
 export const db = drizzle(client, { schema });
 
-// Ensure pgvector extension is enabled
-let extensionInitialized = false;
-export async function ensureVectorExtension() {
-  if (extensionInitialized) return;
+// Re-export schema entities and types for convenient access
+export * from "./schema";
+
+// Ensure pgvector extension, quiz_attempts table, and HNSW index are enabled
+let schemaInitialized = false;
+
+export async function ensureDatabaseSchema() {
+  if (schemaInitialized) return;
   try {
+    // 1. Ensure pgvector extension is enabled
     await db.execute(sql`CREATE EXTENSION IF NOT EXISTS vector`);
-    extensionInitialized = true;
-    console.log("[DB] pgvector extension ensured");
+
+    // 2. Ensure quiz_attempts table exists matching Drizzle schema
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS quiz_attempts (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        chat_id UUID NOT NULL REFERENCES chat_history(id) ON DELETE CASCADE,
+        user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+        rag_source_id VARCHAR(255),
+        category VARCHAR(10) NOT NULL,
+        subtopic TEXT NOT NULL,
+        question_stem TEXT NOT NULL,
+        options JSONB NOT NULL,
+        correct_option VARCHAR(5) NOT NULL,
+        scoring_rubric JSONB NOT NULL,
+        rubric_rationale TEXT NOT NULL,
+        user_answer VARCHAR(5),
+        score_earned INTEGER,
+        max_score INTEGER NOT NULL DEFAULT 5,
+        ai_explanation TEXT,
+        status VARCHAR(20) NOT NULL DEFAULT 'pending',
+        created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+        answered_at TIMESTAMP
+      )
+    `);
+
+    // Safe idempotent migration to allow external string IDs
+    await client`
+      DO $$
+      BEGIN
+        ALTER TABLE quiz_attempts DROP CONSTRAINT IF EXISTS quiz_attempts_rag_source_id_fkey;
+        ALTER TABLE quiz_attempts ALTER COLUMN rag_source_id TYPE VARCHAR(255) USING rag_source_id::VARCHAR(255);
+      EXCEPTION WHEN OTHERS THEN
+        NULL;
+      END $$;
+    `;
+
+    // 3. Ensure HNSW cosine index on rag_data.embedding exists
+    try {
+      await db.execute(sql`
+        CREATE INDEX IF NOT EXISTS rag_data_embedding_idx 
+        ON rag_data USING hnsw (embedding vector_cosine_ops)
+      `);
+    } catch (indexErr) {
+      console.warn("[DB] Could not ensure rag_data_embedding_idx:", indexErr);
+    }
+
+    schemaInitialized = true;
+    console.log("[DB] Database schema, quiz_attempts table, and pgvector extension ensured");
   } catch (error) {
-    console.error("[DB] Failed to ensure vector extension:", error);
+    console.error("[DB] Failed to ensure database schema:", error);
   }
+}
+
+export async function ensureVectorExtension() {
+  return ensureDatabaseSchema();
 }
 
 // Edited here: Simple getDb function - clear intent without complexity
