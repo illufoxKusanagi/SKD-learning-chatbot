@@ -1,5 +1,5 @@
 "use client";
-import { Plus } from "lucide-react";
+import { Plus, History } from "lucide-react";
 
 import {
   Sidebar,
@@ -21,9 +21,9 @@ import { useEffect, useState } from "react";
 import { useSession } from "next-auth/react";
 
 interface ChatHistoryItem {
-  id: number;
+  id: string;
   title: string;
-  userId: number;
+  userId: string | null;
   createdAt: string;
 }
 
@@ -84,7 +84,7 @@ export function AppSidebar() {
     };
 
     fetchChatHistory();
-  }, [isAuthenticated, user, authLoading]); // Wait for auth loading to complete
+  }, [isAuthenticated, user, authLoading]);
 
   return (
     <Sidebar variant="sidebar" collapsible="icon">
@@ -99,7 +99,7 @@ export function AppSidebar() {
             <SidebarMenuButton asChild className="hover:bg-accent/50 h-16">
               <Link href="/">
                 <h1 className="body-big-bold text-primary text-center">
-                  Portal Informasi Publik
+                  Tutor SKD CPNS
                 </h1>
               </Link>
             </SidebarMenuButton>
@@ -123,6 +123,19 @@ export function AppSidebar() {
               <Plus size="icon" className="shrink-0" />
               {open && (
                 <span className="body-medium-bold">Percakapan Baru</span>
+              )}
+            </Link>
+          </SidebarMenuButton>
+
+          <SidebarMenuButton
+            variant="block"
+            className="h-10 px-4 py-3 justify-start gap-3 transition-colors text-primary hover:text-primary"
+            asChild
+          >
+            <Link href="/quiz-history">
+              <History size="icon" className="shrink-0 text-primary" />
+              {open && (
+                <span className="body-medium-bold">Riwayat Latihan SKD</span>
               )}
             </Link>
           </SidebarMenuButton>

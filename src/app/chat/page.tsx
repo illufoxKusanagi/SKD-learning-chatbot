@@ -2,12 +2,14 @@
 
 import { AppSidebar } from "@/components/ui/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
-import { Suspense, useEffect, useState } from "react";
+import { Suspense, useEffect, useState, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import ChatInput from "@/components/chat/chat-input";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { Message } from "@/lib/types/chat";
-import { useChat } from "@/hooks/use-chat";
+import { useChat, QuizAttemptItem } from "@/hooks/use-chat";
+import { QuizCard } from "@/components/chat/quiz-card";
+import { ChatQuizDrawer } from "@/components/chat/chat-quiz-drawer";
 import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeHighlight from "rehype-highlight";
@@ -20,85 +22,146 @@ import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { History, Award } from "lucide-react";
+
+function parseMessageQuizMarkers(content: string) {
+  let attemptId: string | null = null;
+  let evalQuizId: string | null = null;
+  let evalOption: "A" | "B" | "C" | "D" | "E" | null = null;
+  let evalScore: number | null = null;
+
+  const attemptMatch = content.match(/<!--QUIZ_ATTEMPT:([a-f0-9-]+)-->/i);
+  if (attemptMatch && attemptMatch[1]) {
+    attemptId = attemptMatch[1];
+  }
+
+  const evalMatch = content.match(
+    /<!--QUIZ_EVAL:([a-f0-9-]+):([A-E]):(\d+)-->/i
+  );
+  if (evalMatch) {
+    evalQuizId = evalMatch[1];
+    evalOption = evalMatch[2].toUpperCase() as "A" | "B" | "C" | "D" | "E";
+    evalScore = parseInt(evalMatch[3], 10);
+  }
+
+  const cleanContent = content
+    .replace(/<!--QUIZ_ATTEMPT:[^>]+-->/gi, "")
+    .replace(/<!--QUIZ_EVAL:[^>]+-->/gi, "")
+    .trim();
+
+  return {
+    cleanContent,
+    attemptId,
+    evalQuizId,
+    evalOption,
+    evalScore,
+    quizId: attemptId || evalQuizId,
+  };
+}
+
+interface TextBubbleProps extends Message {
+  isThinking?: boolean;
+  matchedQuiz?: QuizAttemptItem;
+  onSelectQuizOption?: (
+    quizId: string,
+    option: "A" | "B" | "C" | "D" | "E"
+  ) => void;
+  isSubmitting?: boolean;
+}
 
 function TextBubble({
   role,
   content,
   isThinking = false,
-}: Message & { isThinking?: boolean }) {
+  matchedQuiz,
+  onSelectQuizOption,
+  isSubmitting = false,
+}: TextBubbleProps) {
+  const isUser = role === "user";
+
   return (
     <div
       className={cn(
         "flex w-full mb-4",
-        role === "user" ? "justify-end" : "justify-start"
+        isUser ? "justify-end" : "justify-start"
       )}
     >
       <div
         className={cn(
-          "max-w-[70%] rounded-lg px-4 py-2",
-          role === "user"
-            ? "bg-primary text-primary-foreground"
-            : "bg-muted text-muted-foreground",
+          "max-w-[85%] sm:max-w-[75%] rounded-2xl px-4 py-3 transition-all",
+          isUser
+            ? "bg-primary text-primary-foreground shadow-sm"
+            : "bg-muted/70 text-foreground border border-border shadow-xs",
           isThinking && "animate-pulse"
         )}
       >
-        <section className="prose prose-sm max-w-none">
-          <ReactMarkdown
-            remarkPlugins={[remarkBreaks, remarkGfm]}
-            rehypePlugins={[rehypeRaw, rehypeHighlight]}
-            components={{
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              h1: ({ node, ...props }) => (
-                <h1 className="text-2xl font-bold my-2" {...props} />
-              ),
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              h2: ({ node, ...props }) => (
-                <h2 className="text-xl font-bold my-2" {...props} />
-              ),
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              h3: ({ node, ...props }) => (
-                <h3 className="text-lg font-bold my-2" {...props} />
-              ),
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              ul: ({ node, ...props }) => (
-                <ul className="list-disc my-2 pl-4" {...props} />
-              ),
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              ol: ({ node, ...props }) => <ol className="my-2" {...props} />,
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              p: ({ node, ...props }) => <p className="mb-2" {...props} />,
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              a: ({ node, ...props }) => (
-                <a
-                  className="text-blue-500 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  {...props}
-                />
-              ),
-              // eslint-disable-next-line @typescript-eslint/no-unused-vars
-              code: ({ node, className, children, ...props }) => {
-                const match = /language-(\w+)/.exec(className || "");
-                return match ? (
-                  <pre className="bg-gray-800 text-white p-3 my-2 rounded-md overflow-x-auto">
-                    <code className={className} {...props}>
+        {content && content.length > 0 && (
+          <section className="prose prose-sm max-w-none dark:prose-invert break-words">
+            <ReactMarkdown
+              remarkPlugins={[remarkBreaks, remarkGfm]}
+              rehypePlugins={[rehypeRaw, rehypeHighlight]}
+              components={{
+                h1: ({ ...props }) => (
+                  <h1 className="text-xl font-bold my-2" {...props} />
+                ),
+                h2: ({ ...props }) => (
+                  <h2 className="text-lg font-bold my-2" {...props} />
+                ),
+                h3: ({ ...props }) => (
+                  <h3 className="text-base font-bold my-1.5" {...props} />
+                ),
+                ul: ({ ...props }) => (
+                  <ul className="list-disc my-2 pl-4 space-y-0.5" {...props} />
+                ),
+                ol: ({ ...props }) => (
+                  <ol
+                    className="list-decimal my-2 pl-4 space-y-0.5"
+                    {...props}
+                  />
+                ),
+                p: ({ ...props }) => <p className="mb-2 leading-relaxed" {...props} />,
+                a: ({ ...props }) => (
+                  <a
+                    className="text-primary underline hover:text-primary/80 transition-colors"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    {...props}
+                  />
+                ),
+                code: ({ className, children, ...props }) => {
+                  const match = /language-(\w+)/.exec(className || "");
+                  return match ? (
+                    <pre className="bg-slate-900 text-slate-100 p-3 my-2 rounded-lg overflow-x-auto text-xs">
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    </pre>
+                  ) : (
+                    <code
+                      className="bg-muted px-1.5 py-0.5 rounded text-xs font-mono"
+                      {...props}
+                    >
                       {children}
                     </code>
-                  </pre>
-                ) : (
-                  <code
-                    className="bg-muted px-1.5 py-0.5 rounded-md"
-                    {...props}
-                  >
-                    {children}
-                  </code>
-                );
-              },
-            }}
-          >
-            {content}
-          </ReactMarkdown>
-        </section>
+                  );
+                },
+              }}
+            >
+              {content}
+            </ReactMarkdown>
+          </section>
+        )}
+
+        {/* Render Interactive / Reviewed QuizCard */}
+        {!isUser && matchedQuiz && (
+          <div className="mt-2 pt-1 border-t border-border/50">
+            <QuizCard
+              quiz={matchedQuiz}
+              onSelectOption={onSelectQuizOption}
+              disabled={isSubmitting}
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -107,9 +170,16 @@ function TextBubble({
 function ChatHistory({
   isLoading,
   messages,
+  quizzes,
+  onSelectQuizOption,
 }: {
   isLoading: boolean;
   messages: Message[];
+  quizzes: QuizAttemptItem[];
+  onSelectQuizOption: (
+    quizId: string,
+    option: "A" | "B" | "C" | "D" | "E"
+  ) => void;
 }) {
   const lastMessage = messages[messages.length - 1];
   const showThinking =
@@ -119,25 +189,52 @@ function ChatHistory({
       (lastMessage.role === "bot" && !lastMessage.content));
 
   return (
-    <div className="flex-1 space-y-4 overflow-y-auto p-4 pt-16">
+    <div className="flex-1 space-y-4 overflow-y-auto p-4 sm:p-6 max-w-4xl mx-auto w-full">
       {messages.map((msg, index) => {
-        // Don't render empty bot message if we are going to show "Thinking" instead
         if (msg.role === "bot" && !msg.content && isLoading) return null;
-        return <TextBubble key={index} role={msg.role} content={msg.content} />;
+
+        const { cleanContent, quizId } = parseMessageQuizMarkers(msg.content);
+        const matchedQuiz =
+          msg.role === "bot" && quizId
+            ? quizzes.find((q) => q.id === quizId)
+            : undefined;
+
+        return (
+          <TextBubble
+            key={index}
+            role={msg.role}
+            content={cleanContent}
+            timestamp={msg.timestamp}
+            matchedQuiz={matchedQuiz}
+            onSelectQuizOption={onSelectQuizOption}
+            isSubmitting={isLoading}
+          />
+        );
       })}
       {showThinking && (
-        <TextBubble role="bot" content="Bot sedang berpikir..." isThinking />
+        <TextBubble
+          role="bot"
+          content="Tutor SKD sedang menganalisis dan menyiapkan respon..."
+          isThinking
+        />
       )}
     </div>
   );
 }
 
 function ChatContent() {
-  const { messages, isLoading, handleSendMessage } = useChat();
+  const {
+    messages,
+    isLoading,
+    quizzes,
+    submitQuizAnswer,
+    handleSendMessage,
+  } = useChat();
+
   const searchParams = useSearchParams();
   const router = useRouter();
   const chatIdParam = searchParams.get("id");
-  const chatId = chatIdParam; // Keep as string (UUID), don't parse as integer
+  const chatId = chatIdParam;
   const [chatTitle, setChatTitle] = useState<string>("");
   const [titleLoading, setTitleLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -147,144 +244,163 @@ function ChatContent() {
   const authLoading = status === "loading";
   const user = session?.user;
 
-  // Redirect unauthenticated users trying to access specific chat IDs
-  useEffect(() => {
-    if (!authLoading && !isAuthenticated && chatId) {
-      toast.error("Silakan login terlebih dahulu untuk mengakses riwayat chat");
-      const returnUrl = encodeURIComponent(`/chat?id=${chatId}`);
-      router.replace(`/auth/login?returnUrl=${returnUrl}`);
-    }
-  }, [authLoading, isAuthenticated, chatId, router]);
-
   useEffect(() => {
     const fetchTitle = async () => {
-      // Wait for auth to finish loading before making decisions
       if (authLoading) {
         return;
       }
 
-      // If not authenticated, show default title
-      if (!isAuthenticated || !user) {
-        if (chatId) {
-          setChatTitle(`Chat #${chatId}`);
-        } else {
-          setChatTitle("Chat Baru");
-        }
+      if (!chatId || !chatId.trim()) {
+        setChatTitle("Sesi Belajar Baru");
         setTitleLoading(false);
         return;
       }
 
-      if (chatId && chatId.trim()) {
-        setTitleLoading(true);
-        setError(null);
-        console.log(`chat id adalah: ${chatId}`);
+      setTitleLoading(true);
+      setError(null);
 
-        try {
-          const response = await fetch(`/api/chat/title/${chatId}`);
-          if (!response.ok) {
-            if (response.status === 404) {
-              throw new Error("Chat tidak ditemukan");
-            } else if (response.status === 403) {
-              throw new Error("Akses ditolak");
-            } else {
-              throw new Error(`HTTP error! status: ${response.status}`);
+      try {
+        const response = await fetch(`/api/chat/title/${chatId}`);
+        if (!response.ok) {
+          if (response.status === 401 || response.status === 403) {
+            if (!isAuthenticated) {
+              toast.error(
+                "Silakan login terlebih dahulu untuk mengakses riwayat chat ini"
+              );
+              const returnUrl = encodeURIComponent(`/chat?id=${chatId}`);
+              router.replace(`/auth/login?returnUrl=${returnUrl}`);
+              return;
             }
           }
-
-          const data = await response.json();
-          if (data.error) {
-            throw new Error(data.error);
-          }
-
-          setChatTitle(data.title || `Chat #${chatId}`);
-        } catch (error) {
-          console.error("Failed to fetch chat title:", error);
-          setChatTitle(`Chat #${chatId}`);
-          setError(error instanceof Error ? error.message : "Unknown error");
-        } finally {
-          setTitleLoading(false);
+          throw new Error(`HTTP error! status: ${response.status}`);
         }
-      } else {
-        setChatTitle("New Chat");
+
+        const data = await response.json();
+        setChatTitle(data.title || "Tutor SKD CPNS");
+      } catch (err) {
+        console.warn("Could not fetch chat title:", err);
+        setChatTitle("Sesi Latihan SKD");
+        setError(err instanceof Error ? err.message : "Unknown error");
+      } finally {
         setTitleLoading(false);
       }
     };
 
     fetchTitle();
-    console.log(`isAuthenticated is: ${isAuthenticated}`);
-  }, [chatId, isAuthenticated, authLoading, user]);
-
-  console.log(`Is authenticated in chat page: ${isAuthenticated}`);
+  }, [chatId, isAuthenticated, authLoading, router]);
 
   return (
-    <div className="flex flex-col h-screen relative overflow-hidden">
+    <div className="flex flex-col h-screen relative overflow-hidden bg-background">
       {/* Guest User Notice */}
       {!isAuthenticated && (
-        <div className="bg-amber-50 dark:bg-amber-900/20 border-b border-amber-200 dark:border-amber-800 p-3">
-          <div className="flex items-center justify-center text-sm text-amber-700 dark:text-amber-300">
+        <div className="bg-amber-50 dark:bg-amber-950/30 border-b border-amber-200 dark:border-amber-800/50 px-4 py-2 text-center">
+          <div className="flex items-center justify-center text-xs text-amber-800 dark:text-amber-300 gap-1.5">
             <span>
-              ⚠️ Mode Tamu: Percakapan anda akan terhapus setelah 24 jam
+              ⚠️ Mode Tamu: Percakapan & latihan soal anda disimpan sementara (24 jam).
             </span>
             <Link
               href="/auth/login"
-              className="ml-1 underline hover:no-underline font-medium"
+              className="underline hover:no-underline font-semibold"
             >
-              Login menyimpan riwayat pesan
+              Login untuk simpan permanen
             </Link>
           </div>
         </div>
       )}
 
+      {/* Top Floating Controls */}
       <div
         className={cn(
-          "flex absolute gap-4 z-10 right-4",
-          isAuthenticated ? "top-4" : "top-14"
+          "flex absolute gap-3 z-10 right-4 items-center",
+          isAuthenticated ? "top-3" : "top-12"
         )}
       >
         <ModeToggleButton />
         <HelpButton />
         {isAuthenticated ? (
           <div className="flex items-center gap-2 px-2 py-1">
-            <span className="body-medium-bold">
-              Hello, {user?.name || user?.email?.split("@")[0] || "User"}
+            <span className="text-xs font-semibold text-foreground">
+              {user?.name || user?.email?.split("@")[0] || "User"}
             </span>
           </div>
         ) : (
-          <Link href={"/auth/login"}>
-            <Button>Login</Button>
+          <Link href="/auth/login">
+            <Button size="sm" className="h-8 text-xs font-semibold">
+              Login
+            </Button>
           </Link>
         )}
       </div>
+
       <SidebarProvider defaultOpen={true}>
-        <div className="flex flex-row w-full ">
+        <div className="flex flex-row w-full h-full">
           {isAuthenticated ? <AppSidebar /> : null}
-          <main className="flex flex-col w-full relative">
-            <div className="flex bg-secondary min-h-16 w-full items-center justify-center">
-              {isAuthenticated ? (
-                <SidebarTrigger className="ml-4 absolute left-0 justify-center" />
-              ) : null}
-              <p className="body-medium-bold">
-                {titleLoading
-                  ? "Memuat judul..."
-                  : error
-                  ? "New Chat"
-                  : chatTitle}
-              </p>
+          <main className="flex flex-col flex-1 h-full min-w-0 relative">
+            {/* Main Header */}
+            <div className="flex bg-secondary/60 backdrop-blur min-h-14 border-b border-border w-full items-center justify-between px-4">
+              <div className="flex items-center gap-3">
+                {isAuthenticated ? (
+                  <SidebarTrigger className="justify-center" />
+                ) : null}
+                <div className="flex items-center gap-2">
+                  <Award className="w-4 h-4 text-primary" />
+                  <p className="text-sm font-semibold truncate max-w-[280px] sm:max-w-md">
+                    {titleLoading
+                      ? "Memuat judul..."
+                      : error
+                      ? "Sesi Belajar SKD"
+                      : chatTitle}
+                  </p>
+                </div>
+              </div>
             </div>
+
+            {/* Quiz Quick Access Sub-Header Bar */}
+            <div className="flex items-center justify-between px-4 py-2 bg-muted/30 border-b border-border text-xs">
+              <div className="flex items-center gap-2">
+                <ChatQuizDrawer
+                  quizzes={quizzes}
+                  onSelectOption={submitQuizAnswer}
+                  disabled={isLoading}
+                />
+              </div>
+
+              <div className="flex items-center gap-3">
+                <Link
+                  href="/quiz-history"
+                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+                >
+                  <History className="w-3.5 h-3.5" />
+                  <span>Riwayat Latihan SKD</span>
+                </Link>
+              </div>
+            </div>
+
+            {/* Chat Messages */}
             <ScrollArea className="flex-1 overflow-y-auto">
-              <Suspense fallback={<div>Loading chat...</div>}>
-                <ChatHistory isLoading={isLoading} messages={messages} />
+              <Suspense fallback={<div className="p-4 text-xs">Memuat chat...</div>}>
+                <ChatHistory
+                  isLoading={isLoading}
+                  messages={messages}
+                  quizzes={quizzes}
+                  onSelectQuizOption={submitQuizAnswer}
+                />
               </Suspense>
             </ScrollArea>
-            <div className="flex pt-4 pb-8 justify-center w-full">
+
+            {/* Chat Input Bar */}
+            <div className="flex pt-2 pb-6 px-4 justify-center w-full">
               <ChatInput
                 onSendMessage={handleSendMessage}
+                onSendQuickPrompt={(prompt) => handleSendMessage(prompt)}
                 isLoading={isLoading}
               />
             </div>
-            <footer className="flex flex-col h-6 w-full justify-center items-center">
-              <p className="body-small-regular">
-                Made with 💗 by Illufox Kasunagi
+
+            {/* Footer */}
+            <footer className="flex flex-col h-6 w-full justify-center items-center pb-2">
+              <p className="text-[11px] text-muted-foreground">
+                Tutor SKD CPNS • Dilengkapi Soal HOTS TWK, TIU, TKP & Evaluasi Akurat
               </p>
             </footer>
           </main>
@@ -296,7 +412,7 @@ function ChatContent() {
 
 export default function ChatPage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div className="p-8 text-center text-sm">Memuat aplikasi...</div>}>
       <ChatContent />
     </Suspense>
   );

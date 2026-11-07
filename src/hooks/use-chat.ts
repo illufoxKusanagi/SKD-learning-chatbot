@@ -4,6 +4,40 @@ import { useSearchParams, useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
 
+export interface QuizAttemptItem {
+  id: string;
+  chatId: string;
+  chatTitle?: string;
+  category: "TWK" | "TIU" | "TKP";
+  subtopic: string;
+  questionStem: string;
+  options: { A: string; B: string; C: string; D: string; E: string };
+  correctOption: "A" | "B" | "C" | "D" | "E" | null;
+  scoringRubric: { A: number; B: number; C: number; D: number; E: number } | null;
+  rubricRationale: string | null;
+  userAnswer: "A" | "B" | "C" | "D" | "E" | null;
+  scoreEarned: number | null;
+  maxScore: number;
+  aiExplanation: string | null;
+  status: "pending" | "answered";
+  createdAt: string;
+  answeredAt: string | null;
+}
+
+export function recordGuestChatId(chatId: string) {
+  if (typeof window === "undefined" || !chatId) return;
+  try {
+    const raw = localStorage.getItem("skd_guest_chat_ids");
+    const ids: string[] = raw ? JSON.parse(raw) : [];
+    const filtered = ids.filter((id) => id !== chatId);
+    filtered.unshift(chatId);
+    const trimmed = filtered.slice(0, 30);
+    localStorage.setItem("skd_guest_chat_ids", JSON.stringify(trimmed));
+  } catch (error) {
+    console.warn("Failed to record guest chat id:", error);
+  }
+}
+
 interface ChatState {
   messages: Message[];
   isLoading: boolean;
@@ -16,6 +50,10 @@ export function useChat() {
     isLoading: false,
     error: null,
   });
+  const [inputMessage, setInputMessage] = useState<string>("");
+  const [quizzes, setQuizzes] = useState<QuizAttemptItem[]>([]);
+  const [isLoadingQuizzes, setIsLoadingQuizzes] = useState<boolean>(false);
+
   const router = useRouter();
   const searchParams = useSearchParams();
   const { status } = useSession();
@@ -41,22 +79,46 @@ export function useChat() {
     []
   );
 
+  const fetchChatQuizzes = useCallback(
+    async (chatIdToFetch?: string | null) => {
+      const targetChatId = chatIdToFetch ?? chatId;
+      if (!targetChatId) {
+        setQuizzes([]);
+        return;
+      }
+
+      setIsLoadingQuizzes(true);
+      try {
+        const response = await fetch(`/api/quiz?chatId=${targetChatId}`);
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}`);
+        }
+        const data = await response.json();
+        if (data.success && Array.isArray(data.data?.quizzes)) {
+          setQuizzes(data.data.quizzes);
+        }
+      } catch (err) {
+        console.warn("Failed to fetch quizzes for chat:", err);
+      } finally {
+        setIsLoadingQuizzes(false);
+      }
+    },
+    [chatId]
+  );
+
   useEffect(() => {
     const loadHistory = async () => {
-      // Wait for auth to finish loading before making API calls
       if (authLoading) {
         return;
       }
 
       if (!chatId) {
-        // For guest users on /chat page, try to load from sessionStorage
-        if (!isAuthenticated && window.location.pathname === "/chat") {
+        if (!isAuthenticated && typeof window !== "undefined" && window.location.pathname === "/chat") {
           const savedMessages = sessionStorage.getItem("guestMessages");
           if (savedMessages) {
             try {
-              const messages = JSON.parse(savedMessages);
-              setState((prev) => ({ ...prev, messages, isLoading: false }));
-              // Clear the saved messages after loading
+              const parsedMessages = JSON.parse(savedMessages);
+              setState((prev) => ({ ...prev, messages: parsedMessages, isLoading: false }));
               sessionStorage.removeItem("guestMessages");
               return;
             } catch (error) {
@@ -65,15 +127,15 @@ export function useChat() {
           }
         }
         setState((prev) => ({ ...prev, messages: [], isLoading: false }));
+        setQuizzes([]);
         return;
       }
 
-      // Don't try to fetch chat history if user is not authenticated
-      // The page component will handle the redirect
-      if (!isAuthenticated) {
-        setState((prev) => ({ ...prev, messages: [], isLoading: false }));
-        return;
-      }
+      // Record guest chat ID for history tracking
+      recordGuestChatId(chatId);
+
+      // Load quizzes for this chat
+      fetchChatQuizzes(chatId);
 
       setState((prev) => ({ ...prev, isLoading: true, error: null }));
 
@@ -92,18 +154,28 @@ export function useChat() {
           isLoading: false,
           messages: [],
         }));
-        toast.error("Tidak dapat memuat riwayat percakapan");
+        // Only show toast if user was authenticated or if not 401
+        if (isAuthenticated) {
+          toast.error("Tidak dapat memuat riwayat percakapan");
+        }
       }
     };
+
     loadHistory();
-  }, [chatId, isAuthenticated, authLoading, apiCall]);
+  }, [chatId, isAuthenticated, authLoading, apiCall, fetchChatQuizzes]);
 
   const handleSendMessage = useCallback(
-    async (newUserMessage: string) => {
-      if (!newUserMessage.trim() || state.isLoading) return;
+    async (overrideMessage?: string, quizAttemptId?: string) => {
+      const messageContent = (typeof overrideMessage === "string" ? overrideMessage : inputMessage).trim();
+      if (!messageContent || state.isLoading) return;
+
+      if (typeof overrideMessage !== "string") {
+        setInputMessage("");
+      }
+
       const userMessage: Message = {
         role: "user",
-        content: newUserMessage,
+        content: messageContent,
         timestamp: new Date().toISOString(),
       };
 
@@ -122,6 +194,8 @@ export function useChat() {
         error: null,
       }));
 
+      let resolvedChatId = chatId;
+
       try {
         const response = await fetch("/api/chat", {
           method: "POST",
@@ -129,8 +203,9 @@ export function useChat() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            message: newUserMessage.trim(),
+            message: messageContent,
             chatId: chatId || undefined,
+            ...(quizAttemptId ? { quizAttemptId } : {}),
           }),
         });
 
@@ -140,6 +215,11 @@ export function useChat() {
         }
 
         const newChatId = response.headers.get("X-Chat-Id");
+        if (newChatId) {
+          resolvedChatId = newChatId;
+          recordGuestChatId(newChatId);
+        }
+
         if (!response.body) throw new Error("No response body");
 
         const reader = response.body.getReader();
@@ -171,10 +251,15 @@ export function useChat() {
 
         setState((prev) => ({ ...prev, isLoading: false }));
 
-        // Handle redirects after stream is complete
+        // Refresh quizzes for the chat
+        if (resolvedChatId) {
+          await fetchChatQuizzes(resolvedChatId);
+        }
+
+        // Handle navigation after stream completion
         if (newChatId && !chatId) {
           setTimeout(() => router.push(`/chat?id=${newChatId}`), 100);
-        } else if (!chatId && window.location.pathname === "/") {
+        } else if (!chatId && typeof window !== "undefined" && window.location.pathname === "/") {
           const allMessages = [
             ...state.messages,
             userMessage,
@@ -188,28 +273,43 @@ export function useChat() {
           setTimeout(() => router.push("/chat"), 100);
         }
       } catch (error) {
-        console.error("error sending message: ", error);
-        if (chatId) {
-          setState((prev) => ({
-            ...prev,
-            error:
-              error instanceof Error ? error.message : "Failed to send message",
-            isLoading: false,
-          }));
-        }
+        console.error("Error sending message: ", error);
+        setState((prev) => ({
+          ...prev,
+          error: error instanceof Error ? error.message : "Failed to send message",
+          isLoading: false,
+        }));
         toast.error("Gagal mengirim pesan");
+      } finally {
+        if (resolvedChatId) {
+          fetchChatQuizzes(resolvedChatId);
+        }
       }
     },
-    [state.isLoading, state.messages, chatId, router]
+    [state.isLoading, state.messages, chatId, inputMessage, router, fetchChatQuizzes]
+  );
+
+  const submitQuizAnswer = useCallback(
+    (quizAttemptId: string, option: "A" | "B" | "C" | "D" | "E") => {
+      return handleSendMessage(`Jawaban saya ${option}`, quizAttemptId);
+    },
+    [handleSendMessage]
   );
 
   const clearError = useCallback(() => {
     setState((prev) => ({ ...prev, error: null }));
   }, []);
+
   return {
     messages: state.messages,
     isLoading: state.isLoading,
+    quizzes,
+    isLoadingQuizzes,
+    fetchChatQuizzes,
+    submitQuizAnswer,
     handleSendMessage,
     clearError,
+    inputMessage,
+    setInputMessage,
   };
 }

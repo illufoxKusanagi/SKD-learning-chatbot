@@ -4,8 +4,6 @@ import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "sonner";
 import AuthProviders from "@/components/providers/auth-provider";
 
-// TODO : Change app branding from public information RAG to SKD AI learning
-
 const openSans = Open_Sans({
   subsets: ["latin"],
   variable: "--font-open-sans",
@@ -13,8 +11,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata = {
-  title: "SKD AI Learning",
-  description: "Chatbot Pembelajaran SKD berbasis AI",
+  title: "Tutor SKD CPNS - AI Learning Assistant",
+  description: "Platform pembelajaran dan latihan soal interaktif Seleksi Kompetensi Dasar (SKD) CPNS berbasis AI",
 };
 
 export default function RootLayout({
@@ -23,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="id" suppressHydrationWarning>
       <body className={`${openSans.variable} ${openSans.className}`}>
         <AuthProviders>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
