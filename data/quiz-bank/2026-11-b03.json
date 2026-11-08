@@ -1,0 +1,360 @@
+{
+  "batchMetadata": {
+    "batchId": "2026-11-b03",
+    "category": "MIXED",
+    "totalQuestions": 10,
+    "difficulty": "HOTS"
+  },
+  "questions": [
+    {
+      "category": "TWK",
+      "subtopic": "Bela Negara",
+      "title": "Pemulihan Infrastruktur Strategis sebagai Tanggung Jawab Warga Negara",
+      "questionStem": "Setelah banjir memutus jembatan penghubung beberapa desa, seorang pegawai dinas infrastruktur daerah secara sukarela mengoordinasikan pendataan jalur alternatif, mengamankan peralatan pembangunan milik negara, dan membantu pemulihan akses logistik bersama masyarakat. Ia melakukan tindakan tersebut meskipun tugas rutinnya hanya berkaitan dengan pemeriksaan dokumen proyek. Penalaran konstitusional yang paling tepat untuk mengategorikan tindakan tersebut sebagai implementasi bela negara adalah...",
+      "reasoningChain": "Dasar konstitusional yang relevan adalah Pasal 27 ayat (3) UUD NRI 1945, yang menyatakan: 'Setiap warga negara berhak dan wajib ikut serta dalam upaya pembelaan negara.' Bela negara tidak terbatas pada pertahanan bersenjata atau keikutsertaan dalam pelatihan militer. Kontribusi melalui profesi, pengabdian kepada masyarakat, perlindungan kepentingan nasional, dan pemeliharaan infrastruktur strategis juga dapat menjadi bentuk bela negara. Dalam kasus ini, pegawai tersebut berkontribusi langsung terhadap pemulihan konektivitas wilayah dan perlindungan kepentingan masyarakat melalui kompetensi profesionalnya. Opsi B benar karena menghubungkan tindakan konkret tersebut dengan hak dan kewajiban konstitusional warga negara. Opsi A keliru karena membatasi bela negara pada kegiatan militer. Opsi C keliru karena menyamakan bela negara dengan patriotisme simbolik. Opsi D keliru karena mengabaikan kepentingan nasional yang lebih luas. Opsi E keliru karena memisahkan pengabdian profesional dari tanggung jawab konstitusional warga negara.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Tindakan tersebut baru dapat dikategorikan sebagai bela negara apabila pegawai mengikuti pelatihan militer atau terlibat langsung dalam operasi pertahanan bersenjata.",
+          "score": 0
+        },
+        {
+          "label": "B",
+          "text": "Tindakan tersebut merupakan pelaksanaan hak dan kewajiban warga negara untuk ikut serta dalam pembelaan negara melalui kontribusi profesional dalam menjaga kepentingan dan keberlangsungan kehidupan masyarakat.",
+          "score": 5
+        },
+        {
+          "label": "C",
+          "text": "Tindakan tersebut lebih tepat dikategorikan sebagai patriotisme simbolik karena bela negara terutama diwujudkan melalui penghormatan terhadap simbol dan sejarah nasional.",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "Tindakan tersebut merupakan bentuk nasionalisme yang mengutamakan kepentingan masyarakat setempat tanpa perlu mempertimbangkan kepentingan nasional secara menyeluruh.",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "Tindakan tersebut hanya mencerminkan integritas pribadi karena pelaksanaan tugas profesional tidak berkaitan dengan kewajiban warga negara dalam pembelaan negara.",
+          "score": 0
+        }
+      ],
+      "rubricRationale": "Pilihan B (skor 5) merupakan jawaban paling tepat karena bela negara dapat diwujudkan melalui pengabdian profesional yang melindungi kepentingan nasional dan masyarakat, sebagaimana diamanatkan Pasal 27 ayat (3) UUD NRI 1945. Pilihan A (skor 0) salah karena mempersempit bela negara menjadi aktivitas militer. Pilihan C (skor 0) salah karena patriotisme simbolik bukan satu-satunya maupun bentuk utama yang harus digunakan untuk mengategorikan tindakan tersebut. Pilihan D (skor 0) salah karena nasionalisme tidak membenarkan pengabaian kepentingan nasional. Pilihan E (skor 0) salah karena pengabdian profesional dapat menjadi implementasi nyata bela negara."
+    },
+    {
+      "category": "TWK",
+      "subtopic": "Pilar Negara - UUD NRI 1945",
+      "title": "Kesetaraan Kesempatan dalam Seleksi Penerimaan Peserta Didik",
+      "questionStem": "Sebuah sekolah negeri menerapkan kebijakan bahwa calon peserta didik dari kelompok bahasa ibu tertentu harus menjalani seleksi tambahan yang tidak diberlakukan kepada calon peserta didik lainnya, meskipun seluruh persyaratan administrasi dan nilai akademik mereka setara. Pihak sekolah beralasan bahwa kebijakan tersebut merupakan kebiasaan lokal yang telah berlangsung selama bertahun-tahun. Ketentuan UUD NRI 1945 yang paling langsung memberikan perlindungan terhadap calon peserta didik tersebut adalah...",
+      "reasoningChain": "Ketentuan konstitusional yang paling langsung memberikan perlindungan terhadap kasus perlakuan berbeda dalam seleksi sekolah negeri atas dasar kelompok bahasa ibu adalah Pasal 28I ayat (2) UUD NRI 1945, yang menyatakan bahwa setiap orang berhak bebas dari perlakuan yang bersifat diskriminatif atas dasar apa pun dan berhak mendapatkan perlindungan terhadap perlakuan diskriminatif tersebut. Kebiasaan lokal tidak dapat dijadikan dasar pembenaran tindakan diskriminatif. Opsi E bernilai 5. Distraktor opsi A merujuk Pasal 28E ayat (1) mengenai kebebasan beragama dan memilih tempat tinggal/pendidikan; opsi B merujuk Pasal 31 ayat (1) mengenai hak pendidikan secara umum tanpa norma anti-diskriminasi spesifik; opsi C merujuk Pasal 28D ayat (3) mengenai kesempatan dalam pemerintahan; dan opsi D merujuk Pasal 18B ayat (2) mengenai pengakuan kesatuan masyarakat hukum adat, bukan diskriminasi layanan publik.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Pasal 28E ayat (1) UUD NRI 1945 mengenai kebebasan setiap orang untuk memeluk agama, memilih pendidikan, dan memilih tempat tinggal di wilayah negara.",
+          "score": 0
+        },
+        {
+          "label": "B",
+          "text": "Pasal 31 ayat (1) UUD NRI 1945 mengenai hak setiap warga negara untuk memperoleh layanan pendidikan yang diselenggarakan oleh pemerintah.",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "Pasal 28D ayat (3) UUD NRI 1945 mengenai hak setiap warga negara untuk memperoleh kesempatan yang sama dalam pemerintahan.",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "Pasal 18B ayat (2) UUD NRI 1945 mengenai pengakuan dan penghormatan negara terhadap kesatuan masyarakat hukum adat beserta hak tradisionalnya.",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "Pasal 28I ayat (2) UUD NRI 1945 mengenai hak setiap orang untuk bebas dari perlakuan yang bersifat diskriminatif atas dasar apa pun dan berhak mendapatkan perlindungan terhadap perlakuan diskriminatif tersebut.",
+          "score": 5
+        }
+      ],
+      "rubricRationale": "Pilihan E (skor 5) tepat karena merujuk secara eksplisit pada Pasal 28I ayat (2) UUD NRI 1945 yang menjamin hak setiap orang bebas dari perlakuan diskriminatif atas dasar apa pun (termasuk bahasa daerah/bahasa ibu) serta berhak mendapatkan perlindungan dari diskriminasi tersebut. Pilihan A (skor 0) salah karena Pasal 28E ayat (1) mengatur kebebasan memilih pendidikan dan memeluk agama. Pilihan B (skor 0) salah karena Pasal 31 ayat (1) mengatur hak umum warga negara atas pendidikan tanpa spesifikasi perlindungan diskriminasi. Pilihan C (skor 0) salah karena Pasal 28D ayat (3) mengatur kesempatan dalam pemerintahan. Pilihan D (skor 0) salah karena Pasal 18B ayat (2) mengatur kesatuan masyarakat hukum adat, bukan jaminan kesetaraan seleksi pendidikan."
+    },
+    {
+      "category": "TWK",
+      "subtopic": "Bahasa Indonesia",
+      "title": "Penyuntingan Kalimat Efektif dalam Dokumen Evaluasi Kebijakan",
+      "questionStem": "Tim penyusun laporan sebuah kementerian menulis paragraf berikut: 'Dalam rangka untuk meningkatkan akurasi data, maka setiap unit diwajibkan melakukan verifikasi ulang terhadap data-data yang telah dikumpulkan. Hasil analisa menunjukkan bahwa resiko kesalahan meningkat ketika proses pencatatan dilakukan secara manual, namun demikian tindak lanjutnya belum dirumuskan.' Manakah hasil penyuntingan yang paling efektif, baku, dan tetap mempertahankan makna paragraf tersebut?",
+      "reasoningChain": "Permasalahan dalam paragraf mencakup ketidakefektifan struktur kalimat, pemborosan kata, serta penggunaan kosakata tidak baku. Frasa 'dalam rangka untuk' mengandung pemborosan karena kedua unsur tersebut menyatakan tujuan. Kata 'maka' tidak diperlukan setelah konstruksi tujuan tersebut. Bentuk 'data-data' dapat disederhanakan menjadi 'data' karena konteksnya telah jelas. Menurut kaidah bahasa baku, bentuk yang tepat adalah 'analisis', bukan 'analisa', dan 'risiko', bukan 'resiko'. Konjungsi antarkalimat 'Namun' perlu diikuti tanda koma ketika digunakan pada awal kalimat. Opsi A memenuhi prinsip kehematan, ketepatan diksi, dan kepaduan kalimat. Opsi B masih mengandung pemborosan kata dan mempertahankan bentuk tidak baku. Opsi C menggunakan kosakata tidak baku. Opsi D masih mempertahankan konstruksi yang tidak efektif dan tanda baca yang kurang tepat. Opsi E mengubah hubungan makna antarkalimat sehingga tidak mempertahankan maksud awal paragraf.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Untuk meningkatkan akurasi data, setiap unit wajib memverifikasi data yang telah dikumpulkan. Hasil analisis menunjukkan bahwa risiko kesalahan meningkat ketika pencatatan dilakukan secara manual. Namun, tindak lanjutnya belum dirumuskan.",
+          "score": 5
+        },
+        {
+          "label": "B",
+          "text": "Dalam rangka meningkatkan akurasi data maka setiap unit diwajibkan untuk melakukan verifikasi ulang terhadap data yang telah dikumpulkan. Hasil analisa menunjukkan bahwa resiko kesalahan meningkat ketika pencatatan dilakukan secara manual.",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "Untuk meningkatkan akurasi data, setiap unit harus melakukan verifikasi terhadap data yang sudah dikumpulkan. Hasil analisa memperlihatkan bahwa risiko kesalahan bertambah dalam pencatatan manual, tetapi tindak lanjutnya belum dirumuskan.",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "Dalam rangka untuk meningkatkan akurasi data, setiap unit wajib melakukan verifikasi ulang terhadap data yang sudah dikumpulkan. Hasil analisis menunjukkan bahwa risiko kesalahan meningkat ketika proses pencatatan dilakukan secara manual, namun demikian tindak lanjutnya belum dirumuskan.",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "Setiap unit wajib meningkatkan akurasi data karena proses verifikasi yang telah dilakukan menyebabkan risiko pencatatan manual semakin tinggi dan tindak lanjutnya tidak diperlukan.",
+          "score": 0
+        }
+      ],
+      "rubricRationale": "Pilihan A (skor 5) merupakan penyuntingan terbaik karena menghilangkan pemborosan kata, menggunakan bentuk baku 'analisis' dan 'risiko', serta memperbaiki hubungan antarkalimat dan tanda baca. Pilihan B (skor 0) masih menggunakan 'analisa' dan 'resiko' yang tidak baku serta mempertahankan konstruksi yang kurang efektif. Pilihan C (skor 0) masih menggunakan bentuk tidak baku 'analisa', sehingga belum memenuhi standar kebahasaan. Pilihan D (skor 0) masih mengandung pemborosan pada frasa 'dalam rangka untuk' dan penggunaan konjungsi yang kurang efektif. Pilihan E (skor 0) mengubah hubungan sebab-akibat dan menghilangkan makna asli paragraf sehingga bukan merupakan penyuntingan yang tepat."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Verbal - Silogisme",
+      "title": "Penarikan Kesimpulan dari Ketentuan Akses Arsip Digital",
+      "questionStem": "Dalam suatu proses audit arsip digital berlaku tiga ketentuan berikut: (1) Semua anggota tim investigasi yang diberi akses ke arsip terbatas telah lulus verifikasi keamanan. (2) Sebagian analis forensik merupakan anggota tim investigasi yang diberi akses ke arsip terbatas. (3) Setiap pegawai yang lulus verifikasi keamanan wajib memperbarui kredensial akses setiap enam bulan. Kesimpulan manakah yang pasti benar berdasarkan ketiga premis tersebut?",
+      "reasoningChain": "Misalkan I adalah himpunan anggota tim investigasi yang memperoleh akses arsip terbatas, V adalah pegawai yang lulus verifikasi keamanan, F adalah analis forensik, dan R adalah pegawai yang wajib memperbarui kredensial. Dari premis (1), diperoleh I ⊆ V. Dari premis (2), terdapat setidaknya satu individu x yang termasuk dalam F dan I, sehingga x ∈ F ∩ I. Karena I ⊆ V, individu tersebut juga termasuk V. Dari premis (3), diperoleh V ⊆ R. Dengan demikian, terdapat setidaknya satu individu yang termasuk F dan R. Kesimpulan yang pasti benar adalah sebagian analis forensik wajib memperbarui kredensial akses setiap enam bulan. Opsi A merupakan generalisasi tidak sah karena keberadaan sebagian analis tidak membuktikan seluruh analis. Opsi B tidak dapat disimpulkan karena tidak ada informasi mengenai pegawai nonanalis yang memperbarui kredensial. Opsi C benar karena mengikuti rantai implikasi ketiga premis. Opsi D melakukan pembalikan implikasi dari premis pertama. Opsi E melakukan generalisasi dari sebagian analis menjadi seluruh analis.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Semua analis forensik wajib memperbarui kredensial akses setiap enam bulan.",
+          "score": 0
+        },
+        {
+          "label": "B",
+          "text": "Sebagian pegawai yang memperbarui kredensial akses bukan merupakan analis forensik.",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "Sebagian analis forensik wajib memperbarui kredensial akses setiap enam bulan.",
+          "score": 5
+        },
+        {
+          "label": "D",
+          "text": "Semua pegawai yang lulus verifikasi keamanan merupakan anggota tim investigasi yang memperoleh akses arsip terbatas.",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "Tidak ada analis forensik yang belum lulus verifikasi keamanan.",
+          "score": 0
+        }
+      ],
+      "rubricRationale": "Pilihan C (skor 5) merupakan kesimpulan yang valid berdasarkan tiga premis. Keberadaan sebagian analis forensik yang termasuk anggota tim investigasi berakses terbatas menyebabkan mereka termasuk pegawai yang lulus verifikasi dan wajib memperbarui kredensial. Pilihan A (skor 0) salah karena melakukan generalisasi dari sebagian menjadi semua. Pilihan B (skor 0) salah karena keberadaan pegawai nonanalis yang memperbarui kredensial tidak dijelaskan dalam premis. Pilihan D (skor 0) merupakan kesalahan pembalikan implikasi: semua anggota tim investigasi berakses terbatas lulus verifikasi tidak berarti semua pegawai yang lulus verifikasi merupakan anggota tim tersebut. Pilihan E (skor 0) salah karena premis hanya menyatakan sebagian analis forensik termasuk anggota tim investigasi berakses terbatas, bukan seluruh analis forensik."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Verbal - Analitis",
+      "title": "Penentuan Urutan Sesi Evaluasi Berdasarkan Sejumlah Ketentuan",
+      "questionStem": "Panitia evaluasi pengadaan harus menempatkan lima sesi pemeriksaan, yaitu K, L, M, N, dan O, ke dalam lima slot waktu berurutan. Ketentuan yang berlaku adalah K harus berlangsung sebelum M dengan sedikitnya satu sesi di antaranya, L harus berlangsung tepat setelah K, N harus berlangsung tepat sebelum O, O harus berlangsung sebelum M, dan K tidak boleh menempati slot pertama. Urutan sesi yang memenuhi seluruh ketentuan tersebut adalah...",
+      "reasoningChain": "Terdapat lima sesi dan lima slot waktu, sehingga setiap sesi hanya dapat menempati satu posisi. Ketentuan L tepat setelah K membentuk pasangan berurutan K-L. Ketentuan N tepat sebelum O membentuk pasangan N-O. Karena O harus berlangsung sebelum M, pasangan N-O harus ditempatkan sebelum M. Selain itu, K harus berlangsung sebelum M dengan sedikitnya satu sesi di antaranya. Dengan demikian, pasangan K-L juga harus berada sebelum M. Karena seluruh lima sesi harus dijadwalkan, kedua pasangan tersebut harus menempati empat posisi pertama dan M berada pada posisi kelima. Terdapat dua kemungkinan urutan pasangan, yaitu K-L-N-O-M dan N-O-K-L-M. Kemungkinan pertama tidak memenuhi ketentuan karena K menempati slot pertama. Oleh karena itu, hanya N-O-K-L-M yang memenuhi seluruh ketentuan. Opsi D benar. Opsi A melanggar ketentuan bahwa K tidak boleh berada di posisi pertama. Opsi B menempatkan M sebelum K. Opsi C membalik urutan N dan O. Opsi E tidak menempatkan N tepat sebelum O.",
+      "options": [
+        {
+          "label": "A",
+          "text": "K – L – N – O – M",
+          "score": 0
+        },
+        {
+          "label": "B",
+          "text": "N – O – M – K – L",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "O – N – K – L – M",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "N – O – K – L – M",
+          "score": 5
+        },
+        {
+          "label": "E",
+          "text": "N – K – L – O – M",
+          "score": 0
+        }
+      ],
+      "rubricRationale": "Pilihan D (skor 5) merupakan satu-satunya urutan yang memenuhi seluruh batasan. N dan O berada berurutan, K dan L berada berurutan, O mendahului M, K mendahului M dengan satu sesi di antaranya, serta K tidak berada di slot pertama. Pilihan A (skor 0) salah karena K menempati slot pertama. Pilihan B (skor 0) salah karena M berada sebelum K sehingga melanggar ketentuan K harus mendahului M. Pilihan C (skor 0) salah karena urutan N dan O terbalik. Pilihan E (skor 0) salah karena N tidak berada tepat sebelum O."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Numerik - Perbandingan Kuantitatif",
+      "title": "Perbandingan Hasil Perhitungan Dua Metode Estimasi Persediaan",
+      "questionStem": "Seorang analis membandingkan dua metode estimasi persediaan bahan. Metode pertama menghasilkan nilai X, yaitu tiga per lima dari 80% atas 750 unit, kemudian hasilnya dibagi dengan faktor koreksi 1,25. Metode kedua menghasilkan nilai Y sebesar 45% dari 640 unit. Berdasarkan perhitungan tersebut, hubungan yang benar antara X dan Y adalah...",
+      "reasoningChain": "Perhitungan harus memperhatikan urutan operasi perkalian dan pembagian. Nilai X = (3/5 × 80% × 750) ÷ 1,25. Pertama, 80% × 750 = 600. Berikutnya, 3/5 × 600 = 360. Selanjutnya, X = 360 ÷ 1,25 = 288. Nilai Y = 45% × 640 = 0,45 × 640 = 288. Dengan demikian, X = 288 dan Y = 288, sehingga X = Y. Opsi A benar. Opsi B salah karena menganggap X lebih besar dari Y, misalnya akibat mengabaikan faktor pembagi. Opsi C salah karena menganggap Y lebih besar meskipun hasil kedua metode sama. Opsi D salah karena selisih kedua hasil bukan seperlima dari Y, melainkan nol. Opsi E salah karena faktor koreksi tidak membuat perbandingan kedua nilai menjadi tidak dapat ditentukan.",
+      "options": [
+        {
+          "label": "A",
+          "text": "X sama dengan Y.",
+          "score": 5
+        },
+        {
+          "label": "B",
+          "text": "X lebih besar daripada Y.",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "X lebih kecil daripada Y.",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "X lebih kecil sebesar seperlima dari nilai Y.",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "Hubungan antara X dan Y tidak dapat ditentukan karena keduanya menggunakan metode perhitungan yang berbeda.",
+          "score": 0
+        }
+      ],
+      "rubricRationale": "Pilihan A (skor 5) benar karena kedua metode menghasilkan nilai yang sama, yaitu 288 unit. Pilihan B (skor 0) salah karena mengabaikan hasil pembagian faktor koreksi atau melakukan kesalahan aritmetika sehingga nilai X tampak lebih besar. Pilihan C (skor 0) salah karena nilai Y tidak lebih besar daripada X. Pilihan D (skor 0) salah karena tidak terdapat selisih antara X dan Y. Pilihan E (skor 0) salah karena perbedaan metode tidak menghalangi perbandingan selama nilai masing-masing dapat dihitung secara pasti."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Numerik - Soal Cerita",
+      "title": "Perubahan Kapasitas Tenaga Kerja dalam Proyek Kalibrasi Konveyor",
+      "questionStem": "Pada lini pemeliharaan sebuah BUMN logistik, empat teknisi dengan produktivitas sama dapat menyelesaikan kalibrasi enam unit konveyor dalam waktu sembilan jam. Setelah bekerja selama tiga jam, dua teknisi dialihkan ke proyek lain sehingga hanya dua teknisi yang melanjutkan pekerjaan dengan produktivitas tetap. Berapa lama total waktu yang diperlukan sejak pekerjaan dimulai hingga seluruh kalibrasi selesai?",
+      "reasoningChain": "Pekerjaan memiliki hubungan berbanding terbalik dengan jumlah teknisi karena produktivitas setiap teknisi dianggap tetap. Total beban kerja = 4 teknisi × 9 jam = 36 jam-teknisi. Dalam tiga jam pertama, pekerjaan yang diselesaikan = 4 × 3 = 12 jam-teknisi. Sisa pekerjaan = 36 - 12 = 24 jam-teknisi. Setelah dua teknisi dialihkan, jumlah teknisi yang melanjutkan pekerjaan adalah dua orang. Waktu untuk menyelesaikan sisa pekerjaan = 24 ÷ 2 = 12 jam. Total waktu = 3 + 12 = 15 jam. Jadi, jawaban yang benar adalah E. Opsi A salah karena hanya menghitung waktu pengerjaan sisa pekerjaan dengan mengabaikan tiga jam pertama. Opsi B dan C tidak sesuai dengan hasil pembagian beban kerja dan jumlah teknisi yang tersisa. Opsi D salah karena menghitung seluruh pekerjaan seolah-olah sejak awal hanya dikerjakan dua teknisi. Opsi E sesuai dengan perhitungan jam-teknisi secara keseluruhan.",
+      "options": [
+        {
+          "label": "A",
+          "text": "12 jam.",
+          "score": 0
+        },
+        {
+          "label": "B",
+          "text": "13,5 jam.",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "14 jam.",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "18 jam.",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "15 jam.",
+          "score": 5
+        }
+      ],
+      "rubricRationale": "Pilihan E (skor 5) benar karena total beban pekerjaan setara dengan 36 jam-teknisi. Empat teknisi menyelesaikan 12 jam-teknisi dalam tiga jam pertama, kemudian dua teknisi membutuhkan 12 jam untuk menyelesaikan sisa 24 jam-teknisi. Total waktu adalah 15 jam. Pilihan A (skor 0) salah karena hanya menghitung waktu pengerjaan sisa pekerjaan dan mengabaikan tiga jam pertama. Pilihan B (skor 0) salah karena tidak sesuai dengan pembagian sisa beban kerja terhadap produktivitas dua teknisi. Pilihan C (skor 0) salah karena menghasilkan selisih perhitungan yang tidak didukung oleh data. Pilihan D (skor 0) salah karena menghitung 36 jam-teknisi dibagi dua teknisi tanpa mempertimbangkan pekerjaan yang telah diselesaikan sebelumnya."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Pelayanan Publik",
+      "title": "Optimalisasi Pelayanan Rawat Jalan dalam Kondisi Keterbatasan Petugas",
+      "questionStem": "Di sebuah rumah sakit daerah, antrean pelayanan rawat jalan meningkat karena salah satu loket pendaftaran tidak dapat beroperasi. Di ruang tunggu terdapat pasien lanjut usia, pasien dengan jadwal kontrol yang hampir terlewat, dan pasien umum; sementara itu, petugas dari unit lain tersedia tetapi harus dikoordinasikan agar prosedur verifikasi tetap berjalan sesuai ketentuan. Sebagai koordinator pelayanan, tindakan yang paling tepat Anda lakukan adalah...",
+      "reasoningChain": "Indikator utama pilar Pelayanan Publik adalah kemampuan memberikan layanan yang responsif, cepat, empatik, transparan, adil, dan tetap sesuai prosedur. Dalam situasi ini, tindakan terbaik bukan sekadar menyampaikan permohonan maaf atau mendahulukan sejumlah pasien, melainkan membangun mekanisme mitigasi yang memberikan kepastian pelayanan kepada seluruh pemohon. Pilihan dengan skor 5 harus mengintegrasikan komunikasi transparan, pengaturan prioritas sesuai ketentuan, optimalisasi sumber daya melalui koordinasi resmi, dan pemeliharaan prosedur verifikasi. Pilihan B memenuhi seluruh indikator tersebut. Pilihan A bernilai 4 karena memberikan solusi operasional, tetapi belum mengatur prioritas dan kepastian informasi secara menyeluruh. Pilihan D bernilai 3 karena menunjukkan kesopanan dan empati, tetapi masih bersifat pasif. Pilihan C bernilai 2 karena tidak mengatasi penyebab penumpukan antrean. Pilihan E bernilai 1 karena memindahkan beban gangguan pelayanan kepada masyarakat tanpa upaya penyelesaian.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Mengusulkan pembukaan loket sementara dengan memanfaatkan petugas yang tersedia setelah memperoleh persetujuan atasan agar kapasitas pelayanan meningkat.",
+          "score": 4
+        },
+        {
+          "label": "B",
+          "text": "Mengoordinasikan pembukaan loket bantuan atas persetujuan atasan sembari memberi informasi estimasi layanan dan memprioritaskan pasien rentan sesuai prosedur.",
+          "score": 5
+        },
+        {
+          "label": "C",
+          "text": "Mempertahankan pelayanan melalui loket yang masih beroperasi dan meminta petugas keamanan membantu meredakan keluhan pasien agar suasana ruang tunggu tetap kondusif.",
+          "score": 2
+        },
+        {
+          "label": "D",
+          "text": "Menyampaikan permohonan maaf kepada seluruh pasien, menjelaskan kendala operasional, dan meminta mereka menunggu sampai petugas pengganti tersedia.",
+          "score": 3
+        },
+        {
+          "label": "E",
+          "text": "Menyarankan seluruh pasien yang belum mendapatkan nomor antrean untuk kembali pada hari berikutnya agar kepadatan ruang tunggu dapat segera dikurangi.",
+          "score": 1
+        }
+      ],
+      "rubricRationale": "Pilihan B (skor 5) mencerminkan pelayanan publik prima melalui transparansi, empati, responsivitas, koordinasi sumber daya, prioritas berdasarkan kebutuhan yang sah, dan kepastian proses pelayanan. Pilihan A (skor 4) menunjukkan inisiatif yang baik dengan membuka kapasitas tambahan, tetapi belum mengatur keseluruhan mekanisme pelayanan dan prioritas pasien. Pilihan D (skor 3) menunjukkan komunikasi yang sopan dan empati, tetapi tidak menyediakan solusi konkret untuk mengurangi antrean. Pilihan C (skor 2) hanya berfokus pada pengendalian suasana tanpa memperbaiki kapasitas maupun mekanisme pelayanan. Pilihan E (skor 1) merupakan tindakan paling tidak tepat karena mengalihkan tanggung jawab instansi kepada masyarakat tanpa menawarkan mitigasi yang memadai."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Anti-Radikalisme",
+      "title": "Penanganan Penyebaran Konten Intoleran dalam Koordinasi Lintas Instansi",
+      "questionStem": "Di sebuah pos pengawasan perbatasan, Anda menjadi administrator grup komunikasi koordinasi lintas instansi. Salah seorang anggota mengirimkan ajakan menghadiri pertemuan tertutup yang materi promosinya memuat seruan permusuhan terhadap kelompok berbeda dan pembenaran kekerasan, kemudian beberapa anggota lain mulai meneruskan pesan tersebut. Sebagai administrator sekaligus aparatur yang bertanggung jawab menjaga persatuan, tindakan yang paling tepat adalah...",
+      "reasoningChain": "Indikator utama pilar Anti-Radikalisme adalah menolak paham dan tindakan yang mengarah pada kekerasan serta intoleransi, menjunjung tinggi nilai Pancasila, menjaga persatuan dalam keberagaman, dan menggunakan mekanisme pelaporan yang sah. Respons terbaik harus tegas terhadap penyebaran gagasan kekerasan, tetapi tetap objektif, tidak melakukan persekusi, serta tidak menggeneralisasi kesalahan kepada kelompok identitas tertentu. Pilihan C bernilai 5 karena menggabungkan penghentian penyebaran konten, dokumentasi yang relevan, pelaporan melalui jalur kedinasan yang berwenang, dan penguatan toleransi. Pilihan B bernilai 4 karena menunjukkan inisiatif komunikasi personal, tetapi belum memastikan penanganan melalui mekanisme resmi. Pilihan A bernilai 3 karena memberikan teguran yang tepat tetapi tidak diikuti tindak lanjut yang memadai. Pilihan D bernilai 2 karena mengabaikan indikasi penyebaran gagasan kekerasan. Pilihan E bernilai 1 karena justru memperluas penyebaran konten bermasalah.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Menanggapi pesan tersebut di dalam grup dengan menjelaskan bahwa ajakan yang mengandung permusuhan bertentangan dengan toleransi dan meminta anggota lain tidak menyebarkannya.",
+          "score": 3
+        },
+        {
+          "label": "B",
+          "text": "Menghubungi pengirim pesan secara pribadi untuk meminta klarifikasi dan mengingatkan bahwa materi tersebut berpotensi bertentangan dengan nilai kebangsaan serta prinsip toleransi.",
+          "score": 4
+        },
+        {
+          "label": "C",
+          "text": "Menghentikan penerusan pesan di grup, mendokumentasikan bukti secara objektif, dan melaporkannya melalui mekanisme kedinasan resmi untuk ditindaklanjuti.",
+          "score": 5
+        },
+        {
+          "label": "D",
+          "text": "Mengabaikan pesan tersebut karena setiap anggota memiliki kebebasan menyampaikan pendapat selama belum terjadi tindakan kekerasan secara langsung.",
+          "score": 2
+        },
+        {
+          "label": "E",
+          "text": "Meneruskan pesan tersebut ke berbagai grup komunikasi lainnya disertai komentar pribadi agar seluruh pegawai mengetahui adanya kelompok yang dianggap berbahaya.",
+          "score": 1
+        }
+      ],
+      "rubricRationale": "Pilihan C (skor 5) merupakan tindakan paling tepat karena menunjukkan penolakan tegas terhadap intoleransi dan pembenaran kekerasan, disertai penanganan melalui jalur resmi, dokumentasi objektif, dan penguatan nilai persatuan. Pilihan B (skor 4) menunjukkan kesadaran dan inisiatif yang positif, tetapi belum menjamin adanya penanganan institusional terhadap indikasi penyebaran konten tersebut. Pilihan A (skor 3) menunjukkan sikap tidak mendukung intoleransi, tetapi belum mencakup dokumentasi dan tindak lanjut melalui mekanisme yang berwenang. Pilihan D (skor 2) kurang tepat karena mengabaikan indikasi penyebaran gagasan yang membenarkan kekerasan. Pilihan E (skor 1) paling tidak tepat karena memperluas penyebaran pesan dan berpotensi menimbulkan prasangka kolektif terhadap kelompok tertentu."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Profesionalisme",
+      "title": "Menjaga Akurasi Data dalam Penyusunan Laporan Kinerja Instansi",
+      "questionStem": "Di unit penyusunan laporan sebuah kementerian, Anda bertanggung jawab menyerahkan ringkasan indikator kinerja kepada pimpinan pada hari yang sama. Salah satu sumber data belum diverifikasi dan apabila langsung dimasukkan dapat mengubah kesimpulan laporan, sementara seorang rekan menyarankan penggunaan angka periode sebelumnya agar dokumen terlihat lengkap. Dalam kondisi tersebut, tindakan yang paling mencerminkan profesionalisme adalah...",
+      "reasoningChain": "Indikator utama pilar Profesionalisme mencakup penguasaan kompetensi, tanggung jawab terhadap hasil pekerjaan, ketelitian, akuntabilitas, kepatuhan pada standar kerja, serta komitmen terhadap mutu. Permasalahan utama dalam kasus ini adalah risiko penyajian informasi yang belum tervalidasi sebagai fakta yang benar. Pilihan D bernilai 5 karena mengutamakan verifikasi data, transparansi kepada pimpinan, pemisahan data yang sudah dan belum tervalidasi, serta kepastian tindak lanjut. Pilihan B bernilai 4 karena melibatkan rekan dalam pemeriksaan data secara kolaboratif, tetapi belum secara eksplisit mengomunikasikan risiko kepada pimpinan. Pilihan A bernilai 3 karena hanya menyampaikan data terverifikasi tanpa penjelasan memadai mengenai kelengkapan dan risiko data yang belum tersedia. Pilihan C bernilai 2 karena menunda seluruh pekerjaan tanpa komunikasi dan strategi mitigasi. Pilihan E bernilai 1 karena menyajikan angka yang tidak terverifikasi dan menyembunyikan kondisi sebenarnya, sehingga melanggar akuntabilitas profesional.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Menyusun laporan menggunakan data yang telah terverifikasi dan menghilangkan sementara indikator yang belum tersedia agar informasi yang disampaikan tetap akurat.",
+          "score": 3
+        },
+        {
+          "label": "B",
+          "text": "Meminta rekan kerja melakukan pemeriksaan silang terhadap sumber yang belum diverifikasi sambil tetap menyusun bagian laporan lainnya agar pekerjaan dapat diselesaikan sesuai tenggat waktu.",
+          "score": 4
+        },
+        {
+          "label": "C",
+          "text": "Menunda seluruh penyusunan laporan sampai semua sumber data tersedia dan terverifikasi sepenuhnya, meskipun belum memberikan informasi mengenai keterlambatan kepada pimpinan.",
+          "score": 2
+        },
+        {
+          "label": "D",
+          "text": "Menginformasikan risiko data kepada pimpinan, memverifikasi silang sumber primer, dan menyerahkan laporan tervalidasi disertai catatan indikator yang sedang diverifikasi.",
+          "score": 5
+        },
+        {
+          "label": "E",
+          "text": "Menggunakan angka pada laporan periode sebelumnya untuk melengkapi indikator yang belum tersedia tanpa memberikan keterangan bahwa angka tersebut belum diverifikasi.",
+          "score": 1
+        }
+      ],
+      "rubricRationale": "Pilihan D (skor 5) merupakan tindakan paling profesional karena mengintegrasikan akurasi, transparansi, akuntabilitas, pengelolaan risiko, dan pemenuhan tenggat waktu melalui komunikasi yang jelas kepada pimpinan. Pilihan B (skor 4) menunjukkan inisiatif dan kerja sama yang baik, tetapi belum memastikan komunikasi formal mengenai risiko terhadap hasil laporan. Pilihan A (skor 3) menjaga akurasi data yang disampaikan, tetapi tidak memberikan informasi lengkap mengenai indikator yang belum tersedia dan kebutuhan tindak lanjutnya. Pilihan C (skor 2) menunjukkan kehati-hatian, tetapi tidak mencerminkan kemampuan mengelola pekerjaan dan berkomunikasi ketika menghadapi kendala. Pilihan E (skor 1) paling tidak tepat karena menggunakan angka yang belum tervalidasi dan menyembunyikan informasi tersebut, sehingga berpotensi menghasilkan laporan yang menyesatkan."
+    }
+  ]
+}

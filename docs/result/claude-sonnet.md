@@ -1,0 +1,160 @@
+{
+  "batchMetadata": {
+    "batchId": "2026-11-b02",
+    "category": "MIXED",
+    "totalQuestions": 10,
+    "difficulty": "HOTS"
+  },
+  "questions": [
+    {
+      "category": "TWK",
+      "subtopic": "Bela Negara",
+      "title": "Peran Nelayan Perbatasan dalam Menjaga Perairan dari Penangkapan Ikan Ilegal",
+      "questionStem": "Para nelayan di Pulau Sebatik, Kabupaten Nunukan, secara bergantian meronda perairan perbatasan sambil melaut. Ketika melihat kapal asing menangkap ikan secara ilegal, mereka segera melaporkan koordinat kapal tersebut kepada Bakamla dan TNI AL tanpa melakukan tindakan main hakim sendiri. Sikap para nelayan tersebut paling tepat dikategorikan sebagai ...",
+      "reasoningChain": "Berdasarkan Pasal 30 ayat (1) UUD NRI 1945 dan UU No. 23 Tahun 2019 tentang Pengelolaan Sumber Daya Nasional untuk Pertahanan Negara (khususnya Pasal 6 dan 7), keikutsertaan warga negara dalam pertahanan dan keamanan negara dapat diwujudkan melalui pengabdian sesuai profesi guna menghadapi ancaman kedaulatan wilayah. Nelayan yang secara aktif mengawasi wilayah perbatasan saat melaut dan melaporkan aktivitas ilegal kepada Bakamla dan TNI AL merupakan implementasi nyata Bela Negara nonfisik sesuai profesi. Kelima konsep pada opsi A–E merupakan konsep kebangsaan yang positif dan benar secara definisi, namun Bela Negara (opsi C) adalah kategorisasi konstitusional dan yuridis yang paling tepat dan spesifik terhadap konteks menjaga kedaulatan negara. Opsi A (Nasionalisme), B (Patriotisme), D (Integritas), dan E (Kepatuhan hukum) merupakan nilai pendukung yang positif, tetapi bukan kategorisasi yuridis utama tindakan pertahanan negara tersebut. Opsi C bernilai 5, sedangkan opsi A, B, D, dan E bernilai 0.",
+      "options": [
+        { "label": "A", "text": "Nasionalisme, karena mencerminkan kesadaran kolektif masyarakat kepulauan dalam menjaga identitas dan kedaulatan maritim bangsa.", "score": 0 },
+        { "label": "B", "text": "Patriotisme, karena menunjukkan kerelaan berkorban waktu dan tenaga di tengah aktivitas melaut demi menjaga kehormatan wilayah negara.", "score": 0 },
+        { "label": "C", "text": "Bela Negara, karena merupakan keikutsertaan aktif warga negara dalam upaya pertahanan dan keamanan negara melalui pengabdian sesuai profesi sebagaimana Pasal 30 ayat (1) UUD NRI 1945 dan UU No. 23 Tahun 2019.", "score": 5 },
+        { "label": "D", "text": "Integritas, karena membuktikan keteguhan moral para nelayan untuk tidak berkompromi terhadap praktik penangkapan ikan ilegal di perbatasan.", "score": 0 },
+        { "label": "E", "text": "Kepatuhan hukum, karena para nelayan mengutamakan prosedur pelaporan resmi kepada aparat berwenang daripada melakukan tindakan main hakim sendiri.", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan C (skor 5) benar karena tindakan para nelayan perbatasan merupakan bentuk keikutsertaan aktif warga negara dalam upaya pertahanan dan keamanan negara melalui pengabdian sesuai profesi, sebagaimana diatur dalam Pasal 30 ayat (1) UUD NRI 1945 dan UU No. 23 Tahun 2019 Pasal 6–7. Pilihan A, B, D, dan E (skor 0) menyajikan konsep kebangsaan yang bernilai positif dan benar secara konseptual, namun kurang spesifik terhadap konteks pertahanan kedaulatan negara: Nasionalisme (A) berfokus pada kesadaran identitas dan kedaulatan bangsa; Patriotisme (B) berfokus pada kerelaan berkorban demi kehormatan negara; Integritas (D) menekankan keteguhan moral; serta Kepatuhan hukum (E) menekankan ketaatan prosedur resmi. Pengabdian profesi nelayan dalam menjaga perbatasan secara langsung terkategori sebagai Bela Negara."
+    },
+    {
+      "category": "TWK",
+      "subtopic": "Pilar Negara - UUD NRI 1945",
+      "title": "Pungutan Sekolah Dasar Negeri yang Menyebabkan Anak Putus Sekolah",
+      "questionStem": "Sebuah pemerintah kabupaten di pesisir selatan menetapkan 'sumbangan wajib pembangunan' sebesar Rp1,5 juta per tahun bagi setiap siswa sekolah dasar negeri. Akibatnya, puluhan anak dari keluarga nelayan berhenti sekolah. Pemerintah kabupaten berdalih bahwa anggaran operasional sekolah tidak mencukupi. Ketentuan UUD NRI 1945 yang secara paling spesifik diabaikan oleh kebijakan tersebut adalah ...",
+      "reasoningChain": "Kebijakan membebankan biaya pada peserta didik pendidikan dasar. Pasal 31 ayat (2) UUD NRI 1945 berbunyi: setiap warga negara wajib mengikuti pendidikan dasar dan pemerintah wajib membiayainya. Inilah ketentuan yang paling spesifik karena mengatur kewajiban pembiayaan oleh pemerintah pada jenjang dasar. Pasal 31 ayat (1) hanya mengatur hak mendapat pendidikan secara umum. Pasal 31 ayat (4) mengatur alokasi minimal 20 persen anggaran dan tidak mengatur pungutan kepada siswa. Pasal 28C ayat (1) dan Pasal 28D ayat (1) bersifat umum atau tidak relevan. Jawaban benar: E.",
+      "options": [
+        { "label": "A", "text": "Pasal 28C ayat (1) tentang hak mengembangkan diri melalui pemenuhan kebutuhan dasar.", "score": 0 },
+        { "label": "B", "text": "Pasal 31 ayat (1) tentang hak setiap warga negara untuk mendapat pendidikan.", "score": 0 },
+        { "label": "C", "text": "Pasal 31 ayat (4) tentang alokasi anggaran pendidikan minimal 20 persen dari APBN dan APBD.", "score": 0 },
+        { "label": "D", "text": "Pasal 28D ayat (1) tentang jaminan kepastian hukum yang adil dan perlakuan yang sama di hadapan hukum.", "score": 0 },
+        { "label": "E", "text": "Pasal 31 ayat (2) tentang kewajiban warga negara mengikuti pendidikan dasar dan kewajiban pemerintah membiayainya.", "score": 5 }
+      ],
+      "rubricRationale": "Pilihan E benar karena pungutan pada pendidikan dasar bertentangan langsung dengan kewajiban pemerintah membiayai pendidikan dasar. Pilihan B menyangkut hak pendidikan secara umum sehingga kurang spesifik. Pilihan C mengatur besaran alokasi anggaran, bukan larangan membebani siswa, sehingga dalih kekurangan anggaran tidak otomatis melanggar ayat ini. Pilihan A terlalu umum. Pilihan D menyangkut kepastian hukum dan kesetaraan di hadapan hukum, yang tidak menjadi inti kasus."
+    },
+    {
+      "category": "TWK",
+      "subtopic": "Bahasa Indonesia",
+      "title": "Perbaikan Kalimat pada Naskah Siaran Pers Dinas Lingkungan Hidup",
+      "questionStem": "Sebuah naskah siaran pers dinas lingkungan hidup memuat kalimat berikut: 'Pemerintah daerah melakukan sosialisasi tentang pentingnya pengelolaan sampah kepada para warga-warga di setiap kelurahan.' Kalimat tersebut belum memenuhi kaidah kalimat efektif dan ejaan baku. Perbaikan yang paling tepat adalah ...",
+      "reasoningChain": "Kalimat asli mengandung tiga masalah: (1) 'melakukan sosialisasi tentang' boros dan dapat diringkas menjadi verba transitif; (2) 'para warga-warga' adalah pemborosan karena bentuk jamak ganda; (3) verba bentukan dari 'sosialisasi' dengan prefiks me- mengikuti kaidah peluluhan fonem /s/ menjadi 'menyosialisasikan' (bukan 'mensosialisasikan'). Verba transitif 'menyosialisasikan' sudah langsung diikuti objek sehingga kata 'tentang' tidak diperlukan. Kalimat efektif dan baku: 'Pemerintah daerah menyosialisasikan pentingnya pengelolaan sampah kepada warga di setiap kelurahan.' Opsi A. Opsi B salah (peluluhan), C salah ('tentang' berlebih), D salah (jamak ganda), E salah (pengulangan 'kelurahan').",
+      "options": [
+        { "label": "A", "text": "Pemerintah daerah menyosialisasikan pentingnya pengelolaan sampah kepada warga di setiap kelurahan.", "score": 5 },
+        { "label": "B", "text": "Pemerintah daerah mensosialisasikan pentingnya pengelolaan sampah kepada warga di setiap kelurahan.", "score": 0 },
+        { "label": "C", "text": "Pemerintah daerah menyosialisasikan tentang pentingnya pengelolaan sampah kepada warga di setiap kelurahan.", "score": 0 },
+        { "label": "D", "text": "Pemerintah daerah menyosialisasikan pentingnya pengelolaan sampah kepada para warga-warga di setiap kelurahan.", "score": 0 },
+        { "label": "E", "text": "Pemerintah daerah menyosialisasikan pentingnya pengelolaan sampah kepada warga di setiap kelurahan yang ada di wilayah kelurahan.", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan A benar karena ringkas, tidak mengandung kata mubazir, dan menggunakan bentuk baku 'menyosialisasikan' (fonem /s/ luluh). Pilihan B memakai bentuk tidak baku 'mensosialisasikan'. Pilihan C masih memuat kata 'tentang' yang berlebihan setelah verba transitif. Pilihan D mengandung bentuk jamak ganda 'para warga-warga'. Pilihan E mengandung pengulangan makna 'kelurahan' sehingga tidak efektif."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Verbal - Silogisme",
+      "title": "Penarikan Kesimpulan dari Tiga Premis tentang Sertifikasi Pegawai Kementerian",
+      "questionStem": "Perhatikan premis-premis berikut.\nPremis 1: Semua analis data di sebuah kementerian telah lulus sertifikasi kompetensi.\nPremis 2: Sebagian pegawai yang telah lulus sertifikasi kompetensi menjadi instruktur pelatihan.\nPremis 3: Tidak ada instruktur pelatihan yang bertugas di unit pengadaan.\nKesimpulan yang pasti benar berdasarkan ketiga premis tersebut adalah ...",
+      "reasoningChain": "Notasi: A = analis data, S = lulus sertifikasi, I = instruktur pelatihan, P = bertugas di unit pengadaan. P1: A ⊂ S. P2: ada x sehingga x ∈ S dan x ∈ I. P3: I ∩ P = ∅. Ambil x dari P2: x ∈ S dan x ∈ I; karena I ∩ P = ∅, x ∉ P. Maka ada anggota S yang bukan P, yaitu 'Sebagian pegawai lulus sertifikasi tidak bertugas di unit pengadaan' (opsi D) pasti benar. Opsi A salah: x belum tentu analis data (S lebih luas dari A). Opsi B salah: P3 tidak membatasi analis data secara langsung. Opsi C salah: konversi keliru dari P2. Opsi E salah: tidak ada premis yang mengaitkan unit pengadaan dengan analis data bersertifikasi.",
+      "options": [
+        { "label": "A", "text": "Sebagian analis data adalah instruktur pelatihan.", "score": 0 },
+        { "label": "B", "text": "Tidak ada analis data yang bertugas di unit pengadaan.", "score": 0 },
+        { "label": "C", "text": "Semua instruktur pelatihan adalah analis data.", "score": 0 },
+        { "label": "D", "text": "Sebagian pegawai yang lulus sertifikasi tidak bertugas di unit pengadaan.", "score": 5 },
+        { "label": "E", "text": "Sebagian pegawai di unit pengadaan adalah analis data yang lulus sertifikasi.", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan D benar: pegawai bersertifikasi yang menjadi instruktur (Premis 2) tidak mungkin bertugas di unit pengadaan (Premis 3), sehingga sebagian pegawai bersertifikasi tidak di unit pengadaan. Pilihan A jatuh pada jebakan 'middle term tidak terdistribusi': instruktur bersertifikasi belum tentu analis data. Pilihan B tidak dapat disimpulkan karena analis data tidak dibatasi oleh Premis 3. Pilihan C adalah kekeliruan konversi dari 'sebagian' menjadi 'semua'. Pilihan E tidak memiliki dasar premis."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Verbal - Analitis",
+      "title": "Penentuan Posisi Duduk Lima Pejabat dalam Rapat Koordinasi",
+      "questionStem": "Lima pejabat sebuah BPBD, yaitu Hendra, Laras, Maya, Rizal, dan Yusuf, duduk berjajar pada lima kursi bernomor 1 sampai 5 dari kiri ke kanan dalam rapat koordinasi. Diketahui: (1) Laras duduk di kursi paling kiri; (2) Rizal duduk tepat di antara Hendra dan Maya, yaitu bersebelahan langsung dengan keduanya; (3) Maya duduk di sebelah kanan Hendra (tidak harus bersebelahan); (4) Yusuf tidak duduk bersebelahan dengan Rizal; (5) Maya tidak duduk di kursi paling kanan. Pejabat yang duduk di kursi paling kanan adalah ...",
+      "reasoningChain": "Syarat (1): Laras di kursi 1. Syarat (2) dan (3): Rizal di tengah dan Maya di kanan Hendra, sehingga urutan blok tiga kursi berurutan adalah Hendra-Rizal-Maya. Blok ini menempati kursi 2-4 atau 3-5 (karena kursi 1 milik Laras). Kasus blok 3-5: Maya di kursi 5 (paling kanan), melanggar syarat (5). Kasus blok 2-4: Hendra 2, Rizal 3, Maya 4, sisa Yusuf di kursi 5; syarat (4): Yusuf (5) tidak bersebelahan dengan Rizal (3), terpenuhi. Susunan unik: Laras-Hendra-Rizal-Maya-Yusuf. Kursi paling kanan: Yusuf (opsi B). Opsi lain tidak mungkin: Maya melanggar (5), Rizal di kursi 3, Hendra di kursi 2, Laras di kursi 1.",
+      "options": [
+        { "label": "A", "text": "Maya", "score": 0 },
+        { "label": "B", "text": "Yusuf", "score": 5 },
+        { "label": "C", "text": "Rizal", "score": 0 },
+        { "label": "D", "text": "Hendra", "score": 0 },
+        { "label": "E", "text": "Laras", "score": 0 }
+      ],
+      "rubricRationale": "Susunan yang memenuhi seluruh syarat hanya satu: Laras, Hendra, Rizal, Maya, Yusuf dari kiri ke kanan, sehingga Yusuf (B) di kursi paling kanan. Maya (A) hanya mungkin di kursi paling kanan jika syarat (5) diabaikan. Rizal (C), Hendra (D), dan Laras (E) berturut-turut menempati kursi 3, 2, dan 1."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Numerik - Perbandingan Kuantitatif",
+      "title": "Perbandingan Dua Kuantitas dari Panjang Dua Ruas Jalan Provinsi",
+      "questionStem": "Panjang dua ruas jalan provinsi masing-masing a km dan b km, dengan a + b = 12, ab = 35, dan a > b. Kuantitas P = a² − b². Kuantitas Q = ab − (a + b). Hubungan yang benar antara P dan Q adalah ...",
+      "reasoningChain": "Dari a + b = 12 dan ab = 35, a dan b adalah akar t² − 12t + 35 = 0, yaitu (t − 5)(t − 7) = 0, sehingga t = 5 atau 7. Karena a > b, a = 7 dan b = 5. P = a² − b² = 49 − 25 = 24 (atau (a+b)(a−b) = 12 × 2 = 24). Q = ab − (a+b) = 35 − 12 = 23. Jadi P = 24 > Q = 23, selisih P − Q = 1. Opsi A benar. Opsi B dan C salah karena P tidak lebih kecil atau sama dengan Q. Opsi D salah karena nilai a dan b dapat ditentukan secara unik. Opsi E salah karena selisihnya 1, bukan 2.",
+      "options": [
+        { "label": "A", "text": "P > Q", "score": 5 },
+        { "label": "B", "text": "P < Q", "score": 0 },
+        { "label": "C", "text": "P = Q", "score": 0 },
+        { "label": "D", "text": "Hubungan P dan Q tidak dapat ditentukan", "score": 0 },
+        { "label": "E", "text": "P > Q dan selisih P − Q tepat sama dengan 2", "score": 0 }
+      ],
+      "rubricRationale": "Nilai a = 7 dan b = 5 diperoleh dari persamaan kuadrat, sehingga P = 24 dan Q = 23, maka P > Q (A). Pilihan C menjebak peserta yang menyamakan kedua kuantitas tanpa menghitung. Pilihan D keliru karena a dan b dapat ditentukan secara unik. Pilihan B keliru. Pilihan E keliru karena selisih sebenarnya 1."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Numerik - Soal Cerita",
+      "title": "Waktu Pengisian Reservoir PDAM dengan Dua Pompa dan Satu Pipa Pembuangan",
+      "questionStem": "Sebuah reservoir PDAM yang kosong dapat diisi penuh oleh pompa A saja dalam 6 jam atau oleh pompa B saja dalam 9 jam. Pipa pembuangan C dapat mengosongkan reservoir yang penuh dalam 18 jam. Pada pukul 07.00 pompa A dan B dibuka bersamaan. Pada pukul 09.00 pipa C ikut dibuka tanpa menutup pompa mana pun. Reservoir akan penuh pada pukul ...",
+      "reasoningChain": "Laju: A = 1/6, B = 1/9, C = −1/18 (bagian per jam). Laju A + B = 3/18 + 2/18 = 5/18 per jam. Selama 2 jam pertama (07.00-09.00): terisi 2 × 5/18 = 10/18 = 5/9. Sisa = 1 − 5/9 = 4/9. Setelah C dibuka, laju bersih = 5/18 − 1/18 = 4/18 = 2/9 per jam. Waktu sisa = (4/9) ÷ (2/9) = 2 jam. Total = 2 + 2 = 4 jam, jadi penuh pukul 11.00 (opsi E). Verifikasi opsi lain: A (10.00, 3 jam) terlalu cepat; B (10.36) = 3,6 jam adalah hasil jika C diabaikan: 2 + (4/9)/(5/18) = 2 + 1,6; C (11.30) = 4,5 jam adalah hasil jika C dibuka sejak awal: 1 ÷ (2/9) = 4,5; D (12.00) = 5 jam tidak sesuai perhitungan manapun.",
+      "options": [
+        { "label": "A", "text": "10.00", "score": 0 },
+        { "label": "B", "text": "10.36", "score": 0 },
+        { "label": "C", "text": "11.30", "score": 0 },
+        { "label": "D", "text": "12.00", "score": 0 },
+        { "label": "E", "text": "11.00", "score": 5 }
+      ],
+      "rubricRationale": "Pilihan E benar: dua jam pertama mengisi 5/9 bagian, sisa 4/9 bagian diisi dengan laju bersih 2/9 per jam selama 2 jam, total 4 jam (pukul 11.00). Pilihan B adalah jebakan karena mengabaikan pipa C setelah dibuka (3,6 jam). Pilihan C adalah jebakan karena menghitung seolah C dibuka sejak awal (4,5 jam). Pilihan A dan D tidak sesuai dengan perhitungan laju kerja."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Pelayanan Publik",
+      "title": "Menghadapi Lansia dengan Persyaratan Administrasi Belum Lengkap Menjelang Jam Tutup",
+      "questionStem": "Anda bertugas di loket Dinas Kependudukan dan Pencatatan Sipil. Menjelang jam tutup, seorang lansia dari desa terpencil yang menempuh perjalanan tiga jam datang untuk mengurus perubahan Kartu Keluarga, tetapi belum membawa surat pengantar dari RT yang menjadi syarat wajib. Lansia tersebut tampak lelah dan khawatir harus kembali lagi. Tindakan yang paling tepat Anda lakukan adalah ...",
+      "reasoningChain": "Indikator Pelayanan Publik (PermenPAN-RB tentang standar pelayanan dan Indeks Kepuasan Masyarakat): daya tanggap, empati terhadap kelompok rentan, kepastian layanan, dan kepatuhan pada persyaratan yang ditetapkan. Nilai 5 diberikan pada tindakan yang proaktif dan tetap sesuai aturan: menjelaskan dengan empatik, membantu menghubungi perangkat desa agar surat pengantar dikirim lewat sarana yang sah, lalu memproses berkas pada hari yang sama begitu persyaratan lengkap. Nilai 4: penjelasan rinci dan penjadwalan prioritas (sesuai aturan, empatik, tetapi menunda). Nilai 3: memproses sementara dengan janji menyusul (cepat dan empatik tetapi menyimpang dari prosedur). Nilai 2: hanya meminta kembali setelah melengkapi tanpa bantuan. Nilai 1: menolak dengan alasan target harian tanpa empati.",
+      "options": [
+        { "label": "A", "text": "Memproses perubahan Kartu Keluarga terlebih dahulu tanpa surat pengantar dengan catatan lansia tersebut akan menyusulkan dokumen pada kunjungan berikutnya.", "score": 3 },
+        { "label": "B", "text": "Menjelaskan persyaratan dengan ramah, membantu menghubungi perangkat desa agar surat pengantar dikirim melalui sarana yang sah, lalu memproses berkas pada hari yang sama setelah persyaratan lengkap.", "score": 5 },
+        { "label": "C", "text": "Menjelaskan bahwa syarat wajib belum lengkap dan meminta lansia kembali setelah melengkapi dokumen.", "score": 2 },
+        { "label": "D", "text": "Memberikan daftar rinci kekurangan dokumen, lalu mendaftarkan lansia dalam jadwal prioritas pelayanan keesokan harinya.", "score": 4 },
+        { "label": "E", "text": "Meminta lansia kembali di lain waktu karena Anda harus menyelesaikan target pelayanan harian sebelum loket tutup.", "score": 1 }
+      ],
+      "rubricRationale": "Pilihan B (skor 5) memadukan empati, inisiatif solusi, dan kepatuhan prosedur sehingga layanan tuntas pada hari yang sama. Pilihan D (skor 4) sesuai aturan dan empatik tetapi menunda layanan. Pilihan A (skor 3) cepat tetapi menyimpang dari persyaratan wajib. Pilihan C (skor 2) benar secara prosedur tetapi pasif tanpa bantuan. Pilihan E (skor 1) mengabaikan kebutuhan warga dan mengutamakan target internal."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Anti-Radikalisme",
+      "title": "Menyikapi Konten Penolakan Simbol Negara di Grup Percakapan Kantor",
+      "questionStem": "Anda bekerja di sebuah BUMN bidang energi. Seorang rekan kerja dalam grup percakapan kantor berulang kali membagikan konten yang menyebut penghormatan kepada bendera dan Pancasila sebagai perbuatan yang menyimpang, serta mengajak rekan lain tidak mengikuti upacara. Beberapa anggota grup mulai menanggapi dengan nada setuju. Tindakan paling tepat yang Anda ambil adalah ...",
+      "reasoningChain": "Indikator Anti-Radikalisme pada SKD: komitmen menjaga ideologi Pancasila dan NKRI, bersikap tegas terhadap paham yang bertentangan dengan dasar negara, namun menempuh cara persuasif dan melalui jalur institusional. Nilai 5: mengajak dialog pribadi dengan penjelasan landasan konstitusional (Pancasila sebagai dasar negara), sekaligus melaporkan konten kepada atasan agar dibina melalui mekanisme kepegawaian. Nilai 4: melaporkan langsung dengan bukti tetapi tanpa upaya persuasif. Nilai 3: membantah terbuka di grup (berisiko konflik, tidak melalui jalur institusional). Nilai 2: mengabaikan konten (pembiaran). Nilai 1: keluar dari grup (menghindar).",
+      "options": [
+        { "label": "A", "text": "Mengumpulkan tangkapan layar konten tersebut dan langsung melaporkannya kepada atasan tanpa berbicara terlebih dahulu dengan rekan yang bersangkutan.", "score": 4 },
+        { "label": "B", "text": "Membantah konten tersebut secara terbuka di dalam grup dengan menyertakan dalil konstitusi agar anggota grup lain tidak terpengaruh.", "score": 3 },
+        { "label": "C", "text": "Mengabaikan konten tersebut karena menganggap perbedaan pandangan adalah hak pribadi masing-masing pegawai.", "score": 2 },
+        { "label": "D", "text": "Mengajak rekan tersebut berdiskusi secara pribadi dengan menjelaskan kedudukan Pancasila sebagai dasar negara, serta melaporkan konten itu kepada atasan agar dibina melalui mekanisme kepegawaian.", "score": 5 },
+        { "label": "E", "text": "Keluar dari grup percakapan agar tidak terlibat dalam perdebatan mengenai konten tersebut.", "score": 1 }
+      ],
+      "rubricRationale": "Pilihan D (skor 5) memadukan pendekatan persuasif dan penegakan melalui jalur kelembagaan. Pilihan A (skor 4) tegas dan prosedural tetapi melewatkan upaya pembinaan langsung. Pilihan B (skor 3) berani tetapi berpotensi memicu perdebatan terbuka. Pilihan C (skor 2) membiarkan penyebaran paham yang bertentangan dengan dasar negara. Pilihan E (skor 1) menghindari masalah dan tidak berkontribusi pada pencegahan."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Profesionalisme",
+      "title": "Tekanan Tenggat Serah Terima Proyek Jembatan terhadap Prosedur Uji Beban",
+      "questionStem": "Anda adalah insinyur pengawas pada sebuah dinas pekerjaan umum. Jembatan yang baru rampung akan diresmikan kepala daerah dalam lima hari. Pimpinan Anda meminta serah terima segera dilakukan tanpa uji beban karena jadwal uji memerlukan tiga hari kerja. Anda menilai uji beban adalah prosedur wajib untuk memastikan keselamatan pengguna. Tindakan paling tepat yang Anda ambil adalah ...",
+      "reasoningChain": "Indikator Profesionalisme: kompetensi dan tanggung jawab terhadap standar mutu dan keselamatan, integritas pada prosedur teknis, disertai kemampuan mencari solusi dalam batas aturan. Nilai 5: tetap melaksanakan uji beban sesuai SOP, menyampaikan risiko secara tertulis kepada pimpinan, dan mengusulkan percepatan (tambahan personel atau lembur) agar tenggat tetap terpenuhi. Nilai 4: mengajukan keberatan tertulis dan menunda uji menunggu arahan (patuh standar tetapi kurang solutif). Nilai 3: uji sebagian pada titik kritis (kompromi yang tetap menyimpang dari prosedur lengkap). Nilai 2: mengikuti perintah dengan menggeser tanggung jawab kepada atasan. Nilai 1: memalsukan hasil uji, pelanggaran integritas terberat.",
+      "options": [
+        { "label": "A", "text": "Melakukan uji beban hanya pada titik-titik kritis agar penghematan waktu tetap dapat dicapai dan proyek siap diresmikan.", "score": 3 },
+        { "label": "B", "text": "Mengikuti perintah pimpinan karena tanggung jawab keputusan berada pada atasan, bukan pada pengawas lapangan.", "score": 2 },
+        { "label": "C", "text": "Tetap melaksanakan uji beban sesuai prosedur, menyampaikan risiko tanpa uji secara tertulis kepada pimpinan, dan mengusulkan tambahan personel serta jam kerja agar uji selesai sebelum peresmian.", "score": 5 },
+        { "label": "D", "text": "Mengajukan keberatan tertulis kepada pimpinan dan menunda pelaksanaan uji sampai ada arahan lebih lanjut.", "score": 4 },
+        { "label": "E", "text": "Menandatangani berita acara serah terima dengan mencantumkan hasil uji yang sama seperti proyek jembatan sebelumnya agar tenggat terpenuhi.", "score": 1 }
+      ],
+      "rubricRationale": "Pilihan C (skor 5) menjaga standar keselamatan, transparan dalam menyampaikan risiko, dan menawarkan solusi nyata. Pilihan D (skor 4) menjaga standar tetapi pasif dan berpotensi menggagalkan tenggat. Pilihan A (skor 3) kompromi yang mengurangi kelengkapan prosedur. Pilihan B (skor 2) melepaskan tanggung jawab profesional. Pilihan E (skor 1) adalah pemalsuan data teknis yang membahayakan keselamatan publik."
+    }
+  ]
+}
