@@ -12,140 +12,122 @@ export type HelpSection = {
 
 export const helpSections: HelpSection[] = [
   {
-    id: "getting-started",
-    heading: "1. Memulai (Getting Started)",
+    id: "about-skd-tutor",
+    heading: "1. Tentang Tutor SKD CPNS",
     items: [
       {
-        id: "how-to-use",
-        title: "Bagaimana cara menggunakan aplikasi ini?",
+        id: "what-is-skd-tutor",
+        title: "Apa itu Tutor SKD CPNS berbasis AI?",
         content:
-          "Buka halaman utama dan ketikkan pertanyaan Anda pada kolom chat, lalu tekan tombol kirim atau tekan Enter. Chatbot akan mencoba menjawab berdasarkan informasi yang terdapat di database.",
+          "Tutor SKD CPNS adalah platform pembelajaran interaktif berbasis AI dan RAG (Retrieval-Augmented Generation) yang dirancang khusus untuk membantu calon peserta seleksi CPNS menguasai materi Seleksi Kompetensi Dasar (SKD) sesuai standar PermenPAN-RB dan BKN.",
       },
       {
-        id: "main-purpose",
-        title: "Apa fungsi utama dari aplikasi ini?",
+        id: "covered-subjects",
+        title: "Materi apa saja yang diujikan dalam SKD?",
         content:
-          "Aplikasi ini berfungsi sebagai portal informasi resmi Kabupaten Madiun yang memungkinkan pengguna mencari jawaban dari dokumen dan data yang telah diindeks oleh sistem (RAG).",
+          "SKD terdiri dari 3 sub-tes utama: (1) Tes Wawasan Kebangsaan (TWK) meliputi Nasionalisme, Integritas, Bela Negara, dan Pilar Negara; (2) Tes Inteligensia Umum (TIU) meliputi Kemampuan Verbal (Silogisme, Analogi), Kemampuan Numerik (Deret, Pecahan, Soal Cerita), dan Kemampuan Figural; (3) Tes Karakteristik Pribadi (TKP) meliputi Pelayanan Publik, Jejaring Kerja, Sosial Budaya, TIK, Profesionalisme, dan Anti Radikalisme.",
       },
       {
-        id: "supported-browsers",
-        title: "Browser dan perangkat yang didukung",
+        id: "ai-learning-advantages",
+        title: "Apa keunggulan berlatih dengan tutor AI ini?",
         content:
-          "Aplikasi ini bekerja di browser modern seperti Chrome, Firefox, Edge, dan Safari. Untuk pengalaman terbaik, gunakan versi browser terbaru dan koneksi internet stabil.",
-      },
-      {
-        id: "no-account-needed",
-        title: "Apakah perlu membuat akun?",
-        content:
-          "Untuk sebagian besar fitur dasar (mencari informasi via chatbot), akun tidak diperlukan. Beberapa fitur lanjutan atau pencatatan histori mungkin memerlukan autentikasi di masa mendatang.",
+          "Tutor AI menyajikan latihan soal bergaya HOTS (Higher Order Thinking Skills) lengkap dengan opsi pilihan ganda A–E, penguncian kunci jawaban anti-bocor hingga Anda memilih jawaban, serta pembahasan mendalam dan rasional rubrik penilaian yang transparan.",
       },
     ],
   },
   {
-    id: "chatbot-features",
-    heading: "2. Menggunakan Fitur Chatbot",
+    id: "interactive-quizzes",
+    heading: "2. Cara Latihan Soal Interaktif",
     items: [
       {
-        id: "ask-chatbot",
-        title: "Bagaimana cara bertanya kepada chatbot?",
+        id: "how-to-request-quiz",
+        title: "Bagaimana cara meminta soal latihan di chat?",
         content:
-          "Anda cukup menuliskan pertanyaan secara jelas dan spesifik. Hindari pertanyaan berlapis; jika perlu, pisahkan menjadi beberapa pertanyaan agar hasil lebih akurat.",
+          "Anda dapat mengetikkan permintaan langsung seperti 'Berikan 1 soal latihan TWK HOTS' atau 'Minta soal TIU Silogisme'. Anda juga dapat mengklik tombol ikon lampu (Saran) di kolom chat untuk memilih salah satu prompt cepat yang tersedia.",
       },
       {
-        id: "rag-explanation",
-        title: "Apa itu RAG (Retrieval-Augmented Generation)?",
+        id: "answering-questions",
+        title: "Bagaimana cara menjawab soal yang diberikan?",
         content:
-          "RAG adalah metode yang menggabungkan sistem pencarian dokumen (retrieval) dengan model bahasa (generation). Sistem mengambil cuplikan relevan dari sumber internal, lalu model menghasilkan jawaban berdasarkan konteks tersebut.",
+          "Setiap soal latihan disajikan dalam kartu soal interaktif dengan tombol opsi A, B, C, D, dan E. Anda cukup mengklik huruf pilihan Anda pada kartu soal, atau mengetikkan jawaban Anda di kolom chat (misalnya: 'Jawaban saya C').",
       },
       {
-        id: "language-rules",
-        title: "Bahasa apa yang harus digunakan?",
+        id: "turn-based-eval",
+        title: "Mengapa kunci jawaban tidak langsung diberitahukan?",
         content:
-          "Gunakan Bahasa Indonesia. Jika pengguna memakai Bahasa Inggris, sistem akan meminta pengguna beralih ke Bahasa Indonesia sesuai aturan sistem.",
-      },
-      {
-        id: "examples-and-tips",
-        title: "Contoh pertanyaan yang baik",
-        content:
-          'Contoh: "Apa persyaratan mendapatkan bantuan X di Kabupaten Madiun tahun 2024?" Lebih spesifik => lebih relevan. Sertakan nama program, tahun, atau lokasi bila perlu.',
+          "Untuk mensimulasikan ujian CAT BKN yang sesungguhnya, sistem mengunci kunci jawaban dan nilai rubrik di server hingga Anda menentukan pilihan. Setelah Anda menjawab, sistem mengevaluasi ketepatan jawaban Anda dan membuka pembahasan lengkap.",
       },
     ],
   },
   {
-    id: "bot-workings",
-    heading: "3. Cara Kerja Chatbot & Sumber Informasi",
+    id: "scoring-and-passing-grades",
+    heading: "3. Sistem Skor & Target Passing Grade BKN",
     items: [
       {
-        id: "sources",
-        title: "Dari mana chatbot mengambil informasinya?",
+        id: "twk-tiu-scoring",
+        title: "Bagaimana sistem penilaian TWK dan TIU?",
         content:
-          "Chatbot mengambil informasi dari dokumen, peraturan, dan data internal yang telah diindeks ke dalam database RAG. Sistem tidak melakukan penelusuran web langsung; jawaban dihasilkan oleh model AI berdasarkan sumber internal tersebut.",
+          "Pada TWK (30 soal) dan TIU (35 soal), jawaban benar bernilai +5 poin dan jawaban salah atau kosong bernilai 0 poin (tidak ada sistem minus). Passing grade resmi formasi umum: TWK minimal 65 poin (minimal 13 soal benar) dan TIU minimal 80 poin (minimal 16 soal benar).",
       },
       {
-        id: "update-frequency",
-        title: "Seberapa sering data diperbarui?",
+        id: "tkp-rubric-scoring",
+        title: "Bagaimana sistem penilaian bertingkat pada TKP?",
         content:
-          "Frekuensi pembaruan tergantung pada proses pengindeksan internal. Untuk pembaruan penting (mis. peraturan baru), admin perlu menjalankan proses re-ingest agar data terbaru tersedia.",
+          "Pada TKP (45 soal), tidak ada jawaban benar mutlak bernilai nol. Seluruh opsi (A–E) memiliki bobot nilai bergradasi dari 1 hingga 5 poin sesuai keselarasan nilai ASN BerAKHLAK. Passing grade resmi formasi umum TKP adalah minimal 166 poin.",
       },
       {
-        id: "accuracy-and-limits",
-        title: "Seberapa akurat jawaban chatbot?",
+        id: "cumulative-target",
+        title: "Berapa target skor total SKD yang aman?",
         content:
-          "Akurasi bergantung pada ketersediaan dan kualitas data di konteks. Jika informasi tidak ada atau tidak cukup, chatbot akan menyatakan bahwa data tidak ditemukan dan tidak boleh mengarang jawaban.",
-      },
-      {
-        id: "privacy",
-        title: "Bagaimana privasi data pengguna dijaga?",
-        content:
-          "Sistem hanya menyimpan riwayat percakapan sesuai kebijakan aplikasi. Data sensitif sebaiknya tidak dibagikan di chat. Admin bertanggung jawab atas konfigurasi penyimpanan dan kebijakan privasi.",
+          "Total skor maksimal SKD adalah 550 (TWK 150 + TIU 175 + TKP 225). Peserta disarankan menargetkan total skor di atas 400–450 poin untuk memastikan lolos pemeringkatan perangkingan 3 kali formasi menuju tahap SKB.",
       },
     ],
   },
   {
-    id: "access-technical",
-    heading: "4. Akses & Kendala Teknis",
+    id: "history-and-evaluation",
+    heading: "4. Evaluasi & Riwayat Soal di /quiz-history",
     items: [
       {
-        id: "login-issues",
-        title: "Jika mengalami masalah akses atau login",
+        id: "chat-quiz-drawer",
+        title: "Bagaimana melihat rekap soal pada sesi percakapan aktif?",
         content:
-          "Periksa koneksi internet, bersihkan cache browser, dan coba muat ulang halaman. Jika masih bermasalah, catat pesan error dan hubungi tim support.",
+          "Di bagian atas ruang chat, terdapat tombol 'Soal di Chat' yang membuka slide-over drawer berisi seluruh soal dalam sesi aktif, status penyelesaian, serta total perolehan skor Anda.",
       },
       {
-        id: "report-bug",
-        title: "Bagaimana melaporkan bug atau kesalahan konten?",
+        id: "quiz-history-dashboard",
+        title: "Apa fungsi halaman Riwayat Latihan SKD (/quiz-history)?",
         content:
-          "Laporkan lewat email support atau formulir kontak yang disediakan. Sertakan deskripsi masalah, langkah reproduksi, dan screenshot bila perlu.",
+          "Halaman Riwayat Latihan SKD menampilkan dashboard komprehensif berupa grafik akurasi per kategori, perbandingan skor dengan passing grade resmi BKN, filter status terjawab/belum, serta riwayat kartu soal beserta penjelasan rubrik.",
       },
       {
-        id: "attachments-and-uploads",
-        title: "Apakah bisa mengunggah dokumen untuk dicari?",
+        id: "review-explanations",
+        title: "Apakah saya bisa meninjau ulang pembahasan soal lama?",
         content:
-          "Saat ini unggah dokumen hanya tersedia untuk admin. Untuk menambah dokumen publik, hubungi administrator agar dokumen diindeks ke sistem.",
+          "Ya. Pada kartu soal yang sudah dijawab, Anda dapat mengklik 'Lihat Pembahasan & Rasional Rubrik' untuk membaca ulasan mendalam konsep dan rasional pembobotan poin.",
       },
     ],
   },
   {
-    id: "other",
-    heading: "5. Lainnya",
+    id: "account-and-privacy",
+    heading: "5. Akun, Mode Tamu, & Privasi Data",
     items: [
       {
-        id: "contact-support",
-        title: "Kontak dan dukungan",
+        id: "guest-mode",
+        title: "Apakah saya bisa mencoba tanpa login (Mode Tamu)?",
         content:
-          "Untuk bantuan lebih lanjut, kirim email ke ariefsatria2409@gmail.com atau gunakan formulir kontak pada halaman 'Hubungi Kami'.",
+          "Ya. Pengguna tamu dapat langsung mencoba latihan interaktif di chat dan melihat riwayat latihan di perangkat yang sama selama 24 jam.",
       },
       {
-        id: "feedback",
-        title: "Memberi masukan atau saran",
+        id: "save-permanently",
+        title: "Bagaimana agar riwayat latihan tersimpan permanen?",
         content:
-          "Masukan sangat dihargai untuk meningkatkan kualitas data dan layanan. Silakan kirim saran melalui email atau formulir umpan balik di situs.",
+          "Dengan membuat akun dan login, seluruh riwayat percakapan dan statistik latihan soal Anda akan tersimpan secara aman dan permanen di database akun Anda.",
       },
       {
-        id: "terms",
-        title: "Syarat penggunaan dan kebijakan",
+        id: "feedback-and-support",
+        title: "Bagaimana cara menyampaikan masukan atau kendala teknis?",
         content:
-          "Gunakan layanan sesuai peraturan yang berlaku. Untuk informasi lebih lanjut mengenai kebijakan penggunaan data, hubungi admin atau lihat dokumen kebijakan yang tersedia.",
+          "Jika Anda menemukan kendala teknis atau saran materi soal, silakan sampaikan melalui tim pengembang atau administrator platform belajar.",
       },
     ],
   },

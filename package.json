@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "db:seed": "tsx scripts/seed.ts",
+    "db:import-quiz": "tsx scripts/import-quiz-bank.ts",
     "db:studio": "drizzle-kit studio",
     "db:migrate": "drizzle-kit migrate",
     "db:generate": "drizzle-kit generate"
