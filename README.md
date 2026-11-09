@@ -59,8 +59,8 @@ SKD CPNS & Sekolah Kedinasan Learning Chatbot is an AI-powered chatbot system de
 ### For End Users
 
 - **💬 Intelligent Chatbot**
-  - Ask questions about Madiun Regency in natural language
-  - Get accurate answers from government officials, regulations, and public services data
+  - Ask questions about SKD CPNS and Sekolah Kedinasan preparation (TWK, TIU, TKP)
+  - Get interactive HOTS practice questions, answer evaluations, and comprehensive scoring rubrics
   - Context-aware responses using RAG technology
 
 - **🔒 Authentication System**
@@ -121,8 +121,8 @@ SKD CPNS & Sekolah Kedinasan Learning Chatbot is an AI-powered chatbot system de
 - **Password Hashing**: bcryptjs
 
 ### AI & ML
-- **LLM**: Google Gemini 1.5 Flash
-- **Embeddings**: Google Generative AI Embeddings (768 dimensions)
+- **LLM**: Google Gemini 2.5 Flash
+- **Embeddings**: Google Generative AI Embeddings (gemini-embedding-001, 768 dimensions)
 - **RAG Framework**: Custom implementation
 
 ### DevOps
