@@ -10,6 +10,7 @@ import {
   boolean,
   varchar,
   index,
+  uniqueIndex,
 } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
@@ -62,6 +63,7 @@ export const ragData = pgTable(
       "hnsw",
       table.embedding.op("vector_cosine_ops")
     ),
+    uniqueIndex("rag_data_external_id_uidx").on(table.external_id),
   ]
 );
 

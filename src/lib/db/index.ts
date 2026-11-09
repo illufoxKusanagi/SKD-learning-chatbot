@@ -1,6 +1,6 @@
 import postgres from "postgres";
 import { drizzle } from "drizzle-orm/postgres-js";
-import { eq, or, sql, and, desc } from "drizzle-orm";
+import { eq, or, sql } from "drizzle-orm";
 import * as schema from "./schema";
 
 // Re-export common drizzle operators
@@ -67,6 +67,16 @@ export async function ensureDatabaseSchema() {
 
     // 3. Ensure HNSW cosine index on rag_data.embedding exists
     try {
+      await db.execute(sql`
+        DELETE FROM rag_data a USING rag_data b
+        WHERE a.ctid < b.ctid
+          AND a.external_id IS NOT NULL
+          AND a.external_id = b.external_id
+      `);
+      await db.execute(sql`
+        CREATE UNIQUE INDEX IF NOT EXISTS rag_data_external_id_uidx
+        ON rag_data (external_id)
+      `);
       await db.execute(sql`
         CREATE INDEX IF NOT EXISTS rag_data_embedding_idx 
         ON rag_data USING hnsw (embedding vector_cosine_ops)
