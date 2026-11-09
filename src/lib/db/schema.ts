@@ -11,6 +11,8 @@ import {
   varchar,
   index,
   uniqueIndex,
+  bigint,
+  primaryKey,
 } from "drizzle-orm/pg-core";
 
 export const users = pgTable("users", {
@@ -104,6 +106,18 @@ export const quizAttempts = pgTable("quiz_attempts", {
   answeredAt: timestamp("answered_at"),
 });
 
+export const rateLimits = pgTable(
+  "rate_limits",
+  {
+    key: text("key").notNull(),
+    windowStart: bigint("window_start", { mode: "number" }).notNull(),
+    count: integer("count").default(0).notNull(),
+  },
+  (table) => [
+    primaryKey({ columns: [table.key, table.windowStart] }),
+  ]
+);
+
 export type InsertUser = typeof users.$inferInsert;
 export type SelectUser = typeof users.$inferSelect;
 
@@ -117,3 +131,5 @@ export type QuizAttempt = typeof quizAttempts.$inferSelect;
 export type NewQuizAttempt = typeof quizAttempts.$inferInsert;
 export type QuizOptions = { A: string; B: string; C: string; D: string; E: string };
 export type QuizScoringRubric = { A: number; B: number; C: number; D: number; E: number };
+export type RateLimit = typeof rateLimits.$inferSelect;
+export type NewRateLimit = typeof rateLimits.$inferInsert;

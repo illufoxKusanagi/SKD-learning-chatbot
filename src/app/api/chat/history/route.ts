@@ -80,7 +80,12 @@ async function getChatHistoryHandler(_request: NextRequest) {
   }
 }
 
-const historyRateLimit = createRateLimitMiddleware(30, 60000);
+const historyRateLimit = createRateLimitMiddleware({
+  prefix: 'chat-history',
+  windowMs: 60_000,
+  max: 30,
+  guestMax: 30,
+});
 
 export const GET = (request: NextRequest) => {
   return withMiddleware(historyRateLimit)(request, getChatHistoryHandler);

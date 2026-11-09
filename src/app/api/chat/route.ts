@@ -1,4 +1,4 @@
-import { db, ensureDatabaseSchema } from '@/lib/db';
+import { db } from '@/lib/db';
 import { conversations, messages, quizAttempts } from '@/lib/db/schema';
 import { findRelevantContents } from '@/lib/services/ai/rag.service';
 import {
@@ -63,9 +63,25 @@ function parseQuizOptionChoice(
   return match ? (match[1].toUpperCase() as QuizOption) : null;
 }
 
-async function handleChatPost(request: NextRequest) {
-  await ensureDatabaseSchema();
+async function persistGeneratedTitle(
+  conversationId: string,
+  titlePromise: Promise<string> | null
+): Promise<void> {
+  if (!titlePromise) return;
+  try {
+    const title = await titlePromise;
+    if (title) {
+      await db
+        .update(conversations)
+        .set({ title })
+        .where(eq(conversations.id, conversationId));
+    }
+  } catch (error) {
+    console.error('Failed to persist generated title:', error);
+  }
+}
 
+async function handleChatPost(request: NextRequest) {
   const body = await request.json();
   const { message, chatId, quizAttemptId } = chatMessageSchema.parse(body);
 
@@ -117,17 +133,20 @@ async function handleChatPost(request: NextRequest) {
   }
 
   let conversationId = chatId;
+  let titlePromise: Promise<string> | null = null;
 
   // Manage conversation for authenticated vs guest user
   if (userId) {
     try {
       if (!conversationId) {
-        const title = await generateChatTitle(message);
+        titlePromise = generateChatTitle(message);
+        const initialTitle =
+          message.trim().replace(/\s+/g, ' ').slice(0, 40) || 'New Chat';
         const [newChat] = await db
           .insert(conversations)
           .values({
             userId: userId,
-            title: title || 'New Chat',
+            title: initialTitle,
             createdAt: new Date(),
             isGuestChat: false,
           })
@@ -159,7 +178,9 @@ async function handleChatPost(request: NextRequest) {
   } else {
     try {
       if (!conversationId) {
-        const title = await generateChatTitle(message);
+        titlePromise = generateChatTitle(message);
+        const initialTitle =
+          message.trim().replace(/\s+/g, ' ').slice(0, 40) || 'Guest Chat';
         const guestSessionId = `guest_${Date.now()}_${Math.random()
           .toString(36)
           .substring(7)}`;
@@ -170,7 +191,7 @@ async function handleChatPost(request: NextRequest) {
           .insert(conversations)
           .values({
             userId: null,
-            title: title || 'Guest Chat',
+            title: initialTitle,
             createdAt: new Date(),
             isGuestChat: true,
             guestSessionId: guestSessionId,
@@ -213,17 +234,30 @@ async function handleChatPost(request: NextRequest) {
     }
   }
 
-  // 1. Load multi-turn conversation history before inserting the new user message
-  const recentDbMessages = await db
-    .select({
-      role: messages.role,
-      content: messages.content,
-      createdAt: messages.createdAt,
-    })
-    .from(messages)
-    .where(eq(messages.chatId, conversationId))
-    .orderBy(desc(messages.createdAt))
-    .limit(16);
+  // 1. Parallelise independent reads: conversation history, conversation quizzes, and user quizzes
+  const [recentDbMessages, chatQuizzes, userQuizzes] = await Promise.all([
+    db
+      .select({
+        role: messages.role,
+        content: messages.content,
+        createdAt: messages.createdAt,
+      })
+      .from(messages)
+      .where(eq(messages.chatId, conversationId))
+      .orderBy(desc(messages.createdAt))
+      .limit(16),
+    db
+      .select()
+      .from(quizAttempts)
+      .where(eq(quizAttempts.chatId, conversationId))
+      .orderBy(desc(quizAttempts.createdAt)),
+    userId
+      ? db
+          .select({ ragSourceId: quizAttempts.ragSourceId })
+          .from(quizAttempts)
+          .where(eq(quizAttempts.userId, userId))
+      : Promise.resolve([] as { ragSourceId: string | null }[]),
+  ]);
 
   recentDbMessages.reverse();
 
@@ -233,12 +267,6 @@ async function handleChatPost(request: NextRequest) {
   }));
 
   // 2. Query quiz state for this conversation
-  const chatQuizzes = await db
-    .select()
-    .from(quizAttempts)
-    .where(eq(quizAttempts.chatId, conversationId))
-    .orderBy(desc(quizAttempts.createdAt));
-
   let pendingQuiz: typeof quizAttempts.$inferSelect | null = null;
   if (quizAttemptId) {
     pendingQuiz = chatQuizzes.find((q) => q.id === quizAttemptId) || null;
@@ -262,16 +290,9 @@ async function handleChatPost(request: NextRequest) {
     }
   }
 
-  if (userId) {
-    const userQuizzes = await db
-      .select({ ragSourceId: quizAttempts.ragSourceId })
-      .from(quizAttempts)
-      .where(eq(quizAttempts.userId, userId));
-
-    for (const q of userQuizzes) {
-      if (q.ragSourceId) {
-        attemptedSourceSet.add(q.ragSourceId);
-      }
+  for (const q of userQuizzes) {
+    if (q.ragSourceId) {
+      attemptedSourceSet.add(q.ragSourceId);
     }
   }
 
@@ -390,6 +411,8 @@ async function handleChatPost(request: NextRequest) {
             createdAt: new Date(),
           });
 
+          await persistGeneratedTitle(conversationId, titlePromise);
+
           controller.close();
         } else {
           // ==================== TURN 1: QUESTION OR DISCUSSION ====================
@@ -500,6 +523,8 @@ async function handleChatPost(request: NextRequest) {
             createdAt: new Date(),
           });
 
+          await persistGeneratedTitle(conversationId, titlePromise);
+
           controller.close();
         }
       } catch (streamError) {
@@ -533,7 +558,13 @@ async function handleChatPost(request: NextRequest) {
   });
 }
 
-const chatRateLimit = createRateLimitMiddleware(30, 60000);
+const chatRateLimit = createRateLimitMiddleware({
+  prefix: 'chat',
+  windowMs: 60_000,
+  max: 15,
+  guestMax: 8,
+  daily: { max: 150, guestMax: 40 },
+});
 
 export const POST = (request: NextRequest) =>
   withMiddleware(chatRateLimit)(request, handleChatPost);

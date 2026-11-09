@@ -118,6 +118,12 @@ export async function generateChatTitle(message: string): Promise<string> {
     const result = await ai.models.generateContent({
       model: getGenerativeModel(),
       contents: `Generate a short, descriptive title in Indonesian (max 40 characters) for an SKD learning chat that starts with: "${message}". Return only the title text without quotes.`,
+      config: {
+        thinkingConfig: {
+          thinkingBudget: 0,
+        },
+        maxOutputTokens: 64,
+      },
     });
     const title = result.text?.trim() || 'Sesi Belajar SKD';
     return title.length > 50 ? title.substring(0, 47) + '...' : title;
@@ -262,11 +268,24 @@ ATURAN WAJIB:
       (options?.ragResult?.wantsNewVariation ||
         /ikn|terkini|terbaru|kebijakan|pemerintah|berita/i.test(userMessage));
 
+    const envBudget = process.env.GEMINI_THINKING_BUDGET?.trim();
+    const rawBudget = envBudget ? Number(envBudget) : 512;
+    const thinkingBudget = options?.lockedQuizEvaluation
+      ? 0
+      : Number.isFinite(rawBudget) && rawBudget >= 0
+        ? rawBudget
+        : 512;
+
+    // Note: thinkingConfig.thinkingBudget applies to gemini-2.5-* models; revisit if
+    // GENERATIVE_MODEL changes to a model with a different thinking parameter.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const config: any = {
       systemInstruction: SKD_SYSTEM_INSTRUCTION,
       temperature: 0.35,
       maxOutputTokens: 4096,
+      thinkingConfig: {
+        thinkingBudget,
+      },
       ...(enableGoogleSearch ? { tools: [{ googleSearch: {} }] } : {}),
     };
 

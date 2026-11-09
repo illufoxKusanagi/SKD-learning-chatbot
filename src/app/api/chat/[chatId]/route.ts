@@ -249,8 +249,18 @@ async function deleteChatHandler(
   }
 }
 
-const getChatRateLimit = createRateLimitMiddleware(60, 60000);
-const deleteChatRateLimit = createRateLimitMiddleware(10, 60000);
+const getChatRateLimit = createRateLimitMiddleware({
+  prefix: 'chat-get',
+  windowMs: 60_000,
+  max: 60,
+  guestMax: 60,
+});
+const deleteChatRateLimit = createRateLimitMiddleware({
+  prefix: 'chat-delete',
+  windowMs: 60_000,
+  max: 10,
+  guestMax: 10,
+});
 
 export const GET = (
   request: NextRequest,

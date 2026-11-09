@@ -225,6 +225,8 @@ npx drizzle-kit push
 
 ### 6. Seed the Database (Optional)
 
+Run `npm run db:ensure-schema` once per environment (creates `quiz_attempts` and `rate_limits`, enables pgvector) before `npm run db:import-quiz`. Chat is rate limited per user (guests per IP) using Postgres.
+
 Populate the database with initial RAG data:
 
 ```bash
@@ -573,6 +575,10 @@ For database, use:
 - [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
 - [Neon](https://neon.tech/) (recommended for pgvector)
 - [Supabase](https://supabase.com/)
+
+#### Database Setup & Seeding
+
+Run `npm run db:ensure-schema` once per environment (creates `quiz_attempts` and `rate_limits`, enables pgvector) before `npm run db:import-quiz`. Chat is rate limited per user (guests per IP) using Postgres.
 
 ### Deploy with Docker
 

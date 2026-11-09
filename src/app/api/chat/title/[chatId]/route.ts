@@ -198,8 +198,18 @@ async function updateChatTitleHandler(
   }
 }
 
-const getTitleRateLimit = createRateLimitMiddleware(60, 60000);
-const updateTitleRateLimit = createRateLimitMiddleware(20, 60000);
+const getTitleRateLimit = createRateLimitMiddleware({
+  prefix: 'chat-title',
+  windowMs: 60_000,
+  max: 60,
+  guestMax: 60,
+});
+const updateTitleRateLimit = createRateLimitMiddleware({
+  prefix: 'chat-title-update',
+  windowMs: 60_000,
+  max: 20,
+  guestMax: 20,
+});
 const validateTitle = createValidationMiddleware(updateTitleSchema);
 
 export const GET = (
