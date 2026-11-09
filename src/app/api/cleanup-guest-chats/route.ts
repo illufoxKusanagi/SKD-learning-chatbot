@@ -1,7 +1,7 @@
-import { getDb } from "@/lib/db";
-import { conversations, messages } from "@/lib/db/schema";
-import { and, eq, isNotNull, lt } from "drizzle-orm";
-import { NextResponse } from "next/server";
+import { getDb } from '@/lib/db';
+import { conversations, messages } from '@/lib/db/schema';
+import { and, eq, inArray, isNotNull, lt } from 'drizzle-orm';
+import { NextResponse } from 'next/server';
 
 // This endpoint cleans up expired guest chats
 export async function DELETE() {
@@ -24,26 +24,19 @@ export async function DELETE() {
     if (expiredGuestChats.length === 0) {
       return NextResponse.json({
         success: true,
-        message: "No expired guest chats found",
+        message: 'No expired guest chats found',
         deletedCount: 0,
       });
     }
 
-    // Delete messages associated with expired guest chats
-    for (const chat of expiredGuestChats) {
-      await db.delete(messages).where(eq(messages.chatId, chat.id));
-    }
+    const expiredIds = expiredGuestChats.map((c) => c.id);
 
-    // Delete the expired guest chats themselves
-    // const deletedChats = await db
-    //   .delete(conversations)
-    //   .where(
-    //     and(
-    //       eq(conversations.isGuestChat, true),
-    //       isNotNull(conversations.expiresAt),
-    //       lt(conversations.expiresAt, now)
-    //     )
-    //   );
+    await db.transaction(async (tx) => {
+      await tx.delete(messages).where(inArray(messages.chatId, expiredIds));
+      await tx
+        .delete(conversations)
+        .where(inArray(conversations.id, expiredIds));
+    });
 
     return NextResponse.json({
       success: true,
@@ -51,11 +44,11 @@ export async function DELETE() {
       deletedCount: expiredGuestChats.length,
     });
   } catch (error) {
-    console.error("Error cleaning up guest chats:", error);
+    console.error('Error cleaning up guest chats:', error);
     return NextResponse.json(
       {
         success: false,
-        error: "Failed to cleanup guest chats",
+        error: 'Failed to cleanup guest chats',
       },
       { status: 500 }
     );
@@ -66,7 +59,7 @@ export async function DELETE() {
 export async function GET() {
   return NextResponse.json({
     success: true,
-    message: "Guest chat cleanup service is running",
+    message: 'Guest chat cleanup service is running',
     timestamp: new Date().toISOString(),
   });
 }

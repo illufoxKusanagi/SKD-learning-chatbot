@@ -42,6 +42,7 @@ interface ChatState {
   messages: Message[];
   isLoading: boolean;
   error: string | null;
+  chatTitle: string;
 }
 
 export function useChat() {
@@ -49,6 +50,7 @@ export function useChat() {
     messages: [],
     isLoading: false,
     error: null,
+    chatTitle: "Sesi Belajar Baru",
   });
   const [inputMessage, setInputMessage] = useState<string>("");
   const [quizzes, setQuizzes] = useState<QuizAttemptItem[]>([]);
@@ -118,7 +120,7 @@ export function useChat() {
           if (savedMessages) {
             try {
               const parsedMessages = JSON.parse(savedMessages);
-              setState((prev) => ({ ...prev, messages: parsedMessages, isLoading: false }));
+              setState((prev) => ({ ...prev, messages: parsedMessages, isLoading: false, chatTitle: "Sesi Belajar Baru" }));
               sessionStorage.removeItem("guestMessages");
               return;
             } catch (error) {
@@ -126,7 +128,7 @@ export function useChat() {
             }
           }
         }
-        setState((prev) => ({ ...prev, messages: [], isLoading: false }));
+        setState((prev) => ({ ...prev, messages: [], isLoading: false, chatTitle: "Sesi Belajar Baru" }));
         setQuizzes([]);
         return;
       }
@@ -144,6 +146,7 @@ export function useChat() {
         setState((prev) => ({
           ...prev,
           messages: data.data.messages || [],
+          chatTitle: data.data?.chat?.title || "Tutor SKD CPNS",
           isLoading: false,
         }));
       } catch (error) {
@@ -153,6 +156,7 @@ export function useChat() {
           error: error instanceof Error ? error.message : "Failed to load chat",
           isLoading: false,
           messages: [],
+          chatTitle: "Tutor SKD CPNS",
         }));
         // Only show toast if user was authenticated or if not 401
         if (isAuthenticated) {
@@ -303,6 +307,7 @@ export function useChat() {
   return {
     messages: state.messages,
     isLoading: state.isLoading,
+    chatTitle: state.chatTitle,
     quizzes,
     isLoadingQuizzes,
     fetchChatQuizzes,
