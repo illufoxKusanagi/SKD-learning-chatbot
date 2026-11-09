@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -8,15 +8,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
-import { useForm, SubmitHandler } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { z } from "zod";
-import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+} from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
+import Link from 'next/link';
+import { useForm, SubmitHandler } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
+import { toast } from 'sonner';
+import { useRouter } from 'next/navigation';
 import {
   Form,
   FormControl,
@@ -24,15 +24,15 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import React, { useEffect, Suspense, useState } from "react";
-import Image from "next/image";
-import { useSearchParams } from "next/navigation";
-import { signIn, useSession } from "next-auth/react";
+} from '@/components/ui/form';
+import React, { useEffect, Suspense, useState } from 'react';
+import Image from 'next/image';
+import { useSearchParams } from 'next/navigation';
+import { signIn, useSession } from 'next-auth/react';
 
 const schema = z.object({
-  identifier: z.string().min(1, "Email atau Username harus diisi!"),
-  password: z.string().min(1, "Password harus diisi!"),
+  identifier: z.string().min(1, 'Email atau Username harus diisi!'),
+  password: z.string().min(1, 'Password harus diisi!'),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -43,8 +43,15 @@ function LoginContent() {
   const { status } = useSession();
   const [isLoading, setIsLoading] = useState(false);
 
-  const returnUrl = searchParams.get("returnUrl") || "/";
-  const redirectMessage = searchParams.get("message");
+  const rawReturnUrl = searchParams.get('returnUrl');
+  const returnUrl =
+    rawReturnUrl &&
+    rawReturnUrl.startsWith('/') &&
+    !rawReturnUrl.startsWith('//') &&
+    !rawReturnUrl.includes('\\')
+      ? rawReturnUrl
+      : '/';
+  const redirectMessage = searchParams.get('message');
 
   useEffect(() => {
     if (redirectMessage) {
@@ -53,8 +60,8 @@ function LoginContent() {
   }, [redirectMessage]);
 
   useEffect(() => {
-    if (status === "authenticated") {
-      console.log("User already authenticated, redirecting to:", returnUrl);
+    if (status === 'authenticated') {
+      console.log('User already authenticated, redirecting to:', returnUrl);
       router.push(returnUrl);
     }
   }, [status, router, returnUrl]);
@@ -62,33 +69,33 @@ function LoginContent() {
   const form = useForm<FormData>({
     resolver: zodResolver(schema),
     defaultValues: {
-      identifier: "",
-      password: "",
+      identifier: '',
+      password: '',
     },
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     setIsLoading(true);
     try {
-      const result = await signIn("credentials", {
+      const result = await signIn('credentials', {
         identifier: data.identifier,
         password: data.password,
         redirect: false,
       });
       if (result?.error) {
-        form.setError("root", {
-          type: "manual",
-          message: "Email/username atau password tidak valid",
+        form.setError('root', {
+          type: 'manual',
+          message: 'Email/username atau password tidak valid',
         });
-        toast.error("Login gagal");
+        toast.error('Login gagal');
       } else {
-        toast.success("Login berhasil, Selamat Datang!!");
+        toast.success('Login berhasil, Selamat Datang!!');
         router.push(returnUrl);
         router.refresh();
       }
     } catch (error) {
-      toast.error("Terjadi kesalahan saat login");
-      console.error("Login error:", error);
+      toast.error('Terjadi kesalahan saat login');
+      console.error('Login error:', error);
     } finally {
       setIsLoading(false);
     }
@@ -157,7 +164,7 @@ function LoginContent() {
                 className="w-full"
                 disabled={form.formState.isSubmitting}
               >
-                {form.formState.isSubmitting ? "Memproses..." : "Masuk"}
+                {form.formState.isSubmitting ? 'Memproses...' : 'Masuk'}
               </Button>
             </form>
           </Form>
@@ -179,9 +186,9 @@ function LoginContent() {
             Masuk dengan Google
           </Button>
           <CardDescription className="text-center text-sm">
-            Belum punya akun?{" "}
+            Belum punya akun?{' '}
             <Link
-              href={"/auth/register"}
+              href={'/auth/register'}
               className="text-primary hover:underline"
             >
               Daftar disini

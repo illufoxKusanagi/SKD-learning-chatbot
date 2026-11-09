@@ -1,3 +1,6 @@
+> ⚠️ **Catatan / Legacy Example Disclaimer**:
+> Dokumen ini adalah arsip contoh respon mentah legacy dari pengujian model awal dan BUKAN kunci jawaban baku atau materi referensi faktual. Soal dan pembahasan di bawah ini dapat mengandung ketidaktepatan pasal perundang-undangan (misal: rujukan pasal Bela Negara pada Soal 6 seharusnya Pasal 27 ayat 3). Bank soal resmi yang terverifikasi berada di direktori `data/quiz-bank/`.
+
 Tentu, saya siap membantu Anda berlatih soal TWK SKD CPNS! Berikut adalah 6 soal TWK beserta pembahasannya:
 
 Soal 1: Pancasila sebagai dasar negara memiliki kedudukan yang sangat penting dalam kehidupan berbangsa dan bernegara Indonesia. Fungsi Pancasila sebagai dasar negara adalah untuk... a. Alat pemersatu bangsa b. Landasan idiil penyelenggaraan negara c. Sumber dari segala sumber hukum d. Pedoman hidup bangsa e. Dasar dalam pergaulan internasional

@@ -3,7 +3,6 @@
 import { useEffect, useState, useMemo } from "react";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { AppSidebar } from "@/components/ui/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import ModeToggleButton from "@/components/ui/mode-toggle-button";
@@ -15,7 +14,6 @@ import {
   CheckCircle2,
   XCircle,
   HelpCircle,
-  Clock,
   ArrowRight,
   ChevronDown,
   ChevronUp,
@@ -76,10 +74,9 @@ interface QuizStats {
 const OPTION_KEYS: ("A" | "B" | "C" | "D" | "E")[] = ["A", "B", "C", "D", "E"];
 
 export default function QuizHistoryPage() {
-  const { data: session, status } = useSession();
+  const { status } = useSession();
   const isAuthenticated = status === "authenticated";
   const authLoading = status === "loading";
-  const router = useRouter();
 
   const [quizzes, setQuizzes] = useState<QuizAttemptDetail[]>([]);
   const [stats, setStats] = useState<QuizStats | null>(null);

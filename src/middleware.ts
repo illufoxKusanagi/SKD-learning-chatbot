@@ -1,4 +1,4 @@
-import { withAuth } from "next-auth/middleware";
+import { withAuth } from 'next-auth/middleware';
 
 export default withAuth({
   callbacks: {
@@ -6,19 +6,20 @@ export default withAuth({
       const pathname = req.nextUrl.pathname;
 
       // List of routes that are accessible to guests (Allowlist)
-      const publicRoutes = [
-        "/",
-        "/auth/login",
-        "/auth/register",
-        "/chat",
-        "/chat/[id]",
-        "/help",
+      const publicPrefixes = [
+        '/auth/login',
+        '/auth/register',
+        '/chat',
+        '/help',
+        '/quiz-history',
       ];
 
-      // Check if the current path starts with any of the public routes
-      const isPublicRoute = publicRoutes.some((route) =>
-        pathname.startsWith(route)
-      );
+      // Check if the current path is the landing page or matches a public prefix
+      const isPublicRoute =
+        pathname === '/' ||
+        publicPrefixes.some(
+          (route) => pathname === route || pathname.startsWith(`${route}/`)
+        );
 
       // If it's a public route, allow access
       if (isPublicRoute) {
@@ -37,5 +38,5 @@ export const config = {
   // - _next/static (static files)
   // - _next/image (image optimization files)
   // - favicon.ico (favicon file)
-  matcher: ["/((?!api|_next/static|_next/image|favicon.ico).*)"],
+  matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };

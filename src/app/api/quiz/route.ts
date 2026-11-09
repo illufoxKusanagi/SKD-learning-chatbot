@@ -1,14 +1,14 @@
-import { db, ensureDatabaseSchema } from "@/lib/db";
-import { conversations, quizAttempts } from "@/lib/db/schema";
-import { authOptions } from "@/lib/auth";
-import { getServerSession } from "next-auth";
-import { NextRequest, NextResponse } from "next/server";
-import { eq, and, or, inArray, desc } from "drizzle-orm";
+import { db, ensureDatabaseSchema } from '@/lib/db';
+import { conversations, quizAttempts } from '@/lib/db/schema';
+import { authOptions } from '@/lib/auth';
+import { getServerSession } from 'next-auth';
+import { NextRequest, NextResponse } from 'next/server';
+import { eq, and, or, inArray, desc } from 'drizzle-orm';
 import {
   ApiError,
   withMiddleware,
   createRateLimitMiddleware,
-} from "@/middleware/api";
+} from '@/middleware/api';
 
 function isValidUuid(val?: string | null): boolean {
   if (!val) return false;
@@ -58,20 +58,20 @@ async function handleGetQuizzes(request: NextRequest) {
   await ensureDatabaseSchema();
 
   const url = new URL(request.url);
-  const chatId = url.searchParams.get("chatId");
-  const chatIdsParam = url.searchParams.get("chatIds");
-  const categoryParam = url.searchParams.get("category");
-  const statusParam = url.searchParams.get("status");
+  const chatId = url.searchParams.get('chatId');
+  const chatIdsParam = url.searchParams.get('chatIds');
+  const categoryParam = url.searchParams.get('category');
+  const statusParam = url.searchParams.get('status');
 
   // Validate parameters if provided
   if (chatId && !isValidUuid(chatId)) {
-    throw new ApiError("Format chatId tidak valid", 400, "INVALID_CHAT_ID");
+    throw new ApiError('Format chatId tidak valid', 400, 'INVALID_CHAT_ID');
   }
 
   let chatIds: string[] = [];
   if (chatIdsParam) {
     chatIds = chatIdsParam
-      .split(",")
+      .split(',')
       .map((s) => s.trim())
       .filter((s) => s.length > 0);
 
@@ -80,30 +80,30 @@ async function handleGetQuizzes(request: NextRequest) {
         throw new ApiError(
           `Format chatId tidak valid: ${id}`,
           400,
-          "INVALID_CHAT_ID"
+          'INVALID_CHAT_ID'
         );
       }
     }
   }
 
   if (categoryParam) {
-    const validCategories = ["TWK", "TIU", "TKP"];
+    const validCategories = ['TWK', 'TIU', 'TKP'];
     if (!validCategories.includes(categoryParam.toUpperCase())) {
       throw new ApiError(
-        "Kategori tidak valid. Pilih TWK, TIU, atau TKP.",
+        'Kategori tidak valid. Pilih TWK, TIU, atau TKP.',
         400,
-        "INVALID_CATEGORY"
+        'INVALID_CATEGORY'
       );
     }
   }
 
   if (statusParam) {
-    const validStatuses = ["pending", "answered"];
+    const validStatuses = ['pending', 'answered'];
     if (!validStatuses.includes(statusParam.toLowerCase())) {
       throw new ApiError(
-        "Status tidak valid. Pilih pending atau answered.",
+        'Status tidak valid. Pilih pending atau answered.',
         400,
-        "INVALID_STATUS"
+        'INVALID_STATUS'
       );
     }
   }
@@ -116,7 +116,7 @@ async function handleGetQuizzes(request: NextRequest) {
       authUserId = session.user.id;
     }
   } catch (authErr) {
-    console.warn("[GET /api/quiz] Session retrieval warning:", authErr);
+    console.warn('[GET /api/quiz] Session retrieval warning:', authErr);
   }
 
   type JoinedRow = {
@@ -140,14 +140,14 @@ async function handleGetQuizzes(request: NextRequest) {
       .limit(1);
 
     if (!conversation) {
-      throw new ApiError("Chat tidak ditemukan", 404, "CHAT_NOT_FOUND");
+      throw new ApiError('Chat tidak ditemukan', 404, 'CHAT_NOT_FOUND');
     }
 
     if (conversation.userId && conversation.userId !== authUserId) {
       throw new ApiError(
-        "Anda tidak memiliki akses ke kuis chat ini",
+        'Anda tidak memiliki akses ke kuis chat ini',
         403,
-        "CHAT_ACCESS_DENIED"
+        'CHAT_ACCESS_DENIED'
       );
     }
 
@@ -239,14 +239,14 @@ async function handleGetQuizzes(request: NextRequest) {
 
   for (const { quiz } of rows) {
     totalAttempts++;
-    const cat = quiz.category?.toUpperCase() as "TWK" | "TIU" | "TKP";
+    const cat = quiz.category?.toUpperCase() as 'TWK' | 'TIU' | 'TKP';
     const catStats = byCategory[cat];
 
     if (catStats) {
       catStats.total++;
     }
 
-    if (quiz.status === "answered") {
+    if (quiz.status === 'answered') {
       answeredCount++;
       const earned = quiz.scoreEarned ?? 0;
       const max = quiz.maxScore ?? 5;
@@ -258,17 +258,17 @@ async function handleGetQuizzes(request: NextRequest) {
         catStats.scoreEarned += earned;
         catStats.maxScore += max;
 
-        if (cat === "TWK" || cat === "TIU") {
+        if (cat === 'TWK' || cat === 'TIU') {
           if (earned === max || quiz.userAnswer === quiz.correctOption) {
-            catStats.correctCount++;
+            byCategory[cat].correctCount++;
           }
-        } else if (cat === "TKP") {
+        } else if (cat === 'TKP') {
           if (earned === 5) {
-            catStats.optimalCount++;
+            byCategory.TKP.optimalCount++;
           }
         }
       }
-    } else if (quiz.status === "pending") {
+    } else if (quiz.status === 'pending') {
       pendingCount++;
     }
   }
@@ -294,8 +294,9 @@ async function handleGetQuizzes(request: NextRequest) {
 
   byCategory.TKP.averagePoints =
     byCategory.TKP.answered > 0
-      ? Math.round((byCategory.TKP.scoreEarned / byCategory.TKP.answered) * 100) /
-        100
+      ? Math.round(
+          (byCategory.TKP.scoreEarned / byCategory.TKP.answered) * 100
+        ) / 100
       : 0;
 
   const stats = {
@@ -323,11 +324,11 @@ async function handleGetQuizzes(request: NextRequest) {
 
   // Security Rule: For status === "pending", sanitize correctOption, scoringRubric, and rubricRationale
   const sanitizedQuizzes = filteredRows.map(({ quiz, chatTitle }) => {
-    const isAnswered = quiz.status === "answered";
+    const isAnswered = quiz.status === 'answered';
     return {
       id: quiz.id,
       chatId: quiz.chatId,
-      chatTitle: chatTitle || "Sesi SKD",
+      chatTitle: chatTitle || 'Sesi SKD',
       userId: quiz.userId,
       ragSourceId: quiz.ragSourceId,
       category: quiz.category,
@@ -357,7 +358,7 @@ async function handleGetQuizzes(request: NextRequest) {
   });
 }
 
+const quizRateLimit = createRateLimitMiddleware(60, 60000);
+
 export const GET = (request: NextRequest) =>
-  withMiddleware(
-    createRateLimitMiddleware(60, 60000)
-  )(request, handleGetQuizzes);
+  withMiddleware(quizRateLimit)(request, handleGetQuizzes);

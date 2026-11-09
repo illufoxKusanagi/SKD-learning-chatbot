@@ -5,12 +5,8 @@ import { useChat } from "@/hooks/use-chat";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
-  Award,
-  BookOpen,
-  CheckCircle2,
   Sparkles,
   History,
-  Compass,
   ArrowRight,
 } from "lucide-react";
 

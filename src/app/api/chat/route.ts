@@ -1,114 +1,66 @@
-import { db, ensureDatabaseSchema } from "@/lib/db";
-import { conversations, messages, quizAttempts } from "@/lib/db/schema";
-import { findRelevantContents } from "@/lib/services/ai/rag.service";
+import { db, ensureDatabaseSchema } from '@/lib/db';
+import { conversations, messages, quizAttempts } from '@/lib/db/schema';
+import { findRelevantContents } from '@/lib/services/ai/rag.service';
 import {
   ApiError,
   withMiddleware,
   createRateLimitMiddleware,
-} from "@/middleware/api";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
-import { eq, desc } from "drizzle-orm";
-import { NextRequest, NextResponse } from "next/server";
-import z from "zod";
+} from '@/middleware/api';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
+import { eq, desc, and } from 'drizzle-orm';
+import { NextRequest, NextResponse } from 'next/server';
+import z from 'zod';
 import {
   generateAiResponse,
   generateChatTitle,
   extractQuizMetaFromText,
   ChatHistoryTurn,
   LockedQuizEvaluation,
-} from "@/lib/services/ai/gemini.service";
+} from '@/lib/services/ai/gemini.service';
 
 const chatMessageSchema = z.object({
   message: z
     .string()
-    .min(1, "Message cannot be empty")
-    .max(4000, "Message is too long")
+    .min(1, 'Message cannot be empty')
+    .max(4000, 'Message is too long')
     .trim(),
-  chatId: (typeof (z as any).uuid === "function"
-    ? (z as any).uuid("Invalid chat ID format")
-    : z.string().uuid("Invalid chat ID format")
-  ).optional(),
-  quizAttemptId: (typeof (z as any).uuid === "function"
-    ? (z as any).uuid("Invalid quiz attempt ID format")
-    : z.string().uuid("Invalid quiz attempt ID format")
-  ).optional(),
+  chatId: z.string().uuid('Invalid chat ID format').optional(),
+  quizAttemptId: z.string().uuid('Invalid quiz attempt ID format').optional(),
 });
 
-function isValidUuid(val?: string | null): boolean {
-  if (!val) return false;
-  return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(
-    val
-  );
-}
+type QuizOption = 'A' | 'B' | 'C' | 'D' | 'E';
 
 function parseQuizOptionChoice(
   message: string,
   hasExplicitQuizId: boolean
-): "A" | "B" | "C" | "D" | "E" | null {
+): QuizOption | null {
   const trimmed = message.trim();
 
   if (hasExplicitQuizId) {
-    const wordMatch = trimmed.match(/\b([A-Ea-e])\b/i);
-    if (wordMatch && wordMatch[1]) {
-      const char = wordMatch[1].toUpperCase();
-      if (["A", "B", "C", "D", "E"].includes(char)) {
-        return char as "A" | "B" | "C" | "D" | "E";
-      }
-    }
-    const startMatch = trimmed.match(/^\s*([A-Ea-e])/i);
-    if (startMatch && startMatch[1]) {
-      const char = startMatch[1].toUpperCase();
-      if (["A", "B", "C", "D", "E"].includes(char)) {
-        return char as "A" | "B" | "C" | "D" | "E";
-      }
-    }
-    return null;
+    const match = trimmed.match(/\b([A-E])\b/i) ?? trimmed.match(/^([A-E])/i);
+    return match ? (match[1].toUpperCase() as QuizOption) : null;
   }
 
-  // Exact letter or letter with punctuation: e.g. "A", "B.", "C)", "D!"
-  const exactMatch = trimmed.match(/^\s*([A-Ea-e])[\.\)\s!]*$/);
-  if (exactMatch && exactMatch[1]) {
-    const char = exactMatch[1].toUpperCase();
-    if (["A", "B", "C", "D", "E"].includes(char)) {
-      return char as "A" | "B" | "C" | "D" | "E";
-    }
-  }
-
-  // Answer prefix: e.g. "Jawaban saya: B", "Pilihan A", "Opsi C", "Jawab D", "Menurut saya E"
-  const prefixMatch = trimmed.match(
-    /^\s*(?:jawaban\s*(?:saya|ku|nya)?|pilih(?:an)?(?:\s*saya)?|opsi|jawab|menurut\s*saya)\s*[:=\-]?\s*([A-Ea-e])\b/i
-  );
-  if (prefixMatch && prefixMatch[1]) {
-    const char = prefixMatch[1].toUpperCase();
-    if (["A", "B", "C", "D", "E"].includes(char)) {
-      return char as "A" | "B" | "C" | "D" | "E";
-    }
-  }
-
-  // Exclude general question queries (e.g. containing '?' or starting with question words)
   if (
-    trimmed.includes("?") ||
-    /^\s*[A-Ea-e]\s*[:.,)]?\s*(?:bagaimana|apa|mengapa|kenapa|siapa|kapan|di mana|dimana|berapa)\b/i.test(
+    trimmed.includes('?') ||
+    /^[A-E]\s*[:.,)]?\s*(?:bagaimana|apa|mengapa|kenapa|siapa|kapan|di\s*mana|berapa)\b/i.test(
       trimmed
     )
   ) {
     return null;
   }
 
-  // Letter followed by reasoning: e.g. "A karena...", "B - ini alasannya", "C: ..."
-  // Require word boundary/whitespace, space around dashes, and avoid matching hyphenated terms like "E-KTP"
-  const reasoningMatch = trimmed.match(
-    /^\s*([A-Ea-e])(?:\s+(?:karena|sebab)\b|\s*[:.)]\s+|\s+[—\-]\s+)/i
-  );
-  if (reasoningMatch && reasoningMatch[1]) {
-    const char = reasoningMatch[1].toUpperCase();
-    if (["A", "B", "C", "D", "E"].includes(char)) {
-      return char as "A" | "B" | "C" | "D" | "E";
-    }
-  }
+  const match =
+    trimmed.match(/^([A-E])[.)\s!]*$/i) ??
+    trimmed.match(
+      /^(?:jawaban(?:\s*(?:saya|ku|nya))?|pilih(?:an)?(?:\s*saya)?|opsi|jawab|menurut\s*saya)\s*[:=\-]?\s*([A-E])\b/i
+    ) ??
+    trimmed.match(
+      /^([A-E])(?:\s+(?:karena|sebab)\b|\s*[:.)]\s+|\s+[—\-]\s+)/i
+    );
 
-  return null;
+  return match ? (match[1].toUpperCase() as QuizOption) : null;
 }
 
 async function handleChatPost(request: NextRequest) {
@@ -126,7 +78,7 @@ async function handleChatPost(request: NextRequest) {
     }
   } catch (error) {
     if (error instanceof Error) {
-      console.error("Error retrieving session in handleChatPost:", {
+      console.error('Error retrieving session in handleChatPost:', {
         name: error.name,
         message: error.message,
         stack: error.stack,
@@ -134,32 +86,32 @@ async function handleChatPost(request: NextRequest) {
 
       const messageLower = error.message.toLowerCase();
       const isAuthError =
-        error.name === "AuthError" ||
-        messageLower.includes("auth") ||
-        messageLower.includes("credential") ||
-        messageLower.includes("unauthorized") ||
-        messageLower.includes("forbidden");
+        error.name === 'AuthError' ||
+        messageLower.includes('auth') ||
+        messageLower.includes('credential') ||
+        messageLower.includes('unauthorized') ||
+        messageLower.includes('forbidden');
 
       if (!isAuthError) {
         throw new ApiError(
-          "Failed to retrieve session",
+          'Failed to retrieve session',
           500,
-          "SESSION_RETRIEVAL_ERROR"
+          'SESSION_RETRIEVAL_ERROR'
         );
       }
 
       console.warn(
-        "Proceeding as guest user due to authentication-related session error."
+        'Proceeding as guest user due to authentication-related session error.'
       );
     } else {
       console.error(
-        "Non-Error value thrown during session retrieval in handleChatPost:",
+        'Non-Error value thrown during session retrieval in handleChatPost:',
         error
       );
       throw new ApiError(
-        "Failed to retrieve session",
+        'Failed to retrieve session',
         500,
-        "SESSION_RETRIEVAL_ERROR"
+        'SESSION_RETRIEVAL_ERROR'
       );
     }
   }
@@ -175,7 +127,7 @@ async function handleChatPost(request: NextRequest) {
           .insert(conversations)
           .values({
             userId: userId,
-            title: title || "New Chat",
+            title: title || 'New Chat',
             createdAt: new Date(),
             isGuestChat: false,
           })
@@ -189,20 +141,20 @@ async function handleChatPost(request: NextRequest) {
           .limit(1);
 
         if (!existingChat) {
-          throw new ApiError("Chat tidak ditemukan", 404, "CHAT_NOT_FOUND");
+          throw new ApiError('Chat tidak ditemukan', 404, 'CHAT_NOT_FOUND');
         }
         if (existingChat.userId !== userId) {
           throw new ApiError(
-            "Anda tidak memiliki akses ke chat ini",
+            'Anda tidak memiliki akses ke chat ini',
             403,
-            "CHAT_ACCESS_DENIED"
+            'CHAT_ACCESS_DENIED'
           );
         }
       }
     } catch (error) {
       if (error instanceof ApiError) throw error;
-      console.error("Database error for authenticated user:", error);
-      throw new ApiError("Failed to save message", 500);
+      console.error('Database error for authenticated user:', error);
+      throw new ApiError('Failed to save message', 500);
     }
   } else {
     try {
@@ -218,7 +170,7 @@ async function handleChatPost(request: NextRequest) {
           .insert(conversations)
           .values({
             userId: null,
-            title: title || "Guest Chat",
+            title: title || 'Guest Chat',
             createdAt: new Date(),
             isGuestChat: true,
             guestSessionId: guestSessionId,
@@ -237,27 +189,27 @@ async function handleChatPost(request: NextRequest) {
           .limit(1);
 
         if (!existingChat) {
-          throw new ApiError("Chat tidak ditemukan", 404, "CHAT_NOT_FOUND");
+          throw new ApiError('Chat tidak ditemukan', 404, 'CHAT_NOT_FOUND');
         }
         if (!existingChat.isGuestChat) {
           throw new ApiError(
-            "Akses ditolak ke chat pengguna terdaftar",
+            'Akses ditolak ke chat pengguna terdaftar',
             403,
-            "CHAT_ACCESS_DENIED"
+            'CHAT_ACCESS_DENIED'
           );
         }
         if (existingChat.expiresAt && new Date() > existingChat.expiresAt) {
           throw new ApiError(
-            "Chat sementara telah kedaluwarsa",
+            'Chat sementara telah kedaluwarsa',
             410,
-            "CHAT_EXPIRED"
+            'CHAT_EXPIRED'
           );
         }
       }
     } catch (error) {
       if (error instanceof ApiError) throw error;
-      console.error("Database error for guest user:", error);
-      throw new ApiError("Failed to save guest message", 500);
+      console.error('Database error for guest user:', error);
+      throw new ApiError('Failed to save guest message', 500);
     }
   }
 
@@ -276,17 +228,9 @@ async function handleChatPost(request: NextRequest) {
   recentDbMessages.reverse();
 
   const history: ChatHistoryTurn[] = recentDbMessages.map((msg) => ({
-    role: msg.role === "user" ? "user" : "bot",
+    role: msg.role === 'user' ? 'user' : 'bot',
     content: msg.content,
   }));
-
-  // Insert the current user message into database
-  await db.insert(messages).values({
-    chatId: conversationId,
-    role: "user",
-    content: message,
-    createdAt: new Date(),
-  });
 
   // 2. Query quiz state for this conversation
   const chatQuizzes = await db
@@ -295,11 +239,20 @@ async function handleChatPost(request: NextRequest) {
     .where(eq(quizAttempts.chatId, conversationId))
     .orderBy(desc(quizAttempts.createdAt));
 
-  let pendingQuiz: (typeof quizAttempts.$inferSelect) | null = null;
+  let pendingQuiz: typeof quizAttempts.$inferSelect | null = null;
   if (quizAttemptId) {
     pendingQuiz = chatQuizzes.find((q) => q.id === quizAttemptId) || null;
   } else {
-    pendingQuiz = chatQuizzes.find((q) => q.status === "pending") || null;
+    const lastBotMsg = [...recentDbMessages]
+      .reverse()
+      .find((m) => m.role === 'bot');
+    const markerId = lastBotMsg?.content.match(
+      /<!--QUIZ_ATTEMPT:([a-f0-9-]+)-->/i
+    )?.[1];
+    pendingQuiz = markerId
+      ? chatQuizzes.find((q) => q.id === markerId && q.status === 'pending') ||
+        null
+      : null;
   }
 
   const attemptedSourceSet = new Set<string>();
@@ -327,54 +280,92 @@ async function handleChatPost(request: NextRequest) {
   // 3. Detect Turn-2 Quiz Answer Submission
   const hasExplicitQuizId = Boolean(quizAttemptId);
   const selectedOption =
-    pendingQuiz && pendingQuiz.status === "pending"
+    pendingQuiz && pendingQuiz.status === 'pending'
       ? parseQuizOptionChoice(message, hasExplicitQuizId)
       : null;
 
   const isAnsweringPendingQuiz = Boolean(
-    pendingQuiz && pendingQuiz.status === "pending" && selectedOption !== null
+    pendingQuiz && pendingQuiz.status === 'pending' && selectedOption !== null
   );
+
+  let lockedQuizEvaluation: LockedQuizEvaluation | null = null;
+  let scoreEarned = 0;
+
+  if (isAnsweringPendingQuiz && pendingQuiz && selectedOption) {
+    const rubric = pendingQuiz.scoringRubric as Record<string, number>;
+    scoreEarned =
+      typeof rubric?.[selectedOption] === 'number'
+        ? rubric[selectedOption]
+        : selectedOption === pendingQuiz.correctOption
+          ? 5
+          : 0;
+
+    const [locked] = await db
+      .update(quizAttempts)
+      .set({
+        userAnswer: selectedOption,
+        scoreEarned,
+        status: 'answered',
+        answeredAt: new Date(),
+      })
+      .where(
+        and(
+          eq(quizAttempts.id, pendingQuiz.id),
+          eq(quizAttempts.status, 'pending')
+        )
+      )
+      .returning({ id: quizAttempts.id });
+
+    if (!locked) {
+      throw new ApiError(
+        'Soal ini sudah dijawab',
+        409,
+        'QUIZ_ALREADY_ANSWERED'
+      );
+    }
+
+    lockedQuizEvaluation = {
+      quizId: pendingQuiz.id,
+      category: pendingQuiz.category as 'TWK' | 'TIU' | 'TKP',
+      subtopic: pendingQuiz.subtopic,
+      questionStem: pendingQuiz.questionStem,
+      options: pendingQuiz.options,
+      correctOption: pendingQuiz.correctOption as 'A' | 'B' | 'C' | 'D' | 'E',
+      scoringRubric: pendingQuiz.scoringRubric,
+      rubricRationale: pendingQuiz.rubricRationale,
+      userAnswer: selectedOption,
+      scoreEarned,
+      maxScore: pendingQuiz.maxScore ?? 5,
+    };
+  }
+
+  // Insert the current user message into database
+  await db.insert(messages).values({
+    chatId: conversationId,
+    role: 'user',
+    content: message,
+    createdAt: new Date(),
+  });
 
   const stream = new ReadableStream({
     async start(controller) {
       const encoder = new TextEncoder();
+      let explanationPersisted = false;
 
       try {
-        if (isAnsweringPendingQuiz && pendingQuiz && selectedOption) {
+        if (
+          isAnsweringPendingQuiz &&
+          pendingQuiz &&
+          selectedOption &&
+          lockedQuizEvaluation
+        ) {
           // ==================== TURN 2: ANSWER EVALUATION ====================
-          const rubric = pendingQuiz.scoringRubric as Record<string, number>;
-          const scoreEarned =
-            typeof rubric?.[selectedOption] === "number"
-              ? rubric[selectedOption]
-              : selectedOption === pendingQuiz.correctOption
-              ? 5
-              : 0;
-
-          const lockedQuizEvaluation: LockedQuizEvaluation = {
-            quizId: pendingQuiz.id,
-            category: pendingQuiz.category as "TWK" | "TIU" | "TKP",
-            subtopic: pendingQuiz.subtopic,
-            questionStem: pendingQuiz.questionStem,
-            options: pendingQuiz.options,
-            correctOption: pendingQuiz.correctOption as
-              | "A"
-              | "B"
-              | "C"
-              | "D"
-              | "E",
-            scoringRubric: pendingQuiz.scoringRubric,
-            rubricRationale: pendingQuiz.rubricRationale,
-            userAnswer: selectedOption,
-            scoreEarned,
-            maxScore: pendingQuiz.maxScore ?? 5,
-          };
-
           const generator = generateAiResponse(message, {
             history,
             lockedQuizEvaluation,
           });
 
-          let fullAiResponse = "";
+          let fullAiResponse = '';
           for await (const chunk of generator) {
             controller.enqueue(encoder.encode(chunk));
             fullAiResponse += chunk;
@@ -384,14 +375,9 @@ async function handleChatPost(request: NextRequest) {
 
           await db
             .update(quizAttempts)
-            .set({
-              userAnswer: selectedOption,
-              scoreEarned,
-              aiExplanation: visibleText,
-              status: "answered",
-              answeredAt: new Date(),
-            })
+            .set({ aiExplanation: visibleText })
             .where(eq(quizAttempts.id, pendingQuiz.id));
+          explanationPersisted = true;
 
           const evalMarker = `\n\n<!--QUIZ_EVAL:${pendingQuiz.id}:${selectedOption}:${scoreEarned}-->`;
           controller.enqueue(encoder.encode(evalMarker));
@@ -399,7 +385,7 @@ async function handleChatPost(request: NextRequest) {
           const finalBotContent = `${visibleText}${evalMarker}`;
           await db.insert(messages).values({
             chatId: conversationId,
-            role: "bot",
+            role: 'bot',
             content: finalBotContent,
             createdAt: new Date(),
           });
@@ -417,12 +403,12 @@ async function handleChatPost(request: NextRequest) {
             ragResult,
           });
 
-          let rawAccumulated = "";
+          let rawAccumulated = '';
           let streamedLength = 0;
 
           for await (const chunk of generator) {
             rawAccumulated += chunk;
-            const metaIdx = rawAccumulated.indexOf("<quiz_meta");
+            const metaIdx = rawAccumulated.indexOf('<quiz_meta');
 
             if (metaIdx !== -1) {
               if (metaIdx > streamedLength) {
@@ -437,7 +423,7 @@ async function handleChatPost(request: NextRequest) {
             } else {
               // Hold back last 12 chars if containing '<' to avoid partial tag leaks
               const tail = rawAccumulated.slice(-12);
-              const lastLtIdx = tail.lastIndexOf("<");
+              const lastLtIdx = tail.lastIndexOf('<');
               if (lastLtIdx !== -1) {
                 const safeBoundary =
                   rawAccumulated.length - (tail.length - lastLtIdx);
@@ -462,11 +448,14 @@ async function handleChatPost(request: NextRequest) {
           const { visibleText, quizMeta } =
             extractQuizMetaFromText(rawAccumulated);
 
-          if (visibleText.length > streamedLength) {
+          const untrimmedVisible = rawAccumulated
+            .replace(/<quiz_meta>[\s\S]*?<\/quiz_meta>/gi, '')
+            .replace(/<quiz_meta>[\s\S]*$/gi, '');
+          if (untrimmedVisible.length > streamedLength) {
             controller.enqueue(
-              encoder.encode(visibleText.slice(streamedLength))
+              encoder.encode(untrimmedVisible.slice(streamedLength))
             );
-            streamedLength = visibleText.length;
+            streamedLength = untrimmedVisible.length;
           }
 
           let finalBotContent = visibleText;
@@ -476,8 +465,7 @@ async function handleChatPost(request: NextRequest) {
               ragResult.unattemptedBenchmark?.ragSourceId &&
               !quizMeta.ragSourceId
             ) {
-              quizMeta.ragSourceId =
-                ragResult.unattemptedBenchmark.ragSourceId;
+              quizMeta.ragSourceId = ragResult.unattemptedBenchmark.ragSourceId;
             }
 
             const [insertedQuiz] = await db
@@ -496,7 +484,7 @@ async function handleChatPost(request: NextRequest) {
                 scoringRubric: quizMeta.scoringRubric,
                 rubricRationale: quizMeta.rubricRationale,
                 maxScore: 5,
-                status: "pending",
+                status: 'pending',
               })
               .returning();
 
@@ -507,7 +495,7 @@ async function handleChatPost(request: NextRequest) {
 
           await db.insert(messages).values({
             chatId: conversationId,
-            role: "bot",
+            role: 'bot',
             content: finalBotContent,
             createdAt: new Date(),
           });
@@ -515,7 +503,22 @@ async function handleChatPost(request: NextRequest) {
           controller.close();
         }
       } catch (streamError) {
-        console.error("Streaming error in chat route:", streamError);
+        console.error('Streaming error in chat route:', streamError);
+        if (isAnsweringPendingQuiz && pendingQuiz && !explanationPersisted) {
+          await db
+            .update(quizAttempts)
+            .set({
+              userAnswer: null,
+              scoreEarned: null,
+              aiExplanation: null,
+              status: 'pending',
+              answeredAt: null,
+            })
+            .where(eq(quizAttempts.id, pendingQuiz.id))
+            .catch((rollbackErr) =>
+              console.error('Failed to roll back quiz lock:', rollbackErr)
+            );
+        }
         controller.error(streamError);
       }
     },
@@ -523,14 +526,14 @@ async function handleChatPost(request: NextRequest) {
 
   return new NextResponse(stream, {
     headers: {
-      "Content-Type": "text/plain; charset=utf-8",
-      "Transfer-Encoding": "chunked",
-      "X-Chat-Id": conversationId || "",
+      'Content-Type': 'text/plain; charset=utf-8',
+      'Transfer-Encoding': 'chunked',
+      'X-Chat-Id': conversationId || '',
     },
   });
 }
 
+const chatRateLimit = createRateLimitMiddleware(30, 60000);
+
 export const POST = (request: NextRequest) =>
-  withMiddleware(
-    createRateLimitMiddleware(30, 60000)
-  )(request, handleChatPost);
+  withMiddleware(chatRateLimit)(request, handleChatPost);

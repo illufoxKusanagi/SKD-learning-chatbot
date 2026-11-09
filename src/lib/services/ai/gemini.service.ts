@@ -1,21 +1,21 @@
-import { GoogleGenAI } from "@google/genai";
-import { SkdRetrievalResult, SkdQuizMetadata } from "./rag.service";
+import { GoogleGenAI } from '@google/genai';
+import { SkdRetrievalResult, SkdQuizMetadata } from './rag.service';
 
 export interface ChatHistoryTurn {
-  role: "user" | "bot" | "model";
+  role: 'user' | 'bot' | 'model';
   content: string;
 }
 
 export interface LockedQuizEvaluation {
   quizId: string;
-  category: "TWK" | "TIU" | "TKP";
+  category: 'TWK' | 'TIU' | 'TKP';
   subtopic: string;
   questionStem: string;
   options: { A: string; B: string; C: string; D: string; E: string };
-  correctOption: "A" | "B" | "C" | "D" | "E";
+  correctOption: 'A' | 'B' | 'C' | 'D' | 'E';
   scoringRubric: { A: number; B: number; C: number; D: number; E: number };
   rubricRationale: string;
-  userAnswer: "A" | "B" | "C" | "D" | "E";
+  userAnswer: 'A' | 'B' | 'C' | 'D' | 'E';
   scoreEarned: number;
   maxScore: number;
 }
@@ -32,14 +32,14 @@ function getGenAIClient(): GoogleGenAI {
   if (genAIClient) return genAIClient;
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    throw new Error("GEMINI_API_KEY is not defined in environment variables.");
+    throw new Error('GEMINI_API_KEY is not defined in environment variables.');
   }
   genAIClient = new GoogleGenAI({ apiKey });
   return genAIClient;
 }
 
 const getGenerativeModel = () =>
-  process.env.GENERATIVE_MODEL || "gemini-2.5-flash";
+  process.env.GENERATIVE_MODEL || 'gemini-2.5-flash';
 
 export const SKD_SYSTEM_INSTRUCTION = `Anda adalah Tutor Ahli SKD CPNS (TWK, TIU, TKP) berstandar kurikulum resmi KepmenPANRB dan BKN Republik Indonesia. Tugas utama Anda adalah membimbing peserta lulus seleksi CPNS dengan pemahaman konsep mendalam, trik cepat, dan latihan soal berbasis Higher Order Thinking Skills (HOTS).
 
@@ -103,12 +103,12 @@ ATURAN SAAT MENGEVALUASI JAWABAN PENGGUNA (MODE PEMBAHASAN TERKUNCI):
    - 💡 Tips Menjawab TKP Serupa`;
 
 function cleanHistoricalText(text: string): string {
-  if (!text) return "";
+  if (!text) return '';
   return text
-    .replace(/<!--QUIZ_ATTEMPT:[\s\S]*?-->/g, "")
-    .replace(/<!--QUIZ_EVAL:[\s\S]*?-->/g, "")
-    .replace(/<quiz_meta>[\s\S]*?<\/quiz_meta>/gi, "")
-    .replace(/<quiz_meta>[\s\S]*$/gi, "")
+    .replace(/<!--QUIZ_ATTEMPT:[\s\S]*?-->/g, '')
+    .replace(/<!--QUIZ_EVAL:[\s\S]*?-->/g, '')
+    .replace(/<quiz_meta>[\s\S]*?<\/quiz_meta>/gi, '')
+    .replace(/<quiz_meta>[\s\S]*$/gi, '')
     .trim();
 }
 
@@ -119,11 +119,11 @@ export async function generateChatTitle(message: string): Promise<string> {
       model: getGenerativeModel(),
       contents: `Generate a short, descriptive title in Indonesian (max 40 characters) for an SKD learning chat that starts with: "${message}". Return only the title text without quotes.`,
     });
-    const title = result.text?.trim() || "Sesi Belajar SKD";
-    return title.length > 50 ? title.substring(0, 47) + "..." : title;
+    const title = result.text?.trim() || 'Sesi Belajar SKD';
+    return title.length > 50 ? title.substring(0, 47) + '...' : title;
   } catch (error) {
-    console.error("Title generation error:", error);
-    return "Sesi Belajar SKD";
+    console.error('Title generation error:', error);
+    return 'Sesi Belajar SKD';
   }
 }
 
@@ -161,7 +161,7 @@ Silakan ketik pilihan jawaban Anda (**A**, **B**, **C**, **D**, atau **E**)!
 
     // 2. Build multi-turn history cleaned of internal markers
     const historyContents: {
-      role: "user" | "model";
+      role: 'user' | 'model';
       parts: { text: string }[];
     }[] = [];
 
@@ -169,7 +169,7 @@ Silakan ketik pilihan jawaban Anda (**A**, **B**, **C**, **D**, atau **E**)!
     const recentHistory = rawHistory.slice(-16);
 
     for (const turn of recentHistory) {
-      const role: "user" | "model" = turn.role === "user" ? "user" : "model";
+      const role: 'user' | 'model' = turn.role === 'user' ? 'user' : 'model';
       const cleanedText = cleanHistoricalText(turn.content);
       if (!cleanedText) continue;
 
@@ -177,7 +177,8 @@ Silakan ketik pilihan jawaban Anda (**A**, **B**, **C**, **D**, atau **E**)!
         historyContents.length > 0 &&
         historyContents[historyContents.length - 1].role === role
       ) {
-        historyContents[historyContents.length - 1].parts[0].text += `\n\n${cleanedText}`;
+        historyContents[historyContents.length - 1].parts[0].text +=
+          `\n\n${cleanedText}`;
       } else {
         historyContents.push({
           role,
@@ -218,11 +219,11 @@ Instruksi: Berikan evaluasi dan pembahasan lengkap sesuai format resmi SKD. Kunc
 
 [INSTRUKSI MODE SOAL INTERAKTIF]
 Pengguna meminta soal latihan SKD.
-Kategori: ${options.ragResult.detectedCategory || "SKD"}
+Kategori: ${options.ragResult.detectedCategory || 'SKD'}
 ${
   options.ragResult.formattedContext
     ? `\nKonteks RAG Kisi-kisi & Contoh Soal:\n${options.ragResult.formattedContext}`
-    : ""
+    : ''
 }
 
 ATURAN WAJIB:
@@ -232,7 +233,7 @@ ATURAN WAJIB:
 4. DILARANG KERAS MEMBOCORKAN KUNCI JAWABAN ATAU PEMBAHASAN SEKARANG!
 5. Pada akhir respons, lampirkan blok:
 <quiz_meta>{"category":"${
-        options.ragResult.detectedCategory || "TWK"
+        options.ragResult.detectedCategory || 'TWK'
       }","subtopic":"...","questionStem":"...","options":{"A":"...","B":"...","C":"...","D":"...","E":"..."},"correctOption":"...","scoringRubric":{"A":...,"B":...,"C":...,"D":...,"E":...},"rubricRationale":"..."}</quiz_meta>`;
     } else if (options?.ragResult?.formattedContext) {
       finalUserPrompt = `${userMessage}\n\n[REFERENSI KURIKULUM & KISI-KISI RESMI SKD]\n${options.ragResult.formattedContext}`;
@@ -241,16 +242,16 @@ ATURAN WAJIB:
     // Ensure alternating user/model turns before appending the user turn
     if (
       historyContents.length > 0 &&
-      historyContents[historyContents.length - 1].role === "user"
+      historyContents[historyContents.length - 1].role === 'user'
     ) {
       historyContents.push({
-        role: "model",
-        parts: [{ text: "Siap, saya siap membantu." }],
+        role: 'model',
+        parts: [{ text: 'Siap, saya siap membantu.' }],
       });
     }
 
     historyContents.push({
-      role: "user",
+      role: 'user',
       parts: [{ text: finalUserPrompt }],
     });
 
@@ -280,9 +281,9 @@ ATURAN WAJIB:
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const parts = (chunk as any).candidates?.[0]?.content?.parts;
       if (Array.isArray(parts) && parts.length > 0) {
-        let text = "";
+        let text = '';
         for (const part of parts) {
-          if (part && !part.thought && typeof part.text === "string") {
+          if (part && !part.thought && typeof part.text === 'string') {
             text += part.text;
           }
         }
@@ -294,8 +295,8 @@ ATURAN WAJIB:
       }
     }
   } catch (error) {
-    console.error("AI generation error:", error);
-    yield "Maaf, terjadi kendala saat memproses pertanyaan Anda. Silakan coba ajukan kembali.";
+    console.error('AI generation error:', error);
+    throw error;
   }
 }
 
@@ -304,7 +305,7 @@ export function extractQuizMetaFromText(rawText: string): {
   quizMeta: SkdQuizMetadata | null;
 } {
   if (!rawText) {
-    return { visibleText: "", quizMeta: null };
+    return { visibleText: '', quizMeta: null };
   }
 
   let quizMeta: SkdQuizMetadata | null = null;
@@ -316,21 +317,21 @@ export function extractQuizMetaFromText(rawText: string): {
       const parsed = JSON.parse(match[1].trim());
       if (
         parsed &&
-        typeof parsed === "object" &&
-        ["TWK", "TIU", "TKP"].includes(parsed.category) &&
-        typeof parsed.questionStem === "string" &&
+        typeof parsed === 'object' &&
+        ['TWK', 'TIU', 'TKP'].includes(parsed.category) &&
+        typeof parsed.questionStem === 'string' &&
         parsed.options &&
-        typeof parsed.options === "object" &&
+        typeof parsed.options === 'object' &&
         parsed.options.A &&
         parsed.options.B &&
         parsed.options.C &&
         parsed.options.D &&
         parsed.options.E &&
-        ["A", "B", "C", "D", "E"].includes(parsed.correctOption) &&
+        ['A', 'B', 'C', 'D', 'E'].includes(parsed.correctOption) &&
         parsed.scoringRubric &&
-        typeof parsed.scoringRubric === "object"
+        typeof parsed.scoringRubric === 'object'
       ) {
-        const isTkp = parsed.category === "TKP";
+        const isTkp = parsed.category === 'TKP';
         const rubricA = Number(parsed.scoringRubric.A ?? 0);
         const rubricB = Number(parsed.scoringRubric.B ?? 0);
         const rubricC = Number(parsed.scoringRubric.C ?? 0);
@@ -339,52 +340,91 @@ export function extractQuizMetaFromText(rawText: string): {
 
         const scoringRubric = isTkp
           ? {
-              A: Number.isFinite(rubricA) && rubricA >= 0 && rubricA <= 5 ? rubricA : 1,
-              B: Number.isFinite(rubricB) && rubricB >= 0 && rubricB <= 5 ? rubricB : 1,
-              C: Number.isFinite(rubricC) && rubricC >= 0 && rubricC <= 5 ? rubricC : 1,
-              D: Number.isFinite(rubricD) && rubricD >= 0 && rubricD <= 5 ? rubricD : 1,
-              E: Number.isFinite(rubricE) && rubricE >= 0 && rubricE <= 5 ? rubricE : 1,
+              A:
+                Number.isFinite(rubricA) && rubricA >= 0 && rubricA <= 5
+                  ? rubricA
+                  : 1,
+              B:
+                Number.isFinite(rubricB) && rubricB >= 0 && rubricB <= 5
+                  ? rubricB
+                  : 1,
+              C:
+                Number.isFinite(rubricC) && rubricC >= 0 && rubricC <= 5
+                  ? rubricC
+                  : 1,
+              D:
+                Number.isFinite(rubricD) && rubricD >= 0 && rubricD <= 5
+                  ? rubricD
+                  : 1,
+              E:
+                Number.isFinite(rubricE) && rubricE >= 0 && rubricE <= 5
+                  ? rubricE
+                  : 1,
             }
           : {
-              A: parsed.correctOption === "A" ? 5 : 0,
-              B: parsed.correctOption === "B" ? 5 : 0,
-              C: parsed.correctOption === "C" ? 5 : 0,
-              D: parsed.correctOption === "D" ? 5 : 0,
-              E: parsed.correctOption === "E" ? 5 : 0,
+              A: parsed.correctOption === 'A' ? 5 : 0,
+              B: parsed.correctOption === 'B' ? 5 : 0,
+              C: parsed.correctOption === 'C' ? 5 : 0,
+              D: parsed.correctOption === 'D' ? 5 : 0,
+              E: parsed.correctOption === 'E' ? 5 : 0,
             };
 
-        if (isTkp && ["A", "B", "C", "D", "E"].includes(parsed.correctOption)) {
-          scoringRubric[parsed.correctOption as "A" | "B" | "C" | "D" | "E"] = 5;
+        if (isTkp) {
+          const sorted = Object.values(scoringRubric).sort((a, b) => a - b);
+          const isPermutation = sorted.join(',') === '1,2,3,4,5';
+          if (
+            isPermutation &&
+            scoringRubric[
+              parsed.correctOption as 'A' | 'B' | 'C' | 'D' | 'E'
+            ] === 5
+          ) {
+            quizMeta = {
+              ragSourceId: parsed.ragSourceId,
+              category: parsed.category,
+              subtopic: parsed.subtopic || 'Umum',
+              questionStem: parsed.questionStem,
+              options: {
+                A: String(parsed.options.A),
+                B: String(parsed.options.B),
+                C: String(parsed.options.C),
+                D: String(parsed.options.D),
+                E: String(parsed.options.E),
+              },
+              correctOption: parsed.correctOption,
+              scoringRubric,
+              rubricRationale: parsed.rubricRationale || '',
+            };
+          }
+        } else {
+          quizMeta = {
+            ragSourceId: parsed.ragSourceId,
+            category: parsed.category,
+            subtopic: parsed.subtopic || 'Umum',
+            questionStem: parsed.questionStem,
+            options: {
+              A: String(parsed.options.A),
+              B: String(parsed.options.B),
+              C: String(parsed.options.C),
+              D: String(parsed.options.D),
+              E: String(parsed.options.E),
+            },
+            correctOption: parsed.correctOption,
+            scoringRubric,
+            rubricRationale: parsed.rubricRationale || '',
+          };
         }
-
-        quizMeta = {
-          ragSourceId: parsed.ragSourceId,
-          category: parsed.category,
-          subtopic: parsed.subtopic || "Umum",
-          questionStem: parsed.questionStem,
-          options: {
-            A: String(parsed.options.A),
-            B: String(parsed.options.B),
-            C: String(parsed.options.C),
-            D: String(parsed.options.D),
-            E: String(parsed.options.E),
-          },
-          correctOption: parsed.correctOption,
-          scoringRubric,
-          rubricRationale: parsed.rubricRationale || "",
-        };
       }
     } catch (e) {
       console.warn(
-        "[extractQuizMetaFromText] Failed to parse JSON quiz_meta:",
+        '[extractQuizMetaFromText] Failed to parse JSON quiz_meta:',
         e
       );
     }
   }
 
   // Strip <quiz_meta>...</quiz_meta> and any unclosed trailing <quiz_meta>...
-  let visibleText = rawText.replace(/<quiz_meta>[\s\S]*?<\/quiz_meta>/gi, "");
-  visibleText = visibleText.replace(/<quiz_meta>[\s\S]*$/gi, "");
+  let visibleText = rawText.replace(/<quiz_meta>[\s\S]*?<\/quiz_meta>/gi, '');
+  visibleText = visibleText.replace(/<quiz_meta>[\s\S]*$/gi, '');
   visibleText = visibleText.trim();
 
   return { visibleText, quizMeta };

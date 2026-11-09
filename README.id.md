@@ -59,8 +59,8 @@ Chatbot Pembelajaran SKD CPNS & Sekolah Kedinasan adalah sistem chatbot berbasis
 ### Untuk Pengguna Akhir
 
 - **💬 Chatbot Cerdas**
-  - Tanyakan apapun tentang Kabupaten Madiun dengan bahasa natural
-  - Dapatkan jawaban akurat dari data pejabat, regulasi, dan layanan publik
+  - Tanyakan materi persiapan SKD CPNS dan Sekolah Kedinasan (TWK, TIU, TKP) dengan bahasa natural
+  - Dapatkan latihan soal HOTS interaktif, evaluasi jawaban, dan rubrik penskoran berbobot
   - Respons kontekstual menggunakan teknologi RAG
 
 - **🔒 Sistem Autentikasi**
@@ -121,8 +121,8 @@ Chatbot Pembelajaran SKD CPNS & Sekolah Kedinasan adalah sistem chatbot berbasis
 - **Password Hashing**: bcryptjs
 
 ### AI & ML
-- **LLM**: Google Gemini 1.5 Flash
-- **Embeddings**: Google Generative AI Embeddings (768 dimensi)
+- **LLM**: Google Gemini 2.5 Flash
+- **Embeddings**: Google Generative AI Embeddings (gemini-embedding-001, 768 dimensi)
 - **RAG Framework**: Implementasi custom
 
 ### DevOps

@@ -1,30 +1,9 @@
 import * as fs from "fs";
 import * as path from "path";
-import dotenv from "dotenv";
 import { z } from "zod";
-import { eq } from "drizzle-orm";
+import { embedAndUpsertRagEntry, requireSeedEnv } from "./seed-utils";
 
-// 1. Initialize environment variables before importing dependent database & AI modules
-const envLocalPath = path.resolve(process.cwd(), ".env.local");
-const envPath = path.resolve(process.cwd(), ".env");
-
-// Precedence: shell env > .env.local > .env (same as Next.js)
-let loadedEnv = false;
-for (const p of [envLocalPath, envPath]) {
-  if (fs.existsSync(p)) {
-    dotenv.config({ path: p });
-    console.log(`[Import] Environment variables loaded from: ${p}`);
-    loadedEnv = true;
-  }
-}
-
-if (!loadedEnv) {
-  dotenv.config();
-  console.log("[Import] Environment loaded from default process environment");
-}
-
-// 2. Canonical Subtopics constant
-export const CANONICAL_SUBTOPICS = {
+const SUBTOPICS: Record<"TWK" | "TIU" | "TKP", readonly string[]> = {
   TWK: [
     "Nasionalisme",
     "Integritas",
@@ -53,630 +32,187 @@ export const CANONICAL_SUBTOPICS = {
     "Anti-Radikalisme",
     "Profesionalisme",
   ],
-} as const;
+};
 
-export type Category = "TWK" | "TIU" | "TKP";
-export type BatchCategory = Category | "MIXED";
+const LABELS = ["A", "B", "C", "D", "E"] as const;
 
-// 3. Zod Schemas
-export const batchMetadataSchema = z.object({
-  batchId: z
-    .string()
-    .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
-      message: "batchId must be kebab-case (e.g., '2026-11-b01')",
-    }),
-  category: z.enum(["TWK", "TIU", "TKP", "MIXED"]),
-  totalQuestions: z.number().int().positive({
-    message: "totalQuestions must be a positive integer",
-  }),
-  difficulty: z.literal("HOTS"),
-});
-
-export type BatchMetadata = z.infer<typeof batchMetadataSchema>;
-
-export const optionSchema = z.object({
-  label: z.enum(["A", "B", "C", "D", "E"]),
-  text: z.string().trim().min(1, { message: "Option text cannot be empty" }),
-  score: z.union([
-    z.literal(0),
-    z.literal(1),
-    z.literal(2),
-    z.literal(3),
-    z.literal(4),
-    z.literal(5),
-  ]),
-});
-
-export type OptionItem = z.infer<typeof optionSchema>;
-
-export const questionItemSchema = z
+const questionSchema = z
   .object({
     category: z.enum(["TWK", "TIU", "TKP"]),
-    subtopic: z.string().trim().min(1, { message: "Subtopic is required" }),
-    title: z
-      .string()
-      .trim()
-      .min(1, { message: "Title cannot be empty" })
-      .max(120, { message: "Title must not exceed 120 characters" }),
+    subtopic: z.string().trim().min(1),
+    title: z.string().trim().min(1).max(120),
     questionStem: z
       .string()
       .trim()
-      .min(1, { message: "questionStem cannot be empty" }),
-    reasoningChain: z
-      .string()
-      .trim()
-      .min(1, { message: "reasoningChain cannot be empty" }),
-    options: z.array(optionSchema),
-    rubricRationale: z
-      .string()
-      .trim()
-      .min(1, { message: "rubricRationale cannot be empty" }),
+      .min(1)
+      .refine((s) => !/^\s*[A-E][.)]\s+/m.test(s), "Options leaked into stem"),
+    reasoningChain: z.string().trim().min(1),
+    options: z
+      .array(
+        z.object({
+          label: z.enum(LABELS),
+          text: z.string().trim().min(1),
+          score: z.number().int().min(0).max(5),
+        })
+      )
+      .length(5),
+    rubricRationale: z.string().trim().min(1),
   })
   .superRefine((q, ctx) => {
-    // Check 1: Exactly 5 options
-    if (q.options.length !== 5) {
+    if (!SUBTOPICS[q.category].includes(q.subtopic)) {
       ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: `Expected exactly 5 options, received ${q.options.length}`,
-        path: ["options"],
-      });
-      return;
-    }
-
-    // Check 2: Labels A..E in sequential order
-    const expectedLabels: Array<"A" | "B" | "C" | "D" | "E"> = [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-    ];
-    for (let i = 0; i < 5; i++) {
-      if (q.options[i].label !== expectedLabels[i]) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: `Option at index ${i} has label '${q.options[i].label}', expected '${expectedLabels[i]}'`,
-          path: ["options", i, "label"],
-        });
-      }
-    }
-
-    // Check 3: Scores sorted matching category rules
-    const scores = q.options.map((o) => o.score).sort((a, b) => a - b);
-    if (q.category === "TWK" || q.category === "TIU") {
-      const isBinary5_0 =
-        scores.length === 5 &&
-        scores[0] === 0 &&
-        scores[1] === 0 &&
-        scores[2] === 0 &&
-        scores[3] === 0 &&
-        scores[4] === 5;
-      if (!isBinary5_0) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: `${q.category} questions must have exactly one 5-point answer and four 0-point distractors (received: ${q.options.map((o) => o.score).join(", ")})`,
-          path: ["options"],
-        });
-      }
-    } else if (q.category === "TKP") {
-      const isPermutation1To5 =
-        scores.length === 5 &&
-        scores[0] === 1 &&
-        scores[1] === 2 &&
-        scores[2] === 3 &&
-        scores[3] === 4 &&
-        scores[4] === 5;
-      if (!isPermutation1To5) {
-        ctx.addIssue({
-          code: z.ZodIssueCode.custom,
-          message: `TKP questions must have graduated scores permuting 1 to 5 (received: ${q.options.map((o) => o.score).join(", ")})`,
-          path: ["options"],
-        });
-      }
-    }
-
-    // Check 4: Canonical subtopic
-    const canonicalList = CANONICAL_SUBTOPICS[q.category] as readonly string[];
-    if (!canonicalList.includes(q.subtopic)) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: `Subtopic "${q.subtopic}" is not in the canonical list for ${q.category}. Allowed: ${canonicalList.join(", ")}`,
+        code: "custom",
         path: ["subtopic"],
+        message: `Invalid ${q.category} subtopic "${q.subtopic}"`,
       });
     }
-
-    // Check 5: Heuristic check for options leaked into stem
-    if (/^\s*[A-E][\.\)]\s+/m.test(q.questionStem)) {
+    if (q.options.some((o, idx) => o.label !== LABELS[idx])) {
       ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message:
-          "questionStem must not contain option list or choices (matches /^\\s*[A-E][\\.\\)]\\s+/m)",
-        path: ["questionStem"],
+        code: "custom",
+        path: ["options"],
+        message: "Options must be ordered A..E",
+      });
+    }
+    const sorted = q.options
+      .map((o) => o.score)
+      .sort((a, b) => a - b)
+      .join(",");
+    const expected = q.category === "TKP" ? "1,2,3,4,5" : "0,0,0,0,5";
+    if (sorted !== expected) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["options"],
+        message: `Expected score distribution ${expected}, got ${sorted}`,
       });
     }
   });
 
-export type QuestionItem = z.infer<typeof questionItemSchema>;
+const batchSchema = z
+  .object({
+    batchMetadata: z.object({
+      batchId: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
+      category: z.enum(["TWK", "TIU", "TKP", "MIXED"]),
+      totalQuestions: z.number().int().positive(),
+      difficulty: z.literal("HOTS"),
+    }),
+    questions: z.array(z.unknown()),
+  })
+  .refine((b) => b.batchMetadata.totalQuestions === b.questions.length, {
+    message: "batchMetadata.totalQuestions does not match questions.length",
+  });
 
-export interface RejectedItem {
-  index: number;
-  reasons: string[];
-}
-
-export interface ValidQuestionWrapper {
-  question: QuestionItem;
-  index: number;
-  nn: string;
-}
-
-// 4. Key order verification before Zod parsing
-function checkKeyOrder(rawQ: unknown): { valid: boolean; reason?: string } {
-  if (typeof rawQ !== "object" || rawQ === null || Array.isArray(rawQ)) {
-    return { valid: false, reason: "Question item must be a JSON object" };
-  }
-  const keys = Object.keys(rawQ);
-  const rcIndex = keys.indexOf("reasoningChain");
-  const optIndex = keys.indexOf("options");
-
-  if (rcIndex === -1) {
-    return {
-      valid: false,
-      reason: "Missing 'reasoningChain' property in question object",
-    };
-  }
-  if (optIndex === -1) {
-    return {
-      valid: false,
-      reason: "Missing 'options' property in question object",
-    };
-  }
-  if (rcIndex >= optIndex) {
-    return {
-      valid: false,
-      reason: `Key order violation: 'reasoningChain' (key index ${rcIndex}) must appear before 'options' (key index ${optIndex})`,
-    };
-  }
-  return { valid: true };
-}
-
-// 5. Path resolution helper
-function resolveJsonFiles(targetPaths: string[]): string[] {
-  const resolvedPaths: Set<string> = new Set();
-
-  const processPath = (p: string) => {
-    const absPath = path.resolve(process.cwd(), p);
-    if (!fs.existsSync(absPath)) {
-      console.warn(`[Warning] Path does not exist: ${absPath}`);
-      return;
-    }
-    const stat = fs.statSync(absPath);
-    if (stat.isDirectory()) {
-      const entries = fs.readdirSync(absPath);
-      for (const entry of entries) {
-        if (entry.endsWith(".json")) {
-          resolvedPaths.add(path.join(absPath, entry));
-        }
+function resolveJsonFiles(args: string[]): string[] {
+  const targets = args.length > 0 ? args : ["data/quiz-bank"];
+  const files = new Set<string>();
+  for (const target of targets) {
+    const abs = path.resolve(process.cwd(), target);
+    if (!fs.existsSync(abs)) continue;
+    if (fs.statSync(abs).isDirectory()) {
+      for (const f of fs.readdirSync(abs)) {
+        if (f.endsWith(".json")) files.add(path.join(abs, f));
       }
-    } else if (stat.isFile()) {
-      if (absPath.endsWith(".json")) {
-        resolvedPaths.add(absPath);
-      } else {
-        console.warn(`[Warning] Ignoring non-JSON file: ${absPath}`);
-      }
-    }
-  };
-
-  if (targetPaths.length === 0) {
-    const defaultDir = path.resolve(process.cwd(), "data/quiz-bank");
-    if (fs.existsSync(defaultDir)) {
-      processPath(defaultDir);
-    }
-  } else {
-    for (const p of targetPaths) {
-      processPath(p);
+    } else if (abs.endsWith(".json")) {
+      files.add(abs);
     }
   }
-
-  return Array.from(resolvedPaths).sort();
+  return [...files].sort();
 }
 
 async function main() {
-  console.log("==================================================");
-  console.log("   SKD Learning Chatbot - Quiz Bank Importer      ");
-  console.log("==================================================");
+  requireSeedEnv();
+  const rawArgs = process.argv.slice(2);
+  const force = rawArgs.includes("--force");
+  const pathArgs = rawArgs.filter((a) => a !== "--force");
 
-  // Require DATABASE_URL
-  if (!process.env.DATABASE_URL) {
-    console.error(
-      "❌ Error: DATABASE_URL is not defined in environment variables. Please check your .env or .env.local file."
-    );
-    process.exit(1);
-  }
-
-  // Require GEMINI_API_KEY (Online-only requirement)
-  if (!process.env.GEMINI_API_KEY) {
-    console.error(
-      "❌ Error: GEMINI_API_KEY is not defined in environment variables. App is online-only; embedding generation is mandatory."
-    );
-    process.exit(1);
-  }
-
-  // Dynamic imports after env resolution
-  const {
-    db,
-    ensureDatabaseSchema,
-    ragData,
-    closeConnection,
-  } = await import("../src/lib/db/index");
-  const { generateEmbedding } = await import(
-    "../src/lib/services/ai/embeddings.service"
-  );
-
-  console.log("[Import] Ensuring database schema and vector extension...");
+  const { ensureDatabaseSchema, closeConnection } = await import("../src/lib/db");
   await ensureDatabaseSchema();
 
-  const cliArgs = process.argv.slice(2);
-  const targetFiles = resolveJsonFiles(cliArgs);
-
-  if (targetFiles.length === 0) {
-    console.log("[Import] No JSON files found to import.");
+  const files = resolveJsonFiles(pathArgs);
+  if (files.length === 0) {
+    console.log("[Import] No JSON files found.");
     await closeConnection();
-    process.exit(0);
+    return;
   }
 
-  console.log(`[Import] Found ${targetFiles.length} file(s) to process.`);
+  let hasErrors = false;
 
-  let globalHasErrors = false;
-
-  for (const filePath of targetFiles) {
-    console.log("\n--------------------------------------------------");
-    console.log(`[File] Processing: ${filePath}`);
-    console.log("--------------------------------------------------");
-
-    let fileContent: string;
-    try {
-      fileContent = fs.readFileSync(filePath, "utf-8");
-    } catch (readErr) {
-      console.error(
-        `❌ Error reading file ${filePath}:`,
-        readErr instanceof Error ? readErr.message : readErr
-      );
-      globalHasErrors = true;
+  for (const file of files) {
+    const raw = JSON.parse(fs.readFileSync(file, "utf-8"));
+    const batchRes = batchSchema.safeParse(raw);
+    if (!batchRes.success) {
+      console.error(`[Reject File] ${path.basename(file)}:`, batchRes.error.issues);
+      hasErrors = true;
       continue;
     }
 
-    let parsedJson: unknown;
-    try {
-      parsedJson = JSON.parse(fileContent);
-    } catch (jsonErr) {
-      console.error(
-        `❌ Invalid JSON syntax in file ${filePath}:`,
-        jsonErr instanceof Error ? jsonErr.message : jsonErr
-      );
-      globalHasErrors = true;
-      continue;
-    }
+    const { batchMetadata, questions } = batchRes.data;
+    let upserted = 0;
+    let skipped = 0;
 
-    if (
-      typeof parsedJson !== "object" ||
-      parsedJson === null ||
-      Array.isArray(parsedJson)
-    ) {
-      console.error(
-        `❌ File root must be a JSON object with batchMetadata and questions: ${filePath}`
-      );
-      globalHasErrors = true;
-      continue;
-    }
-
-    const rawObj = parsedJson as Record<string, unknown>;
-
-    // Validate batchMetadata
-    const metadataResult = batchMetadataSchema.safeParse(rawObj.batchMetadata);
-    if (!metadataResult.success) {
-      console.error(`❌ Invalid batchMetadata in ${filePath}:`);
-      for (const issue of metadataResult.error.issues) {
-        console.error(`   - ${issue.path.join(".")}: ${issue.message}`);
+    for (let i = 0; i < questions.length; i++) {
+      const parsed = questionSchema.safeParse(questions[i]);
+      if (!parsed.success) {
+        console.error(`[Reject #${i + 1}] ${path.basename(file)}:`, parsed.error.issues);
+        hasErrors = true;
+        continue;
       }
-      globalHasErrors = true;
-      continue;
-    }
-
-    const batchMetadata = metadataResult.data;
-
-    // Validate questions array
-    if (!Array.isArray(rawObj.questions)) {
-      console.error(`❌ 'questions' must be an array in ${filePath}`);
-      globalHasErrors = true;
-      continue;
-    }
-
-    const rawQuestions = rawObj.questions;
-
-    // Batch-level check: totalQuestions === questions.length
-    if (batchMetadata.totalQuestions !== rawQuestions.length) {
-      console.error(
-        `❌ Batch count mismatch in ${filePath}: batchMetadata.totalQuestions (${batchMetadata.totalQuestions}) !== questions.length (${rawQuestions.length})`
-      );
-      globalHasErrors = true;
-      continue;
-    }
-
-    const rejectedItems: RejectedItem[] = [];
-    const validQuestions: ValidQuestionWrapper[] = [];
-
-    // Per-item validation
-    for (let i = 0; i < rawQuestions.length; i++) {
-      const rawQ = rawQuestions[i];
-      const itemIndex = i + 1; // 1-based index
-      const nn = String(itemIndex).padStart(2, "0");
-
-      // Key order check
-      const keyOrderResult = checkKeyOrder(rawQ);
-      if (!keyOrderResult.valid) {
-        rejectedItems.push({
-          index: itemIndex,
-          reasons: [keyOrderResult.reason ?? "Invalid key order"],
-        });
+      const q = parsed.data;
+      if (batchMetadata.category !== "MIXED" && q.category !== batchMetadata.category) {
+        console.error(`[Reject #${i + 1}] Category ${q.category} !== ${batchMetadata.category}`);
+        hasErrors = true;
         continue;
       }
 
-      // Zod schema check
-      const itemResult = questionItemSchema.safeParse(rawQ);
-      if (!itemResult.success) {
-        const errorMessages = itemResult.error.issues.map(
-          (issue) =>
-            `${issue.path.length > 0 ? issue.path.join(".") + ": " : ""}${issue.message}`
-        );
-        rejectedItems.push({
-          index: itemIndex,
-          reasons: errorMessages,
-        });
-        continue;
-      }
+      const externalId = `skd-${q.category.toLowerCase()}-bank-${batchMetadata.batchId}-${String(i + 1).padStart(2, "0")}`;
+      const content = `Soal Latihan HOTS ${q.category} - ${q.subtopic}:\n${q.questionStem}\n${q.options.map((o) => `${o.label}. ${o.text}`).join("\n")}`;
+      const options = Object.fromEntries(q.options.map((o) => [o.label, o.text])) as Record<(typeof LABELS)[number], string>;
+      const scoringRubric = Object.fromEntries(q.options.map((o) => [o.label, o.score])) as Record<(typeof LABELS)[number], number>;
+      const correctOption = q.options.find((o) => o.score === 5)!.label;
 
-      const validatedQuestion = itemResult.data;
-
-      // Batch category consistency check
-      if (
-        batchMetadata.category !== "MIXED" &&
-        validatedQuestion.category !== batchMetadata.category
-      ) {
-        rejectedItems.push({
-          index: itemIndex,
-          reasons: [
-            `Question category "${validatedQuestion.category}" does not match batch category "${batchMetadata.category}"`,
-          ],
-        });
-        continue;
-      }
-
-      validQuestions.push({
-        question: validatedQuestion,
-        index: itemIndex,
-        nn,
-      });
-    }
-
-    let fileInsertedCount = 0;
-    let fileUpdatedCount = 0;
-    let fileFailedCount = 0;
-
-    // Process valid questions
-    for (const validItem of validQuestions) {
-      const { question, nn } = validItem;
-      const externalId = `skd-${question.category.toLowerCase()}-bank-${batchMetadata.batchId}-${nn}`;
-
-      const optionsLines = question.options
-        .map((opt) => `${opt.label}. ${opt.text}`)
-        .join("\n");
-      const content = `Soal Latihan HOTS ${question.category} - ${question.subtopic}:\n${question.questionStem}\n${optionsLines}`;
-
-      const correctOption = (question.options.find((opt) => opt.score === 5)
-        ?.label ?? "A") as "A" | "B" | "C" | "D" | "E";
-
-      const optionsMap: {
-        A: string;
-        B: string;
-        C: string;
-        D: string;
-        E: string;
-      } = {
-        A: question.options.find((o) => o.label === "A")?.text ?? "",
-        B: question.options.find((o) => o.label === "B")?.text ?? "",
-        C: question.options.find((o) => o.label === "C")?.text ?? "",
-        D: question.options.find((o) => o.label === "D")?.text ?? "",
-        E: question.options.find((o) => o.label === "E")?.text ?? "",
-      };
-
-      const scoringRubricMap: {
-        A: number;
-        B: number;
-        C: number;
-        D: number;
-        E: number;
-      } = {
-        A: question.options.find((o) => o.label === "A")?.score ?? 0,
-        B: question.options.find((o) => o.label === "B")?.score ?? 0,
-        C: question.options.find((o) => o.label === "C")?.score ?? 0,
-        D: question.options.find((o) => o.label === "D")?.score ?? 0,
-        E: question.options.find((o) => o.label === "E")?.score ?? 0,
-      };
-
-      const payloadData = {
-        category: question.category,
-        subtopic: question.subtopic,
-        docType: "contoh_soal_hots" as const,
-        scoringRule:
-          question.category === "TKP"
-            ? ("scale_1_to_5" as const)
-            : ("binary_5_0" as const),
-        reasoningChain: question.reasoningChain,
-        quizPayload: {
-          category: question.category,
-          subtopic: question.subtopic,
-          questionStem: question.questionStem,
-          options: optionsMap,
-          correctOption,
-          scoringRubric: scoringRubricMap,
-          rubricRationale: question.rubricRationale,
-        },
-        batchId: batchMetadata.batchId,
-      };
-
-      // Generate embedding (Online-only)
-      let embeddingVector: number[];
       try {
-        const textToEmbed = `${question.title}\n${question.subtopic}\n${content}`;
-        embeddingVector = await generateEmbedding(textToEmbed, {
-          taskType: "RETRIEVAL_DOCUMENT",
-          title: question.title,
-        });
-        await new Promise((resolve) => setTimeout(resolve, 150));
-      } catch (embErr) {
-        fileFailedCount++;
-        console.error(
-          `   ❌ Failed to generate embedding for ${externalId}:`,
-          embErr instanceof Error ? embErr.message : embErr
-        );
-        continue; // Do not save without vector
-      }
-
-      // Upsert into database
-      try {
-        const existing = await db
-          .select({ id: ragData.id })
-          .from(ragData)
-          .where(eq(ragData.external_id, externalId))
-          .limit(1);
-
-        if (existing.length > 0) {
-          await db
-            .update(ragData)
-            .set({
-              title: question.title,
-              content,
-              source: "internal",
-              data: payloadData,
-              embedding: embeddingVector,
-              updatedAt: new Date(),
-            })
-            .where(eq(ragData.external_id, externalId));
-
-          fileUpdatedCount++;
-          console.log(`   ✓ Updated existing entry (${externalId})`);
-        } else {
-          await db.insert(ragData).values({
-            title: question.title,
+        const result = await embedAndUpsertRagEntry(
+          {
+            externalId,
+            title: q.title,
+            subtopic: q.subtopic,
             content,
-            source: "internal",
-            external_id: externalId,
-            data: payloadData,
-            embedding: embeddingVector,
-            createdAt: new Date(),
-            updatedAt: new Date(),
-          });
-
-          fileInsertedCount++;
-          console.log(`   ✓ Inserted new entry (${externalId})`);
-        }
-      } catch (dbErr) {
-        fileFailedCount++;
-        console.error(
-          `   ❌ Database error saving ${externalId}:`,
-          dbErr instanceof Error ? dbErr.message : dbErr
+            data: {
+              category: q.category,
+              subtopic: q.subtopic,
+              docType: "contoh_soal_hots",
+              scoringRule: q.category === "TKP" ? "scale_1_to_5" : "binary_5_0",
+              reasoningChain: q.reasoningChain,
+              batchId: batchMetadata.batchId,
+              quizPayload: {
+                category: q.category,
+                subtopic: q.subtopic,
+                questionStem: q.questionStem,
+                options,
+                correctOption,
+                scoringRubric,
+                rubricRationale: q.rubricRationale,
+              },
+            },
+          },
+          force
         );
+        if (result === "skipped") skipped++;
+        else upserted++;
+      } catch (err) {
+        console.error(`[Error] ${externalId}:`, err instanceof Error ? err.message : err);
+        hasErrors = true;
       }
     }
-
-    // Report answer-key distribution across A–E for valid items
-    const distribution: Record<"A" | "B" | "C" | "D" | "E", number> = {
-      A: 0,
-      B: 0,
-      C: 0,
-      D: 0,
-      E: 0,
-    };
-
-    for (const { question } of validQuestions) {
-      const topOpt = question.options.find((opt) => opt.score === 5);
-      if (topOpt) {
-        distribution[topOpt.label]++;
-      }
-    }
-
-    console.log("\n--- Answer Key (5-point) Distribution ---");
-    const validCount = validQuestions.length;
-    const letters: Array<"A" | "B" | "C" | "D" | "E"> = [
-      "A",
-      "B",
-      "C",
-      "D",
-      "E",
-    ];
-    if (validCount > 0) {
-      for (const letter of letters) {
-        const count = distribution[letter];
-        const pct = ((count / validCount) * 100).toFixed(1);
-        console.log(`  Option ${letter}: ${count} (${pct}%)`);
-      }
-
-      if (validCount >= 5) {
-        for (const letter of letters) {
-          const count = distribution[letter];
-          const ratio = count / validCount;
-          if (ratio > 0.3) {
-            console.warn(
-              `  ⚠️  WARNING: Option '${letter}' holds ${(ratio * 100).toFixed(
-                1
-              )}% (>30%) of the 5-point answers in this batch (${count}/${validCount})`
-            );
-          }
-        }
-      }
-    } else {
-      console.log("  No valid questions to compute distribution.");
-    }
-
-    // Report rejected items
-    if (rejectedItems.length > 0) {
-      console.log("\n--- Rejected Questions ---");
-      for (const r of rejectedItems) {
-        console.log(`  • Question #${r.index}:`);
-        for (const reason of r.reasons) {
-          console.log(`    - ${reason}`);
-        }
-      }
-    }
-
-    // File Summary
-    console.log("\n--- File Import Summary ---");
-    console.log(`File                    : ${path.basename(filePath)}`);
-    console.log(`Total Questions in File : ${rawQuestions.length}`);
-    console.log(`Valid Questions         : ${validCount}`);
-    console.log(`Inserted                : ${fileInsertedCount}`);
-    console.log(`Updated                 : ${fileUpdatedCount}`);
-    console.log(`Rejected                : ${rejectedItems.length}`);
-    console.log(`Failed                  : ${fileFailedCount}`);
-
-    if (rejectedItems.length > 0 || fileFailedCount > 0) {
-      globalHasErrors = true;
-    }
+    console.log(
+      `[Import] ${path.basename(file)}: ${upserted} upserted, ${skipped} unchanged/skipped.`
+    );
   }
 
   await closeConnection();
-  console.log("\n[Import] Database connection closed.");
-
-  if (globalHasErrors) {
-    console.log("❌ Finished with errors or rejected items (Exit code 1).");
-    process.exit(1);
-  } else {
-    console.log("✅ All processed files imported cleanly (Exit code 0).");
-    process.exit(0);
-  }
+  process.exit(hasErrors ? 1 : 0);
 }
 
 main().catch((err) => {
-  console.error("❌ Fatal error in import script:", err);
+  console.error("[Import] Fatal:", err);
   process.exit(1);
 });

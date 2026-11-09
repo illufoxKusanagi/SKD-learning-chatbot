@@ -14,14 +14,11 @@ import {
 import { Button } from "@/components/ui/button";
 import {
   BookOpen,
-  CheckCircle2,
   HelpCircle,
   Award,
   ExternalLink,
-  ChevronRight,
 } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 
 interface ChatQuizDrawerProps {
   quizzes: QuizAttemptItem[];

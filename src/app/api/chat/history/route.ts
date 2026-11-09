@@ -1,20 +1,20 @@
-import { getDb } from "@/lib/db";
-import { conversations, messages } from "@/lib/db/schema";
+import { getDb } from '@/lib/db';
+import { conversations, messages } from '@/lib/db/schema';
 import {
   withMiddleware,
   createRateLimitMiddleware,
   ApiError,
-} from "@/middleware/api";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
-import { eq, sql } from "drizzle-orm";
-import { NextRequest, NextResponse } from "next/server";
+} from '@/middleware/api';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
+import { eq, sql } from 'drizzle-orm';
+import { NextRequest, NextResponse } from 'next/server';
 
-async function getChatHistoryHandler(request: NextRequest) {
+async function getChatHistoryHandler(_request: NextRequest) {
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const userId = session.user.id;
@@ -34,13 +34,13 @@ async function getChatHistoryHandler(request: NextRequest) {
         messageCount: sql<number>`(
           SELECT COUNT(*) FROM ${messages} 
           WHERE ${messages.chatId} = ${conversations.id}
-        )`.as("message_count"),
+        )`.as('message_count'),
         lastMessage: sql<string>`(
           SELECT ${messages.content} FROM ${messages} 
           WHERE ${messages.chatId} = ${conversations.id}
           ORDER BY ${messages.createdAt} DESC 
           LIMIT 1
-        )`.as("last_message"),
+        )`.as('last_message'),
       })
       .from(conversations)
       .where(eq(conversations.userId, userId))
@@ -60,7 +60,7 @@ async function getChatHistoryHandler(request: NextRequest) {
           messageCount: Number(chat.messageCount) || 0,
           lastMessage: chat.lastMessage
             ? chat.lastMessage.length > 100
-              ? chat.lastMessage.substring(0, 97) + "..."
+              ? chat.lastMessage.substring(0, 97) + '...'
               : chat.lastMessage
             : null,
           createdAt: chat.createdAt,
@@ -72,16 +72,16 @@ async function getChatHistoryHandler(request: NextRequest) {
   } catch (error) {
     console.error(`[CHAT_HISTORY] Error fetching history:`, error);
     throw new ApiError(
-      "Gagal mengambil riwayat chat",
+      'Gagal mengambil riwayat chat',
       500,
-      "CHAT_HISTORY_ERROR"
+      'CHAT_HISTORY_ERROR'
       // { userId }
     );
   }
 }
 
+const historyRateLimit = createRateLimitMiddleware(30, 60000);
+
 export const GET = (request: NextRequest) => {
-  return withMiddleware(
-    createRateLimitMiddleware(30, 60000) // 30 requests per minute
-  )(request, getChatHistoryHandler);
+  return withMiddleware(historyRateLimit)(request, getChatHistoryHandler);
 };

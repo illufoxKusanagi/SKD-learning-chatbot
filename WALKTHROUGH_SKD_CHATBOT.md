@@ -23,12 +23,12 @@ Membuat chatbot yang bisa:
 
 Total estimasi waktu: **2 - 3 Jam**
 
-| Tahap | Tugas | Estimasi Waktu |
-| :--- | :--- | :--- |
-| **1. Persiapan** | Setup Environment Variable (Gemini API Key) | 15 Menit |
-| **2. Backend Service** | Update `gemini.service.ts` (Streaming & Thinking) | 1 Jam |
-| **3. Frontend** | Update UI untuk menampilkan "Thinking Process" | 1 Jam |
-| **4. Testing** | Uji coba soal & validasi jawaban | 30 Menit |
+| Tahap                  | Tugas                                             | Estimasi Waktu |
+| :--------------------- | :------------------------------------------------ | :------------- |
+| **1. Persiapan**       | Setup Environment Variable (Gemini API Key)       | 15 Menit       |
+| **2. Backend Service** | Update `gemini.service.ts` (Streaming & Thinking) | 1 Jam          |
+| **3. Frontend**        | Update UI untuk menampilkan "Thinking Process"    | 1 Jam          |
+| **4. Testing**         | Uji coba soal & validasi jawaban                  | 30 Menit       |
 
 ---
 
@@ -39,7 +39,7 @@ Pastikan API Key Gemini sudah ada di `.env`.
 
 ```env
 GEMINI_API_KEY=AIzaSy...
-GENERATIVE_MODEL=gemini-2.0-flash-thinking-exp-1219
+GENERATIVE_MODEL=gemini-2.5-flash
 ```
 
 ### Langkah 2: Update Service AI (Streaming & Thinking)
