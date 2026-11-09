@@ -7,7 +7,7 @@ import { users } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 
 // Edited here: Restored your original middleware-based me handler
-async function meHandler(req: NextRequest) {
+async function meHandler(_req: NextRequest) {
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {

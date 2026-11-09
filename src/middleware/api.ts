@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from "next/server";
-import { verifyToken } from "@/lib/auth/jwt";
-import { z } from "zod";
+import { NextRequest, NextResponse } from 'next/server';
+import { verifyToken } from '@/lib/auth/jwt';
+import { z } from 'zod';
 
 export interface AuthenticatedRequest extends NextRequest {
   user?: {
@@ -20,27 +20,27 @@ export class ApiError extends Error {
     public code?: string
   ) {
     super(message);
-    this.name = "ApiError";
+    this.name = 'ApiError';
   }
 }
 
 export function createAuthMiddleware() {
   return async (req: AuthenticatedRequest) => {
     try {
-      const authHeader = req.headers.get("authorization");
-      if (!authHeader?.startsWith("Bearer ")) {
+      const authHeader = req.headers.get('authorization');
+      if (!authHeader?.startsWith('Bearer ')) {
         throw new ApiError(
-          "Missing or invalid authorization header",
+          'Missing or invalid authorization header',
           401,
-          "UNAUTHORIZED"
+          'UNAUTHORIZED'
         );
       }
 
       const token = authHeader.substring(7);
       const payload = verifyToken(token);
 
-      if (payload.type !== "access") {
-        throw new ApiError("Invalid token type", 401, "INVALID_TOKEN");
+      if (payload.type !== 'access') {
+        throw new ApiError('Invalid token type', 401, 'INVALID_TOKEN');
       }
 
       req.user = {
@@ -51,39 +51,39 @@ export function createAuthMiddleware() {
       return req;
     } catch (error) {
       if (error instanceof ApiError) throw error;
-      throw new ApiError("Authentication failed", 401, "AUTH_FAILED");
+      throw new ApiError('Authentication failed', 401, 'AUTH_FAILED');
     }
   };
 }
 
 export function createValidationMiddleware<T>(
   schema: z.ZodSchema<T>,
-  options: { field?: "body" | "query" | "params" } = { field: "body" }
+  options: { field?: 'body' | 'query' | 'params' } = { field: 'body' }
 ) {
   return async (req: NextRequest): Promise<NextRequest> => {
     try {
       let dataToValidate;
 
       switch (options.field) {
-        case "query":
+        case 'query':
           const url = new URL(req.url);
           dataToValidate = Object.fromEntries(url.searchParams.entries());
           break;
-        case "params":
+        case 'params':
           dataToValidate = {};
           break;
-        case "body":
+        case 'body':
         default:
           try {
             dataToValidate = await req.json();
             // Edited here: Add debug logging
-            console.log("[VALIDATION] Raw data received:", dataToValidate);
+            console.log('[VALIDATION] Raw data received:', dataToValidate);
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
           } catch (error) {
             throw new ApiError(
-              "Request body harus berupa JSON yang valid",
+              'Request body harus berupa JSON yang valid',
               400,
-              "INVALID_JSON"
+              'INVALID_JSON'
             );
           }
       }
@@ -91,7 +91,7 @@ export function createValidationMiddleware<T>(
       const validatedData = schema.parse(dataToValidate);
 
       // Edited here: Add debug logging
-      console.log("[VALIDATION] Validated data:", validatedData);
+      console.log('[VALIDATION] Validated data:', validatedData);
 
       // Attach validated data to the request object
       (req as RequestWithValidation<T>).validatedData = validatedData;
@@ -100,7 +100,7 @@ export function createValidationMiddleware<T>(
     } catch (error) {
       if (error instanceof z.ZodError) {
         // Edited here: Add debug logging for validation errors
-        console.error("[VALIDATION] Zod validation error:", error);
+        console.error('[VALIDATION] Zod validation error:', error);
 
         // const errorMessages = error.errors.map((err) => ({
         //   field: err.path.join("."),
@@ -109,16 +109,16 @@ export function createValidationMiddleware<T>(
         // }));
 
         throw new ApiError(
-          "Data yang dikirim tidak valid",
+          'Data yang dikirim tidak valid',
           400,
-          "VALIDATION_ERROR"
+          'VALIDATION_ERROR'
           // errorMessages
         );
       }
 
       if (error instanceof ApiError) throw error;
 
-      throw new ApiError("Gagal memvalidasi request", 400, "VALIDATION_FAILED");
+      throw new ApiError('Gagal memvalidasi request', 400, 'VALIDATION_FAILED');
     }
   };
 }
@@ -130,11 +130,23 @@ export function createRateLimitMiddleware(
   const requests = new Map<string, { count: number; resetTime: number }>();
 
   return async (req: NextRequest): Promise<NextRequest> => {
-    // Edited here: Robust IP detection using standard headers to avoid type errors
-    const forwardedFor = req.headers.get("x-forwarded-for");
-    const realIp = req.headers.get("x-real-ip");
+    // Extract client IP securely under single-proxy assumption:
+    // Prefer x-real-ip set by trusted reverse proxy (Vercel/Nginx ingress).
+    // Fall back to the last hop of x-forwarded-for (appended by reverse proxy, not client-controlled),
+    // or "unknown" to prevent client header spoofing rate-limit bypass.
+    const realIp = req.headers.get('x-real-ip')?.trim();
+    const forwardedFor = req.headers.get('x-forwarded-for');
+    const forwardedIps = forwardedFor
+      ? forwardedFor
+          .split(',')
+          .map((s) => s.trim())
+          .filter(Boolean)
+      : [];
     const ip =
-      forwardedFor?.split(",")[0]?.trim() || realIp?.trim() || "unknown";
+      realIp ||
+      (forwardedIps.length > 0
+        ? forwardedIps[forwardedIps.length - 1]
+        : 'unknown');
     const now = Date.now();
     const resetTime = now + windowMs;
 
@@ -151,7 +163,7 @@ export function createRateLimitMiddleware(
     }
 
     if (current.count >= maxRequests) {
-      throw new ApiError("Rate limit exceeded", 429, "RATE_LIMIT");
+      throw new ApiError('Rate limit exceeded', 429, 'RATE_LIMIT');
     }
 
     current.count++;
@@ -160,7 +172,7 @@ export function createRateLimitMiddleware(
 }
 
 export function handleApiError(error: unknown): NextResponse {
-  console.error("API Error:", error);
+  console.error('API Error:', error);
 
   if (error instanceof ApiError) {
     return NextResponse.json(
@@ -177,9 +189,9 @@ export function handleApiError(error: unknown): NextResponse {
     return NextResponse.json(
       {
         success: false,
-        error: "Validation failed",
+        error: 'Validation failed',
         details: error.issues,
-        code: "VALIDATION_ERROR",
+        code: 'VALIDATION_ERROR',
       },
       { status: 400 }
     );
@@ -188,8 +200,8 @@ export function handleApiError(error: unknown): NextResponse {
   return NextResponse.json(
     {
       success: false,
-      error: "Internal server error",
-      code: "INTERNAL_ERROR",
+      error: 'Internal server error',
+      code: 'INTERNAL_ERROR',
     },
     { status: 500 }
   );

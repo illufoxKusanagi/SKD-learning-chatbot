@@ -1,6 +1,15 @@
 import { authOptions } from "@/lib/auth";
 import NextAuth from "next-auth";
+import { NextRequest } from "next/server";
+import { createRateLimitMiddleware, withMiddleware } from "@/middleware/api";
 
 const handler = NextAuth(authOptions);
+const credentialsRateLimit = createRateLimitMiddleware(5, 300000);
 
-export { handler as GET, handler as POST };
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const POST = (req: NextRequest, ctx: any) =>
+  req.nextUrl.pathname.endsWith("/callback/credentials")
+    ? withMiddleware(credentialsRateLimit)(req, () => handler(req, ctx))
+    : handler(req, ctx);
+
+export { handler as GET };

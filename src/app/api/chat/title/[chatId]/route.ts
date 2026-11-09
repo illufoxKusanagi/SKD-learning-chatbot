@@ -1,17 +1,17 @@
-import { getDb } from "@/lib/db";
-import { conversations } from "@/lib/db/schema";
+import { getDb } from '@/lib/db';
+import { conversations } from '@/lib/db/schema';
 import {
   withMiddleware,
   createValidationMiddleware,
   createRateLimitMiddleware,
   ApiError,
   RequestWithValidation,
-} from "@/middleware/api";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
-import { eq } from "drizzle-orm";
-import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
+} from '@/middleware/api';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
+import { eq } from 'drizzle-orm';
+import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
 
 interface ChatTitleParams {
   chatId: string;
@@ -20,8 +20,8 @@ interface ChatTitleParams {
 const updateTitleSchema = z.object({
   title: z
     .string()
-    .min(1, "Judul tidak boleh kosong")
-    .max(100, "Judul terlalu panjang (maksimal 100 karakter)")
+    .min(1, 'Judul tidak boleh kosong')
+    .max(100, 'Judul terlalu panjang (maksimal 100 karakter)')
     .trim(),
 });
 
@@ -29,13 +29,19 @@ async function getChatTitleHandler(
   request: NextRequest,
   { params }: { params: Promise<ChatTitleParams> }
 ) {
-  const session = await getServerSession(authOptions);
+  let userId: string | null = null;
+  let isAuthenticated = false;
 
-  if (!session || !session.user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  try {
+    const session = await getServerSession(authOptions);
+    if (session?.user) {
+      userId = session.user.id;
+      isAuthenticated = true;
+    }
+  } catch (error) {
+    console.log(`[GET_TITLE] Session check failed:`, error);
   }
 
-  const userId = session.user.id;
   const chatId = (await params).chatId;
 
   try {
@@ -45,21 +51,37 @@ async function getChatTitleHandler(
       .select({
         title: conversations.title,
         userId: conversations.userId,
+        isGuestChat: conversations.isGuestChat,
+        expiresAt: conversations.expiresAt,
       })
       .from(conversations)
       .where(eq(conversations.id, chatId))
       .limit(1);
 
     if (!chat) {
-      throw new ApiError("Chat tidak ditemukan", 404, "CHAT_NOT_FOUND");
+      throw new ApiError('Chat tidak ditemukan', 404, 'CHAT_NOT_FOUND');
     }
 
-    if (chat.userId !== userId) {
-      throw new ApiError(
-        "Anda tidak memiliki akses ke chat ini",
-        403,
-        "CHAT_ACCESS_DENIED"
-      );
+    if (chat.isGuestChat) {
+      if (chat.expiresAt && new Date() > chat.expiresAt) {
+        throw new ApiError(
+          'Chat sementara telah kedaluwarsa',
+          410,
+          'CHAT_EXPIRED'
+        );
+      }
+    } else {
+      if (!isAuthenticated || !userId) {
+        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+      }
+
+      if (chat.userId !== userId) {
+        throw new ApiError(
+          'Anda tidak memiliki akses ke chat ini',
+          403,
+          'CHAT_ACCESS_DENIED'
+        );
+      }
     }
 
     return NextResponse.json({
@@ -77,9 +99,9 @@ async function getChatTitleHandler(
     }
 
     throw new ApiError(
-      "Gagal mengambil judul chat",
+      'Gagal mengambil judul chat',
       500,
-      "GET_TITLE_ERROR"
+      'GET_TITLE_ERROR'
       //    {
       //   chatId,
       //   userId,
@@ -95,7 +117,7 @@ async function updateChatTitleHandler(
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {
-    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 
   const userId = session.user.id;
@@ -121,14 +143,14 @@ async function updateChatTitleHandler(
       .limit(1);
 
     if (!existingChat) {
-      throw new ApiError("Chat tidak ditemukan", 404, "CHAT_NOT_FOUND");
+      throw new ApiError('Chat tidak ditemukan', 404, 'CHAT_NOT_FOUND');
     }
 
     if (existingChat.userId !== userId) {
       throw new ApiError(
-        "Anda tidak memiliki akses ke chat ini",
+        'Anda tidak memiliki akses ke chat ini',
         403,
-        "CHAT_ACCESS_DENIED"
+        'CHAT_ACCESS_DENIED'
       );
     }
 
@@ -150,7 +172,7 @@ async function updateChatTitleHandler(
 
     return NextResponse.json({
       success: true,
-      message: "Judul chat berhasil diperbarui",
+      message: 'Judul chat berhasil diperbarui',
       data: {
         chatId: updatedChat.id,
         title: updatedChat.title,
@@ -168,19 +190,23 @@ async function updateChatTitleHandler(
     }
 
     throw new ApiError(
-      "Gagal memperbarui judul chat",
+      'Gagal memperbarui judul chat',
       500,
-      "UPDATE_TITLE_ERROR"
+      'UPDATE_TITLE_ERROR'
       // { chatId, userId, title }
     );
   }
 }
 
+const getTitleRateLimit = createRateLimitMiddleware(60, 60000);
+const updateTitleRateLimit = createRateLimitMiddleware(20, 60000);
+const validateTitle = createValidationMiddleware(updateTitleSchema);
+
 export const GET = (
   request: NextRequest,
   context: { params: Promise<ChatTitleParams> }
 ) => {
-  return withMiddleware(createRateLimitMiddleware(60, 60000))(request, (req) =>
+  return withMiddleware(getTitleRateLimit)(request, (req) =>
     getChatTitleHandler(req, context)
   );
 };
@@ -189,10 +215,7 @@ export const PUT = (
   request: NextRequest,
   context: { params: Promise<ChatTitleParams> }
 ) => {
-  return withMiddleware(
-    createRateLimitMiddleware(20, 60000),
-    createValidationMiddleware(updateTitleSchema)
-  )(request, (req) =>
+  return withMiddleware(updateTitleRateLimit, validateTitle)(request, (req) =>
     updateChatTitleHandler(
       req as unknown as RequestWithValidation<
         z.infer<typeof updateTitleSchema>

@@ -1,16 +1,19 @@
-import { conversations, ragData } from "@/lib/db/schema";
-import { sql, desc, eq, and } from "drizzle-orm";
-import { getDb } from "@/lib/db/index";
-import { generateEmbedding } from "./embeddings.service";
-import { SKD_KNOWLEDGE_BASE, SkdKnowledgeEntry } from "@/lib/datas/skd-knowledge";
+import { conversations, ragData } from '@/lib/db/schema';
+import { sql, desc, eq, and } from 'drizzle-orm';
+import { getDb } from '@/lib/db/index';
+import { generateEmbedding } from './embeddings.service';
+import {
+  SKD_KNOWLEDGE_BASE,
+  SkdKnowledgeEntry,
+} from '@/lib/datas/skd-knowledge';
 
 export interface SkdQuizMetadata {
   ragSourceId?: string;
-  category: "TWK" | "TIU" | "TKP";
+  category: 'TWK' | 'TIU' | 'TKP';
   subtopic: string;
   questionStem: string;
   options: { A: string; B: string; C: string; D: string; E: string };
-  correctOption: "A" | "B" | "C" | "D" | "E";
+  correctOption: 'A' | 'B' | 'C' | 'D' | 'E';
   scoringRubric: { A: number; B: number; C: number; D: number; E: number };
   rubricRationale: string;
 }
@@ -19,15 +22,15 @@ export interface RagChunk {
   id: string;
   title: string;
   content: string;
-  category: "TWK" | "TIU" | "TKP" | "GENERAL";
+  category: 'TWK' | 'TIU' | 'TKP' | 'GENERAL';
   subtopic: string;
-  docType: "kisi_kisi_rubrik" | "rumus_trik_cepat" | "contoh_soal_hots";
+  docType: 'kisi_kisi_rubrik' | 'rumus_trik_cepat' | 'contoh_soal_hots';
   similarity: number;
   quizPayload?: SkdQuizMetadata | null;
 }
 
 export interface SkdRetrievalResult {
-  detectedCategory: "TWK" | "TIU" | "TKP" | null;
+  detectedCategory: 'TWK' | 'TIU' | 'TKP' | null;
   isQuizRequest: boolean;
   wantsNewVariation: boolean;
   unattemptedBenchmark: SkdQuizMetadata | null;
@@ -39,7 +42,7 @@ export function detectSkdCategoryAndIntent(
   userQuery: string,
   history?: { role: string; content: string }[]
 ): {
-  detectedCategory: "TWK" | "TIU" | "TKP" | null;
+  detectedCategory: 'TWK' | 'TIU' | 'TKP' | null;
   isQuizRequest: boolean;
   wantsNewVariation: boolean;
   inheritedTopic?: string;
@@ -53,22 +56,22 @@ export function detectSkdCategoryAndIntent(
   const tkpPattern =
     /\b(tkp|karakteristik\s+pribadi|pelayanan\s+publik|jejaring\s+kerja|sosial\s+budaya|tik|profesionalisme|anti\s+radikalisme|radikalisme|berakhlak|tempat\s+kerja|atasan|rekan\s+kerja|masyarakat)\b/i;
 
-  let detectedCategory: "TWK" | "TIU" | "TKP" | null = null;
-  let inheritedTopic = "";
+  let detectedCategory: 'TWK' | 'TIU' | 'TKP' | null = null;
+  let inheritedTopic = '';
 
   // 1. Direct explicit category or keyword detection in user query
   if (/\b(twk|wawasan\s+kebangsaan)\b/i.test(queryLower)) {
-    detectedCategory = "TWK";
+    detectedCategory = 'TWK';
   } else if (/\b(tiu|inteligensia\s+umum)\b/i.test(queryLower)) {
-    detectedCategory = "TIU";
+    detectedCategory = 'TIU';
   } else if (/\b(tkp|karakteristik\s+pribadi)\b/i.test(queryLower)) {
-    detectedCategory = "TKP";
+    detectedCategory = 'TKP';
   } else if (twkPattern.test(queryLower)) {
-    detectedCategory = "TWK";
+    detectedCategory = 'TWK';
   } else if (tiuPattern.test(queryLower)) {
-    detectedCategory = "TIU";
+    detectedCategory = 'TIU';
   } else if (tkpPattern.test(queryLower)) {
-    detectedCategory = "TKP";
+    detectedCategory = 'TKP';
   }
 
   // 2. Short follow-up query context inheritance from recent turns
@@ -85,7 +88,7 @@ export function detectSkdCategoryAndIntent(
         /\b(twk|wawasan\s+kebangsaan)\b/i.test(histText) ||
         twkPattern.test(histText)
       ) {
-        detectedCategory = "TWK";
+        detectedCategory = 'TWK';
         inheritedTopic = recentTurns[i].content.slice(0, 80);
         break;
       }
@@ -93,7 +96,7 @@ export function detectSkdCategoryAndIntent(
         /\b(tiu|inteligensia\s+umum)\b/i.test(histText) ||
         tiuPattern.test(histText)
       ) {
-        detectedCategory = "TIU";
+        detectedCategory = 'TIU';
         inheritedTopic = recentTurns[i].content.slice(0, 80);
         break;
       }
@@ -101,7 +104,7 @@ export function detectSkdCategoryAndIntent(
         /\b(tkp|karakteristik\s+pribadi)\b/i.test(histText) ||
         tkpPattern.test(histText)
       ) {
-        detectedCategory = "TKP";
+        detectedCategory = 'TKP';
         inheritedTopic = recentTurns[i].content.slice(0, 80);
         break;
       }
@@ -114,10 +117,16 @@ export function detectSkdCategoryAndIntent(
     );
 
   const quizRequestPattern =
-    /\b(soal|latihan|kuis|quiz|tes|simulasi|pertanyaan|kasih\s+twk|kasih\s+tiu|kasih\s+tkp|soal\s+lagi|lanjut\s+soal)\b/i;
+    /\b((berikan|beri|kasih|minta|buatkan|mau|ingin|coba)\s+(\d+\s+)?(soal|latihan|kuis|quiz|simulasi)|latihan\s+soal|contoh\s+soal|soal\s+lagi|lanjut\s+soal|(kasih|tes|simulasi)\s+(twk|tiu|tkp|skd))\b/i;
+  const refersToPreviousQuiz =
+    /\b(soal\s+(tadi|ini|sebelumnya|itu|tersebut|barusan)|jawaban\s+(tadi|saya|benar)|kenapa|mengapa|jelaskan|pembahasan|bahas\s+soal)\b/i.test(
+      queryLower
+    );
 
   const isQuizRequest =
-    !isGeneralInfoOnly && quizRequestPattern.test(queryLower);
+    !isGeneralInfoOnly &&
+    !refersToPreviousQuiz &&
+    quizRequestPattern.test(queryLower);
 
   const wantsNewVariation =
     /\b(variasi\s+baru|soal\s+baru|isu\s+terkini|ikn|terbaru|buatkan|karang)\b/i.test(
@@ -135,7 +144,7 @@ export function detectSkdCategoryAndIntent(
 function scoreInMemoryEntry(
   entry: SkdKnowledgeEntry,
   effectiveQuery: string,
-  detectedCategory: "TWK" | "TIU" | "TKP" | null
+  detectedCategory: 'TWK' | 'TIU' | 'TKP' | null
 ): number {
   let score = 0;
   if (detectedCategory && entry.category === detectedCategory) {
@@ -144,7 +153,7 @@ function scoreInMemoryEntry(
 
   const queryWords = effectiveQuery
     .toLowerCase()
-    .replace(/[^\w\s]/g, " ")
+    .replace(/[^\w\s]/g, ' ')
     .split(/\s+/)
     .filter((w) => w.length >= 3);
 
@@ -170,26 +179,22 @@ export async function findRelevantContents(
     attemptedSourceIds?: string[];
   }
 ): Promise<SkdRetrievalResult> {
-  const {
-    detectedCategory,
-    isQuizRequest,
-    wantsNewVariation,
-    inheritedTopic,
-  } = detectSkdCategoryAndIntent(userQuery, options?.history);
+  const { detectedCategory, isQuizRequest, wantsNewVariation, inheritedTopic } =
+    detectSkdCategoryAndIntent(userQuery, options?.history);
 
   // Build effective search query with enriched topic context for follow-ups
   const effectiveQuery =
     userQuery.trim().length < 60 && inheritedTopic
-      ? `${userQuery} ${detectedCategory || ""} ${inheritedTopic}`.trim()
+      ? `${userQuery} ${detectedCategory || ''} ${inheritedTopic}`.trim()
       : userQuery;
 
   const attemptedIds = new Set(options?.attemptedSourceIds || []);
 
   // 1. Database Hybrid Search (pgvector + Keyword & Category Boost)
-  let dbChunks: RagChunk[] = [];
+  const dbChunks: RagChunk[] = [];
   try {
     const queryEmbedding = await generateEmbedding(effectiveQuery, {
-      taskType: "RETRIEVAL_QUERY",
+      taskType: 'RETRIEVAL_QUERY',
     });
 
     if (Array.isArray(queryEmbedding) && queryEmbedding.length === 768) {
@@ -214,23 +219,23 @@ export async function findRelevantContents(
 
       const queryWords = effectiveQuery
         .toLowerCase()
-        .replace(/[^\w\s]/g, " ")
+        .replace(/[^\w\s]/g, ' ')
         .split(/\s+/)
         .filter((w) => w.length >= 3);
 
       for (const row of rows) {
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const dataObj = (row.data as any) || {};
-        const cat = (dataObj.category || "GENERAL") as
-          | "TWK"
-          | "TIU"
-          | "TKP"
-          | "GENERAL";
-        const sub = dataObj.subtopic || "";
-        const docType = (dataObj.docType || "kisi_kisi_rubrik") as
-          | "kisi_kisi_rubrik"
-          | "rumus_trik_cepat"
-          | "contoh_soal_hots";
+        const cat = (dataObj.category || 'GENERAL') as
+          | 'TWK'
+          | 'TIU'
+          | 'TKP'
+          | 'GENERAL';
+        const sub = dataObj.subtopic || '';
+        const docType = (dataObj.docType || 'kisi_kisi_rubrik') as
+          | 'kisi_kisi_rubrik'
+          | 'rumus_trik_cepat'
+          | 'contoh_soal_hots';
         let score = Number(row.similarity) || 0;
 
         // Category match boost
@@ -239,7 +244,7 @@ export async function findRelevantContents(
         }
 
         // Title and subtopic keyword boost
-        const titleAndSub = `${row.title || ""} ${sub}`.toLowerCase();
+        const titleAndSub = `${row.title || ''} ${sub}`.toLowerCase();
         if (queryWords.some((w) => titleAndSub.includes(w))) {
           score += 0.12;
         }
@@ -247,7 +252,7 @@ export async function findRelevantContents(
         const canonicalId = row.externalId || row.id;
         dbChunks.push({
           id: canonicalId,
-          title: row.title || "Materi SKD",
+          title: row.title || 'Materi SKD',
           content: row.content,
           category: cat,
           subtopic: sub,
@@ -264,7 +269,7 @@ export async function findRelevantContents(
     }
   } catch (dbErr) {
     console.warn(
-      "[RAG SERVICE] DB vector search error (using in-memory knowledge):",
+      '[RAG SERVICE] DB vector search error (using in-memory knowledge):',
       dbErr
     );
   }
@@ -336,14 +341,14 @@ export async function findRelevantContents(
 
     // First scan contextChunks
     for (const chunk of contextChunks) {
-      if (chunk.docType === "contoh_soal_hots" && chunk.quizPayload) {
+      if (chunk.docType === 'contoh_soal_hots' && chunk.quizPayload) {
         evaluateCandidate(chunk);
       }
     }
 
     // Also scan all in-memory HOTS questions
     for (const mem of inMemoryCandidates) {
-      if (mem.docType === "contoh_soal_hots" && mem.quizPayload) {
+      if (mem.docType === 'contoh_soal_hots' && mem.quizPayload) {
         evaluateCandidate(mem);
       }
     }
@@ -368,7 +373,7 @@ export async function findRelevantContents(
           chunk.subtopic
         } - ${chunk.docType})]\n${chunk.content}`
     )
-    .join("\n\n---\n\n");
+    .join('\n\n---\n\n');
 
   return {
     detectedCategory,
@@ -396,13 +401,13 @@ export async function getChatHistoryTitle(
       )
       .limit(1);
 
-    if (!chat || !chat.title || chat.title.trim() === "") {
+    if (!chat || !chat.title || chat.title.trim() === '') {
       return `Chat #${chatId}`;
     }
 
     return chat.title.trim();
   } catch (error) {
-    console.error("Failed to get chat history title:", error);
+    console.error('Failed to get chat history title:', error);
     return `Chat #${chatId}`;
   }
 }
@@ -418,16 +423,16 @@ export async function getChatHistoryTitleWithAuth(
   try {
     if (!chatId) {
       return {
-        title: "New Chat",
+        title: 'New Chat',
         success: false,
-        error: "Invalid chat ID",
+        error: 'Invalid chat ID',
       };
     }
     if (!userId) {
       return {
         title: `Chat #${chatId}`,
         success: false,
-        error: "User ID is required",
+        error: 'User ID is required',
       };
     }
 
@@ -446,12 +451,12 @@ export async function getChatHistoryTitleWithAuth(
       return {
         title: `Chat #${chatId}`,
         success: false,
-        error: "Chat not found or access denied",
+        error: 'Chat not found or access denied',
       };
     }
 
     const title = chat.title;
-    if (!title || title.trim() === "") {
+    if (!title || title.trim() === '') {
       return {
         title: `Chat #${chatId}`,
         success: true,
@@ -463,11 +468,11 @@ export async function getChatHistoryTitleWithAuth(
       success: true,
     };
   } catch (error) {
-    console.error("Failed to get chat history title with auth:", error);
+    console.error('Failed to get chat history title with auth:', error);
     return {
       title: `Chat #${chatId}`,
       success: false,
-      error: error instanceof Error ? error.message : "Unknown error",
+      error: error instanceof Error ? error.message : 'Unknown error',
     };
   }
 }

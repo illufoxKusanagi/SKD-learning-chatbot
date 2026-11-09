@@ -1,27 +1,27 @@
-import { NextRequest, NextResponse } from "next/server";
-import { z } from "zod";
+import { NextRequest, NextResponse } from 'next/server';
+import { z } from 'zod';
 import {
   ApiError,
   createRateLimitMiddleware,
   createValidationMiddleware,
   withMiddleware,
   RequestWithValidation,
-} from "@/middleware/api";
-import { getDb } from "@/lib/db";
-import { users } from "@/lib/db/schema";
-import { eq } from "drizzle-orm";
-import { hashPassword } from "@/lib/auth/password";
+} from '@/middleware/api';
+import { getDb } from '@/lib/db';
+import { users } from '@/lib/db/schema';
+import { eq } from 'drizzle-orm';
+import { hashPassword } from '@/lib/auth/password';
 
 const registerSchema = z.object({
-  email: z.email("Invalid email format").toLowerCase(),
-  password: z.string().min(8, "Password must be at least 8 characters"),
+  email: z.email('Invalid email format').toLowerCase(),
+  password: z.string().min(8, 'Password must be at least 8 characters'),
   username: z
     .string()
-    .min(3, "Username must be at least 3 characters")
-    .max(20, "Username must be at most 20 characters")
+    .min(3, 'Username must be at least 3 characters')
+    .max(20, 'Username must be at most 20 characters')
     .regex(
       /^[a-zA-Z0-9_]+$/,
-      "Username can only contain letters, numbers, and underscores"
+      'Username can only contain letters, numbers, and underscores'
     ),
 });
 
@@ -32,9 +32,9 @@ async function registerHandler(
   const { email, password, username } = request.validatedData || {};
   if (!email || !password || !username) {
     throw new ApiError(
-      "Data registrasi tidak lengkap",
+      'Data registrasi tidak lengkap',
       400,
-      "MISSING_REQUIRED_FIELDS"
+      'MISSING_REQUIRED_FIELDS'
     );
   }
   const db = getDb();
@@ -48,7 +48,7 @@ async function registerHandler(
       .limit(1);
 
     if (existingUser) {
-      throw new ApiError("Email already registered", 409);
+      throw new ApiError('Email already registered', 409);
     }
 
     // Check if username exists
@@ -59,15 +59,15 @@ async function registerHandler(
       .limit(1);
 
     if (existingUsername) {
-      throw new ApiError("Username already taken", 409);
+      throw new ApiError('Username already taken', 409);
     }
   } catch (e: unknown) {
     const error = e as { code?: string };
-    if (error?.code === "23505") {
+    if (error?.code === '23505') {
       throw new ApiError(
-        "Email or username already registered",
+        'Email or username already registered',
         409,
-        "DUPLICATE_USER"
+        'DUPLICATE_USER'
       );
     }
     throw e;
@@ -81,7 +81,7 @@ async function registerHandler(
       email,
       username,
       password: hashedPassword,
-      role: "user",
+      role: 'user',
       createdAt: new Date(),
       updatedAt: new Date(),
     })
@@ -90,7 +90,7 @@ async function registerHandler(
   const response = NextResponse.json(
     {
       success: true,
-      message: "Registration successful",
+      message: 'Registration successful',
       data: {
         user: {
           id: newUser.id,
@@ -106,9 +106,12 @@ async function registerHandler(
   return response;
 }
 
+const registerRateLimit = createRateLimitMiddleware(3, 600000); // 3 requests per 10 minutes for registration
+const validateRegister = createValidationMiddleware(registerSchema);
+
 export function POST(request: NextRequest) {
-  return withMiddleware(
-    createRateLimitMiddleware(3, 600000), // 3 requests per 10 minutes for registration
-    createValidationMiddleware(registerSchema)
-  )(request, registerHandler);
+  return withMiddleware(registerRateLimit, validateRegister)(
+    request,
+    registerHandler
+  );
 }

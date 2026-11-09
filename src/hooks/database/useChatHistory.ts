@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from 'react';
 
 interface ChatHistoryItem {
   id: string;
@@ -22,25 +22,21 @@ export function useChatHistory(userId: string) {
       setIsLoading(true);
       setError(null);
 
-      const response = await fetch("/api/chat/history", {
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      });
+      const response = await fetch('/api/chat/history');
 
       if (!response.ok) {
-        throw new Error("Failed to fetch chat history");
+        throw new Error('Failed to fetch chat history');
       }
 
       const result = await response.json();
-      if (result.success && Array.isArray(result.data)) {
-        setHistory(result.data);
+      if (result.success && Array.isArray(result.data?.chats)) {
+        setHistory(result.data.chats);
       } else {
         setHistory([]);
       }
     } catch (err) {
       setError(
-        err instanceof Error ? err.message : "Failed to fetch chat history"
+        err instanceof Error ? err.message : 'Failed to fetch chat history'
       );
     } finally {
       setIsLoading(false);

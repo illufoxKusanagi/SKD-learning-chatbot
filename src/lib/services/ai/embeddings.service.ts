@@ -1,9 +1,9 @@
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenAI } from '@google/genai';
 
 export type EmbeddingTaskType =
-  | "RETRIEVAL_DOCUMENT"
-  | "RETRIEVAL_QUERY"
-  | "SEMANTIC_SIMILARITY";
+  | 'RETRIEVAL_DOCUMENT'
+  | 'RETRIEVAL_QUERY'
+  | 'SEMANTIC_SIMILARITY';
 
 let genAIClient: GoogleGenAI | null = null;
 
@@ -11,14 +11,14 @@ function getGenAIClient(): GoogleGenAI {
   if (genAIClient) return genAIClient;
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) {
-    throw new Error("GEMINI_API_KEY is not defined in environment variables.");
+    throw new Error('GEMINI_API_KEY is not defined in environment variables.');
   }
   genAIClient = new GoogleGenAI({ apiKey });
   return genAIClient;
 }
 
 const getEmbeddingModel = () =>
-  process.env.EMBEDDING_MODEL ?? "text-embedding-004";
+  process.env.EMBEDDING_MODEL ?? 'gemini-embedding-001';
 
 export async function generateEmbedding(
   content: string,
@@ -27,21 +27,21 @@ export async function generateEmbedding(
   try {
     if (
       !content ||
-      typeof content !== "string" ||
+      typeof content !== 'string' ||
       content.trim().length === 0
     ) {
-      throw new Error("Content must be a non-empty string");
+      throw new Error('Content must be a non-empty string');
     }
 
     const ai = getGenAIClient();
     // Preserve acronym casing (TWK, TIU, TKP, UUD 1945, BerAKHLAK); normalize whitespace only
-    const cleanContent = content.trim().replace(/\s+/g, " ");
+    const cleanContent = content.trim().replace(/\s+/g, ' ');
 
     const result = await ai.models.embedContent({
       model: getEmbeddingModel(),
       contents: cleanContent,
       config: {
-        taskType: options?.taskType ?? "RETRIEVAL_QUERY",
+        taskType: options?.taskType ?? 'RETRIEVAL_QUERY',
         ...(options?.title ? { title: options.title } : {}),
         outputDimensionality: 768,
       },
@@ -67,14 +67,14 @@ export async function generateEmbedding(
             ? Array.isArray(embedding)
               ? embedding.length
               : typeof embedding
-            : "null"
+            : 'null'
         }`
       );
     }
 
     const validEmbedding = embedding.map((value, index) => {
       const num =
-        typeof value === "number" ? value : parseFloat(value as string);
+        typeof value === 'number' ? value : parseFloat(value as string);
       if (isNaN(num)) {
         throw new Error(`Invalid embedding value at index ${index}: ${value}`);
       }
@@ -83,13 +83,13 @@ export async function generateEmbedding(
 
     return validEmbedding;
   } catch (error) {
-    console.error("❌ Error generating embedding:", error);
-    console.error("Content that failed:", content?.substring(0, 100));
+    console.error('❌ Error generating embedding:', error);
+    console.error('Content that failed:', content?.substring(0, 100));
 
     if (error instanceof Error) {
       throw new Error(`Embedding generation failed: ${error.message}`);
     } else {
-      throw new Error("Embedding generation failed: Unknown error");
+      throw new Error('Embedding generation failed: Unknown error');
     }
   }
 }
@@ -102,7 +102,7 @@ export async function generateBatchEmbeddings(
     return [];
   }
 
-  const cleanContents = contents.map((c) => c.trim().replace(/\s+/g, " "));
+  const cleanContents = contents.map((c) => c.trim().replace(/\s+/g, ' '));
   const ai = getGenAIClient();
 
   try {
@@ -110,7 +110,7 @@ export async function generateBatchEmbeddings(
       model: getEmbeddingModel(),
       contents: cleanContents,
       config: {
-        taskType: options?.taskType ?? "RETRIEVAL_DOCUMENT",
+        taskType: options?.taskType ?? 'RETRIEVAL_DOCUMENT',
         outputDimensionality: 768,
       },
     });
@@ -129,13 +129,13 @@ export async function generateBatchEmbeddings(
         if (!Array.isArray(values) || values.length !== 768) {
           throw new Error(
             `Batch embedding at index ${idx} has invalid dimensions: ${
-              values ? values.length : "null"
+              values ? values.length : 'null'
             }`
           );
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         return values.map((val: any) =>
-          typeof val === "number" ? val : parseFloat(val)
+          typeof val === 'number' ? val : parseFloat(val)
         );
       });
     }
@@ -149,7 +149,7 @@ export async function generateBatchEmbeddings(
     return sequentialResults;
   } catch (err) {
     console.warn(
-      "Batch embedding call failed, falling back to sequential generation:",
+      'Batch embedding call failed, falling back to sequential generation:',
       err
     );
     const fallbackResults: number[][] = [];

@@ -1,14 +1,14 @@
-import { getDb } from "@/lib/db";
-import { conversations, messages } from "@/lib/db/schema";
+import { getDb } from '@/lib/db';
+import { conversations, messages } from '@/lib/db/schema';
 import {
   withMiddleware,
   createRateLimitMiddleware,
   ApiError,
-} from "@/middleware/api";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/auth";
-import { eq, asc, sql } from "drizzle-orm";
-import { NextRequest, NextResponse } from "next/server";
+} from '@/middleware/api';
+import { getServerSession } from 'next-auth';
+import { authOptions } from '@/lib/auth';
+import { eq, asc, sql } from 'drizzle-orm';
+import { NextRequest, NextResponse } from 'next/server';
 
 interface ChatParams {
   chatId: string;
@@ -23,8 +23,8 @@ async function getChatHandler(
   let isAuthenticated = false;
 
   const url = new URL(request.url);
-  const page = parseInt(url.searchParams.get("page") || "1");
-  const limit = Math.min(parseInt(url.searchParams.get("limit") || "50"), 100);
+  const page = parseInt(url.searchParams.get('page') || '1');
+  const limit = Math.min(parseInt(url.searchParams.get('limit') || '50'), 100);
   const offset = (page - 1) * limit;
 
   try {
@@ -55,38 +55,38 @@ async function getChatHandler(
       .limit(1);
 
     if (!chat) {
-      throw new ApiError("Chat tidak ditemukan", 404, "CHAT_NOT_FOUND");
+      throw new ApiError('Chat tidak ditemukan', 404, 'CHAT_NOT_FOUND');
     }
 
     if (chat.isGuestChat) {
       if (chat.expiresAt && new Date() > chat.expiresAt) {
         throw new ApiError(
-          "Chat sementara telah kedaluwarsa",
+          'Chat sementara telah kedaluwarsa',
           410,
-          "CHAT_EXPIRED"
+          'CHAT_EXPIRED'
         );
       }
     } else {
       // For user chats, must be authenticated and own the chat
       if (!isAuthenticated) {
         throw new ApiError(
-          "Autentikasi diperlukan untuk chat pengguna",
+          'Autentikasi diperlukan untuk chat pengguna',
           401,
-          "AUTH_REQUIRED"
+          'AUTH_REQUIRED'
         );
       }
       if (chat.userId !== userId) {
         throw new ApiError(
-          "Anda tidak memiliki akses ke chat ini",
+          'Anda tidak memiliki akses ke chat ini',
           403,
-          "CHAT_ACCESS_DENIED"
+          'CHAT_ACCESS_DENIED'
         );
       }
     }
 
     const [{ totalMessages }] = await db
       .select({
-        totalMessages: sql<number>`COUNT(*)`.as("total_messages"),
+        totalMessages: sql<number>`COUNT(*)`.as('total_messages'),
       })
       .from(messages)
       .where(eq(messages.chatId, chatId));
@@ -108,7 +108,7 @@ async function getChatHandler(
 
     console.log(
       `[GET_CHAT] Found ${
-        chat.isGuestChat ? "guest" : "user"
+        chat.isGuestChat ? 'guest' : 'user'
       } chat ${chatId} with ${
         chatMessages.length
       }/${totalMessages} messages (page ${page}/${totalPages})`
@@ -147,7 +147,7 @@ async function getChatHandler(
       throw error;
     }
 
-    throw new ApiError("Gagal mengambil data chat", 500, "GET_CHAT_ERROR");
+    throw new ApiError('Gagal mengambil data chat', 500, 'GET_CHAT_ERROR');
   }
 }
 
@@ -168,12 +168,12 @@ async function deleteChatHandler(
       isAuthenticated = true;
     }
   } catch (error) {
-    console.log("Session check failed for delete operation", error);
+    console.log('Session check failed for delete operation', error);
   }
 
   console.log(
     `[DELETE_CHAT] ${
-      isAuthenticated ? "User " + userId : "Guest"
+      isAuthenticated ? 'User ' + userId : 'Guest'
     } deleting chat ${chatId}`
   );
 
@@ -192,25 +192,25 @@ async function deleteChatHandler(
       .limit(1);
 
     if (!chat) {
-      throw new ApiError("Chat tidak ditemukan", 404, "CHAT_NOT_FOUND");
+      throw new ApiError('Chat tidak ditemukan', 404, 'CHAT_NOT_FOUND');
     }
 
     // Check permissions
     if (chat.isGuestChat) {
       // Guest chats can be deleted by anyone (for cleanup)
       if (chat.expiresAt && new Date() > chat.expiresAt) {
-        console.log("Deleting expired guest chat");
+        console.log('Deleting expired guest chat');
       }
     } else {
       // User chats require authentication and ownership
       if (!isAuthenticated) {
-        throw new ApiError("Autentikasi diperlukan", 401, "AUTH_REQUIRED");
+        throw new ApiError('Autentikasi diperlukan', 401, 'AUTH_REQUIRED');
       }
       if (chat.userId !== userId) {
         throw new ApiError(
-          "Anda tidak memiliki akses ke chat ini",
+          'Anda tidak memiliki akses ke chat ini',
           403,
-          "CHAT_ACCESS_DENIED"
+          'CHAT_ACCESS_DENIED'
         );
       }
     }
@@ -226,13 +226,13 @@ async function deleteChatHandler(
 
     console.log(
       `[DELETE_CHAT] Deleted ${
-        chat.isGuestChat ? "guest" : "user"
+        chat.isGuestChat ? 'guest' : 'user'
       } chat ${chatId} and ${deletedMessages.length} messages`
     );
 
     return NextResponse.json({
       success: true,
-      message: "Chat berhasil dihapus",
+      message: 'Chat berhasil dihapus',
       data: {
         deletedChatId: chatId,
         deletedMessageCount: deletedMessages.length,
@@ -245,24 +245,27 @@ async function deleteChatHandler(
       throw error;
     }
 
-    throw new ApiError("Gagal menghapus chat", 500, "DELETE_CHAT_ERROR");
+    throw new ApiError('Gagal menghapus chat', 500, 'DELETE_CHAT_ERROR');
   }
 }
+
+const getChatRateLimit = createRateLimitMiddleware(60, 60000);
+const deleteChatRateLimit = createRateLimitMiddleware(10, 60000);
 
 export const GET = (
   request: NextRequest,
   context: { params: Promise<ChatParams> }
 ) => {
-  return withMiddleware(
-    createRateLimitMiddleware(60, 60000) // 60 requests per minute for reading
-  )(request, () => getChatHandler(request, context));
+  return withMiddleware(getChatRateLimit)(request, () =>
+    getChatHandler(request, context)
+  );
 };
 
 export const DELETE = (
   request: NextRequest,
   context: { params: Promise<ChatParams> }
 ) => {
-  return withMiddleware(
-    createRateLimitMiddleware(10, 60000) // 10 deletes per minute
-  )(request, () => deleteChatHandler(request, context));
+  return withMiddleware(deleteChatRateLimit)(request, () =>
+    deleteChatHandler(request, context)
+  );
 };
