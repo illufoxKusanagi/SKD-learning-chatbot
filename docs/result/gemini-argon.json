@@ -358,3 +358,523 @@
     }
   ]
 }
+
+{
+"batchMetadata": {
+"batchId": "2026-11-b02",
+"category": "MIXED",
+"totalQuestions": 10,
+"difficulty": "HOTS"
+},
+"questions": [
+{
+"category": "TWK",
+"subtopic": "Integritas",
+"title": "Evaluasi Dokumen Uji Mutu Reagen Diagnostik pada Tender Nasional",
+"questionStem": "Dalam proses evaluasi tender pengadaan reagen laboratorium rujukan nasional di Kementerian Kesehatan, Dr. Kartika selaku Ketua Kelompok Kerja Pemilihan menemukan bahwa perusahaan penawar harga terendah kedua milik kerabat pejabat eselon satu ternyata memodifikasi tanggal kedaluwarsa pada sertifikat uji stabilitas suhu distribusi. Meskipun tidak ada imbalan finansial yang dijanjikan kepadanya dan terdapat desakan implisit agar lelang tidak diulang demi mengejar target serapan anggaran triwulan, Dr. Kartika tetap menggugurkan penawaran tersebut secara terbuka dalam berita acara serta melaporkan anomali dokumen itu ke Inspektorat Jenderal. Berdasarkan matriks sembilan nilai dasar antikorupsi, tindakan Dr. Kartika secara spesifik merepresentasikan irisan nilai...",
+"reasoningChain": "Merujuk pada kerangka sembilan nilai antikorupsi KPK (Jujur, Peduli, Mandiri, Disiplin, Tanggung Jawab, Kerja Keras, Sederhana, Berani, Adil), tindakan menolak memvalidasi dokumen yang dimanipulasi merupakan manifestasi inti nilai Kejujuran (konsistensi menjaga kebenaran materiil tanpa kompromi), sedangkan kesediaan menggugurkan peserta yang terafiliasi pejabat tinggi dan melaporkannya ke Inspektorat Jenderal di tengah tekanan struktural merupakan manifestasi inti nilai Keberanian. Seluruh opsi pengecoh (A, B, C, E) memuat definisi konseptual yang benar mengenai nilai-nilai antikorupsi lainnya, namun kurang spesifik menjawab inti konflik pemalsuan dokumen dan resistensi terhadap tekanan jabatan pada skenario. Oleh karena itu, Opsi D bernilai 5, sedangkan Opsi A, B, C, dan E bernilai 0.",
+"options": [
+{
+"label": "A",
+"text": "Nilai kepedulian dan kemandirian, yaitu kepekaan sosial menjaga kelancaran layanan publik sekaligus kapasitas menyelesaikan tugas teknis tanpa bergantung pada bantuan pihak luar.",
+"score": 0
+},
+{
+"label": "B",
+"text": "Nilai kesederhanaan dan kedisiplinan, yaitu gaya hidup proporsional sesuai penghasilan sah serta kepatuhan administratif terhadap jadwal penyelesaian tahapan lelang tahunan.",
+"score": 0
+},
+{
+"label": "C",
+"text": "Nilai keadilan distributif dan kesetaraan, yaitu pemberian kesempatan berusaha yang setara kepada seluruh penyedia barang tanpa membedakan skala modal korporasi.",
+"score": 0
+},
+{
+"label": "D",
+"text": "Nilai kejujuran dan keberanian, yaitu konsistensi menjaga kebenaran materiil dokumen evaluasi tanpa kompromi serta keteguhan hati melaporkan kecurangan meskipun menghadapi risiko tekanan jabatan.",
+"score": 5
+},
+{
+"label": "E",
+"text": "Nilai kerja keras dan tanggung jawab fungsional, yaitu upaya sungguh-sungguh mengoptimalkan kapasitas laboratorium nasional serta kesediaan menuntaskan target serapan anggaran tepat waktu.",
+"score": 0
+}
+],
+"rubricRationale": "Pilihan D (skor 5) paling tepat karena mengidentifikasi secara presisi dua nilai inti pada kasus, yakni kejujuran (menolak mengesahkan sertifikat uji mutu yang dimanipulasi) dan keberanian (menggugurkan penawar terafiliasi pejabat serta melaporkannya ke Inspektorat Jenderal meski berisiko ditekan). Pilihan A, B, C, dan E (skor 0) menyajikan definisi konseptual yang benar tentang nilai antikorupsi lainnya, tetapi tidak merepresentasikan inti tindakan verifikasi kebenaran dokumen dan pelaporan kecurangan pada skenario."
+},
+{
+"category": "TWK",
+"subtopic": "Pilar Negara - UUD NRI 1945",
+"title": "Landasan Konstitusional Perlindungan Jaminan Sosial Pekerja Platform Digital",
+"questionStem": "Sejumlah asosiasi pengemudi logistik daring dan pekerja lepas platform digital mengajukan permohonan uji materiil undang-undang karena regulasi yang berlaku belum mewajibkan penyelenggara aplikasi menyediakan skema jaminan sosial ketenagakerjaan serta standar imbalan kerja yang layak. Mereka menilai hubungan kemitraan asimetris selama ini membuat pekerja rentan mengalami pemutusan akses sepihak tanpa jaring pengaman sosial ketika mengalami kecelakaan kerja di jalan raya. Pemerintah bersama pembentuk undang-undang kemudian merumuskan regulasi baru yang mewajibkan kepesertaan jaminan sosial dan transparansi komisi yang adil bagi seluruh pekerja platform digital. Landasan konstitusional paling spesifik dalam UUD NRI 1945 yang mendasari pembaruan kebijakan tersebut adalah...",
+"reasoningChain": "Kasus ini berfokus pada dua isu konstitusional utama: (1) hak pekerja atas imbalan dan perlakuan yang adil serta layak dalam hubungan kerja, yang diatur secara eksplisit dalam Pasal 28D ayat (2) UUD NRI 1945; dan (2) kewajiban negara mengembangkan sistem jaminan sosial bagi seluruh rakyat untuk melindungi pekerja dari risiko kecelakaan kerja, yang diatur dalam Pasal 34 ayat (2) UUD NRI 1945. Opsi B, C, D, dan E memuat bunyi dan substansi pasal-pasal UUD NRI 1945 yang sah dan akurat secara hukum tata negara, namun mengatur ranah kebebasan berserikat/informasi, pendidikan/iptek, pertahanan negara, serta hak milik/cabang produksi strategis. Dengan demikian, Opsi A bernilai 5 dan opsi lainnya bernilai 0.",
+"options": [
+{
+"label": "A",
+"text": "Pasal 28D ayat (2) dan Pasal 34 ayat (2), yang menjamin hak atas imbalan serta perlakuan kerja yang adil sekaligus kewajiban negara mengembangkan sistem jaminan sosial bagi seluruh rakyat.",
+"score": 5
+},
+{
+"label": "B",
+"text": "Pasal 28E ayat (3) dan Pasal 28F, yang menjamin kemerdekaan berserikat serta berkumpul sekaligus hak warga negara untuk memperoleh informasi guna mengembangkan lingkungan sosialnya.",
+"score": 0
+},
+{
+"label": "C",
+"text": "Pasal 28C ayat (1) dan Pasal 31 ayat (1), yang menjamin hak pengembangan diri melalui pemenuhan kebutuhan dasar serta hak setiap warga negara untuk mendapatkan layanan pendidikan.",
+"score": 0
+},
+{
+"label": "D",
+"text": "Pasal 27 ayat (3) dan Pasal 30 ayat (1), yang mengatur hak serta kewajiban warga negara dalam upaya pembelaan negara dan penyelenggaraan pertahanan keamanan nasional.",
+"score": 0
+},
+{
+"label": "E",
+"text": "Pasal 28H ayat (4) dan Pasal 33 ayat (2), yang melindungi hak milik pribadi dari pengambilalihan sewenang-wenang serta mengatur penguasaan cabang produksi penting oleh negara.",
+"score": 0
+}
+],
+"rubricRationale": "Pilihan A (skor 5) benar karena masalah ketimpangan komisi kerja dan ketiadaan perlindungan kecelakaan kerja pada pekerja platform digital beririsan langsung dengan Pasal 28D ayat (2) (hak atas imbalan dan perlakuan yang adil dan layak dalam hubungan kerja) serta Pasal 34 ayat (2) (kewajiban negara mengembangkan sistem jaminan sosial bagi seluruh rakyat). Pilihan B, C, D, dan E (skor 0) menyatakan substansi pasal UUD NRI 1945 yang benar secara teoritis, tetapi tidak relevan dengan substansi pengupahan dan jaminan sosial ketenagakerjaan pada soal."
+},
+{
+"category": "TWK",
+"subtopic": "Bahasa Indonesia",
+"title": "Penyuntingan Kalimat Efektif dan Kosakata Baku pada Dokumen Ketahanan Pangan",
+"questionStem": "Cermati kalimat tidak efektif yang dikutip dari draf laporan evaluasi ketahanan pangan berikut!\n\n"Di dalam rapat koordinasi nasional tersebut membahas tentang strategi untuk meminimalisir resiko gagal panen melalui modernisasi irigasi yang terorganisir secara sistematis di berbagai daerah-daerah sentra produksi beras."\n\nPerbaikan kalimat tersebut agar memenuhi kaidah kalimat efektif, kehematan kata, dan kebakuan kosakata sesuai KBBI serta EYD Edisi V yang paling tepat adalah...",
+"reasoningChain": "Analisis kesalahan tata bahasa dan leksikal pada kalimat soal:\n1. Ketidaklengkapan struktur Subjek: Penggunaan preposisi 'Di dalam' di awal kalimat aktif transitif ('Di dalam rapat koordinasi nasional tersebut membahas...') membuat kalimat kehilangan Subjek. Perbaikannya adalah menghilangkan 'Di dalam' sehingga 'Rapat koordinasi nasional tersebut' berfungsi sebagai Subjek.\n2. Preposisi mubazir setelah verba transitif: Verba 'membahas' tidak boleh diikuti preposisi 'tentang' sebelum Objek.\n3. Kosakata tidak baku (KBBI): Kata 'meminimalisir' (serapan akhiran Belanda -iseren) tidak baku, bentuk bakunya adalah 'meminimalkan'; kata 'resiko' tidak baku, bentuk bakunya adalah 'risiko'; kata 'terorganisir' tidak baku, bentuk bakunya adalah 'terorganisasi'.\n4. Pleonasme (kemubaziran jamak): Frasa 'berbagai daerah-daerah' mubazir karena 'berbagai' sudah menyatakan jamak; perbaikannya adalah 'berbagai daerah'.\nEvaluasi opsi: Hanya Opsi E yang memperbaiki seluruh cacat sintaksis dan leksikal tersebut secara tuntas (skor 5). Opsi A masih berpreposisi di awal kalimat; Opsi B masih memuat 'meminimalisir' dan 'daerah-daerah'; Opsi C masih memuat 'membahas tentang' dan 'resiko'; Opsi D masih memuat 'terorganisir' dan 'berbagai daerah-daerah'.",
+"options": [
+{
+"label": "A",
+"text": "Di dalam rapat koordinasi nasional tersebut membahas strategi untuk meminimalkan risiko gagal panen melalui modernisasi irigasi yang terorganisasi di berbagai daerah sentra produksi beras.",
+"score": 0
+},
+{
+"label": "B",
+"text": "Rapat koordinasi nasional tersebut membahas strategi untuk meminimalisir risiko gagal panen melalui modernisasi irigasi yang terorganisasi di berbagai daerah-daerah sentra produksi beras.",
+"score": 0
+},
+{
+"label": "C",
+"text": "Rapat koordinasi nasional tersebut membahas tentang strategi untuk meminimalkan resiko gagal panen melalui modernisasi irigasi yang terorganisasi di berbagai daerah sentra produksi beras.",
+"score": 0
+},
+{
+"label": "D",
+"text": "Dalam rapat koordinasi nasional tersebut dibahas strategi untuk meminimalkan risiko gagal panen melalui modernisasi irigasi yang terorganisir di berbagai daerah-daerah sentra produksi beras.",
+"score": 0
+},
+{
+"label": "E",
+"text": "Rapat koordinasi nasional tersebut membahas strategi untuk meminimalkan risiko gagal panen melalui modernisasi irigasi yang terorganisasi di berbagai daerah sentra produksi beras.",
+"score": 5
+}
+],
+"rubricRationale": "Pilihan E (skor 5) benar karena memiliki struktur Subjek-Predikat-Objek-Keterangan yang jelas ('Rapat koordinasi nasional tersebut' sebagai Subjek, 'membahas' sebagai Predikat, 'strategi...' sebagai Objek), bebas dari pleonasme ('berbagai daerah'), dan menggunakan kosakata baku KBBI ('meminimalkan', 'risiko', 'terorganisasi'). Pilihan A (skor 0) tidak memiliki Subjek akibat preposisi 'Di dalam' di awal kalimat aktif. Pilihan B (skor 0) masih menggunakan kata tidak baku 'meminimalisir' dan pleonasme 'berbagai daerah-daerah'. Pilihan C (skor 0) menyisipkan preposisi mubazir 'tentang' setelah verba transitif 'membahas' serta kata tidak baku 'resiko'. Pilihan D (skor 0) masih memuat kata tidak baku 'terorganisir' dan pleonasme 'berbagai daerah-daerah'."
+},
+{
+"category": "TIU",
+"subtopic": "Numerik - Deret",
+"title": "Deret Angka Dua Larik Bertingkat dengan Relasi Fungsional",
+"questionStem": "Perhatikan barisan bilangan berikut!\n4, 10, 7, 19, 12, 34, 19, 55, ..., ...\nDua bilangan yang tepat untuk melengkapi suku ke-9 dan suku ke-10 pada barisan tersebut berturut-turut adalah...",
+"reasoningChain": "Barisan terdiri atas 8 suku awal: U1 = 4, U2 = 10, U3 = 7, U4 = 19, U5 = 12, U6 = 34, U7 = 19, U8 = 55.\nPembuktian Metode 1 (Pola Dua Larik Aritmetika Bertingkat):\n- Larik ganjil (U1, U3, U5, U7, U9): 4, 7, 12, 19, U9.\n  Selisih tingkat pertama antar-suku ganjil:\n  U3 - U1 = 7 - 4 = +3\n  U5 - U3 = 12 - 7 = +5\n  U7 - U5 = 19 - 12 = +7\n  Selisih tingkat kedua konstan sebesar +2, sehingga selisih berikutnya adalah +9.\n  Maka U9 = 19 + 9 = 28.\n- Larik genap (U2, U4, U6, U8, U10): 10, 19, 34, 55, U10.\n  Selisih tingkat pertama antar-suku genap:\n  U4 - U2 = 19 - 10 = +9\n  U6 - U4 = 34 - 19 = +15\n  U8 - U6 = 55 - 34 = +21\n  Selisih tingkat kedua konstan sebesar +6, sehingga selisih berikutnya adalah +27.\n  Maka U10 = 55 + 27 = 82.\n\nPembuktian Metode 2 (Relasi Pasangan Suku Ganjil-Genap U_{2k} = 3 × U_{2k-1} - 2):\n- Pasangan 1: U2 = 3(4) - 2 = 10\n- Pasangan 2: U4 = 3(7) - 2 = 19\n- Pasangan 3: U6 = 3(12) - 2 = 34\n- Pasangan 4: U8 = 3(19) - 2 = 55\n- Pasangan 5: U10 = 3(U9) - 2 = 3(28) - 2 = 84 - 2 = 82.\nKedua metode membuktikan secara konsisten bahwa suku ke-9 dan ke-10 adalah 28 dan 82 (Opsi C bernilai 5).\nVerifikasi pengecoh:\n- Opsi A (26 dan 76): Jebakan mengulang selisih sebelumnya (+7 dan +21).\n- Opsi B (27 dan 79): Jebakan menambah selisih ganjil dengan +1 (19 + 8 = 27) lalu 3(27) - 2 = 79.\n- Opsi D (28 dan 84): Jebakan benar menghitung U9 = 28 namun lupa mengurangkan 2 saat mengalikan 3 × 28 = 84.\n- Opsi E (30 dan 88): Jebakan menambah selisih +11 (19 + 11 = 30) lalu 3(30) - 2 = 88.",
+"options": [
+{
+"label": "A",
+"text": "26 dan 76",
+"score": 0
+},
+{
+"label": "B",
+"text": "27 dan 79",
+"score": 0
+},
+{
+"label": "C",
+"text": "28 dan 82",
+"score": 5
+},
+{
+"label": "D",
+"text": "28 dan 84",
+"score": 0
+},
+{
+"label": "E",
+"text": "30 dan 88",
+"score": 0
+}
+],
+"rubricRationale": "Pilihan C (skor 5) benar karena larik ganjil (4, 7, 12, 19) memiliki selisih bertingkat +3, +5, +7, dan +9 sehingga U9 = 19 + 9 = 28, sedangkan larik genap (10, 19, 34, 55) memiliki selisih bertingkat +9, +15, +21, dan +27 (atau mengikuti rumus 3 × U9 - 2) sehingga U10 = 55 + 27 = 82. Pilihan A (skor 0) salah karena mengulang selisih sebelumnya (+7 dan +21). Pilihan B (skor 0) salah karena keliru menambahkan selisih +8 pada suku ganjil. Pilihan D (skor 0) salah karena lupa mengurangi 2 pada operasi 3 × 28. Pilihan E (skor 0) salah karena melompati selisih menjadi +11."
+},
+{
+"category": "TIU",
+"subtopic": "Numerik - Aritmetika Sosial",
+"title": "Kalkulasi Harga Jual Kopi Sangrai Pascasortir dengan Penyusutan Massa",
+"questionStem": "Sebuah koperasi produsen kopi di dataran tinggi membeli 500 kg biji kopi hijau mentah dengan harga Rp80.000,00 per kg dan menanggung biaya pengiriman tetap sebesar Rp2.000.000,00. Setelah melalui proses pemanggangan (roasting), total massa biji kopi mengalami penyusutan sebesar 16%. Koperasi kemudian menyortir seluruh hasil kopi panggang tersebut menjadi dua kelas: 60% dari berat bersih hasil panggangan dikemas sebagai kelas Specialty yang habis terjual dengan harga Rp140.000,00 per kg, sedangkan 40% sisanya dikemas sebagai kelas Komersial. Apabila koperasi menargetkan keuntungan bersih sebesar 25% dari total modal keseluruhan (harga pembelian ditambah biaya pengiriman), berapakah harga jual per kilogram yang harus ditetapkan untuk kopi kelas Komersial?",
+"reasoningChain": "Perhitungan aljabar aritmetika sosial bertahap:\n1. Menghitung total modal keseluruhan (M_total):\n   Biaya beli = 500 kg × Rp80.000 = Rp40.000.000.\n   Biaya pengiriman = Rp2.000.000.\n   M_total = Rp40.000.000 + Rp2.000.000 = Rp42.000.000.\n2. Menghitung target total pendapatan (R_total) untuk laba 25%:\n   R_total = 125% × Rp42.000.000 = (5 / 4) × Rp42.000.000 = Rp52.500.000.\n3. Menghitung massa bersih kopi setelah penyusutan 16% (W_bersih):\n   W_bersih = (100% - 16%) × 500 kg = 0,84 × 500 kg = 420 kg.\n4. Menghitung pendapatan dari penjualan kopi kelas Specialty (60% dari 420 kg):\n   Massa Specialty = 0,6 × 420 kg = 252 kg.\n   Pendapatan Specialty = 252 kg × Rp140.000 = Rp35.280.000.\n5. Menghitung harga jual per kg kopi kelas Komersial (40% dari 420 kg):\n   Massa Komersial = 0,4 × 420 kg = 168 kg.\n   Sisa pendapatan yang harus dipenuhi dari kelas Komersial:\n   R_komersial = Rp52.500.000 - Rp35.280.000 = Rp17.220.000.\n   Harga jual per kg kelas Komersial (P_komersial):\n   P_komersial = Rp17.220.000 / 168 kg = Rp102.500,00.\n\nVerifikasi cara cepat (rata-rata tertimbang per kg bersih):\n- Modal efektif per kg kopi panggang = Rp42.000.000 / 420 kg = Rp100.000/kg.\n- Target harga jual rata-rata per kg (untung 25%) = 1,25 × Rp100.000 = Rp125.000/kg.\n- Persamaan: 0,6 × Rp140.000 + 0,4 × P_komersial = Rp125.000\n  Rp84.000 + 0,4 × P_komersial = Rp125.000\n  0,4 × P_komersial = Rp41.000 → P_komersial = Rp102.500,00 (Opsi B bernilai 5).\n\nAnalisis pengecoh:\n- Opsi A (Rp96.562,50 atau Rp95.000,00): Jebakan jika mengabaikan biaya pengiriman Rp2.000.000 atau lupa mengenakan margin 25% pada biaya kirim.\n- Opsi C (Rp105.000,00): Jebakan menghitung 125% dari modal per kg sebelum penyusutan (Rp84.000 × 1,25 = Rp105.000).\n- Opsi D (Rp110.000,00): Jebakan rata-rata aritmetika tanpa bobot 60%:40% (Rp125.000 - (Rp140.000 - Rp125.000) = Rp110.000).\n- Opsi E (Rp125.000,00): Jebakan memilih target harga rata-rata gabungan per kg.",
+"options": [
+{
+"label": "A",
+"text": "Rp95.000,00",
+"score": 0
+},
+{
+"label": "B",
+"text": "Rp102.500,00",
+"score": 5
+},
+{
+"label": "C",
+"text": "Rp105.000,00",
+"score": 0
+},
+{
+"label": "D",
+"text": "Rp110.000,00",
+"score": 0
+},
+{
+"label": "E",
+"text": "Rp125.000,00",
+"score": 0
+}
+],
+"rubricRationale": "Pilihan B (skor 5) benar karena total modal Rp42.000.000,00 untuk berat bersih pascapanggang 420 kg (500 kg dikurangi susut 16%) menghasilkan modal efektif Rp100.000,00/kg dan target harga rata-rata Rp125.000,00/kg (laba 25%). Dari persamaan bobot 0,6(Rp140.000) + 0,4(P) = Rp125.000 diperoleh 0,4(P) = Rp41.000 sehingga P = Rp102.500,00/kg. Pilihan A (skor 0) salah karena mengabaikan proporsi biaya pengiriman. Pilihan C (skor 0) salah karena menggunakan berat awal 500 kg tanpa menghitung penyusutan (Rp84.000 × 1,25). Pilihan D (skor 0) salah karena mengabaikan rasio bobot 60%:40%. Pilihan E (skor 0) salah karena merupakan harga rata-rata gabungan seluruh kopi."
+},
+{
+"category": "TIU",
+"subtopic": "Verbal - Analogi",
+"title": "Analogi Kalimat Hubungan Fungsional Preventif dan Pengendalian Mutu",
+"questionStem": "Hubungan fungsional antara kata KALIBRASI dan BIAS PENGUKURAN memiliki kesetaraan logis yang paling presisi dengan hubungan antarunsur pada kalimat...",
+"reasoningChain": "Analisis relasi semantik dan fungsional pasangan kata soal:\n- KALIBRASI adalah tindakan pemeriksaan/penyesuaian standar secara terukur dan preventif yang dilakukan terhadap instrumen untuk mencegah atau meminimalkan terjadinya BIAS PENGUKURAN (penyimpangan/kesalahan sistematis dalam pengoperasian).\n- Formula relasi: [Tindakan pemeriksaan/standarisasi preventif] diterapkan oleh [subjek pengawas/teknis] untuk mencegah terjadinya [penyimpangan/kesalahan sistematis dalam sistem].\n\nEvaluasi opsi:\n- Opsi A: Rehabilitasi medis untuk memulihkan fungsi motorik pascaserangan penyakit (bersifat kuratif/pemulihan setelah kejadian, bukan pencegahan).\n- Opsi B: Investigasi forensik untuk mengungkap pelaku setelah kejahatan terjadi (bersifat represif/penyelidikan pascakejadian).\n- Opsi C: Kompensasi finansial untuk mengganti kerugian akibat kebakaran (bersifat indemnifikasi/ganti rugi pascabencana).\n- Opsi D: Eksplorasi geologi untuk menemukan cadangan mineral baru (bersifat pencarian potensi sumber daya, bukan pencegahan penyimpangan).\n- Opsi E: Audit kepatuhan diterapkan oleh pengawas internal untuk mencegah terjadinya penyimpangan prosedur pada pengelolaan anggaran instansi (bersifat pemeriksaan standar preventif untuk mencegah penyimpangan sistematis — identik secara struktural dan fungsional, skor 5).",
+"options": [
+{
+"label": "A",
+"text": "Rehabilitasi medis dilakukan oleh dokter spesialis untuk memulihkan fungsi motorik pasien setelah serangan penyakit kronis berakhir.",
+"score": 0
+},
+{
+"label": "B",
+"text": "Investigasi forensik dilaksanakan oleh tim penyidik untuk mengungkap pelaku pelanggaran hukum setelah insiden kejahatan terjadi.",
+"score": 0
+},
+{
+"label": "C",
+"text": "Kompensasi finansial diberikan oleh perusahaan asuransi untuk mengganti kerugian materiil nasabah akibat musibah kebakaran gedung.",
+"score": 0
+},
+{
+"label": "D",
+"text": "Eksplorasi geologi dijalankan oleh insinyur pertambangan untuk menemukan cadangan mineral baru di wilayah cekungan sedimen.",
+"score": 0
+},
+{
+"label": "E",
+"text": "Audit kepatuhan diterapkan oleh pengawas internal untuk mencegah terjadinya penyimpangan prosedur pada pengelolaan anggaran instansi.",
+"score": 5
+}
+],
+"rubricRationale": "Pilihan E (skor 5) benar karena 'audit kepatuhan' merupakan tindakan pemeriksaan terstandar yang berfungsi mencegah 'penyimpangan prosedur', setara secara presisi dengan 'kalibrasi' yang berfungsi mencegah 'bias pengukuran'. Pilihan A, B, dan C (skor 0) salah karena ketiganya menggambarkan tindakan reaktif setelah peristiwa buruk terjadi (rehabilitasi, investigasi, kompensasi), bukan tindakan pencegahan penyimpangan. Pilihan D (skor 0) salah karena eksplorasi bertujuan mencari potensi baru, bukan mengendalikan kesesuaian standar."
+},
+{
+"category": "TIU",
+"subtopic": "Figural - Spasial Verbal",
+"title": "Transformasi Rotasi, Refleksi, dan Translasi Bersyarat pada Matriks Kisi 4x4",
+"questionStem": "Sebuah papan kisi berukuran 4 × 4 (baris 1 hingga 4 dihitung dari atas ke bawah; kolom 1 hingga 4 dihitung dari kiri ke kanan) memuat tiga objek berarah:\n- Objek Panah berada di petak (baris 1, kolom 2) menghadap ke Utara (Atas).\n- Objek Segitiga berada di petak (baris 2, kolom 4) menghadap ke Timur (Kanan).\n- Objek Bendera berada di petak (baris 4, kolom 3) menghadap ke Selatan (Bawah).\n\nPapan kisi tersebut dikenai tiga tahapan transformasi berurutan:\n1. Seluruh papan dirotasi 90 derajat searah jarum jam terhadap titik pusat papan.\n2. Seluruh papan dicerminkan secara horizontal terhadap sumbu tegak tengah papan (menukar sisi kiri dan kanan sekaligus membalik orientasi Timur–Barat).\n3. Setiap objek yang setelah tahap kedua menghadap ke Barat atau Timur digeser 1 petak ke arah Utara (nomor baris berkurang 1).\n\nPosisi koordinat (baris, kolom) dan arah hadap akhir ketiga objek tersebut secara berturut-turut adalah...",
+"reasoningChain": "Rumus pemetaan koordinat pada kisi 4 × 4:\n- Tahap 1 (Rotasi 90° searah jarum jam): Petak (r, c) berpindah ke (c, 5 - r). Arah mata angin berputar 90° searah jarum jam (Utara → Timur, Timur → Selatan, Selatan → Barat, Barat → Utara).\n- Tahap 2 (Refleksi horizontal terhadap sumbu tegak tengah): Petak (r', c') berpindah ke (r', 5 - c'). Komposisi Tahap 1 dan Tahap 2 memetakan (r, c) → (c, 5 - r) → (c, r). Untuk orientasi arah, refleksi horizontal terhadap sumbu tegak membalik Timur ↔ Barat, sedangkan Utara dan Selatan tetap.\n- Tahap 3 (Translasi bersyarat): Jika arah setelah Tahap 2 adalah Barat atau Timur, maka baris dikurangi 1: (r'', c'') → (r'' - 1, c'').\n\nPenelusuran từng objek:\n1. Objek Panah:\n   - Awal: (1, 2) menghadap Utara.\n   - Setelah Tahap 1 (Rotasi 90° CW): Koordinat (2, 5 - 1) = (2, 4), menghadap Timur.\n   - Setelah Tahap 2 (Refleksi horizontal): Koordinat (2, 5 - 4) = (2, 1), arah Timur terbalik menjadi Barat.\n   - Setelah Tahap 3: Karena menghadap Barat, bergeser 1 petak ke Utara menjadi (2 - 1, 1) = (1, 1) menghadap Barat.\n2. Objek Segitiga:\n   - Awal: (2, 4) menghadap Timur.\n   - Setelah Tahap 1 (Rotasi 90° CW): Koordinat (4, 5 - 2) = (4, 3), menghadap Selatan.\n   - Setelah Tahap 2 (Refleksi horizontal): Koordinat (4, 5 - 3) = (4, 2), arah Selatan tidak berubah (tetap Selatan).\n   - Setelah Tahap 3: Karena menghadap Selatan (bukan Barat/Timur), posisi tetap di (4, 2) menghadap Selatan.\n3. Objek Bendera:\n   - Awal: (4, 3) menghadap Selatan.\n   - Setelah Tahap 1 (Rotasi 90° CW): Koordinat (3, 5 - 4) = (3, 1), menghadap Barat.\n   - Setelah Tahap 2 (Refleksi horizontal): Koordinat (3, 5 - 1) = (3, 4), arah Barat terbalik menjadi Timur.\n   - Setelah Tahap 3: Karena menghadap Timur, bergeser 1 petak ke Utara menjadi (3 - 1, 4) = (2, 4) menghadap Timur.\n\nHasil akhir: Panah di (1, 1) menghadap Barat; Segitiga di (4, 2) menghadap Selatan; Bendera di (2, 4) menghadap Timur. Cocok secara eksak dengan Opsi A (skor 5).",
+"options": [
+{
+"label": "A",
+"text": "Panah di (1, 1) menghadap Barat; Segitiga di (4, 2) menghadap Selatan; dan Bendera di (2, 4) menghadap Timur.",
+"score": 5
+},
+{
+"label": "B",
+"text": "Panah di (2, 1) menghadap Barat; Segitiga di (3, 2) menghadap Utara; dan Bendera di (3, 4) menghadap Timur.",
+"score": 0
+},
+{
+"label": "C",
+"text": "Panah di (1, 1) menghadap Timur; Segitiga di (4, 2) menghadap Utara; dan Bendera di (2, 4) menghadap Barat.",
+"score": 0
+},
+{
+"label": "D",
+"text": "Panah di (1, 4) menghadap Barat; Segitiga di (4, 3) menghadap Selatan; dan Bendera di (2, 1) menghadap Timur.",
+"score": 0
+},
+{
+"label": "E",
+"text": "Panah di (2, 4) menghadap Timur; Segitiga di (4, 2) menghadap Selatan; dan Bendera di (3, 1) menghadap Barat.",
+"score": 0
+}
+],
+"rubricRationale": "Pilihan A (skor 5) benar karena rotasi 90° searah jarum jam diikuti pencerminan horizontal memetakan (r, c) menjadi (c, r), sehingga Panah di (1, 2) Utara berpindah ke (2, 1) Barat lalu bergeser ke (1, 1) Barat; Segitiga di (2, 4) Timur berpindah ke (4, 2) Selatan tanpa pergeseran tahap ketiga; dan Bendera di (4, 3) Selatan berpindah ke (3, 4) Timur lalu bergeser ke (2, 4) Timur. Pilihan B (skor 0) lupa menerapkan pergeseran tahap ketiga pada Panah dan Bendera. Pilihan C (skor 0) terbalik menentukan arah mata angin saat pencerminan horizontal. Pilihan D dan E (skor 0) salah menerapkan rumus kolom pencerminan 5 - c."
+},
+{
+"category": "TKP",
+"subtopic": "Jejaring Kerja",
+"title": "Sinkronisasi Protokol Data Lintas Instansi pada Sistem Peringatan Dini Banjir",
+"questionStem": "Anda ditunjuk memimpin tim gabungan lintas instansi untuk mengintegrasikan sensor pemantauan tinggi muka air milik Balai Wilayah Sungai dengan sistem prakiraan cuaca BMKG ke dalam satu dasbor peringatan dini bencana daerah. Dalam rapat koordinasi teknis, perwakilan kedua instansi saling mempertahankan format protokol data masing-masing karena enggan merombak arsitektur basis data lama mereka, sementara tenggat peluncuran sistem sebelum puncak musim penghujan tersisa tiga pekan. Sebagai koordinator tim, langkah paling efektif yang Anda ambil adalah...",
+"reasoningChain": "Indikator utama pilar Jejaring Kerja (KemenPAN-RB) adalah kemampuan membangun kolaborasi setara lintas instansi, menjembatani perbedaan kepentingan sektoral secara diplomatis, serta menciptakan solusi integratif (win-win solution) tanpa mengorbankan target bersama.\n- Opsi D (skor 5): Memfasilitasi lokakarya teknis bersama untuk merancang antarmuka jembatan konversi data otomatis, sehingga kedua instansi dapat terhubung tanpa harus merombak basis data internalnya (kolaboratif, menghargai otonomi mitra, dan menyelesaikan hambatan teknis tepat waktu).\n- Opsi C (skor 4): Mengadakan pertemuan mediasi tambahan agar kedua tim teknis terus berunding mencari kesepakatan satu format tunggal, meskipun jadwal uji coba lapangan harus dipangkas (mengedepankan musyawarah, tetapi kurang solutif secara teknis dan mengorbankan waktu uji coba).\n- Opsi A (skor 3): Meminta pimpinan kepala daerah menerbitkan surat instruksi mengikat yang mewajibkan salah satu instansi menyesuaikan standar datanya demi mengejar tenggat waktu peluncuran sistem (mengandalkan paksaan struktural yang dapat merenggangkan hubungan kemitraan).\n- Opsi B (skor 2): Menunda jadwal integrasi otomatis antarsistem hingga tahun anggaran berikutnya dan sementara waktu menugaskan staf untuk menginput data laporan harian secara manual (pasif dan gagal memenuhi target kolaborasi tepat waktu).\n- Opsi E (skor 1): Mengambil alih penyusunan modul integrasi secara sepihak menggunakan skema standar internal unit Anda, lalu mewajibkan kedua instansi mitra mengikuti ketetapan tersebut (otoriter dan merusak jejaring kerja).",
+"options": [
+{
+"label": "A",
+"text": "Meminta pimpinan kepala daerah menerbitkan surat instruksi mengikat yang mewajibkan salah satu instansi menyesuaikan standar datanya demi mengejar tenggat waktu peluncuran sistem.",
+"score": 3{
+  "batchMetadata": {
+    "batchId": "2026-11-b02",
+    "category": "MIXED",
+    "totalQuestions": 10,
+    "difficulty": "HOTS"
+  },
+  "questions": [
+    {
+      "category": "TWK",
+      "subtopic": "Integritas",
+      "title": "Sikap Bendahara Pembantu terhadap Kelebihan Transfer Dana Perjalanan Dinas",
+      "questionStem": "Kartika, bendahara pembantu pada sebuah balai penelitian pertanian di bawah kementerian, mendapati bahwa akibat kesalahan sistem perbankan, rekening operasionalnya menerima kelebihan transfer dana perjalanan dinas sebesar Rp4 juta. Prosedur internal baru mewajibkan pengembalian kelebihan bayar setelah ada temuan pemeriksa, sedangkan pemeriksaan berikutnya baru dijadwalkan delapan bulan lagi. Tidak seorang pun menyadari kelebihan tersebut. Kartika menyetorkan dana itu ke kas negara pada hari yang sama ketika ia menyadarinya, tanpa diminta siapa pun. Sikap Kartika paling tepat menggambarkan nilai ...",
+      "reasoningChain": "Rubrik pilar TWK Integritas merujuk pada nilai dasar ASN BerAKHLAK (Surat MenPAN-RB Nomor B/102/M.SM.02.03/2021), khususnya nilai Akuntabel: melaksanakan tugas dengan jujur, bertanggung jawab, cermat, disiplin, dan berintegritas tinggi. Integritas adalah keselarasan antara nilai moral dan tindakan yang dipertahankan tanpa dorongan eksternal. Fakta kasus: (1) tidak ada pengawasan karena pemeriksaan masih delapan bulan lagi; (2) kewajiban prosedural pengembalian belum berlaku karena baru muncul setelah ada temuan; (3) tidak ada pihak yang meminta pertanggungjawaban. Kartika bertindak mendahului kewajiban dan pengawasan. Opsi A (kepatuhan hukum) berhenti pada batas kewajiban yang berlaku, padahal kewajiban itu belum aktif. Opsi B (akuntabilitas) mensyaratkan adanya pihak yang menuntut pertanggungjawaban, dan tidak ada. Opsi C (loyalitas) berkaitan dengan kesetiaan kepada organisasi atau pimpinan, tidak relevan. Opsi E (profesionalisme) berkaitan dengan keahlian dan standar teknis kerja, bukan konsistensi nilai moral. Jawaban benar: D.",
+      "options": [
+        { "label": "A", "text": "Kepatuhan hukum, yaitu ketaatan pada peraturan perundang-undangan yang berlaku beserta konsekuensi sanksi bagi pelanggarnya.", "score": 0 },
+        { "label": "B", "text": "Akuntabilitas, yaitu kesediaan mempertanggungjawabkan tindakan dan hasil kerja kepada pihak yang berwenang atau pemberi mandat.", "score": 0 },
+        { "label": "C", "text": "Loyalitas, yaitu kesetiaan dan komitmen terhadap organisasi, pimpinan, serta tujuan instansi tempat seseorang bekerja.", "score": 0 },
+        { "label": "D", "text": "Integritas, yaitu keselarasan nilai moral dan tindakan yang dijaga konsisten meski tanpa pengawasan atau paksaan aturan.", "score": 5 },
+        { "label": "E", "text": "Profesionalisme, yaitu penerapan keahlian dan standar kerja sesuai bidang tugas secara cermat dan bertanggung jawab.", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan D benar karena Kartika bertindak sesuai nilai moralnya pada kondisi tanpa pengawasan dan tanpa kewajiban prosedural yang berlaku, yang merupakan inti integritas. Pilihan A kurang spesifik karena kepatuhan hukum diukur dari ketaatan pada kewajiban yang sudah berlaku, sedangkan kewajiban pengembalian baru muncul setelah ada temuan pemeriksa. Pilihan B kurang spesifik karena tidak ada pihak yang menuntut pertanggungjawaban saat Kartika bertindak. Pilihan C kurang spesifik karena kasus tidak berkaitan dengan kesetiaan kepada organisasi atau pimpinan. Pilihan E kurang spesifik karena kasus tidak menyoal keahlian teknis atau standar kerja, melainkan konsistensi nilai moral."
+    },
+    {
+      "category": "TWK",
+      "subtopic": "Pilar Negara - UUD NRI 1945",
+      "title": "Izin Penambangan Pasir Pesisir bagi Satu Perusahaan dan Dampaknya bagi Nelayan Setempat",
+      "questionStem": "Pemerintah sebuah provinsi menerbitkan izin penambangan pasir di wilayah pesisir kepada satu perusahaan swasta untuk jangka waktu 20 tahun. Hampir seluruh hasil tambang dijual ke luar negeri, penerimaan daerah dari kegiatan itu sangat kecil, dan nelayan setempat kehilangan wilayah tangkap tanpa kompensasi maupun manfaat ekonomi lain. Ketentuan UUD NRI 1945 yang paling spesifik diabaikan dalam hal penguasaan dan pemanfaatan sumber daya alam pada kasus tersebut adalah ...",
+      "reasoningChain": "Pasal 33 ayat (3) UUD NRI 1945 menyatakan bahwa bumi dan air dan kekayaan alam yang terkandung di dalamnya dikuasai oleh negara dan dipergunakan untuk sebesar-besar kemakmuran rakyat. Pasir pesisir adalah kekayaan alam, dan kasus memperlihatkan manfaatnya tidak kembali kepada rakyat (penerimaan daerah kecil, nelayan dirugikan), sehingga unsur 'dipergunakan untuk sebesar-besar kemakmuran rakyat' diabaikan. Seluruh opsi memuat substansi pasal yang benar, tetapi tingkat kespesifikannya berbeda. Opsi B (Pasal 33 ayat (2)) mengatur cabang produksi yang penting bagi negara, yaitu sektor usaha, bukan sumber daya alam sebagai objek penguasaan. Opsi C (Pasal 33 ayat (4)) mengatur prinsip penyelenggaraan perekonomian nasional secara umum. Opsi D (Pasal 27 ayat (2)) mengatur hak individual atas pekerjaan dan penghidupan layak. Opsi E (Pasal 28H ayat (1)) mengatur hak hidup sejahtera dan lingkungan hidup yang baik, tanpa menyoal penguasaan sumber daya alam. Jawaban benar: A.",
+      "options": [
+        { "label": "A", "text": "Pasal 33 ayat (3): bumi, air, dan kekayaan alam di dalamnya dikuasai negara dan dipergunakan untuk sebesar-besar kemakmuran rakyat.", "score": 5 },
+        { "label": "B", "text": "Pasal 33 ayat (2): cabang-cabang produksi yang penting bagi negara dan menguasai hajat hidup orang banyak dikuasai oleh negara.", "score": 0 },
+        { "label": "C", "text": "Pasal 33 ayat (4): perekonomian nasional diselenggarakan berdasar demokrasi ekonomi dengan prinsip, antara lain, efisiensi berkeadilan, berkelanjutan, dan berwawasan lingkungan.", "score": 0 },
+        { "label": "D", "text": "Pasal 27 ayat (2): tiap-tiap warga negara berhak atas pekerjaan dan penghidupan yang layak bagi kemanusiaan.", "score": 0 },
+        { "label": "E", "text": "Pasal 28H ayat (1): setiap orang berhak hidup sejahtera lahir dan batin serta mendapat lingkungan hidup yang baik dan sehat.", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan A benar karena kasus ini menyoal pemanfaatan kekayaan alam yang manfaatnya tidak kembali kepada rakyat, tepat pada unsur 'sebesar-besar kemakmuran rakyat' dalam Pasal 33 ayat (3). Pilihan B kurang spesifik karena ayat (2) mengatur penguasaan cabang produksi, bukan kekayaan alam sebagai objek. Pilihan C kurang spesifik karena ayat (4) memuat prinsip umum perekonomian nasional. Pilihan D kurang spesifik karena Pasal 27 ayat (2) berkaitan dengan hak individual atas pekerjaan, sedangkan inti kasus adalah tata kelola sumber daya alam. Pilihan E kurang spesifik karena Pasal 28H ayat (1) berkaitan dengan hak atas kesejahteraan dan lingkungan sehat, bukan penguasaan sumber daya alam."
+    },
+    {
+      "category": "TWK",
+      "subtopic": "Bahasa Indonesia",
+      "title": "Penentuan Ide Pokok Paragraf tentang Pengelolaan Rekam Medis Rumah Sakit",
+      "questionStem": "Bacalah paragraf berikut. (1) Sejumlah rumah sakit daerah masih menyimpan rekam medis pasien dalam bentuk kertas di ruang penyimpanan yang sempit dan lembap. (2) Berkas yang rusak atau salah letak sering memaksa petugas menelusuri riwayat pasien dari awal sehingga waktu tunggu memanjang. (3) Sebaliknya, rumah sakit yang telah memindai rekam medis secara bertahap melaporkan waktu pencarian berkas yang jauh lebih singkat. (4) Dengan demikian, digitalisasi rekam medis layak ditetapkan sebagai prioritas pembenahan layanan rumah sakit daerah. Ide pokok paragraf tersebut adalah ...",
+      "reasoningChain": "Kaidah: ide pokok adalah gagasan utama yang dikembangkan oleh seluruh kalimat dalam paragraf, sedangkan kalimat penjelas hanya memberikan latar, bukti, atau contoh. Paragraf ini berpola induktif: kalimat (1) memberi latar masalah, kalimat (2) menjelaskan akibat, kalimat (3) memberi bukti pembanding, dan kalimat (4) yang ditandai penanda simpulan 'dengan demikian' memuat gagasan utama, yaitu digitalisasi rekam medis perlu diprioritaskan untuk membenahi layanan rumah sakit daerah. Opsi A adalah detail kalimat (1). Opsi B adalah detail kalimat (2). Opsi C adalah detail kalimat (3). Opsi D adalah latar masalah kalimat (1) dan bukan gagasan yang dikembangkan seluruh paragraf. Opsi E merangkum kalimat (4) yang didukung kalimat (1) sampai (3). Jawaban benar: E.",
+      "options": [
+        { "label": "A", "text": "Rekam medis kertas disimpan di ruang penyimpanan yang sempit dan lembap.", "score": 0 },
+        { "label": "B", "text": "Berkas yang rusak atau salah letak memperpanjang waktu tunggu pasien.", "score": 0 },
+        { "label": "C", "text": "Pemindaian rekam medis secara bertahap mempersingkat waktu pencarian berkas.", "score": 0 },
+        { "label": "D", "text": "Sejumlah rumah sakit daerah masih menyimpan rekam medis dalam bentuk kertas.", "score": 0 },
+        { "label": "E", "text": "Digitalisasi rekam medis layak diprioritaskan dalam pembenahan layanan rumah sakit daerah.", "score": 5 }
+      ],
+      "rubricRationale": "Pilihan E benar karena merangkum gagasan utama pada kalimat simpulan (4) yang didukung oleh kalimat (1) sampai (3). Pilihan A hanya merupakan detail kondisi penyimpanan. Pilihan B hanya merupakan akibat dari kerusakan berkas. Pilihan C hanya merupakan bukti pendukung dari rumah sakit yang telah melakukan pemindaian. Pilihan D hanya merupakan latar masalah yang menjadi dasar argumen, bukan gagasan yang dikembangkan seluruh paragraf."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Figural - Spasial Verbal",
+      "title": "Posisi Lampu Indikator pada Panel Kendali Setelah Rotasi dan Pencerminan",
+      "questionStem": "Sebuah panel kendali di ruang operator pembangkit listrik berbentuk matriks 4 × 4. Baris dinomori 1 sampai 4 dari atas ke bawah dan kolom dinomori 1 sampai 4 dari kiri ke kanan, sehingga sel kiri atas adalah (1, 1) dan sel kanan bawah adalah (4, 4), dengan notasi (baris, kolom). Tiga lampu indikator menyala pada sel (1, 2), (2, 4), dan (4, 1). Panel kemudian diputar 90° searah jarum jam, lalu hasilnya dicerminkan secara horizontal (kolom kiri dan kanan saling bertukar). Sel yang menyala setelah kedua transformasi tersebut adalah ...",
+      "reasoningChain": "Rumus pada matriks n × n dengan n = 4: rotasi 90° searah jarum jam memetakan (r, c) menjadi (c, 5 − r); pencerminan horizontal memetakan (r, c) menjadi (r, 5 − c). Uji rumus rotasi: (1, 1) kiri atas menjadi (1, 4) kanan atas, benar untuk putaran searah jarum jam. Langkah 1 (rotasi): (1, 2) → (2, 4); (2, 4) → (4, 3); (4, 1) → (1, 1). Langkah 2 (cermin horizontal): (2, 4) → (2, 1); (4, 3) → (4, 2); (1, 1) → (1, 4). Hasil akhir: {(1, 4), (2, 1), (4, 2)} = opsi B. Verifikasi opsi lain: A = {(1, 3), (3, 4), (4, 1)} adalah hasil rotasi berlawanan arah jarum jam lalu cermin (atau cermin lalu rotasi searah jarum jam), yaitu urutan atau arah keliru; C = {(1, 1), (2, 4), (4, 3)} adalah hasil rotasi saja tanpa pencerminan; D = {(1, 1), (3, 4), (4, 2)} adalah hasil rotasi lalu pencerminan terhadap diagonal utama, yaitu jenis cermin keliru; E = {(1, 3), (2, 1), (4, 4)} adalah hasil cermin saja tanpa rotasi. Hanya B yang cocok dengan hasil perhitungan.",
+      "options": [
+        { "label": "A", "text": "(1, 3), (3, 4), dan (4, 1)", "score": 0 },
+        { "label": "B", "text": "(1, 4), (2, 1), dan (4, 2)", "score": 5 },
+        { "label": "C", "text": "(1, 1), (2, 4), dan (4, 3)", "score": 0 },
+        { "label": "D", "text": "(1, 1), (3, 4), dan (4, 2)", "score": 0 },
+        { "label": "E", "text": "(1, 3), (2, 1), dan (4, 4)", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan B benar: rotasi searah jarum jam menghasilkan (2, 4), (4, 3), (1, 1), lalu pencerminan horizontal menghasilkan (2, 1), (4, 2), (1, 4). Pilihan A adalah jebakan arah rotasi atau urutan transformasi yang keliru. Pilihan C adalah jebakan karena lupa melakukan pencerminan. Pilihan D adalah jebakan karena memakai pencerminan terhadap diagonal, bukan horizontal. Pilihan E adalah jebakan karena hanya melakukan pencerminan dan melupakan rotasi."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Numerik - Deret",
+      "title": "Jumlah Dua Suku Lanjutan pada Deret Bilangan Berpola Ganda",
+      "questionStem": "Perhatikan deret bilangan berikut: 3, 1, 7, 4, 15, 9, 31, 16, 63, 25, ... Jumlah suku ke-11 dan suku ke-12 dari deret tersebut adalah ...",
+      "reasoningChain": "Deret terdiri dari dua barisan yang berselang-seling. Barisan suku ganjil (suku ke-1, 3, 5, ...): 3, 7, 15, 31, 63; setiap suku = 2 × suku sebelumnya + 1 (beda 4, 8, 16, 32 yang menggandakan diri), dengan rumus suku ke-k barisan ini 2^(k+1) − 1. Suku ke-11 adalah suku ganjil ke-6, jadi 2^7 − 1 = 127 (cek: 2 × 63 + 1 = 127). Barisan suku genap (suku ke-2, 4, 6, ...): 1, 4, 9, 16, 25, yaitu bilangan kuadrat 1², 2², 3², 4², 5². Suku ke-12 adalah suku genap ke-6, jadi 6² = 36. Jumlah = 127 + 36 = 163 = opsi C. Verifikasi jebakan: A = 152 = 127 + 25 (memakai suku ke-10 sebagai suku ke-12); B = 162 = 126 + 36 (rumus ×2 tanpa +1); D = 164 = 128 + 36 (memakai 2^n tanpa pengurang 1); E = 176 = 127 + 49 (salah indeks kuadrat, memakai 7²). Hanya C yang sama dengan hasil perhitungan.",
+      "options": [
+        { "label": "A", "text": "152", "score": 0 },
+        { "label": "B", "text": "162", "score": 0 },
+        { "label": "C", "text": "163", "score": 5 },
+        { "label": "D", "text": "164", "score": 0 },
+        { "label": "E", "text": "176", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan C benar: suku ke-11 = 127 (pola ×2 + 1 pada suku ganjil) dan suku ke-12 = 36 (kuadrat ke-6 pada suku genap), sehingga jumlahnya 163. Pilihan A adalah jebakan karena memakai suku ke-10 (25) sebagai suku ke-12. Pilihan B adalah jebakan karena menggandakan 63 menjadi 126 tanpa menambah 1. Pilihan D adalah jebakan karena memakai pola 2^n sehingga diperoleh 128. Pilihan E adalah jebakan karena salah indeks kuadrat (7² = 49) untuk suku ke-12."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Numerik - Aritmetika Sosial",
+      "title": "Persentase Laba Penjualan Bawang Merah oleh BUMDes dengan Penyusutan Stok",
+      "questionStem": "Sebuah Badan Usaha Milik Desa (BUMDes) di Nusa Tenggara Timur membeli 250 kg bawang merah dengan harga Rp32.000 per kg. Sebanyak 10% dari pembelian tersebut busuk sehingga tidak dapat dijual. Dari bawang yang masih layak, 100 kg dijual dengan harga Rp40.000 per kg dan sisanya dijual dengan harga Rp36.000 per kg. Persentase laba terhadap total modal pembelian adalah ...",
+      "reasoningChain": "Modal = 250 × 32.000 = Rp8.000.000. Bawang busuk = 10% × 250 = 25 kg, sehingga bawang layak jual = 250 − 25 = 225 kg. Penjualan tahap 1 = 100 × 40.000 = Rp4.000.000. Sisa bawang = 225 − 100 = 125 kg, dijual 125 × 36.000 = Rp4.500.000. Total penerimaan = 4.000.000 + 4.500.000 = Rp8.500.000. Laba = 8.500.000 − 8.000.000 = Rp500.000. Persentase laba terhadap modal = 500.000 / 8.000.000 × 100% = 6,25% = opsi A. Verifikasi jebakan: B = 500.000 / 8.500.000 = 5,88% (pembagi memakai penerimaan, bukan modal); C = 6,88% berasal dari harga rata-rata sederhana Rp38.000 × 225 = 8.550.000 (laba 550.000 / 8.000.000 = 6,875%), yang keliru karena bobot kuantitas berbeda; D = 17,5% berasal dari anggapan seluruh 250 kg terjual, yaitu 100 × 40.000 + 150 × 36.000 = 9.400.000 (laba 1.400.000), yang mengabaikan susut; E = 10% berasal dari laba bagian harga tinggi saja, yaitu (40.000 − 32.000) × 100 = 800.000 (800.000 / 8.000.000), yang mengabaikan sisa penjualan dan susut. Hanya A yang sama dengan hasil perhitungan.",
+      "options": [
+        { "label": "A", "text": "6,25%", "score": 5 },
+        { "label": "B", "text": "5,88%", "score": 0 },
+        { "label": "C", "text": "6,88%", "score": 0 },
+        { "label": "D", "text": "17,50%", "score": 0 },
+        { "label": "E", "text": "10,00%", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan A benar: modal Rp8.000.000, penerimaan Rp8.500.000 dari 225 kg bawang layak jual, laba Rp500.000 atau 6,25% dari modal. Pilihan B adalah jebakan karena laba dibagi penerimaan, bukan modal. Pilihan C adalah jebakan karena memakai harga rata-rata sederhana tanpa memperhitungkan bobot kuantitas yang berbeda. Pilihan D adalah jebakan karena mengabaikan bawang busuk dan menganggap seluruh 250 kg terjual. Pilihan E adalah jebakan karena hanya menghitung laba dari bagian yang dijual dengan harga tinggi."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Verbal - Analogi",
+      "title": "Analogi Pasangan Kata Berpola Hubungan Tindakan dan Peristiwa",
+      "questionStem": "VAKSINASI : CAMPAK = ... Pilihlah pasangan kata yang hubungannya paling serupa dengan pasangan kata tersebut.",
+      "reasoningChain": "Hubungan pada pasangan soal: VAKSINASI adalah tindakan yang dilakukan sebelum penyakit terjadi untuk mencegah (menghindarkan) terjadinya CAMPAK. Jadi pola hubungannya adalah 'tindakan preventif : peristiwa yang dicegah'. Evaluasi opsi: A (Antibiotik : Infeksi bakteri) adalah tindakan kuratif setelah infeksi terjadi. B (Alarm asap : Kebakaran) adalah deteksi atau peringatan dini saat api sudah muncul, tidak mencegah terjadinya kebakaran. C (Ambulans : Korban kecelakaan) adalah penanganan atau evakuasi setelah kecelakaan terjadi. D (Tanggul : Luapan sungai) adalah konstruksi yang dibangun sebelum banjir untuk mencegah air meluap, sehingga cocok dengan pola preventif. E (Rehabilitasi : Ketergantungan narkoba) adalah pemulihan setelah ketergantungan terjadi. Hanya D yang berpola preventif. Jawaban benar: D.",
+      "options": [
+        { "label": "A", "text": "Antibiotik : Infeksi bakteri", "score": 0 },
+        { "label": "B", "text": "Alarm asap : Kebakaran", "score": 0 },
+        { "label": "C", "text": "Ambulans : Korban kecelakaan", "score": 0 },
+        { "label": "D", "text": "Tanggul : Luapan sungai", "score": 5 },
+        { "label": "E", "text": "Rehabilitasi : Ketergantungan narkoba", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan D benar karena tanggul dibangun sebelum banjir untuk mencegah luapan, sama seperti vaksinasi yang dilakukan sebelum sakit untuk mencegah campak. Pilihan A adalah jebakan karena antibiotik bersifat kuratif, yaitu mengobati infeksi yang sudah terjadi. Pilihan B adalah jebakan karena alarm asap hanya mendeteksi dan memberi peringatan saat kebakaran telah terjadi. Pilihan C adalah penanganan setelah peristiwa terjadi. Pilihan E adalah pemulihan setelah kondisi terjadi."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Jejaring Kerja",
+      "title": "Penyelarasan Jadwal Proyek Normalisasi Sungai Antarinstansi",
+      "questionStem": "Anda adalah staf perencanaan pada sebuah Balai Wilayah Sungai. Proyek normalisasi sungai di wilayah kerja Anda terhambat karena jadwal pembersihan lahan oleh Balai, pemindahan jaringan kabel oleh PLN, dan penertiban bangunan oleh Satpol PP pemerintah kota saling berbenturan. Masing-masing pihak merasa jadwalnya harus didahulukan dan belum pernah ada pembahasan bersama. Tindakan paling tepat yang Anda ambil adalah ...",
+      "reasoningChain": "Indikator pilar Jejaring Kerja pada SKD: kemampuan membangun dan memelihara hubungan kerja sama lintas unit atau instansi secara proaktif dan langsung untuk mencapai tujuan bersama, selaras dengan nilai BerAKHLAK 'Kolaboratif' (terbuka dalam bekerja sama, memberi kesempatan berbagai pihak berkontribusi, dan menggerakkan sumber daya untuk tujuan bersama). Opsi bernilai 5 adalah mengajak PLN dan Satpol PP berdiskusi langsung untuk menyusun jadwal terpadu yang disepakati bersama. Nilai 4 untuk melaporkan benturan kepada pimpinan agar dibahas di forum koordinasi antarinstansi (mengarah ke kolaborasi tetapi inisiatif didelegasikan). Nilai 3 untuk menyusun jadwal Balai sendiri lalu mengirimkannya sebagai acuan (informatif tetapi satu arah). Nilai 2 untuk tetap mengerjakan jadwal Balai karena merasa itu tanggung jawab utama (mengabaikan pihak lain). Nilai 1 untuk menunggu pihak lain selesai tanpa mengubah rencana (pasif).",
+      "options": [
+        { "label": "A", "text": "Menyusun jadwal pekerjaan Balai Anda sendiri secara ketat, lalu mengirimkannya kepada PLN dan Satpol PP sebagai acuan.", "score": 3 },
+        { "label": "B", "text": "Melaporkan tumpang tindih jadwal kepada pimpinan Balai agar dibahas pada forum koordinasi antarinstansi tingkat kota.", "score": 4 },
+        { "label": "C", "text": "Mengajak perwakilan PLN dan Satpol PP berdiskusi langsung guna menyusun jadwal kerja terpadu yang disepakati bersama.", "score": 5 },
+        { "label": "D", "text": "Tetap mengerjakan pembersihan lahan sesuai jadwal Balai karena proyek normalisasi sungai merupakan tanggung jawab utama Balai.", "score": 2 },
+        { "label": "E", "text": "Menunggu PLN dan Satpol PP menyelesaikan pekerjaan masing-masing terlebih dahulu tanpa mengubah rencana kerja yang ada.", "score": 1 }
+      ],
+      "rubricRationale": "Pilihan C (skor 5) menunjukkan inisiatif membangun kerja sama lintas instansi secara langsung untuk menghasilkan jadwal yang disepakati bersama. Pilihan B (skor 4) mengarah pada koordinasi antarinstansi, tetapi inisiatif diserahkan kepada pimpinan. Pilihan A (skor 3) membagikan informasi, tetapi komunikasinya satu arah dan tidak menyepakati jadwal bersama. Pilihan D (skor 2) mengabaikan kebutuhan pihak lain dan tidak menyelesaikan benturan jadwal. Pilihan E (skor 1) pasif dan membiarkan hambatan proyek berlarut-larut."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "TIK",
+      "title": "Penggunaan Akun Individual pada Aplikasi Input Nilai Menjelang Tenggat",
+      "questionStem": "Anda adalah guru di sebuah SMA Negeri. Dinas Pendidikan provinsi mewajibkan seluruh sekolah menginput nilai siswa melalui aplikasi baru yang menggunakan akun individual untuk setiap guru, dengan batas akhir malam ini pukul 23.59. Seorang rekan guru senior belum mahir menggunakan aplikasi tersebut dan meminta Anda membantu menyelesaikan penginputan nilai kelasnya. Tindakan paling tepat yang Anda ambil adalah ...",
+      "reasoningChain": "Indikator pilar TIK pada SKD: kemampuan memanfaatkan teknologi informasi secara efektif, aman, dan bertanggung jawab (termasuk menjaga kerahasiaan kredensial akun dan integritas data), serta adaptif dan mendukung rekan beradaptasi dengan sistem baru. Prinsip keamanan informasi ini selaras dengan Perpres Nomor 95 Tahun 2018 tentang Sistem Pemerintahan Berbasis Elektronik (SPBE). Opsi bernilai 5 adalah mendampingi rekan menginput nilai melalui akunnya sendiri sambil memperagakan fitur utama (aman, menjaga akuntabilitas akun, dan menularkan kompetensi). Nilai 4 untuk meminta operator sekolah mengajukan perpanjangan waktu dan menjadwalkan pelatihan (aman dan prosedural, tetapi tidak membantu langsung). Nilai 3 untuk menyarankan menunggu pelatihan dan mencatat manual (aman, tetapi tidak adaptif dan berpotensi melewati tenggat). Nilai 2 untuk menginput nilai kelas rekan melalui akun sendiri lalu melapor (transparan, tetapi melanggar prinsip akun individual dan memuat data atas nama yang keliru). Nilai 1 untuk meminta kata sandi rekan (berbagi kredensial, pelanggaran keamanan terberat).",
+      "options": [
+        { "label": "A", "text": "Menyarankan rekan menunggu pelatihan resmi dari dinas dan sementara waktu mencatat nilai kelasnya pada berkas manual.", "score": 3 },
+        { "label": "B", "text": "Mendampingi rekan menginput nilai melalui akunnya sendiri sambil memperagakan langkah penggunaan fitur utama aplikasi secara bertahap.", "score": 5 },
+        { "label": "C", "text": "Meminta rekan menyerahkan kata sandi akunnya agar Anda dapat menginput seluruh nilai kelas tersebut dengan cepat.", "score": 1 },
+        { "label": "D", "text": "Menginput nilai kelas rekan tersebut melalui akun Anda sendiri agar tenggat terpenuhi, lalu melaporkannya kepada kepala sekolah.", "score": 2 },
+        { "label": "E", "text": "Meminta operator sekolah mengajukan perpanjangan waktu kepada dinas dan menjadwalkan pelatihan singkat bagi rekan tersebut.", "score": 4 }
+      ],
+      "rubricRationale": "Pilihan B (skor 5) menjaga keamanan akun individual, menyelesaikan penginputan tepat waktu, dan meningkatkan kemampuan rekan memakai aplikasi. Pilihan E (skor 4) aman dan prosedural, tetapi tidak membantu rekan secara langsung dan bergantung pada persetujuan perpanjangan waktu. Pilihan A (skor 3) aman, tetapi tidak adaptif dan berisiko melewati tenggat. Pilihan D (skor 2) transparan, tetapi melanggar prinsip akun individual karena data kelas rekan diinput melalui akun Anda. Pilihan C (skor 1) berbagi kata sandi sehingga membahayakan keamanan akun dan data."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Sosial Budaya",
+      "title": "Pemeriksaan Barang Adat Rombongan Warga di Pos Lintas Batas",
+      "questionStem": "Anda adalah petugas pada sebuah pos lintas batas negara di Kalimantan. Menjelang upacara adat tahunan, rombongan warga adat dari desa seberang perbatasan tiba dengan membawa sesaji dan alat musik tradisional. Menurut ketentuan kepabeanan, sesaji berupa hasil bumi harus diperiksa, tetapi rombongan menganggap pemeriksaan itu sebagai penghinaan terhadap tradisi sehingga sebagian dari mereka mulai berdebat dengan petugas lain. Tindakan paling tepat yang Anda ambil adalah ...",
+      "reasoningChain": "Indikator pilar Sosial Budaya pada SKD: kemampuan menghargai keberagaman budaya dan membangun harmoni sosial sambil tetap menjalankan tugas sesuai aturan, selaras dengan nilai BerAKHLAK 'Harmonis' (saling peduli dan menghargai perbedaan) dan semangat Pasal 32 ayat (1) UUD NRI 1945 yang menjamin kebebasan masyarakat memelihara dan mengembangkan nilai budayanya. Opsi bernilai 5 menjelaskan alasan pemeriksaan dengan santun dan melibatkan tokoh adat untuk mendampingi pemeriksaan sesaji, sehingga aturan tetap dijalankan dengan cara yang menghormati tradisi. Nilai 4 untuk menjelaskan ketentuan secara tegas dan sopan lalu tetap memeriksa (taat aturan dan sopan, tetapi kurang peka budaya). Nilai 3 untuk membebaskan sesaji dari pemeriksaan sebagai bentuk penghormatan (peka budaya, tetapi menyimpang dari ketentuan). Nilai 2 untuk melimpahkan penanganan kepada rekan lain (menghindar dari tanggung jawab). Nilai 1 untuk menahan rombongan tanpa kelonggaran apa pun (kaku dan mengabaikan kepekaan budaya).",
+      "options": [
+        { "label": "A", "text": "Mengizinkan sesaji dan alat musik adat melintas tanpa diperiksa sebagai bentuk penghormatan, sedangkan barang bawaan lain tetap diperiksa.", "score": 3 },
+        { "label": "B", "text": "Menahan seluruh rombongan di pos sampai pemeriksaan selesai tanpa kelonggaran apa pun karena ketentuan kepabeanan berlaku bagi semua orang.", "score": 1 },
+        { "label": "C", "text": "Menjelaskan ketentuan kepabeanan secara tegas dan sopan kepada rombongan, lalu tetap memeriksa sesaji sesuai prosedur standar pos.", "score": 4 },
+        { "label": "D", "text": "Menyerahkan penanganan rombongan kepada rekan lain yang lebih memahami adat setempat agar Anda dapat melanjutkan tugas pemeriksaan lainnya.", "score": 2 },
+        { "label": "E", "text": "Menjelaskan alasan pemeriksaan dengan santun dan meminta tokoh adat mendampingi pemeriksaan sesaji agar berlangsung dengan cara yang dihormati.", "score": 5 }
+      ],
+      "rubricRationale": "Pilihan E (skor 5) memadukan kepatuhan pada aturan dengan penghormatan budaya melalui pelibatan tokoh adat, sehingga ketegangan mereda tanpa melanggar ketentuan. Pilihan C (skor 4) sopan dan sesuai prosedur, tetapi tidak menunjukkan upaya menjaga martabat tradisi. Pilihan A (skor 3) menghormati budaya, tetapi menyimpang dari ketentuan kepabeanan. Pilihan D (skor 2) menghindari tanggung jawab dan tidak menyelesaikan masalah. Pilihan B (skor 1) kaku, mengabaikan kepekaan budaya, dan berpotensi memperburuk ketegangan."
+    }
+  ]
+}
+},
+{
+"label": "B",
+"text": "Menunda jadwal integrasi otomatis antarsistem hingga tahun anggaran berikutnya dan sementara waktu menugaskan staf untuk menginput data laporan harian secara manual.",
+"score": 2
+},
+{
+"label": "C",
+"text": "Mengadakan pertemuan mediasi tambahan agar kedua tim teknis terus berunding mencari kesepakatan satu format tunggal, meskipun jadwal uji coba lapangan harus dipangkas.",
+"score": 4
+},
+{
+"label": "D",
+"text": "Memfasilitasi lokakarya teknis bersama untuk merancang antarmuka jembatan konversi data otomatis, sehingga kedua instansi dapat terhubung tanpa harus merombak basis data internalnya.",
+"score": 5
+},
+{
+"label": "E",
+"text": "Mengambil alih penyusunan modul integrasi secara sepihak menggunakan skema standar internal unit Anda, lalu mewajibkan kedua instansi mitra mengikuti ketetapan tersebut.",
+"score": 1
+}
+],
+"rubricRationale": "Pilihan D (skor 5) mencerminkan kompetensi jejaring kerja tertinggi karena memfasilitasi kolaborasi teknis yang menghormati arsitektur sistem tiap instansi mitra melalui jembatan konversi data (middleware/API), sehingga kemitraan terjaga dan target tercapai. Pilihan C (skor 4) mengupayakan kompromi lewat mediasi, namun mengorbankan durasi uji coba sistem. Pilihan A (skor 3) menyelesaikan kebuntuan lewat intervensi atasan, tetapi kurang membangun sinergi horizontal antarinstansi. Pilihan B (skor 2) bersifat pasif dengan menunda integrasi sistem. Pilihan E (skor 1) menunjukkan ego sektoral yang merusak kepercayaan mitra kerja."
+},
+{
+"category": "TKP",
+"subtopic": "TIK",
+"title": "Tata Kelola Keamanan Kredensial Digital pada Sistem Otorisasi Manifes Kepabeanan",
+"questionStem": "Kantor pengawasan kepabeanan pelabuhan tempat Anda bertugas baru saja mengimplementasikan sistem otorisasi manifes kargo berbasis tanda tangan digital terenkripsi. Pada pekan pertama penerapan, Anda mendapati beberapa pemeriksa senior menuliskan kata sandi serta kode otorisasi mereka pada kertas catatan yang ditempel di bingkai monitor, bahkan saling meminjamkan akun kepada rekan satu sif agar antrean persetujuan kontainer selesai lebih cepat. Menghadapi situasi tersebut, langkah paling tepat yang Anda lakukan adalah...",
+"reasoningChain": "Indikator kompetensi Teknologi Informasi dan Komunikasi (TIK) PermenPAN-RB mencakup pemanfaatan sistem digital secara optimal untuk menunjang kinerja sekaligus kepatuhan terhadap prinsip keamanan siber (cyber hygiene), kerahasiaan kredensial, dan akuntabilitas jejak audit elektronik.\n- Opsi B (skor 5): Mengedukasi rekan kerja mengenai kerawanan kebocoran data kepabeanan, memandu aktivasi fitur pengelola sandi aman serta otorisasi cepat resmi, dan mengusulkan penyegaran literasi keamanan siber (menggabungkan kesadaran keamanan informasi, solusi efisiensi fitur TIK yang sah, dan pencegahan sistemik).\n- Opsi A (skor 4): Menegur rekan-rekan tersebut secara sopan agar segera melepas catatan kata sandi di monitor serta mengingatkan risiko penyalahgunaan wewenang apabila akun dipinjamkan kepada orang lain (tepat menjaga keamanan akun, namun belum memberikan solusi teknis atas kendala kecepatan kerja yang mereka keluhkan).\n- Opsi C (skor 3): Melaporkan temuan pelanggaran prosedur keamanan akun tersebut secara langsung kepada unit kepatuhan internal agar segera dilakukan pemblokiran akun sementara dan pemeriksaan disiplin pegawai (patuh aturan, tetapi pemblokiran mendadak tanpa pembinaan awal dapat melumpuhkan layanan pelabuhan).\n- Opsi D (skor 2): Memaklumi kebiasaan tersebut selama masa transisi sistem baru karena prioritas utama kantor pelabuhan adalah menjaga kecepatan arus keluar masuk barang ekspor dan impor (mengabaikan celah keamanan siber yang fatal).\n- Opsi E (skor 1): Mengikuti cara rekan-rekan senior tersebut dengan membagikan akses akun Anda saat jam sibuk agar target waktu layanan pemeriksaan kargo di sif Anda tercapai (ikut melanggar integritas dan keamanan sistem TIK).",
+"options": [
+{
+"label": "A",
+"text": "Menegur rekan-rekan tersebut secara sopan agar segera melepas catatan kata sandi di monitor serta mengingatkan risiko penyalahgunaan wewenang apabila akun dipinjamkan kepada orang lain.",
+"score": 4
+},
+{
+"label": "B",
+"text": "Mengedukasi rekan kerja mengenai kerawanan kebocoran data kepabeanan, memandu aktivasi fitur pengelola sandi aman serta otorisasi cepat resmi, dan mengusulkan penyegaran literasi keamanan siber.",
+"score": 5
+},
+{
+"label": "C",
+"text": "Melaporkan temuan pelanggaran prosedur keamanan akun tersebut secara langsung kepada unit kepatuhan internal agar segera dilakukan pemblokiran akun sementara dan pemeriksaan disiplin pegawai.",
+"score": 3
+},
+{
+"label": "D",
+"text": "Memaklumi kebiasaan tersebut selama masa transisi sistem baru karena prioritas utama kantor pelabuhan adalah menjaga kecepatan arus keluar masuk barang ekspor dan impor.",
+"score": 2
+},
+{
+"label": "E",
+"text": "Mengikuti cara rekan-rekan senior tersebut dengan membagikan akses akun Anda saat jam sibuk agar target waktu layanan pemeriksaan kargo di sif Anda tercapai.",
+"score": 1
+}
+],
+"rubricRationale": "Pilihan B (skor 5) paling tepat karena tidak hanya menghentikan praktik berbagi kredensial yang membahayakan keamanan siber, tetapi juga memberikan solusi teknologi yang sah (pengelola sandi aman dan fitur otorisasi cepat) agar efisiensi layanan tetap terjaga. Pilihan A (skor 4) sudah melakukan koreksi langsung terhadap celah keamanan, namun belum memfasilitasi kemudahan teknis bagi pegawai senior. Pilihan C (skor 3) kaku dan berisiko menghentikan operasional pelabuhan akibat pemblokiran massal. Pilihan D (skor 2) permisif terhadap pelanggaran keamanan informasi strategis. Pilihan E (skor 1) turut melakukan pelanggaran keamanan digital dan merusak akuntabilitas jejak audit."
+},
+{
+"category": "TKP",
+"subtopic": "Sosial Budaya",
+"title": "Adaptasi Program Intensifikasi Pertanian terhadap Kalender Pantangan Adat",
+"questionStem": "Anda ditugaskan memimpin tim penyuluhan program intensifikasi pertanian modern di sebuah kabupaten pedalaman yang masyarakatnya masih memegang teguh kalender tanam adat serta pantangan mengolah tanah pada pekan ritual leluhur. Ketika Anda memperkenalkan jadwal pemupukan serentak yang kebetulan bertepatan dengan pekan pantangan adat tersebut, para tetua kampung menolak hadir di balai desa dan warga mulai bersikap tertutup terhadap tim Anda. Sikap paling tepat yang Anda ambil untuk menyukseskan program tersebut adalah...",
+"reasoningChain": "Indikator utama pilar Sosial Budaya PermenPAN-RB adalah kepekaan terhadap kemajemukan tradisi lokal, penghormatan terhadap norma adat, komunikasi empatik-inklusif, serta kemampuan menyelaraskan inovasi kebijakan pemerintah dengan kearifan lokal tanpa menimbulkan konflik sosial.\n- Opsi C (skor 5): Mengunjungi para tetua adat secara santun untuk berdialog, memahami siklus kalender kearifan lokal mereka, dan menyelaraskan jadwal teknis pemupukan agar selaras dengan tradisi setempat (proaktif, menghormati budaya lokal, membangun kepercayaan, dan memastikan program tetap berjalan efektif).\n- Opsi D (skor 4): Meminta tokoh pemuda desa yang berpendidikan tinggi untuk membantu menjelaskan manfaat ekonomi program tersebut kepada para tetua adat agar jadwal pemupukan dapat segera disetujui (menggunakan pendekatan kultural tidak langsung, namun masih berfokus memaksakan jadwal awal daripada menyelaraskannya dengan pantangan adat).\n- Opsi A (skor 3): Menunggu hingga seluruh pekan pantangan adat selesai tanpa melakukan aktivitas apa pun di desa, kemudian melanjutkan jadwal penyuluhan semula meskipun target masa tanam mundur (menghormati adat tetapi pasif dan tidak segera memulihkan komunikasi dengan tetua adat).\n- Opsi B (skor 2): Meminta bantuan aparat kecamatan setempat untuk mengumpulkan warga secara resmi di balai desa agar sosialisasi kajian ilmiah pertanian modern tetap terlaksana sesuai jadwal (pendekatan koersif yang memicu resistensi masyarakat adat).\n- Opsi E (skor 1): Mengalihkan alokasi bantuan pupuk dan pendampingan teknis ke desa tetangga yang masyarakatnya lebih terbuka terhadap metode pertanian modern agar serapan program tidak terhambat (abai terhadap inklusivitas layanan dan meninggalkan tanggung jawab).",
+"options": [
+{
+"label": "A",
+"text": "Menunggu hingga seluruh pekan pantangan adat selesai tanpa melakukan aktivitas apa pun di desa, kemudian melanjutkan jadwal penyuluhan semula meskipun target masa tanam mundur.",
+"score": 3
+},
+{
+"label": "B",
+"text": "Meminta bantuan aparat kecamatan setempat untuk mengumpulkan warga secara resmi di balai desa agar sosialisasi kajian ilmiah pertanian modern tetap terlaksana sesuai jadwal.",
+"score": 2
+},
+{
+"label": "C",
+"text": "Mengunjungi para tetua adat secara santun untuk berdialog, memahami siklus kalender kearifan lokal mereka, dan menyelaraskan jadwal teknis pemupukan agar selaras dengan tradisi setempat.",
+"score": 5
+},
+{
+"label": "D",
+"text": "Meminta tokoh pemuda desa yang berpendidikan tinggi untuk membantu menjelaskan manfaat ekonomi program tersebut kepada para tetua adat agar jadwal pemupukan dapat segera disetujui.",
+"score": 4
+},
+{
+"label": "E",
+"text": "Mengalihkan alokasi bantuan pupuk dan pendampingan teknis ke desa tetangga yang masyarakatnya lebih terbuka terhadap metode pertanian modern agar serapan program tidak terhambat.",
+"score": 1
+}
+],
+"rubricRationale": "Pilihan C (skor 5) menunjukkan kepekaan sosial budaya tertinggi melalui dialog langsung yang santun dengan pemangku adat serta adaptasi jadwal teknis pemupukan agar harmonis dengan kalender lokal. Pilihan D (skor 4) melibatkan mediator lokal secara positif, tetapi masih berorientasi meminta persetujuan sepihak atas jadwal yang menabrak hari pantangan. Pilihan A (skor 3) menghargai waktu ritual adat namun pasif tanpa membangun komunikasi rekonsiliatif. Pilihan B (skor 2) menggunakan pendekatan kekuasaan formal yang berpotensi memicu benturan budaya. Pilihan E (skor 1) bersikap eksklusif dan mengabaikan hak pembangunan masyarakat adat."
+}
+]
+}

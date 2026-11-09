@@ -157,4 +157,165 @@
       "rubricRationale": "Pilihan C (skor 5) menjaga standar keselamatan, transparan dalam menyampaikan risiko, dan menawarkan solusi nyata. Pilihan D (skor 4) menjaga standar tetapi pasif dan berpotensi menggagalkan tenggat. Pilihan A (skor 3) kompromi yang mengurangi kelengkapan prosedur. Pilihan B (skor 2) melepaskan tanggung jawab profesional. Pilihan E (skor 1) adalah pemalsuan data teknis yang membahayakan keselamatan publik."
     }
   ]
+},
+{
+  "batchMetadata": {
+    "batchId": "2026-11-b02",
+    "category": "MIXED",
+    "totalQuestions": 10,
+    "difficulty": "HOTS"
+  },
+  "questions": [
+    {
+      "category": "TWK",
+      "subtopic": "Integritas",
+      "title": "Sikap Bendahara Pembantu terhadap Kelebihan Transfer Dana Perjalanan Dinas",
+      "questionStem": "Kartika, bendahara pembantu pada sebuah balai penelitian pertanian di bawah kementerian, mendapati bahwa akibat kesalahan sistem perbankan, rekening operasionalnya menerima kelebihan transfer dana perjalanan dinas sebesar Rp4 juta. Prosedur internal baru mewajibkan pengembalian kelebihan bayar setelah ada temuan pemeriksa, sedangkan pemeriksaan berikutnya baru dijadwalkan delapan bulan lagi. Tidak seorang pun menyadari kelebihan tersebut. Kartika menyetorkan dana itu ke kas negara pada hari yang sama ketika ia menyadarinya, tanpa diminta siapa pun. Sikap Kartika paling tepat menggambarkan nilai ...",
+      "reasoningChain": "Rubrik pilar TWK Integritas merujuk pada nilai dasar ASN BerAKHLAK (Surat MenPAN-RB Nomor B/102/M.SM.02.03/2021), khususnya nilai Akuntabel: melaksanakan tugas dengan jujur, bertanggung jawab, cermat, disiplin, dan berintegritas tinggi. Integritas adalah keselarasan antara nilai moral dan tindakan yang dipertahankan tanpa dorongan eksternal. Fakta kasus: (1) tidak ada pengawasan karena pemeriksaan masih delapan bulan lagi; (2) kewajiban prosedural pengembalian belum berlaku karena baru muncul setelah ada temuan; (3) tidak ada pihak yang meminta pertanggungjawaban. Kartika bertindak mendahului kewajiban dan pengawasan. Opsi A (kepatuhan hukum) berhenti pada batas kewajiban yang berlaku, padahal kewajiban itu belum aktif. Opsi B (akuntabilitas) mensyaratkan adanya pihak yang menuntut pertanggungjawaban, dan tidak ada. Opsi C (loyalitas) berkaitan dengan kesetiaan kepada organisasi atau pimpinan, tidak relevan. Opsi E (profesionalisme) berkaitan dengan keahlian dan standar teknis kerja, bukan konsistensi nilai moral. Jawaban benar: D.",
+      "options": [
+        { "label": "A", "text": "Kepatuhan hukum, yaitu ketaatan pada peraturan perundang-undangan yang berlaku beserta konsekuensi sanksi bagi pelanggarnya.", "score": 0 },
+        { "label": "B", "text": "Akuntabilitas, yaitu kesediaan mempertanggungjawabkan tindakan dan hasil kerja kepada pihak yang berwenang atau pemberi mandat.", "score": 0 },
+        { "label": "C", "text": "Loyalitas, yaitu kesetiaan dan komitmen terhadap organisasi, pimpinan, serta tujuan instansi tempat seseorang bekerja.", "score": 0 },
+        { "label": "D", "text": "Integritas, yaitu keselarasan nilai moral dan tindakan yang dijaga konsisten meski tanpa pengawasan atau paksaan aturan.", "score": 5 },
+        { "label": "E", "text": "Profesionalisme, yaitu penerapan keahlian dan standar kerja sesuai bidang tugas secara cermat dan bertanggung jawab.", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan D benar karena Kartika bertindak sesuai nilai moralnya pada kondisi tanpa pengawasan dan tanpa kewajiban prosedural yang berlaku, yang merupakan inti integritas. Pilihan A kurang spesifik karena kepatuhan hukum diukur dari ketaatan pada kewajiban yang sudah berlaku, sedangkan kewajiban pengembalian baru muncul setelah ada temuan pemeriksa. Pilihan B kurang spesifik karena tidak ada pihak yang menuntut pertanggungjawaban saat Kartika bertindak. Pilihan C kurang spesifik karena kasus tidak berkaitan dengan kesetiaan kepada organisasi atau pimpinan. Pilihan E kurang spesifik karena kasus tidak menyoal keahlian teknis atau standar kerja, melainkan konsistensi nilai moral."
+    },
+    {
+      "category": "TWK",
+      "subtopic": "Pilar Negara - UUD NRI 1945",
+      "title": "Izin Penambangan Pasir Pesisir bagi Satu Perusahaan dan Dampaknya bagi Nelayan Setempat",
+      "questionStem": "Pemerintah sebuah provinsi menerbitkan izin penambangan pasir di wilayah pesisir kepada satu perusahaan swasta untuk jangka waktu 20 tahun. Hampir seluruh hasil tambang dijual ke luar negeri, penerimaan daerah dari kegiatan itu sangat kecil, dan nelayan setempat kehilangan wilayah tangkap tanpa kompensasi maupun manfaat ekonomi lain. Ketentuan UUD NRI 1945 yang paling spesifik diabaikan dalam hal penguasaan dan pemanfaatan sumber daya alam pada kasus tersebut adalah ...",
+      "reasoningChain": "Pasal 33 ayat (3) UUD NRI 1945 menyatakan bahwa bumi dan air dan kekayaan alam yang terkandung di dalamnya dikuasai oleh negara dan dipergunakan untuk sebesar-besar kemakmuran rakyat. Pasir pesisir adalah kekayaan alam, dan kasus memperlihatkan manfaatnya tidak kembali kepada rakyat (penerimaan daerah kecil, nelayan dirugikan), sehingga unsur 'dipergunakan untuk sebesar-besar kemakmuran rakyat' diabaikan. Seluruh opsi memuat substansi pasal yang benar, tetapi tingkat kespesifikannya berbeda. Opsi B (Pasal 33 ayat (2)) mengatur cabang produksi yang penting bagi negara, yaitu sektor usaha, bukan sumber daya alam sebagai objek penguasaan. Opsi C (Pasal 33 ayat (4)) mengatur prinsip penyelenggaraan perekonomian nasional secara umum. Opsi D (Pasal 27 ayat (2)) mengatur hak individual atas pekerjaan dan penghidupan layak. Opsi E (Pasal 28H ayat (1)) mengatur hak hidup sejahtera dan lingkungan hidup yang baik, tanpa menyoal penguasaan sumber daya alam. Jawaban benar: A.",
+      "options": [
+        { "label": "A", "text": "Pasal 33 ayat (3): bumi, air, dan kekayaan alam di dalamnya dikuasai negara dan dipergunakan untuk sebesar-besar kemakmuran rakyat.", "score": 5 },
+        { "label": "B", "text": "Pasal 33 ayat (2): cabang-cabang produksi yang penting bagi negara dan menguasai hajat hidup orang banyak dikuasai oleh negara.", "score": 0 },
+        { "label": "C", "text": "Pasal 33 ayat (4): perekonomian nasional diselenggarakan berdasar demokrasi ekonomi dengan prinsip, antara lain, efisiensi berkeadilan, berkelanjutan, dan berwawasan lingkungan.", "score": 0 },
+        { "label": "D", "text": "Pasal 27 ayat (2): tiap-tiap warga negara berhak atas pekerjaan dan penghidupan yang layak bagi kemanusiaan.", "score": 0 },
+        { "label": "E", "text": "Pasal 28H ayat (1): setiap orang berhak hidup sejahtera lahir dan batin serta mendapat lingkungan hidup yang baik dan sehat.", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan A benar karena kasus ini menyoal pemanfaatan kekayaan alam yang manfaatnya tidak kembali kepada rakyat, tepat pada unsur 'sebesar-besar kemakmuran rakyat' dalam Pasal 33 ayat (3). Pilihan B kurang spesifik karena ayat (2) mengatur penguasaan cabang produksi, bukan kekayaan alam sebagai objek. Pilihan C kurang spesifik karena ayat (4) memuat prinsip umum perekonomian nasional. Pilihan D kurang spesifik karena Pasal 27 ayat (2) berkaitan dengan hak individual atas pekerjaan, sedangkan inti kasus adalah tata kelola sumber daya alam. Pilihan E kurang spesifik karena Pasal 28H ayat (1) berkaitan dengan hak atas kesejahteraan dan lingkungan sehat, bukan penguasaan sumber daya alam."
+    },
+    {
+      "category": "TWK",
+      "subtopic": "Bahasa Indonesia",
+      "title": "Penentuan Ide Pokok Paragraf tentang Pengelolaan Rekam Medis Rumah Sakit",
+      "questionStem": "Bacalah paragraf berikut. (1) Sejumlah rumah sakit daerah masih menyimpan rekam medis pasien dalam bentuk kertas di ruang penyimpanan yang sempit dan lembap. (2) Berkas yang rusak atau salah letak sering memaksa petugas menelusuri riwayat pasien dari awal sehingga waktu tunggu memanjang. (3) Sebaliknya, rumah sakit yang telah memindai rekam medis secara bertahap melaporkan waktu pencarian berkas yang jauh lebih singkat. (4) Dengan demikian, digitalisasi rekam medis layak ditetapkan sebagai prioritas pembenahan layanan rumah sakit daerah. Ide pokok paragraf tersebut adalah ...",
+      "reasoningChain": "Kaidah: ide pokok adalah gagasan utama yang dikembangkan oleh seluruh kalimat dalam paragraf, sedangkan kalimat penjelas hanya memberikan latar, bukti, atau contoh. Paragraf ini berpola induktif: kalimat (1) memberi latar masalah, kalimat (2) menjelaskan akibat, kalimat (3) memberi bukti pembanding, dan kalimat (4) yang ditandai penanda simpulan 'dengan demikian' memuat gagasan utama, yaitu digitalisasi rekam medis perlu diprioritaskan untuk membenahi layanan rumah sakit daerah. Opsi A adalah detail kalimat (1). Opsi B adalah detail kalimat (2). Opsi C adalah detail kalimat (3). Opsi D adalah latar masalah kalimat (1) dan bukan gagasan yang dikembangkan seluruh paragraf. Opsi E merangkum kalimat (4) yang didukung kalimat (1) sampai (3). Jawaban benar: E.",
+      "options": [
+        { "label": "A", "text": "Rekam medis kertas disimpan di ruang penyimpanan yang sempit dan lembap.", "score": 0 },
+        { "label": "B", "text": "Berkas yang rusak atau salah letak memperpanjang waktu tunggu pasien.", "score": 0 },
+        { "label": "C", "text": "Pemindaian rekam medis secara bertahap mempersingkat waktu pencarian berkas.", "score": 0 },
+        { "label": "D", "text": "Sejumlah rumah sakit daerah masih menyimpan rekam medis dalam bentuk kertas.", "score": 0 },
+        { "label": "E", "text": "Digitalisasi rekam medis layak diprioritaskan dalam pembenahan layanan rumah sakit daerah.", "score": 5 }
+      ],
+      "rubricRationale": "Pilihan E benar karena merangkum gagasan utama pada kalimat simpulan (4) yang didukung oleh kalimat (1) sampai (3). Pilihan A hanya merupakan detail kondisi penyimpanan. Pilihan B hanya merupakan akibat dari kerusakan berkas. Pilihan C hanya merupakan bukti pendukung dari rumah sakit yang telah melakukan pemindaian. Pilihan D hanya merupakan latar masalah yang menjadi dasar argumen, bukan gagasan yang dikembangkan seluruh paragraf."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Figural - Spasial Verbal",
+      "title": "Posisi Lampu Indikator pada Panel Kendali Setelah Rotasi dan Pencerminan",
+      "questionStem": "Sebuah panel kendali di ruang operator pembangkit listrik berbentuk matriks 4 × 4. Baris dinomori 1 sampai 4 dari atas ke bawah dan kolom dinomori 1 sampai 4 dari kiri ke kanan, sehingga sel kiri atas adalah (1, 1) dan sel kanan bawah adalah (4, 4), dengan notasi (baris, kolom). Tiga lampu indikator menyala pada sel (1, 2), (2, 4), dan (4, 1). Panel kemudian diputar 90° searah jarum jam, lalu hasilnya dicerminkan secara horizontal (kolom kiri dan kanan saling bertukar). Sel yang menyala setelah kedua transformasi tersebut adalah ...",
+      "reasoningChain": "Rumus pada matriks n × n dengan n = 4: rotasi 90° searah jarum jam memetakan (r, c) menjadi (c, 5 − r); pencerminan horizontal memetakan (r, c) menjadi (r, 5 − c). Uji rumus rotasi: (1, 1) kiri atas menjadi (1, 4) kanan atas, benar untuk putaran searah jarum jam. Langkah 1 (rotasi): (1, 2) → (2, 4); (2, 4) → (4, 3); (4, 1) → (1, 1). Langkah 2 (cermin horizontal): (2, 4) → (2, 1); (4, 3) → (4, 2); (1, 1) → (1, 4). Hasil akhir: {(1, 4), (2, 1), (4, 2)} = opsi B. Verifikasi opsi lain: A = {(1, 3), (3, 4), (4, 1)} adalah hasil rotasi berlawanan arah jarum jam lalu cermin (atau cermin lalu rotasi searah jarum jam), yaitu urutan atau arah keliru; C = {(1, 1), (2, 4), (4, 3)} adalah hasil rotasi saja tanpa pencerminan; D = {(1, 1), (3, 4), (4, 2)} adalah hasil rotasi lalu pencerminan terhadap diagonal utama, yaitu jenis cermin keliru; E = {(1, 3), (2, 1), (4, 4)} adalah hasil cermin saja tanpa rotasi. Hanya B yang cocok dengan hasil perhitungan.",
+      "options": [
+        { "label": "A", "text": "(1, 3), (3, 4), dan (4, 1)", "score": 0 },
+        { "label": "B", "text": "(1, 4), (2, 1), dan (4, 2)", "score": 5 },
+        { "label": "C", "text": "(1, 1), (2, 4), dan (4, 3)", "score": 0 },
+        { "label": "D", "text": "(1, 1), (3, 4), dan (4, 2)", "score": 0 },
+        { "label": "E", "text": "(1, 3), (2, 1), dan (4, 4)", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan B benar: rotasi searah jarum jam menghasilkan (2, 4), (4, 3), (1, 1), lalu pencerminan horizontal menghasilkan (2, 1), (4, 2), (1, 4). Pilihan A adalah jebakan arah rotasi atau urutan transformasi yang keliru. Pilihan C adalah jebakan karena lupa melakukan pencerminan. Pilihan D adalah jebakan karena memakai pencerminan terhadap diagonal, bukan horizontal. Pilihan E adalah jebakan karena hanya melakukan pencerminan dan melupakan rotasi."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Numerik - Deret",
+      "title": "Jumlah Dua Suku Lanjutan pada Deret Bilangan Berpola Ganda",
+      "questionStem": "Perhatikan deret bilangan berikut: 3, 1, 7, 4, 15, 9, 31, 16, 63, 25, ... Jumlah suku ke-11 dan suku ke-12 dari deret tersebut adalah ...",
+      "reasoningChain": "Deret terdiri dari dua barisan yang berselang-seling. Barisan suku ganjil (suku ke-1, 3, 5, ...): 3, 7, 15, 31, 63; setiap suku = 2 × suku sebelumnya + 1 (beda 4, 8, 16, 32 yang menggandakan diri), dengan rumus suku ke-k barisan ini 2^(k+1) − 1. Suku ke-11 adalah suku ganjil ke-6, jadi 2^7 − 1 = 127 (cek: 2 × 63 + 1 = 127). Barisan suku genap (suku ke-2, 4, 6, ...): 1, 4, 9, 16, 25, yaitu bilangan kuadrat 1², 2², 3², 4², 5². Suku ke-12 adalah suku genap ke-6, jadi 6² = 36. Jumlah = 127 + 36 = 163 = opsi C. Verifikasi jebakan: A = 152 = 127 + 25 (memakai suku ke-10 sebagai suku ke-12); B = 162 = 126 + 36 (rumus ×2 tanpa +1); D = 164 = 128 + 36 (memakai 2^n tanpa pengurang 1); E = 176 = 127 + 49 (salah indeks kuadrat, memakai 7²). Hanya C yang sama dengan hasil perhitungan.",
+      "options": [
+        { "label": "A", "text": "152", "score": 0 },
+        { "label": "B", "text": "162", "score": 0 },
+        { "label": "C", "text": "163", "score": 5 },
+        { "label": "D", "text": "164", "score": 0 },
+        { "label": "E", "text": "176", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan C benar: suku ke-11 = 127 (pola ×2 + 1 pada suku ganjil) dan suku ke-12 = 36 (kuadrat ke-6 pada suku genap), sehingga jumlahnya 163. Pilihan A adalah jebakan karena memakai suku ke-10 (25) sebagai suku ke-12. Pilihan B adalah jebakan karena menggandakan 63 menjadi 126 tanpa menambah 1. Pilihan D adalah jebakan karena memakai pola 2^n sehingga diperoleh 128. Pilihan E adalah jebakan karena salah indeks kuadrat (7² = 49) untuk suku ke-12."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Numerik - Aritmetika Sosial",
+      "title": "Persentase Laba Penjualan Bawang Merah oleh BUMDes dengan Penyusutan Stok",
+      "questionStem": "Sebuah Badan Usaha Milik Desa (BUMDes) di Nusa Tenggara Timur membeli 250 kg bawang merah dengan harga Rp32.000 per kg. Sebanyak 10% dari pembelian tersebut busuk sehingga tidak dapat dijual. Dari bawang yang masih layak, 100 kg dijual dengan harga Rp40.000 per kg dan sisanya dijual dengan harga Rp36.000 per kg. Persentase laba terhadap total modal pembelian adalah ...",
+      "reasoningChain": "Modal = 250 × 32.000 = Rp8.000.000. Bawang busuk = 10% × 250 = 25 kg, sehingga bawang layak jual = 250 − 25 = 225 kg. Penjualan tahap 1 = 100 × 40.000 = Rp4.000.000. Sisa bawang = 225 − 100 = 125 kg, dijual 125 × 36.000 = Rp4.500.000. Total penerimaan = 4.000.000 + 4.500.000 = Rp8.500.000. Laba = 8.500.000 − 8.000.000 = Rp500.000. Persentase laba terhadap modal = 500.000 / 8.000.000 × 100% = 6,25% = opsi A. Verifikasi jebakan: B = 500.000 / 8.500.000 = 5,88% (pembagi memakai penerimaan, bukan modal); C = 6,88% berasal dari harga rata-rata sederhana Rp38.000 × 225 = 8.550.000 (laba 550.000 / 8.000.000 = 6,875%), yang keliru karena bobot kuantitas berbeda; D = 17,5% berasal dari anggapan seluruh 250 kg terjual, yaitu 100 × 40.000 + 150 × 36.000 = 9.400.000 (laba 1.400.000), yang mengabaikan susut; E = 10% berasal dari laba bagian harga tinggi saja, yaitu (40.000 − 32.000) × 100 = 800.000 (800.000 / 8.000.000), yang mengabaikan sisa penjualan dan susut. Hanya A yang sama dengan hasil perhitungan.",
+      "options": [
+        { "label": "A", "text": "6,25%", "score": 5 },
+        { "label": "B", "text": "5,88%", "score": 0 },
+        { "label": "C", "text": "6,88%", "score": 0 },
+        { "label": "D", "text": "17,50%", "score": 0 },
+        { "label": "E", "text": "10,00%", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan A benar: modal Rp8.000.000, penerimaan Rp8.500.000 dari 225 kg bawang layak jual, laba Rp500.000 atau 6,25% dari modal. Pilihan B adalah jebakan karena laba dibagi penerimaan, bukan modal. Pilihan C adalah jebakan karena memakai harga rata-rata sederhana tanpa memperhitungkan bobot kuantitas yang berbeda. Pilihan D adalah jebakan karena mengabaikan bawang busuk dan menganggap seluruh 250 kg terjual. Pilihan E adalah jebakan karena hanya menghitung laba dari bagian yang dijual dengan harga tinggi."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Verbal - Analogi",
+      "title": "Analogi Pasangan Kata Berpola Hubungan Tindakan dan Peristiwa",
+      "questionStem": "VAKSINASI : CAMPAK = ... Pilihlah pasangan kata yang hubungannya paling serupa dengan pasangan kata tersebut.",
+      "reasoningChain": "Hubungan pada pasangan soal: VAKSINASI adalah tindakan yang dilakukan sebelum penyakit terjadi untuk mencegah (menghindarkan) terjadinya CAMPAK. Jadi pola hubungannya adalah 'tindakan preventif : peristiwa yang dicegah'. Evaluasi opsi: A (Antibiotik : Infeksi bakteri) adalah tindakan kuratif setelah infeksi terjadi. B (Alarm asap : Kebakaran) adalah deteksi atau peringatan dini saat api sudah muncul, tidak mencegah terjadinya kebakaran. C (Ambulans : Korban kecelakaan) adalah penanganan atau evakuasi setelah kecelakaan terjadi. D (Tanggul : Luapan sungai) adalah konstruksi yang dibangun sebelum banjir untuk mencegah air meluap, sehingga cocok dengan pola preventif. E (Rehabilitasi : Ketergantungan narkoba) adalah pemulihan setelah ketergantungan terjadi. Hanya D yang berpola preventif. Jawaban benar: D.",
+      "options": [
+        { "label": "A", "text": "Antibiotik : Infeksi bakteri", "score": 0 },
+        { "label": "B", "text": "Alarm asap : Kebakaran", "score": 0 },
+        { "label": "C", "text": "Ambulans : Korban kecelakaan", "score": 0 },
+        { "label": "D", "text": "Tanggul : Luapan sungai", "score": 5 },
+        { "label": "E", "text": "Rehabilitasi : Ketergantungan narkoba", "score": 0 }
+      ],
+      "rubricRationale": "Pilihan D benar karena tanggul dibangun sebelum banjir untuk mencegah luapan, sama seperti vaksinasi yang dilakukan sebelum sakit untuk mencegah campak. Pilihan A adalah jebakan karena antibiotik bersifat kuratif, yaitu mengobati infeksi yang sudah terjadi. Pilihan B adalah jebakan karena alarm asap hanya mendeteksi dan memberi peringatan saat kebakaran telah terjadi. Pilihan C adalah penanganan setelah peristiwa terjadi. Pilihan E adalah pemulihan setelah kondisi terjadi."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Jejaring Kerja",
+      "title": "Penyelarasan Jadwal Proyek Normalisasi Sungai Antarinstansi",
+      "questionStem": "Anda adalah staf perencanaan pada sebuah Balai Wilayah Sungai. Proyek normalisasi sungai di wilayah kerja Anda terhambat karena jadwal pembersihan lahan oleh Balai, pemindahan jaringan kabel oleh PLN, dan penertiban bangunan oleh Satpol PP pemerintah kota saling berbenturan. Masing-masing pihak merasa jadwalnya harus didahulukan dan belum pernah ada pembahasan bersama. Tindakan paling tepat yang Anda ambil adalah ...",
+      "reasoningChain": "Indikator pilar Jejaring Kerja pada SKD: kemampuan membangun dan memelihara hubungan kerja sama lintas unit atau instansi secara proaktif dan langsung untuk mencapai tujuan bersama, selaras dengan nilai BerAKHLAK 'Kolaboratif' (terbuka dalam bekerja sama, memberi kesempatan berbagai pihak berkontribusi, dan menggerakkan sumber daya untuk tujuan bersama). Opsi bernilai 5 adalah mengajak PLN dan Satpol PP berdiskusi langsung untuk menyusun jadwal terpadu yang disepakati bersama. Nilai 4 untuk melaporkan benturan kepada pimpinan agar dibahas di forum koordinasi antarinstansi (mengarah ke kolaborasi tetapi inisiatif didelegasikan). Nilai 3 untuk menyusun jadwal Balai sendiri lalu mengirimkannya sebagai acuan (informatif tetapi satu arah). Nilai 2 untuk tetap mengerjakan jadwal Balai karena merasa itu tanggung jawab utama (mengabaikan pihak lain). Nilai 1 untuk menunggu pihak lain selesai tanpa mengubah rencana (pasif).",
+      "options": [
+        { "label": "A", "text": "Menyusun jadwal pekerjaan Balai Anda sendiri secara ketat, lalu mengirimkannya kepada PLN dan Satpol PP sebagai acuan.", "score": 3 },
+        { "label": "B", "text": "Melaporkan tumpang tindih jadwal kepada pimpinan Balai agar dibahas pada forum koordinasi antarinstansi tingkat kota.", "score": 4 },
+        { "label": "C", "text": "Mengajak perwakilan PLN dan Satpol PP berdiskusi langsung guna menyusun jadwal kerja terpadu yang disepakati bersama.", "score": 5 },
+        { "label": "D", "text": "Tetap mengerjakan pembersihan lahan sesuai jadwal Balai karena proyek normalisasi sungai merupakan tanggung jawab utama Balai.", "score": 2 },
+        { "label": "E", "text": "Menunggu PLN dan Satpol PP menyelesaikan pekerjaan masing-masing terlebih dahulu tanpa mengubah rencana kerja yang ada.", "score": 1 }
+      ],
+      "rubricRationale": "Pilihan C (skor 5) menunjukkan inisiatif membangun kerja sama lintas instansi secara langsung untuk menghasilkan jadwal yang disepakati bersama. Pilihan B (skor 4) mengarah pada koordinasi antarinstansi, tetapi inisiatif diserahkan kepada pimpinan. Pilihan A (skor 3) membagikan informasi, tetapi komunikasinya satu arah dan tidak menyepakati jadwal bersama. Pilihan D (skor 2) mengabaikan kebutuhan pihak lain dan tidak menyelesaikan benturan jadwal. Pilihan E (skor 1) pasif dan membiarkan hambatan proyek berlarut-larut."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "TIK",
+      "title": "Penggunaan Akun Individual pada Aplikasi Input Nilai Menjelang Tenggat",
+      "questionStem": "Anda adalah guru di sebuah SMA Negeri. Dinas Pendidikan provinsi mewajibkan seluruh sekolah menginput nilai siswa melalui aplikasi baru yang menggunakan akun individual untuk setiap guru, dengan batas akhir malam ini pukul 23.59. Seorang rekan guru senior belum mahir menggunakan aplikasi tersebut dan meminta Anda membantu menyelesaikan penginputan nilai kelasnya. Tindakan paling tepat yang Anda ambil adalah ...",
+      "reasoningChain": "Indikator pilar TIK pada SKD: kemampuan memanfaatkan teknologi informasi secara efektif, aman, dan bertanggung jawab (termasuk menjaga kerahasiaan kredensial akun dan integritas data), serta adaptif dan mendukung rekan beradaptasi dengan sistem baru. Prinsip keamanan informasi ini selaras dengan Perpres Nomor 95 Tahun 2018 tentang Sistem Pemerintahan Berbasis Elektronik (SPBE). Opsi bernilai 5 adalah mendampingi rekan menginput nilai melalui akunnya sendiri sambil memperagakan fitur utama (aman, menjaga akuntabilitas akun, dan menularkan kompetensi). Nilai 4 untuk meminta operator sekolah mengajukan perpanjangan waktu dan menjadwalkan pelatihan (aman dan prosedural, tetapi tidak membantu langsung). Nilai 3 untuk menyarankan menunggu pelatihan dan mencatat manual (aman, tetapi tidak adaptif dan berpotensi melewati tenggat). Nilai 2 untuk menginput nilai kelas rekan melalui akun sendiri lalu melapor (transparan, tetapi melanggar prinsip akun individual dan memuat data atas nama yang keliru). Nilai 1 untuk meminta kata sandi rekan (berbagi kredensial, pelanggaran keamanan terberat).",
+      "options": [
+        { "label": "A", "text": "Menyarankan rekan menunggu pelatihan resmi dari dinas dan sementara waktu mencatat nilai kelasnya pada berkas manual.", "score": 3 },
+        { "label": "B", "text": "Mendampingi rekan menginput nilai melalui akunnya sendiri sambil memperagakan langkah penggunaan fitur utama aplikasi secara bertahap.", "score": 5 },
+        { "label": "C", "text": "Meminta rekan menyerahkan kata sandi akunnya agar Anda dapat menginput seluruh nilai kelas tersebut dengan cepat.", "score": 1 },
+        { "label": "D", "text": "Menginput nilai kelas rekan tersebut melalui akun Anda sendiri agar tenggat terpenuhi, lalu melaporkannya kepada kepala sekolah.", "score": 2 },
+        { "label": "E", "text": "Meminta operator sekolah mengajukan perpanjangan waktu kepada dinas dan menjadwalkan pelatihan singkat bagi rekan tersebut.", "score": 4 }
+      ],
+      "rubricRationale": "Pilihan B (skor 5) menjaga keamanan akun individual, menyelesaikan penginputan tepat waktu, dan meningkatkan kemampuan rekan memakai aplikasi. Pilihan E (skor 4) aman dan prosedural, tetapi tidak membantu rekan secara langsung dan bergantung pada persetujuan perpanjangan waktu. Pilihan A (skor 3) aman, tetapi tidak adaptif dan berisiko melewati tenggat. Pilihan D (skor 2) transparan, tetapi melanggar prinsip akun individual karena data kelas rekan diinput melalui akun Anda. Pilihan C (skor 1) berbagi kata sandi sehingga membahayakan keamanan akun dan data."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Sosial Budaya",
+      "title": "Pemeriksaan Barang Adat Rombongan Warga di Pos Lintas Batas",
+      "questionStem": "Anda adalah petugas pada sebuah pos lintas batas negara di Kalimantan. Menjelang upacara adat tahunan, rombongan warga adat dari desa seberang perbatasan tiba dengan membawa sesaji dan alat musik tradisional. Menurut ketentuan kepabeanan, sesaji berupa hasil bumi harus diperiksa, tetapi rombongan menganggap pemeriksaan itu sebagai penghinaan terhadap tradisi sehingga sebagian dari mereka mulai berdebat dengan petugas lain. Tindakan paling tepat yang Anda ambil adalah ...",
+      "reasoningChain": "Indikator pilar Sosial Budaya pada SKD: kemampuan menghargai keberagaman budaya dan membangun harmoni sosial sambil tetap menjalankan tugas sesuai aturan, selaras dengan nilai BerAKHLAK 'Harmonis' (saling peduli dan menghargai perbedaan) dan semangat Pasal 32 ayat (1) UUD NRI 1945 yang menjamin kebebasan masyarakat memelihara dan mengembangkan nilai budayanya. Opsi bernilai 5 menjelaskan alasan pemeriksaan dengan santun dan melibatkan tokoh adat untuk mendampingi pemeriksaan sesaji, sehingga aturan tetap dijalankan dengan cara yang menghormati tradisi. Nilai 4 untuk menjelaskan ketentuan secara tegas dan sopan lalu tetap memeriksa (taat aturan dan sopan, tetapi kurang peka budaya). Nilai 3 untuk membebaskan sesaji dari pemeriksaan sebagai bentuk penghormatan (peka budaya, tetapi menyimpang dari ketentuan). Nilai 2 untuk melimpahkan penanganan kepada rekan lain (menghindar dari tanggung jawab). Nilai 1 untuk menahan rombongan tanpa kelonggaran apa pun (kaku dan mengabaikan kepekaan budaya).",
+      "options": [
+        { "label": "A", "text": "Mengizinkan sesaji dan alat musik adat melintas tanpa diperiksa sebagai bentuk penghormatan, sedangkan barang bawaan lain tetap diperiksa.", "score": 3 },
+        { "label": "B", "text": "Menahan seluruh rombongan di pos sampai pemeriksaan selesai tanpa kelonggaran apa pun karena ketentuan kepabeanan berlaku bagi semua orang.", "score": 1 },
+        { "label": "C", "text": "Menjelaskan ketentuan kepabeanan secara tegas dan sopan kepada rombongan, lalu tetap memeriksa sesaji sesuai prosedur standar pos.", "score": 4 },
+        { "label": "D", "text": "Menyerahkan penanganan rombongan kepada rekan lain yang lebih memahami adat setempat agar Anda dapat melanjutkan tugas pemeriksaan lainnya.", "score": 2 },
+        { "label": "E", "text": "Menjelaskan alasan pemeriksaan dengan santun dan meminta tokoh adat mendampingi pemeriksaan sesaji agar berlangsung dengan cara yang dihormati.", "score": 5 }
+      ],
+      "rubricRationale": "Pilihan E (skor 5) memadukan kepatuhan pada aturan dengan penghormatan budaya melalui pelibatan tokoh adat, sehingga ketegangan mereda tanpa melanggar ketentuan. Pilihan C (skor 4) sopan dan sesuai prosedur, tetapi tidak menunjukkan upaya menjaga martabat tradisi. Pilihan A (skor 3) menghormati budaya, tetapi menyimpang dari ketentuan kepabeanan. Pilihan D (skor 2) menghindari tanggung jawab dan tidak menyelesaikan masalah. Pilihan B (skor 1) kaku, mengabaikan kepekaan budaya, dan berpotensi memperburuk ketegangan."
+    }
+  ]
 }
+
