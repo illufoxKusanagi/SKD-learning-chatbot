@@ -106,7 +106,12 @@ async function registerHandler(
   return response;
 }
 
-const registerRateLimit = createRateLimitMiddleware(3, 600000); // 3 requests per 10 minutes for registration
+const registerRateLimit = createRateLimitMiddleware({
+  prefix: 'auth-register',
+  windowMs: 600_000,
+  max: 3,
+  guestMax: 3,
+});
 const validateRegister = createValidationMiddleware(registerSchema);
 
 export function POST(request: NextRequest) {

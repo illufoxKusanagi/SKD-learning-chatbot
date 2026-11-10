@@ -80,7 +80,12 @@ async function loginHandler(
   return response;
 }
 
-const loginRateLimit = createRateLimitMiddleware(5, 300000);
+const loginRateLimit = createRateLimitMiddleware({
+  prefix: 'auth-login',
+  windowMs: 300_000,
+  max: 5,
+  guestMax: 5,
+});
 const validateLogin = createValidationMiddleware(loginSchema);
 
 export const POST = (request: NextRequest) => {

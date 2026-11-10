@@ -1,4 +1,4 @@
-import { db, ensureDatabaseSchema } from '@/lib/db';
+import { db } from '@/lib/db';
 import { conversations, quizAttempts } from '@/lib/db/schema';
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
@@ -55,8 +55,6 @@ function getZeroStats() {
 }
 
 async function handleGetQuizzes(request: NextRequest) {
-  await ensureDatabaseSchema();
-
   const url = new URL(request.url);
   const chatId = url.searchParams.get('chatId');
   const chatIdsParam = url.searchParams.get('chatIds');
@@ -358,7 +356,12 @@ async function handleGetQuizzes(request: NextRequest) {
   });
 }
 
-const quizRateLimit = createRateLimitMiddleware(60, 60000);
+const quizRateLimit = createRateLimitMiddleware({
+  prefix: 'quiz',
+  windowMs: 60_000,
+  max: 60,
+  guestMax: 60,
+});
 
 export const GET = (request: NextRequest) =>
   withMiddleware(quizRateLimit)(request, handleGetQuizzes);

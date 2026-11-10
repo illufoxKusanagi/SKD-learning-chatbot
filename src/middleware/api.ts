@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyToken } from '@/lib/auth/jwt';
 import { z } from 'zod';
+import { getToken } from 'next-auth/jwt';
+import { db } from '@/lib/db';
+import { sql } from 'drizzle-orm';
 
 export interface AuthenticatedRequest extends NextRequest {
   user?: {
@@ -17,7 +20,8 @@ export class ApiError extends Error {
   constructor(
     public message: string,
     public statusCode: number = 500,
-    public code?: string
+    public code?: string,
+    public retryAfterSeconds?: number
   ) {
     super(message);
     this.name = 'ApiError';
@@ -123,12 +127,91 @@ export function createValidationMiddleware<T>(
   };
 }
 
-export function createRateLimitMiddleware(
-  maxRequests: number = 60,
-  windowMs: number = 60000
-) {
-  const requests = new Map<string, { count: number; resetTime: number }>();
+export interface RateLimitOptions {
+  prefix: string; // unique per route, e.g. "chat", "quiz"
+  windowMs: number;
+  max: number; // limit for authenticated users
+  guestMax?: number; // limit for guests / unauthenticated (defaults to max)
+  daily?: { max: number; guestMax?: number }; // optional fixed 24h cap
+}
 
+async function checkRateLimitBucket(
+  key: string,
+  limit: number,
+  windowMs: number,
+  sliding: boolean,
+  now: number
+): Promise<{ blocked: boolean; retryAfterSeconds: number }> {
+  const curStart = Math.floor(now / windowMs) * windowMs;
+  const prevStart = curStart - windowMs;
+  const elapsed = now - curStart;
+
+  let cur = 0;
+  let prev = 0;
+
+  try {
+    const result = await db.execute<{ cur: string | number; prev: string | number }>(sql`
+      WITH cur AS (
+        INSERT INTO rate_limits (key, window_start, count) VALUES (${key}, ${curStart}, 1)
+        ON CONFLICT (key, window_start) DO UPDATE SET count = rate_limits.count + 1
+        RETURNING count
+      )
+      SELECT (SELECT count FROM cur) AS cur,
+             COALESCE((SELECT count FROM rate_limits WHERE key = ${key} AND window_start = ${prevStart}), 0) AS prev
+    `);
+
+    const row = result[0];
+    cur = Number(row?.cur) || 0;
+    prev = Number(row?.prev) || 0;
+  } catch (error) {
+    console.error('[RateLimit] Database error while checking rate limit:', error);
+    // Fail open: allow request if DB fails
+    return { blocked: false, retryAfterSeconds: 0 };
+  }
+
+  const estimated = sliding ? prev * (1 - elapsed / windowMs) + cur : cur;
+  if (estimated > limit) {
+    const retryAfterSeconds = Math.max(1, Math.ceil((windowMs - elapsed) / 1000));
+    return { blocked: true, retryAfterSeconds };
+  }
+
+  return { blocked: false, retryAfterSeconds: 0 };
+}
+
+async function cleanupRateLimits(
+  prefix: string,
+  windowMs: number,
+  hasDaily: boolean,
+  now: number
+): Promise<void> {
+  try {
+    const windowCutoff = now - 2 * windowMs;
+    if (hasDaily) {
+      const dailyCutoff = now - 2 * 86_400_000;
+      await db.execute(sql`
+        DELETE FROM rate_limits
+        WHERE key LIKE ${prefix + ':%'}
+          AND key NOT LIKE ${'%:daily'}
+          AND window_start < ${windowCutoff}
+      `);
+      await db.execute(sql`
+        DELETE FROM rate_limits
+        WHERE key LIKE ${prefix + ':%:daily'}
+          AND window_start < ${dailyCutoff}
+      `);
+    } else {
+      await db.execute(sql`
+        DELETE FROM rate_limits
+        WHERE key LIKE ${prefix + ':%'}
+          AND window_start < ${windowCutoff}
+      `);
+    }
+  } catch (error) {
+    console.error('[RateLimit] Database error during cleanup:', error);
+  }
+}
+
+export function createRateLimitMiddleware(options: RateLimitOptions) {
   return async (req: NextRequest): Promise<NextRequest> => {
     // Extract client IP securely under single-proxy assumption:
     // Prefer x-real-ip set by trusted reverse proxy (Vercel/Nginx ingress).
@@ -147,26 +230,70 @@ export function createRateLimitMiddleware(
       (forwardedIps.length > 0
         ? forwardedIps[forwardedIps.length - 1]
         : 'unknown');
+
+    let userId: string | null = null;
+    try {
+      const token = await getToken({
+        req,
+        secret: process.env.NEXTAUTH_SECRET,
+      });
+      if (token?.id && typeof token.id === 'string') {
+        userId = token.id;
+      } else if (token?.sub && typeof token.sub === 'string') {
+        userId = token.sub;
+      }
+    } catch {
+      userId = null;
+    }
+
+    const isAuthenticated = Boolean(userId);
+    const key = isAuthenticated
+      ? `${options.prefix}:user:${userId}`
+      : `${options.prefix}:ip:${ip}`;
+    const limit = isAuthenticated
+      ? options.max
+      : (options.guestMax ?? options.max);
+
     const now = Date.now();
-    const resetTime = now + windowMs;
 
-    const current = requests.get(ip);
-
-    if (!current) {
-      requests.set(ip, { count: 1, resetTime });
-      return req;
+    if (Math.random() < 0.01) {
+      await cleanupRateLimits(
+        options.prefix,
+        options.windowMs,
+        Boolean(options.daily),
+        now
+      );
     }
 
-    if (now > current.resetTime) {
-      requests.set(ip, { count: 1, resetTime });
-      return req;
+    const checks: Promise<{ blocked: boolean; retryAfterSeconds: number }>[] = [
+      checkRateLimitBucket(key, limit, options.windowMs, true, now),
+    ];
+
+    if (options.daily) {
+      const dailyLimit = isAuthenticated
+        ? options.daily.max
+        : (options.daily.guestMax ?? options.daily.max);
+      const dailyKey = `${key}:daily`;
+      checks.push(
+        checkRateLimitBucket(dailyKey, dailyLimit, 86_400_000, false, now)
+      );
     }
 
-    if (current.count >= maxRequests) {
-      throw new ApiError('Rate limit exceeded', 429, 'RATE_LIMIT');
+    const [windowResult, dailyResult] = await Promise.all(checks);
+
+    if (windowResult?.blocked || dailyResult?.blocked) {
+      const retryAfterSeconds = Math.max(
+        windowResult?.blocked ? windowResult.retryAfterSeconds : 0,
+        dailyResult?.blocked ? dailyResult.retryAfterSeconds : 0
+      );
+      throw new ApiError(
+        'Rate limit exceeded',
+        429,
+        'RATE_LIMIT',
+        retryAfterSeconds
+      );
     }
 
-    current.count++;
     return req;
   };
 }
@@ -175,7 +302,7 @@ export function handleApiError(error: unknown): NextResponse {
   console.error('API Error:', error);
 
   if (error instanceof ApiError) {
-    return NextResponse.json(
+    const response = NextResponse.json(
       {
         success: false,
         error: error.message,
@@ -183,6 +310,10 @@ export function handleApiError(error: unknown): NextResponse {
       },
       { status: error.statusCode }
     );
+    if (error.retryAfterSeconds !== undefined) {
+      response.headers.set('Retry-After', String(error.retryAfterSeconds));
+    }
+    return response;
   }
 
   if (error instanceof z.ZodError) {
@@ -230,20 +361,38 @@ export function withMiddleware(
 
 export const commonMiddleware = {
   // For public endpoints with just rate limiting
-  public: (rateLimit?: { maxRequests?: number; windowMs?: number }) => [
-    createRateLimitMiddleware(rateLimit?.maxRequests, rateLimit?.windowMs),
+  public: (rateLimit?: Partial<RateLimitOptions>) => [
+    createRateLimitMiddleware({
+      prefix: rateLimit?.prefix ?? 'public',
+      windowMs: rateLimit?.windowMs ?? 60_000,
+      max: rateLimit?.max ?? 60,
+      guestMax: rateLimit?.guestMax,
+      daily: rateLimit?.daily,
+    }),
   ],
 
   // For authenticated endpoints
-  authenticated: (rateLimit?: { maxRequests?: number; windowMs?: number }) => [
-    createRateLimitMiddleware(rateLimit?.maxRequests, rateLimit?.windowMs),
+  authenticated: (rateLimit?: Partial<RateLimitOptions>) => [
+    createRateLimitMiddleware({
+      prefix: rateLimit?.prefix ?? 'auth',
+      windowMs: rateLimit?.windowMs ?? 60_000,
+      max: rateLimit?.max ?? 60,
+      guestMax: rateLimit?.guestMax,
+      daily: rateLimit?.daily,
+    }),
     createAuthMiddleware(),
   ],
 
   // For admin-only endpoints
   // TODO : Apply this for admins
-  admin: (rateLimit?: { maxRequests?: number; windowMs?: number }) => [
-    createRateLimitMiddleware(rateLimit?.maxRequests, rateLimit?.windowMs),
+  admin: (rateLimit?: Partial<RateLimitOptions>) => [
+    createRateLimitMiddleware({
+      prefix: rateLimit?.prefix ?? 'admin',
+      windowMs: rateLimit?.windowMs ?? 60_000,
+      max: rateLimit?.max ?? 60,
+      guestMax: rateLimit?.guestMax,
+      daily: rateLimit?.daily,
+    }),
     createAuthMiddleware(),
   ],
 
@@ -251,9 +400,15 @@ export const commonMiddleware = {
   validated: <T>(
     schema: z.ZodSchema<T>,
     auth = false,
-    rateLimit?: { maxRequests?: number; windowMs?: number }
+    rateLimit?: Partial<RateLimitOptions>
   ) => [
-    createRateLimitMiddleware(rateLimit?.maxRequests, rateLimit?.windowMs),
+    createRateLimitMiddleware({
+      prefix: rateLimit?.prefix ?? 'validated',
+      windowMs: rateLimit?.windowMs ?? 60_000,
+      max: rateLimit?.max ?? 60,
+      guestMax: rateLimit?.guestMax,
+      daily: rateLimit?.daily,
+    }),
     ...(auth ? [createAuthMiddleware()] : []),
     createValidationMiddleware(schema),
   ],

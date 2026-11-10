@@ -1,6 +1,6 @@
 <div align="center">
 
-# Chatbot Pembelajaran SKD CPNS & Sekolah Kedinasan
+# Chatbot Pembelajaran SKD CPNS & Sekolah Kedinasan (MySeKeDar)
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -224,6 +224,8 @@ npx drizzle-kit push
 ```
 
 ### 6. Seed Database (Opsional)
+
+Jalankan `npm run db:ensure-schema` sekali per environment (membuat tabel `quiz_attempts` dan `rate_limits`, mengaktifkan pgvector) sebelum `npm run db:import-quiz`. Chat dibatasi laju request-nya (rate limited) per pengguna (tamu per IP) menggunakan Postgres.
 
 Isi database dengan data RAG awal:
 
@@ -573,6 +575,10 @@ Untuk database, gunakan:
 - [Vercel Postgres](https://vercel.com/docs/storage/vercel-postgres)
 - [Neon](https://neon.tech/) (direkomendasikan untuk pgvector)
 - [Supabase](https://supabase.com/)
+
+#### Setup & Seeding Database
+
+Jalankan `npm run db:ensure-schema` sekali per environment (membuat tabel `quiz_attempts` dan `rate_limits`, mengaktifkan pgvector) sebelum `npm run db:import-quiz`. Chat dibatasi laju request-nya (rate limited) per pengguna (tamu per IP) menggunakan Postgres.
 
 ### Deploy dengan Docker
 

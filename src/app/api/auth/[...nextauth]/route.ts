@@ -4,7 +4,12 @@ import { NextRequest } from "next/server";
 import { createRateLimitMiddleware, withMiddleware } from "@/middleware/api";
 
 const handler = NextAuth(authOptions);
-const credentialsRateLimit = createRateLimitMiddleware(5, 300000);
+const credentialsRateLimit = createRateLimitMiddleware({
+  prefix: "auth-credentials",
+  windowMs: 300_000,
+  max: 5,
+  guestMax: 5,
+});
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const POST = (req: NextRequest, ctx: any) =>

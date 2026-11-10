@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "db:ensure-schema": "tsx scripts/ensure-schema.ts",
     "db:seed": "tsx scripts/seed.ts",
     "db:import-quiz": "tsx scripts/import-quiz-bank.ts",
     "db:studio": "drizzle-kit studio",

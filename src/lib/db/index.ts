@@ -65,7 +65,17 @@ export async function ensureDatabaseSchema() {
       END $$;
     `;
 
-    // 3. Ensure HNSW cosine index on rag_data.embedding exists
+    // 3. Ensure rate_limits table exists
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS rate_limits (
+        key TEXT NOT NULL,
+        window_start BIGINT NOT NULL,
+        count INTEGER NOT NULL DEFAULT 0,
+        PRIMARY KEY (key, window_start)
+      )
+    `);
+
+    // 4. Ensure HNSW cosine index on rag_data.embedding exists
     try {
       await db.execute(sql`
         DELETE FROM rag_data a USING rag_data b
@@ -86,7 +96,7 @@ export async function ensureDatabaseSchema() {
     }
 
     schemaInitialized = true;
-    console.log("[DB] Database schema, quiz_attempts table, and pgvector extension ensured");
+    console.log("[DB] Database schema, quiz_attempts table, rate_limits table, and pgvector extension ensured");
   } catch (error) {
     console.error("[DB] Failed to ensure database schema:", error);
   }
