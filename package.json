@@ -10,6 +10,8 @@
     "db:ensure-schema": "tsx scripts/ensure-schema.ts",
     "db:seed": "tsx scripts/seed.ts",
     "db:import-quiz": "tsx scripts/import-quiz-bank.ts",
+    "db:normalize-quiz": "tsx scripts/normalize-quiz-bank.ts",
+    "db:seed:all": "npm run db:ensure-schema && npm run db:seed && npm run db:import-quiz",
     "db:studio": "drizzle-kit studio",
     "db:migrate": "drizzle-kit migrate",
     "db:generate": "drizzle-kit generate"

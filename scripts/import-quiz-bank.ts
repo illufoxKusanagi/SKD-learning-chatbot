@@ -1,105 +1,12 @@
 import * as fs from "fs";
 import * as path from "path";
-import { z } from "zod";
 import { embedAndUpsertRagEntry, requireSeedEnv } from "./seed-utils";
-
-const SUBTOPICS: Record<"TWK" | "TIU" | "TKP", readonly string[]> = {
-  TWK: [
-    "Nasionalisme",
-    "Integritas",
-    "Bela Negara",
-    "Pilar Negara - Pancasila",
-    "Pilar Negara - UUD NRI 1945",
-    "Pilar Negara - NKRI",
-    "Pilar Negara - Bhinneka Tunggal Ika",
-    "Bahasa Indonesia",
-  ],
-  TIU: [
-    "Verbal - Analogi",
-    "Verbal - Silogisme",
-    "Verbal - Analitis",
-    "Numerik - Deret",
-    "Numerik - Perbandingan Kuantitatif",
-    "Numerik - Aritmetika Sosial",
-    "Numerik - Soal Cerita",
-    "Figural - Spasial Verbal",
-  ],
-  TKP: [
-    "Pelayanan Publik",
-    "Jejaring Kerja",
-    "Sosial Budaya",
-    "TIK",
-    "Anti-Radikalisme",
-    "Profesionalisme",
-  ],
-};
-
-const LABELS = ["A", "B", "C", "D", "E"] as const;
-
-const questionSchema = z
-  .object({
-    category: z.enum(["TWK", "TIU", "TKP"]),
-    subtopic: z.string().trim().min(1),
-    title: z.string().trim().min(1).max(120),
-    questionStem: z
-      .string()
-      .trim()
-      .min(1)
-      .refine((s) => !/^\s*[A-E][.)]\s+/m.test(s), "Options leaked into stem"),
-    reasoningChain: z.string().trim().min(1),
-    options: z
-      .array(
-        z.object({
-          label: z.enum(LABELS),
-          text: z.string().trim().min(1),
-          score: z.number().int().min(0).max(5),
-        })
-      )
-      .length(5),
-    rubricRationale: z.string().trim().min(1),
-  })
-  .superRefine((q, ctx) => {
-    if (!SUBTOPICS[q.category].includes(q.subtopic)) {
-      ctx.addIssue({
-        code: "custom",
-        path: ["subtopic"],
-        message: `Invalid ${q.category} subtopic "${q.subtopic}"`,
-      });
-    }
-    if (q.options.some((o, idx) => o.label !== LABELS[idx])) {
-      ctx.addIssue({
-        code: "custom",
-        path: ["options"],
-        message: "Options must be ordered A..E",
-      });
-    }
-    const sorted = q.options
-      .map((o) => o.score)
-      .sort((a, b) => a - b)
-      .join(",");
-    const expected = q.category === "TKP" ? "1,2,3,4,5" : "0,0,0,0,5";
-    if (sorted !== expected) {
-      ctx.addIssue({
-        code: "custom",
-        path: ["options"],
-        message: `Expected score distribution ${expected}, got ${sorted}`,
-      });
-    }
-  });
-
-const batchSchema = z
-  .object({
-    batchMetadata: z.object({
-      batchId: z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/),
-      category: z.enum(["TWK", "TIU", "TKP", "MIXED"]),
-      totalQuestions: z.number().int().positive(),
-      difficulty: z.literal("HOTS"),
-    }),
-    questions: z.array(z.unknown()),
-  })
-  .refine((b) => b.batchMetadata.totalQuestions === b.questions.length, {
-    message: "batchMetadata.totalQuestions does not match questions.length",
-  });
+import {
+  LABELS,
+  batchSchema,
+  normalizeStem,
+  questionSchema,
+} from "./quiz-bank-schema";
 
 function resolveJsonFiles(args: string[]): string[] {
   const targets = args.length > 0 ? args : ["data/quiz-bank"];
@@ -119,51 +26,117 @@ function resolveJsonFiles(args: string[]): string[] {
 }
 
 async function main() {
-  requireSeedEnv();
   const rawArgs = process.argv.slice(2);
+  const dryRun = rawArgs.includes("--dry-run");
   const force = rawArgs.includes("--force");
-  const pathArgs = rawArgs.filter((a) => a !== "--force");
+  const pathArgs = rawArgs.filter((a) => a !== "--force" && a !== "--dry-run");
 
-  const { ensureDatabaseSchema, closeConnection } = await import("../src/lib/db");
-  await ensureDatabaseSchema();
+  if (!dryRun) {
+    requireSeedEnv();
+  }
+
+  let closeConnection: (() => Promise<void>) | null = null;
+  if (!dryRun) {
+    const { ensureDatabaseSchema, closeConnection: close } = await import("../src/lib/db");
+    await ensureDatabaseSchema();
+    closeConnection = close;
+  }
 
   const files = resolveJsonFiles(pathArgs);
   if (files.length === 0) {
-    console.log("[Import] No JSON files found.");
-    await closeConnection();
+    console.log(dryRun ? "[Dry-run] No JSON files found." : "[Import] No JSON files found.");
+    if (closeConnection) {
+      await closeConnection();
+    }
     return;
   }
 
   let hasErrors = false;
+  let hasDuplicates = false;
+  let totalValid = 0;
+  let totalRejected = 0;
+  const seenExternalIds = new Map<string, string>();
+  const stemMap = new Map<string, string>();
 
   for (const file of files) {
-    const raw = JSON.parse(fs.readFileSync(file, "utf-8"));
+    const fileName = path.basename(file);
+    let raw: unknown;
+    try {
+      raw = JSON.parse(fs.readFileSync(file, "utf-8"));
+    } catch (err) {
+      console.error(`[Reject File] ${fileName}: Invalid JSON (${err instanceof Error ? err.message : err})`);
+      hasErrors = true;
+      if (dryRun) {
+        totalRejected += 1;
+        console.log(`[Dry-run] ${fileName}: 0 valid, 1 rejected`);
+      }
+      continue;
+    }
+
     const batchRes = batchSchema.safeParse(raw);
     if (!batchRes.success) {
-      console.error(`[Reject File] ${path.basename(file)}:`, batchRes.error.issues);
+      console.error(`[Reject File] ${fileName}:`, batchRes.error.issues);
       hasErrors = true;
+      if (dryRun) {
+        const rejectedCount =
+          raw && typeof raw === "object" && "questions" in raw && Array.isArray((raw as { questions: unknown[] }).questions)
+            ? (raw as { questions: unknown[] }).questions.length
+            : 1;
+        totalRejected += rejectedCount;
+        console.log(`[Dry-run] ${fileName}: 0 valid, ${rejectedCount} rejected`);
+      }
       continue;
     }
 
     const { batchMetadata, questions } = batchRes.data;
+    let fileValid = 0;
+    let fileRejected = 0;
     let upserted = 0;
     let skipped = 0;
 
     for (let i = 0; i < questions.length; i++) {
+      const position = i + 1;
       const parsed = questionSchema.safeParse(questions[i]);
       if (!parsed.success) {
-        console.error(`[Reject #${i + 1}] ${path.basename(file)}:`, parsed.error.issues);
+        console.error(`[Reject #${position}] ${fileName}:`, parsed.error.issues);
         hasErrors = true;
+        fileRejected++;
         continue;
       }
       const q = parsed.data;
       if (batchMetadata.category !== "MIXED" && q.category !== batchMetadata.category) {
-        console.error(`[Reject #${i + 1}] Category ${q.category} !== ${batchMetadata.category}`);
+        console.error(`[Reject #${position}] Category ${q.category} !== ${batchMetadata.category}`);
         hasErrors = true;
+        fileRejected++;
         continue;
       }
 
-      const externalId = `skd-${q.category.toLowerCase()}-bank-${batchMetadata.batchId}-${String(i + 1).padStart(2, "0")}`;
+      const externalId = `skd-${q.category.toLowerCase()}-bank-${batchMetadata.batchId}-${String(position).padStart(2, "0")}`;
+
+      const existingFile = seenExternalIds.get(externalId);
+      if (existingFile) {
+        console.error(`[Reject] duplicate externalId ${externalId} in ${existingFile} and ${fileName}`);
+        hasErrors = true;
+        fileRejected++;
+        continue;
+      }
+      seenExternalIds.set(externalId, fileName);
+
+      fileValid++;
+
+      const normalizedStem = normalizeStem(q.questionStem);
+      const existingStemLoc = stemMap.get(normalizedStem);
+      if (existingStemLoc) {
+        console.warn(`[Warn] duplicate questionStem: ${fileName}#${position} matches ${existingStemLoc}`);
+        hasDuplicates = true;
+      } else {
+        stemMap.set(normalizedStem, `${fileName}#${position}`);
+      }
+
+      if (dryRun) {
+        continue;
+      }
+
       const content = `Soal Latihan HOTS ${q.category} - ${q.subtopic}:\n${q.questionStem}\n${q.options.map((o) => `${o.label}. ${o.text}`).join("\n")}`;
       const options = Object.fromEntries(q.options.map((o) => [o.label, o.text])) as Record<(typeof LABELS)[number], string>;
       const scoringRubric = Object.fromEntries(q.options.map((o) => [o.label, o.score])) as Record<(typeof LABELS)[number], number>;
@@ -203,12 +176,28 @@ async function main() {
         hasErrors = true;
       }
     }
-    console.log(
-      `[Import] ${path.basename(file)}: ${upserted} upserted, ${skipped} unchanged/skipped.`
-    );
+
+    if (dryRun) {
+      totalValid += fileValid;
+      totalRejected += fileRejected;
+      console.log(`[Dry-run] ${fileName}: ${fileValid} valid, ${fileRejected} rejected`);
+    } else {
+      console.log(
+        `[Import] ${fileName}: ${upserted} upserted, ${skipped} unchanged/skipped.`
+      );
+    }
   }
 
-  await closeConnection();
+  if (dryRun) {
+    console.log(
+      `[Dry-run] Total: ${totalValid} valid, ${totalRejected} rejected across ${files.length} file(s).`
+    );
+    process.exit(hasErrors || hasDuplicates ? 1 : 0);
+  }
+
+  if (closeConnection) {
+    await closeConnection();
+  }
   process.exit(hasErrors ? 1 : 0);
 }
 

@@ -1,0 +1,360 @@
+{
+  "batchMetadata": {
+    "batchId": "2026-11-b04-chatgpt",
+    "category": "MIXED",
+    "totalQuestions": 10,
+    "difficulty": "HOTS"
+  },
+  "questions": [
+    {
+      "category": "TWK",
+      "subtopic": "Pilar Negara - Pancasila",
+      "title": "Penerapan Prinsip Demokrasi dalam Perencanaan Pembangunan Wilayah Pesisir",
+      "questionStem": "Dalam musyawarah perencanaan pembangunan sebuah desa pesisir, mayoritas warga mengusulkan pembangunan dermaga besar yang menguntungkan kelompok nelayan utama. Namun, perwakilan nelayan dari pulau-pulau kecil menyampaikan bahwa rancangan tersebut berpotensi menghambat akses transportasi dan distribusi hasil tangkapan mereka. Ketua musyawarah kemudian memberikan kesempatan yang setara kepada seluruh perwakilan untuk menyampaikan argumentasi, mempertimbangkan berbagai kepentingan, dan menyusun keputusan melalui kesepakatan bersama. Perilaku tersebut paling spesifik mencerminkan pengamalan sila Pancasila yang berbunyi...",
+      "reasoningChain": "Prinsip yang diuji adalah penerapan sila keempat Pancasila, yaitu Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan. Nilai utamanya meliputi penghormatan terhadap hak masyarakat untuk menyampaikan pendapat, pengambilan keputusan melalui musyawarah, pertimbangan kepentingan bersama, dan tanggung jawab terhadap keputusan kolektif. Dalam kasus ini, indikator yang paling spesifik bukan sekadar perlakuan manusiawi terhadap kelompok nelayan kecil, melainkan proses deliberasi yang memberikan ruang representasi dan mempertimbangkan kepentingan berbagai kelompok sebelum mencapai kesepakatan. Opsi D tepat karena secara langsung menggambarkan prinsip permusyawaratan/perwakilan. Opsi A menggambarkan nilai sila pertama mengenai ketuhanan dan toleransi beragama. Opsi B menggambarkan sila kedua mengenai martabat dan kesetaraan manusia. Opsi C menggambarkan sila ketiga mengenai persatuan nasional. Opsi E menggambarkan sila kelima mengenai pemerataan kesejahteraan dan keadilan sosial. Seluruh konsep pada pilihan tersebut benar, tetapi hanya D yang secara langsung sesuai dengan proses pengambilan keputusan dalam skenario.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Sila pertama, yang mengutamakan penghormatan terhadap kebebasan beragama dan berkeyakinan serta membangun toleransi antarumat dalam kehidupan bermasyarakat.",
+          "score": 0
+        },
+        {
+          "label": "B",
+          "text": "Sila kedua, yang menegaskan penghormatan terhadap martabat manusia, kesetaraan hak, dan perlakuan adil tanpa membedakan latar belakang individu.",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "Sila ketiga, yang menekankan persatuan bangsa, solidaritas kebangsaan, serta penempatan kepentingan bersama di atas kepentingan kelompok atau golongan.",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "Sila keempat, yang mengutamakan musyawarah melalui perwakilan, penghargaan terhadap pendapat, dan pengambilan keputusan secara bijaksana untuk kepentingan bersama.",
+          "score": 5
+        },
+        {
+          "label": "E",
+          "text": "Sila kelima, yang menghendaki pemerataan kesempatan, distribusi kesejahteraan, dan kebijakan yang menciptakan keadilan sosial bagi seluruh masyarakat.",
+          "score": 0
+        }
+      ],
+      "rubricRationale": "Pilihan D (skor 5) merupakan jawaban paling tepat karena inti tindakan ketua musyawarah adalah memberikan ruang representasi, menghargai pendapat, dan mencapai keputusan melalui permusyawaratan sebagaimana nilai sila keempat. Pilihan A (skor 0) benar menggambarkan nilai ketuhanan dan toleransi, tetapi tidak menjadi fokus utama skenario. Pilihan B (skor 0) benar menggambarkan penghormatan terhadap martabat dan kesetaraan manusia, tetapi tidak secara khusus menjelaskan mekanisme pengambilan keputusan. Pilihan C (skor 0) benar menggambarkan persatuan dan kepentingan nasional, tetapi bukan indikator utama proses musyawarah. Pilihan E (skor 0) benar menggambarkan keadilan sosial dan pemerataan kesejahteraan, tetapi tidak secara spesifik mengidentifikasi mekanisme deliberasi yang dilakukan."
+    },
+    {
+      "category": "TWK",
+      "subtopic": "Integritas",
+      "title": "Pengelolaan Benturan Kepentingan dalam Evaluasi Pengadaan Peralatan Laboratorium",
+      "questionStem": "Seorang aparatur ditunjuk sebagai anggota tim evaluasi pengadaan peralatan laboratorium pengujian mineral. Ketika memeriksa daftar peserta pengadaan, ia mengetahui bahwa salah satu perusahaan peserta dikelola oleh kerabat dekatnya. Rekan satu tim menyarankan agar hubungan tersebut tidak perlu disampaikan karena perusahaan itu telah memenuhi persyaratan administrasi dan hasil evaluasi teknis belum tentu menguntungkannya. Tindakan aparatur tersebut yang paling mencerminkan nilai dasar integritas adalah...",
+      "reasoningChain": "Indikator utama yang diuji adalah Kompetensi Manajerial Integritas (M.01) dalam Lampiran II PermenPAN-RB Nomor 38 Tahun 2017 tentang Standar Kompetensi Jabatan ASN. Definisi kompetensi ini adalah konsistensi berperilaku selaras dengan nilai, norma, dan/atau etika organisasi, kejujuran dalam hubungan dengan pemangku kepentingan, serta tanggung jawab atas tindakan atau keputusan beserta risikonya. Dalam skenario, tindakan yang paling mencerminkan integritas adalah mengungkapkan hubungan pribadi secara terbuka dan mengajukan pengunduran diri dari proses penilaian untuk menghindari potensi benturan kepentingan. Opsi B merupakan jawaban paling tepat karena mengutamakan kejujuran dan konsistensi etis meskipun terdapat tekanan dari rekan kerja. Opsi A menggambarkan akuntabilitas, yaitu kewajiban mempertanggungjawabkan pelaksanaan tugas dan penggunaan kewenangan. Opsi C menggambarkan kepatuhan hukum, yaitu pelaksanaan tindakan berdasarkan ketentuan peraturan yang berlaku. Opsi D menggambarkan profesionalisme, yaitu pelaksanaan pekerjaan sesuai kompetensi dan standar profesi. Opsi E menggambarkan objektivitas, yaitu penilaian berdasarkan fakta dan kriteria tanpa pengaruh kepentingan pribadi. Seluruh konsep tersebut benar, tetapi integritas merupakan nilai yang paling menyeluruh dan paling langsung tercermin dalam kejujuran mengungkapkan potensi konflik kepentingan.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Akuntabilitas, yaitu kewajiban mempertanggungjawabkan pelaksanaan tugas, keputusan, penggunaan kewenangan, dan hasil pekerjaan secara transparan kepada pihak yang berwenang.",
+          "score": 0
+        },
+        {
+          "label": "B",
+          "text": "Integritas, yaitu konsistensi perilaku dengan nilai, norma, dan etika organisasi, disertai kejujuran serta tanggung jawab atas keputusan dan risiko yang menyertainya.",
+          "score": 5
+        },
+        {
+          "label": "C",
+          "text": "Kepatuhan hukum, yaitu kesediaan melaksanakan kewajiban dan membatasi tindakan berdasarkan peraturan perundang-undangan serta prosedur yang mengikat.",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "Profesionalisme, yaitu pelaksanaan pekerjaan berdasarkan kompetensi, standar kualitas, tanggung jawab jabatan, dan etika profesi yang berlaku.",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "Objektivitas, yaitu kemampuan memberikan penilaian berdasarkan fakta, bukti, dan kriteria yang relevan tanpa dipengaruhi kepentingan pribadi.",
+          "score": 0
+        }
+      ],
+      "rubricRationale": "Pilihan B (skor 5) paling tepat karena aparatur menunjukkan kejujuran, konsistensi etis, dan tanggung jawab dengan mengungkapkan hubungan pribadi serta menghindari potensi benturan kepentingan. Pilihan A (skor 0) merupakan konsep akuntabilitas yang benar, tetapi lebih berfokus pada pertanggungjawaban pelaksanaan kewenangan. Pilihan C (skor 0) benar menggambarkan kepatuhan terhadap ketentuan hukum, tetapi skenario secara khusus menguji konsistensi moral dan kejujuran ketika menghadapi tekanan. Pilihan D (skor 0) benar menggambarkan profesionalisme, tetapi tidak secara spesifik menjelaskan keberanian mengungkapkan konflik kepentingan. Pilihan E (skor 0) benar menggambarkan penilaian tanpa bias, tetapi integritas mencakup kewajiban untuk secara jujur mengakui dan mengelola kondisi yang dapat memengaruhi independensi penilaian."
+    },
+    {
+      "category": "TWK",
+      "subtopic": "Nasionalisme",
+      "title": "Perlindungan Kepentingan Nasional dalam Kerja Sama Riset Internasional",
+      "questionStem": "Sebuah lembaga penelitian nasional mengembangkan bank plasma nutfah kakao yang memiliki nilai strategis bagi ketahanan perkebunan Indonesia. Ketika bekerja sama dengan lembaga penelitian asing, tim peneliti menyepakati pertukaran pengetahuan dan teknologi, tetapi memastikan pengelolaan sumber daya genetik tetap sesuai kewenangan nasional serta hasil pengembangan memberikan manfaat bagi petani dalam negeri. Tim tersebut tetap terbuka terhadap kolaborasi internasional tanpa mengabaikan kepentingan strategis bangsa. Konsep wawasan kebangsaan yang paling tepat menggambarkan tindakan tersebut adalah...",
+      "reasoningChain": "Konsep yang diuji adalah Nasionalisme, yaitu kesadaran dan komitmen kebangsaan yang diwujudkan melalui kecintaan terhadap bangsa, penghormatan terhadap identitas nasional, serta pengutamaan kepentingan, martabat, kedaulatan, dan kesejahteraan bangsa dalam hubungan dengan pihak lain. Nasionalisme tidak mengharuskan penolakan terhadap kerja sama internasional, melainkan menuntut agar kerja sama tersebut tetap memberikan manfaat dan tidak mengorbankan kepentingan nasional. Opsi E paling tepat karena menggambarkan orientasi kebijakan yang mengutamakan kepentingan nasional sekaligus mempertahankan hubungan internasional yang setara. Opsi A menggambarkan patriotisme, yaitu kecintaan terhadap tanah air yang diwujudkan melalui pengabdian dan kesediaan berkorban. Opsi B menggambarkan bela negara, yaitu pelaksanaan hak dan kewajiban warga negara untuk berkontribusi dalam mempertahankan negara melalui berbagai bidang. Opsi C menggambarkan kedaulatan negara, yaitu kewenangan tertinggi negara dalam mengatur urusan dalam wilayah dan sistem pemerintahannya tanpa intervensi yang tidak sah. Opsi D menggambarkan Bhinneka Tunggal Ika, yaitu prinsip persatuan yang tetap mengakui dan menghormati keberagaman. Keempat konsep tersebut benar, tetapi nasionalisme paling spesifik menjelaskan orientasi kepentingan bangsa dalam kerja sama tersebut.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Patriotisme, yaitu kecintaan terhadap tanah air yang diwujudkan melalui pengabdian, kesetiaan, dan kesediaan memberikan kontribusi atau pengorbanan bagi bangsa.",
+          "score": 0
+        },
+        {
+          "label": "B",
+          "text": "Bela Negara, yaitu pelaksanaan hak dan kewajiban setiap warga negara untuk berkontribusi mempertahankan negara melalui kemampuan dan profesi masing-masing.",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "Kedaulatan Negara, yaitu kewenangan tertinggi negara dalam mengatur wilayah, pemerintahan, dan kepentingan nasional tanpa intervensi eksternal yang tidak sah.",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "Bhinneka Tunggal Ika, yaitu prinsip persatuan bangsa yang tetap mengakui, menghormati, dan menjaga keberagaman identitas sosial serta kebudayaan.",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "Nasionalisme, yaitu kesadaran kebangsaan yang mengutamakan kepentingan, identitas, kedaulatan, martabat, dan kesejahteraan bangsa dalam hubungan dengan pihak lain.",
+          "score": 5
+        }
+      ],
+      "rubricRationale": "Pilihan E (skor 5) tepat karena tindakan tim peneliti memperlihatkan pengutamaan kepentingan nasional dalam pengelolaan sumber daya strategis sekaligus mempertahankan kerja sama internasional yang saling menguntungkan. Pilihan A (skor 0) benar menggambarkan patriotisme sebagai kecintaan dan pengabdian terhadap tanah air, tetapi fokus skenario adalah orientasi kepentingan nasional dalam kebijakan kerja sama. Pilihan B (skor 0) benar menggambarkan bela negara melalui kontribusi profesional, tetapi tidak secara khusus menunjukkan orientasi kebijakan nasional dalam hubungan internasional. Pilihan C (skor 0) benar menggambarkan kedaulatan negara, tetapi hanya menjelaskan aspek kewenangan tertinggi negara, bukan keseluruhan orientasi kebangsaan yang mendasari tindakan. Pilihan D (skor 0) benar menggambarkan persatuan dalam keberagaman, tetapi tidak menjadi fokus persoalan pengelolaan sumber daya strategis."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Verbal - Analogi",
+      "title": "Identifikasi Hubungan Fungsional dalam Analogi Profesi dan Objek Kerja",
+      "questionStem": "Seorang kurator bertugas menyeleksi, mengorganisasi, dan memberikan konteks terhadap suatu koleksi agar dapat disajikan secara utuh dan bermakna dalam sebuah pameran. Berdasarkan pola hubungan antara profesi dan objek kerja tersebut, pasangan kata yang memiliki hubungan makna paling setara adalah...",
+      "reasoningChain": "Hubungan antara kurator dan koleksi merupakan hubungan profesi dengan objek utama yang diproses melalui kegiatan seleksi, pengorganisasian, dan penyempurnaan penyajian. Kurator tidak sekadar menggunakan koleksi, tetapi melakukan pengelolaan substantif agar koleksi memiliki susunan dan konteks yang bermakna. Pasangan yang paling setara adalah editor dan naskah karena editor menyeleksi, mengorganisasi, serta menyunting materi naskah agar tersaji secara utuh dan sistematis. Dengan demikian, opsi A benar. Opsi B menggambarkan hubungan pustakawan dengan pemustaka, yaitu penyedia layanan dengan penerima layanan. Opsi C menggambarkan hubungan sutradara dengan aktor, yaitu pengarah dengan pelaksana dalam produksi pertunjukan. Opsi D menggambarkan hubungan kritikus dengan ulasan, yaitu pelaku penilaian dengan hasil tulisan evaluatif. Opsi E menggambarkan hubungan penerbit dengan percetakan, yaitu pihak penerbitan dengan fasilitas produksi. Keempat pasangan tersebut memiliki hubungan profesi yang benar, tetapi jenis hubungan fungsionalnya berbeda dari hubungan kurator dengan koleksi.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Editor : Naskah",
+          "score": 5
+        },
+        {
+          "label": "B",
+          "text": "Pustakawan : Pemustaka",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "Sutradara : Aktor",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "Kritikus : Ulasan",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "Penerbit : Percetakan",
+          "score": 0
+        }
+      ],
+      "rubricRationale": "Pilihan A (skor 5) benar karena editor mengelola dan menyempurnakan naskah sebagaimana kurator mengelola serta mengorganisasi koleksi. Pilihan B (skor 0) salah karena menggambarkan hubungan penyedia layanan dengan penerima layanan. Pilihan C (skor 0) salah karena menggambarkan hubungan pengarah dengan pihak yang diarahkan dalam suatu produksi. Pilihan D (skor 0) salah karena menggambarkan hubungan pelaku evaluasi dengan hasil evaluasinya. Pilihan E (skor 0) salah karena menggambarkan hubungan penerbit dengan fasilitas produksi, bukan hubungan profesi dengan objek yang disunting dan dikurasi."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Numerik - Deret",
+      "title": "Analisis Dua Pola Bilangan yang Berselang-seling",
+      "questionStem": "Dalam suatu pengujian kemampuan numerik, peserta diberikan deret berikut: 3, 8, 9, 13, 27, 18, 81, 23, .... Deret tersebut terbentuk melalui dua pola operasi berbeda yang diterapkan secara berselang-seling pada posisi bilangan ganjil dan genap. Berdasarkan keteraturan tersebut, nilai suku ke-9 adalah...",
+      "reasoningChain": "Deret terdiri atas dua pola bilangan yang saling berselang-seling. Pola pertama berada pada posisi ganjil, yaitu suku ke-1, ke-3, ke-5, ke-7, dan ke-9. Nilainya adalah 3, 9, 27, 81, dan ... . Setiap suku pada pola tersebut diperoleh dengan mengalikan suku sebelumnya dengan 3. Secara aljabar: U(2n-1) = 3 × 3^(n-1). Maka suku ke-9 adalah U9 = 81 × 3 = 243. Pola kedua berada pada posisi genap, yaitu 8, 13, 18, dan 23. Pola ini merupakan deret aritmetika dengan beda tetap +5, sehingga tidak digunakan untuk menentukan suku ke-9. Opsi C tepat karena menghasilkan 243. Opsi A (162) salah karena tidak mengikuti perkalian tiga pada pola posisi ganjil. Opsi B (216) salah karena menggunakan rasio yang tidak konsisten dengan pola. Opsi D (324) salah karena menggandakan hasil yang seharusnya. Opsi E (486) salah karena menerapkan perkalian enam, bukan perkalian tiga.",
+      "options": [
+        {
+          "label": "A",
+          "text": "162",
+          "score": 0
+        },
+        {
+          "label": "B",
+          "text": "216",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "243",
+          "score": 5
+        },
+        {
+          "label": "D",
+          "text": "324",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "486",
+          "score": 0
+        }
+      ],
+      "rubricRationale": "Pilihan C (skor 5) benar karena suku pada posisi ganjil membentuk pola perkalian tiga: 3, 9, 27, 81, dan 243. Suku pada posisi genap mengikuti pola berbeda dengan penambahan lima. Pilihan A (skor 0) tidak konsisten dengan rasio perkalian pola pertama. Pilihan B (skor 0) menggunakan nilai yang tidak dihasilkan oleh kelanjutan pola. Pilihan D (skor 0) merupakan hasil penggandaan yang tidak sesuai dengan rasio deret. Pilihan E (skor 0) menggunakan faktor pengali yang terlalu besar dan tidak mengikuti pola perkalian tiga."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Numerik - Aritmetika Sosial",
+      "title": "Perhitungan Keuntungan Bersih pada Penjualan Produk Koperasi",
+      "questionStem": "Sebuah koperasi pengrajin membeli 120 unit produk dengan harga modal Rp80.000,00 per unit. Sebanyak 75% dari seluruh produk dijual dengan harga 25% di atas modal per unit, tetapi pembeli memperoleh potongan harga sebesar 10% dari harga jual tersebut. Sisa produk dijual dengan harga 10% di bawah modal per unit. Jika seluruh produk berhasil terjual, persentase keuntungan bersih koperasi terhadap keseluruhan modal adalah...",
+      "reasoningChain": "Total modal = 120 × Rp80.000 = Rp9.600.000. Jumlah produk yang dijual dengan harga lebih tinggi adalah 75% × 120 = 90 unit. Harga jual awal per unit = Rp80.000 × 1,25 = Rp100.000. Setelah diskon 10%, harga jual aktual = Rp100.000 × 0,90 = Rp90.000. Pendapatan dari 90 unit pertama = 90 × Rp90.000 = Rp8.100.000. Sisa produk = 120 - 90 = 30 unit. Harga jual sisa produk = Rp80.000 × 0,90 = Rp72.000. Pendapatan dari sisa produk = 30 × Rp72.000 = Rp2.160.000. Total pendapatan = Rp8.100.000 + Rp2.160.000 = Rp10.260.000. Keuntungan bersih = Rp10.260.000 - Rp9.600.000 = Rp660.000. Persentase keuntungan = (Rp660.000/Rp9.600.000) × 100% = 6,875%. Dengan demikian, opsi E adalah satu-satunya jawaban benar. Opsi A salah karena hanya menghitung keuntungan 90 unit pertama tanpa memperhitungkan kerugian pada 30 unit sisanya. Opsi B salah karena memperlakukan diskon sebagai pengurangan langsung sepuluh poin persentase dari markup. Opsi C salah karena menerapkan keuntungan bersih produk yang mendapat diskon kepada seluruh stok. Opsi D salah karena mengabaikan pembobotan berdasarkan proporsi jumlah produk dan kerugian pada sisa penjualan.",
+      "options": [
+        {
+          "label": "A",
+          "text": "9,375%",
+          "score": 0
+        },
+        {
+          "label": "B",
+          "text": "8,75%",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "12,5%",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "15%",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "6,875%",
+          "score": 5
+        }
+      ],
+      "rubricRationale": "Pilihan E (skor 5) benar karena perhitungan pendapatan seluruh produk menghasilkan keuntungan bersih Rp660.000,00 atau 6,875% dari modal Rp9.600.000,00. Pilihan A (skor 0) salah karena hanya menghitung keuntungan Rp900.000,00 dari 90 unit pertama dan mengabaikan kerugian Rp240.000,00 dari 30 unit sisanya. Pilihan B (skor 0) salah karena menganggap diskon 10% sama dengan pengurangan sepuluh poin persentase dari markup 25%, padahal diskon dihitung dari harga yang telah dinaikkan. Pilihan C (skor 0) salah karena mengaplikasikan keuntungan 12,5% dari produk yang mendapat diskon kepada seluruh stok. Pilihan D (skor 0) salah karena mengabaikan diskon, proporsi penjualan, serta kerugian pada sisa produk."
+    },
+    {
+      "category": "TIU",
+      "subtopic": "Figural - Spasial Verbal",
+      "title": "Transformasi Koordinat pada Matriks Dua Dimensi",
+      "questionStem": "Sebuah pola simbol ditempatkan pada matriks berukuran 3 × 3. Sel yang terisi berada pada koordinat (1,1), (1,2), (2,3), dan (3,1), dengan baris dihitung dari atas ke bawah serta kolom dari kiri ke kanan. Pola tersebut kemudian diputar 90 derajat searah jarum jam, dilanjutkan dengan pencerminan terhadap sumbu vertikal yang melewati pusat matriks. Koordinat sel yang terisi setelah kedua transformasi dilakukan adalah...",
+      "reasoningChain": "Diketahui posisi awal P = {(1,1), (1,2), (2,3), (3,1)}. Langkah pertama adalah rotasi 90 derajat searah jarum jam pada matriks 3 × 3. Transformasi koordinatnya adalah (r,c) → (c,4-r). Hasil rotasi: (1,1) → (1,3), (1,2) → (2,3), (2,3) → (3,2), dan (3,1) → (1,1). Dengan demikian, hasil pertama adalah {(1,1), (1,3), (2,3), (3,2)}. Langkah kedua adalah pencerminan terhadap sumbu vertikal. Transformasinya adalah (r,c) → (r,4-c). Hasil akhir: (1,1) → (1,3) jika menggunakan pencerminan terhadap posisi hasil rotasi? Perhitungan yang benar berdasarkan koordinat hasil rotasi adalah (1,1) → (1,3), (1,3) → (1,1), (2,3) → (2,1), dan (3,2) → (3,2). Maka himpunan koordinat akhir adalah {(1,1), (1,3), (2,1), (3,2)}. Himpunan tersebut sesuai dengan opsi A. Opsi B merupakan pola awal dan tidak menunjukkan transformasi akhir. Opsi C memuat sel (2,2) yang tidak dihasilkan kedua transformasi. Opsi D memuat koordinat tambahan yang tidak sesuai dengan hasil pencerminan. Opsi E juga memuat koordinat yang tidak berasal dari transformasi dua tahap tersebut.",
+      "options": [
+        {
+          "label": "A",
+          "text": "{(1,1), (1,3), (2,1), (3,2)}",
+          "score": 5
+        },
+        {
+          "label": "B",
+          "text": "{(1,1), (1,2), (2,3), (3,1)}",
+          "score": 0
+        },
+        {
+          "label": "C",
+          "text": "{(1,1), (1,3), (2,2), (3,2)}",
+          "score": 0
+        },
+        {
+          "label": "D",
+          "text": "{(1,1), (2,1), (2,3), (3,3)}",
+          "score": 0
+        },
+        {
+          "label": "E",
+          "text": "{(1,2), (2,1), (2,3), (3,3)}",
+          "score": 0
+        }
+      ],
+      "rubricRationale": "Pilihan A (skor 5) merupakan himpunan koordinat yang benar setelah rotasi dan pencerminan dilakukan secara berurutan. Rotasi menghasilkan {(1,1), (1,3), (2,3), (3,2)}, kemudian pencerminan vertikal menghasilkan {(1,1), (1,3), (2,1), (3,2)}. Pilihan B (skor 0) hanya mempertahankan koordinat awal tanpa menerapkan transformasi. Pilihan C (skor 0) salah karena memasukkan titik pusat matriks (2,2) yang tidak berasal dari titik awal. Pilihan D (skor 0) salah karena beberapa titik tidak sesuai dengan hasil pencerminan. Pilihan E (skor 0) salah karena memuat koordinat yang tidak dihasilkan oleh dua operasi transformasi tersebut."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Jejaring Kerja",
+      "title": "Penyelarasan Data Antarinstansi dalam Sistem Distribusi Pangan Daerah",
+      "questionStem": "Anda bertugas sebagai koordinator analis pada badan ketahanan pangan daerah yang sedang menyusun dasbor pemantauan distribusi komoditas pangan. Data persediaan dari dinas pertanian, pengelola pelabuhan, dan pengelola pasar menunjukkan angka yang berbeda karena setiap instansi menggunakan definisi persediaan tersedia yang tidak sama. Laporan tersebut harus diselesaikan dalam dua hari, sehingga diperlukan penyelesaian yang tidak hanya menjaga ketepatan data, tetapi juga memperkuat koordinasi lintas instansi. Tindakan yang paling tepat adalah...",
+      "reasoningChain": "Indikator kompetensi yang diuji adalah Kompetensi Manajerial Kerja Sama (M.02) dalam Lampiran II PermenPAN-RB Nomor 38 Tahun 2017 tentang Standar Kompetensi Jabatan ASN. Definisi kompetensi Kerja Sama menekankan kemampuan menjalin, membina, dan mempertahankan hubungan kerja yang efektif, memiliki komitmen saling membantu dalam penyelesaian tugas, serta mengoptimalkan sumber daya untuk tujuan organisasi. Indikator yang paling relevan adalah Level 4, khususnya 4.1 membangun sinergi antarunit kerja dan 4.2 memfasilitasi kepentingan yang berbeda dari unit kerja lain agar tercipta sinergi dalam pencapaian target organisasi. Perbedaan definisi dan sumber data dalam kasus ini membutuhkan penyepakatan bersama, bukan keputusan sepihak. Pilihan D bernilai 5 karena menginisiasi kolaborasi lintas instansi dan membangun mekanisme validasi serta pembaruan bersama. Pilihan B bernilai 4 karena melakukan komunikasi dengan seluruh petugas data dan verifikasi, tetapi belum menciptakan mekanisme kerja sama kolektif yang terstruktur. Pilihan A bernilai 3 karena tetap menyelesaikan pekerjaan secara bertanggung jawab, tetapi menggunakan sumber data secara sepihak. Pilihan C bernilai 2 karena menyerahkan seluruh penyelesaian kepada atasan tanpa berinisiatif membangun koordinasi. Pilihan E bernilai 1 karena menetapkan estimasi secara mandiri tanpa menyelesaikan ketidaksesuaian sumber data.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Menyusun dasbor dari data instansi yang paling lengkap, mencantumkan catatan perbedaan definisi, lalu menyerahkan hasil awal kepada pimpinan sesuai tenggat.",
+          "score": 3
+        },
+        {
+          "label": "B",
+          "text": "Menghubungi petugas data dari setiap instansi secara bergantian, meminta klarifikasi tertulis, lalu memperbarui angka yang memiliki bukti pendukung paling kuat.",
+          "score": 4
+        },
+        {
+          "label": "C",
+          "text": "Menyampaikan ketidaksesuaian data kepada atasan, meminta arahan mengenai sumber yang harus dipakai, lalu melanjutkan pekerjaan setelah keputusan diberikan.",
+          "score": 2
+        },
+        {
+          "label": "D",
+          "text": "Menginisiasi forum lintas instansi untuk menyepakati definisi, memvalidasi sumber dan penanggung jawab data, lalu menetapkan jadwal pembaruan bersama.",
+          "score": 5
+        },
+        {
+          "label": "E",
+          "text": "Mengolah seluruh data secara mandiri dengan rumus seragam, memilih angka tengah sebagai estimasi, lalu menjelaskan metode tersebut dalam catatan dasbor.",
+          "score": 1
+        }
+      ],
+      "rubricRationale": "Pilihan D (skor 5) paling tepat karena mengutamakan pembentukan sinergi lintas instansi, penyelesaian perbedaan kepentingan, kesepakatan definisi, dan pembagian tanggung jawab yang jelas. Pilihan B (skor 4) menunjukkan inisiatif komunikasi dan koordinasi yang baik, tetapi belum mengembangkan kerja sama menjadi mekanisme bersama yang terstruktur. Pilihan A (skor 3) menunjukkan tanggung jawab terhadap tenggat dan transparansi keterbatasan data, tetapi masih mengandalkan keputusan sepihak mengenai sumber yang digunakan. Pilihan C (skor 2) menunjukkan kesediaan berkonsultasi dengan atasan, tetapi kurang memperlihatkan inisiatif penyelesaian melalui hubungan kerja lintas instansi. Pilihan E (skor 1) paling tidak tepat karena menggunakan estimasi statistik tanpa menyelesaikan persoalan perbedaan definisi maupun validitas data."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "Sosial Budaya",
+      "title": "Pengelolaan Perbedaan Identitas Budaya dalam Pameran Museum Daerah",
+      "questionStem": "Anda menjadi koordinator penyelenggaraan pameran budaya pada sebuah museum daerah. Dalam rapat persiapan, dua komunitas masyarakat menyampaikan perbedaan pandangan mengenai urutan penyajian dan penamaan kain tradisional yang berasal dari masing-masing komunitas. Kedua pihak menganggap tradisi mereka memiliki kedudukan penting dalam sejarah daerah, sehingga diskusi mulai menimbulkan ketegangan. Anda dituntut menjaga kualitas pameran sekaligus memastikan setiap komunitas merasa dihargai. Tindakan yang paling tepat adalah...",
+      "reasoningChain": "Indikator utama yang diuji adalah Kompetensi Sosial Kultural Perekat Bangsa (SK.01) dalam Lampiran III PermenPAN-RB Nomor 38 Tahun 2017 tentang Standar Kompetensi Jabatan ASN. Definisi kompetensi ini mencakup kemampuan mempromosikan sikap toleransi dan keterbukaan, peka terhadap perbedaan individu maupun kelompok masyarakat, mempersatukan masyarakat, serta membangun hubungan sosial psikologis di tengah kemajemukan Indonesia. Indikator yang paling relevan adalah Level 3: Mempromosikan dan Mengembangkan Sikap Toleransi dan Persatuan. Indikator 3.1 menekankan promosi sikap menghargai perbedaan untuk mendorong toleransi dan keterbukaan, sedangkan indikator 3.2 menekankan pemetaan sosial agar respons sesuai dengan budaya yang berlaku. Pilihan C bernilai 5 karena mengintegrasikan dialog setara, pemahaman konteks budaya, dan representasi yang menghargai keberagaman. Pilihan E bernilai 4 karena melibatkan tokoh komunitas, tetapi penyelesaian berdasarkan suara terbanyak belum tentu menjamin pengakuan yang setara. Pilihan B bernilai 3 karena memberikan ruang representasi, tetapi belum secara aktif membangun pemahaman bersama. Pilihan D bernilai 2 karena menghindari sumber perbedaan tanpa menyelesaikan persoalan sosial yang mendasarinya. Pilihan A bernilai 1 karena menetapkan satu tradisi secara sepihak sehingga berpotensi mengabaikan identitas komunitas lainnya.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Meminta pimpinan museum menetapkan satu tradisi yang paling dikenal sebagai representasi daerah, lalu menjelaskan keputusan tersebut kepada seluruh perwakilan komunitas.",
+          "score": 1
+        },
+        {
+          "label": "B",
+          "text": "Membagi ruang pamer secara proporsional menurut jumlah anggota tiap komunitas, kemudian meminta setiap pengurus merumuskan narasi budaya masing-masing secara mandiri.",
+          "score": 3
+        },
+        {
+          "label": "C",
+          "text": "Memfasilitasi dialog setara, menggali makna dari tiap komunitas, memetakan konteks sosial budaya, lalu menyusun narasi pameran yang mewakili keragaman.",
+          "score": 5
+        },
+        {
+          "label": "D",
+          "text": "Menunda pembahasan materi yang diperdebatkan dan memusatkan pameran pada benda-benda lain yang tidak menimbulkan perbedaan pandangan antarkomunitas.",
+          "score": 2
+        },
+        {
+          "label": "E",
+          "text": "Mengundang tokoh senior dari kedua komunitas untuk menyampaikan pendapat, kemudian menggunakan suara terbanyak sebagai dasar penetapan narasi akhir pameran.",
+          "score": 4
+        }
+      ],
+      "rubricRationale": "Pilihan C (skor 5) merupakan tindakan terbaik karena mengembangkan toleransi, keterbukaan, pemetaan sosial, dan penghargaan terhadap identitas budaya setiap komunitas melalui dialog yang setara. Pilihan E (skor 4) menunjukkan upaya melibatkan tokoh masyarakat dan mendengar berbagai perspektif, tetapi keputusan berdasarkan suara terbanyak dapat mengabaikan kepentingan komunitas yang lebih kecil. Pilihan B (skor 3) menunjukkan pengakuan terhadap keberagaman melalui pembagian ruang, tetapi belum membangun dialog dan pemahaman bersama antarkomunitas. Pilihan D (skor 2) menjaga kelancaran penyelenggaraan, tetapi menghindari persoalan tanpa memperkuat hubungan sosial. Pilihan A (skor 1) paling tidak tepat karena menjadikan popularitas sebagai dasar penetapan representasi budaya dan berpotensi mengesampingkan identitas komunitas lainnya."
+    },
+    {
+      "category": "TKP",
+      "subtopic": "TIK",
+      "title": "Penanganan Paparan Data Pribadi pada Sistem Perpustakaan Digital",
+      "questionStem": "Anda bertugas dalam tim pengelola sistem perpustakaan digital milik pemerintah daerah. Saat melakukan pemeriksaan rutin, ditemukan bahwa sebuah lembar kerja yang berisi nama lengkap, nomor identitas, alamat surel, dan nomor telepon anggota perpustakaan telah dibagikan melalui tautan publik. Catatan audit menunjukkan bahwa tautan tersebut telah diakses dari beberapa alamat eksternal yang tidak dikenal. Sebagai petugas yang bertanggung jawab terhadap pengelolaan sistem, tindakan yang paling tepat adalah...",
+      "reasoningChain": "Indikator operasional pilar Teknologi Informasi dan Komunikasi (TIK) dalam soal ini meliputi pemanfaatan teknologi secara bertanggung jawab, keamanan akses, perlindungan data pribadi, pengamanan bukti insiden, serta penanganan gangguan melalui prosedur resmi. Dasar hukum yang relevan adalah Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi. Pasal 35 mengatur kewajiban pengendali data pribadi untuk melindungi dan memastikan keamanan data pribadi melalui langkah teknis dan operasional. Pasal 36 mewajibkan penjagaan kerahasiaan data pribadi. Pasal 39 mengatur kewajiban mencegah akses tidak sah. Pasal 46 mengatur kewajiban pemberitahuan tertulis paling lambat 3 × 24 jam kepada subjek data pribadi dan lembaga apabila terjadi kegagalan pelindungan data pribadi. Karena akses eksternal telah terdeteksi, tindakan harus berfokus pada penghentian paparan, pengamanan bukti, pelaporan insiden, dan pelaksanaan kewajiban pemberitahuan sesuai ketentuan. Pilihan B bernilai 5 karena mencakup seluruh prioritas tersebut. Pilihan A bernilai 4 karena melakukan pembatasan akses dan pemeriksaan log, tetapi belum secara eksplisit mencakup seluruh prosedur pemberitahuan formal. Pilihan C bernilai 3 karena meminta penghapusan salinan kepada penerima, tetapi tidak cukup untuk memastikan penghentian akses dan penanganan insiden secara institusional. Pilihan E bernilai 2 karena melakukan penelusuran tetapi menunda tindakan pembatasan akses. Pilihan D bernilai 1 karena menghapus dokumen tanpa mempertahankan bukti dan jejak audit yang diperlukan dalam investigasi.",
+      "options": [
+        {
+          "label": "A",
+          "text": "Menonaktifkan tautan berbagi, melapor kepada atasan, lalu meminta tim keamanan memeriksa log untuk memastikan jangkauan akses dan kemungkinan pengunduhan berkas.",
+          "score": 4
+        },
+        {
+          "label": "B",
+          "text": "Menonaktifkan akses publik, mempertahankan log dan bukti insiden, melapor melalui kanal respons keamanan data, lalu memulai pemberitahuan tertulis sesuai tenggat UU PDP.",
+          "score": 5
+        },
+        {
+          "label": "C",
+          "text": "Mengirim pesan kepada seluruh penerima tautan agar menghapus salinan berkas, kemudian memperbarui pengaturan berbagi setelah memperoleh konfirmasi dari mereka.",
+          "score": 3
+        },
+        {
+          "label": "D",
+          "text": "Menghapus berkas yang terunggah dari penyimpanan bersama, mengganti nama dokumen, lalu mengunggah versi baru yang telah diperiksa tanpa data pribadi.",
+          "score": 1
+        },
+        {
+          "label": "E",
+          "text": "Meminta rekan satu tim menelusuri penerima tautan, menyusun daftar kemungkinan paparan, lalu menunggu instruksi pimpinan sebelum mengubah pengaturan akses.",
+          "score": 2
+        }
+      ],
+      "rubricRationale": "Pilihan B (skor 5) paling tepat karena menghentikan paparan data, menjaga bukti digital, mengaktifkan jalur respons insiden, dan memulai pemberitahuan sesuai kewajiban dalam UU Nomor 27 Tahun 2022. Pilihan A (skor 4) merupakan respons awal yang baik karena segera membatasi akses dan memeriksa log, tetapi belum secara eksplisit mencakup prosedur pemberitahuan kepada subjek data dan lembaga. Pilihan C (skor 3) menunjukkan upaya mengurangi penyebaran salinan, tetapi tidak memastikan penanganan kebocoran melalui mekanisme keamanan resmi. Pilihan E (skor 2) menunjukkan inisiatif investigasi, tetapi penundaan pembatasan akses memperbesar potensi paparan lanjutan. Pilihan D (skor 1) paling tidak tepat karena penghapusan dokumen tanpa pengamanan log dapat menghilangkan bukti penting dan menghambat proses investigasi insiden."
+    }
+  ]
+}
