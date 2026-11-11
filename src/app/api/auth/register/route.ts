@@ -13,16 +13,21 @@ import { eq } from 'drizzle-orm';
 import { hashPassword } from '@/lib/auth/password';
 
 const registerSchema = z.object({
-  email: z.email('Invalid email format').toLowerCase(),
-  password: z.string().min(8, 'Password must be at least 8 characters'),
+  email: z
+    .string()
+    .trim()
+    .pipe(z.email('Format email tidak valid'))
+    .transform((v) => v.toLowerCase()),
   username: z
     .string()
-    .min(3, 'Username must be at least 3 characters')
-    .max(20, 'Username must be at most 20 characters')
+    .trim()
+    .min(3, 'Username minimal 3 karakter')
+    .max(20, 'Username maksimal 20 karakter')
     .regex(
       /^[a-zA-Z0-9_]+$/,
-      'Username can only contain letters, numbers, and underscores'
+      'Username hanya boleh berisi huruf, angka, dan garis bawah (tanpa spasi)'
     ),
+  password: z.string().min(6, 'Password minimal 6 karakter'),
 });
 
 // Edited here: Restored your original middleware-based register handler
@@ -48,7 +53,11 @@ async function registerHandler(
       .limit(1);
 
     if (existingUser) {
-      throw new ApiError('Email already registered', 409);
+      throw new ApiError(
+        'Email sudah terdaftar. Silakan gunakan email lain atau masuk ke akun Anda',
+        409,
+        'EMAIL_ALREADY_REGISTERED'
+      );
     }
 
     // Check if username exists
@@ -59,7 +68,11 @@ async function registerHandler(
       .limit(1);
 
     if (existingUsername) {
-      throw new ApiError('Username already taken', 409);
+      throw new ApiError(
+        'Username sudah digunakan. Silakan pilih username lain',
+        409,
+        'USERNAME_ALREADY_TAKEN'
+      );
     }
   } catch (e: unknown) {
     const error = e as { code?: string };
@@ -111,6 +124,7 @@ const registerRateLimit = createRateLimitMiddleware({
   windowMs: 600_000,
   max: 3,
   guestMax: 3,
+  failClosed: true,
 });
 const validateRegister = createValidationMiddleware(registerSchema);
 

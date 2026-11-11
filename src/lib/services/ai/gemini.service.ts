@@ -9,6 +9,7 @@ export interface ChatHistoryTurn {
 export interface LockedQuizEvaluation {
   quizId: string;
   category: 'TWK' | 'TIU' | 'TKP';
+  subtest?: 'TWK' | 'TIU' | 'TKP';
   subtopic: string;
   questionStem: string;
   options: { A: string; B: string; C: string; D: string; E: string };
@@ -18,6 +19,7 @@ export interface LockedQuizEvaluation {
   userAnswer: 'A' | 'B' | 'C' | 'D' | 'E';
   scoreEarned: number;
   maxScore: number;
+  isCorrect?: boolean;
 }
 
 export interface GenerateAiResponseOptions {
@@ -115,13 +117,13 @@ function cleanHistoricalText(text: string): string {
 export async function generateChatTitle(message: string): Promise<string> {
   try {
     const ai = getGenAIClient();
+    const model = getGenerativeModel();
+    const isGemini25 = model.startsWith('gemini-2.5');
     const result = await ai.models.generateContent({
-      model: getGenerativeModel(),
+      model,
       contents: `Generate a short, descriptive title in Indonesian (max 40 characters) for an SKD learning chat that starts with: "${message}". Return only the title text without quotes.`,
       config: {
-        thinkingConfig: {
-          thinkingBudget: 0,
-        },
+        ...(isGemini25 ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
         maxOutputTokens: 64,
       },
     });
@@ -163,9 +165,137 @@ Silakan ketik pilihan jawaban Anda (**A**, **B**, **C**, **D**, atau **E**)!
       return;
     }
 
+    // 2. Instant Turn-2 Locked Evaluation Streaming + 12s Timeout Guard
+    if (options?.lockedQuizEvaluation) {
+      const evalData = options.lockedQuizEvaluation;
+      const subtest = evalData.subtest || evalData.category;
+      evalData.subtest = subtest;
+      if (typeof evalData.isCorrect !== 'boolean') {
+        evalData.isCorrect = evalData.userAnswer === evalData.correctOption;
+      }
+
+      if (evalData.subtest === 'TKP') {
+        const rubricLines = (['A', 'B', 'C', 'D', 'E'] as const).map((opt) => {
+          const score =
+            evalData.scoringRubric?.[opt] ??
+            (opt === evalData.correctOption ? 5 : 1);
+          const isBest = opt === evalData.correctOption || score === 5;
+          const isSelected = opt === evalData.userAnswer;
+          const badges: string[] = [];
+          if (isBest) badges.push('⭐ (Skor Tertinggi)');
+          if (isSelected) badges.push('👈 Pilihan Anda');
+          const badgeStr = badges.length > 0 ? ` ${badges.join(' ')}` : '';
+          const optText = evalData.options?.[opt] ? `: ${evalData.options[opt]}` : '';
+          return `- **Opsi ${opt} (${score} Poin)**${badgeStr}${optText}`;
+        });
+        const rubricList = rubricLines.join('\n');
+
+        const initialEvaluationChunk = `### 📊 Evaluasi Jawaban (TKP — ${evalData.subtopic})
+- **Jawaban Anda:** Opsi **${evalData.userAnswer}**
+- **Skor Diperoleh:** **+${evalData.scoreEarned} / 5 Poin**
+- **Opsi Terbaik (5 Poin):** Opsi **${evalData.correctOption}**
+
+#### 📋 Rincian Skor Opsi A–E
+${rubricList}
+
+#### 💡 Pembahasan Resmi
+${evalData.rubricRationale}
+`;
+        yield initialEvaluationChunk;
+      } else {
+        const initialEvaluationChunk = `### ${evalData.isCorrect ? '✅ Jawaban Tepat!' : '❌ Jawaban Kurang Tepat'} (${evalData.subtest} — ${evalData.subtopic})
+- **Jawaban Anda:** Opsi **${evalData.userAnswer}**
+- **Kunci Jawaban:** Opsi **${evalData.correctOption}**
+- **Skor Diperoleh:** **+${evalData.scoreEarned} / 5 Poin**
+
+#### 💡 Pembahasan Resmi
+${evalData.rubricRationale}
+`;
+        yield initialEvaluationChunk;
+      }
+
+      // Supplementary AI Trick & Eliminasi Stream (with 12_000 ms timeout and resilience)
+      try {
+        const ai = getGenAIClient();
+        const model = getGenerativeModel();
+        const isGemini25 = model.startsWith('gemini-2.5');
+
+        const suppPrompt = `Soal SKD (${evalData.subtest} — ${evalData.subtopic}):
+${evalData.questionStem}
+
+Pilihan Jawaban:
+A. ${evalData.options.A}
+B. ${evalData.options.B}
+C. ${evalData.options.C}
+D. ${evalData.options.D}
+E. ${evalData.options.E}
+
+Kunci Jawaban Resmi: Opsi ${evalData.correctOption}
+Jawaban Pengguna: Opsi ${evalData.userAnswer}
+Pembahasan Resmi:
+${evalData.rubricRationale}
+
+Tugas:
+Buat HANYA bagian tambahan berikut:
+#### ⚡ Trik Cepat (< 50 Detik) & Analisis Pengecoh
+
+Ketentuan:
+1. JANGAN mengulang judul evaluasi, skor, status benar/salah, rincian opsi, atau pembahasan resmi di atas karena sudah ditampilkan ke pengguna.
+2. Berikan trik cepat SKD (< 50 detik) dan analisis ringkas mengapa opsi pengecoh lain kurang tepat atau mengecoh.
+3. Langsung mulai respons dari header "#### ⚡ Trik Cepat (< 50 Detik) & Analisis Pengecoh".`;
+
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const suppConfig: any = {
+          systemInstruction: SKD_SYSTEM_INSTRUCTION,
+          temperature: 0.35,
+          maxOutputTokens: 768,
+          abortSignal: AbortSignal.timeout(12_000),
+          ...(isGemini25 ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
+        };
+
+        const suppResponse = await ai.models.generateContentStream({
+          model,
+          contents: suppPrompt,
+          config: suppConfig,
+        });
+
+        let hasYieldedPrefix = false;
+        for await (const chunk of suppResponse) {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          const parts = (chunk as any).candidates?.[0]?.content?.parts;
+          let text = '';
+          if (Array.isArray(parts) && parts.length > 0) {
+            for (const part of parts) {
+              if (part && !part.thought && typeof part.text === 'string') {
+                text += part.text;
+              }
+            }
+          } else if (chunk.text) {
+            text = chunk.text;
+          }
+
+          if (text) {
+            if (!hasYieldedPrefix) {
+              yield '\n';
+              hasYieldedPrefix = true;
+            }
+            yield text;
+          }
+        }
+      } catch (suppError) {
+        console.warn(
+          'Turn-2 supplementary Gemini stream skipped/timed out:',
+          suppError
+        );
+        return;
+      }
+
+      return;
+    }
+
     const ai = getGenAIClient();
 
-    // 2. Build multi-turn history cleaned of internal markers
+    // 3. Build multi-turn history cleaned of internal markers
     const historyContents: {
       role: 'user' | 'model';
       parts: { text: string }[];
@@ -193,34 +323,10 @@ Silakan ketik pilihan jawaban Anda (**A**, **B**, **C**, **D**, atau **E**)!
       }
     }
 
-    // 3. Compose current user prompt with locked evaluation or RAG context
+    // 4. Compose current user prompt with RAG context
     let finalUserPrompt = userMessage;
 
-    if (options?.lockedQuizEvaluation) {
-      const evalData = options.lockedQuizEvaluation;
-      finalUserPrompt = `${userMessage}
-
-[EVALUASI KUIS TERKUNCI SERVER]
-Kategori: ${evalData.category}
-Subtopik: ${evalData.subtopic}
-Soal:
-${evalData.questionStem}
-
-Pilihan Jawaban:
-A. ${evalData.options.A}
-B. ${evalData.options.B}
-C. ${evalData.options.C}
-D. ${evalData.options.D}
-E. ${evalData.options.E}
-
-Jawaban Pengguna: ${evalData.userAnswer}
-Kunci Jawaban Resmi: ${evalData.correctOption}
-Skor Diperoleh: ${evalData.scoreEarned} / ${evalData.maxScore} Poin
-Rubrik Skor: A=${evalData.scoringRubric.A}, B=${evalData.scoringRubric.B}, C=${evalData.scoringRubric.C}, D=${evalData.scoringRubric.D}, E=${evalData.scoringRubric.E}
-Rasional Rubrik Resmi: ${evalData.rubricRationale}
-
-Instruksi: Berikan evaluasi dan pembahasan lengkap sesuai format resmi SKD. Kunci jawaban dan skor di atas sudah TERKUNCI oleh server dan tidak boleh diubah.`;
-    } else if (options?.ragResult?.isQuizRequest) {
+    if (options?.ragResult?.isQuizRequest) {
       finalUserPrompt = `${userMessage}
 
 [INSTRUKSI MODE SOAL INTERAKTIF]
@@ -261,36 +367,32 @@ ATURAN WAJIB:
       parts: [{ text: finalUserPrompt }],
     });
 
-    // 4. Decide tools (Google Search only when needed and not in locked evaluation or benchmark)
+    // 5. Decide tools (Google Search only when needed and not in benchmark)
     const enableGoogleSearch =
-      !options?.lockedQuizEvaluation &&
       !options?.ragResult?.unattemptedBenchmark &&
       (options?.ragResult?.wantsNewVariation ||
         /ikn|terkini|terbaru|kebijakan|pemerintah|berita/i.test(userMessage));
 
     const envBudget = process.env.GEMINI_THINKING_BUDGET?.trim();
     const rawBudget = envBudget ? Number(envBudget) : 512;
-    const thinkingBudget = options?.lockedQuizEvaluation
-      ? 0
-      : Number.isFinite(rawBudget) && rawBudget >= 0
-        ? rawBudget
-        : 512;
+    const thinkingBudget =
+      Number.isFinite(rawBudget) && rawBudget >= 0 ? rawBudget : 512;
 
-    // Note: thinkingConfig.thinkingBudget applies to gemini-2.5-* models; revisit if
-    // GENERATIVE_MODEL changes to a model with a different thinking parameter.
+    const model = getGenerativeModel();
+    const isGemini25 = model.startsWith('gemini-2.5');
+
+    // Note: thinkingConfig.thinkingBudget applies only to gemini-2.5-* models.
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const config: any = {
       systemInstruction: SKD_SYSTEM_INSTRUCTION,
       temperature: 0.35,
       maxOutputTokens: 4096,
-      thinkingConfig: {
-        thinkingBudget,
-      },
+      ...(isGemini25 ? { thinkingConfig: { thinkingBudget } } : {}),
       ...(enableGoogleSearch ? { tools: [{ googleSearch: {} }] } : {}),
     };
 
     const response = await ai.models.generateContentStream({
-      model: getGenerativeModel(),
+      model,
       contents: historyContents,
       config,
     });

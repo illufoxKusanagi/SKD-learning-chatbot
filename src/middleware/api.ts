@@ -18,10 +18,11 @@ export interface RequestWithValidation<T = unknown> extends NextRequest {
 
 export class ApiError extends Error {
   constructor(
-    public message: string,
-    public statusCode: number = 500,
+    message: string,
+    public statusCode = 500,
     public code?: string,
-    public retryAfterSeconds?: number
+    public retryAfterSeconds?: number,
+    public details?: Array<{ field: string; message: string; code?: string }>
   ) {
     super(message);
     this.name = 'ApiError';
@@ -103,20 +104,23 @@ export function createValidationMiddleware<T>(
       return req;
     } catch (error) {
       if (error instanceof z.ZodError) {
-        // Edited here: Add debug logging for validation errors
         console.error('[VALIDATION] Zod validation error:', error);
 
-        // const errorMessages = error.errors.map((err) => ({
-        //   field: err.path.join("."),
-        //   message: err.message,
-        //   code: err.code,
-        // }));
+        const errorMessages = error.issues.map((err) => ({
+          field: err.path.join('.'),
+          message: err.message,
+          code: err.code,
+        }));
+        const firstDetail = errorMessages[0]
+          ? `: ${errorMessages[0].field ? `${errorMessages[0].field} — ` : ''}${errorMessages[0].message}`
+          : '';
 
         throw new ApiError(
-          'Data yang dikirim tidak valid',
+          `Data yang dikirim tidak valid${firstDetail}`,
           400,
-          'VALIDATION_ERROR'
-          // errorMessages
+          'VALIDATION_ERROR',
+          undefined,
+          errorMessages
         );
       }
 
@@ -133,6 +137,7 @@ export interface RateLimitOptions {
   max: number; // limit for authenticated users
   guestMax?: number; // limit for guests / unauthenticated (defaults to max)
   daily?: { max: number; guestMax?: number }; // optional fixed 24h cap
+  failClosed?: boolean;
 }
 
 async function checkRateLimitBucket(
@@ -140,7 +145,8 @@ async function checkRateLimitBucket(
   limit: number,
   windowMs: number,
   sliding: boolean,
-  now: number
+  now: number,
+  failClosed = false
 ): Promise<{ blocked: boolean; retryAfterSeconds: number }> {
   const curStart = Math.floor(now / windowMs) * windowMs;
   const prevStart = curStart - windowMs;
@@ -165,6 +171,9 @@ async function checkRateLimitBucket(
     prev = Number(row?.prev) || 0;
   } catch (error) {
     console.error('[RateLimit] Database error while checking rate limit:', error);
+    if (failClosed) {
+      return { blocked: true, retryAfterSeconds: 5 };
+    }
     // Fail open: allow request if DB fails
     return { blocked: false, retryAfterSeconds: 0 };
   }
@@ -212,6 +221,7 @@ async function cleanupRateLimits(
 }
 
 export function createRateLimitMiddleware(options: RateLimitOptions) {
+  const { failClosed = false } = options;
   return async (req: NextRequest): Promise<NextRequest> => {
     // Extract client IP securely under single-proxy assumption:
     // Prefer x-real-ip set by trusted reverse proxy (Vercel/Nginx ingress).
@@ -266,7 +276,7 @@ export function createRateLimitMiddleware(options: RateLimitOptions) {
     }
 
     const checks: Promise<{ blocked: boolean; retryAfterSeconds: number }>[] = [
-      checkRateLimitBucket(key, limit, options.windowMs, true, now),
+      checkRateLimitBucket(key, limit, options.windowMs, true, now, failClosed),
     ];
 
     if (options.daily) {
@@ -275,7 +285,7 @@ export function createRateLimitMiddleware(options: RateLimitOptions) {
         : (options.daily.guestMax ?? options.daily.max);
       const dailyKey = `${key}:daily`;
       checks.push(
-        checkRateLimitBucket(dailyKey, dailyLimit, 86_400_000, false, now)
+        checkRateLimitBucket(dailyKey, dailyLimit, 86_400_000, false, now, failClosed)
       );
     }
 
@@ -302,18 +312,19 @@ export function handleApiError(error: unknown): NextResponse {
   console.error('API Error:', error);
 
   if (error instanceof ApiError) {
-    const response = NextResponse.json(
+    const headers: Record<string, string> = {};
+    if (error.retryAfterSeconds !== undefined) {
+      headers['Retry-After'] = String(error.retryAfterSeconds);
+    }
+    return NextResponse.json(
       {
         success: false,
         error: error.message,
         code: error.code,
+        ...(error.details ? { details: error.details } : {}),
       },
-      { status: error.statusCode }
+      { status: error.statusCode, headers }
     );
-    if (error.retryAfterSeconds !== undefined) {
-      response.headers.set('Retry-After', String(error.retryAfterSeconds));
-    }
-    return response;
   }
 
   if (error instanceof z.ZodError) {

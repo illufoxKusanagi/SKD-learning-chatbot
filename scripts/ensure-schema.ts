@@ -16,7 +16,7 @@ async function main() {
   requireDatabaseEnv();
   const { ensureDatabaseSchema, closeConnection } = await import("../src/lib/db");
   try {
-    await ensureDatabaseSchema();
+    await ensureDatabaseSchema({ throwOnError: true });
     console.log("[ensure-schema] Database schema and extensions ensured successfully.");
     await closeConnection();
     process.exit(0);

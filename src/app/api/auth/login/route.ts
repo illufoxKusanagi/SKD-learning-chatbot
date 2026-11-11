@@ -85,6 +85,7 @@ const loginRateLimit = createRateLimitMiddleware({
   windowMs: 300_000,
   max: 5,
   guestMax: 5,
+  failClosed: true,
 });
 const validateLogin = createValidationMiddleware(loginSchema);
 

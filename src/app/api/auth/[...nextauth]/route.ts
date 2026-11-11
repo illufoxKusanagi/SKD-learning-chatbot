@@ -9,6 +9,7 @@ const credentialsRateLimit = createRateLimitMiddleware({
   windowMs: 300_000,
   max: 5,
   guestMax: 5,
+  failClosed: true,
 });
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
