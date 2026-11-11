@@ -24,7 +24,7 @@ export * from "./schema";
 // Ensure pgvector extension, quiz_attempts table, and HNSW index are enabled
 let schemaInitialized = false;
 
-export async function ensureDatabaseSchema() {
+export async function ensureDatabaseSchema(opts: { throwOnError?: boolean } = {}) {
   if (schemaInitialized) return;
   try {
     // 1. Ensure pgvector extension is enabled
@@ -99,6 +99,9 @@ export async function ensureDatabaseSchema() {
     console.log("[DB] Database schema, quiz_attempts table, rate_limits table, and pgvector extension ensured");
   } catch (error) {
     console.error("[DB] Failed to ensure database schema:", error);
+    if (opts.throwOnError) {
+      throw error;
+    }
   }
 }
 

@@ -19,14 +19,16 @@ import {
   LockedQuizEvaluation,
 } from '@/lib/services/ai/gemini.service';
 
+export const maxDuration = 60;
+
 const chatMessageSchema = z.object({
   message: z
     .string()
     .min(1, 'Message cannot be empty')
     .max(4000, 'Message is too long')
     .trim(),
-  chatId: z.string().uuid('Invalid chat ID format').optional(),
-  quizAttemptId: z.string().uuid('Invalid quiz attempt ID format').optional(),
+  chatId: z.string().nullish(),
+  quizAttemptId: z.string().uuid().nullish(),
 });
 
 type QuizOption = 'A' | 'B' | 'C' | 'D' | 'E';
@@ -345,9 +347,11 @@ async function handleChatPost(request: NextRequest) {
       );
     }
 
+    const isCorrect = selectedOption === pendingQuiz.correctOption;
     lockedQuizEvaluation = {
       quizId: pendingQuiz.id,
       category: pendingQuiz.category as 'TWK' | 'TIU' | 'TKP',
+      subtest: pendingQuiz.category as 'TWK' | 'TIU' | 'TKP',
       subtopic: pendingQuiz.subtopic,
       questionStem: pendingQuiz.questionStem,
       options: pendingQuiz.options,
@@ -357,6 +361,7 @@ async function handleChatPost(request: NextRequest) {
       userAnswer: selectedOption,
       scoreEarned,
       maxScore: pendingQuiz.maxScore ?? 5,
+      isCorrect,
     };
   }
 

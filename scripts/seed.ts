@@ -6,7 +6,7 @@ async function main() {
   requireSeedEnv();
   const force = process.argv.includes("--force");
   const { db, ensureDatabaseSchema, closeConnection } = await import("../src/lib/db");
-  await ensureDatabaseSchema();
+  await ensureDatabaseSchema({ throwOnError: true });
 
   await db.execute(sql`
     DELETE FROM rag_data

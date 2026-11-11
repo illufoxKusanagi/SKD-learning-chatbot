@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { Button } from "@/components/ui/button";
+import { Button } from '@/components/ui/button';
 import {
   Card,
   CardContent,
@@ -8,15 +8,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { toast } from "sonner";
-import { z } from "zod";
+} from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Separator } from '@/components/ui/separator';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { toast } from 'sonner';
+import { z } from 'zod';
 import {
   Form,
   FormControl,
@@ -24,63 +24,83 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "@/components/ui/form";
-import Image from "next/image";
+} from '@/components/ui/form';
+import Image from 'next/image';
 
-const schema = z.object({
+const formSchema = z.object({
   username: z
     .string()
-    .min(4, "Username minimal 4 karakter")
-    .max(20, "Username maksimal 20 karakter"),
-  email: z.string().email("Alamat email tidak valid"),
-  password: z.string().min(8, "Password minimal 8 karakter"),
-  role: z.number(),
+    .trim()
+    .min(3, 'Username minimal 3 karakter')
+    .max(20, 'Username maksimal 20 karakter')
+    .regex(
+      /^[a-zA-Z0-9_]+$/,
+      'Username hanya boleh berisi huruf, angka, dan underscore (tanpa spasi)'
+    ),
+  email: z.email('Masukkan alamat email yang valid').trim(),
+  password: z
+    .string()
+    .min(6, 'Password minimal 6 karakter')
+    .max(50, 'Password maksimal 50 karakter'),
 });
 
-type FormData = z.infer<typeof schema>;
+type FormData = z.infer<typeof formSchema>;
 
 export default function RegisterPage() {
   const router = useRouter();
   const form = useForm<FormData>({
-    resolver: zodResolver(schema),
+    resolver: zodResolver(formSchema),
     defaultValues: {
-      username: "",
-      email: "",
-      password: "",
-      role: 1,
+      username: '',
+      email: '',
+      password: '',
     },
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
-      const response = await fetch("/api/auth/register", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+      const response = await fetch('/api/auth/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),
       });
 
       const result = await response.json();
 
       if (!response.ok) {
-        if (response.status === 409) {
-          form.setError("email", {
-            type: "manual",
-            message: "Email sudah terdaftar.",
-          });
+        if (Array.isArray(result.details)) {
+          for (const detail of result.details) {
+            if (
+              detail.field === 'username' ||
+              detail.field === 'email' ||
+              detail.field === 'password'
+            ) {
+              form.setError(detail.field, { message: detail.message });
+            }
+          }
         }
-        throw new Error(result.error || "Gagal mendaftar.");
+        if (result.code === 'EMAIL_ALREADY_REGISTERED') {
+          form.setError('email', { message: result.error });
+        }
+        if (result.code === 'USERNAME_ALREADY_TAKEN') {
+          form.setError('username', { message: result.error });
+        }
+        form.setError('root', {
+          message: result.error || 'Registrasi gagal. Silakan coba lagi.',
+        });
+        throw new Error(result.error || 'Registrasi gagal. Silakan coba lagi.');
       }
       toast.success(
-        "Akun berhasil dibuat! Anda akan dialihkan ke halaman login."
+        'Akun berhasil dibuat! Anda akan dialihkan ke halaman login.'
       );
       setTimeout(() => {
-        router.push("/auth/login");
+        router.push('/auth/login');
       }, 2000);
     } catch (error) {
       toast.error(
         error instanceof Error
           ? error.message
-          : "Gagal mendaftar, silakan coba lagi."
+          : 'Gagal mendaftar, silakan coba lagi.'
       );
     }
   };
@@ -104,7 +124,7 @@ export default function RegisterPage() {
                   <FormItem>
                     <FormLabel>Username</FormLabel>
                     <FormControl>
-                      <Input placeholder="John Doe" {...field} />
+                      <Input placeholder="john_doe" {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -178,7 +198,7 @@ export default function RegisterPage() {
                 type="submit"
                 className="w-full"
               >
-                {form.formState.isSubmitting ? "Membuat akun..." : "Daftar"}
+                {form.formState.isSubmitting ? 'Membuat akun...' : 'Daftar'}
               </Button>
             </form>
           </Form>
@@ -200,8 +220,8 @@ export default function RegisterPage() {
             Lanjutkan dengan Google
           </Button>
           <CardDescription className="text-center">
-            Sudah punya akun?{" "}
-            <Link href={"/auth/login"} className="text-primary hover:underline">
+            Sudah punya akun?{' '}
+            <Link href={'/auth/login'} className="text-primary hover:underline">
               Login disini
             </Link>
           </CardDescription>

@@ -38,7 +38,7 @@ async function main() {
   let closeConnection: (() => Promise<void>) | null = null;
   if (!dryRun) {
     const { ensureDatabaseSchema, closeConnection: close } = await import("../src/lib/db");
-    await ensureDatabaseSchema();
+    await ensureDatabaseSchema({ throwOnError: true });
     closeConnection = close;
   }
 

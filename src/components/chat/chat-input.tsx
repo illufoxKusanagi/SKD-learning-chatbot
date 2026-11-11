@@ -1,12 +1,12 @@
-"use client";
+'use client';
 
-import { ArrowUp, Lightbulb, Sparkles, X } from "lucide-react";
-import { Button } from "../ui/button";
-import { Textarea } from "../ui/textarea";
-import AddAttachment from "./add-attachment";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
+import { ArrowUp, Lightbulb, Sparkles, X } from 'lucide-react';
+import { Button } from '../ui/button';
+import { Textarea } from '../ui/textarea';
+import AddAttachment from './add-attachment';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { cn } from '@/lib/utils';
 
 type ChatInputProps = {
   onSendMessage: (message: string) => void;
@@ -16,24 +16,24 @@ type ChatInputProps = {
 
 const QUICK_PROMPTS = [
   {
-    label: "Soal TWK HOTS",
-    prompt: "Berikan 1 soal latihan TWK HOTS beserta opsi A-E",
-    category: "TWK",
+    label: 'Soal TWK HOTS',
+    prompt: 'Berikan 1 soal latihan TWK HOTS beserta opsi A-E',
+    category: 'TWK',
   },
   {
-    label: "Soal TIU Silogisme/Numerik",
-    prompt: "Berikan 1 soal latihan TIU Silogisme/Numerik beserta opsi A-E",
-    category: "TIU",
+    label: 'Soal TIU Silogisme/Numerik',
+    prompt: 'Berikan 1 soal latihan TIU Silogisme/Numerik beserta opsi A-E',
+    category: 'TIU',
   },
   {
-    label: "Soal TKP BerAKHLAK",
-    prompt: "Berikan 1 soal latihan TKP BerAKHLAK beserta opsi A-E",
-    category: "TKP",
+    label: 'Soal TKP BerAKHLAK',
+    prompt: 'Berikan 1 soal latihan TKP BerAKHLAK beserta opsi A-E',
+    category: 'TKP',
   },
   {
-    label: "Kisi-kisi & Passing Grade",
-    prompt: "Jelaskan kisi-kisi terbaru dan passing grade SKD CPNS",
-    category: "INFO",
+    label: 'Kisi-kisi & Passing Grade',
+    prompt: 'Jelaskan kisi-kisi terbaru dan passing grade SKD CPNS',
+    category: 'INFO',
   },
 ];
 
@@ -42,14 +42,14 @@ export default function ChatInput({
   onSendQuickPrompt,
   isLoading = false,
 }: ChatInputProps) {
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
   const router = useRouter();
 
   const submitMessage = () => {
     if (!inputValue.trim() || isLoading) return;
     onSendMessage(inputValue);
-    setInputValue("");
+    setInputValue('');
     setShowSuggestions(false);
   };
 
@@ -59,7 +59,7 @@ export default function ChatInput({
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-    if (e.key === "Enter" && !e.shiftKey) {
+    if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault();
       const form = e.currentTarget.form;
       form?.requestSubmit();
@@ -133,20 +133,20 @@ export default function ChatInput({
             type="button"
             variant="outline"
             size="sm"
-            onClick={() => router.push("/help")}
+            onClick={() => router.push('/help')}
             className="rounded-lg h-8 px-3 text-xs font-semibold cursor-pointer"
           >
             FAQ
           </Button>
           <Button
             type="button"
-            variant={showSuggestions ? "default" : "outline"}
+            variant={showSuggestions ? 'default' : 'outline'}
             size="icon"
             onClick={() => setShowSuggestions((prev) => !prev)}
             aria-label="Saran Cepat SKD"
             className={cn(
-              "rounded-lg h-8 w-8 cursor-pointer transition-colors",
-              showSuggestions && "bg-primary text-primary-foreground"
+              'rounded-lg h-8 w-8 cursor-pointer transition-colors',
+              showSuggestions && 'bg-primary text-primary-foreground'
             )}
           >
             <Lightbulb className="h-4 w-4" />
