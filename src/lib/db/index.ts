@@ -78,12 +78,6 @@ export async function ensureDatabaseSchema(opts: { throwOnError?: boolean } = {}
     // 4. Ensure HNSW cosine index on rag_data.embedding exists
     try {
       await db.execute(sql`
-        DELETE FROM rag_data a USING rag_data b
-        WHERE a.ctid < b.ctid
-          AND a.external_id IS NOT NULL
-          AND a.external_id = b.external_id
-      `);
-      await db.execute(sql`
         CREATE UNIQUE INDEX IF NOT EXISTS rag_data_external_id_uidx
         ON rag_data (external_id)
       `);

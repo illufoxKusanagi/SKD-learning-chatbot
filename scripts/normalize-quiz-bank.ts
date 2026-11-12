@@ -77,14 +77,14 @@ function extractTopLevelJsonValues(text: string): unknown[] {
 }
 
 function parseJsonTolerant(text: string): unknown {
-  let cleaned = text.trim()
+  const stripped = text.trim()
     .replace(/^```(?:json)?\s*\n?/i, "")
-    .replace(/\n?\s*```\s*$/i, "")
-    .replace(/,\s*([}\]])/g, "$1");
+    .replace(/\n?\s*```\s*$/i, "");
   try {
-    return JSON.parse(cleaned);
+    return JSON.parse(stripped);
   } catch {
-    cleaned = escapeInternalQuotes(cleaned);
+    // Tolerant fallback
+    let cleaned = escapeInternalQuotes(stripped);
     try {
       return JSON.parse(cleaned);
     } catch {
@@ -151,11 +151,20 @@ function processFile(file: string, outDir: string, cliBatchId: string | null, fo
 
     if (isBatches) {
       questions = [];
+      const batchIdsFound = new Set<string>();
       for (const batch of rawData as Array<{ batchMetadata?: { batchId?: unknown }; questions: unknown[] }>) {
         questions.push(...batch.questions);
-        if (typeof batch.batchMetadata?.batchId === "string") {
-          fileBatchId = batch.batchMetadata.batchId;
+        if (typeof batch.batchMetadata?.batchId === "string" && batch.batchMetadata.batchId.trim()) {
+          const id = batch.batchMetadata.batchId.trim();
+          batchIdsFound.add(id);
+          fileBatchId = id;
         }
+      }
+      if (!cliBatchId && batchIdsFound.size > 1) {
+        console.error(
+          `[Error] ${file}: contains multiple distinct batch IDs (${Array.from(batchIdsFound).join(", ")}). Supply an explicit --batch-id to merge them.`
+        );
+        return false;
       }
     } else {
       questions = rawData;

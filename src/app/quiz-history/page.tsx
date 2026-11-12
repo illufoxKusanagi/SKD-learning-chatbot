@@ -106,6 +106,9 @@ export default function QuizHistoryPage() {
   };
 
   useEffect(() => {
+    let cancelled = false;
+    const abortController = new AbortController();
+
     const fetchQuizHistory = async () => {
       if (authLoading) return;
 
@@ -131,27 +134,41 @@ export default function QuizHistoryPage() {
           }
         }
 
-        const res = await fetch(endpoint);
+        const res = await fetch(endpoint, { signal: abortController.signal });
+        if (cancelled) return;
+
         if (!res.ok) {
           throw new Error(`HTTP ${res.status}`);
         }
 
         const json = await res.json();
+        if (cancelled) return;
+
         if (json.success && json.data) {
           setQuizzes(json.data.quizzes || []);
           setStats(json.data.stats || null);
         } else {
           setQuizzes([]);
         }
-      } catch (err) {
+      } catch (err: unknown) {
+        if (cancelled || (err instanceof Error && err.name === "AbortError")) {
+          return;
+        }
         console.error("Failed to load quiz history:", err);
         setError("Gagal memuat riwayat latihan soal");
       } finally {
-        setIsLoading(false);
+        if (!cancelled) {
+          setIsLoading(false);
+        }
       }
     };
 
     fetchQuizHistory();
+
+    return () => {
+      cancelled = true;
+      abortController.abort();
+    };
   }, [isAuthenticated, authLoading]);
 
   // Filtered Quizzes

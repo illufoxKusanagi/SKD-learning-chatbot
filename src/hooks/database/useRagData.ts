@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 interface RagDataItem {
   id: string;
@@ -16,8 +16,10 @@ export function useRagData() {
   const [data, setData] = useState<RagDataItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const activeRequestIdRef = useRef(0);
 
   const fetchData = useCallback(async (query?: string) => {
+    const requestId = ++activeRequestIdRef.current;
     try {
       setIsLoading(true);
       setError(null);
@@ -32,20 +34,27 @@ export function useRagData() {
         },
       });
 
+      if (requestId !== activeRequestIdRef.current) return;
+
       if (!response.ok) {
         throw new Error("Failed to fetch RAG data");
       }
 
       const result = await response.json();
+      if (requestId !== activeRequestIdRef.current) return;
+
       if (result.success && Array.isArray(result.data)) {
         setData(result.data);
       } else {
         setData([]);
       }
     } catch (err) {
+      if (requestId !== activeRequestIdRef.current) return;
       setError(err instanceof Error ? err.message : "Failed to fetch RAG data");
     } finally {
-      setIsLoading(false);
+      if (requestId === activeRequestIdRef.current) {
+        setIsLoading(false);
+      }
     }
   }, []);
 

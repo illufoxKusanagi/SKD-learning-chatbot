@@ -1,7 +1,7 @@
 import { useSession } from "next-auth/react";
 import { Message } from "@/lib/types/chat";
 import { useSearchParams, useRouter } from "next/navigation";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { toast } from "sonner";
 
 export interface QuizAttemptItem {
@@ -63,6 +63,16 @@ export function useChat() {
   const authLoading = status === "loading";
   const chatId = searchParams.get("id");
 
+  const activeChatIdRef = useRef<string | null>(chatId || null);
+  const pendingChatIdRef = useRef<string | null>(null);
+
+  useEffect(() => {
+    activeChatIdRef.current = chatId || null;
+    if (chatId) {
+      pendingChatIdRef.current = null;
+    }
+  }, [chatId]);
+
   const apiCall = useCallback(
     async (endpoint: string, options: RequestInit = {}) => {
       const response = await fetch(endpoint, {
@@ -83,7 +93,7 @@ export function useChat() {
 
   const fetchChatQuizzes = useCallback(
     async (chatIdToFetch?: string | null) => {
-      const targetChatId = chatIdToFetch ?? chatId;
+      const targetChatId = chatIdToFetch ?? chatId ?? pendingChatIdRef.current;
       if (!targetChatId) {
         setQuizzes([]);
         return;
@@ -96,30 +106,45 @@ export function useChat() {
           throw new Error(`HTTP ${response.status}`);
         }
         const data = await response.json();
+        if (targetChatId !== activeChatIdRef.current) {
+          return;
+        }
         if (data.success && Array.isArray(data.data?.quizzes)) {
           setQuizzes(data.data.quizzes);
         }
       } catch (err) {
+        if (targetChatId !== activeChatIdRef.current) {
+          return;
+        }
         console.warn("Failed to fetch quizzes for chat:", err);
       } finally {
-        setIsLoadingQuizzes(false);
+        if (targetChatId === activeChatIdRef.current) {
+          setIsLoadingQuizzes(false);
+        }
       }
     },
     [chatId]
   );
 
   useEffect(() => {
+    let cancelled = false;
+    const currentChatId = chatId;
+
     const loadHistory = async () => {
       if (authLoading) {
         return;
       }
 
-      if (!chatId) {
+      // Immediately clear quizzes so previous chat quizzes are never visible while loading
+      setQuizzes([]);
+
+      if (!currentChatId) {
         if (!isAuthenticated && typeof window !== "undefined" && window.location.pathname === "/chat") {
           const savedMessages = sessionStorage.getItem("guestMessages");
           if (savedMessages) {
             try {
               const parsedMessages = JSON.parse(savedMessages);
+              if (cancelled || currentChatId !== activeChatIdRef.current) return;
               setState((prev) => ({ ...prev, messages: parsedMessages, isLoading: false, chatTitle: "Sesi Belajar Baru" }));
               sessionStorage.removeItem("guestMessages");
               return;
@@ -128,21 +153,23 @@ export function useChat() {
             }
           }
         }
+        if (cancelled || currentChatId !== activeChatIdRef.current) return;
         setState((prev) => ({ ...prev, messages: [], isLoading: false, chatTitle: "Sesi Belajar Baru" }));
-        setQuizzes([]);
         return;
       }
 
       // Record guest chat ID for history tracking
-      recordGuestChatId(chatId);
+      recordGuestChatId(currentChatId);
 
       // Load quizzes for this chat
-      fetchChatQuizzes(chatId);
+      fetchChatQuizzes(currentChatId);
 
+      if (cancelled || currentChatId !== activeChatIdRef.current) return;
       setState((prev) => ({ ...prev, isLoading: true, error: null }));
 
       try {
-        const data = await apiCall(`/api/chat/${chatId}`);
+        const data = await apiCall(`/api/chat/${currentChatId}`);
+        if (cancelled || currentChatId !== activeChatIdRef.current) return;
         setState((prev) => ({
           ...prev,
           messages: data.data.messages || [],
@@ -150,6 +177,7 @@ export function useChat() {
           isLoading: false,
         }));
       } catch (error) {
+        if (cancelled || currentChatId !== activeChatIdRef.current) return;
         console.error("Error loading chat history: ", error);
         setState((prev) => ({
           ...prev,
@@ -166,6 +194,10 @@ export function useChat() {
     };
 
     loadHistory();
+
+    return () => {
+      cancelled = true;
+    };
   }, [chatId, isAuthenticated, authLoading, apiCall, fetchChatQuizzes]);
 
   const handleSendMessage = useCallback(
@@ -198,7 +230,8 @@ export function useChat() {
         error: null,
       }));
 
-      let resolvedChatId = chatId;
+      const targetChatId = chatId || pendingChatIdRef.current;
+      let resolvedChatId = targetChatId;
 
       try {
         const response = await fetch("/api/chat", {
@@ -208,7 +241,7 @@ export function useChat() {
           },
           body: JSON.stringify({
             message: messageContent,
-            chatId: chatId || undefined,
+            chatId: targetChatId || undefined,
             ...(quizAttemptId ? { quizAttemptId } : {}),
           }),
         });
@@ -221,6 +254,8 @@ export function useChat() {
         const newChatId = response.headers.get("X-Chat-Id");
         if (newChatId) {
           resolvedChatId = newChatId;
+          pendingChatIdRef.current = newChatId;
+          activeChatIdRef.current = newChatId;
           recordGuestChatId(newChatId);
         }
 
