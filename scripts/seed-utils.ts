@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import { eq, sql } from "drizzle-orm";
+import { isDeepStrictEqual } from "node:util";
 
 // Load .env.local then .env without overriding shell environment variables
 dotenv.config({ path: [".env.local", ".env"] });
@@ -34,6 +35,7 @@ export async function embedAndUpsertRagEntry(
     const [existing] = await db
       .select({
         content: ragData.content,
+        data: ragData.data,
         hasEmbedding: sql<boolean>`${ragData.embedding} IS NOT NULL`,
       })
       .from(ragData)
@@ -41,7 +43,24 @@ export async function embedAndUpsertRagEntry(
       .limit(1);
 
     if (existing && existing.content === entry.content && existing.hasEmbedding) {
-      return "skipped";
+      const isMetadataEqual =
+        isDeepStrictEqual(existing.data, entry.data) ||
+        JSON.stringify(existing.data) === JSON.stringify(entry.data);
+
+      if (isMetadataEqual) {
+        return "skipped";
+      }
+
+      await db
+        .update(ragData)
+        .set({
+          title: entry.title,
+          data: entry.data,
+          updatedAt: new Date(),
+        })
+        .where(eq(ragData.external_id, entry.externalId));
+
+      return "upserted";
     }
   }
 

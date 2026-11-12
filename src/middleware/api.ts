@@ -81,8 +81,6 @@ export function createValidationMiddleware<T>(
         default:
           try {
             dataToValidate = await req.json();
-            // Edited here: Add debug logging
-            console.log('[VALIDATION] Raw data received:', dataToValidate);
             // eslint-disable-next-line @typescript-eslint/no-unused-vars
           } catch (error) {
             throw new ApiError(
@@ -94,9 +92,6 @@ export function createValidationMiddleware<T>(
       }
 
       const validatedData = schema.parse(dataToValidate);
-
-      // Edited here: Add debug logging
-      console.log('[VALIDATION] Validated data:', validatedData);
 
       // Attach validated data to the request object
       (req as RequestWithValidation<T>).validatedData = validatedData;

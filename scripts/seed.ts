@@ -1,18 +1,11 @@
-import { sql } from "drizzle-orm";
 import { embedAndUpsertRagEntry, requireSeedEnv } from "./seed-utils";
 import { SKD_KNOWLEDGE_BASE } from "../src/lib/datas/skd-knowledge";
 
 async function main() {
   requireSeedEnv();
   const force = process.argv.includes("--force");
-  const { db, ensureDatabaseSchema, closeConnection } = await import("../src/lib/db");
+  const { ensureDatabaseSchema, closeConnection } = await import("../src/lib/db");
   await ensureDatabaseSchema({ throwOnError: true });
-
-  await db.execute(sql`
-    DELETE FROM rag_data
-    WHERE (external_id IS NULL OR external_id NOT LIKE 'skd-%')
-      AND (content ILIKE '%madiun%' OR title ILIKE '%madiun%')
-  `);
 
   let upserted = 0;
   let skipped = 0;

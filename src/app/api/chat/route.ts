@@ -323,29 +323,38 @@ async function handleChatPost(request: NextRequest) {
           ? 5
           : 0;
 
-    const [locked] = await db
-      .update(quizAttempts)
-      .set({
-        userAnswer: selectedOption,
-        scoreEarned,
-        status: 'answered',
-        answeredAt: new Date(),
-      })
-      .where(
-        and(
-          eq(quizAttempts.id, pendingQuiz.id),
-          eq(quizAttempts.status, 'pending')
+    await db.transaction(async (tx) => {
+      const [locked] = await tx
+        .update(quizAttempts)
+        .set({
+          userAnswer: selectedOption,
+          scoreEarned,
+          status: 'answered',
+          answeredAt: new Date(),
+        })
+        .where(
+          and(
+            eq(quizAttempts.id, pendingQuiz.id),
+            eq(quizAttempts.status, 'pending')
+          )
         )
-      )
-      .returning({ id: quizAttempts.id });
+        .returning({ id: quizAttempts.id });
 
-    if (!locked) {
-      throw new ApiError(
-        'Soal ini sudah dijawab',
-        409,
-        'QUIZ_ALREADY_ANSWERED'
-      );
-    }
+      if (!locked) {
+        throw new ApiError(
+          'Soal ini sudah dijawab',
+          409,
+          'QUIZ_ALREADY_ANSWERED'
+        );
+      }
+
+      await tx.insert(messages).values({
+        chatId: conversationId,
+        role: 'user',
+        content: message,
+        createdAt: new Date(),
+      });
+    });
 
     const isCorrect = selectedOption === pendingQuiz.correctOption;
     lockedQuizEvaluation = {
@@ -363,15 +372,15 @@ async function handleChatPost(request: NextRequest) {
       maxScore: pendingQuiz.maxScore ?? 5,
       isCorrect,
     };
+  } else {
+    // Insert regular user message when not answering a pending quiz
+    await db.insert(messages).values({
+      chatId: conversationId,
+      role: 'user',
+      content: message,
+      createdAt: new Date(),
+    });
   }
-
-  // Insert the current user message into database
-  await db.insert(messages).values({
-    chatId: conversationId,
-    role: 'user',
-    content: message,
-    createdAt: new Date(),
-  });
 
   const stream = new ReadableStream({
     async start(controller) {
@@ -487,7 +496,7 @@ async function handleChatPost(request: NextRequest) {
           }
 
           let finalBotContent = visibleText;
-
+          let insertedQuizId: string | null = null;
           if (quizMeta) {
             if (
               ragResult.unattemptedBenchmark?.ragSourceId &&
@@ -496,37 +505,52 @@ async function handleChatPost(request: NextRequest) {
               quizMeta.ragSourceId = ragResult.unattemptedBenchmark.ragSourceId;
             }
 
-            const [insertedQuiz] = await db
-              .insert(quizAttempts)
-              .values({
+            await db.transaction(async (tx) => {
+              const [insertedQuiz] = await tx
+                .insert(quizAttempts)
+                .values({
+                  chatId: conversationId,
+                  userId: userId ?? null,
+                  ragSourceId: quizMeta.ragSourceId
+                    ? String(quizMeta.ragSourceId).slice(0, 255)
+                    : null,
+                  category: quizMeta.category,
+                  subtopic: quizMeta.subtopic,
+                  questionStem: quizMeta.questionStem,
+                  options: quizMeta.options,
+                  correctOption: quizMeta.correctOption,
+                  scoringRubric: quizMeta.scoringRubric,
+                  rubricRationale: quizMeta.rubricRationale,
+                  maxScore: 5,
+                  status: 'pending',
+                })
+                .returning({ id: quizAttempts.id });
+
+              insertedQuizId = insertedQuiz.id;
+              const attemptMarker = `\n\n<!--QUIZ_ATTEMPT:${insertedQuizId}-->`;
+              finalBotContent = `${visibleText}${attemptMarker}`;
+
+              await tx.insert(messages).values({
                 chatId: conversationId,
-                userId: userId ?? null,
-                ragSourceId: quizMeta.ragSourceId
-                  ? String(quizMeta.ragSourceId).slice(0, 255)
-                  : null,
-                category: quizMeta.category,
-                subtopic: quizMeta.subtopic,
-                questionStem: quizMeta.questionStem,
-                options: quizMeta.options,
-                correctOption: quizMeta.correctOption,
-                scoringRubric: quizMeta.scoringRubric,
-                rubricRationale: quizMeta.rubricRationale,
-                maxScore: 5,
-                status: 'pending',
-              })
-              .returning();
+                role: 'bot',
+                content: finalBotContent,
+                createdAt: new Date(),
+              });
+            });
 
-            const attemptMarker = `\n\n<!--QUIZ_ATTEMPT:${insertedQuiz.id}-->`;
-            controller.enqueue(encoder.encode(attemptMarker));
-            finalBotContent = `${visibleText}${attemptMarker}`;
+            if (insertedQuizId) {
+              controller.enqueue(
+                encoder.encode(`\n\n<!--QUIZ_ATTEMPT:${insertedQuizId}-->`)
+              );
+            }
+          } else {
+            await db.insert(messages).values({
+              chatId: conversationId,
+              role: 'bot',
+              content: finalBotContent,
+              createdAt: new Date(),
+            });
           }
-
-          await db.insert(messages).values({
-            chatId: conversationId,
-            role: 'bot',
-            content: finalBotContent,
-            createdAt: new Date(),
-          });
 
           await persistGeneratedTitle(conversationId, titlePromise);
 

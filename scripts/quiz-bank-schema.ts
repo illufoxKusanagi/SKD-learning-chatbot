@@ -104,7 +104,7 @@ export type QuizBatch = z.infer<typeof batchSchema>;
 export function normalizeStem(stem: string): string {
   return stem
     .toLowerCase()
-    .replace(/[^\p{L}\p{N}\s]/gu, "")
+    .replace(/[^\p{L}\p{N}\s+\-*\/=<>^%]/gu, "")
     .replace(/\s+/g, " ")
     .trim();
 }

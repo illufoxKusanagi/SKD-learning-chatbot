@@ -1,6 +1,8 @@
-# NextAuth.js Migration Plan
+# NextAuth.js v4 Migration Guide
 
-This document outlines the step-by-step process to migrate the SKD Chatbot application from custom JWT authentication to NextAuth.js (v4/v5).
+This document outlines the step-by-step process used to migrate the SKD Chatbot application from custom JWT authentication to NextAuth.js v4 (the current LTS architecture used in this project).
+
+> **Note on Versioning:** This guide specifically documents NextAuth.js v4 patterns (`NextAuthOptions`, `getServerSession(authOptions)`, route handlers under `src/app/api/auth/[...nextauth]/route.ts`). For future Auth.js v5 migration, see the official Auth.js v5 migration guide for differences in `NextAuthConfig` and `auth()` exports.
 
 ## Phase 1: Setup & Configuration
 
@@ -228,9 +230,9 @@ import { authOptions } from "@/lib/auth";
 export async function POST(req: Request) {
   const session = await getServerSession(authOptions);
   
-  // If session exists, use the real User ID
-  // If not, fall back to Guest logic (if you want to allow guests)
-  const userId = session?.user?.id || "guest_user_id"; 
+  // If session exists, use the authenticated user ID
+  // If unauthenticated, pass null (guest chats are isolated via client-generated conversationId and local guest history)
+  const userId = session?.user?.id ?? null; 
 
   // ... rest of your chat logic ...
 }

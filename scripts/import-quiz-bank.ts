@@ -127,11 +127,13 @@ async function main() {
       const normalizedStem = normalizeStem(q.questionStem);
       const existingStemLoc = stemMap.get(normalizedStem);
       if (existingStemLoc) {
-        console.warn(`[Warn] duplicate questionStem: ${fileName}#${position} matches ${existingStemLoc}`);
+        console.warn(`[Warn] duplicate questionStem: ${fileName}#${position} matches ${existingStemLoc} - skipping duplicate`);
         hasDuplicates = true;
-      } else {
-        stemMap.set(normalizedStem, `${fileName}#${position}`);
+        fileRejected++;
+        fileValid--;
+        continue;
       }
+      stemMap.set(normalizedStem, `${fileName}#${position}`);
 
       if (dryRun) {
         continue;
