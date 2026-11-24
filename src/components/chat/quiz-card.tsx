@@ -1,339 +1,259 @@
 "use client";
 
-import { useState } from "react";
-import { QuizAttemptItem } from "@/hooks/use-chat";
+import { useEffect, useState } from "react";
+import type { QuizAttemptItem } from "@/hooks/use-chat";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardAction,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { Separator } from "@/components/ui/separator";
+import { Skeleton } from "@/components/ui/skeleton";
+import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
 import {
-  CheckCircle2,
-  XCircle,
-  HelpCircle,
-  Award,
+  ArrowRight,
+  BookOpen,
   ChevronDown,
   ChevronUp,
-  Sparkles,
+  MessageSquarePlus,
+  PanelRightOpen,
 } from "lucide-react";
+import { QuizOptionItem } from "./quiz/quiz-option-item";
+import { OPTION_KEYS, type QuizCategory, type QuizOptionKey } from "./quiz/quiz-utils";
 
 interface QuizCardProps {
   quiz: QuizAttemptItem;
-  onSelectOption?: (quizId: string, option: "A" | "B" | "C" | "D" | "E") => void;
-  disabled?: boolean;
+  onSelectOption?: (quizId: string, option: QuizOptionKey) => void;
+  onOpenCanvas?: (quizId: string) => void;
+  onAskTutor?: (quiz: QuizAttemptItem) => void;
+  onNextQuiz?: (category: QuizCategory) => void;
+  gradingOption?: QuizOptionKey | null;
+  isGrading?: boolean;
+  isGeneratingNext?: boolean;
+  isChatLoading?: boolean;
+  showOpenCanvas?: boolean;
+  nextButtonLabel?: string;
   className?: string;
 }
-
-const OPTION_KEYS: ("A" | "B" | "C" | "D" | "E")[] = ["A", "B", "C", "D", "E"];
 
 export function QuizCard({
   quiz,
   onSelectOption,
-  disabled = false,
+  onOpenCanvas,
+  onAskTutor,
+  onNextQuiz,
+  gradingOption = null,
+  isGrading = false,
+  isGeneratingNext = false,
+  isChatLoading = false,
+  showOpenCanvas = true,
+  nextButtonLabel = "Soal Berikutnya",
   className,
 }: QuizCardProps) {
-  const [showExplanation, setShowExplanation] = useState(false);
-
   const isAnswered = quiz.status === "answered";
-  const isTWKorTIU = quiz.category === "TWK" || quiz.category === "TIU";
   const isTKP = quiz.category === "TKP";
   const isCorrect =
-    isTWKorTIU &&
+    !isTKP &&
+    isAnswered &&
     (quiz.scoreEarned === 5 ||
-      (quiz.userAnswer && quiz.correctOption && quiz.userAnswer === quiz.correctOption));
+      Boolean(quiz.userAnswer && quiz.correctOption && quiz.userAnswer === quiz.correctOption));
 
-  const getCategoryBadgeClass = (category: string) => {
-    switch (category) {
-      case "TWK":
-        return "bg-rose-50 text-rose-700 dark:bg-rose-950/60 dark:text-rose-300 border-rose-200 dark:border-rose-800";
-      case "TIU":
-        return "bg-blue-50 text-blue-700 dark:bg-blue-950/60 dark:text-blue-300 border-blue-200 dark:border-blue-800";
-      case "TKP":
-        return "bg-emerald-50 text-emerald-700 dark:bg-emerald-950/60 dark:text-emerald-300 border-emerald-200 dark:border-emerald-800";
-      default:
-        return "bg-muted text-muted-foreground border-border";
-    }
-  };
+  const [isExplanationOpen, setIsExplanationOpen] = useState(isAnswered);
 
-  const getRubricScoreBadge = (score?: number) => {
-    if (typeof score !== "number") return null;
-    let colorClass = "bg-muted text-muted-foreground border-border";
-    if (score === 5) {
-      colorClass = "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30 font-bold";
-    } else if (score === 4) {
-      colorClass = "bg-teal-500/15 text-teal-700 dark:text-teal-300 border-teal-500/30 font-semibold";
-    } else if (score === 3) {
-      colorClass = "bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/30 font-medium";
-    } else if (score === 2) {
-      colorClass = "bg-orange-500/15 text-orange-700 dark:text-orange-300 border-orange-500/30";
-    } else if (score === 1) {
-      colorClass = "bg-rose-500/15 text-rose-700 dark:text-rose-300 border-rose-500/30";
-    }
+  useEffect(() => {
+    setIsExplanationOpen(quiz.status === "answered");
+  }, [quiz.id, quiz.status]);
 
-    return (
-      <span
-        className={cn(
-          "inline-flex items-center px-2 py-0.5 rounded-full text-xs border font-mono tracking-tight",
-          colorClass
-        )}
-      >
-        {score} Poin
-      </span>
-    );
-  };
+  const hasRationale = Boolean(quiz.rubricRationale || quiz.aiExplanation);
 
   return (
-    <div
-      className={cn(
-        "w-full rounded-xl border bg-card text-card-foreground shadow-sm overflow-hidden my-3 transition-all",
-        isAnswered
-          ? isCorrect || (isTKP && (quiz.scoreEarned ?? 0) >= 4)
-            ? "border-emerald-500/40 dark:border-emerald-500/30 shadow-emerald-500/5"
-            : "border-border"
-          : "border-primary/30 shadow-primary/5",
-        className
-      )}
-    >
-      {/* Header bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2 px-4 py-2.5 bg-muted/40 border-b border-border">
-        <div className="flex items-center gap-2 flex-wrap">
-          <span
-            className={cn(
-              "px-2.5 py-0.5 rounded-md text-xs font-bold border tracking-wider",
-              getCategoryBadgeClass(quiz.category)
-            )}
-          >
-            {quiz.category}
-          </span>
-          {quiz.subtopic && (
-            <span className="text-xs px-2.5 py-0.5 rounded-md bg-background border border-border text-muted-foreground font-medium truncate max-w-[220px]">
-              {quiz.subtopic}
-            </span>
+    <Card className={cn("w-full gap-4 py-5 shadow-xs", className)}>
+      <CardHeader className="gap-2 border-b pb-4">
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge variant="secondary">{quiz.category}</Badge>
+          {isAnswered && (
+            <Badge
+              variant={isTKP ? "outline" : isCorrect ? "default" : "destructive"}
+              className={cn(
+                isCorrect && "bg-success text-success-foreground",
+                isTKP && "border-success/50 text-success"
+              )}
+            >
+              {isTKP
+                ? `Skor ${quiz.scoreEarned ?? 0}/${quiz.maxScore ?? 5}`
+                : isCorrect
+                  ? "+5 Poin (Benar)"
+                  : "0 Poin (Salah)"}
+            </Badge>
           )}
         </div>
 
-        {/* Status / Score Badge */}
-        <div>
-          {isAnswered ? (
-            isTWKorTIU ? (
-              isCorrect ? (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  +5 Poin (Benar)
-                </span>
-              ) : (
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-500/15 text-rose-700 dark:text-rose-300 border border-rose-500/30">
-                  <XCircle className="w-3.5 h-3.5" />
-                  0 Poin (Kurang Tepat)
-                </span>
-              )
-            ) : (
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
-                <Award className="w-3.5 h-3.5" />
-                Skor TKP: {quiz.scoreEarned ?? 0}/5 Poin
-              </span>
-            )
-          ) : (
-            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30 animate-pulse">
-              <HelpCircle className="w-3.5 h-3.5" />
-              Pilih Jawaban (A–E)
-            </span>
-          )}
-        </div>
-      </div>
+        <CardTitle className="text-base leading-snug font-semibold">
+          {quiz.subtopic || `Latihan Soal ${quiz.category}`}
+        </CardTitle>
+        <CardDescription>
+          {isAnswered
+            ? "Evaluasi terkunci — pilih soal berikutnya atau diskusikan dengan tutor."
+            : "Pilih satu jawaban terbaik (A–E) untuk melihat pembahasan instan."}
+        </CardDescription>
 
-      {/* Question Stem */}
-      <div className="p-4 space-y-3">
-        <p className="text-sm font-medium leading-relaxed text-foreground whitespace-pre-line">
+        {showOpenCanvas && onOpenCanvas && (
+          <CardAction>
+            <Button
+              type="button"
+              variant="ghost"
+              size="sm"
+              onClick={() => onOpenCanvas(quiz.id)}
+            >
+              <PanelRightOpen data-icon="inline-start" />
+              Panel Kuis
+            </Button>
+          </CardAction>
+        )}
+      </CardHeader>
+
+      <CardContent className="flex flex-col gap-4">
+        <p className="text-sm leading-relaxed whitespace-pre-line text-foreground">
           {quiz.questionStem}
         </p>
 
-        {/* Options List */}
-        <div className="space-y-2 pt-1">
+        <div
+          role="group"
+          aria-label="Pilihan jawaban A sampai E"
+          className="flex flex-col gap-2.5"
+        >
           {OPTION_KEYS.map((opt) => {
-            const optionText = quiz.options ? quiz.options[opt] : null;
+            const optionText = quiz.options?.[opt];
             if (!optionText) return null;
 
-            const isUserChoice = quiz.userAnswer === opt;
-            const isCorrectOption = quiz.correctOption === opt;
-            const rubricScore = quiz.scoringRubric ? quiz.scoringRubric[opt] : undefined;
-
-            if (!isAnswered) {
-              // Interactive button state
-              return (
-                <button
-                  key={opt}
-                  type="button"
-                  disabled={disabled}
-                  onClick={() => onSelectOption?.(quiz.id, opt)}
-                  className={cn(
-                    "w-full text-left flex items-start gap-3 p-3 rounded-lg border transition-all text-sm",
-                    "hover:bg-primary/5 hover:border-primary/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
-                    disabled
-                      ? "opacity-60 cursor-not-allowed"
-                      : "cursor-pointer active:scale-[0.99] border-border bg-card"
-                  )}
-                >
-                  <span className="flex-shrink-0 w-6 h-6 rounded-md bg-muted text-muted-foreground flex items-center justify-center font-bold text-xs border border-border group-hover:bg-primary group-hover:text-primary-foreground">
-                    {opt}
-                  </span>
-                  <span className="flex-1 text-foreground">{optionText}</span>
-                </button>
-              );
-            }
-
-            // Answered / Review State
-            let optionContainerStyle = "border-border bg-card/60 text-muted-foreground";
-            let letterStyle = "bg-muted text-muted-foreground border-border";
-
-            if (isTKP) {
-              if (isUserChoice) {
-                if (rubricScore === 5) {
-                  optionContainerStyle =
-                    "border-emerald-500/60 bg-emerald-50/80 dark:bg-emerald-950/40 text-foreground font-medium shadow-xs";
-                  letterStyle =
-                    "bg-emerald-500 text-white dark:bg-emerald-600 border-emerald-500 font-bold";
-                } else if (rubricScore === 4) {
-                  optionContainerStyle =
-                    "border-teal-500/60 bg-teal-50/80 dark:bg-teal-950/40 text-foreground font-medium shadow-xs";
-                  letterStyle =
-                    "bg-teal-500 text-white dark:bg-teal-600 border-teal-500 font-bold";
-                } else if (rubricScore === 3) {
-                  optionContainerStyle =
-                    "border-amber-500/60 bg-amber-50/80 dark:bg-amber-950/40 text-foreground font-medium shadow-xs";
-                  letterStyle =
-                    "bg-amber-500 text-white dark:bg-amber-600 border-amber-500 font-bold";
-                } else {
-                  optionContainerStyle =
-                    "border-rose-500/60 bg-rose-50/80 dark:bg-rose-950/40 text-foreground font-medium shadow-xs";
-                  letterStyle =
-                    "bg-rose-500 text-white dark:bg-rose-600 border-rose-500 font-bold";
-                }
-              } else if (rubricScore === 5) {
-                optionContainerStyle =
-                  "border-emerald-500/50 bg-emerald-50/50 dark:bg-emerald-950/30 text-foreground font-medium";
-                letterStyle =
-                  "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/40 font-bold";
-              }
-            } else {
-              if (isCorrectOption) {
-                optionContainerStyle =
-                  "border-emerald-500/60 bg-emerald-50/80 dark:bg-emerald-950/40 text-foreground font-medium shadow-xs";
-                letterStyle =
-                  "bg-emerald-500 text-white dark:bg-emerald-600 border-emerald-500 font-bold";
-              } else if (isUserChoice && !isCorrectOption) {
-                optionContainerStyle =
-                  "border-rose-500/60 bg-rose-50/80 dark:bg-rose-950/40 text-foreground font-medium shadow-xs";
-                letterStyle =
-                  "bg-rose-500 text-white dark:bg-rose-600 border-rose-500 font-bold";
-              }
-            }
-
             return (
-              <div
+              <QuizOptionItem
                 key={opt}
-                className={cn(
-                  "w-full flex items-start gap-3 p-3 rounded-lg border transition-all text-sm",
-                  optionContainerStyle
-                )}
-              >
-                <span
-                  className={cn(
-                    "flex-shrink-0 w-6 h-6 rounded-md flex items-center justify-center text-xs border",
-                    letterStyle
-                  )}
-                >
-                  {opt}
-                </span>
-
-                <div className="flex-1 space-y-1">
-                  <div className="flex items-center justify-between gap-2 flex-wrap">
-                    <span className="text-foreground">{optionText}</span>
-                    <div className="flex items-center gap-1.5 flex-shrink-0">
-                      {isUserChoice && (
-                        <span
-                          className={cn(
-                            "inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-semibold border",
-                            isTKP
-                              ? rubricScore === 5
-                                ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/40"
-                                : rubricScore === 4
-                                ? "bg-teal-500/20 text-teal-700 dark:text-teal-300 border-teal-500/40"
-                                : rubricScore === 3
-                                ? "bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/40"
-                                : "bg-rose-500/20 text-rose-700 dark:text-rose-300 border-rose-500/40"
-                              : isCorrectOption
-                              ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/40"
-                              : "bg-rose-500/20 text-rose-700 dark:text-rose-300 border-rose-500/40"
-                          )}
-                        >
-                          {isTKP ? (
-                            (rubricScore ?? 0) >= 4 ? (
-                              <CheckCircle2 className="w-3 h-3" />
-                            ) : (
-                              <XCircle className="w-3 h-3" />
-                            )
-                          ) : isCorrectOption ? (
-                            <CheckCircle2 className="w-3 h-3" />
-                          ) : (
-                            <XCircle className="w-3 h-3" />
-                          )}
-                          Pilihan Anda
-                        </span>
-                      )}
-                      {quiz.scoringRubric && getRubricScoreBadge(rubricScore)}
-                    </div>
-                  </div>
-                </div>
-              </div>
+                optionKey={opt}
+                optionText={optionText}
+                isAnswered={isAnswered}
+                isTKP={isTKP}
+                isUserChoice={quiz.userAnswer === opt}
+                isCorrectOption={quiz.correctOption === opt}
+                correctOption={quiz.correctOption}
+                rubricScore={quiz.scoringRubric?.[opt]}
+                isGradingThisOption={isGrading && gradingOption === opt}
+                disabled={isGrading}
+                onSelect={(selected) => onSelectOption?.(quiz.id, selected)}
+              />
             );
           })}
         </div>
 
-        {/* Answered Explanation Accordion */}
-        {isAnswered && (quiz.rubricRationale || quiz.aiExplanation) && (
-          <div className="pt-2 border-t border-border">
-            <button
-              type="button"
-              onClick={() => setShowExplanation(!showExplanation)}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline cursor-pointer"
-            >
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>
-                {showExplanation
-                  ? "Sembunyikan Pembahasan & Rasional Rubrik"
-                  : "Lihat Pembahasan & Rasional Rubrik"}
-              </span>
-              {showExplanation ? (
-                <ChevronUp className="w-3.5 h-3.5" />
-              ) : (
-                <ChevronDown className="w-3.5 h-3.5" />
-              )}
-            </button>
+        {isAnswered && hasRationale && (
+          <Collapsible
+            open={isExplanationOpen}
+            onOpenChange={setIsExplanationOpen}
+            className="flex flex-col gap-2"
+          >
+            <CollapsibleTrigger asChild>
+              <Button
+                type="button"
+                variant="ghost"
+                size="sm"
+                className="w-fit"
+              >
+                <BookOpen data-icon="inline-start" />
+                {isExplanationOpen
+                  ? "Sembunyikan Pembahasan"
+                  : "Lihat Pembahasan Resmi"}
+                {isExplanationOpen ? (
+                  <ChevronUp data-icon="inline-end" />
+                ) : (
+                  <ChevronDown data-icon="inline-end" />
+                )}
+              </Button>
+            </CollapsibleTrigger>
 
-            {showExplanation && (
-              <div className="mt-3 p-3.5 rounded-lg bg-muted/60 border border-border text-xs space-y-2.5 animate-in fade-in-50 duration-200">
-                {quiz.rubricRationale && (
-                  <div>
-                    <span className="font-bold text-foreground block mb-1">
-                      Rasional Skor & Kunci Jawaban:
-                    </span>
-                    <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
-                      {quiz.rubricRationale}
-                    </p>
-                  </div>
-                )}
-                {quiz.aiExplanation && (
-                  <div>
-                    <span className="font-bold text-foreground block mb-1">
-                      Penjelasan Tambahan:
-                    </span>
-                    <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
-                      {quiz.aiExplanation}
-                    </p>
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
+            <CollapsibleContent>
+              <Alert className="bg-muted/40">
+                <BookOpen />
+                <AlertTitle>Pembahasan & Rasional Rubrik</AlertTitle>
+                <AlertDescription className="flex flex-col gap-2 whitespace-pre-line">
+                  {quiz.rubricRationale && <p>{quiz.rubricRationale}</p>}
+                  {quiz.aiExplanation && <p>{quiz.aiExplanation}</p>}
+                </AlertDescription>
+              </Alert>
+            </CollapsibleContent>
+          </Collapsible>
         )}
-      </div>
-    </div>
+      </CardContent>
+
+      {(onAskTutor || onNextQuiz) && (
+        <>
+          <Separator />
+          <CardFooter className="flex flex-wrap items-center justify-between gap-2">
+            {onAskTutor ? (
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                disabled={isChatLoading}
+                onClick={() => onAskTutor(quiz)}
+              >
+                <MessageSquarePlus data-icon="inline-start" />
+                Diskusikan dengan Tutor
+              </Button>
+            ) : (
+              <div />
+            )}
+
+            {onNextQuiz && (
+              <Button
+                type="button"
+                size="sm"
+                disabled={isGeneratingNext}
+                onClick={() => onNextQuiz(quiz.category)}
+              >
+                {isGeneratingNext && <Spinner data-icon="inline-start" />}
+                {nextButtonLabel}
+                {!isGeneratingNext && <ArrowRight data-icon="inline-end" />}
+              </Button>
+            )}
+          </CardFooter>
+        </>
+      )}
+    </Card>
+  );
+}
+
+export function QuizCardSkeleton({ className }: { className?: string }) {
+  return (
+    <Card className={cn("w-full gap-4 py-5", className)}>
+      <CardHeader className="gap-2 border-b pb-4">
+        <div className="flex items-center gap-2">
+          <Skeleton className="h-5 w-14 rounded-full" />
+          <Skeleton className="h-5 w-28" />
+        </div>
+        <Skeleton className="h-4 w-3/4" />
+      </CardHeader>
+      <CardContent className="flex flex-col gap-3">
+        <Skeleton className="h-4 w-full" />
+        <Skeleton className="h-4 w-5/6" />
+        <div className="flex flex-col gap-2 pt-2">
+          {OPTION_KEYS.map((key) => (
+            <Skeleton key={key} className="h-12 w-full rounded-xl" />
+          ))}
+        </div>
+      </CardContent>
+    </Card>
   );
 }

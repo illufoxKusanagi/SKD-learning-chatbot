@@ -1,128 +1,114 @@
 'use client';
 
-import { AppSidebar } from '@/components/ui/app-sidebar';
-import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
-import { Suspense } from 'react';
-import { cn } from '@/lib/utils';
-import ChatInput from '@/components/chat/chat-input';
-import { ScrollArea } from '@radix-ui/react-scroll-area';
-import { Message } from '@/lib/types/chat';
-import { useChat, QuizAttemptItem } from '@/hooks/use-chat';
-import { QuizCard } from '@/components/chat/quiz-card';
-import { ChatQuizDrawer } from '@/components/chat/chat-quiz-drawer';
+import { Suspense, useState } from 'react';
+import Link from 'next/link';
+import { useSession } from 'next-auth/react';
 import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw';
 import rehypeHighlight from 'rehype-highlight';
+import rehypeRaw from 'rehype-raw';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
-import ModeToggleButton from '@/components/ui/mode-toggle-button';
-import HelpButton from '@/components/ui/help-button';
-import { useSession } from 'next-auth/react';
-import Link from 'next/link';
+import { Alert, AlertDescription } from '@/components/ui/alert';
+import { AppSidebar } from '@/components/ui/app-sidebar';
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { History, Award } from 'lucide-react';
-
-function parseMessageQuizMarkers(content: string) {
-  let attemptId: string | null = null;
-  let evalQuizId: string | null = null;
-  let evalOption: 'A' | 'B' | 'C' | 'D' | 'E' | null = null;
-  let evalScore: number | null = null;
-
-  const attemptMatch = content.match(/<!--QUIZ_ATTEMPT:([a-f0-9-]+)-->/i);
-  if (attemptMatch && attemptMatch[1]) {
-    attemptId = attemptMatch[1];
-  }
-
-  const evalMatch = content.match(
-    /<!--QUIZ_EVAL:([a-f0-9-]+):([A-E]):(\d+)-->/i
-  );
-  if (evalMatch) {
-    evalQuizId = evalMatch[1];
-    evalOption = evalMatch[2].toUpperCase() as 'A' | 'B' | 'C' | 'D' | 'E';
-    evalScore = parseInt(evalMatch[3], 10);
-  }
-
-  const cleanContent = content
-    .replace(/<!--QUIZ_ATTEMPT:[^>]+-->/gi, '')
-    .replace(/<!--QUIZ_EVAL:[^>]+-->/gi, '')
-    .trim();
-
-  return {
-    cleanContent,
-    attemptId,
-    evalQuizId,
-    evalOption,
-    evalScore,
-    quizId: attemptId || evalQuizId,
-  };
-}
+import HelpButton from '@/components/ui/help-button';
+import ModeToggleButton from '@/components/ui/mode-toggle-button';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
+import ChatInput from '@/components/chat/chat-input';
+import { QuizCard, QuizCardSkeleton } from '@/components/chat/quiz-card';
+import { QuizCanvasPanel } from '@/components/chat/quiz/quiz-canvas-panel';
+import {
+  parseMessageQuizMarkers,
+  stripRedundantQuizMarkdown,
+  type QuizCategory,
+  type QuizOptionKey,
+} from '@/components/chat/quiz/quiz-utils';
+import { useChat, type QuizAttemptItem } from '@/hooks/use-chat';
+import type { Message } from '@/lib/types/chat';
+import { cn } from '@/lib/utils';
+import { AlertTriangle, Award, BookOpen, History } from 'lucide-react';
 
 interface TextBubbleProps extends Message {
   isThinking?: boolean;
+  hasAttemptMarker?: boolean;
   matchedQuiz?: QuizAttemptItem;
-  onSelectQuizOption?: (
-    quizId: string,
-    option: 'A' | 'B' | 'C' | 'D' | 'E'
-  ) => void;
-  isSubmitting?: boolean;
+  isLoadingQuiz?: boolean;
+  onSelectQuizOption?: (quizId: string, option: QuizOptionKey) => void;
+  onOpenCanvas?: (quizId: string) => void;
+  onAskTutor?: (quiz: QuizAttemptItem) => void;
+  onNextQuiz?: (category: QuizCategory) => void;
+  gradingQuizId?: string | null;
+  gradingOption?: QuizOptionKey | null;
+  isGeneratingNext?: boolean;
+  isChatLoading?: boolean;
 }
 
 function TextBubble({
   role,
   content,
   isThinking = false,
+  hasAttemptMarker = false,
   matchedQuiz,
+  isLoadingQuiz = false,
   onSelectQuizOption,
-  isSubmitting = false,
+  onOpenCanvas,
+  onAskTutor,
+  onNextQuiz,
+  gradingQuizId = null,
+  gradingOption = null,
+  isGeneratingNext = false,
+  isChatLoading = false,
 }: TextBubbleProps) {
   const isUser = role === 'user';
+  const displayContent = !isUser
+    ? stripRedundantQuizMarkdown(content, hasAttemptMarker)
+    : content;
 
   return (
     <div
       className={cn(
-        'flex w-full mb-4',
-        isUser ? 'justify-end' : 'justify-start'
+        'flex w-full flex-col gap-3',
+        isUser ? 'items-end' : 'items-start'
       )}
     >
-      <div
-        className={cn(
-          'max-w-[85%] sm:max-w-[75%] rounded-2xl px-4 py-3 transition-all',
-          isUser
-            ? 'bg-primary text-primary-foreground shadow-sm'
-            : 'bg-muted/70 text-foreground border border-border shadow-xs',
-          isThinking && 'animate-pulse'
-        )}
-      >
-        {content && content.length > 0 && (
-          <section className="prose prose-sm max-w-none dark:prose-invert break-words">
+      {displayContent.length > 0 && (
+        <div
+          className={cn(
+            'max-w-[85%] rounded-2xl px-4 py-3 sm:max-w-[75%]',
+            isUser
+              ? 'bg-primary text-primary-foreground shadow-xs'
+              : 'border border-border bg-muted/70 text-foreground',
+            isThinking && 'shimmer'
+          )}
+        >
+          <section className="prose prose-sm max-w-none break-words dark:prose-invert">
             <ReactMarkdown
               remarkPlugins={[remarkBreaks, remarkGfm]}
               rehypePlugins={[rehypeRaw, rehypeHighlight]}
               components={{
                 h1: ({ ...props }) => (
-                  <h1 className="text-xl font-bold my-2" {...props} />
+                  <h1 className="my-2 text-xl font-bold" {...props} />
                 ),
                 h2: ({ ...props }) => (
-                  <h2 className="text-lg font-bold my-2" {...props} />
+                  <h2 className="my-2 text-lg font-bold" {...props} />
                 ),
                 h3: ({ ...props }) => (
-                  <h3 className="text-base font-bold my-1.5" {...props} />
+                  <h3 className="my-1.5 text-base font-bold" {...props} />
                 ),
                 ul: ({ ...props }) => (
-                  <ul className="list-disc my-2 pl-4 space-y-0.5" {...props} />
+                  <ul className="my-2 list-disc pl-4" {...props} />
                 ),
                 ol: ({ ...props }) => (
-                  <ol
-                    className="list-decimal my-2 pl-4 space-y-0.5"
-                    {...props}
-                  />
+                  <ol className="my-2 list-decimal pl-4" {...props} />
                 ),
                 p: ({ ...props }) => (
-                  <p className="mb-2 leading-relaxed" {...props} />
+                  <p className="mb-2 leading-relaxed last:mb-0" {...props} />
                 ),
                 a: ({ ...props }) => (
                   <a
-                    className="text-primary underline hover:text-primary/80 transition-colors"
+                    className="text-primary underline transition-colors hover:text-primary/80"
                     target="_blank"
                     rel="noopener noreferrer"
                     {...props}
@@ -131,14 +117,14 @@ function TextBubble({
                 code: ({ className, children, ...props }) => {
                   const match = /language-(\w+)/.exec(className || '');
                   return match ? (
-                    <pre className="bg-slate-900 text-slate-100 p-3 my-2 rounded-lg overflow-x-auto text-xs">
+                    <pre className="my-2 overflow-x-auto rounded-lg bg-secondary p-3 text-xs text-secondary-foreground">
                       <code className={className} {...props}>
                         {children}
                       </code>
                     </pre>
                   ) : (
                     <code
-                      className="bg-muted px-1.5 py-0.5 rounded text-xs font-mono"
+                      className="rounded bg-muted px-1.5 py-0.5 font-mono text-xs"
                       {...props}
                     >
                       {children}
@@ -147,39 +133,64 @@ function TextBubble({
                 },
               }}
             >
-              {content}
+              {displayContent}
             </ReactMarkdown>
           </section>
-        )}
+        </div>
+      )}
 
-        {/* Render Interactive / Reviewed QuizCard */}
-        {!isUser && matchedQuiz && (
-          <div className="mt-2 pt-1 border-t border-border/50">
-            <QuizCard
-              quiz={matchedQuiz}
-              onSelectOption={onSelectQuizOption}
-              disabled={isSubmitting}
-            />
-          </div>
-        )}
-      </div>
+      {/* Standalone Gemini-style Interactive Quiz Card outside the grey bubble */}
+      {!isUser && matchedQuiz && (
+        <div className="w-full max-w-2xl">
+          <QuizCard
+            quiz={matchedQuiz}
+            onSelectOption={onSelectQuizOption}
+            onOpenCanvas={onOpenCanvas}
+            onAskTutor={onAskTutor}
+            onNextQuiz={onNextQuiz}
+            gradingOption={
+              gradingQuizId === matchedQuiz.id ? gradingOption : null
+            }
+            isGrading={gradingQuizId === matchedQuiz.id}
+            isGeneratingNext={isGeneratingNext}
+            isChatLoading={isChatLoading}
+          />
+        </div>
+      )}
+
+      {!isUser && !matchedQuiz && hasAttemptMarker && isLoadingQuiz && (
+        <div className="w-full max-w-2xl">
+          <QuizCardSkeleton />
+        </div>
+      )}
     </div>
   );
 }
 
 function ChatHistory({
   isLoading,
+  isLoadingQuizzes,
   messages,
   quizzes,
+  gradingQuizId,
+  gradingOption,
+  isGeneratingQuiz,
   onSelectQuizOption,
+  onOpenCanvas,
+  onAskTutor,
+  onNextQuiz,
 }: {
   isLoading: boolean;
+  isLoadingQuizzes: boolean;
   messages: Message[];
   quizzes: QuizAttemptItem[];
-  onSelectQuizOption: (
-    quizId: string,
-    option: 'A' | 'B' | 'C' | 'D' | 'E'
-  ) => void;
+  gradingQuizId: string | null;
+  gradingOption: QuizOptionKey | null;
+  isGeneratingQuiz: boolean;
+  onSelectQuizOption: (quizId: string, option: QuizOptionKey) => void;
+  onOpenCanvas: (quizId: string) => void;
+  onAskTutor: (quiz: QuizAttemptItem) => void;
+  onNextQuiz: (category: QuizCategory) => void;
 }) {
   const lastMessage = messages[messages.length - 1];
   const showThinking =
@@ -189,11 +200,13 @@ function ChatHistory({
       (lastMessage.role === 'bot' && !lastMessage.content));
 
   return (
-    <div className="flex-1 space-y-4 overflow-y-auto p-4 sm:p-6 max-w-4xl mx-auto w-full">
+    <div className="mx-auto flex w-full max-w-4xl flex-1 flex-col gap-4 p-4 sm:p-6">
       {messages.map((msg, index) => {
         if (msg.role === 'bot' && !msg.content && isLoading) return null;
 
-        const { cleanContent, quizId } = parseMessageQuizMarkers(msg.content);
+        const { cleanContent, attemptId, quizId } = parseMessageQuizMarkers(
+          msg.content
+        );
         const matchedQuiz =
           msg.role === 'bot' && quizId
             ? quizzes.find((q) => q.id === quizId)
@@ -205,12 +218,21 @@ function ChatHistory({
             role={msg.role}
             content={cleanContent}
             timestamp={msg.timestamp}
+            hasAttemptMarker={Boolean(attemptId)}
             matchedQuiz={matchedQuiz}
+            isLoadingQuiz={isLoadingQuizzes}
             onSelectQuizOption={onSelectQuizOption}
-            isSubmitting={isLoading}
+            onOpenCanvas={onOpenCanvas}
+            onAskTutor={onAskTutor}
+            onNextQuiz={onNextQuiz}
+            gradingQuizId={gradingQuizId}
+            gradingOption={gradingOption}
+            isGeneratingNext={isGeneratingQuiz}
+            isChatLoading={isLoading}
           />
         );
       })}
+
       {showThinking && (
         <TextBubble
           role="bot"
@@ -224,11 +246,18 @@ function ChatHistory({
 
 function ChatContent() {
   const {
+    activeChatId,
     messages,
     isLoading,
     chatTitle,
     quizzes,
+    isLoadingQuizzes,
+    gradingQuizId,
+    gradingOption,
+    isGeneratingQuiz,
     submitQuizAnswer,
+    requestNextQuiz,
+    askTutorAboutQuiz,
     handleSendMessage,
   } = useChat();
 
@@ -236,120 +265,176 @@ function ChatContent() {
   const isAuthenticated = status === 'authenticated';
   const user = session?.user;
 
+  const [isCanvasOpen, setIsCanvasOpen] = useState(false);
+  const [activeQuizId, setActiveQuizId] = useState<string | null>(null);
+
+  const pendingQuizCount = quizzes.filter((q) => q.status === 'pending').length;
+  const quizHistoryHref = activeChatId
+    ? `/quiz-history?fromChatId=${encodeURIComponent(activeChatId)}`
+    : '/quiz-history';
+
+  const openQuizInCanvas = (quizId?: string) => {
+    setActiveQuizId(quizId ?? quizzes[quizzes.length - 1]?.id ?? null);
+    setIsCanvasOpen(true);
+  };
+
+  const handleNextQuizFromStream = async (category: QuizCategory) => {
+    const created = await requestNextQuiz({
+      category,
+      insertChatMarker: true,
+    });
+    if (created && isCanvasOpen) {
+      setActiveQuizId(created.id);
+    }
+  };
+
   return (
-    <div className="flex flex-col h-screen relative overflow-hidden bg-background">
+    <div className="relative flex h-screen flex-col overflow-hidden bg-background">
       {/* Guest User Notice */}
       {!isAuthenticated && (
-        <div className="bg-amber-50 dark:bg-amber-950/30 border-b border-amber-200 dark:border-amber-800/50 px-4 py-2 text-center">
-          <div className="flex items-center justify-center text-xs text-amber-800 dark:text-amber-300 gap-1.5">
+        <Alert className="rounded-none border-x-0 border-t-0 bg-warning/10 py-2">
+          <AlertTriangle className="text-warning" />
+          <AlertDescription className="flex flex-wrap items-center justify-center gap-1.5 text-xs text-foreground">
             <span>
-              ⚠️ Mode Tamu: Percakapan & latihan soal anda disimpan sementara
-              (24 jam).
+              Mode Tamu: Percakapan & latihan soal disimpan sementara (24 jam).
             </span>
             <Link
               href="/auth/login"
-              className="underline hover:no-underline font-semibold"
+              className="font-semibold text-primary underline hover:no-underline"
             >
               Login untuk simpan permanen
             </Link>
-          </div>
-        </div>
+          </AlertDescription>
+        </Alert>
       )}
 
-      {/* Top Floating Controls */}
-      <div
-        className={cn(
-          'flex absolute gap-3 z-10 right-4 items-center',
-          isAuthenticated ? 'top-3' : 'top-12'
-        )}
+      <SidebarProvider
+        defaultOpen={true}
+        className="!min-h-0 flex-1 overflow-hidden"
       >
-        <ModeToggleButton />
-        <HelpButton />
-        {isAuthenticated ? (
-          <div className="flex items-center gap-2 px-2 py-1">
-            <span className="text-xs font-semibold text-foreground">
-              {user?.name || user?.email?.split('@')[0] || 'User'}
-            </span>
-          </div>
-        ) : (
-          <Link href="/auth/login">
-            <Button size="sm" className="h-8 text-xs font-semibold">
-              Login
-            </Button>
-          </Link>
-        )}
-      </div>
-
-      <SidebarProvider defaultOpen={true}>
-        <div className="flex flex-row w-full h-full">
+        <div className="flex h-full w-full flex-row overflow-hidden">
           {isAuthenticated ? <AppSidebar /> : null}
-          <main className="flex flex-col flex-1 h-full min-w-0 relative">
-            {/* Main Header */}
-            <div className="flex bg-secondary/60 backdrop-blur min-h-14 border-b border-border w-full items-center justify-between px-4">
-              <div className="flex items-center gap-3">
-                {isAuthenticated ? (
-                  <SidebarTrigger className="justify-center" />
-                ) : null}
-                <div className="flex items-center gap-2">
-                  <Award className="w-4 h-4 text-primary" />
-                  <p className="text-sm font-semibold truncate max-w-[280px] sm:max-w-md">
-                    {chatTitle || 'Sesi Belajar Baru'}
-                  </p>
-                </div>
-              </div>
-            </div>
 
-            {/* Quiz Quick Access Sub-Header Bar */}
-            <div className="flex items-center justify-between px-4 py-2 bg-muted/30 border-b border-border text-xs">
-              <div className="flex items-center gap-2">
-                <ChatQuizDrawer
-                  quizzes={quizzes}
-                  onSelectOption={submitQuizAnswer}
-                  disabled={isLoading}
-                />
+          <main className="relative flex h-full min-w-0 flex-1 flex-col">
+            {/* Unified Single Top Header */}
+            <header className="flex h-14 shrink-0 items-center justify-between gap-2 border-b border-border bg-background/95 px-4 backdrop-blur">
+              <div className="flex min-w-0 items-center gap-2.5">
+                {isAuthenticated ? <SidebarTrigger /> : null}
+                <Award className="size-4 shrink-0 text-primary" />
+                <p className="truncate text-sm font-semibold text-foreground">
+                  {chatTitle || 'Sesi Belajar Baru'}
+                </p>
               </div>
 
-              <div className="flex items-center gap-3">
-                <Link
-                  href="/quiz-history"
-                  className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted-foreground hover:text-primary transition-colors cursor-pointer"
+              <div className="flex shrink-0 items-center gap-2">
+                <Button
+                  type="button"
+                  variant={isCanvasOpen ? 'secondary' : 'outline'}
+                  size="sm"
+                  onClick={() =>
+                    isCanvasOpen ? setIsCanvasOpen(false) : openQuizInCanvas()
+                  }
                 >
-                  <History className="w-3.5 h-3.5" />
-                  <span>Riwayat Latihan SKD</span>
-                </Link>
+                  <BookOpen data-icon="inline-start" />
+                  <span>Panel Kuis</span>
+                  {quizzes.length > 0 && (
+                    <Badge variant="secondary">{quizzes.length}</Badge>
+                  )}
+                  {pendingQuizCount > 0 && (
+                    <Badge variant="default">{pendingQuizCount} baru</Badge>
+                  )}
+                </Button>
+
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="hidden sm:inline-flex"
+                >
+                  <Link href={quizHistoryHref}>
+                    <History data-icon="inline-start" />
+                    Riwayat SKD
+                  </Link>
+                </Button>
+
+                <ModeToggleButton />
+                <HelpButton />
+
+                {isAuthenticated ? (
+                  <span className="hidden px-1.5 text-xs font-semibold text-foreground md:inline">
+                    {user?.name || user?.email?.split('@')[0] || 'User'}
+                  </span>
+                ) : (
+                  <Button asChild size="sm">
+                    <Link href="/auth/login">Login</Link>
+                  </Button>
+                )}
               </div>
-            </div>
+            </header>
 
-            {/* Chat Messages */}
-            <ScrollArea className="flex-1 overflow-y-auto">
-              <Suspense
-                fallback={<div className="p-4 text-xs">Memuat chat...</div>}
-              >
-                <ChatHistory
-                  isLoading={isLoading}
-                  messages={messages}
-                  quizzes={quizzes}
-                  onSelectQuizOption={submitQuizAnswer}
-                />
-              </Suspense>
-            </ScrollArea>
+            {/* Split Workspace: Chat Stream + Side-by-Side Quiz Canvas */}
+            <div className="flex min-h-0 flex-1 overflow-hidden">
+              <div className="flex min-h-0 min-w-0 flex-1 flex-col">
+                <ScrollArea className="min-h-0 flex-1">
+                  <Suspense
+                    fallback={
+                      <div className="p-4 text-xs text-muted-foreground">
+                        Memuat chat...
+                      </div>
+                    }
+                  >
+                    <ChatHistory
+                      isLoading={isLoading}
+                      isLoadingQuizzes={isLoadingQuizzes}
+                      messages={messages}
+                      quizzes={quizzes}
+                      gradingQuizId={gradingQuizId}
+                      gradingOption={gradingOption}
+                      isGeneratingQuiz={isGeneratingQuiz}
+                      onSelectQuizOption={submitQuizAnswer}
+                      onOpenCanvas={openQuizInCanvas}
+                      onAskTutor={askTutorAboutQuiz}
+                      onNextQuiz={handleNextQuizFromStream}
+                    />
+                  </Suspense>
+                </ScrollArea>
 
-            {/* Chat Input Bar */}
-            <div className="flex pt-2 pb-6 px-4 justify-center w-full">
-              <ChatInput
-                onSendMessage={handleSendMessage}
-                onSendQuickPrompt={(prompt) => handleSendMessage(prompt)}
-                isLoading={isLoading}
+                <div className="flex w-full justify-center px-4 pt-2 pb-4">
+                  <ChatInput
+                    onSendMessage={handleSendMessage}
+                    onSendQuickPrompt={(prompt) => handleSendMessage(prompt)}
+                    isLoading={isLoading}
+                  />
+                </div>
+
+                <footer className="flex h-6 w-full shrink-0 items-center justify-center pb-2">
+                  <p className="text-[11px] text-muted-foreground">
+                    Tutor SKD CPNS • Soal HOTS TWK, TIU, TKP & Evaluasi Terkunci
+                  </p>
+                </footer>
+              </div>
+
+              <QuizCanvasPanel
+                open={isCanvasOpen}
+                onOpenChange={setIsCanvasOpen}
+                chatId={activeChatId}
+                quizzes={quizzes}
+                activeQuizId={activeQuizId}
+                onSelectQuizId={setActiveQuizId}
+                onGradeOption={submitQuizAnswer}
+                gradingQuizId={gradingQuizId}
+                gradingOption={gradingOption}
+                onRequestNextQuiz={(cat) =>
+                  requestNextQuiz({
+                    category: cat,
+                    insertChatMarker: true,
+                  })
+                }
+                isGeneratingQuiz={isGeneratingQuiz}
+                onAskTutor={askTutorAboutQuiz}
+                isChatLoading={isLoading}
               />
             </div>
-
-            {/* Footer */}
-            <footer className="flex flex-col h-6 w-full justify-center items-center pb-2">
-              <p className="text-[11px] text-muted-foreground">
-                Tutor SKD CPNS • Dilengkapi Soal HOTS TWK, TIU, TKP & Evaluasi
-                Akurat
-              </p>
-            </footer>
           </main>
         </div>
       </SidebarProvider>
@@ -361,7 +446,9 @@ export default function ChatPage() {
   return (
     <Suspense
       fallback={
-        <div className="p-8 text-center text-sm">Memuat aplikasi...</div>
+        <div className="p-8 text-center text-sm text-muted-foreground">
+          Memuat aplikasi...
+        </div>
       }
     >
       <ChatContent />
