@@ -1,14 +1,25 @@
 import { db } from '@/lib/db';
-import { conversations, quizAttempts } from '@/lib/db/schema';
+import { conversations, messages, quizAttempts } from '@/lib/db/schema';
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { eq, and, or, inArray, desc } from 'drizzle-orm';
+import z from 'zod';
 import {
   ApiError,
   withMiddleware,
   createRateLimitMiddleware,
 } from '@/middleware/api';
+import {
+  findRelevantContents,
+  SkdQuizMetadata,
+} from '@/lib/services/ai/rag.service';
+import {
+  generateAiResponse,
+  extractQuizMetaFromText,
+} from '@/lib/services/ai/gemini.service';
+
+export const maxDuration = 60;
 
 function isValidUuid(val?: string | null): boolean {
   if (!val) return false;
@@ -16,6 +27,50 @@ function isValidUuid(val?: string | null): boolean {
     val
   );
 }
+
+function sanitizeQuizAttempt(
+  quiz: typeof quizAttempts.$inferSelect,
+  chatTitle?: string | null
+) {
+  const isAnswered = quiz.status === 'answered';
+  return {
+    id: quiz.id,
+    chatId: quiz.chatId,
+    chatTitle: chatTitle || 'Sesi SKD',
+    userId: quiz.userId,
+    ragSourceId: quiz.ragSourceId,
+    category: quiz.category,
+    subtopic: quiz.subtopic,
+    questionStem: quiz.questionStem,
+    options: quiz.options,
+    maxScore: quiz.maxScore,
+    status: quiz.status,
+    createdAt: quiz.createdAt,
+    // Sensitive fields only revealed once answered
+    correctOption: isAnswered ? quiz.correctOption : null,
+    scoringRubric: isAnswered ? quiz.scoringRubric : null,
+    rubricRationale: isAnswered ? quiz.rubricRationale : null,
+    userAnswer: isAnswered ? quiz.userAnswer : null,
+    scoreEarned: isAnswered ? quiz.scoreEarned : null,
+    aiExplanation: isAnswered ? quiz.aiExplanation : null,
+    answeredAt: isAnswered ? quiz.answeredAt : null,
+  };
+}
+
+const quizPostSchema = z.discriminatedUnion('action', [
+  z.object({
+    action: z.literal('grade'),
+    quizAttemptId: z.string().uuid('Format quizAttemptId tidak valid'),
+    selectedOption: z.enum(['A', 'B', 'C', 'D', 'E']),
+  }),
+  z.object({
+    action: z.literal('next'),
+    chatId: z.string().uuid().nullish(),
+    category: z.enum(['TWK', 'TIU', 'TKP']).optional(),
+    subtopic: z.string().trim().max(120).optional(),
+    insertChatMarker: z.boolean().optional(),
+  }),
+]);
 
 function getZeroStats() {
   return {
@@ -321,37 +376,313 @@ async function handleGetQuizzes(request: NextRequest) {
   }
 
   // Security Rule: For status === "pending", sanitize correctOption, scoringRubric, and rubricRationale
-  const sanitizedQuizzes = filteredRows.map(({ quiz, chatTitle }) => {
-    const isAnswered = quiz.status === 'answered';
-    return {
-      id: quiz.id,
-      chatId: quiz.chatId,
-      chatTitle: chatTitle || 'Sesi SKD',
-      userId: quiz.userId,
-      ragSourceId: quiz.ragSourceId,
-      category: quiz.category,
-      subtopic: quiz.subtopic,
-      questionStem: quiz.questionStem,
-      options: quiz.options,
-      maxScore: quiz.maxScore,
-      status: quiz.status,
-      createdAt: quiz.createdAt,
-      // Sensitive fields only revealed once answered
-      correctOption: isAnswered ? quiz.correctOption : null,
-      scoringRubric: isAnswered ? quiz.scoringRubric : null,
-      rubricRationale: isAnswered ? quiz.rubricRationale : null,
-      userAnswer: isAnswered ? quiz.userAnswer : null,
-      scoreEarned: isAnswered ? quiz.scoreEarned : null,
-      aiExplanation: isAnswered ? quiz.aiExplanation : null,
-      answeredAt: isAnswered ? quiz.answeredAt : null,
-    };
-  });
+  const sanitizedQuizzes = filteredRows.map(({ quiz, chatTitle }) =>
+    sanitizeQuizAttempt(quiz, chatTitle)
+  );
 
   return NextResponse.json({
     success: true,
     data: {
       quizzes: sanitizedQuizzes,
       stats,
+    },
+  });
+}
+
+async function handlePostQuiz(request: NextRequest) {
+  let rawBody: unknown;
+  try {
+    rawBody = await request.json();
+  } catch {
+    throw new ApiError('Body JSON tidak valid', 400, 'INVALID_JSON');
+  }
+
+  const payload = quizPostSchema.parse(rawBody);
+
+  let authUserId: string | null = null;
+  try {
+    const session = await getServerSession(authOptions);
+    if (session?.user?.id) {
+      authUserId = session.user.id;
+    }
+  } catch (authErr) {
+    console.warn('[POST /api/quiz] Session retrieval warning:', authErr);
+  }
+
+  if (payload.action === 'grade') {
+    const [row] = await db
+      .select({
+        quiz: quizAttempts,
+        chatTitle: conversations.title,
+        chatUserId: conversations.userId,
+        isGuestChat: conversations.isGuestChat,
+        expiresAt: conversations.expiresAt,
+      })
+      .from(quizAttempts)
+      .innerJoin(conversations, eq(quizAttempts.chatId, conversations.id))
+      .where(eq(quizAttempts.id, payload.quizAttemptId))
+      .limit(1);
+
+    if (!row) {
+      throw new ApiError('Soal kuis tidak ditemukan', 404, 'QUIZ_NOT_FOUND');
+    }
+
+    if (row.chatUserId && row.chatUserId !== authUserId) {
+      throw new ApiError(
+        'Anda tidak memiliki akses ke kuis chat ini',
+        403,
+        'CHAT_ACCESS_DENIED'
+      );
+    }
+
+    if (!row.chatUserId && !row.isGuestChat) {
+      throw new ApiError(
+        'Anda tidak memiliki akses ke kuis chat ini',
+        403,
+        'CHAT_ACCESS_DENIED'
+      );
+    }
+
+    if (row.isGuestChat && row.expiresAt && new Date() > row.expiresAt) {
+      throw new ApiError(
+        'Sesi kuis tamu telah kedaluwarsa',
+        410,
+        'CHAT_EXPIRED'
+      );
+    }
+
+    if (row.quiz.status === 'answered') {
+      return NextResponse.json({
+        success: true,
+        data: {
+          quiz: sanitizeQuizAttempt(row.quiz, row.chatTitle),
+          alreadyAnswered: true,
+        },
+      });
+    }
+
+    const rubric = row.quiz.scoringRubric as Record<string, number> | null;
+    const scoreEarned =
+      typeof rubric?.[payload.selectedOption] === 'number'
+        ? rubric[payload.selectedOption]
+        : payload.selectedOption === row.quiz.correctOption
+          ? 5
+          : 0;
+
+    const [updatedQuiz] = await db
+      .update(quizAttempts)
+      .set({
+        userAnswer: payload.selectedOption,
+        scoreEarned,
+        status: 'answered',
+        answeredAt: new Date(),
+      })
+      .where(
+        and(
+          eq(quizAttempts.id, row.quiz.id),
+          eq(quizAttempts.status, 'pending')
+        )
+      )
+      .returning();
+
+    if (!updatedQuiz) {
+      const [latestQuiz] = await db
+        .select()
+        .from(quizAttempts)
+        .where(eq(quizAttempts.id, row.quiz.id))
+        .limit(1);
+
+      if (!latestQuiz) {
+        throw new ApiError('Soal kuis tidak ditemukan', 404, 'QUIZ_NOT_FOUND');
+      }
+
+      return NextResponse.json({
+        success: true,
+        data: {
+          quiz: sanitizeQuizAttempt(latestQuiz, row.chatTitle),
+          alreadyAnswered: true,
+        },
+      });
+    }
+
+    return NextResponse.json({
+      success: true,
+      data: {
+        quiz: sanitizeQuizAttempt(updatedQuiz, row.chatTitle),
+        alreadyAnswered: false,
+      },
+    });
+  }
+
+  // Branch: action === 'next'
+  let conversationId = payload.chatId ?? null;
+  let chatTitle = payload.category
+    ? `Latihan ${payload.category}`
+    : 'Latihan SKD Interaktif';
+
+  if (conversationId) {
+    const [existingChat] = await db
+      .select({
+        id: conversations.id,
+        userId: conversations.userId,
+        title: conversations.title,
+        isGuestChat: conversations.isGuestChat,
+        expiresAt: conversations.expiresAt,
+      })
+      .from(conversations)
+      .where(eq(conversations.id, conversationId))
+      .limit(1);
+
+    if (!existingChat) {
+      throw new ApiError('Chat tidak ditemukan', 404, 'CHAT_NOT_FOUND');
+    }
+
+    if (existingChat.userId && existingChat.userId !== authUserId) {
+      throw new ApiError(
+        'Anda tidak memiliki akses ke chat ini',
+        403,
+        'CHAT_ACCESS_DENIED'
+      );
+    }
+
+    if (!existingChat.userId && !existingChat.isGuestChat) {
+      throw new ApiError(
+        'Akses ditolak ke chat pengguna terdaftar',
+        403,
+        'CHAT_ACCESS_DENIED'
+      );
+    }
+
+    if (
+      existingChat.isGuestChat &&
+      existingChat.expiresAt &&
+      new Date() > existingChat.expiresAt
+    ) {
+      throw new ApiError(
+        'Chat sementara telah kedaluwarsa',
+        410,
+        'CHAT_EXPIRED'
+      );
+    }
+
+    chatTitle = existingChat.title || chatTitle;
+  } else if (authUserId) {
+    const [newChat] = await db
+      .insert(conversations)
+      .values({
+        userId: authUserId,
+        title: chatTitle,
+        createdAt: new Date(),
+        isGuestChat: false,
+      })
+      .returning({ id: conversations.id, title: conversations.title });
+    conversationId = newChat.id;
+    chatTitle = newChat.title || chatTitle;
+  } else {
+    const guestSessionId = `guest_${Date.now()}_${Math.random()
+      .toString(36)
+      .substring(7)}`;
+    const expiresAt = new Date();
+    expiresAt.setDate(expiresAt.getDate() + 1);
+
+    const [newGuestChat] = await db
+      .insert(conversations)
+      .values({
+        userId: null,
+        title: chatTitle,
+        createdAt: new Date(),
+        isGuestChat: true,
+        guestSessionId,
+        expiresAt,
+      })
+      .returning({ id: conversations.id, title: conversations.title });
+    conversationId = newGuestChat.id;
+    chatTitle = newGuestChat.title || chatTitle;
+  }
+
+  const [chatQuizzes, userQuizzes] = await Promise.all([
+    db
+      .select({ ragSourceId: quizAttempts.ragSourceId })
+      .from(quizAttempts)
+      .where(eq(quizAttempts.chatId, conversationId)),
+    authUserId
+      ? db
+          .select({ ragSourceId: quizAttempts.ragSourceId })
+          .from(quizAttempts)
+          .where(eq(quizAttempts.userId, authUserId))
+      : Promise.resolve([] as { ragSourceId: string | null }[]),
+  ]);
+
+  const attemptedSourceSet = new Set<string>();
+  for (const q of chatQuizzes) {
+    if (q.ragSourceId) attemptedSourceSet.add(q.ragSourceId);
+  }
+  for (const q of userQuizzes) {
+    if (q.ragSourceId) attemptedSourceSet.add(q.ragSourceId);
+  }
+  const attemptedSourceIds = Array.from(attemptedSourceSet);
+
+  const retrievalQuery = `Berikan 1 soal latihan ${payload.category || 'SKD'} HOTS ${payload.subtopic || ''}`.trim();
+  const ragResult = await findRelevantContents(retrievalQuery, {
+    attemptedSourceIds,
+  });
+
+  let quizMeta: SkdQuizMetadata | null = ragResult.unattemptedBenchmark;
+
+  if (!quizMeta) {
+    let generatedText = '';
+    for await (const chunk of generateAiResponse(retrievalQuery, { ragResult })) {
+      generatedText += chunk;
+    }
+    quizMeta = extractQuizMetaFromText(generatedText).quizMeta;
+  }
+
+  if (!quizMeta) {
+    throw new ApiError(
+      'Gagal membuat soal baru. Silakan coba lagi.',
+      502,
+      'QUIZ_GENERATION_FAILED'
+    );
+  }
+
+  const insertedQuiz = await db.transaction(async (tx) => {
+    const [created] = await tx
+      .insert(quizAttempts)
+      .values({
+        chatId: conversationId!,
+        userId: authUserId ?? null,
+        ragSourceId: quizMeta!.ragSourceId
+          ? String(quizMeta!.ragSourceId).slice(0, 255)
+          : null,
+        category: quizMeta!.category,
+        subtopic: quizMeta!.subtopic,
+        questionStem: quizMeta!.questionStem,
+        options: quizMeta!.options,
+        correctOption: quizMeta!.correctOption,
+        scoringRubric: quizMeta!.scoringRubric,
+        rubricRationale: quizMeta!.rubricRationale,
+        maxScore: 5,
+        status: 'pending',
+      })
+      .returning();
+
+    if (payload.insertChatMarker) {
+      await tx.insert(messages).values({
+        chatId: conversationId!,
+        role: 'bot',
+        content: `<!--QUIZ_ATTEMPT:${created.id}-->`,
+        createdAt: new Date(),
+      });
+    }
+
+    return created;
+  });
+
+  return NextResponse.json({
+    success: true,
+    data: {
+      quiz: sanitizeQuizAttempt(insertedQuiz, chatTitle),
+      chatId: conversationId,
     },
   });
 }
@@ -365,3 +696,6 @@ const quizRateLimit = createRateLimitMiddleware({
 
 export const GET = (request: NextRequest) =>
   withMiddleware(quizRateLimit)(request, handleGetQuizzes);
+
+export const POST = (request: NextRequest) =>
+  withMiddleware(quizRateLimit)(request, handlePostQuiz);
