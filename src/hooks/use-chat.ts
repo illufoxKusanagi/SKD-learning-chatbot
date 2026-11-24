@@ -24,6 +24,15 @@ export interface QuizAttemptItem {
   answeredAt: string | null;
 }
 
+export function recordLastActiveChatId(chatId: string) {
+  if (typeof window === "undefined" || !chatId) return;
+  try {
+    sessionStorage.setItem("skd_last_active_chat_id", chatId);
+  } catch {
+    // Ignore storage quota/privacy errors
+  }
+}
+
 export function recordGuestChatId(chatId: string) {
   if (typeof window === "undefined" || !chatId) return;
   try {
@@ -36,6 +45,12 @@ export function recordGuestChatId(chatId: string) {
   } catch (error) {
     console.warn("Failed to record guest chat id:", error);
   }
+}
+
+function sortQuizzesChronological(items: QuizAttemptItem[]): QuizAttemptItem[] {
+  return [...items].sort(
+    (a, b) => new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime()
+  );
 }
 
 interface ChatState {
@@ -55,6 +70,9 @@ export function useChat() {
   const [inputMessage, setInputMessage] = useState<string>("");
   const [quizzes, setQuizzes] = useState<QuizAttemptItem[]>([]);
   const [isLoadingQuizzes, setIsLoadingQuizzes] = useState<boolean>(false);
+  const [gradingQuizId, setGradingQuizId] = useState<string | null>(null);
+  const [gradingOption, setGradingOption] = useState<"A" | "B" | "C" | "D" | "E" | null>(null);
+  const [isGeneratingQuiz, setIsGeneratingQuiz] = useState<boolean>(false);
 
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -70,6 +88,7 @@ export function useChat() {
     activeChatIdRef.current = chatId || null;
     if (chatId) {
       pendingChatIdRef.current = null;
+      recordLastActiveChatId(chatId);
     }
   }, [chatId]);
 
@@ -110,7 +129,7 @@ export function useChat() {
           return;
         }
         if (data.success && Array.isArray(data.data?.quizzes)) {
-          setQuizzes(data.data.quizzes);
+          setQuizzes(sortQuizzesChronological(data.data.quizzes));
         }
       } catch (err) {
         if (targetChatId !== activeChatIdRef.current) {
@@ -135,8 +154,10 @@ export function useChat() {
         return;
       }
 
-      // Immediately clear quizzes so previous chat quizzes are never visible while loading
-      setQuizzes([]);
+      // Immediately clear quizzes when switching to a different chat
+      if (!currentChatId || currentChatId !== pendingChatIdRef.current) {
+        setQuizzes([]);
+      }
 
       if (!currentChatId) {
         if (!isAuthenticated && typeof window !== "undefined" && window.location.pathname === "/chat") {
@@ -256,6 +277,7 @@ export function useChat() {
           resolvedChatId = newChatId;
           pendingChatIdRef.current = newChatId;
           activeChatIdRef.current = newChatId;
+          recordLastActiveChatId(newChatId);
           recordGuestChatId(newChatId);
         }
 
@@ -329,8 +351,129 @@ export function useChat() {
   );
 
   const submitQuizAnswer = useCallback(
-    (quizAttemptId: string, option: "A" | "B" | "C" | "D" | "E") => {
-      return handleSendMessage(`Jawaban saya ${option}`, quizAttemptId);
+    async (quizAttemptId: string, option: "A" | "B" | "C" | "D" | "E") => {
+      if (gradingQuizId === quizAttemptId) return;
+
+      setGradingQuizId(quizAttemptId);
+      setGradingOption(option);
+      try {
+        const response = await fetch("/api/quiz", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            action: "grade",
+            quizAttemptId,
+            selectedOption: option,
+          }),
+        });
+
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok || !data.success || !data.data?.quiz) {
+          throw new Error(data.error || `HTTP ${response.status}`);
+        }
+
+        const gradedQuiz = data.data.quiz as QuizAttemptItem;
+        setQuizzes((prev) =>
+          prev.map((item) => (item.id === gradedQuiz.id ? gradedQuiz : item))
+        );
+      } catch (error) {
+        console.error("Error grading quiz in-place:", error);
+        toast.error(
+          error instanceof Error ? error.message : "Gagal menyimpan jawaban"
+        );
+      } finally {
+        setGradingQuizId(null);
+        setGradingOption(null);
+      }
+    },
+    [gradingQuizId]
+  );
+
+  const requestNextQuiz = useCallback(
+    async (options?: {
+      category?: "TWK" | "TIU" | "TKP";
+      subtopic?: string;
+      insertChatMarker?: boolean;
+    }): Promise<QuizAttemptItem | null> => {
+      if (isGeneratingQuiz) return null;
+
+      setIsGeneratingQuiz(true);
+      const targetChatId = chatId || pendingChatIdRef.current;
+
+      try {
+        const response = await fetch("/api/quiz", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            action: "next",
+            chatId: targetChatId || undefined,
+            category: options?.category,
+            subtopic: options?.subtopic,
+            insertChatMarker: options?.insertChatMarker ?? false,
+          }),
+        });
+
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok || !data.success || !data.data?.quiz) {
+          throw new Error(data.error || `HTTP ${response.status}`);
+        }
+
+        const createdQuiz = data.data.quiz as QuizAttemptItem;
+        const returnedChatId = data.data.chatId as string | undefined;
+
+        if (returnedChatId && !chatId) {
+          pendingChatIdRef.current = returnedChatId;
+          activeChatIdRef.current = returnedChatId;
+          recordLastActiveChatId(returnedChatId);
+          recordGuestChatId(returnedChatId);
+          router.replace(`/chat?id=${returnedChatId}`);
+        }
+
+        setQuizzes((prev) => {
+          if (prev.some((q) => q.id === createdQuiz.id)) {
+            return prev;
+          }
+          return sortQuizzesChronological([...prev, createdQuiz]);
+        });
+
+        if (options?.insertChatMarker) {
+          setState((prev) => ({
+            ...prev,
+            messages: [
+              ...prev.messages,
+              {
+                role: "bot",
+                content: `<!--QUIZ_ATTEMPT:${createdQuiz.id}-->`,
+                timestamp: new Date().toISOString(),
+              },
+            ],
+          }));
+        }
+
+        return createdQuiz;
+      } catch (error) {
+        console.error("Error generating next quiz:", error);
+        toast.error(
+          error instanceof Error ? error.message : "Gagal memuat soal berikutnya"
+        );
+        return null;
+      } finally {
+        setIsGeneratingQuiz(false);
+      }
+    },
+    [chatId, isGeneratingQuiz, router]
+  );
+
+  const askTutorAboutQuiz = useCallback(
+    (quiz: QuizAttemptItem) => {
+      const prompt = quiz.userAnswer
+        ? `Tolong bahas lebih dalam soal ${quiz.category} (${quiz.subtopic}) tadi. Mengapa opsi ${quiz.correctOption} paling tepat dibanding pilihan saya (${quiz.userAnswer}) dan apa trik cepat SKD-nya?`
+        : `Tolong berikan petunjuk konsep untuk menjawab soal ${quiz.category} (${quiz.subtopic}) tanpa langsung menyebutkan jawabannya.`;
+      return handleSendMessage(prompt);
     },
     [handleSendMessage]
   );
@@ -340,13 +483,19 @@ export function useChat() {
   }, []);
 
   return {
+    activeChatId: chatId || pendingChatIdRef.current || quizzes[0]?.chatId || null,
     messages: state.messages,
     isLoading: state.isLoading,
     chatTitle: state.chatTitle,
     quizzes,
     isLoadingQuizzes,
+    gradingQuizId,
+    gradingOption,
+    isGeneratingQuiz,
     fetchChatQuizzes,
     submitQuizAnswer,
+    requestNextQuiz,
+    askTutorAboutQuiz,
     handleSendMessage,
     clearError,
     inputMessage,

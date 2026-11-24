@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useState, useMemo } from "react";
+import { Suspense, useEffect, useState, useMemo } from "react";
 import { useSession } from "next-auth/react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { AppSidebar } from "@/components/ui/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
@@ -73,11 +74,21 @@ interface QuizStats {
 
 const OPTION_KEYS: ("A" | "B" | "C" | "D" | "E")[] = ["A", "B", "C", "D", "E"];
 
-export default function QuizHistoryPage() {
+function isValidChatUuid(val?: string | null): val is string {
+  if (!val) return false;
+  return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(
+    val
+  );
+}
+
+function QuizHistoryContent() {
   const { status } = useSession();
   const isAuthenticated = status === "authenticated";
   const authLoading = status === "loading";
+  const searchParams = useSearchParams();
+  const fromChatId = searchParams.get("fromChatId");
 
+  const [storedChatId, setStoredChatId] = useState<string | null>(null);
   const [quizzes, setQuizzes] = useState<QuizAttemptDetail[]>([]);
   const [stats, setStats] = useState<QuizStats | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -92,6 +103,32 @@ export default function QuizHistoryPage() {
   const [expandedQuizIds, setExpandedQuizIds] = useState<Set<string>>(
     new Set()
   );
+
+  useEffect(() => {
+    try {
+      const lastActive = sessionStorage.getItem("skd_last_active_chat_id");
+      if (isValidChatUuid(lastActive)) {
+        setStoredChatId(lastActive);
+        return;
+      }
+      const rawGuestIds = localStorage.getItem("skd_guest_chat_ids");
+      if (rawGuestIds) {
+        const ids: string[] = JSON.parse(rawGuestIds);
+        if (isValidChatUuid(ids?.[0])) {
+          setStoredChatId(ids[0]);
+        }
+      }
+    } catch {
+      // Ignore storage access errors
+    }
+  }, []);
+
+  const returnChatHref = useMemo(() => {
+    if (isValidChatUuid(fromChatId)) return `/chat?id=${fromChatId}`;
+    if (isValidChatUuid(storedChatId)) return `/chat?id=${storedChatId}`;
+    if (isValidChatUuid(quizzes[0]?.chatId)) return `/chat?id=${quizzes[0].chatId}`;
+    return "/chat";
+  }, [fromChatId, storedChatId, quizzes]);
 
   const toggleExpand = (quizId: string) => {
     setExpandedQuizIds((prev) => {
@@ -249,7 +286,7 @@ export default function QuizHistoryPage() {
               </div>
 
               <div className="flex items-center gap-3">
-                <Link href="/chat">
+                <Link href={returnChatHref}>
                   <Button variant="outline" size="sm" className="h-8 gap-1.5 text-xs font-semibold">
                     <MessageSquare className="w-3.5 h-3.5" />
                     <span>Kembali ke Chat</span>
@@ -508,7 +545,7 @@ export default function QuizHistoryPage() {
                         BerAKHLAK untuk menguji kemampuan Anda.
                       </p>
                     </div>
-                    <Link href="/chat">
+                    <Link href={returnChatHref}>
                       <Button size="sm" className="gap-2 font-semibold">
                         <span>Mulai Latihan di Chat</span>
                         <ArrowRight className="w-4 h-4" />
@@ -834,5 +871,19 @@ export default function QuizHistoryPage() {
         </div>
       </SidebarProvider>
     </div>
+  );
+}
+
+export default function QuizHistoryPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="p-8 text-center text-sm text-muted-foreground">
+          Memuat riwayat latihan soal...
+        </div>
+      }
+    >
+      <QuizHistoryContent />
+    </Suspense>
   );
 }
