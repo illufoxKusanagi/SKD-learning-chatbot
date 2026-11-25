@@ -38,6 +38,43 @@ function escapeInternalQuotes(text: string): string {
     .join("\n");
 }
 
+function stripStructuralTrailingCommas(jsonText: string): string {
+  let out = "";
+  let inString = false;
+  let escape = false;
+
+  for (let i = 0; i < jsonText.length; i++) {
+    const ch = jsonText[i];
+    if (escape) {
+      out += ch;
+      escape = false;
+      continue;
+    }
+    if (ch === "\\") {
+      out += ch;
+      if (inString) escape = true;
+      continue;
+    }
+    if (ch === '"') {
+      out += ch;
+      inString = !inString;
+      continue;
+    }
+    if (!inString && ch === ",") {
+      let j = i + 1;
+      while (j < jsonText.length && /\s/.test(jsonText[j])) {
+        j++;
+      }
+      if (jsonText[j] === "}" || jsonText[j] === "]") {
+        continue;
+      }
+    }
+    out += ch;
+  }
+
+  return out;
+}
+
 function extractTopLevelJsonValues(text: string): unknown[] {
   const results: unknown[] = [];
   let depth = 0;
@@ -67,11 +104,14 @@ function extractTopLevelJsonValues(text: string): unknown[] {
     } else if (ch === "}" || ch === "]") {
       depth--;
       if (depth === 0 && start !== -1) {
-        const chunk = text.slice(start, i + 1).replace(/,\s*([}\]])/g, "$1");
+        const chunk = stripStructuralTrailingCommas(text.slice(start, i + 1));
         results.push(JSON.parse(chunk));
         start = -1;
       }
     }
+  }
+  if (inString || depth !== 0 || start !== -1) {
+    throw new Error("Incomplete or truncated trailing JSON value at EOF");
   }
   return results;
 }
@@ -407,7 +447,19 @@ function processFile(file: string, outDir: string, cliBatchId: string | null, fo
   }
 
   fs.mkdirSync(outDir, { recursive: true });
-  fs.writeFileSync(outPath, JSON.stringify(finalBatch, null, 2) + "\n", "utf-8");
+  const tmpPath = path.join(
+    outDir,
+    `.${path.basename(outPath)}.${process.pid}.${Date.now()}.tmp`
+  );
+  try {
+    fs.writeFileSync(tmpPath, JSON.stringify(finalBatch, null, 2) + "\n", "utf-8");
+    fs.renameSync(tmpPath, outPath);
+  } catch (err) {
+    if (fs.existsSync(tmpPath)) {
+      fs.unlinkSync(tmpPath);
+    }
+    throw err;
+  }
 
   if (rejected.length > 0) {
     fs.mkdirSync(path.join(outDir, "_rejected"), { recursive: true });
