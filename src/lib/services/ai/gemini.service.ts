@@ -41,7 +41,111 @@ function getGenAIClient(): GoogleGenAI {
 }
 
 const getGenerativeModel = () =>
-  process.env.GENERATIVE_MODEL || 'gemini-2.5-flash';
+  process.env.GENERATIVE_MODEL || 'gemini-3.5-flash';
+
+const getFallbackModel = () =>
+  process.env.GEMINI_FALLBACK_MODEL || 'gemini-3.5-flash-lite';
+
+function isTransientGeminiOverloadError(error: unknown): boolean {
+  const raw =
+    error instanceof Error
+      ? `${error.name} ${error.message}`
+      : String(error ?? '');
+  return /\b(503|429|UNAVAILABLE|RESOURCE_EXHAUSTED)\b|high demand|overloaded|try again later/i.test(
+    raw
+  );
+}
+
+export interface ClassifiedAiError {
+  code:
+    | 'MODEL_OVERLOADED'
+    | 'RATE_LIMITED'
+    | 'STREAM_TIMEOUT'
+    | 'AI_STREAM_ERROR';
+  title: string;
+  message: string;
+}
+
+export function classifyAiStreamError(error: unknown): ClassifiedAiError {
+  const raw =
+    error instanceof Error
+      ? `${error.name} ${error.message}`
+      : String(error ?? '');
+
+  if (/\b503\b|UNAVAILABLE|high demand|overloaded/i.test(raw)) {
+    return {
+      code: 'MODEL_OVERLOADED',
+      title: 'Layanan AI Sedang Sibuk (503)',
+      message:
+        'Model AI sedang mengalami lonjakan permintaan sementara. Silakan klik Coba Lagi dalam beberapa detik.',
+    };
+  }
+
+  if (/\b429\b|RESOURCE_EXHAUSTED|quota|rate limit/i.test(raw)) {
+    return {
+      code: 'RATE_LIMITED',
+      title: 'Kuota Layanan AI Penuh Sementara (429)',
+      message:
+        'Permintaan ke server AI mencapai batas kuota sementara. Silakan tunggu sebentar lalu klik Coba Lagi.',
+    };
+  }
+
+  if (/AbortError|TimeoutError|timed?\s*out|deadline/i.test(raw)) {
+    return {
+      code: 'STREAM_TIMEOUT',
+      title: 'Waktu Respons Habis',
+      message:
+        'Server AI membutuhkan waktu terlalu lama untuk merespons. Silakan klik Coba Lagi.',
+    };
+  }
+
+  return {
+    code: 'AI_STREAM_ERROR',
+    title: 'Gagal Memuat Respons Tutor AI',
+    message:
+      'Terjadi gangguan saat memproses jawaban dari server AI. Silakan klik Coba Lagi.',
+  };
+}
+
+async function generateContentStreamWithFallback(
+  ai: GoogleGenAI,
+  primaryModel: string,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  contents: any,
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  config: any
+) {
+  try {
+    return await ai.models.generateContentStream({
+      model: primaryModel,
+      contents,
+      config,
+    });
+  } catch (err) {
+    if (!isTransientGeminiOverloadError(err)) {
+      throw err;
+    }
+    const fallbackModel = getFallbackModel();
+    console.warn(
+      `[GeminiService] Primary model "${primaryModel}" overloaded (503/429). Retrying in 900ms with fallback "${fallbackModel}"...`
+    );
+    await new Promise((resolve) => setTimeout(resolve, 900));
+
+    const isFallbackGemini25 = fallbackModel.startsWith('gemini-2.5');
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { thinkingConfig: _omitThinking, ...restConfig } = config || {};
+    const fallbackConfig = {
+      ...restConfig,
+      ...(isFallbackGemini25 ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
+    };
+
+    return await ai.models.generateContentStream({
+      model: fallbackModel,
+      contents,
+      config: fallbackConfig,
+    });
+  }
+}
 
 export const SKD_SYSTEM_INSTRUCTION = `Anda adalah Tutor Ahli SKD CPNS (TWK, TIU, TKP) berstandar kurikulum resmi KepmenPANRB dan BKN Republik Indonesia. Tugas utama Anda adalah membimbing peserta lulus seleksi CPNS dengan pemahaman konsep mendalam, trik cepat, dan latihan soal berbasis Higher Order Thinking Skills (HOTS).
 
@@ -109,6 +213,7 @@ function cleanHistoricalText(text: string): string {
   return text
     .replace(/<!--QUIZ_ATTEMPT:[\s\S]*?-->/g, '')
     .replace(/<!--QUIZ_EVAL:[\s\S]*?-->/g, '')
+    .replace(/<!--CHAT_ERROR:[\s\S]*?-->/g, '')
     .replace(/<quiz_meta>[\s\S]*?<\/quiz_meta>/gi, '')
     .replace(/<quiz_meta>[\s\S]*$/gi, '')
     .trim();
@@ -185,7 +290,9 @@ Silakan ketik pilihan jawaban Anda (**A**, **B**, **C**, **D**, atau **E**)!
           if (isBest) badges.push('⭐ (Skor Tertinggi)');
           if (isSelected) badges.push('👈 Pilihan Anda');
           const badgeStr = badges.length > 0 ? ` ${badges.join(' ')}` : '';
-          const optText = evalData.options?.[opt] ? `: ${evalData.options[opt]}` : '';
+          const optText = evalData.options?.[opt]
+            ? `: ${evalData.options[opt]}`
+            : '';
           return `- **Opsi ${opt} (${score} Poin)**${badgeStr}${optText}`;
         });
         const rubricList = rubricLines.join('\n');
@@ -253,11 +360,12 @@ Ketentuan:
           ...(isGemini25 ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
         };
 
-        const suppResponse = await ai.models.generateContentStream({
+        const suppResponse = await generateContentStreamWithFallback(
+          ai,
           model,
-          contents: suppPrompt,
-          config: suppConfig,
-        });
+          suppPrompt,
+          suppConfig
+        );
 
         let hasYieldedPrefix = false;
         for await (const chunk of suppResponse) {
@@ -391,11 +499,12 @@ ATURAN WAJIB:
       ...(enableGoogleSearch ? { tools: [{ googleSearch: {} }] } : {}),
     };
 
-    const response = await ai.models.generateContentStream({
+    const response = await generateContentStreamWithFallback(
+      ai,
       model,
-      contents: historyContents,
-      config,
-    });
+      historyContents,
+      config
+    );
 
     for await (const chunk of response) {
       // Filter out thought tokens

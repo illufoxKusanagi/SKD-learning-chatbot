@@ -4,11 +4,18 @@ export const OPTION_KEYS = ["A", "B", "C", "D", "E"] as const;
 export type QuizOptionKey = (typeof OPTION_KEYS)[number];
 export type QuizCategory = "TWK" | "TIU" | "TKP";
 
+export interface ChatStreamErrorPayload {
+  code: string;
+  title: string;
+  message: string;
+}
+
 export function parseMessageQuizMarkers(content: string) {
   let attemptId: string | null = null;
   let evalQuizId: string | null = null;
   let evalOption: QuizOptionKey | null = null;
   let evalScore: number | null = null;
+  let chatError: ChatStreamErrorPayload | null = null;
 
   const attemptMatch = content.match(/<!--QUIZ_ATTEMPT:([a-f0-9-]+)-->/i);
   if (attemptMatch?.[1]) {
@@ -24,9 +31,35 @@ export function parseMessageQuizMarkers(content: string) {
     evalScore = parseInt(evalMatch[3], 10);
   }
 
+  const errorMatch = content.match(/<!--CHAT_ERROR:([\s\S]*?)-->/i);
+  if (errorMatch?.[1]) {
+    try {
+      const parsed = JSON.parse(errorMatch[1].trim());
+      if (
+        parsed &&
+        typeof parsed === "object" &&
+        typeof parsed.title === "string" &&
+        typeof parsed.message === "string"
+      ) {
+        chatError = {
+          code: typeof parsed.code === "string" ? parsed.code : "AI_STREAM_ERROR",
+          title: parsed.title,
+          message: parsed.message,
+        };
+      }
+    } catch {
+      chatError = {
+        code: "AI_STREAM_ERROR",
+        title: "Gagal Memuat Respons Tutor AI",
+        message: "Terjadi gangguan koneksi ke server AI. Silakan klik Coba Lagi.",
+      };
+    }
+  }
+
   const cleanContent = content
     .replace(/<!--QUIZ_ATTEMPT:[^>]+-->/gi, "")
     .replace(/<!--QUIZ_EVAL:[^>]+-->/gi, "")
+    .replace(/<!--CHAT_ERROR:[\s\S]*?-->/gi, "")
     .trim();
 
   return {
@@ -36,6 +69,7 @@ export function parseMessageQuizMarkers(content: string) {
     evalOption,
     evalScore,
     quizId: attemptId || evalQuizId,
+    chatError,
   };
 }
 
