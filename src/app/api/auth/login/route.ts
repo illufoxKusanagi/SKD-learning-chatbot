@@ -9,7 +9,7 @@ import {
 } from '@/middleware/api';
 import { getDb } from '@/lib/db';
 import { users } from '@/lib/db/schema';
-import { or, eq } from 'drizzle-orm';
+import { or, eq, sql } from 'drizzle-orm';
 import { verifyPassword } from '@/lib/auth/password';
 import { generateTokens } from '@/lib/auth/jwt';
 
@@ -30,13 +30,20 @@ async function loginHandler(
       // { received: { identifier: !!identifier, password: !!password } }
     );
   }
+  const trimmedIdentifier = identifier.trim();
+  const normalizedEmail = trimmedIdentifier.toLowerCase();
   const db = getDb();
 
   // Find user by email or username
   const [user] = await db
     .select()
     .from(users)
-    .where(or(eq(users.email, identifier), eq(users.username, identifier)))
+    .where(
+      or(
+        sql`lower(${users.email}) = ${normalizedEmail}`,
+        eq(users.username, trimmedIdentifier)
+      )
+    )
     .limit(1);
 
   if (!user) {

@@ -2,7 +2,7 @@ import { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/lib/db";
 import { users } from "@/lib/db/schema";
-import { eq, or } from "drizzle-orm";
+import { eq, or, sql } from "drizzle-orm";
 import { verifyPassword } from "@/lib/auth/password";
 
 export const authOptions: NextAuthOptions = {
@@ -24,10 +24,12 @@ export const authOptions: NextAuthOptions = {
           console.log("Missing credentials");
           return null;
         }
+        const trimmedIdentifier = credentials.identifier.trim();
+        const normalizedEmail = trimmedIdentifier.toLowerCase();
         const user = await db.query.users.findFirst({
           where: or(
-            eq(users.email, credentials.identifier),
-            eq(users.username, credentials.identifier)
+            sql`lower(${users.email}) = ${normalizedEmail}`,
+            eq(users.username, trimmedIdentifier)
           ),
         });
         if (!user) {

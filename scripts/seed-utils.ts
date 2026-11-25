@@ -34,6 +34,7 @@ export async function embedAndUpsertRagEntry(
   if (!force) {
     const [existing] = await db
       .select({
+        title: ragData.title,
         content: ragData.content,
         data: ragData.data,
         hasEmbedding: sql<boolean>`${ragData.embedding} IS NOT NULL`,
@@ -42,7 +43,15 @@ export async function embedAndUpsertRagEntry(
       .where(eq(ragData.external_id, entry.externalId))
       .limit(1);
 
-    if (existing && existing.content === entry.content && existing.hasEmbedding) {
+    const existingSubtopic = (existing?.data as { subtopic?: string } | null)?.subtopic;
+
+    if (
+      existing &&
+      existing.title === entry.title &&
+      existingSubtopic === entry.subtopic &&
+      existing.content === entry.content &&
+      existing.hasEmbedding
+    ) {
       const isMetadataEqual =
         isDeepStrictEqual(existing.data, entry.data) ||
         JSON.stringify(existing.data) === JSON.stringify(entry.data);

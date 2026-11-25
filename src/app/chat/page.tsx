@@ -8,7 +8,7 @@ import rehypeHighlight from 'rehype-highlight';
 import rehypeRaw from 'rehype-raw';
 import remarkBreaks from 'remark-breaks';
 import remarkGfm from 'remark-gfm';
-import { Alert, AlertDescription } from '@/components/ui/alert';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AppSidebar } from '@/components/ui/app-sidebar';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -22,13 +22,14 @@ import { QuizCanvasPanel } from '@/components/chat/quiz/quiz-canvas-panel';
 import {
   parseMessageQuizMarkers,
   stripRedundantQuizMarkdown,
+  type ChatStreamErrorPayload,
   type QuizCategory,
   type QuizOptionKey,
 } from '@/components/chat/quiz/quiz-utils';
 import { useChat, type QuizAttemptItem } from '@/hooks/use-chat';
 import type { Message } from '@/lib/types/chat';
 import { cn } from '@/lib/utils';
-import { AlertTriangle, Award, BookOpen, History } from 'lucide-react';
+import { AlertTriangle, Award, BookOpen, History, RotateCcw } from 'lucide-react';
 
 interface TextBubbleProps extends Message {
   isThinking?: boolean;
@@ -43,6 +44,8 @@ interface TextBubbleProps extends Message {
   gradingOption?: QuizOptionKey | null;
   isGeneratingNext?: boolean;
   isChatLoading?: boolean;
+  chatError?: ChatStreamErrorPayload | null;
+  onRetry?: () => void;
 }
 
 function TextBubble({
@@ -60,6 +63,8 @@ function TextBubble({
   gradingOption = null,
   isGeneratingNext = false,
   isChatLoading = false,
+  chatError = null,
+  onRetry,
 }: TextBubbleProps) {
   const isUser = role === 'user';
   const displayContent = !isUser
@@ -139,6 +144,29 @@ function TextBubble({
         </div>
       )}
 
+      {!isUser && chatError && (
+        <Alert variant="destructive" className="max-w-xl bg-destructive/5">
+          <AlertTriangle />
+          <AlertTitle>{chatError.title}</AlertTitle>
+          <AlertDescription className="flex flex-col gap-3 pt-1">
+            <p>{chatError.message}</p>
+            {onRetry && (
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                disabled={isChatLoading}
+                onClick={onRetry}
+                className="w-fit text-foreground"
+              >
+                <RotateCcw data-icon="inline-start" />
+                Coba Lagi
+              </Button>
+            )}
+          </AlertDescription>
+        </Alert>
+      )}
+
       {/* Standalone Gemini-style Interactive Quiz Card outside the grey bubble */}
       {!isUser && matchedQuiz && (
         <div className="w-full max-w-2xl">
@@ -179,6 +207,7 @@ function ChatHistory({
   onOpenCanvas,
   onAskTutor,
   onNextQuiz,
+  onRetryLastMessage,
 }: {
   isLoading: boolean;
   isLoadingQuizzes: boolean;
@@ -191,6 +220,7 @@ function ChatHistory({
   onOpenCanvas: (quizId: string) => void;
   onAskTutor: (quiz: QuizAttemptItem) => void;
   onNextQuiz: (category: QuizCategory) => void;
+  onRetryLastMessage: () => void;
 }) {
   const lastMessage = messages[messages.length - 1];
   const showThinking =
@@ -204,9 +234,17 @@ function ChatHistory({
       {messages.map((msg, index) => {
         if (msg.role === 'bot' && !msg.content && isLoading) return null;
 
-        const { cleanContent, attemptId, quizId } = parseMessageQuizMarkers(
-          msg.content
-        );
+        const { cleanContent, attemptId, quizId, chatError } =
+          parseMessageQuizMarkers(msg.content);
+        if (
+          msg.role === 'bot' &&
+          !cleanContent &&
+          !attemptId &&
+          !quizId &&
+          !chatError
+        ) {
+          return null;
+        }
         const matchedQuiz =
           msg.role === 'bot' && quizId
             ? quizzes.find((q) => q.id === quizId)
@@ -229,6 +267,8 @@ function ChatHistory({
             gradingOption={gradingOption}
             isGeneratingNext={isGeneratingQuiz}
             isChatLoading={isLoading}
+            chatError={chatError}
+            onRetry={onRetryLastMessage}
           />
         );
       })}
@@ -259,6 +299,7 @@ function ChatContent() {
     requestNextQuiz,
     askTutorAboutQuiz,
     handleSendMessage,
+    retryLastMessage,
   } = useChat();
 
   const { data: session, status } = useSession();
@@ -395,6 +436,7 @@ function ChatContent() {
                       onOpenCanvas={openQuizInCanvas}
                       onAskTutor={askTutorAboutQuiz}
                       onNextQuiz={handleNextQuizFromStream}
+                      onRetryLastMessage={retryLastMessage}
                     />
                   </Suspense>
                 </ScrollArea>

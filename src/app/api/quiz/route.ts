@@ -515,7 +515,7 @@ async function handlePostQuiz(request: NextRequest) {
   }
 
   // Branch: action === 'next'
-  let conversationId = payload.chatId ?? null;
+  const conversationId = payload.chatId ?? null;
   let chatTitle = payload.category
     ? `Latihan ${payload.category}`
     : 'Latihan SKD Interaktif';
@@ -566,45 +566,15 @@ async function handlePostQuiz(request: NextRequest) {
     }
 
     chatTitle = existingChat.title || chatTitle;
-  } else if (authUserId) {
-    const [newChat] = await db
-      .insert(conversations)
-      .values({
-        userId: authUserId,
-        title: chatTitle,
-        createdAt: new Date(),
-        isGuestChat: false,
-      })
-      .returning({ id: conversations.id, title: conversations.title });
-    conversationId = newChat.id;
-    chatTitle = newChat.title || chatTitle;
-  } else {
-    const guestSessionId = `guest_${Date.now()}_${Math.random()
-      .toString(36)
-      .substring(7)}`;
-    const expiresAt = new Date();
-    expiresAt.setDate(expiresAt.getDate() + 1);
-
-    const [newGuestChat] = await db
-      .insert(conversations)
-      .values({
-        userId: null,
-        title: chatTitle,
-        createdAt: new Date(),
-        isGuestChat: true,
-        guestSessionId,
-        expiresAt,
-      })
-      .returning({ id: conversations.id, title: conversations.title });
-    conversationId = newGuestChat.id;
-    chatTitle = newGuestChat.title || chatTitle;
   }
 
   const [chatQuizzes, userQuizzes] = await Promise.all([
-    db
-      .select({ ragSourceId: quizAttempts.ragSourceId })
-      .from(quizAttempts)
-      .where(eq(quizAttempts.chatId, conversationId)),
+    conversationId
+      ? db
+          .select({ ragSourceId: quizAttempts.ragSourceId })
+          .from(quizAttempts)
+          .where(eq(quizAttempts.chatId, conversationId))
+      : Promise.resolve([] as { ragSourceId: string | null }[]),
     authUserId
       ? db
           .select({ ragSourceId: quizAttempts.ragSourceId })
@@ -645,44 +615,90 @@ async function handlePostQuiz(request: NextRequest) {
     );
   }
 
-  const insertedQuiz = await db.transaction(async (tx) => {
-    const [created] = await tx
-      .insert(quizAttempts)
-      .values({
-        chatId: conversationId!,
-        userId: authUserId ?? null,
-        ragSourceId: quizMeta!.ragSourceId
-          ? String(quizMeta!.ragSourceId).slice(0, 255)
-          : null,
-        category: quizMeta!.category,
-        subtopic: quizMeta!.subtopic,
-        questionStem: quizMeta!.questionStem,
-        options: quizMeta!.options,
-        correctOption: quizMeta!.correctOption,
-        scoringRubric: quizMeta!.scoringRubric,
-        rubricRationale: quizMeta!.rubricRationale,
-        maxScore: 5,
-        status: 'pending',
-      })
-      .returning();
+  const resolvedQuizMeta = quizMeta;
 
-    if (payload.insertChatMarker) {
-      await tx.insert(messages).values({
-        chatId: conversationId!,
-        role: 'bot',
-        content: `<!--QUIZ_ATTEMPT:${created.id}-->`,
-        createdAt: new Date(),
-      });
+  const { created, finalChatId, finalChatTitle } = await db.transaction(
+    async (tx) => {
+      let finalChatId: string;
+      let finalChatTitle: string;
+
+      if (!conversationId) {
+        if (authUserId) {
+          const [newChat] = await tx
+            .insert(conversations)
+            .values({
+              userId: authUserId,
+              title: chatTitle,
+              createdAt: new Date(),
+              isGuestChat: false,
+            })
+            .returning({ id: conversations.id, title: conversations.title });
+          finalChatId = newChat.id;
+          finalChatTitle = newChat.title || chatTitle;
+        } else {
+          const guestSessionId = `guest_${Date.now()}_${Math.random()
+            .toString(36)
+            .substring(7)}`;
+          const expiresAt = new Date();
+          expiresAt.setDate(expiresAt.getDate() + 1);
+
+          const [newGuestChat] = await tx
+            .insert(conversations)
+            .values({
+              userId: null,
+              title: chatTitle,
+              createdAt: new Date(),
+              isGuestChat: true,
+              guestSessionId,
+              expiresAt,
+            })
+            .returning({ id: conversations.id, title: conversations.title });
+          finalChatId = newGuestChat.id;
+          finalChatTitle = newGuestChat.title || chatTitle;
+        }
+      } else {
+        finalChatId = conversationId;
+        finalChatTitle = chatTitle;
+      }
+
+      const [created] = await tx
+        .insert(quizAttempts)
+        .values({
+          chatId: finalChatId,
+          userId: authUserId ?? null,
+          ragSourceId: resolvedQuizMeta.ragSourceId
+            ? String(resolvedQuizMeta.ragSourceId).slice(0, 255)
+            : null,
+          category: resolvedQuizMeta.category,
+          subtopic: resolvedQuizMeta.subtopic,
+          questionStem: resolvedQuizMeta.questionStem,
+          options: resolvedQuizMeta.options,
+          correctOption: resolvedQuizMeta.correctOption,
+          scoringRubric: resolvedQuizMeta.scoringRubric,
+          rubricRationale: resolvedQuizMeta.rubricRationale,
+          maxScore: 5,
+          status: 'pending',
+        })
+        .returning();
+
+      if (payload.insertChatMarker) {
+        await tx.insert(messages).values({
+          chatId: finalChatId,
+          role: 'bot',
+          content: `<!--QUIZ_ATTEMPT:${created.id}-->`,
+          createdAt: new Date(),
+        });
+      }
+
+      return { created, finalChatId, finalChatTitle };
     }
-
-    return created;
-  });
+  );
 
   return NextResponse.json({
     success: true,
     data: {
-      quiz: sanitizeQuizAttempt(insertedQuiz, chatTitle),
-      chatId: conversationId,
+      quiz: sanitizeQuizAttempt(created, finalChatTitle),
+      chatId: finalChatId,
     },
   });
 }

@@ -191,9 +191,28 @@ export function useChat() {
       try {
         const data = await apiCall(`/api/chat/${currentChatId}`);
         if (cancelled || currentChatId !== activeChatIdRef.current) return;
+        const loadedMessages: Message[] = Array.isArray(data.data?.messages)
+          ? [...data.data.messages]
+          : [];
+        if (typeof window !== "undefined") {
+          try {
+            const pendingErrorKey = `skd_ephemeral_error_${currentChatId}`;
+            const pendingEphemeralError = sessionStorage.getItem(pendingErrorKey);
+            if (pendingEphemeralError) {
+              sessionStorage.removeItem(pendingErrorKey);
+              loadedMessages.push({
+                role: "bot",
+                content: pendingEphemeralError,
+                timestamp: new Date().toISOString(),
+              });
+            }
+          } catch {
+            // Ignore storage access errors
+          }
+        }
         setState((prev) => ({
           ...prev,
-          messages: data.data.messages || [],
+          messages: loadedMessages,
           chatTitle: data.data?.chat?.title || "Tutor SKD CPNS",
           isLoading: false,
         }));
@@ -222,7 +241,11 @@ export function useChat() {
   }, [chatId, isAuthenticated, authLoading, apiCall, fetchChatQuizzes]);
 
   const handleSendMessage = useCallback(
-    async (overrideMessage?: string, quizAttemptId?: string) => {
+    async (
+      overrideMessage?: string,
+      quizAttemptId?: string,
+      options?: { isRetry?: boolean }
+    ) => {
       const messageContent = (typeof overrideMessage === "string" ? overrideMessage : inputMessage).trim();
       if (!messageContent || state.isLoading) return;
 
@@ -236,20 +259,45 @@ export function useChat() {
         timestamp: new Date().toISOString(),
       };
 
-      setState((prev) => ({
-        ...prev,
-        messages: [
-          ...prev.messages,
-          userMessage,
-          {
-            role: "bot",
-            content: "",
-            timestamp: new Date().toISOString(),
-          },
-        ],
-        isLoading: true,
-        error: null,
-      }));
+      setState((prev) => {
+        const baseMessages = [...prev.messages];
+        if (options?.isRetry) {
+          if (baseMessages.length > 0 && baseMessages[baseMessages.length - 1].role === "bot") {
+            baseMessages[baseMessages.length - 1] = {
+              role: "bot",
+              content: "",
+              timestamp: new Date().toISOString(),
+            };
+          } else {
+            baseMessages.push({
+              role: "bot",
+              content: "",
+              timestamp: new Date().toISOString(),
+            });
+          }
+          return {
+            ...prev,
+            messages: baseMessages,
+            isLoading: true,
+            error: null,
+          };
+        }
+
+        return {
+          ...prev,
+          messages: [
+            ...baseMessages,
+            userMessage,
+            {
+              role: "bot",
+              content: "",
+              timestamp: new Date().toISOString(),
+            },
+          ],
+          isLoading: true,
+          error: null,
+        };
+      });
 
       const targetChatId = chatId || pendingChatIdRef.current;
       let resolvedChatId = targetChatId;
@@ -264,6 +312,7 @@ export function useChat() {
             message: messageContent,
             chatId: targetChatId || undefined,
             ...(quizAttemptId ? { quizAttemptId } : {}),
+            ...(options?.isRetry ? { skipUserMessageInsert: true } : {}),
           }),
         });
 
@@ -319,6 +368,19 @@ export function useChat() {
 
         // Handle navigation after stream completion
         if (newChatId && !chatId) {
+          if (
+            typeof window !== "undefined" &&
+            accumulatedContent.includes("<!--CHAT_ERROR:")
+          ) {
+            try {
+              sessionStorage.setItem(
+                `skd_ephemeral_error_${newChatId}`,
+                accumulatedContent
+              );
+            } catch {
+              // Ignore storage quota errors
+            }
+          }
           setTimeout(() => router.push(`/chat?id=${newChatId}`), 100);
         } else if (!chatId && typeof window !== "undefined" && window.location.pathname === "/") {
           const allMessages = [
@@ -335,12 +397,55 @@ export function useChat() {
         }
       } catch (error) {
         console.error("Error sending message: ", error);
-        setState((prev) => ({
-          ...prev,
-          error: error instanceof Error ? error.message : "Failed to send message",
-          isLoading: false,
-        }));
+        const errMsg =
+          error instanceof Error && error.message
+            ? error.message
+            : "Terjadi gangguan jaringan saat menghubungi server. Silakan coba lagi.";
+        const fallbackErrorMarker = `<!--CHAT_ERROR:${JSON.stringify({
+          code: "NETWORK_ERROR",
+          title: "Gagal Menghubungi Server",
+          message: errMsg,
+        })}-->`;
+
+        setState((prev) => {
+          const nextMessages = [...prev.messages];
+          const lastIdx = nextMessages.length - 1;
+          if (
+            lastIdx >= 0 &&
+            nextMessages[lastIdx].role === "bot" &&
+            !nextMessages[lastIdx].content.includes("<!--CHAT_ERROR:")
+          ) {
+            nextMessages[lastIdx] = {
+              ...nextMessages[lastIdx],
+              content: nextMessages[lastIdx].content
+                ? `${nextMessages[lastIdx].content}\n\n${fallbackErrorMarker}`
+                : fallbackErrorMarker,
+            };
+          }
+          return {
+            ...prev,
+            messages: nextMessages,
+            error: errMsg,
+            isLoading: false,
+          };
+        });
         toast.error("Gagal mengirim pesan");
+        if (
+          resolvedChatId &&
+          !chatId &&
+          typeof window !== "undefined" &&
+          window.location.pathname === "/"
+        ) {
+          try {
+            sessionStorage.setItem(
+              `skd_ephemeral_error_${resolvedChatId}`,
+              fallbackErrorMarker
+            );
+          } catch {
+            // Ignore storage quota errors
+          }
+          router.push(`/chat?id=${resolvedChatId}`);
+        }
       } finally {
         if (resolvedChatId) {
           fetchChatQuizzes(resolvedChatId);
@@ -478,6 +583,17 @@ export function useChat() {
     [handleSendMessage]
   );
 
+  const retryLastMessage = useCallback(() => {
+    if (state.isLoading) return;
+    for (let i = state.messages.length - 1; i >= 0; i--) {
+      if (state.messages[i].role === "user" && state.messages[i].content.trim()) {
+        return handleSendMessage(state.messages[i].content, undefined, {
+          isRetry: true,
+        });
+      }
+    }
+  }, [state.isLoading, state.messages, handleSendMessage]);
+
   const clearError = useCallback(() => {
     setState((prev) => ({ ...prev, error: null }));
   }, []);
@@ -497,6 +613,7 @@ export function useChat() {
     requestNextQuiz,
     askTutorAboutQuiz,
     handleSendMessage,
+    retryLastMessage,
     clearError,
     inputMessage,
     setInputMessage,

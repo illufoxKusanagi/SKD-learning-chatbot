@@ -15,6 +15,7 @@ import {
   generateAiResponse,
   generateChatTitle,
   extractQuizMetaFromText,
+  classifyAiStreamError,
   ChatHistoryTurn,
   LockedQuizEvaluation,
 } from '@/lib/services/ai/gemini.service';
@@ -29,6 +30,7 @@ const chatMessageSchema = z.object({
     .trim(),
   chatId: z.string().nullish(),
   quizAttemptId: z.string().uuid().nullish(),
+  skipUserMessageInsert: z.boolean().optional(),
 });
 
 type QuizOption = 'A' | 'B' | 'C' | 'D' | 'E';
@@ -85,7 +87,8 @@ async function persistGeneratedTitle(
 
 async function handleChatPost(request: NextRequest) {
   const body = await request.json();
-  const { message, chatId, quizAttemptId } = chatMessageSchema.parse(body);
+  const { message, chatId, quizAttemptId, skipUserMessageInsert } =
+    chatMessageSchema.parse(body);
 
   // Authenticate user session if available
   let userId: string | null = null;
@@ -348,12 +351,14 @@ async function handleChatPost(request: NextRequest) {
         );
       }
 
-      await tx.insert(messages).values({
-        chatId: conversationId,
-        role: 'user',
-        content: message,
-        createdAt: new Date(),
-      });
+      if (!skipUserMessageInsert) {
+        await tx.insert(messages).values({
+          chatId: conversationId,
+          role: 'user',
+          content: message,
+          createdAt: new Date(),
+        });
+      }
     });
 
     const isCorrect = selectedOption === pendingQuiz.correctOption;
@@ -372,7 +377,7 @@ async function handleChatPost(request: NextRequest) {
       maxScore: pendingQuiz.maxScore ?? 5,
       isCorrect,
     };
-  } else {
+  } else if (!skipUserMessageInsert) {
     // Insert regular user message when not answering a pending quiz
     await db.insert(messages).values({
       chatId: conversationId,
@@ -573,7 +578,14 @@ async function handleChatPost(request: NextRequest) {
               console.error('Failed to roll back quiz lock:', rollbackErr)
             );
         }
-        controller.error(streamError);
+        const classified = classifyAiStreamError(streamError);
+        const errorMarker = `\n\n<!--CHAT_ERROR:${JSON.stringify(classified)}-->`;
+        try {
+          controller.enqueue(encoder.encode(errorMarker));
+          controller.close();
+        } catch {
+          // Stream already closed/cancelled by client disconnect
+        }
       }
     },
   });
