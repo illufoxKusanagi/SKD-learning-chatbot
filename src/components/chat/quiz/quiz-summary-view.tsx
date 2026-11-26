@@ -1,7 +1,6 @@
 "use client";
 
 import type { QuizAttemptItem } from "@/hooks/use-chat";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,27 +16,32 @@ import { Spinner } from "@/components/ui/spinner";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { cn } from "@/lib/utils";
 import { Award, CheckCircle2, Plus, RotateCcw, XCircle } from "lucide-react";
+import { QuizSummaryBreakdown } from "./quiz-summary-breakdown";
 import { computeQuizSessionSummary, type QuizCategory } from "./quiz-utils";
 
 interface QuizSummaryViewProps {
   quizzes: QuizAttemptItem[];
-  selectedCategory: "ALL" | QuizCategory;
-  onCategoryChange: (cat: "ALL" | QuizCategory) => void;
+  selectedCategory?: "ALL" | QuizCategory;
+  onCategoryChange?: (cat: "ALL" | QuizCategory) => void;
   onJumpToIndex: (index: number) => void;
-  onRequestNextQuiz: (category?: QuizCategory) => void;
-  isGeneratingQuiz: boolean;
+  onRequestNextQuiz?: (category?: QuizCategory) => void;
+  onRetryWrongQuestions?: () => void;
+  onNewPack?: () => void;
+  isGeneratingQuiz?: boolean;
 }
 
 export function QuizSummaryView({
   quizzes,
-  selectedCategory,
+  selectedCategory = "ALL",
   onCategoryChange,
   onJumpToIndex,
   onRequestNextQuiz,
-  isGeneratingQuiz,
+  onRetryWrongQuestions,
+  onNewPack,
+  isGeneratingQuiz = false,
 }: QuizSummaryViewProps) {
   const summary = computeQuizSessionSummary(quizzes);
-  const categories: QuizCategory[] = ["TWK", "TIU", "TKP"];
+  const isPracticeMode = Boolean(onNewPack || onRetryWrongQuestions);
 
   return (
     <Card className="w-full gap-4 py-5 shadow-xs">
@@ -67,34 +71,7 @@ export function QuizSummaryView({
           <Progress value={summary.accuracyPercent} />
         </div>
 
-        <div className="grid grid-cols-3 gap-2">
-          {categories.map((cat) => {
-            const catData = summary.byCategory[cat];
-            const catPercent =
-              catData.maxScore > 0
-                ? Math.round((catData.scoreEarned / catData.maxScore) * 100)
-                : 0;
-            return (
-              <div
-                key={cat}
-                className="flex flex-col gap-1 rounded-xl border bg-muted/30 p-3"
-              >
-                <div className="flex items-center justify-between gap-1">
-                  <Badge variant="secondary">{cat}</Badge>
-                  <span className="text-xs font-medium text-muted-foreground">
-                    {catData.answered}/{catData.total}
-                  </span>
-                </div>
-                <span className="text-base font-bold text-foreground">
-                  {catPercent}%
-                </span>
-                <span className="text-xs text-muted-foreground">
-                  {catData.scoreEarned}/{catData.maxScore} poin
-                </span>
-              </div>
-            );
-          })}
-        </div>
+        <QuizSummaryBreakdown summary={summary} />
 
         <Separator />
 
@@ -133,61 +110,101 @@ export function QuizSummaryView({
           </div>
         </div>
 
-        <Separator />
-
-        <div className="flex flex-col gap-2">
-          <span className="text-xs font-medium text-muted-foreground">
-            Pilih Subtes untuk Soal Berikutnya
-          </span>
-          <ToggleGroup
-            type="single"
-            variant="outline"
-            size="sm"
-            value={selectedCategory}
-            onValueChange={(val) => {
-              if (val) onCategoryChange(val as "ALL" | QuizCategory);
-            }}
-          >
-            <ToggleGroupItem value="ALL">Acak SKD</ToggleGroupItem>
-            <ToggleGroupItem value="TWK">TWK</ToggleGroupItem>
-            <ToggleGroupItem value="TIU">TIU</ToggleGroupItem>
-            <ToggleGroupItem value="TKP">TKP</ToggleGroupItem>
-          </ToggleGroup>
-        </div>
+        {!isPracticeMode && onCategoryChange && (
+          <>
+            <Separator />
+            <div className="flex flex-col gap-2">
+              <span className="text-xs font-medium text-muted-foreground">
+                Pilih Subtes untuk Soal Berikutnya
+              </span>
+              <ToggleGroup
+                type="single"
+                variant="outline"
+                size="sm"
+                value={selectedCategory}
+                onValueChange={(val) => {
+                  if (val) onCategoryChange(val as "ALL" | QuizCategory);
+                }}
+              >
+                <ToggleGroupItem value="ALL">Acak SKD</ToggleGroupItem>
+                <ToggleGroupItem value="TWK">TWK</ToggleGroupItem>
+                <ToggleGroupItem value="TIU">TIU</ToggleGroupItem>
+                <ToggleGroupItem value="TKP">TKP</ToggleGroupItem>
+              </ToggleGroup>
+            </div>
+          </>
+        )}
       </CardContent>
 
       <CardFooter className="flex flex-wrap items-center justify-between gap-2 border-t pt-4">
-        {summary.wrongOrSuboptimalIndices.length > 0 ? (
-          <Button
-            type="button"
-            variant="outline"
-            size="sm"
-            onClick={() => onJumpToIndex(summary.wrongOrSuboptimalIndices[0])}
-          >
-            <RotateCcw data-icon="inline-start" />
-            Tinjau Belum Optimal ({summary.wrongOrSuboptimalIndices.length})
-          </Button>
+        {isPracticeMode ? (
+          <>
+            {summary.wrongOrSuboptimalIndices.length > 0 && onRetryWrongQuestions ? (
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                disabled={isGeneratingQuiz}
+                onClick={onRetryWrongQuestions}
+              >
+                <RotateCcw data-icon="inline-start" />
+                Latih Ulang Soal Salah ({summary.wrongOrSuboptimalIndices.length})
+              </Button>
+            ) : (
+              <div />
+            )}
+            {onNewPack && (
+              <Button
+                type="button"
+                size="sm"
+                disabled={isGeneratingQuiz}
+                onClick={onNewPack}
+              >
+                {isGeneratingQuiz ? (
+                  <Spinner data-icon="inline-start" />
+                ) : (
+                  <Plus data-icon="inline-start" />
+                )}
+                Paket Latihan Baru
+              </Button>
+            )}
+          </>
         ) : (
-          <div />
+          <>
+            {summary.wrongOrSuboptimalIndices.length > 0 ? (
+              <Button
+                type="button"
+                variant="outline"
+                size="sm"
+                onClick={() => onJumpToIndex(summary.wrongOrSuboptimalIndices[0])}
+              >
+                <RotateCcw data-icon="inline-start" />
+                Tinjau Belum Optimal ({summary.wrongOrSuboptimalIndices.length})
+              </Button>
+            ) : (
+              <div />
+            )}
+            {onRequestNextQuiz && (
+              <Button
+                type="button"
+                size="sm"
+                disabled={isGeneratingQuiz}
+                onClick={() =>
+                  onRequestNextQuiz(
+                    selectedCategory === "ALL" ? undefined : selectedCategory
+                  )
+                }
+              >
+                {isGeneratingQuiz ? (
+                  <Spinner data-icon="inline-start" />
+                ) : (
+                  <Plus data-icon="inline-start" />
+                )}
+                Soal Berikutnya
+              </Button>
+            )}
+          </>
         )}
-
-        <Button
-          type="button"
-          size="sm"
-          disabled={isGeneratingQuiz}
-          onClick={() =>
-            onRequestNextQuiz(
-              selectedCategory === "ALL" ? undefined : selectedCategory
-            )
-          }
-        >
-          {isGeneratingQuiz ? (
-            <Spinner data-icon="inline-start" />
-          ) : (
-            <Plus data-icon="inline-start" />
-          )}
-          Soal Berikutnya
-        </Button>
       </CardFooter>
     </Card>
   );
