@@ -8,6 +8,8 @@ export interface QuizAttemptItem {
   id: string;
   chatId: string;
   chatTitle?: string;
+  ragSourceId?: string | null;
+  questionId?: string | null;
   category: "TWK" | "TIU" | "TKP";
   subtopic: string;
   questionStem: string;
@@ -244,7 +246,14 @@ export function useChat() {
     async (
       overrideMessage?: string,
       quizAttemptId?: string,
-      options?: { isRetry?: boolean }
+      options?: {
+        isRetry?: boolean;
+        questionId?: string | null;
+        questionSlug?: string | null;
+        materialSlugs?: string[];
+        selectedAnswer?: "A" | "B" | "C" | "D" | "E" | null;
+        isTutorDiscussion?: boolean;
+      }
     ) => {
       const messageContent = (typeof overrideMessage === "string" ? overrideMessage : inputMessage).trim();
       if (!messageContent || state.isLoading) return;
@@ -313,6 +322,11 @@ export function useChat() {
             chatId: targetChatId || undefined,
             ...(quizAttemptId ? { quizAttemptId } : {}),
             ...(options?.isRetry ? { skipUserMessageInsert: true } : {}),
+            ...(options?.questionId ? { questionId: options.questionId } : {}),
+            ...(options?.questionSlug ? { questionSlug: options.questionSlug } : {}),
+            ...(options?.materialSlugs?.length ? { materialSlugs: options.materialSlugs } : {}),
+            ...(options?.selectedAnswer ? { selectedAnswer: options.selectedAnswer } : {}),
+            ...(options?.isTutorDiscussion ? { isTutorDiscussion: true } : {}),
           }),
         });
 
@@ -500,6 +514,7 @@ export function useChat() {
     async (options?: {
       category?: "TWK" | "TIU" | "TKP";
       subtopic?: string;
+      materialSlug?: string;
       insertChatMarker?: boolean;
     }): Promise<QuizAttemptItem | null> => {
       if (isGeneratingQuiz) return null;
@@ -518,6 +533,7 @@ export function useChat() {
             chatId: targetChatId || undefined,
             category: options?.category,
             subtopic: options?.subtopic,
+            materialSlug: options?.materialSlug,
             insertChatMarker: options?.insertChatMarker ?? false,
           }),
         });
@@ -575,10 +591,20 @@ export function useChat() {
 
   const askTutorAboutQuiz = useCallback(
     (quiz: QuizAttemptItem) => {
+      const bestOption =
+        quiz.correctOption ||
+        (quiz.scoringRubric
+          ? (Object.entries(quiz.scoringRubric).find(([, s]) => s === 5)?.[0] ?? "terbaik")
+          : "terbaik");
       const prompt = quiz.userAnswer
-        ? `Tolong bahas lebih dalam soal ${quiz.category} (${quiz.subtopic}) tadi. Mengapa opsi ${quiz.correctOption} paling tepat dibanding pilihan saya (${quiz.userAnswer}) dan apa trik cepat SKD-nya?`
+        ? `Tolong bahas lebih dalam soal ${quiz.category} (${quiz.subtopic}) tadi. Mengapa opsi ${bestOption} paling tepat dibanding pilihan saya (${quiz.userAnswer}) dan apa trik cepat SKD-nya?`
         : `Tolong berikan petunjuk konsep untuk menjawab soal ${quiz.category} (${quiz.subtopic}) tanpa langsung menyebutkan jawabannya.`;
-      return handleSendMessage(prompt);
+      return handleSendMessage(prompt, quiz.id, {
+        questionId: quiz.questionId ?? undefined,
+        questionSlug: quiz.ragSourceId ?? undefined,
+        selectedAnswer: quiz.userAnswer,
+        isTutorDiscussion: true,
+      });
     },
     [handleSendMessage]
   );

@@ -1,7 +1,8 @@
 'use client';
 
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useSession } from 'next-auth/react';
 import ReactMarkdown from 'react-markdown';
 import rehypeHighlight from 'rehype-highlight';
@@ -29,7 +30,7 @@ import {
 import { useChat, type QuizAttemptItem } from '@/hooks/use-chat';
 import type { Message } from '@/lib/types/chat';
 import { cn } from '@/lib/utils';
-import { AlertTriangle, Award, BookOpen, History, RotateCcw } from 'lucide-react';
+import { AlertTriangle, Award, BookOpen, History, Library, RotateCcw } from 'lucide-react';
 
 interface TextBubbleProps extends Message {
   isThinking?: boolean;
@@ -306,8 +307,67 @@ function ChatContent() {
   const isAuthenticated = status === 'authenticated';
   const user = session?.user;
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const practiceMaterial = searchParams.get('practiceMaterial');
+  const discussMaterial = searchParams.get('discussMaterial');
+  const discussTitle = searchParams.get('title');
+  const chatIdParam = searchParams.get('id');
+  const handledMaterialParamRef = useRef<string | null>(null);
+
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
   const [activeQuizId, setActiveQuizId] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (status === 'loading') return;
+
+    if (practiceMaterial) {
+      const key = `practice:${practiceMaterial}`;
+      if (handledMaterialParamRef.current === key) return;
+      handledMaterialParamRef.current = key;
+
+      setIsCanvasOpen(true);
+      requestNextQuiz({
+        category: 'TWK',
+        materialSlug: practiceMaterial,
+        insertChatMarker: true,
+      }).then((created) => {
+        if (created) {
+          setActiveQuizId(created.id);
+        }
+        const targetChatId = created?.chatId || chatIdParam;
+        router.replace(
+          targetChatId ? `/chat?id=${encodeURIComponent(targetChatId)}` : '/chat'
+        );
+      });
+      return;
+    }
+
+    if (discussMaterial) {
+      const key = `discuss:${discussMaterial}`;
+      if (handledMaterialParamRef.current === key) return;
+      handledMaterialParamRef.current = key;
+
+      const label = discussTitle || discussMaterial;
+      if (chatIdParam) {
+        router.replace(`/chat?id=${encodeURIComponent(chatIdParam)}`);
+      }
+      handleSendMessage(
+        `Tolong bedah inti konsep, logika sebab-akibat, dan jebakan soal HOTS pada materi TWK "${label}".`,
+        undefined,
+        { materialSlugs: [discussMaterial], isTutorDiscussion: true }
+      );
+    }
+  }, [
+    status,
+    practiceMaterial,
+    discussMaterial,
+    discussTitle,
+    chatIdParam,
+    requestNextQuiz,
+    handleSendMessage,
+    router,
+  ]);
 
   const pendingQuizCount = quizzes.filter((q) => q.status === 'pending').length;
   const quizHistoryHref = activeChatId
@@ -384,6 +444,18 @@ function ChatContent() {
                   {pendingQuizCount > 0 && (
                     <Badge variant="default">{pendingQuizCount} baru</Badge>
                   )}
+                </Button>
+
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="hidden sm:inline-flex"
+                >
+                  <Link href="/materi">
+                    <Library data-icon="inline-start" />
+                    Bank Materi
+                  </Link>
                 </Button>
 
                 <Button

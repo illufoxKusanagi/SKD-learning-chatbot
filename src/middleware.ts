@@ -11,7 +11,9 @@ export default withAuth({
         '/auth/register',
         '/chat',
         '/help',
+        '/materi',
         '/quiz-history',
+        '/tryout',
       ];
 
       // Check if the current path is the landing page or matches a public prefix

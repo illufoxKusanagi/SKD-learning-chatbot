@@ -1,5 +1,9 @@
 import { GoogleGenAI } from '@google/genai';
 import { SkdRetrievalResult, SkdQuizMetadata } from './rag.service';
+import {
+  buildDeepTutorPrompt,
+  type DeepTutorQuizContext,
+} from '@/lib/services/material.service';
 
 export interface ChatHistoryTurn {
   role: 'user' | 'bot' | 'model';
@@ -26,6 +30,7 @@ export interface GenerateAiResponseOptions {
   history?: ChatHistoryTurn[];
   ragResult?: SkdRetrievalResult;
   lockedQuizEvaluation?: LockedQuizEvaluation;
+  deepTutorContext?: DeepTutorQuizContext | null;
 }
 
 let genAIClient: GoogleGenAI | null = null;
@@ -446,10 +451,15 @@ Ketentuan:
       }
     }
 
-    // 4. Compose current user prompt with RAG context
+    // 4. Compose current user prompt with deterministic or RAG context
     let finalUserPrompt = userMessage;
 
-    if (options?.ragResult?.isQuizRequest) {
+    if (options?.deepTutorContext) {
+      finalUserPrompt = buildDeepTutorPrompt(
+        userMessage,
+        options.deepTutorContext
+      );
+    } else if (options?.ragResult?.isQuizRequest) {
       finalUserPrompt = `${userMessage}
 
 [INSTRUKSI MODE SOAL INTERAKTIF]
@@ -490,8 +500,9 @@ ATURAN WAJIB:
       parts: [{ text: finalUserPrompt }],
     });
 
-    // 5. Decide tools (Google Search only when needed and not in benchmark)
+    // 5. Decide tools (Google Search only when needed and not in benchmark or deep tutor)
     const enableGoogleSearch =
+      !options?.deepTutorContext &&
       !options?.ragResult?.unattemptedBenchmark &&
       (options?.ragResult?.wantsNewVariation ||
         /ikn|terkini|terbaru|kebijakan|pemerintah|berita/i.test(userMessage));
