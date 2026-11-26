@@ -78,3 +78,31 @@ PostgreSQL with `pgvector` (`vector(768)` + HNSW `vector_cosine_ops` indexes), i
   - `TIU` (`data/quiz-bank/tiu-bank.json`): **41** (20 promoted from `raw/`, 21 migrated from `legacy/`)
   - `TKP` (`data/quiz-bank/tkp-bank.json` [38] + `data/quiz-bank/tkp-supplement-bank.json` [7]): **45** (20 promoted from `raw/`, 18 migrated from `legacy/`, 7 HOTS supplement)
 - **`quiz_question_materials`**: **57** TWK question-to-material links
+
+---
+
+## 6. Phase 1 Architecture — Bank Materi TWK & Deterministic Deep Tutor
+
+### Services (`src/lib/services/material.service.ts`)
+- **`listStudyMaterials(filters)`**: Lists TWK materials (`StudyMaterialSummaryItem[]`) filtered by optional `subtopic`, `search`, and `weakOnly`, enriched with validated `linkedQuestionCount` and user/guest `mistakeCount` (attributing TWK `scoreEarned < 5` attempts via `questionId` -> `ragSourceId` -> `subtopic`).
+- **`getStudyMaterialBySlug(slug, opts)`**: Loads full TWK `StudyMaterialDetail` (`contentMarkdown`, `linkedQuestionSlugs`, `mistakeCount`).
+- **`getDeterministicTutorContext(input)`**: Resolves `quizQuestions` + `quizAttempts` + linked TWK `studyMaterials` deterministically (returns empty `materials` for TIU/TKP).
+- **`buildDeepTutorPrompt(userMessage, context)`**: Builds structured prompts for three modes:
+  1. Pure TWK material study mode (4 HOTS pillars without a question)
+  2. Pre-answer conceptual hint mode (Anti-Spoiler guard — forbids leaking `A–E` or option scores)
+  3. Post-answer deep discussion (`Bedah Bareng Tutor` — 3-part diagnosis, proof, counterfactual & `< 50s` rule)
+
+### API Routes
+- **`GET /api/materials`** (`src/app/api/materials/route.ts`): Lists TWK materials with optional `subtopic` (validated against `CANONICAL_SUBTOPICS.TWK`), `q`, `weakOnly`, and guest `chatIds`.
+- **`GET /api/materials/[slug]`** (`src/app/api/materials/[slug]/route.ts`): Fetches full material detail by slug (`404 MATERIAL_NOT_FOUND` when missing).
+- **`POST /api/quiz`** (`src/app/api/quiz/route.ts`): Supports optional `materialSlug` in `action: "next"` (prefers unattempted validated questions linked to that material, falling back to subtopic TWK questions) and includes `questionId` in `sanitizeQuizAttempt`.
+- **`POST /api/chat`** (`src/app/api/chat/route.ts`): Resolves `getDeterministicTutorContext` when `isTutorDiscussion`, `questionId`, `questionSlug`, `materialSlugs`, or answered `quizAttemptId` is passed, bypassing similarity RAG.
+
+### Frontend Routes & Modular Components
+- **`/materi`** (`src/app/materi/page.tsx`, public in `src/middleware.ts` alongside `/tryout`): Responsive TWK Bank Materi page with `AppSidebar` navigation and `"Kembali ke Chat"` session preservation.
+- **`src/components/materials/`**:
+  - `material-markdown-viewer.tsx`: Splits the 4 HOTS headings (`Inti Konsep`, `Logika Sebab-Akibat`, `Jembatan Soal HOTS`, `Jebakan Klasik`) into scannable semantic `Card` sections.
+  - `material-filter-bar.tsx`: Search input, *"Topik TWK Sering Salah"* toggle with mistake count badge, and 9 canonical TWK subtopic filter pills.
+  - `material-drawer.tsx`: Reusable right-side `Sheet` drawer supporting `0 ms` preloaded rendering or `/api/materials/[slug]` fetch with practice & tutor CTAs.
+  - `material-browser-workspace.tsx`: Desktop split-view + mobile drawer workspace with `Map`-cached details and `localStorage` guest `chatIds` mistake tracking.
+- **`/chat` Deep-Linking** (`src/app/chat/page.tsx`, `src/hooks/use-chat.ts`): Handles `?practiceMaterial=<slug>` (opens `QuizCanvasPanel` + requests linked TWK quiz) and `?discussMaterial=<slug>` (sends deterministic `materialSlugs` tutor discussion), plus header link to `/materi`.

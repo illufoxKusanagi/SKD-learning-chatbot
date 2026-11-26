@@ -1,5 +1,12 @@
 import { db } from '@/lib/db';
-import { conversations, messages, quizAttempts } from '@/lib/db/schema';
+import {
+  conversations,
+  messages,
+  quizAttempts,
+  quizQuestionMaterials,
+  quizQuestions,
+  studyMaterials,
+} from '@/lib/db/schema';
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
@@ -38,6 +45,7 @@ function sanitizeQuizAttempt(
     chatId: quiz.chatId,
     chatTitle: chatTitle || 'Sesi SKD',
     userId: quiz.userId,
+    questionId: quiz.questionId ?? null,
     ragSourceId: quiz.ragSourceId,
     category: quiz.category,
     subtopic: quiz.subtopic,
@@ -68,6 +76,7 @@ const quizPostSchema = z.discriminatedUnion('action', [
     chatId: z.string().uuid().nullish(),
     category: z.enum(['TWK', 'TIU', 'TKP']).optional(),
     subtopic: z.string().trim().max(120).optional(),
+    materialSlug: z.string().trim().max(160).optional(),
     insertChatMarker: z.boolean().optional(),
   }),
 ]);
@@ -571,40 +580,143 @@ async function handlePostQuiz(request: NextRequest) {
   const [chatQuizzes, userQuizzes] = await Promise.all([
     conversationId
       ? db
-          .select({ ragSourceId: quizAttempts.ragSourceId })
+          .select({
+            ragSourceId: quizAttempts.ragSourceId,
+            questionId: quizAttempts.questionId,
+          })
           .from(quizAttempts)
           .where(eq(quizAttempts.chatId, conversationId))
-      : Promise.resolve([] as { ragSourceId: string | null }[]),
+      : Promise.resolve(
+          [] as { ragSourceId: string | null; questionId: string | null }[]
+        ),
     authUserId
       ? db
-          .select({ ragSourceId: quizAttempts.ragSourceId })
+          .select({
+            ragSourceId: quizAttempts.ragSourceId,
+            questionId: quizAttempts.questionId,
+          })
           .from(quizAttempts)
           .where(eq(quizAttempts.userId, authUserId))
-      : Promise.resolve([] as { ragSourceId: string | null }[]),
+      : Promise.resolve(
+          [] as { ragSourceId: string | null; questionId: string | null }[]
+        ),
   ]);
 
   const attemptedSourceSet = new Set<string>();
-  for (const q of chatQuizzes) {
+  const attemptedQuestionIdSet = new Set<string>();
+  for (const q of [...chatQuizzes, ...userQuizzes]) {
     if (q.ragSourceId) attemptedSourceSet.add(q.ragSourceId);
-  }
-  for (const q of userQuizzes) {
-    if (q.ragSourceId) attemptedSourceSet.add(q.ragSourceId);
+    if (q.questionId) attemptedQuestionIdSet.add(q.questionId);
   }
   const attemptedSourceIds = Array.from(attemptedSourceSet);
 
-  const retrievalQuery = `Berikan 1 soal latihan ${payload.category || 'SKD'} HOTS ${payload.subtopic || ''}`.trim();
-  const ragResult = await findRelevantContents(retrievalQuery, {
-    attemptedSourceIds,
-  });
+  let quizMeta: SkdQuizMetadata | null = null;
+  let chosenQuestionId: string | null = null;
+  let resolvedSubtopicFilter = payload.subtopic;
 
-  let quizMeta: SkdQuizMetadata | null = ragResult.unattemptedBenchmark;
+  if (payload.materialSlug) {
+    const [material] = await db
+      .select({
+        id: studyMaterials.id,
+        title: studyMaterials.title,
+        subtopic: studyMaterials.subtopic,
+      })
+      .from(studyMaterials)
+      .where(
+        and(
+          eq(studyMaterials.slug, payload.materialSlug),
+          eq(studyMaterials.category, 'TWK')
+        )
+      )
+      .limit(1);
+
+    if (!material) {
+      throw new ApiError(
+        'Materi TWK tidak ditemukan',
+        404,
+        'MATERIAL_NOT_FOUND'
+      );
+    }
+
+    if (!conversationId) {
+      chatTitle = `Latihan TWK: ${material.title}`;
+    }
+    resolvedSubtopicFilter = resolvedSubtopicFilter || material.subtopic;
+
+    const linkedRows = await db
+      .select({ question: quizQuestions })
+      .from(quizQuestions)
+      .innerJoin(
+        quizQuestionMaterials,
+        eq(quizQuestions.id, quizQuestionMaterials.questionId)
+      )
+      .where(
+        and(
+          eq(quizQuestionMaterials.materialId, material.id),
+          eq(quizQuestions.isValidated, true)
+        )
+      );
+
+    let pool = linkedRows.map((r) => r.question);
+    if (pool.length === 0) {
+      pool = await db
+        .select()
+        .from(quizQuestions)
+        .where(
+          and(
+            eq(quizQuestions.category, 'TWK'),
+            eq(quizQuestions.subtopic, material.subtopic),
+            eq(quizQuestions.isValidated, true)
+          )
+        );
+    }
+
+    if (pool.length > 0) {
+      const unattemptedPool = pool.filter(
+        (q) => !attemptedSourceSet.has(q.slug) && !attemptedQuestionIdSet.has(q.id)
+      );
+      const candidates = unattemptedPool.length > 0 ? unattemptedPool : pool;
+      const chosen = candidates[Math.floor(Math.random() * candidates.length)];
+      const correctOption =
+        (chosen.correctOption as 'A' | 'B' | 'C' | 'D' | 'E' | null) ?? 'A';
+
+      chosenQuestionId = chosen.id;
+      quizMeta = {
+        ragSourceId: chosen.slug,
+        category: (chosen.category as 'TWK' | 'TIU' | 'TKP') || 'TWK',
+        subtopic: chosen.subtopic,
+        questionStem: chosen.stem,
+        options: chosen.options,
+        correctOption,
+        scoringRubric: chosen.scoringRubric ?? {
+          A: correctOption === 'A' ? 5 : 0,
+          B: correctOption === 'B' ? 5 : 0,
+          C: correctOption === 'C' ? 5 : 0,
+          D: correctOption === 'D' ? 5 : 0,
+          E: correctOption === 'E' ? 5 : 0,
+        },
+        rubricRationale: Object.entries(chosen.optionRationales)
+          .map(([k, v]) => `${k}: ${v}`)
+          .join('\n'),
+      };
+    }
+  }
 
   if (!quizMeta) {
-    let generatedText = '';
-    for await (const chunk of generateAiResponse(retrievalQuery, { ragResult })) {
-      generatedText += chunk;
+    const retrievalQuery = `Berikan 1 soal latihan ${payload.category || 'SKD'} HOTS ${resolvedSubtopicFilter || ''}`.trim();
+    const ragResult = await findRelevantContents(retrievalQuery, {
+      attemptedSourceIds,
+    });
+
+    quizMeta = ragResult.unattemptedBenchmark;
+
+    if (!quizMeta) {
+      let generatedText = '';
+      for await (const chunk of generateAiResponse(retrievalQuery, { ragResult })) {
+        generatedText += chunk;
+      }
+      quizMeta = extractQuizMetaFromText(generatedText).quizMeta;
     }
-    quizMeta = extractQuizMetaFromText(generatedText).quizMeta;
   }
 
   if (!quizMeta) {
@@ -665,6 +777,7 @@ async function handlePostQuiz(request: NextRequest) {
         .insert(quizAttempts)
         .values({
           chatId: finalChatId,
+          questionId: chosenQuestionId,
           userId: authUserId ?? null,
           ragSourceId: resolvedQuizMeta.ragSourceId
             ? String(resolvedQuizMeta.ragSourceId).slice(0, 255)

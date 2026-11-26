@@ -1,5 +1,5 @@
 "use client";
-import { Plus, History } from "lucide-react";
+import { Plus, History, BookOpen } from "lucide-react";
 
 import {
   Sidebar,
@@ -123,6 +123,19 @@ export function AppSidebar() {
               <Plus size="icon" className="shrink-0" />
               {open && (
                 <span className="body-medium-bold">Percakapan Baru</span>
+              )}
+            </Link>
+          </SidebarMenuButton>
+
+          <SidebarMenuButton
+            variant="block"
+            className="h-10 px-4 py-3 justify-start gap-3 transition-colors text-primary hover:text-primary"
+            asChild
+          >
+            <Link href="/materi">
+              <BookOpen className="size-4 shrink-0 text-primary" />
+              {open && (
+                <span className="body-medium-bold">Bank Materi TWK</span>
               )}
             </Link>
           </SidebarMenuButton>
