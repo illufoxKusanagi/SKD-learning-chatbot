@@ -4,7 +4,7 @@ import {
   ragData,
   studyMaterials,
 } from '@/lib/db/schema';
-import { sql, desc, eq, and } from 'drizzle-orm';
+import { sql, desc, eq, and, notInArray } from 'drizzle-orm';
 import { getDb } from '@/lib/db/index';
 import { generateEmbedding } from './embeddings.service';
 import {
@@ -225,6 +225,20 @@ export async function findRelevantContents(
       ragData.embedding
     } <=> ${JSON.stringify(queryEmbedding)})`;
 
+    const nonEmptyAttemptedSlugs = Array.from(attemptedIds)
+      .map((id) => id.trim())
+      .filter((id) => id.length > 0);
+
+    const questionConditions = [eq(quizQuestions.isValidated, true)];
+    if (detectedCategory) {
+      questionConditions.push(eq(quizQuestions.category, detectedCategory));
+    }
+    if (nonEmptyAttemptedSlugs.length > 0) {
+      questionConditions.push(
+        notInArray(quizQuestions.slug, nonEmptyAttemptedSlugs)
+      );
+    }
+
     const [studyRows, ragRows, questionRows] = await Promise.all([
       db
         .select({
@@ -268,15 +282,8 @@ export async function findRelevantContents(
               optionRationales: quizQuestions.optionRationales,
             })
             .from(quizQuestions)
-            .where(
-              detectedCategory
-                ? and(
-                    eq(quizQuestions.isValidated, true),
-                    eq(quizQuestions.category, detectedCategory)
-                  )
-                : eq(quizQuestions.isValidated, true)
-            )
-            .limit(30)
+            .where(and(...questionConditions))
+            .limit(60)
         : Promise.resolve([]),
     ]);
 

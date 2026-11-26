@@ -1,6 +1,7 @@
 import { db } from '@/lib/db';
 import { conversations, messages, quizAttempts } from '@/lib/db/schema';
 import { findRelevantContents } from '@/lib/services/ai/rag.service';
+import { getDeterministicTutorContext } from '@/lib/services/material.service';
 import {
   ApiError,
   withMiddleware,
@@ -31,6 +32,11 @@ const chatMessageSchema = z.object({
   chatId: z.string().nullish(),
   quizAttemptId: z.string().uuid().nullish(),
   skipUserMessageInsert: z.boolean().optional(),
+  questionId: z.string().uuid().nullish(),
+  questionSlug: z.string().trim().max(160).nullish(),
+  materialSlugs: z.array(z.string().trim().max(160)).max(10).optional(),
+  selectedAnswer: z.enum(['A', 'B', 'C', 'D', 'E']).nullish(),
+  isTutorDiscussion: z.boolean().optional(),
 });
 
 type QuizOption = 'A' | 'B' | 'C' | 'D' | 'E';
@@ -87,8 +93,17 @@ async function persistGeneratedTitle(
 
 async function handleChatPost(request: NextRequest) {
   const body = await request.json();
-  const { message, chatId, quizAttemptId, skipUserMessageInsert } =
-    chatMessageSchema.parse(body);
+  const {
+    message,
+    chatId,
+    quizAttemptId,
+    skipUserMessageInsert,
+    questionId,
+    questionSlug,
+    materialSlugs,
+    selectedAnswer,
+    isTutorDiscussion,
+  } = chatMessageSchema.parse(body);
 
   // Authenticate user session if available
   let userId: string | null = null;
@@ -306,12 +321,15 @@ async function handleChatPost(request: NextRequest) {
   // 3. Detect Turn-2 Quiz Answer Submission
   const hasExplicitQuizId = Boolean(quizAttemptId);
   const selectedOption =
-    pendingQuiz && pendingQuiz.status === 'pending'
+    !isTutorDiscussion && pendingQuiz && pendingQuiz.status === 'pending'
       ? parseQuizOptionChoice(message, hasExplicitQuizId)
       : null;
 
   const isAnsweringPendingQuiz = Boolean(
-    pendingQuiz && pendingQuiz.status === 'pending' && selectedOption !== null
+    !isTutorDiscussion &&
+      pendingQuiz &&
+      pendingQuiz.status === 'pending' &&
+      selectedOption !== null
   );
 
   let lockedQuizEvaluation: LockedQuizEvaluation | null = null;
@@ -435,15 +453,37 @@ async function handleChatPost(request: NextRequest) {
           controller.close();
         } else {
           // ==================== TURN 1: QUESTION OR DISCUSSION ====================
-          const ragResult = await findRelevantContents(message, {
-            history,
-            attemptedSourceIds,
-          });
+          const shouldResolveDeepTutor = Boolean(
+            isTutorDiscussion ||
+              questionId ||
+              questionSlug ||
+              (materialSlugs && materialSlugs.length > 0) ||
+              (quizAttemptId && pendingQuiz?.status === 'answered')
+          );
 
-          const generator = generateAiResponse(message, {
-            history,
-            ragResult,
-          });
+          const deepTutorContext = shouldResolveDeepTutor
+            ? await getDeterministicTutorContext({
+                questionId,
+                questionSlug,
+                quizAttemptId,
+                materialSlugs,
+                selectedAnswer,
+              })
+            : null;
+
+          const ragResult = deepTutorContext
+            ? undefined
+            : await findRelevantContents(message, {
+                history,
+                attemptedSourceIds,
+              });
+
+          const generator = generateAiResponse(
+            message,
+            deepTutorContext
+              ? { history, deepTutorContext }
+              : { history, ragResult }
+          );
 
           let rawAccumulated = '';
           let streamedLength = 0;
@@ -504,7 +544,7 @@ async function handleChatPost(request: NextRequest) {
           let insertedQuizId: string | null = null;
           if (quizMeta) {
             if (
-              ragResult.unattemptedBenchmark?.ragSourceId &&
+              ragResult?.unattemptedBenchmark?.ragSourceId &&
               !quizMeta.ragSourceId
             ) {
               quizMeta.ragSourceId = ragResult.unattemptedBenchmark.ragSourceId;
