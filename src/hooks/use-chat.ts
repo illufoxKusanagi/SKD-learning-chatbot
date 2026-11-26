@@ -316,12 +316,15 @@ export function useChat() {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            ...(options?.isRetry ? { "X-Chat-Retry": "1" } : {}),
           },
           body: JSON.stringify({
             message: messageContent,
             chatId: targetChatId || undefined,
             ...(quizAttemptId ? { quizAttemptId } : {}),
-            ...(options?.isRetry ? { skipUserMessageInsert: true } : {}),
+            ...(options?.isRetry && targetChatId
+              ? { skipUserMessageInsert: true }
+              : {}),
             ...(options?.questionId ? { questionId: options.questionId } : {}),
             ...(options?.questionSlug ? { questionSlug: options.questionSlug } : {}),
             ...(options?.materialSlugs?.length ? { materialSlugs: options.materialSlugs } : {}),

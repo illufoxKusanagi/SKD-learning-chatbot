@@ -20,6 +20,16 @@ function getGenAIClient(): GoogleGenAI {
 const getEmbeddingModel = () =>
   process.env.EMBEDDING_MODEL ?? 'gemini-embedding-001';
 
+function isTransientEmbeddingError(error: unknown): boolean {
+  const raw =
+    error instanceof Error
+      ? `${error.name} ${error.message}`
+      : String(error ?? '');
+  return /\b(429|503|UNAVAILABLE|RESOURCE_EXHAUSTED|ECONNRESET)\b|overloaded|high\s+demand|try\s+again\s+later|fetch\s+failed/i.test(
+    raw
+  );
+}
+
 export async function generateEmbedding(
   content: string,
   options?: { taskType?: EmbeddingTaskType; title?: string }
@@ -37,15 +47,31 @@ export async function generateEmbedding(
     // Preserve acronym casing (TWK, TIU, TKP, UUD 1945, BerAKHLAK); normalize whitespace only
     const cleanContent = content.trim().replace(/\s+/g, ' ');
 
-    const result = await ai.models.embedContent({
-      model: getEmbeddingModel(),
-      contents: cleanContent,
-      config: {
-        taskType: options?.taskType ?? 'RETRIEVAL_QUERY',
-        ...(options?.title ? { title: options.title } : {}),
-        outputDimensionality: 768,
-      },
-    });
+    const maxRetries = 2;
+    let result: unknown;
+    for (let attempt = 0; attempt <= maxRetries; attempt++) {
+      try {
+        result = await ai.models.embedContent({
+          model: getEmbeddingModel(),
+          contents: cleanContent,
+          config: {
+            taskType: options?.taskType ?? 'RETRIEVAL_QUERY',
+            ...(options?.title ? { title: options.title } : {}),
+            outputDimensionality: 768,
+          },
+        });
+        break;
+      } catch (embedErr) {
+        if (!isTransientEmbeddingError(embedErr) || attempt === maxRetries) {
+          throw embedErr;
+        }
+        const delayMs = Math.round(900 + Math.random() * 500);
+        console.warn(
+          `[EmbeddingsService] Transient embedContent failure (attempt ${attempt + 1}/${maxRetries + 1}). Retrying in ${delayMs}ms...`
+        );
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
+      }
+    }
 
     // Cast to any to handle SDK response variations
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
