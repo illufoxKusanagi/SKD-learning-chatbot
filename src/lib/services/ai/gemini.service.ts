@@ -13,9 +13,9 @@ export interface LockedQuizEvaluation {
   subtopic: string;
   questionStem: string;
   options: { A: string; B: string; C: string; D: string; E: string };
-  correctOption: 'A' | 'B' | 'C' | 'D' | 'E';
-  scoringRubric: { A: number; B: number; C: number; D: number; E: number };
-  rubricRationale: string;
+  correctOption: 'A' | 'B' | 'C' | 'D' | 'E' | null;
+  scoringRubric: { A: number; B: number; C: number; D: number; E: number } | null;
+  rubricRationale: string | null;
   userAnswer: 'A' | 'B' | 'C' | 'D' | 'E';
   scoreEarned: number;
   maxScore: number;
@@ -41,10 +41,10 @@ function getGenAIClient(): GoogleGenAI {
 }
 
 const getGenerativeModel = () =>
-  process.env.GENERATIVE_MODEL || 'gemini-3.5-flash';
+  process.env.GENERATIVE_MODEL || 'gemini-2.5-flash';
 
 const getFallbackModel = () =>
-  process.env.GEMINI_FALLBACK_MODEL || 'gemini-3.5-flash-lite';
+  process.env.GEMINI_FALLBACK_MODEL || 'gemini-2.5-flash-lite';
 
 function isTransientGeminiOverloadError(error: unknown): boolean {
   const raw =
@@ -275,16 +275,26 @@ Silakan ketik pilihan jawaban Anda (**A**, **B**, **C**, **D**, atau **E**)!
       const evalData = options.lockedQuizEvaluation;
       const subtest = evalData.subtest || evalData.category;
       evalData.subtest = subtest;
+      const bestTkpOption =
+        evalData.correctOption ??
+        ((['A', 'B', 'C', 'D', 'E'] as const).find(
+          (opt) => evalData.scoringRubric?.[opt] === 5
+        ) ??
+          null);
       if (typeof evalData.isCorrect !== 'boolean') {
-        evalData.isCorrect = evalData.userAnswer === evalData.correctOption;
+        evalData.isCorrect =
+          evalData.correctOption !== null
+            ? evalData.userAnswer === evalData.correctOption
+            : evalData.scoreEarned === evalData.maxScore;
       }
+      const rationaleText = evalData.rubricRationale ?? '-';
 
       if (evalData.subtest === 'TKP') {
         const rubricLines = (['A', 'B', 'C', 'D', 'E'] as const).map((opt) => {
           const score =
             evalData.scoringRubric?.[opt] ??
-            (opt === evalData.correctOption ? 5 : 1);
-          const isBest = opt === evalData.correctOption || score === 5;
+            (opt === bestTkpOption ? 5 : 1);
+          const isBest = opt === bestTkpOption || score === 5;
           const isSelected = opt === evalData.userAnswer;
           const badges: string[] = [];
           if (isBest) badges.push('⭐ (Skor Tertinggi)');
@@ -300,23 +310,23 @@ Silakan ketik pilihan jawaban Anda (**A**, **B**, **C**, **D**, atau **E**)!
         const initialEvaluationChunk = `### 📊 Evaluasi Jawaban (TKP — ${evalData.subtopic})
 - **Jawaban Anda:** Opsi **${evalData.userAnswer}**
 - **Skor Diperoleh:** **+${evalData.scoreEarned} / 5 Poin**
-- **Opsi Terbaik (5 Poin):** Opsi **${evalData.correctOption}**
+- **Opsi Terbaik (5 Poin):** ${bestTkpOption ? `Opsi **${bestTkpOption}**` : '-'}
 
 #### 📋 Rincian Skor Opsi A–E
 ${rubricList}
 
 #### 💡 Pembahasan Resmi
-${evalData.rubricRationale}
+${rationaleText}
 `;
         yield initialEvaluationChunk;
       } else {
         const initialEvaluationChunk = `### ${evalData.isCorrect ? '✅ Jawaban Tepat!' : '❌ Jawaban Kurang Tepat'} (${evalData.subtest} — ${evalData.subtopic})
 - **Jawaban Anda:** Opsi **${evalData.userAnswer}**
-- **Kunci Jawaban:** Opsi **${evalData.correctOption}**
+- **Kunci Jawaban:** ${evalData.correctOption ? `Opsi **${evalData.correctOption}**` : '-'}
 - **Skor Diperoleh:** **+${evalData.scoreEarned} / 5 Poin**
 
 #### 💡 Pembahasan Resmi
-${evalData.rubricRationale}
+${rationaleText}
 `;
         yield initialEvaluationChunk;
       }
@@ -326,6 +336,11 @@ ${evalData.rubricRationale}
         const ai = getGenAIClient();
         const model = getGenerativeModel();
         const isGemini25 = model.startsWith('gemini-2.5');
+        const officialAnswerLabel = evalData.correctOption
+          ? `Opsi ${evalData.correctOption}`
+          : bestTkpOption
+            ? `Opsi ${bestTkpOption}`
+            : 'Lihat rubrik skor';
 
         const suppPrompt = `Soal SKD (${evalData.subtest} — ${evalData.subtopic}):
 ${evalData.questionStem}
@@ -337,10 +352,10 @@ C. ${evalData.options.C}
 D. ${evalData.options.D}
 E. ${evalData.options.E}
 
-Kunci Jawaban Resmi: Opsi ${evalData.correctOption}
+Kunci Jawaban Resmi: ${officialAnswerLabel}
 Jawaban Pengguna: Opsi ${evalData.userAnswer}
 Pembahasan Resmi:
-${evalData.rubricRationale}
+${rationaleText}
 
 Tugas:
 Buat HANYA bagian tambahan berikut:

@@ -1,4 +1,9 @@
-import { conversations, ragData } from '@/lib/db/schema';
+import {
+  conversations,
+  quizQuestions,
+  ragData,
+  studyMaterials,
+} from '@/lib/db/schema';
 import { sql, desc, eq, and } from 'drizzle-orm';
 import { getDb } from '@/lib/db/index';
 import { generateEmbedding } from './embeddings.service';
@@ -190,91 +195,228 @@ export async function findRelevantContents(
 
   const attemptedIds = new Set(options?.attemptedSourceIds || []);
 
-  // 1. Database Hybrid Search (pgvector + Keyword & Category Boost)
+  // 1. Database Hybrid Search (pgvector on study_materials & rag_data + validated quiz_questions)
   const dbChunks: RagChunk[] = [];
+  const validatedQuizCandidates: RagChunk[] = [];
+  const queryWords = effectiveQuery
+    .toLowerCase()
+    .replace(/[^\w\s]/g, ' ')
+    .split(/\s+/)
+    .filter((w) => w.length >= 3);
+
   try {
     const queryEmbedding = await generateEmbedding(effectiveQuery, {
       taskType: 'RETRIEVAL_QUERY',
     });
 
-    if (Array.isArray(queryEmbedding) && queryEmbedding.length === 768) {
-      const db = getDb();
-      const similarity = sql<number>`1 - (${
-        ragData.embedding
-      } <=> ${JSON.stringify(queryEmbedding)})`;
+    if (!Array.isArray(queryEmbedding) || queryEmbedding.length !== 768) {
+      throw new Error(
+        `Invalid query embedding length: expected 768, got ${
+          Array.isArray(queryEmbedding) ? queryEmbedding.length : typeof queryEmbedding
+        }`
+      );
+    }
 
-      const rows = await db
+    const db = getDb();
+    const studySimilarity = sql<number>`1 - (${
+      studyMaterials.embedding
+    } <=> ${JSON.stringify(queryEmbedding)})`;
+    const ragSimilarity = sql<number>`1 - (${
+      ragData.embedding
+    } <=> ${JSON.stringify(queryEmbedding)})`;
+
+    const [studyRows, ragRows, questionRows] = await Promise.all([
+      db
+        .select({
+          id: studyMaterials.id,
+          slug: studyMaterials.slug,
+          title: studyMaterials.title,
+          category: studyMaterials.category,
+          subtopic: studyMaterials.subtopic,
+          contentMarkdown: studyMaterials.contentMarkdown,
+          similarity: studySimilarity,
+        })
+        .from(studyMaterials)
+        .where(sql`${studyMaterials.embedding} IS NOT NULL`)
+        .orderBy(desc(studySimilarity))
+        .limit(8),
+      db
         .select({
           id: ragData.id,
           title: ragData.title,
           content: ragData.content,
           data: ragData.data,
           externalId: ragData.external_id,
-          similarity: similarity,
+          similarity: ragSimilarity,
         })
         .from(ragData)
         .where(sql`${ragData.embedding} IS NOT NULL`)
-        .orderBy(desc(similarity))
-        .limit(10);
+        .orderBy(desc(ragSimilarity))
+        .limit(10),
+      isQuizRequest && !wantsNewVariation
+        ? db
+            .select({
+              id: quizQuestions.id,
+              slug: quizQuestions.slug,
+              category: quizQuestions.category,
+              subtopic: quizQuestions.subtopic,
+              reasoningChain: quizQuestions.reasoningChain,
+              stem: quizQuestions.stem,
+              options: quizQuestions.options,
+              correctOption: quizQuestions.correctOption,
+              scoringRubric: quizQuestions.scoringRubric,
+              optionRationales: quizQuestions.optionRationales,
+            })
+            .from(quizQuestions)
+            .where(
+              detectedCategory
+                ? and(
+                    eq(quizQuestions.isValidated, true),
+                    eq(quizQuestions.category, detectedCategory)
+                  )
+                : eq(quizQuestions.isValidated, true)
+            )
+            .limit(30)
+        : Promise.resolve([]),
+    ]);
 
-      const queryWords = effectiveQuery
-        .toLowerCase()
-        .replace(/[^\w\s]/g, ' ')
-        .split(/\s+/)
-        .filter((w) => w.length >= 3);
+    for (const row of studyRows) {
+      const cat = (
+        ['TWK', 'TIU', 'TKP', 'GENERAL'].includes(row.category)
+          ? row.category
+          : 'GENERAL'
+      ) as 'TWK' | 'TIU' | 'TKP' | 'GENERAL';
+      let score = Number(row.similarity) || 0;
 
-      for (const row of rows) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const dataObj = (row.data as any) || {};
-        const cat = (dataObj.category || 'GENERAL') as
-          | 'TWK'
-          | 'TIU'
-          | 'TKP'
-          | 'GENERAL';
-        const sub = dataObj.subtopic || '';
-        const docType = (dataObj.docType || 'kisi_kisi_rubrik') as
-          | 'kisi_kisi_rubrik'
-          | 'rumus_trik_cepat'
-          | 'contoh_soal_hots';
-        let score = Number(row.similarity) || 0;
-
-        // Category match boost
-        if (detectedCategory && cat === detectedCategory) {
-          score += 0.18;
-        }
-
-        // Title and subtopic keyword boost
-        const titleAndSub = `${row.title || ''} ${sub}`.toLowerCase();
-        if (queryWords.some((w) => titleAndSub.includes(w))) {
-          score += 0.12;
-        }
-
-        const canonicalId = row.externalId || row.id;
-        dbChunks.push({
-          id: canonicalId,
-          title: row.title || 'Materi SKD',
-          content: row.content,
-          category: cat,
-          subtopic: sub,
-          docType: docType,
-          similarity: score,
-          quizPayload: dataObj.quizPayload
-            ? {
-                ...dataObj.quizPayload,
-                ragSourceId: canonicalId,
-              }
-            : null,
-        });
+      if (detectedCategory && cat === detectedCategory) {
+        score += 0.18;
       }
+
+      const titleAndSub = `${row.title} ${row.subtopic}`.toLowerCase();
+      if (queryWords.some((w) => titleAndSub.includes(w))) {
+        score += 0.12;
+      }
+
+      dbChunks.push({
+        id: row.slug || row.id,
+        title: row.title,
+        content: row.contentMarkdown,
+        category: cat,
+        subtopic: row.subtopic,
+        docType: 'kisi_kisi_rubrik',
+        similarity: score,
+        quizPayload: null,
+      });
+    }
+
+    for (const row of ragRows) {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const dataObj = (row.data as any) || {};
+      const cat = (dataObj.category || 'GENERAL') as
+        | 'TWK'
+        | 'TIU'
+        | 'TKP'
+        | 'GENERAL';
+      const sub = dataObj.subtopic || '';
+      const docType = (dataObj.docType || 'kisi_kisi_rubrik') as
+        | 'kisi_kisi_rubrik'
+        | 'rumus_trik_cepat'
+        | 'contoh_soal_hots';
+      let score = Number(row.similarity) || 0;
+
+      // Category match boost
+      if (detectedCategory && cat === detectedCategory) {
+        score += 0.18;
+      }
+
+      // Title and subtopic keyword boost
+      const titleAndSub = `${row.title || ''} ${sub}`.toLowerCase();
+      if (queryWords.some((w) => titleAndSub.includes(w))) {
+        score += 0.12;
+      }
+
+      const canonicalId = row.externalId || row.id;
+      dbChunks.push({
+        id: canonicalId,
+        title: row.title || 'Materi SKD',
+        content: row.content,
+        category: cat,
+        subtopic: sub,
+        docType: docType,
+        similarity: score,
+        quizPayload: dataObj.quizPayload
+          ? {
+              ...dataObj.quizPayload,
+              ragSourceId: canonicalId,
+            }
+          : null,
+      });
+    }
+
+    for (const qRow of questionRows) {
+      const cat = (
+        ['TWK', 'TIU', 'TKP'].includes(qRow.category) ? qRow.category : 'TWK'
+      ) as 'TWK' | 'TIU' | 'TKP';
+      const canonicalId = qRow.slug || qRow.id;
+      const optionKeys = ['A', 'B', 'C', 'D', 'E'] as const;
+
+      const resolvedCorrect =
+        qRow.correctOption &&
+        optionKeys.includes(qRow.correctOption as (typeof optionKeys)[number])
+          ? (qRow.correctOption as (typeof optionKeys)[number])
+          : optionKeys.find((opt) => qRow.scoringRubric?.[opt] === 5) ?? 'A';
+
+      const resolvedRubric = qRow.scoringRubric ?? {
+        A: resolvedCorrect === 'A' ? 5 : 0,
+        B: resolvedCorrect === 'B' ? 5 : 0,
+        C: resolvedCorrect === 'C' ? 5 : 0,
+        D: resolvedCorrect === 'D' ? 5 : 0,
+        E: resolvedCorrect === 'E' ? 5 : 0,
+      };
+
+      const rationalesText = optionKeys
+        .map((opt) => `${opt}: ${qRow.optionRationales[opt]}`)
+        .join('\n');
+      const rubricRationale = qRow.reasoningChain
+        ? `${qRow.reasoningChain}\n\n${rationalesText}`
+        : rationalesText;
+
+      let score = detectedCategory && cat === detectedCategory ? 0.5 : 0.2;
+      const searchText = `${qRow.subtopic} ${qRow.stem}`.toLowerCase();
+      if (queryWords.length > 0) {
+        const matches = queryWords.filter((w) => searchText.includes(w)).length;
+        score += Math.min(0.4, (matches / queryWords.length) * 0.4);
+      }
+
+      validatedQuizCandidates.push({
+        id: canonicalId,
+        title: `Soal ${cat} — ${qRow.subtopic}`,
+        content: qRow.stem,
+        category: cat,
+        subtopic: qRow.subtopic,
+        docType: 'contoh_soal_hots',
+        similarity: score,
+        quizPayload: {
+          ragSourceId: canonicalId,
+          category: cat,
+          subtopic: qRow.subtopic,
+          questionStem: qRow.stem,
+          options: qRow.options,
+          correctOption: resolvedCorrect,
+          scoringRubric: resolvedRubric,
+          rubricRationale,
+        },
+      });
     }
   } catch (dbErr) {
-    console.warn(
-      '[RAG SERVICE] DB vector search error (using in-memory knowledge):',
-      dbErr
-    );
+    console.error('[RAG_VECTOR_QUERY_ERROR] Explicit vector retrieval failure:', {
+      query: effectiveQuery.slice(0, 120),
+      error: dbErr instanceof Error ? dbErr.message : String(dbErr),
+    });
+    throw dbErr;
   }
 
-  // 2. Guaranteed In-Memory Fallback & Augmentation from SKD_KNOWLEDGE_BASE
+  // 2. Guaranteed In-Memory Fallback & Augmentation from SKD_KNOWLEDGE_BASE (only when DB succeeds with < 2 rows)
   const inMemoryCandidates: RagChunk[] = SKD_KNOWLEDGE_BASE.map((entry) => {
     const score = scoreInMemoryEntry(entry, effectiveQuery, detectedCategory);
     return {
@@ -313,53 +455,59 @@ export async function findRelevantContents(
       }
     }
   } else {
-    // Guaranteed fallback when DB is empty or unseeded
-    contextChunks = inMemoryCandidates;
+    // Fallback when DB query succeeded with < 2 rows (e.g., fresh unseeded database)
+    contextChunks =
+      dbChunks.length > 0
+        ? [
+            ...dbChunks,
+            ...inMemoryCandidates.filter(
+              (mem) => !dbChunks.some((dbItem) => dbItem.title === mem.title)
+            ),
+          ]
+        : inMemoryCandidates;
   }
 
-  // 3. Dual Question Source Selection (unattemptedBenchmark)
+  // 3. Dual Question Source Selection (validated quiz_questions first, then legacy rag_data / SKD_KNOWLEDGE_BASE)
   let unattemptedBenchmark: SkdQuizMetadata | null = null;
 
   if (isQuizRequest && !wantsNewVariation) {
-    // Collect all HOTS questions with quizPayload from both context and knowledge base
-    const benchmarkCandidates: RagChunk[] = [];
-    const seenIds = new Set<string>();
+    const pickUnattempted = (candidates: RagChunk[]): RagChunk | null => {
+      const eligible: RagChunk[] = [];
+      const seenIds = new Set<string>();
 
-    const evaluateCandidate = (chunk: RagChunk) => {
-      if (!chunk.quizPayload || seenIds.has(chunk.id)) return;
-      seenIds.add(chunk.id);
+      for (const chunk of candidates) {
+        if (!chunk.quizPayload || seenIds.has(chunk.id)) continue;
+        seenIds.add(chunk.id);
 
-      // Check category match if category detected
-      if (detectedCategory && chunk.category !== detectedCategory) return;
+        if (detectedCategory && chunk.category !== detectedCategory) continue;
 
-      // Check not attempted
-      const sourceId = chunk.quizPayload.ragSourceId || chunk.id;
-      if (attemptedIds.has(chunk.id) || attemptedIds.has(sourceId)) return;
+        const sourceId = chunk.quizPayload.ragSourceId || chunk.id;
+        if (attemptedIds.has(chunk.id) || attemptedIds.has(sourceId)) continue;
 
-      benchmarkCandidates.push(chunk);
+        eligible.push(chunk);
+      }
+
+      if (eligible.length === 0) return null;
+      eligible.sort((a, b) => b.similarity - a.similarity);
+      return eligible[0];
     };
 
-    // First scan contextChunks
-    for (const chunk of contextChunks) {
-      if (chunk.docType === 'contoh_soal_hots' && chunk.quizPayload) {
-        evaluateCandidate(chunk);
-      }
-    }
+    const chosenValidated = pickUnattempted(validatedQuizCandidates);
+    const chosenLegacy =
+      chosenValidated ??
+      pickUnattempted([
+        ...contextChunks.filter(
+          (chunk) => chunk.docType === 'contoh_soal_hots' && chunk.quizPayload
+        ),
+        ...inMemoryCandidates.filter(
+          (mem) => mem.docType === 'contoh_soal_hots' && mem.quizPayload
+        ),
+      ]);
 
-    // Also scan all in-memory HOTS questions
-    for (const mem of inMemoryCandidates) {
-      if (mem.docType === 'contoh_soal_hots' && mem.quizPayload) {
-        evaluateCandidate(mem);
-      }
-    }
-
-    if (benchmarkCandidates.length > 0) {
-      // Pick the highest scoring unattempted question
-      benchmarkCandidates.sort((a, b) => b.similarity - a.similarity);
-      const chosen = benchmarkCandidates[0];
+    if (chosenLegacy?.quizPayload) {
       unattemptedBenchmark = {
-        ...chosen.quizPayload!,
-        ragSourceId: chosen.quizPayload!.ragSourceId || chosen.id,
+        ...chosenLegacy.quizPayload,
+        ragSourceId: chosenLegacy.quizPayload.ragSourceId || chosenLegacy.id,
       };
     }
   }
