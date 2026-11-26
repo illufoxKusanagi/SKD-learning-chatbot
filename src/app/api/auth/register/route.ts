@@ -27,10 +27,12 @@ const registerSchema = z.object({
       /^[a-zA-Z0-9_]+$/,
       'Username hanya boleh berisi huruf, angka, dan garis bawah (tanpa spasi)'
     ),
-  password: z.string().min(6, 'Password minimal 6 karakter'),
+  password: z
+    .string()
+    .min(6, 'Password minimal 6 karakter')
+    .max(72, 'Password maksimal 72 karakter'),
 });
 
-// Edited here: Restored your original middleware-based register handler
 async function registerHandler(
   request: RequestWithValidation<z.infer<typeof registerSchema>>
 ) {
@@ -43,9 +45,11 @@ async function registerHandler(
     );
   }
   const db = getDb();
+  const hashedPassword = await hashPassword(password);
 
+  let newUser: typeof users.$inferSelect;
   try {
-    // Check if user already exists
+    // Check if email already exists
     const [existingUser] = await db
       .select()
       .from(users)
@@ -56,7 +60,7 @@ async function registerHandler(
       throw new ApiError(
         'Email sudah terdaftar. Silakan gunakan email lain atau masuk ke akun Anda',
         409,
-        'EMAIL_ALREADY_REGISTERED'
+        'EMAIL_ALREADY_EXISTS'
       );
     }
 
@@ -71,36 +75,65 @@ async function registerHandler(
       throw new ApiError(
         'Username sudah digunakan. Silakan pilih username lain',
         409,
-        'USERNAME_ALREADY_TAKEN'
+        'USERNAME_ALREADY_EXISTS'
       );
     }
+
+    [newUser] = await db
+      .insert(users)
+      .values({
+        email,
+        username,
+        password: hashedPassword,
+        role: 'user',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      })
+      .returning();
   } catch (e: unknown) {
-    const error = e as { code?: string };
-    if (error?.code === '23505') {
+    if (e instanceof ApiError) throw e;
+    const pgError = e as {
+      code?: string;
+      constraint_name?: string;
+      constraint?: string;
+      detail?: string;
+      cause?: {
+        code?: string;
+        constraint_name?: string;
+        constraint?: string;
+        detail?: string;
+      };
+    };
+    const errorCode = pgError?.code ?? pgError?.cause?.code;
+    if (errorCode === '23505') {
+      const constraint = (
+        pgError?.constraint_name ??
+        pgError?.constraint ??
+        pgError?.cause?.constraint_name ??
+        pgError?.cause?.constraint ??
+        pgError?.detail ??
+        pgError?.cause?.detail ??
+        ''
+      ).toLowerCase();
+
+      if (constraint.includes('username')) {
+        throw new ApiError(
+          'Username sudah digunakan. Silakan pilih username lain',
+          409,
+          'USERNAME_ALREADY_EXISTS'
+        );
+      }
+
       throw new ApiError(
-        'Email or username already registered',
+        'Email sudah terdaftar. Silakan gunakan email lain atau masuk ke akun Anda',
         409,
-        'DUPLICATE_USER'
+        'EMAIL_ALREADY_EXISTS'
       );
     }
     throw e;
   }
 
-  const hashedPassword = await hashPassword(password);
-
-  const [newUser] = await db
-    .insert(users)
-    .values({
-      email,
-      username,
-      password: hashedPassword,
-      role: 'user',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    })
-    .returning();
-
-  const response = NextResponse.json(
+  return NextResponse.json(
     {
       success: true,
       message: 'Registration successful',
@@ -115,16 +148,13 @@ async function registerHandler(
     },
     { status: 201 }
   );
-
-  return response;
 }
 
 const registerRateLimit = createRateLimitMiddleware({
   prefix: 'auth-register',
   windowMs: 600_000,
-  max: 3,
-  guestMax: 3,
-  failClosed: true,
+  max: 10,
+  guestMax: 10,
 });
 const validateRegister = createValidationMiddleware(registerSchema);
 

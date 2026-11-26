@@ -1,16 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { verifyToken } from '@/lib/auth/jwt';
 import { z } from 'zod';
 import { getToken } from 'next-auth/jwt';
 import { db } from '@/lib/db';
 import { sql } from 'drizzle-orm';
-
-export interface AuthenticatedRequest extends NextRequest {
-  user?: {
-    userId: string;
-    email: string;
-  };
-}
 
 export interface RequestWithValidation<T = unknown> extends NextRequest {
   validatedData?: T;
@@ -29,36 +21,58 @@ export class ApiError extends Error {
   }
 }
 
-export function createAuthMiddleware() {
-  return async (req: AuthenticatedRequest) => {
-    try {
-      const authHeader = req.headers.get('authorization');
-      if (!authHeader?.startsWith('Bearer ')) {
-        throw new ApiError(
-          'Missing or invalid authorization header',
-          401,
-          'UNAUTHORIZED'
-        );
-      }
+export type IpHeaderSource =
+  | NextRequest
+  | Headers
+  | Record<string, string | string[] | undefined>
+  | undefined;
 
-      const token = authHeader.substring(7);
-      const payload = verifyToken(token);
-
-      if (payload.type !== 'access') {
-        throw new ApiError('Invalid token type', 401, 'INVALID_TOKEN');
-      }
-
-      req.user = {
-        userId: payload.userId,
-        email: payload.email,
-      };
-
-      return req;
-    } catch (error) {
-      if (error instanceof ApiError) throw error;
-      throw new ApiError('Authentication failed', 401, 'AUTH_FAILED');
+function readHeaderValue(
+  source: IpHeaderSource,
+  name: string
+): string | undefined {
+  if (!source) return undefined;
+  if (typeof (source as Headers).get === 'function') {
+    return (source as Headers).get(name) ?? undefined;
+  }
+  if (
+    typeof source === 'object' &&
+    'headers' in source &&
+    source.headers &&
+    typeof (source.headers as Headers).get === 'function'
+  ) {
+    return (source.headers as Headers).get(name) ?? undefined;
+  }
+  const record = source as Record<string, string | string[] | undefined>;
+  const target = name.toLowerCase();
+  for (const [k, v] of Object.entries(record)) {
+    if (k.toLowerCase() === target) {
+      if (Array.isArray(v)) return v[0];
+      if (typeof v === 'string') return v;
     }
-  };
+  }
+  return undefined;
+}
+
+export function extractClientIp(source?: IpHeaderSource): string {
+  const cfConnectingIp = readHeaderValue(source, 'cf-connecting-ip')?.trim();
+  if (cfConnectingIp) return cfConnectingIp;
+
+  const realIp = readHeaderValue(source, 'x-real-ip')?.trim();
+  if (realIp) return realIp;
+
+  const forwardedFor = readHeaderValue(source, 'x-forwarded-for');
+  if (forwardedFor) {
+    const forwardedIps = forwardedFor
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
+    if (forwardedIps.length > 0) {
+      return forwardedIps[0];
+    }
+  }
+
+  return 'local';
 }
 
 export function createValidationMiddleware<T>(
@@ -133,53 +147,168 @@ export interface RateLimitOptions {
   guestMax?: number; // limit for guests / unauthenticated (defaults to max)
   daily?: { max: number; guestMax?: number }; // optional fixed 24h cap
   failClosed?: boolean;
+  skipWhen?: (req: NextRequest) => boolean;
 }
 
-async function checkRateLimitBucket(
+export interface CheckRateLimitBucketOptions {
+  increment?: boolean;
+  sliding?: boolean;
+  now?: number;
+}
+
+export const SIGNIN_WINDOW_MS = 10 * 60_000;
+export const SIGNIN_PAIR_MAX_FAILURES = 6;
+export const SIGNIN_IP_MAX_FAILURES = 20;
+
+export async function checkRateLimitBucket(
   key: string,
   limit: number,
   windowMs: number,
-  sliding: boolean,
-  now: number,
-  failClosed = false
+  opts?: CheckRateLimitBucketOptions
 ): Promise<{ blocked: boolean; retryAfterSeconds: number }> {
-  const curStart = Math.floor(now / windowMs) * windowMs;
-  const prevStart = curStart - windowMs;
-  const elapsed = now - curStart;
-
-  let cur = 0;
-  let prev = 0;
+  const now = opts?.now ?? Date.now();
+  const shouldIncrement = opts?.increment !== false;
+  const sliding = opts?.sliding !== false;
+  const curWindow = Math.floor(now / windowMs) * windowMs;
+  const prevWindow = curWindow - windowMs;
+  const elapsed = now - curWindow;
+  const weight = sliding ? Math.max(0, 1 - elapsed / windowMs) : 0;
 
   try {
-    const result = await db.execute<{ cur: string | number; prev: string | number }>(sql`
-      WITH cur AS (
-        INSERT INTO rate_limits (key, window_start, count) VALUES (${key}, ${curStart}, 1)
-        ON CONFLICT (key, window_start) DO UPDATE SET count = rate_limits.count + 1
-        RETURNING count
-      )
-      SELECT (SELECT count FROM cur) AS cur,
-             COALESCE((SELECT count FROM rate_limits WHERE key = ${key} AND window_start = ${prevStart}), 0) AS prev
+    const rows = await db.execute<{
+      window_start: string | number;
+      count: string | number;
+    }>(sql`
+      SELECT window_start, count
+      FROM rate_limits
+      WHERE key = ${key} AND window_start IN (${prevWindow}, ${curWindow})
     `);
 
-    const row = result[0];
-    cur = Number(row?.cur) || 0;
-    prev = Number(row?.prev) || 0;
-  } catch (error) {
-    console.error('[RateLimit] Database error while checking rate limit:', error);
-    if (failClosed) {
-      return { blocked: true, retryAfterSeconds: 5 };
+    let cur = 0;
+    let prev = 0;
+    for (const row of rows) {
+      const ws = Number(row.window_start);
+      const cnt = Number(row.count) || 0;
+      if (ws === curWindow) {
+        cur = cnt;
+      } else if (ws === prevWindow) {
+        prev = cnt;
+      }
     }
-    // Fail open: allow request if DB fails
+
+    const currentEstimated = prev * weight + cur;
+    const retryAfterSeconds = Math.max(
+      1,
+      Math.ceil((windowMs - elapsed) / 1000)
+    );
+
+    if (!shouldIncrement) {
+      if (currentEstimated >= limit) {
+        return { blocked: true, retryAfterSeconds };
+      }
+      return { blocked: false, retryAfterSeconds: 0 };
+    }
+
+    if (currentEstimated + 1 > limit) {
+      return { blocked: true, retryAfterSeconds };
+    }
+
+    await db.execute(sql`
+      INSERT INTO rate_limits (key, window_start, count)
+      VALUES (${key}, ${curWindow}, 1)
+      ON CONFLICT (key, window_start)
+      DO UPDATE SET count = rate_limits.count + 1
+    `);
+
+    if (Math.random() < 0.02) {
+      void db
+        .execute(sql`
+          DELETE FROM rate_limits
+          WHERE key = ${key} AND window_start < ${prevWindow}
+        `)
+        .catch(() => {});
+    }
+
+    return { blocked: false, retryAfterSeconds: 0 };
+  } catch (err) {
+    console.warn('[RateLimit] Skipping rate-limit check due to DB error:', err);
     return { blocked: false, retryAfterSeconds: 0 };
   }
+}
 
-  const estimated = sliding ? prev * (1 - elapsed / windowMs) + cur : cur;
-  if (estimated > limit) {
-    const retryAfterSeconds = Math.max(1, Math.ceil((windowMs - elapsed) / 1000));
-    return { blocked: true, retryAfterSeconds };
+function getSignInBucketKeys(ip: string, identifier: string) {
+  const normalizedIdentifier = identifier.trim().toLowerCase();
+  return {
+    pairKey: `auth-fail:pair:${ip}:${normalizedIdentifier}`,
+    ipKey: `auth-fail:ip:${ip}`,
+  };
+}
+
+export async function checkSignInRateLimit(
+  ip: string,
+  identifier: string
+): Promise<{
+  blocked: boolean;
+  retryAfterSeconds: number;
+  reason?: 'pair' | 'ip';
+}> {
+  const { pairKey, ipKey } = getSignInBucketKeys(ip, identifier);
+  const [ipResult, pairResult] = await Promise.all([
+    checkRateLimitBucket(ipKey, SIGNIN_IP_MAX_FAILURES, SIGNIN_WINDOW_MS, {
+      increment: false,
+    }),
+    checkRateLimitBucket(pairKey, SIGNIN_PAIR_MAX_FAILURES, SIGNIN_WINDOW_MS, {
+      increment: false,
+    }),
+  ]);
+
+  if (ipResult.blocked) {
+    return {
+      blocked: true,
+      retryAfterSeconds: Math.max(
+        ipResult.retryAfterSeconds,
+        pairResult.blocked ? pairResult.retryAfterSeconds : 0
+      ),
+      reason: 'ip',
+    };
+  }
+
+  if (pairResult.blocked) {
+    return {
+      blocked: true,
+      retryAfterSeconds: pairResult.retryAfterSeconds,
+      reason: 'pair',
+    };
   }
 
   return { blocked: false, retryAfterSeconds: 0 };
+}
+
+export async function recordSignInFailure(
+  ip: string,
+  identifier: string
+): Promise<void> {
+  const { pairKey, ipKey } = getSignInBucketKeys(ip, identifier);
+  await Promise.all([
+    checkRateLimitBucket(pairKey, SIGNIN_PAIR_MAX_FAILURES, SIGNIN_WINDOW_MS, {
+      increment: true,
+    }),
+    checkRateLimitBucket(ipKey, SIGNIN_IP_MAX_FAILURES, SIGNIN_WINDOW_MS, {
+      increment: true,
+    }),
+  ]);
+}
+
+export async function clearSignInPairFailures(
+  ip: string,
+  identifier: string
+): Promise<void> {
+  const { pairKey } = getSignInBucketKeys(ip, identifier);
+  try {
+    await db.execute(sql`DELETE FROM rate_limits WHERE key = ${pairKey}`);
+  } catch (err) {
+    console.warn('[RateLimit] Skipping sign-in pair clear due to DB error:', err);
+  }
 }
 
 async function cleanupRateLimits(
@@ -216,25 +345,12 @@ async function cleanupRateLimits(
 }
 
 export function createRateLimitMiddleware(options: RateLimitOptions) {
-  const { failClosed = false } = options;
-  return async (req: NextRequest): Promise<NextRequest> => {
-    // Extract client IP securely under single-proxy assumption:
-    // Prefer x-real-ip set by trusted reverse proxy (Vercel/Nginx ingress).
-    // Fall back to the last hop of x-forwarded-for (appended by reverse proxy, not client-controlled),
-    // or "unknown" to prevent client header spoofing rate-limit bypass.
-    const realIp = req.headers.get('x-real-ip')?.trim();
-    const forwardedFor = req.headers.get('x-forwarded-for');
-    const forwardedIps = forwardedFor
-      ? forwardedFor
-          .split(',')
-          .map((s) => s.trim())
-          .filter(Boolean)
-      : [];
-    const ip =
-      realIp ||
-      (forwardedIps.length > 0
-        ? forwardedIps[forwardedIps.length - 1]
-        : 'unknown');
+  return async (req: NextRequest): Promise<NextRequest | null> => {
+    if (options.skipWhen?.(req)) {
+      return null;
+    }
+
+    const ip = extractClientIp(req);
 
     let userId: string | null = null;
     try {
@@ -271,7 +387,11 @@ export function createRateLimitMiddleware(options: RateLimitOptions) {
     }
 
     const checks: Promise<{ blocked: boolean; retryAfterSeconds: number }>[] = [
-      checkRateLimitBucket(key, limit, options.windowMs, true, now, failClosed),
+      checkRateLimitBucket(key, limit, options.windowMs, {
+        increment: true,
+        sliding: true,
+        now,
+      }),
     ];
 
     if (options.daily) {
@@ -280,7 +400,11 @@ export function createRateLimitMiddleware(options: RateLimitOptions) {
         : (options.daily.guestMax ?? options.daily.max);
       const dailyKey = `${key}:daily`;
       checks.push(
-        checkRateLimitBucket(dailyKey, dailyLimit, 86_400_000, false, now, failClosed)
+        checkRateLimitBucket(dailyKey, dailyLimit, 86_400_000, {
+          increment: true,
+          sliding: false,
+          now,
+        })
       );
     }
 
@@ -345,7 +469,7 @@ export function handleApiError(error: unknown): NextResponse {
 }
 
 export function withMiddleware(
-  ...middlewares: Array<(req: NextRequest) => Promise<NextRequest>>
+  ...middlewares: Array<(req: NextRequest) => Promise<NextRequest | null | void>>
 ) {
   return async (
     req: NextRequest,
@@ -374,38 +498,13 @@ export const commonMiddleware = {
       max: rateLimit?.max ?? 60,
       guestMax: rateLimit?.guestMax,
       daily: rateLimit?.daily,
+      skipWhen: rateLimit?.skipWhen,
     }),
-  ],
-
-  // For authenticated endpoints
-  authenticated: (rateLimit?: Partial<RateLimitOptions>) => [
-    createRateLimitMiddleware({
-      prefix: rateLimit?.prefix ?? 'auth',
-      windowMs: rateLimit?.windowMs ?? 60_000,
-      max: rateLimit?.max ?? 60,
-      guestMax: rateLimit?.guestMax,
-      daily: rateLimit?.daily,
-    }),
-    createAuthMiddleware(),
-  ],
-
-  // For admin-only endpoints
-  // TODO : Apply this for admins
-  admin: (rateLimit?: Partial<RateLimitOptions>) => [
-    createRateLimitMiddleware({
-      prefix: rateLimit?.prefix ?? 'admin',
-      windowMs: rateLimit?.windowMs ?? 60_000,
-      max: rateLimit?.max ?? 60,
-      guestMax: rateLimit?.guestMax,
-      daily: rateLimit?.daily,
-    }),
-    createAuthMiddleware(),
   ],
 
   // For endpoints with validation
   validated: <T>(
     schema: z.ZodSchema<T>,
-    auth = false,
     rateLimit?: Partial<RateLimitOptions>
   ) => [
     createRateLimitMiddleware({
@@ -414,8 +513,8 @@ export const commonMiddleware = {
       max: rateLimit?.max ?? 60,
       guestMax: rateLimit?.guestMax,
       daily: rateLimit?.daily,
+      skipWhen: rateLimit?.skipWhen,
     }),
-    ...(auth ? [createAuthMiddleware()] : []),
     createValidationMiddleware(schema),
   ],
 };

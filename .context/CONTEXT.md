@@ -162,3 +162,21 @@ PostgreSQL with `pgvector` (`vector(768)` + HNSW `vector_cosine_ops` indexes), i
 - **Cross-App Integration**:
   - `src/components/ui/app-sidebar.tsx`, `src/app/chat/page.tsx`, and `src/app/materi/page.tsx` link directly to `/tryout`.
   - `src/app/quiz-history/page.tsx` merges `skd_guest_tryout_session_ids` alongside `skd_guest_practice_session_ids` so guest tryout attempts appear in `/quiz-history`.
+
+---
+
+## 9. Gemini AI Resilience, RPM/TPM Optimization & 3-Model Fallback
+
+- **`src/lib/services/ai/gemini.service.ts`**:
+  - **0-RPM `generateChatTitle`**: Deterministic Indonesian title formatter (`<= 45` chars, word-boundary truncation, fallback `'Sesi Belajar SKD'`, 0 Gemini calls).
+  - **Strict `shouldEnableGoogleSearch(userMessage)`**: Requires `ENABLE_GEMINI_GOOGLE_SEARCH === 'true'` AND explicit current-affairs regex (`berita terbaru`, `isu terkini`, `aturan terbaru`, `regulasi terbaru`, `ikn terkini`, `cpns 2025-2029`).
+  - **Token & History Bounds**: History capped to last **8 turns**, **1,600 chars/turn**, **9,000 total chars** (oldest dropped first); default `thinkingBudget` lowered to **256** (`0` on fallback models & Turn-2); Turn-2 supplementary stream uses compact `TURN2_SYSTEM_INSTRUCTION`.
+  - **3-Model Pre-First-Chunk Cascade (`streamGeminiWithCascade`)**: Deduplicated chain `[GENERATIVE_MODEL || 'gemini-2.5-flash', GEMINI_FALLBACK_MODEL || 'gemini-2.5-flash-lite', GEMINI_TERTIARY_MODEL || 'gemini-2.0-flash']`; strips `tools` and disables thinking on fallback models; parses `retry in`/`retryDelay` (`900..3500ms`) or uses jittered backoff (`1000+rand*500ms`, `2000+rand*700ms`) only **before** any text chunk is yielded; guards `MAX_TOKENS` on quiz generation.
+  - **`classifyAiStreamError`**: Classifies `TOKEN_LIMIT_EXCEEDED` first, then `RATE_LIMITED` (`429` / `RESOURCE_EXHAUSTED` / `RPM` / `TPM` / `RPD` before `503`), then `MODEL_OVERLOADED` (`503`), `STREAM_TIMEOUT`, and `AI_STREAM_ERROR`.
+- **`src/lib/services/ai/rag.service.ts` & `embeddings.service.ts`**:
+  - `wantsNewVariation` excludes `"buatkan"` so DB quiz requests hit PostgreSQL `quiz_questions` **before** calling `generateEmbedding` (0-embedding fast path).
+  - Filters `dbChunks` with `RAG_SIMILARITY_THRESHOLD` (default `0.42`), caps to **3** chunks, and caps each chunk to **1,600** chars.
+  - `generateEmbedding` retries transient `429`/`503`/`UNAVAILABLE`/`RESOURCE_EXHAUSTED` errors up to 2 times with jittered `900..1400ms` backoff.
+- **`src/app/api/chat/route.ts`, `src/app/api/quiz/route.ts`, `src/hooks/use-chat.ts`**:
+  - `chat` fetches last `10` DB messages and server-verifies `isDuplicateRetriedTurn` before skipping user message insertion/slicing history; `chatRateLimit` (`max: 30`, `guestMax: 20`, `daily: { max: 300, guestMax: 100 }`) skips when `X-Chat-Retry: 1` is sent by `useChat` retry, while bounded `chatRetryRateLimit` (`max: 10`, `guestMax: 6`, `daily: { max: 60, guestMax: 25 }`) caps retries against header spoofing.
+  - `POST /api/quiz` (`action: "next"`) queries unattempted validated `quiz_questions` directly first (even without `materialSlug`) before falling back to `findRelevantContents` / `generateAiResponse`.

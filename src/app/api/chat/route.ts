@@ -265,7 +265,7 @@ async function handleChatPost(request: NextRequest) {
       .from(messages)
       .where(eq(messages.chatId, conversationId))
       .orderBy(desc(messages.createdAt))
-      .limit(16),
+      .limit(10),
     db
       .select()
       .from(quizAttempts)
@@ -279,9 +279,18 @@ async function handleChatPost(request: NextRequest) {
       : Promise.resolve([] as { ragSourceId: string | null }[]),
   ]);
 
-  recentDbMessages.reverse();
+  const latestDbMessage = recentDbMessages[0];
+  const isDuplicateRetriedTurn =
+    Boolean(chatId) &&
+    Boolean(skipUserMessageInsert) &&
+    latestDbMessage?.role === 'user' &&
+    latestDbMessage.content.trim() === message.trim();
 
-  const history: ChatHistoryTurn[] = recentDbMessages.map((msg) => ({
+  const historyMessages = (
+    isDuplicateRetriedTurn ? recentDbMessages.slice(1) : recentDbMessages
+  ).reverse();
+
+  const history: ChatHistoryTurn[] = historyMessages.map((msg) => ({
     role: msg.role === 'user' ? 'user' : 'bot',
     content: msg.content,
   }));
@@ -291,7 +300,7 @@ async function handleChatPost(request: NextRequest) {
   if (quizAttemptId) {
     pendingQuiz = chatQuizzes.find((q) => q.id === quizAttemptId) || null;
   } else {
-    const lastBotMsg = [...recentDbMessages]
+    const lastBotMsg = [...historyMessages]
       .reverse()
       .find((m) => m.role === 'bot');
     const markerId = lastBotMsg?.content.match(
@@ -369,7 +378,7 @@ async function handleChatPost(request: NextRequest) {
         );
       }
 
-      if (!skipUserMessageInsert) {
+      if (!isDuplicateRetriedTurn) {
         await tx.insert(messages).values({
           chatId: conversationId,
           role: 'user',
@@ -395,7 +404,7 @@ async function handleChatPost(request: NextRequest) {
       maxScore: pendingQuiz.maxScore ?? 5,
       isCorrect,
     };
-  } else if (!skipUserMessageInsert) {
+  } else if (!isDuplicateRetriedTurn) {
     // Insert regular user message when not answering a pending quiz
     await db.insert(messages).values({
       chatId: conversationId,
@@ -642,10 +651,20 @@ async function handleChatPost(request: NextRequest) {
 const chatRateLimit = createRateLimitMiddleware({
   prefix: 'chat',
   windowMs: 60_000,
-  max: 15,
-  guestMax: 8,
-  daily: { max: 150, guestMax: 40 },
+  max: 30,
+  guestMax: 20,
+  daily: { max: 300, guestMax: 100 },
+  skipWhen: (req) => req.headers.get('x-chat-retry') === '1',
+});
+
+const chatRetryRateLimit = createRateLimitMiddleware({
+  prefix: 'chat-retry',
+  windowMs: 60_000,
+  max: 10,
+  guestMax: 6,
+  daily: { max: 60, guestMax: 25 },
+  skipWhen: (req) => req.headers.get('x-chat-retry') !== '1',
 });
 
 export const POST = (request: NextRequest) =>
-  withMiddleware(chatRateLimit)(request, handleChatPost);
+  withMiddleware(chatRateLimit, chatRetryRateLimit)(request, handleChatPost);

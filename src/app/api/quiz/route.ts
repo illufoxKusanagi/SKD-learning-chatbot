@@ -11,7 +11,7 @@ import {
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { eq, and, or, inArray, isNull, desc } from 'drizzle-orm';
+import { eq, and, or, inArray, notInArray, isNull, desc } from 'drizzle-orm';
 import z from 'zod';
 import {
   ApiError,
@@ -438,6 +438,41 @@ async function handleGetQuizzes(request: NextRequest) {
   });
 }
 
+function buildQuizMetaFromQuestionRow(
+  chosen: typeof quizQuestions.$inferSelect
+): SkdQuizMetadata {
+  const optionKeys = ['A', 'B', 'C', 'D', 'E'] as const;
+  const resolvedCorrect =
+    chosen.correctOption &&
+    optionKeys.includes(chosen.correctOption as (typeof optionKeys)[number])
+      ? (chosen.correctOption as (typeof optionKeys)[number])
+      : optionKeys.find((opt) => chosen.scoringRubric?.[opt] === 5) ?? 'A';
+
+  const rationalesText = optionKeys
+    .map((k) => `${k}: ${chosen.optionRationales[k]}`)
+    .join('\n');
+  const rubricRationale = chosen.reasoningChain
+    ? `${chosen.reasoningChain}\n\n${rationalesText}`
+    : rationalesText;
+
+  return {
+    ragSourceId: chosen.slug,
+    category: (chosen.category as 'TWK' | 'TIU' | 'TKP') || 'TWK',
+    subtopic: chosen.subtopic,
+    questionStem: chosen.stem,
+    options: chosen.options,
+    correctOption: resolvedCorrect,
+    scoringRubric: chosen.scoringRubric ?? {
+      A: resolvedCorrect === 'A' ? 5 : 0,
+      B: resolvedCorrect === 'B' ? 5 : 0,
+      C: resolvedCorrect === 'C' ? 5 : 0,
+      D: resolvedCorrect === 'D' ? 5 : 0,
+      E: resolvedCorrect === 'E' ? 5 : 0,
+    },
+    rubricRationale,
+  };
+}
+
 async function handlePostQuiz(request: NextRequest) {
   let rawBody: unknown;
   try {
@@ -717,28 +752,43 @@ async function handlePostQuiz(request: NextRequest) {
       );
       const candidates = unattemptedPool.length > 0 ? unattemptedPool : pool;
       const chosen = candidates[Math.floor(Math.random() * candidates.length)];
-      const correctOption =
-        (chosen.correctOption as 'A' | 'B' | 'C' | 'D' | 'E' | null) ?? 'A';
 
       chosenQuestionId = chosen.id;
-      quizMeta = {
-        ragSourceId: chosen.slug,
-        category: (chosen.category as 'TWK' | 'TIU' | 'TKP') || 'TWK',
-        subtopic: chosen.subtopic,
-        questionStem: chosen.stem,
-        options: chosen.options,
-        correctOption,
-        scoringRubric: chosen.scoringRubric ?? {
-          A: correctOption === 'A' ? 5 : 0,
-          B: correctOption === 'B' ? 5 : 0,
-          C: correctOption === 'C' ? 5 : 0,
-          D: correctOption === 'D' ? 5 : 0,
-          E: correctOption === 'E' ? 5 : 0,
-        },
-        rubricRationale: Object.entries(chosen.optionRationales)
-          .map(([k, v]) => `${k}: ${v}`)
-          .join('\n'),
-      };
+      quizMeta = buildQuizMetaFromQuestionRow(chosen);
+    }
+  }
+
+  if (!quizMeta) {
+    // Zero-Gemini direct DB bank lookup before falling back to RAG/Gemini
+    const directConditions = [eq(quizQuestions.isValidated, true)];
+    if (payload.category) {
+      directConditions.push(eq(quizQuestions.category, payload.category));
+    }
+    if (resolvedSubtopicFilter) {
+      directConditions.push(eq(quizQuestions.subtopic, resolvedSubtopicFilter));
+    }
+    if (attemptedSourceIds.length > 0) {
+      directConditions.push(
+        notInArray(quizQuestions.slug, attemptedSourceIds)
+      );
+    }
+    const attemptedQuestionIds = Array.from(attemptedQuestionIdSet);
+    if (attemptedQuestionIds.length > 0) {
+      directConditions.push(
+        notInArray(quizQuestions.id, attemptedQuestionIds)
+      );
+    }
+
+    const directPool = await db
+      .select()
+      .from(quizQuestions)
+      .where(and(...directConditions))
+      .limit(60);
+
+    if (directPool.length > 0) {
+      const chosen = directPool[Math.floor(Math.random() * directPool.length)];
+      chosenQuestionId = chosen.id;
+      quizMeta = buildQuizMetaFromQuestionRow(chosen);
     }
   }
 

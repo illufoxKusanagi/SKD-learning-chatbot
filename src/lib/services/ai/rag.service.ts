@@ -134,7 +134,7 @@ export function detectSkdCategoryAndIntent(
     quizRequestPattern.test(queryLower);
 
   const wantsNewVariation =
-    /\b(variasi\s+baru|soal\s+baru|isu\s+terkini|ikn|terbaru|buatkan|karang)\b/i.test(
+    /\b(variasi\s+baru|soal\s+baru\s+buatan\s+ai|isu\s+terkini|karang\s+soal\s+baru)\b/i.test(
       queryLower
     );
 
@@ -177,6 +177,102 @@ function scoreInMemoryEntry(
   return score;
 }
 
+function mapQuizQuestionRowToCandidate(
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  qRow: any,
+  detectedCategory: 'TWK' | 'TIU' | 'TKP' | null,
+  queryWords: string[]
+): RagChunk {
+  const cat = (
+    ['TWK', 'TIU', 'TKP'].includes(qRow.category) ? qRow.category : 'TWK'
+  ) as 'TWK' | 'TIU' | 'TKP';
+  const canonicalId = qRow.slug || qRow.id;
+  const optionKeys = ['A', 'B', 'C', 'D', 'E'] as const;
+
+  const resolvedCorrect =
+    qRow.correctOption &&
+    optionKeys.includes(qRow.correctOption as (typeof optionKeys)[number])
+      ? (qRow.correctOption as (typeof optionKeys)[number])
+      : optionKeys.find((opt) => qRow.scoringRubric?.[opt] === 5) ?? 'A';
+
+  const resolvedRubric = qRow.scoringRubric ?? {
+    A: resolvedCorrect === 'A' ? 5 : 0,
+    B: resolvedCorrect === 'B' ? 5 : 0,
+    C: resolvedCorrect === 'C' ? 5 : 0,
+    D: resolvedCorrect === 'D' ? 5 : 0,
+    E: resolvedCorrect === 'E' ? 5 : 0,
+  };
+
+  const rationalesText = optionKeys
+    .map((opt) => `${opt}: ${qRow.optionRationales[opt]}`)
+    .join('\n');
+  const rubricRationale = qRow.reasoningChain
+    ? `${qRow.reasoningChain}\n\n${rationalesText}`
+    : rationalesText;
+
+  let score = detectedCategory && cat === detectedCategory ? 0.5 : 0.2;
+  const searchText = `${qRow.subtopic} ${qRow.stem}`.toLowerCase();
+  if (queryWords.length > 0) {
+    const matches = queryWords.filter((w) => searchText.includes(w)).length;
+    score += Math.min(0.4, (matches / queryWords.length) * 0.4);
+  }
+
+  return {
+    id: canonicalId,
+    title: `Soal ${cat} — ${qRow.subtopic}`,
+    content: qRow.stem,
+    category: cat,
+    subtopic: qRow.subtopic,
+    docType: 'contoh_soal_hots',
+    similarity: score,
+    quizPayload: {
+      ragSourceId: canonicalId,
+      category: cat,
+      subtopic: qRow.subtopic,
+      questionStem: qRow.stem,
+      options: qRow.options,
+      correctOption: resolvedCorrect,
+      scoringRubric: resolvedRubric,
+      rubricRationale,
+    },
+  };
+}
+
+function pickUnattemptedBenchmarkFromCandidates(
+  candidates: RagChunk[],
+  detectedCategory: 'TWK' | 'TIU' | 'TKP' | null,
+  attemptedIds: Set<string>
+): SkdQuizMetadata | null {
+  const eligible: RagChunk[] = [];
+  const seenIds = new Set<string>();
+
+  for (const chunk of candidates) {
+    if (!chunk.quizPayload || seenIds.has(chunk.id)) continue;
+    seenIds.add(chunk.id);
+
+    if (detectedCategory && chunk.category !== detectedCategory) continue;
+
+    const sourceId = chunk.quizPayload.ragSourceId || chunk.id;
+    if (attemptedIds.has(chunk.id) || attemptedIds.has(sourceId)) continue;
+
+    eligible.push(chunk);
+  }
+
+  if (eligible.length === 0) return null;
+  eligible.sort((a, b) => b.similarity - a.similarity);
+  const topSimilarity = eligible[0].similarity;
+  const topTied = eligible.filter(
+    (c) => Math.abs(c.similarity - topSimilarity) < 1e-6
+  );
+  const chosen = topTied[Math.floor(Math.random() * topTied.length)] ?? eligible[0];
+  if (!chosen.quizPayload) return null;
+
+  return {
+    ...chosen.quizPayload,
+    ragSourceId: chosen.quizPayload.ragSourceId || chosen.id,
+  };
+}
+
 export async function findRelevantContents(
   userQuery: string,
   options?: {
@@ -195,7 +291,7 @@ export async function findRelevantContents(
 
   const attemptedIds = new Set(options?.attemptedSourceIds || []);
 
-  // 1. Database Hybrid Search (pgvector on study_materials & rag_data + validated quiz_questions)
+  // 1. Database Hybrid Search (Zero-embedding fast path for DB quiz requests + pgvector RAG)
   const dbChunks: RagChunk[] = [];
   const validatedQuizCandidates: RagChunk[] = [];
   const queryWords = effectiveQuery
@@ -205,26 +301,7 @@ export async function findRelevantContents(
     .filter((w) => w.length >= 3);
 
   try {
-    const queryEmbedding = await generateEmbedding(effectiveQuery, {
-      taskType: 'RETRIEVAL_QUERY',
-    });
-
-    if (!Array.isArray(queryEmbedding) || queryEmbedding.length !== 768) {
-      throw new Error(
-        `Invalid query embedding length: expected 768, got ${
-          Array.isArray(queryEmbedding) ? queryEmbedding.length : typeof queryEmbedding
-        }`
-      );
-    }
-
     const db = getDb();
-    const studySimilarity = sql<number>`1 - (${
-      studyMaterials.embedding
-    } <=> ${JSON.stringify(queryEmbedding)})`;
-    const ragSimilarity = sql<number>`1 - (${
-      ragData.embedding
-    } <=> ${JSON.stringify(queryEmbedding)})`;
-
     const nonEmptyAttemptedSlugs = Array.from(attemptedIds)
       .map((id) => id.trim())
       .filter((id) => id.length > 0);
@@ -239,7 +316,68 @@ export async function findRelevantContents(
       );
     }
 
-    const [studyRows, ragRows, questionRows] = await Promise.all([
+    // Zero-Embedding Fast Path for validated DB quiz requests
+    if (isQuizRequest && !wantsNewVariation) {
+      const questionRows = await db
+        .select({
+          id: quizQuestions.id,
+          slug: quizQuestions.slug,
+          category: quizQuestions.category,
+          subtopic: quizQuestions.subtopic,
+          reasoningChain: quizQuestions.reasoningChain,
+          stem: quizQuestions.stem,
+          options: quizQuestions.options,
+          correctOption: quizQuestions.correctOption,
+          scoringRubric: quizQuestions.scoringRubric,
+          optionRationales: quizQuestions.optionRationales,
+        })
+        .from(quizQuestions)
+        .where(and(...questionConditions))
+        .limit(60);
+
+      for (const qRow of questionRows) {
+        validatedQuizCandidates.push(
+          mapQuizQuestionRowToCandidate(qRow, detectedCategory, queryWords)
+        );
+      }
+
+      const fastPicked = pickUnattemptedBenchmarkFromCandidates(
+        validatedQuizCandidates,
+        detectedCategory,
+        attemptedIds
+      );
+      if (fastPicked) {
+        return {
+          detectedCategory,
+          isQuizRequest,
+          wantsNewVariation,
+          unattemptedBenchmark: fastPicked,
+          contextChunks: [],
+          formattedContext: '',
+        };
+      }
+    }
+
+    const queryEmbedding = await generateEmbedding(effectiveQuery, {
+      taskType: 'RETRIEVAL_QUERY',
+    });
+
+    if (!Array.isArray(queryEmbedding) || queryEmbedding.length !== 768) {
+      throw new Error(
+        `Invalid query embedding length: expected 768, got ${
+          Array.isArray(queryEmbedding) ? queryEmbedding.length : typeof queryEmbedding
+        }`
+      );
+    }
+
+    const studySimilarity = sql<number>`1 - (${
+      studyMaterials.embedding
+    } <=> ${JSON.stringify(queryEmbedding)})`;
+    const ragSimilarity = sql<number>`1 - (${
+      ragData.embedding
+    } <=> ${JSON.stringify(queryEmbedding)})`;
+
+    const [studyRows, ragRows] = await Promise.all([
       db
         .select({
           id: studyMaterials.id,
@@ -267,24 +405,6 @@ export async function findRelevantContents(
         .where(sql`${ragData.embedding} IS NOT NULL`)
         .orderBy(desc(ragSimilarity))
         .limit(10),
-      isQuizRequest && !wantsNewVariation
-        ? db
-            .select({
-              id: quizQuestions.id,
-              slug: quizQuestions.slug,
-              category: quizQuestions.category,
-              subtopic: quizQuestions.subtopic,
-              reasoningChain: quizQuestions.reasoningChain,
-              stem: quizQuestions.stem,
-              options: quizQuestions.options,
-              correctOption: quizQuestions.correctOption,
-              scoringRubric: quizQuestions.scoringRubric,
-              optionRationales: quizQuestions.optionRationales,
-            })
-            .from(quizQuestions)
-            .where(and(...questionConditions))
-            .limit(60)
-        : Promise.resolve([]),
     ]);
 
     for (const row of studyRows) {
@@ -359,62 +479,6 @@ export async function findRelevantContents(
           : null,
       });
     }
-
-    for (const qRow of questionRows) {
-      const cat = (
-        ['TWK', 'TIU', 'TKP'].includes(qRow.category) ? qRow.category : 'TWK'
-      ) as 'TWK' | 'TIU' | 'TKP';
-      const canonicalId = qRow.slug || qRow.id;
-      const optionKeys = ['A', 'B', 'C', 'D', 'E'] as const;
-
-      const resolvedCorrect =
-        qRow.correctOption &&
-        optionKeys.includes(qRow.correctOption as (typeof optionKeys)[number])
-          ? (qRow.correctOption as (typeof optionKeys)[number])
-          : optionKeys.find((opt) => qRow.scoringRubric?.[opt] === 5) ?? 'A';
-
-      const resolvedRubric = qRow.scoringRubric ?? {
-        A: resolvedCorrect === 'A' ? 5 : 0,
-        B: resolvedCorrect === 'B' ? 5 : 0,
-        C: resolvedCorrect === 'C' ? 5 : 0,
-        D: resolvedCorrect === 'D' ? 5 : 0,
-        E: resolvedCorrect === 'E' ? 5 : 0,
-      };
-
-      const rationalesText = optionKeys
-        .map((opt) => `${opt}: ${qRow.optionRationales[opt]}`)
-        .join('\n');
-      const rubricRationale = qRow.reasoningChain
-        ? `${qRow.reasoningChain}\n\n${rationalesText}`
-        : rationalesText;
-
-      let score = detectedCategory && cat === detectedCategory ? 0.5 : 0.2;
-      const searchText = `${qRow.subtopic} ${qRow.stem}`.toLowerCase();
-      if (queryWords.length > 0) {
-        const matches = queryWords.filter((w) => searchText.includes(w)).length;
-        score += Math.min(0.4, (matches / queryWords.length) * 0.4);
-      }
-
-      validatedQuizCandidates.push({
-        id: canonicalId,
-        title: `Soal ${cat} — ${qRow.subtopic}`,
-        content: qRow.stem,
-        category: cat,
-        subtopic: qRow.subtopic,
-        docType: 'contoh_soal_hots',
-        similarity: score,
-        quizPayload: {
-          ragSourceId: canonicalId,
-          category: cat,
-          subtopic: qRow.subtopic,
-          questionStem: qRow.stem,
-          options: qRow.options,
-          correctOption: resolvedCorrect,
-          scoringRubric: resolvedRubric,
-          rubricRationale,
-        },
-      });
-    }
   } catch (dbErr) {
     console.error('[RAG_VECTOR_QUERY_ERROR] Explicit vector retrieval failure:', {
       query: effectiveQuery.slice(0, 120),
@@ -422,6 +486,13 @@ export async function findRelevantContents(
     });
     throw dbErr;
   }
+
+  const rawThreshold = Number(process.env.RAG_SIMILARITY_THRESHOLD);
+  const similarityThreshold =
+    Number.isFinite(rawThreshold) && rawThreshold > 0 ? rawThreshold : 0.42;
+  const filteredDbChunks = dbChunks.filter(
+    (chunk) => chunk.similarity >= similarityThreshold
+  );
 
   // 2. Guaranteed In-Memory Fallback & Augmentation from SKD_KNOWLEDGE_BASE (only when DB succeeds with < 2 rows)
   const inMemoryCandidates: RagChunk[] = SKD_KNOWLEDGE_BASE.map((entry) => {
@@ -447,10 +518,10 @@ export async function findRelevantContents(
 
   // Merge DB and In-Memory candidates
   let contextChunks: RagChunk[] = [];
-  if (dbChunks.length >= 2) {
+  if (filteredDbChunks.length >= 2) {
     // Sort DB chunks by hybrid boosted similarity
-    dbChunks.sort((a, b) => b.similarity - a.similarity);
-    contextChunks = [...dbChunks];
+    filteredDbChunks.sort((a, b) => b.similarity - a.similarity);
+    contextChunks = [...filteredDbChunks];
 
     // Supplement with high-scoring in-memory items if needed
     const existingTitles = new Set(contextChunks.map((c) => c.title));
@@ -464,11 +535,12 @@ export async function findRelevantContents(
   } else {
     // Fallback when DB query succeeded with < 2 rows (e.g., fresh unseeded database)
     contextChunks =
-      dbChunks.length > 0
+      filteredDbChunks.length > 0
         ? [
-            ...dbChunks,
+            ...filteredDbChunks,
             ...inMemoryCandidates.filter(
-              (mem) => !dbChunks.some((dbItem) => dbItem.title === mem.title)
+              (mem) =>
+                !filteredDbChunks.some((dbItem) => dbItem.title === mem.title)
             ),
           ]
         : inMemoryCandidates;
@@ -478,56 +550,38 @@ export async function findRelevantContents(
   let unattemptedBenchmark: SkdQuizMetadata | null = null;
 
   if (isQuizRequest && !wantsNewVariation) {
-    const pickUnattempted = (candidates: RagChunk[]): RagChunk | null => {
-      const eligible: RagChunk[] = [];
-      const seenIds = new Set<string>();
-
-      for (const chunk of candidates) {
-        if (!chunk.quizPayload || seenIds.has(chunk.id)) continue;
-        seenIds.add(chunk.id);
-
-        if (detectedCategory && chunk.category !== detectedCategory) continue;
-
-        const sourceId = chunk.quizPayload.ragSourceId || chunk.id;
-        if (attemptedIds.has(chunk.id) || attemptedIds.has(sourceId)) continue;
-
-        eligible.push(chunk);
-      }
-
-      if (eligible.length === 0) return null;
-      eligible.sort((a, b) => b.similarity - a.similarity);
-      return eligible[0];
-    };
-
-    const chosenValidated = pickUnattempted(validatedQuizCandidates);
-    const chosenLegacy =
-      chosenValidated ??
-      pickUnattempted([
-        ...contextChunks.filter(
-          (chunk) => chunk.docType === 'contoh_soal_hots' && chunk.quizPayload
-        ),
-        ...inMemoryCandidates.filter(
-          (mem) => mem.docType === 'contoh_soal_hots' && mem.quizPayload
-        ),
-      ]);
-
-    if (chosenLegacy?.quizPayload) {
-      unattemptedBenchmark = {
-        ...chosenLegacy.quizPayload,
-        ragSourceId: chosenLegacy.quizPayload.ragSourceId || chosenLegacy.id,
-      };
-    }
+    unattemptedBenchmark =
+      pickUnattemptedBenchmarkFromCandidates(
+        validatedQuizCandidates,
+        detectedCategory,
+        attemptedIds
+      ) ??
+      pickUnattemptedBenchmarkFromCandidates(
+        [
+          ...contextChunks.filter(
+            (chunk) => chunk.docType === 'contoh_soal_hots' && chunk.quizPayload
+          ),
+          ...inMemoryCandidates.filter(
+            (mem) => mem.docType === 'contoh_soal_hots' && mem.quizPayload
+          ),
+        ],
+        detectedCategory,
+        attemptedIds
+      );
   }
 
-  // 4. Format top 4 chunks for LLM Context
-  const top4Chunks = contextChunks.slice(0, 4);
-  const formattedContext = top4Chunks
-    .map(
-      (chunk, idx) =>
-        `[SUMBER ${idx + 1}: ${chunk.title} (${chunk.category} - ${
-          chunk.subtopic
-        } - ${chunk.docType})]\n${chunk.content}`
-    )
+  // 4. Format top 3 chunks for LLM Context (<= 1,600 chars per chunk)
+  const topChunks = contextChunks.slice(0, 3);
+  const formattedContext = topChunks
+    .map((chunk, idx) => {
+      const boundedContent =
+        chunk.content.length > 1600
+          ? `${chunk.content.slice(0, 1597)}...`
+          : chunk.content;
+      return `[SUMBER ${idx + 1}: ${chunk.title} (${chunk.category} - ${
+        chunk.subtopic
+      } - ${chunk.docType})]\n${boundedContent}`;
+    })
     .join('\n\n---\n\n');
 
   return {
@@ -535,7 +589,7 @@ export async function findRelevantContents(
     isQuizRequest,
     wantsNewVariation,
     unattemptedBenchmark,
-    contextChunks: top4Chunks,
+    contextChunks: topChunks,
     formattedContext,
   };
 }

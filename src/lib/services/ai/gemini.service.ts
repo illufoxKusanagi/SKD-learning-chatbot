@@ -51,18 +51,73 @@ const getGenerativeModel = () =>
 const getFallbackModel = () =>
   process.env.GEMINI_FALLBACK_MODEL || 'gemini-2.5-flash-lite';
 
+const getTertiaryModel = () =>
+  process.env.GEMINI_TERTIARY_MODEL || 'gemini-2.0-flash';
+
+function buildModelCascade(): string[] {
+  return Array.from(
+    new Set(
+      [getGenerativeModel(), getFallbackModel(), getTertiaryModel()].filter(
+        Boolean
+      )
+    )
+  );
+}
+
+export function shouldEnableGoogleSearch(userMessage: string): boolean {
+  if (process.env.ENABLE_GEMINI_GOOGLE_SEARCH !== 'true') {
+    return false;
+  }
+  return /\b(berita\s+terbaru|isu\s+terkini|aturan\s+terbaru|regulasi\s+terbaru|ikn\s+terkini|cpns\s+202[5-9])\b/i.test(
+    userMessage
+  );
+}
+
 function isTransientGeminiOverloadError(error: unknown): boolean {
   const raw =
     error instanceof Error
       ? `${error.name} ${error.message}`
       : String(error ?? '');
-  return /\b(503|429|UNAVAILABLE|RESOURCE_EXHAUSTED)\b|high demand|overloaded|try again later/i.test(
+  return /\b(503|429|UNAVAILABLE|RESOURCE_EXHAUSTED|ECONNRESET)\b|overloaded|high\s+demand|try\s+again\s+later|fetch\s+failed/i.test(
     raw
   );
 }
 
+function parseRetryDelayMs(error: unknown, hopIndex: number): number {
+  const raw =
+    error instanceof Error
+      ? `${error.name} ${error.message}`
+      : String(error ?? '');
+
+  const retryInMatch = raw.match(/retry\s+in\s+(\d+(?:\.\d+)?)s/i);
+  if (retryInMatch) {
+    const ms = Math.round(Number(retryInMatch[1]) * 1000);
+    if (Number.isFinite(ms)) {
+      return Math.min(3500, Math.max(900, ms));
+    }
+  }
+
+  const retryDelayMatch = raw.match(
+    /retryDelay["']?\s*[:=]\s*["']?(\d+(?:\.\d+)?)(ms|s)?/i
+  );
+  if (retryDelayMatch) {
+    const val = Number(retryDelayMatch[1]);
+    const unit = retryDelayMatch[2]?.toLowerCase();
+    const ms = Math.round(unit === 'ms' ? val : val * 1000);
+    if (Number.isFinite(ms)) {
+      return Math.min(3500, Math.max(900, ms));
+    }
+  }
+
+  if (hopIndex === 0) {
+    return Math.round(1000 + Math.random() * 500);
+  }
+  return Math.round(2000 + Math.random() * 700);
+}
+
 export interface ClassifiedAiError {
   code:
+    | 'TOKEN_LIMIT_EXCEEDED'
     | 'MODEL_OVERLOADED'
     | 'RATE_LIMITED'
     | 'STREAM_TIMEOUT'
@@ -77,21 +132,34 @@ export function classifyAiStreamError(error: unknown): ClassifiedAiError {
       ? `${error.name} ${error.message}`
       : String(error ?? '');
 
-  if (/\b503\b|UNAVAILABLE|high demand|overloaded/i.test(raw)) {
+  if (
+    /\b(MAX_TOKENS|TOKEN_LIMIT|context\s*length|too\s*many\s*tokens|token\s*limit|exceeds?\s*the\s*maximum\s*number\s*of\s*tokens|input\s*tokens?)\b/i.test(
+      raw
+    )
+  ) {
     return {
-      code: 'MODEL_OVERLOADED',
-      title: 'Layanan AI Sedang Sibuk (503)',
+      code: 'TOKEN_LIMIT_EXCEEDED',
+      title: 'Batas Token Percakapan Tercapai',
       message:
-        'Model AI sedang mengalami lonjakan permintaan sementara. Silakan klik Coba Lagi dalam beberapa detik.',
+        'Konteks percakapan atau respons terlalu panjang untuk satu giliran. Silakan mulai percakapan baru atau kirim pertanyaan yang lebih spesifik.',
     };
   }
 
-  if (/\b429\b|RESOURCE_EXHAUSTED|quota|rate limit/i.test(raw)) {
+  if (/\b429\b|RESOURCE_EXHAUSTED|quota|rate\s*limit|RPM|TPM|RPD/i.test(raw)) {
     return {
       code: 'RATE_LIMITED',
-      title: 'Kuota Layanan AI Penuh Sementara (429)',
+      title: 'Batas Kuota API Gemini Tercapai (429)',
       message:
-        'Permintaan ke server AI mencapai batas kuota sementara. Silakan tunggu sebentar lalu klik Coba Lagi.',
+        'Permintaan mencapai batas kuota per menit/hari API Gemini. Tunggu 15–30 detik lalu klik Coba Lagi.',
+    };
+  }
+
+  if (/\b503\b|UNAVAILABLE|high\s*demand|overloaded/i.test(raw)) {
+    return {
+      code: 'MODEL_OVERLOADED',
+      title: 'Server Gemini Sedang Sibuk (503)',
+      message:
+        'Server model utama sedang padat. Silakan tunggu beberapa detik lalu klik Coba Lagi.',
     };
   }
 
@@ -112,43 +180,126 @@ export function classifyAiStreamError(error: unknown): ClassifiedAiError {
   };
 }
 
-async function generateContentStreamWithFallback(
-  ai: GoogleGenAI,
-  primaryModel: string,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  contents: any,
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  config: any
-) {
-  try {
-    return await ai.models.generateContentStream({
-      model: primaryModel,
-      contents,
-      config,
-    });
-  } catch (err) {
-    if (!isTransientGeminiOverloadError(err)) {
-      throw err;
-    }
-    const fallbackModel = getFallbackModel();
-    console.warn(
-      `[GeminiService] Primary model "${primaryModel}" overloaded (503/429). Retrying in 900ms with fallback "${fallbackModel}"...`
-    );
-    await new Promise((resolve) => setTimeout(resolve, 900));
-
-    const isFallbackGemini25 = fallbackModel.startsWith('gemini-2.5');
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const { thinkingConfig: _omitThinking, ...restConfig } = config || {};
-    const fallbackConfig = {
-      ...restConfig,
-      ...(isFallbackGemini25 ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
+export interface StreamGeminiCascadeOptions {
+  ai?: {
+    models: {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      generateContentStream: (args: any) => Promise<AsyncIterable<any>>;
     };
+  };
+  models?: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  contents: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  config: any;
+  isQuizRequest?: boolean;
+  sleep?: (ms: number) => Promise<void>;
+}
 
-    return await ai.models.generateContentStream({
-      model: fallbackModel,
-      contents,
-      config: fallbackConfig,
-    });
+const defaultSleep = (ms: number) =>
+  new Promise<void>((resolve) => setTimeout(resolve, ms));
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function extractTextFromChunk(chunk: any): string {
+  const parts = chunk?.candidates?.[0]?.content?.parts;
+  if (Array.isArray(parts) && parts.length > 0) {
+    let text = '';
+    for (const part of parts) {
+      if (part && !part.thought && typeof part.text === 'string') {
+        text += part.text;
+      }
+    }
+    return text;
+  }
+  return typeof chunk?.text === 'string' ? chunk.text : '';
+}
+
+export async function* streamGeminiWithCascade(
+  options: StreamGeminiCascadeOptions
+): AsyncGenerator<string> {
+  const ai = options.ai ?? getGenAIClient();
+  const modelChain =
+    options.models && options.models.length > 0
+      ? Array.from(new Set(options.models.filter(Boolean)))
+      : buildModelCascade();
+  const sleep = options.sleep ?? defaultSleep;
+
+  let hasYieldedAnyText = false;
+
+  for (let i = 0; i < modelChain.length; i++) {
+    const currentModel = modelChain[i];
+    const isFallback = i > 0;
+    const isGemini25 = currentModel.startsWith('gemini-2.5');
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const baseConfig: Record<string, any> = options.config
+      ? { ...options.config }
+      : {};
+
+    if (isFallback) {
+      delete baseConfig.tools;
+      delete baseConfig.thinkingConfig;
+      if (isGemini25) {
+        baseConfig.thinkingConfig = { thinkingBudget: 0 };
+      }
+    } else if (!isGemini25) {
+      delete baseConfig.thinkingConfig;
+    }
+
+    try {
+      const response = await ai.models.generateContentStream({
+        model: currentModel,
+        contents: options.contents,
+        config: baseConfig,
+      });
+
+      let sawMaxTokens = false;
+      let accumulatedText = '';
+
+      for await (const chunk of response) {
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const finishReason = (chunk as any)?.candidates?.[0]?.finishReason;
+        if (finishReason === 'MAX_TOKENS') {
+          sawMaxTokens = true;
+          console.warn(
+            `[GeminiService] Response hit MAX_TOKENS on model "${currentModel}"`
+          );
+        }
+
+        const text = extractTextFromChunk(chunk);
+        if (text) {
+          hasYieldedAnyText = true;
+          accumulatedText += text;
+          yield text;
+        }
+      }
+
+      if (
+        sawMaxTokens &&
+        options.isQuizRequest &&
+        !extractQuizMetaFromText(accumulatedText).quizMeta
+      ) {
+        throw new Error(
+          'MAX_TOKENS: Output terpotong karena batas token maksimum tercapai'
+        );
+      }
+
+      return;
+    } catch (err) {
+      if (
+        hasYieldedAnyText ||
+        !isTransientGeminiOverloadError(err) ||
+        i === modelChain.length - 1
+      ) {
+        throw err;
+      }
+
+      const delayMs = parseRetryDelayMs(err, i);
+      const nextModel = modelChain[i + 1];
+      console.warn(
+        `[GeminiService] Model "${currentModel}" transient failure before first chunk. Retrying in ${delayMs}ms with "${nextModel}"...`
+      );
+      await sleep(delayMs);
+    }
   }
 }
 
@@ -213,36 +364,68 @@ ATURAN SAAT MENGEVALUASI JAWABAN PENGGUNA (MODE PEMBAHASAN TERKUNCI):
    - Rincian Skor Lengkap Opsi A s.d. E (5, 4, 3, 2, 1) beserta alasan indikator perilaku Core Values BerAKHLAK
    - 💡 Tips Menjawab TKP Serupa`;
 
+const TURN2_SYSTEM_INSTRUCTION =
+  'Anda adalah Tutor Ahli SKD CPNS BKN. Berikan analisis pengecoh ringkas dan trik cepat < 50 detik dalam bahasa Indonesia baku tanpa mengulang pembahasan resmi.';
+
+const MAX_HISTORY_TURNS = 8;
+const MAX_HISTORY_TURN_CHARS = 1600;
+const MAX_HISTORY_TOTAL_CHARS = 9000;
+
+function truncateText(text: string, maxChars: number): string {
+  if (text.length <= maxChars) return text;
+  return `${text.slice(0, Math.max(0, maxChars - 3)).trimEnd()}...`;
+}
+
 function cleanHistoricalText(text: string): string {
   if (!text) return '';
-  return text
+  const cleaned = text
     .replace(/<!--QUIZ_ATTEMPT:[\s\S]*?-->/g, '')
     .replace(/<!--QUIZ_EVAL:[\s\S]*?-->/g, '')
     .replace(/<!--CHAT_ERROR:[\s\S]*?-->/g, '')
     .replace(/<quiz_meta>[\s\S]*?<\/quiz_meta>/gi, '')
     .replace(/<quiz_meta>[\s\S]*$/gi, '')
     .trim();
+  return truncateText(cleaned, MAX_HISTORY_TURN_CHARS);
 }
 
 export async function generateChatTitle(message: string): Promise<string> {
-  try {
-    const ai = getGenAIClient();
-    const model = getGenerativeModel();
-    const isGemini25 = model.startsWith('gemini-2.5');
-    const result = await ai.models.generateContent({
-      model,
-      contents: `Generate a short, descriptive title in Indonesian (max 40 characters) for an SKD learning chat that starts with: "${message}". Return only the title text without quotes.`,
-      config: {
-        ...(isGemini25 ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
-        maxOutputTokens: 64,
-      },
-    });
-    const title = result.text?.trim() || 'Sesi Belajar SKD';
-    return title.length > 50 ? title.substring(0, 47) + '...' : title;
-  } catch (error) {
-    console.error('Title generation error:', error);
+  if (!message || typeof message !== 'string') {
     return 'Sesi Belajar SKD';
   }
+
+  let cleaned = message
+    .replace(/<!--[\s\S]*?-->/g, ' ')
+    .replace(/<quiz_meta>[\s\S]*?<\/quiz_meta>/gi, ' ')
+    .replace(/<quiz_meta>[\s\S]*$/gi, ' ')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/[`*_~#>]+/g, ' ')
+    .replace(/[\r\n\t]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  const fillerPattern =
+    /^(?:halo(?:\s+tutor)?|hai|permisi|selamat\s+(?:pagi|siang|sore|malam)|tolong|mohon|coba|bantu(?:\s+saya)?|bisa(?:\s+tolong)?|jelaskan(?:\s+tentang)?|kasih(?:\s+tahu)?|berikan(?:\s+saya)?|beri(?:\s+saya)?|minta|buatkan(?:\s+saya)?|tentang|mengenai)\b[,:.\s]*/i;
+  for (let i = 0; i < 4; i++) {
+    const next = cleaned.replace(fillerPattern, '').trim();
+    if (next === cleaned) break;
+    cleaned = next;
+  }
+
+  cleaned = cleaned.replace(/^[,.:;!?-]+|[,.:;!?-]+$/g, '').trim();
+  if (!cleaned) {
+    return 'Sesi Belajar SKD';
+  }
+
+  cleaned = cleaned.charAt(0).toUpperCase() + cleaned.slice(1);
+
+  if (cleaned.length > 45) {
+    const sliced = cleaned.slice(0, 45);
+    const lastSpace = sliced.lastIndexOf(' ');
+    cleaned = (lastSpace > 15 ? sliced.slice(0, lastSpace) : sliced).trim();
+    cleaned = cleaned.replace(/[,.:;!?-]+$/g, '').trim();
+  }
+
+  return cleaned || 'Sesi Belajar SKD';
 }
 
 export async function* generateAiResponse(
@@ -373,42 +556,24 @@ Ketentuan:
 
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const suppConfig: any = {
-          systemInstruction: SKD_SYSTEM_INSTRUCTION,
+          systemInstruction: TURN2_SYSTEM_INSTRUCTION,
           temperature: 0.35,
           maxOutputTokens: 768,
           abortSignal: AbortSignal.timeout(12_000),
           ...(isGemini25 ? { thinkingConfig: { thinkingBudget: 0 } } : {}),
         };
 
-        const suppResponse = await generateContentStreamWithFallback(
-          ai,
-          model,
-          suppPrompt,
-          suppConfig
-        );
-
         let hasYieldedPrefix = false;
-        for await (const chunk of suppResponse) {
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          const parts = (chunk as any).candidates?.[0]?.content?.parts;
-          let text = '';
-          if (Array.isArray(parts) && parts.length > 0) {
-            for (const part of parts) {
-              if (part && !part.thought && typeof part.text === 'string') {
-                text += part.text;
-              }
-            }
-          } else if (chunk.text) {
-            text = chunk.text;
+        for await (const text of streamGeminiWithCascade({
+          ai,
+          contents: suppPrompt,
+          config: suppConfig,
+        })) {
+          if (!hasYieldedPrefix) {
+            yield '\n';
+            hasYieldedPrefix = true;
           }
-
-          if (text) {
-            if (!hasYieldedPrefix) {
-              yield '\n';
-              hasYieldedPrefix = true;
-            }
-            yield text;
-          }
+          yield text;
         }
       } catch (suppError) {
         console.warn(
@@ -423,14 +588,14 @@ Ketentuan:
 
     const ai = getGenAIClient();
 
-    // 3. Build multi-turn history cleaned of internal markers
+    // 3. Build multi-turn history cleaned of internal markers and bounded by turns & total chars
     const historyContents: {
       role: 'user' | 'model';
       parts: { text: string }[];
     }[] = [];
 
     const rawHistory = options?.history || [];
-    const recentHistory = rawHistory.slice(-16);
+    const recentHistory = rawHistory.slice(-MAX_HISTORY_TURNS);
 
     for (const turn of recentHistory) {
       const role: 'user' | 'model' = turn.role === 'user' ? 'user' : 'model';
@@ -441,14 +606,25 @@ Ketentuan:
         historyContents.length > 0 &&
         historyContents[historyContents.length - 1].role === role
       ) {
-        historyContents[historyContents.length - 1].parts[0].text +=
-          `\n\n${cleanedText}`;
+        historyContents[historyContents.length - 1].parts[0].text = truncateText(
+          `${historyContents[historyContents.length - 1].parts[0].text}\n\n${cleanedText}`,
+          MAX_HISTORY_TURN_CHARS
+        );
       } else {
         historyContents.push({
           role,
           parts: [{ text: cleanedText }],
         });
       }
+    }
+
+    let totalHistoryChars = historyContents.reduce(
+      (sum, item) => sum + item.parts[0].text.length,
+      0
+    );
+    while (totalHistoryChars > MAX_HISTORY_TOTAL_CHARS && historyContents.length > 0) {
+      const removed = historyContents.shift();
+      totalHistoryChars -= removed ? removed.parts[0].text.length : 0;
     }
 
     // 4. Compose current user prompt with deterministic or RAG context
@@ -500,17 +676,16 @@ ATURAN WAJIB:
       parts: [{ text: finalUserPrompt }],
     });
 
-    // 5. Decide tools (Google Search only when needed and not in benchmark or deep tutor)
+    // 5. Decide tools (Google Search only when explicitly enabled + temporal intent)
     const enableGoogleSearch =
       !options?.deepTutorContext &&
       !options?.ragResult?.unattemptedBenchmark &&
-      (options?.ragResult?.wantsNewVariation ||
-        /ikn|terkini|terbaru|kebijakan|pemerintah|berita/i.test(userMessage));
+      shouldEnableGoogleSearch(userMessage);
 
     const envBudget = process.env.GEMINI_THINKING_BUDGET?.trim();
-    const rawBudget = envBudget ? Number(envBudget) : 512;
+    const rawBudget = envBudget ? Number(envBudget) : 256;
     const thinkingBudget =
-      Number.isFinite(rawBudget) && rawBudget >= 0 ? rawBudget : 512;
+      Number.isFinite(rawBudget) && rawBudget >= 0 ? rawBudget : 256;
 
     const model = getGenerativeModel();
     const isGemini25 = model.startsWith('gemini-2.5');
@@ -525,30 +700,13 @@ ATURAN WAJIB:
       ...(enableGoogleSearch ? { tools: [{ googleSearch: {} }] } : {}),
     };
 
-    const response = await generateContentStreamWithFallback(
+    for await (const text of streamGeminiWithCascade({
       ai,
-      model,
-      historyContents,
-      config
-    );
-
-    for await (const chunk of response) {
-      // Filter out thought tokens
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const parts = (chunk as any).candidates?.[0]?.content?.parts;
-      if (Array.isArray(parts) && parts.length > 0) {
-        let text = '';
-        for (const part of parts) {
-          if (part && !part.thought && typeof part.text === 'string') {
-            text += part.text;
-          }
-        }
-        if (text) {
-          yield text;
-        }
-      } else if (chunk.text) {
-        yield chunk.text;
-      }
+      contents: historyContents,
+      config,
+      isQuizRequest: Boolean(options?.ragResult?.isQuizRequest),
+    })) {
+      yield text;
     }
   } catch (error) {
     console.error('AI generation error:', error);
