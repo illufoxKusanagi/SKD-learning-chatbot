@@ -1,0 +1,902 @@
+[
+  {
+    "slug": "twk-bela-negara-profesi-jembatan-001",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-bela-negara-pengabdian-profesi-infrastruktur"],
+    "reasoningChain": "UU 3/2002 Pasal 9 ayat (2) huruf d memasukkan pengabdian sesuai profesi sebagai bentuk bela negara. Penjelasannya mencakup tindakan profesional untuk menanggulangi atau memperkecil dampak bencana. Karena itu, kontribusi insinyur harus memakai kompetensi teknis, diarahkan pada pengurangan dampak, dan memperhatikan koordinasi serta keselamatan.",
+    "stem": "Sebuah gempa merusak jembatan penghubung menuju rumah sakit kabupaten. Seorang insinyur sipil ASN diminta membantu tim penanganan bencana. Tindakan yang paling tepat mencerminkan pengabdian sesuai profesi sebagai bela negara adalah ...",
+    "options": {
+      "A": "Melakukan penilaian struktur dan merancang akses sementara bersama instansi berwenang dengan mengutamakan keselamatan pengguna.",
+      "B": "Menghentikan seluruh pekerjaan teknis dan mendaftar sebagai prajurit agar dapat ikut mempertahankan wilayah terdampak.",
+      "C": "Mengerahkan kontraktor kenalannya untuk membangun jembatan permanen tanpa menunggu asesmen teknis dan koordinasi pemerintah.",
+      "D": "Menyampaikan perkiraan kerusakan melalui media sosial agar masyarakat dapat menilai sendiri kelayakan jembatan tersebut.",
+      "E": "Membuka jembatan untuk kendaraan ringan berdasarkan pengamatan visual agar distribusi bantuan segera kembali berjalan."
+    },
+    "hint": "Perhatikan hubungan kompetensi profesi, pengurangan dampak bencana, dan standar keselamatan.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Keahlian insinyur digunakan untuk mengurangi dampak bencana melalui penilaian dan solusi teknis yang terkoordinasi serta aman.",
+      "B": "Salah. Menjadi prajurit merupakan jalur berbeda dalam Pasal 9 ayat (2), bukan prasyarat bagi pengabdian sesuai profesi.",
+      "C": "Salah. Rekonstruksi tanpa asesmen dan koordinasi berisiko menambah bahaya serta tidak menunjukkan pengabdian profesional yang bertanggung jawab.",
+      "D": "Salah. Informasi publik tidak menggantikan penilaian teknis; penyampaian kesimpulan tanpa pemeriksaan dapat menimbulkan risiko keselamatan.",
+      "E": "Salah. Pengamatan visual bukan dasar memadai untuk membuka jembatan; tindakan tersebut mengabaikan kompetensi teknis dan keselamatan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 3 Tahun 2002 tentang Pertahanan Negara",
+      "url": "https://peraturan.bpk.go.id/Download/32692/UU%20Nomor%203%20Tahun%202002.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-profesi-logistik-air-002",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-bela-negara-pengabdian-profesi-infrastruktur"],
+    "reasoningChain": "Penjelasan UU 3/2002 Pasal 9 ayat (2) huruf d mengakui pengabdian profesi untuk memperkecil akibat bencana. Ketika jaringan air rusak, kompetensi teknisi dan tenaga kesehatan dapat melindungi warga. Kontribusi yang tepat harus berbasis kebutuhan, terukur, dan tersinkron dengan penanggung jawab penanganan bencana.",
+    "stem": "Setelah banjir besar, instalasi pengolahan air bersih di suatu kota berhenti beroperasi. Seorang teknisi pompa dari perusahaan daerah ingin membantu, tetapi beberapa relawan menawarkan perbaikan cepat tanpa pemeriksaan kualitas air. Langkah teknisi yang paling tepat adalah ...",
+    "options": {
+      "A": "Membagikan air dari sumber terdekat tanpa pengujian agar kebutuhan warga dapat dipenuhi sesegera mungkin.",
+      "B": "Berkoordinasi dengan pengelola dan posko, memeriksa kerusakan, lalu memulihkan instalasi dengan uji mutu air sebelum digunakan.",
+      "C": "Menyerahkan pekerjaan kepada relawan karena keterlibatan warga lebih penting daripada penggunaan keahlian teknis profesional.",
+      "D": "Mengunggah daftar kerusakan beserta dugaan penyebabnya agar perusahaan dapat menentukan langkah tanpa pemeriksaan lapangan.",
+      "E": "Mengganti seluruh peralatan instalasi sekaligus meskipun belum diketahui bagian yang rusak dan kebutuhan pemulihannya."
+    },
+    "hint": "Nilai manfaat profesi melalui prosedur yang aman dan sesuai keahlian.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pemenuhan kebutuhan air tidak boleh mengabaikan kelayakan dan keamanan; distribusi tanpa pengujian dapat membahayakan warga.",
+      "B": "Benar. Teknisi menerapkan keahlian untuk memperkecil dampak bencana melalui koordinasi, pemeriksaan, dan verifikasi mutu air.",
+      "C": "Salah. Partisipasi masyarakat penting, tetapi tidak menggantikan kompetensi teknis ketika pekerjaan memerlukan keahlian dan pengujian khusus.",
+      "D": "Salah. Pelaporan awal berguna, tetapi dugaan jarak jauh tidak cukup untuk memulihkan instalasi yang membutuhkan pemeriksaan teknis.",
+      "E": "Salah. Penggantian menyeluruh tanpa diagnosis tidak berbasis kebutuhan dan dapat memboroskan sumber daya pemulihan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 3 Tahun 2002 tentang Pertahanan Negara",
+      "url": "https://peraturan.bpk.go.id/Download/32692/UU%20Nomor%203%20Tahun%202002.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-profesi-komunikasi-003",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-bela-negara-pengabdian-profesi-infrastruktur"],
+    "reasoningChain": "UU 3/2002 Pasal 9 ayat (2) huruf d beserta penjelasannya menempatkan pengabdian profesi untuk mengurangi dampak bencana sebagai bentuk keikutsertaan bela negara. Dalam kasus ini, pemulihan komunikasi mendukung koordinasi bantuan, tetapi harus dilakukan sesuai kompetensi dan jalur komando yang sah.",
+    "stem": "Gempa susulan memutus jaringan komunikasi di beberapa kecamatan sehingga data kebutuhan logistik tidak masuk ke pusat komando. Seorang ahli jaringan menawarkan bantuan teknis. Pilihan yang paling mencerminkan bela negara melalui pengabdian profesi adalah ...",
+    "options": {
+      "A": "Membangun jaringan radio pribadi dan menetapkan sendiri frekuensi operasi tanpa berkoordinasi dengan pihak penanganan bencana.",
+      "B": "Menyebarkan perangkat komunikasi ke semua lokasi tanpa pendataan agar setiap kelompok dapat bekerja secara mandiri.",
+      "C": "Menyusun pemulihan jaringan darurat bersama posko dan operator, termasuk pendataan prioritas serta pengujian jangkauan komunikasi.",
+      "D": "Menunggu instruksi tertulis berjenjang meskipun posko telah meminta asesmen awal yang sesuai dengan keahliannya.",
+      "E": "Mengutamakan pemulihan jaringan komersial di pusat kota karena jumlah penggunanya lebih besar daripada daerah terisolasi."
+    },
+    "hint": "Cari tindakan profesional yang memperkuat koordinasi dan menjangkau kebutuhan darurat.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Jaringan tanpa koordinasi dapat mengganggu komunikasi operasi dan tidak menjamin penggunaan sumber daya secara tertib.",
+      "B": "Salah. Distribusi tanpa pemetaan kebutuhan berisiko salah sasaran dan tidak memastikan perangkat dapat digunakan secara efektif.",
+      "C": "Benar. Keahlian jaringan dipakai untuk mengurangi dampak bencana melalui pemulihan komunikasi yang terkoordinasi dan teruji.",
+      "D": "Salah. Kehati-hatian perlu, tetapi menolak asesmen awal yang diminta dan berada dalam kompetensinya menghambat bantuan.",
+      "E": "Salah. Prioritas pemulihan harus mempertimbangkan fungsi darurat dan keterisolasian, bukan semata-mata jumlah pengguna komersial."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 3 Tahun 2002 tentang Pertahanan Negara",
+      "url": "https://peraturan.bpk.go.id/Download/32692/UU%20Nomor%203%20Tahun%202002.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-profesi-integritas-proyek-004",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-bela-negara-pengabdian-profesi-infrastruktur"],
+    "reasoningChain": "Pengabdian sesuai profesi dalam Penjelasan Pasal 9 ayat (2) huruf d UU 3/2002 ditujukan bagi kepentingan pertahanan negara, termasuk mengurangi dampak bencana. Tindakan profesional harus bertanggung jawab. Mengabaikan spesifikasi dan pengawasan justru menciptakan kerentanan baru pada infrastruktur publik.",
+    "stem": "Dalam pemulihan jembatan pascabanjir, seorang insinyur pemerintah menemukan kontraktor menggunakan material di bawah spesifikasi dengan alasan agar jembatan segera dibuka. Atasan meminta proyek tetap dilaporkan selesai. Sikap yang paling tepat adalah ...",
+    "options": {
+      "A": "Menyetujui laporan sementara karena percepatan pembukaan akses lebih mendesak daripada pemeriksaan mutu material.",
+      "B": "Membiarkan kontraktor menyelesaikan pekerjaan, lalu menyerahkan seluruh tanggung jawab teknis kepada pejabat pengadaan.",
+      "C": "Mengumumkan tuduhan korupsi kepada publik sebelum mengumpulkan bukti teknis dan menyampaikan temuan melalui jalur resmi.",
+      "D": "Mendokumentasikan ketidaksesuaian, menahan rekomendasi laik fungsi, dan melaporkan temuan melalui mekanisme pengawasan yang berlaku.",
+      "E": "Mengganti spesifikasi material secara lisan agar pekerjaan tetap berjalan dan risiko administrasi tidak menghambat pemulihan."
+    },
+    "hint": "Utamakan keselamatan publik dan akuntabilitas profesi, bukan sekadar kecepatan laporan.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Kecepatan pemulihan tidak membenarkan pengabaian mutu yang dapat membahayakan pengguna jembatan.",
+      "B": "Salah. Insinyur tetap bertanggung jawab menyampaikan penilaian profesional; pelimpahan kepada pejabat lain tidak menghapus risiko teknis.",
+      "C": "Salah. Temuan harus didukung bukti dan disampaikan melalui mekanisme yang tepat, bukan tuduhan prematur di ruang publik.",
+      "D": "Benar. Dokumentasi, penolakan rekomendasi laik fungsi, dan pelaporan resmi menjaga keselamatan serta tanggung jawab profesional.",
+      "E": "Salah. Perubahan spesifikasi tanpa prosedur dan dasar teknis mengabaikan standar keselamatan serta akuntabilitas pekerjaan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 3 Tahun 2002 tentang Pertahanan Negara",
+      "url": "https://peraturan.bpk.go.id/Download/32692/UU%20Nomor%203%20Tahun%202002.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-profesi-kontribusi-bukan-militer-005",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-bela-negara-pengabdian-profesi-infrastruktur"],
+    "reasoningChain": "Pasal 9 ayat (2) UU 3/2002 memisahkan jalur pendidikan kewarganegaraan, pelatihan dasar kemiliteran wajib, pengabdian sebagai prajurit TNI, dan pengabdian sesuai profesi. Penjelasan huruf d memasukkan penanggulangan akibat bencana. Karena itu, pengabdian profesional tidak boleh disamakan dengan kewajiban menjadi prajurit.",
+    "stem": "Dalam diskusi internal, seorang pegawai negeri menyatakan bahwa warga yang ingin ikut bela negara saat bencana harus terlebih dahulu mengikuti pelatihan dasar kemiliteran. Rekannya menugaskan tenaga ahli konstruksi untuk membantu penilaian bangunan rusak. Penilaian hukum yang paling tepat adalah ...",
+    "options": {
+      "A": "Pernyataan itu tepat karena seluruh bentuk keikutsertaan bela negara harus didahului pelatihan dasar kemiliteran wajib.",
+      "B": "Penugasan tenaga ahli tidak termasuk bela negara karena pemulihan bangunan merupakan urusan sipil dan bukan pertahanan.",
+      "C": "Kedua pendapat tepat karena pengabdian profesi hanya berlaku bagi warga yang telah menjadi prajurit cadangan.",
+      "D": "Penugasan tenaga ahli hanya sah apabila seluruh personel sipil lebih dahulu memperoleh status komponen cadangan.",
+      "E": "Pendapat pertama keliru; pengabdian sesuai profesi merupakan jalur tersendiri dan dapat mencakup pengurangan dampak bencana."
+    },
+    "hint": "Bandingkan empat jalur keikutsertaan warga negara yang disebut dalam Pasal 9 ayat (2).",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pasal 9 ayat (2) menyebut beberapa bentuk keikutsertaan yang berdiri sebagai jalur berbeda, bukan prasyarat berurutan.",
+      "B": "Salah. Penjelasan Pasal 9 ayat (2) huruf d justru memasukkan pengabdian profesi untuk mengurangi akibat bencana.",
+      "C": "Salah. Pengabdian profesi bukan dibatasi hanya bagi prajurit atau anggota komponen cadangan.",
+      "D": "Salah. Pasal 9 ayat (2) huruf d tidak mensyaratkan status komponen cadangan bagi pengabdian sesuai profesi.",
+      "E": "Benar. Pengabdian sesuai profesi merupakan bentuk keikutsertaan tersendiri dan penjelasannya mencakup penanggulangan akibat bencana."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 3 Tahun 2002 tentang Pertahanan Negara",
+      "url": "https://peraturan.bpk.go.id/Download/32692/UU%20Nomor%203%20Tahun%202002.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-klasifikasi-pemulihan-vital-006",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-tahapan-pemulihan-infrastruktur-bencana"
+    ],
+    "reasoningChain": "UU 24/2007 Pasal 48 huruf f menempatkan pemulihan segera prasarana dan sarana vital dalam kegiatan tanggap darurat. Pasal 56 menjelaskan bentuknya berupa perbaikan dan/atau penggantian kerusakan akibat bencana. Karena situasi masih darurat, tujuan utamanya ialah mengembalikan fungsi vital secepatnya secara aman.",
+    "stem": "Gempa menyebabkan satu-satunya jembatan menuju rumah sakit rusak. Status tanggap darurat masih berlaku dan ambulans harus memutar lebih dari tiga jam. Pemerintah daerah perlu menentukan tindakan awal terhadap jembatan tersebut. Kebijakan yang paling sesuai adalah ...",
+    "options": {
+      "A": "Memulihkan fungsi akses vital secara segera melalui pemeriksaan keselamatan dan perbaikan atau penggantian bagian yang rusak.",
+      "B": "Menunda seluruh pekerjaan sampai tahap pascabencana agar perbaikan dapat dimasukkan ke program rehabilitasi tahunan daerah.",
+      "C": "Membangun jembatan permanen dengan desain baru tanpa asesmen kebutuhan darurat karena hasilnya akan digunakan jangka panjang.",
+      "D": "Memusatkan kegiatan pada pemulihan sosial ekonomi masyarakat sebelum akses rumah sakit kembali dapat digunakan.",
+      "E": "Menyerahkan keputusan pembukaan jembatan kepada warga sekitar karena mereka paling memahami kondisi akses setempat."
+    },
+    "hint": "Identifikasi fase yang sedang berlangsung dan tujuan langsung pemulihan prasarana vital.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Pasal 48 huruf f dan Pasal 56 mengatur pemulihan segera fungsi prasarana vital melalui perbaikan atau penggantian kerusakan.",
+      "B": "Salah. Menunggu pascabencana bertentangan dengan kebutuhan pemulihan segera prasarana vital pada tahap tanggap darurat.",
+      "C": "Salah. Pembangunan kembali yang lebih baik merupakan agenda rekonstruksi pascabencana, bukan pengganti tindakan darurat.",
+      "D": "Salah. Pemulihan sosial ekonomi penting, tetapi tidak mengesampingkan pemulihan segera akses vital ketika keadaan masih darurat.",
+      "E": "Salah. Partisipasi warga bermanfaat, tetapi keputusan teknis pembukaan jembatan harus mempertimbangkan keselamatan dan kewenangan yang tepat."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2007 tentang Penanggulangan Bencana",
+      "url": "https://peraturan.bpk.go.id/Download/29492/UU%20Nomor%2024%20Tahun%202007.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-klasifikasi-rehabilitasi-007",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-tahapan-pemulihan-infrastruktur-bencana"
+    ],
+    "reasoningChain": "UU 24/2007 Pasal 57 menetapkan rehabilitasi sebagai salah satu kegiatan pascabencana. Pasal 58 ayat (1) huruf b, i, dan j mencakup perbaikan prasarana umum serta pemulihan fungsi pemerintahan dan pelayanan publik. Fokus skenario ialah mengembalikan layanan setelah fase darurat terlewati.",
+    "stem": "Dua bulan setelah banjir besar, status tanggap darurat telah berakhir. Jalan utama sudah dapat dilalui kendaraan penyelamat, tetapi sekolah negeri, kantor kecamatan, dan saluran air umum belum berfungsi normal. Program yang paling tepat dikategorikan sebagai rehabilitasi adalah ...",
+    "options": {
+      "A": "Menyediakan perahu penyelamat dan membuka jalur evakuasi sementara ketika banjir kembali mengancam permukiman.",
+      "B": "Memperbaiki fasilitas umum dan memulihkan fungsi sekolah, kantor pemerintahan, serta pelayanan publik di wilayah terdampak.",
+      "C": "Membangun ulang seluruh kawasan dengan tata ruang baru dan standar konstruksi yang lebih tahan terhadap bencana berikutnya.",
+      "D": "Menetapkan status keadaan darurat baru dan mengerahkan logistik untuk memenuhi kebutuhan dasar pengungsi.",
+      "E": "Mengganti kerusakan jembatan vital secara segera agar kendaraan penyelamat dapat mencapai rumah sakit terdampak."
+    },
+    "hint": "Bedakan pemulihan fungsi layanan pascabencana dari respons darurat dan pembangunan kembali.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Perahu penyelamat dan jalur evakuasi merupakan respons kesiapsiagaan atau kedaruratan, bukan inti rehabilitasi pascabencana.",
+      "B": "Benar. Pasal 58 memasukkan perbaikan prasarana umum serta pemulihan fungsi pemerintahan dan pelayanan publik dalam rehabilitasi.",
+      "C": "Salah. Pembangunan kembali dengan rancangan lebih tahan bencana merupakan karakter rekonstruksi menurut Pasal 59.",
+      "D": "Salah. Penetapan keadaan darurat dan pemenuhan kebutuhan pengungsi merupakan tindakan tanggap darurat, bukan rehabilitasi.",
+      "E": "Salah. Pemulihan segera prasarana vital termasuk kegiatan tanggap darurat sebagaimana Pasal 48 huruf f dan Pasal 56."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2007 tentang Penanggulangan Bencana",
+      "url": "https://peraturan.bpk.go.id/Download/29492/UU%20Nomor%2024%20Tahun%202007.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-klasifikasi-rekonstruksi-008",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-tahapan-pemulihan-infrastruktur-bencana"
+    ],
+    "reasoningChain": "UU 24/2007 Pasal 57 menyebut rekonstruksi sebagai bagian dari tahap pascabencana. Pasal 59 mengarahkan pembangunan kembali prasarana dan sarana dengan pendekatan lebih baik, termasuk penerapan rancang bangun yang tepat dan peralatan yang lebih tahan bencana. Kuncinya adalah pengurangan kerentanan masa depan.",
+    "stem": "Sebuah kabupaten membangun kembali jembatan yang runtuh akibat banjir bandang. Jembatan lama berada pada titik rawan gerusan dan berulang kali rusak. Pemerintah mengubah desain fondasi, meningkatkan kapasitas aliran, dan memakai material yang lebih tahan. Kegiatan tersebut paling tepat disebut ...",
+    "options": {
+      "A": "Tanggap darurat karena setiap kegiatan perbaikan jembatan setelah bencana selalu termasuk penanganan darurat.",
+      "B": "Rehabilitasi karena seluruh kegiatan pascabencana yang menyentuh prasarana umum bertujuan mengembalikan fungsi layanan.",
+      "C": "Rekonstruksi karena pembangunan kembali dilakukan dengan rancangan yang lebih baik dan ketahanan lebih tinggi terhadap bencana.",
+      "D": "Pencegahan karena perubahan desain dilakukan sebelum banjir berikutnya dan bukan setelah kerusakan terjadi.",
+      "E": "Kesiapsiagaan karena pemerintah sedang menyiapkan sarana agar masyarakat dapat merespons bencana di masa mendatang."
+    },
+    "hint": "Perhatikan apakah pekerjaan sekadar memulihkan layanan atau membangun kembali dengan standar lebih baik.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Tanggap darurat berfokus pada pemulihan segera prasarana vital, bukan pembangunan kembali permanen dengan peningkatan ketahanan.",
+      "B": "Salah. Rehabilitasi memulihkan aspek layanan dan prasarana; pembangunan kembali dengan standar lebih baik merupakan rekonstruksi.",
+      "C": "Benar. Pasal 59 menempatkan pembangunan kembali prasarana dengan rancang bangun yang lebih tepat dan tahan bencana sebagai rekonstruksi.",
+      "D": "Salah. Pengurangan risiko menjadi manfaat desain, tetapi klasifikasi kegiatan pascabencana membangun kembali adalah rekonstruksi.",
+      "E": "Salah. Kesiapsiagaan dilakukan sebelum bencana; skenario ini merupakan pembangunan kembali setelah kerusakan terjadi."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2007 tentang Penanggulangan Bencana",
+      "url": "https://peraturan.bpk.go.id/Download/29492/UU%20Nomor%2024%20Tahun%202007.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-kontrafaktual-tanggap-darurat-009",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-tahapan-pemulihan-infrastruktur-bencana"
+    ],
+    "reasoningChain": "Pasal 48 huruf f UU 24/2007 menempatkan pemulihan segera prasarana vital dalam tahap tanggap darurat, sedangkan Pasal 57-59 mengatur rehabilitasi dan rekonstruksi pada tahap pascabencana. Jika pemulihan vital ditunda sampai rekonstruksi, akses penyelamatan dan layanan esensial dapat terputus lebih lama.",
+    "stem": "Dalam rapat penanganan gempa, seorang pejabat mengusulkan agar semua perbaikan jalan dan jembatan ditunda sampai tahap rekonstruksi supaya pekerjaan dapat dilaksanakan sekaligus. Apabila usulan itu diterapkan ketika beberapa akses vital masih terputus, konsekuensi paling mendasar adalah ...",
+    "options": {
+      "A": "Tahap rekonstruksi kehilangan dasar hukum karena seluruh kegiatan infrastruktur hanya dapat dilakukan saat tanggap darurat.",
+      "B": "Pemerintah daerah otomatis kehilangan kewenangan karena pemulihan infrastruktur sepenuhnya menjadi urusan pemerintah pusat.",
+      "C": "Masyarakat tidak lagi dapat berpartisipasi karena undang-undang membatasi pemulihan prasarana hanya kepada aparatur pemerintah.",
+      "D": "Akses penyelamatan dan layanan vital berpotensi tetap terganggu karena pemulihan segera yang diwajibkan pada fase darurat tertunda.",
+      "E": "Seluruh kegiatan rehabilitasi harus dihentikan karena perbaikan akses vital hanya dapat dilakukan setelah rekonstruksi selesai."
+    },
+    "hint": "Uji akibat penundaan tindakan yang secara eksplisit ditempatkan pada fase tanggap darurat.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Rekonstruksi tetap memiliki dasar hukum pada tahap pascabencana; yang keliru adalah menunda pemulihan vital saat darurat.",
+      "B": "Salah. UU 24/2007 menempatkan pemerintah dan pemerintah daerah sebagai penanggung jawab penanggulangan bencana.",
+      "C": "Salah. UU 24/2007 mengakui peran masyarakat; tidak ada larangan umum partisipasi dalam pemulihan prasarana.",
+      "D": "Benar. Penundaan mengabaikan pemulihan segera prasarana vital pada tanggap darurat sehingga akses penyelamatan dan layanan esensial terganggu.",
+      "E": "Salah. Rehabilitasi merupakan kegiatan pascabencana tersendiri dan tidak harus menunggu seluruh rekonstruksi selesai."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2007 tentang Penanggulangan Bencana",
+      "url": "https://peraturan.bpk.go.id/Download/29492/UU%20Nomor%2024%20Tahun%202007.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-partisipasi-rekonstruksi-010",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-tahapan-pemulihan-infrastruktur-bencana"
+    ],
+    "reasoningChain": "UU 24/2007 Pasal 5 menetapkan pemerintah dan pemerintah daerah sebagai penanggung jawab penanggulangan bencana. Pasal 4 mendorong partisipasi, kemitraan publik-swasta, dan gotong royong; Pasal 59 juga memasukkan peran lembaga dan masyarakat dalam rekonstruksi. Partisipasi memperkuat pelaksanaan, tetapi tidak menghapus tanggung jawab pemerintah.",
+    "stem": "Setelah longsor, sebuah desa menggalang dana dan menawarkan tenaga untuk membangun kembali jembatan penghubung. Sebagian warga ingin langsung memulai pembangunan tanpa rancangan teknis, sementara pemerintah daerah belum menetapkan mekanisme koordinasi. Sikap yang paling tepat adalah ...",
+    "options": {
+      "A": "Menolak seluruh bantuan warga karena tanggung jawab pemerintah berarti masyarakat tidak boleh terlibat dalam rekonstruksi.",
+      "B": "Membiarkan warga membangun sendiri karena semangat gotong royong dapat menggantikan prosedur teknis dan tanggung jawab pemerintah.",
+      "C": "Mengalihkan seluruh pekerjaan kepada perusahaan swasta agar pemerintah tidak perlu lagi mengawasi proses pembangunan kembali.",
+      "D": "Menunda seluruh partisipasi masyarakat sampai semua kegiatan rekonstruksi selesai direncanakan dan dilaksanakan oleh pemerintah.",
+      "E": "Mengintegrasikan bantuan warga dalam koordinasi pemerintah daerah, dengan rancangan teknis, standar keselamatan, dan akuntabilitas yang jelas."
+    },
+    "hint": "Seimbangkan tanggung jawab pemerintah dengan ruang partisipasi publik yang terkoordinasi.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Tanggung jawab pemerintah tidak meniadakan partisipasi dan kemitraan publik yang didorong UU 24/2007.",
+      "B": "Salah. Gotong royong tidak menggantikan standar teknis, keselamatan, dan tanggung jawab pemerintah sebagai penanggung jawab.",
+      "C": "Salah. Keterlibatan swasta dapat dilakukan, tetapi pemerintah tetap memegang tanggung jawab dan fungsi pengawasan.",
+      "D": "Salah. Partisipasi dapat diintegrasikan dalam perencanaan dan pelaksanaan; tidak perlu dilarang sampai seluruh pekerjaan selesai.",
+      "E": "Benar. Pendekatan ini menjaga tanggung jawab pemerintah sekaligus memanfaatkan partisipasi masyarakat secara aman dan akuntabel."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2007 tentang Penanggulangan Bencana",
+      "url": "https://peraturan.bpk.go.id/Download/29492/UU%20Nomor%2024%20Tahun%202007.pdf"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-editor-auditor-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hubungan pasangan pertama adalah profesi terhadap objek yang menjadi sasaran pemeriksaan atau penyuntingan. Editor menyunting naskah, sedangkan auditor memeriksa laporan keuangan. Hubungan yang dicari adalah aktivitas profesional terhadap objek kerjanya, bukan sekadar hubungan antara dua benda yang berkaitan.",
+    "stem": "Editor : Naskah memiliki hubungan yang paling sepadan dengan Auditor : ...",
+    "options": {
+      "A": "Menyusun jadwal kegiatan organisasi.",
+      "B": "Mengelola persediaan barang kantor.",
+      "C": "Mengesahkan keputusan pimpinan instansi.",
+      "D": "Memeriksa laporan dan catatan keuangan.",
+      "E": "Mendistribusikan surat kepada unit kerja."
+    },
+    "hint": "Perhatikan hubungan antara profesi dan aktivitas utama yang dilakukan terhadap objek pekerjaannya.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menyusun jadwal merupakan fungsi perencanaan kegiatan, bukan pemeriksaan terhadap suatu objek pekerjaan.",
+      "B": "Salah. Pengelolaan persediaan merupakan kegiatan administrasi logistik yang tidak menunjukkan hubungan pemeriksaan profesional.",
+      "C": "Salah. Pengesahan keputusan merupakan kewenangan pengambil keputusan, bukan fungsi pemeriksaan auditor.",
+      "D": "Benar. Editor menyunting naskah, sedangkan auditor memeriksa laporan dan catatan keuangan sebagai objek pekerjaan profesionalnya.",
+      "E": "Salah. Distribusi surat merupakan fungsi administrasi persuratan, bukan pemeriksaan atau evaluasi profesional."
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-instrumen-pengukuran-002",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Termometer merupakan instrumen untuk mengukur suhu, sedangkan anemometer merupakan instrumen untuk mengukur kecepatan angin. Hubungan analogi bersifat instrumen terhadap besaran yang diukur. Distraktor berupa besaran meteorologi lain harus ditolak karena bukan variabel utama yang diukur oleh instrumen tersebut.",
+    "stem": "Termometer : Suhu memiliki hubungan yang paling sepadan dengan Anemometer : ...",
+    "options": {
+      "A": "Kecepatan angin.",
+      "B": "Curah hujan.",
+      "C": "Tekanan udara.",
+      "D": "Kelembapan udara.",
+      "E": "Intensitas cahaya."
+    },
+    "hint": "Identifikasi besaran fisika yang menjadi sasaran pengukuran setiap instrumen.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Anemometer digunakan untuk mengukur kecepatan angin, sebagaimana termometer digunakan untuk mengukur suhu.",
+      "B": "Salah. Curah hujan diukur menggunakan alat penakar hujan atau ombrometer, bukan anemometer.",
+      "C": "Salah. Tekanan udara diukur menggunakan barometer, sehingga tidak sesuai dengan fungsi anemometer.",
+      "D": "Salah. Kelembapan udara diukur menggunakan higrometer, bukan anemometer.",
+      "E": "Salah. Intensitas cahaya diukur menggunakan lux meter atau fotometer, bukan anemometer."
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-kuantifikasi-pengadaan-003",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Premis 1: Semua analis risiko mengikuti pelatihan keamanan data. Premis 2: Sebagian pegawai pengadaan merupakan analis risiko. Dengan instansiasi universal dan hubungan subset, sebagian pegawai pengadaan tersebut pasti mengikuti pelatihan keamanan data. Tidak dapat disimpulkan bahwa seluruh pegawai pengadaan adalah analis risiko atau bahwa seluruh peserta pelatihan merupakan analis risiko.",
+    "stem": "Dalam suatu instansi berlaku ketentuan berikut:\n\n1. Semua analis risiko mengikuti pelatihan keamanan data.\n2. Sebagian pegawai unit pengadaan merupakan analis risiko.\n3. Tidak satu pun pegawai kontrak yang masa kerjanya berakhir memiliki akses aplikasi internal.\n\nKesimpulan yang pasti benar berdasarkan seluruh premis tersebut adalah ...",
+    "options": {
+      "A": "Semua pegawai unit pengadaan mengikuti pelatihan keamanan data.",
+      "B": "Semua peserta pelatihan keamanan data merupakan analis risiko.",
+      "C": "Sebagian pegawai unit pengadaan mengikuti pelatihan keamanan data.",
+      "D": "Sebagian pegawai kontrak yang berakhir masa kerjanya merupakan analis risiko.",
+      "E": "Tidak ada analis risiko yang dapat menggunakan aplikasi internal."
+    },
+    "hint": "Gunakan hubungan himpunan antara kelompok yang seluruh anggotanya memenuhi suatu sifat dan kelompok yang hanya sebagian anggotanya termasuk di dalamnya.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Premis kedua hanya menyatakan sebagian pegawai pengadaan merupakan analis risiko, bukan seluruhnya.",
+      "B": "Salah. Premis hanya menyatakan analis risiko mengikuti pelatihan, bukan bahwa semua peserta pelatihan adalah analis risiko.",
+      "C": "Benar. Sebagian pegawai pengadaan merupakan analis risiko dan seluruh analis risiko mengikuti pelatihan keamanan data.",
+      "D": "Salah. Tidak ada premis yang menyatakan sebagian pegawai kontrak tersebut merupakan analis risiko.",
+      "E": "Salah. Ketentuan akses aplikasi hanya berlaku bagi pegawai kontrak yang masa kerjanya berakhir, bukan seluruh analis risiko."
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-implikasi-registrasi-004",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Premis universal menyatakan bahwa setiap naskah yang lolos verifikasi pasti memperoleh nomor registrasi. Dengan modus tollens, naskah yang tidak mempunyai nomor registrasi tidak termasuk kelompok yang telah lolos verifikasi. Karena sebagian naskah dinas belum memperoleh nomor registrasi, sebagian naskah dinas tersebut belum lolos verifikasi.",
+    "stem": "Sebuah unit administrasi memiliki ketentuan sebagai berikut:\n\n1. Semua naskah yang lolos verifikasi memperoleh nomor registrasi.\n2. Sebagian naskah dinas belum memperoleh nomor registrasi.\n3. Semua naskah dinas disimpan oleh unit tata usaha.\n\nKesimpulan yang dapat dipastikan benar adalah ...",
+    "options": {
+      "A": "Semua naskah dinas telah lolos verifikasi.",
+      "B": "Sebagian naskah yang memiliki nomor registrasi tidak disimpan di tata usaha.",
+      "C": "Semua naskah yang disimpan di tata usaha belum lolos verifikasi.",
+      "D": "Sebagian naskah dinas telah memperoleh nomor registrasi.",
+      "E": "Sebagian naskah dinas belum lolos verifikasi."
+    },
+    "hint": "Uji implikasi dengan membalik konsekuensi universal secara logis, bukan sekadar menukar subjek dan predikat.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Adanya sebagian naskah dinas yang belum memiliki nomor registrasi tidak memungkinkan kesimpulan bahwa semuanya lolos verifikasi.",
+      "B": "Salah. Tidak terdapat premis mengenai penyimpanan naskah berregistrasi di luar unit tata usaha.",
+      "C": "Salah. Tidak semua dokumen yang disimpan di tata usaha merupakan naskah dinas, dan tidak ada informasi bahwa semuanya gagal verifikasi.",
+      "D": "Salah. Tidak ada premis yang secara eksplisit menjamin keberadaan sebagian naskah dinas yang telah memperoleh nomor registrasi.",
+      "E": "Benar. Jika lolos verifikasi pasti memperoleh nomor registrasi, naskah yang belum memiliki nomor registrasi pasti belum lolos verifikasi."
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-jadwal-presentasi-005",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Terdapat lima posisi berurutan dari Senin sampai Jumat. Olin menempati Rabu, sehingga Mahendra yang harus tampil tepat setelah Olin menempati Kamis. Prita menempati Jumat. Posisi tersisa adalah Senin dan Selasa untuk Niko dan Laras. Karena Niko harus mendahului Laras, Niko tampil Senin dan Laras Selasa.",
+    "stem": "Lima pegawai, yaitu Laras, Mahendra, Niko, Olin, dan Prita, dijadwalkan menyampaikan presentasi masing-masing satu orang per hari dari Senin hingga Jumat. Ketentuannya adalah:\n\n- Olin tampil pada hari Rabu.\n- Mahendra tampil tepat satu hari setelah Olin.\n- Prita tampil pada hari Jumat.\n- Niko tampil sebelum Laras.\n\nSiapakah pegawai yang tampil pada hari Selasa?",
+    "options": {
+      "A": "Niko.",
+      "B": "Laras.",
+      "C": "Mahendra.",
+      "D": "Olin.",
+      "E": "Prita."
+    },
+    "hint": "Tempatkan jadwal dengan posisi tetap terlebih dahulu, kemudian gunakan hubungan urutan untuk mengisi posisi yang tersisa.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Niko harus tampil sebelum Laras dan menempati posisi pertama yang tersisa, yaitu Senin.",
+      "B": "Benar. Setelah Rabu ditempati Olin, Kamis Mahendra, dan Jumat Prita, Niko berada pada Senin sehingga Laras berada pada Selasa.",
+      "C": "Salah. Mahendra harus tampil tepat setelah Olin yang berada pada Rabu, sehingga jadwalnya Kamis.",
+      "D": "Salah. Olin telah ditetapkan tampil pada hari Rabu berdasarkan ketentuan pertama.",
+      "E": "Salah. Prita telah ditetapkan tampil pada hari Jumat berdasarkan ketentuan ketiga."
+    }
+  },
+  {
+    "slug": "tiu-numerik-deret-pola-penggandaan-006",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret yang diberikan adalah 4, 7, 13, 25, 49. Selisih antarangka berturut-turut adalah 3, 6, 12, dan 24. Setiap selisih merupakan dua kali selisih sebelumnya. Dengan demikian, selisih selanjutnya adalah 48 dan angka berikutnya adalah 49 + 48 = 97. Pola alternatif yang setara adalah mengalikan angka sebelumnya dengan dua lalu mengurangi satu.",
+    "stem": "Perhatikan deret bilangan berikut: 4, 7, 13, 25, 49, ... Angka berikutnya yang paling tepat untuk melengkapi deret tersebut adalah ...",
+    "options": {
+      "A": "97",
+      "B": "95",
+      "C": "99",
+      "D": "101",
+      "E": "103"
+    },
+    "hint": "Periksa perubahan antara dua suku yang berurutan, bukan hanya selisih terhadap suku pertama.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Selisihnya 3, 6, 12, 24, kemudian 48. Jadi suku berikutnya adalah 49 + 48 = 97.",
+      "B": "Salah. Angka 95 menghasilkan kenaikan 46, padahal pola selisih berikutnya harus 48.",
+      "C": "Salah. Angka 99 menghasilkan kenaikan 50, tidak sesuai dengan penggandaan selisih sebelumnya.",
+      "D": "Salah. Angka 101 menghasilkan kenaikan 52, bukan kelanjutan dari pola selisih yang berlipat dua.",
+      "E": "Salah. Angka 103 menghasilkan kenaikan 54, sehingga tidak mempertahankan pola selisih deret."
+    }
+  },
+  {
+    "slug": "tiu-numerik-perbandingan-kuantitatif-operasi-007",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hitung kedua besaran secara terpisah. X = 3/5 × 250 = 150. Y = 7/8 × 160 = 140. Karena 150 lebih besar daripada 140, maka X > Y. Perbandingan harus didasarkan pada hasil operasi pecahan, bukan membandingkan pembilang atau penyebut secara terpisah.",
+    "stem": "Diketahui dua besaran berikut:\n\nX = 3/5 dari 250\nY = 7/8 dari 160\n\nHubungan yang benar antara X dan Y adalah ...",
+    "options": {
+      "A": "X lebih kecil daripada Y.",
+      "B": "X sama dengan Y.",
+      "C": "X dua kali lebih besar daripada Y.",
+      "D": "X lebih besar daripada Y.",
+      "E": "Hubungan X dan Y tidak dapat ditentukan."
+    },
+    "hint": "Ubah setiap pecahan menjadi nilai numerik terlebih dahulu sebelum membandingkan hasil akhirnya.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Nilai X adalah 150, sedangkan Y adalah 140, sehingga X justru lebih besar.",
+      "B": "Salah. Kedua besaran tidak sama karena 150 berbeda dari 140.",
+      "C": "Salah. X tidak dua kali Y karena 2 × 140 = 280, bukan 150.",
+      "D": "Benar. X = 150 dan Y = 140, sehingga secara matematis X > Y.",
+      "E": "Salah. Seluruh informasi untuk menghitung kedua besaran tersedia, sehingga hubungannya dapat ditentukan secara pasti."
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-sosial-diskon-pajak-008",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Harga awal barang adalah Rp800.000. Diskon 15% menghasilkan harga setelah diskon sebesar 800.000 × 0,85 = Rp680.000. Pajak 11% dikenakan terhadap harga setelah diskon, sehingga pajak adalah 680.000 × 0,11 = Rp74.800. Total pembayaran menjadi Rp680.000 + Rp74.800 = Rp754.800. Urutan diskon dan pajak harus diperhatikan.",
+    "stem": "Sebuah perangkat kantor memiliki harga sebelum potongan sebesar Rp800.000. Toko memberikan diskon 15%, kemudian mengenakan pajak 11% atas harga setelah diskon. Berapakah total pembayaran yang harus dilakukan pembeli?",
+    "options": {
+      "A": "Rp748.000",
+      "B": "Rp754.800",
+      "C": "Rp756.000",
+      "D": "Rp770.000",
+      "E": "Rp788.000"
+    },
+    "hint": "Perhatikan dasar pengenaan pajak dan urutan penerapan potongan harga dalam transaksi.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Nilai ini tidak sesuai dengan penjumlahan harga setelah diskon dan pajak 11% atas harga tersebut.",
+      "B": "Benar. Harga setelah diskon adalah Rp680.000 dan pajaknya Rp74.800, sehingga totalnya Rp754.800.",
+      "C": "Salah. Nilai ini tidak sesuai dengan perhitungan pajak 11% dari Rp680.000 yang menghasilkan Rp74.800.",
+      "D": "Salah. Nilai ini lebih tinggi daripada hasil yang diperoleh dari penerapan diskon terlebih dahulu dan pajak setelahnya.",
+      "E": "Salah. Nilai ini mendekati harga awal setelah pajak, tetapi tidak memperhitungkan diskon 15% secara benar."
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-kombinasi-pekerjaan-009",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Petugas pertama memproses 120 berkas dalam 6 jam, sehingga lajunya 20 berkas per jam. Petugas kedua memproses 120 berkas dalam 8 jam, sehingga lajunya 15 berkas per jam. Jika bekerja bersama dengan laju tetap, kapasitas gabungannya adalah 20 + 15 = 35 berkas per jam. Waktu untuk menyelesaikan 280 berkas adalah 280/35 = 8 jam.",
+    "stem": "Dua petugas administrasi ditugaskan memeriksa 280 berkas. Petugas pertama mampu menyelesaikan 120 berkas dalam 6 jam, sedangkan petugas kedua mampu menyelesaikan 120 berkas dalam 8 jam. Jika keduanya bekerja bersama dengan kecepatan tetap dan tidak mengalami hambatan, berapa lama waktu yang diperlukan untuk memeriksa seluruh berkas?",
+    "options": {
+      "A": "6 jam.",
+      "B": "7 jam.",
+      "C": "9 jam.",
+      "D": "10 jam.",
+      "E": "8 jam."
+    },
+    "hint": "Gabungkan kapasitas pekerjaan per satuan waktu, bukan menjumlahkan durasi penyelesaian masing-masing petugas.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Dalam 6 jam, kapasitas gabungan hanya 35 × 6 = 210 berkas, belum mencapai 280 berkas.",
+      "B": "Salah. Dalam 7 jam, kapasitas gabungan hanya 35 × 7 = 245 berkas.",
+      "C": "Salah. Dalam 9 jam, kapasitas gabungan mencapai 315 berkas, melebihi kebutuhan 280 berkas.",
+      "D": "Salah. Dalam 10 jam, kapasitas gabungan mencapai 350 berkas, sehingga waktu tersebut terlalu lama.",
+      "E": "Benar. Kapasitas gabungan adalah 35 berkas per jam, sehingga 280 ÷ 35 = 8 jam."
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-kecepatan-rata-rata-010",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Kecepatan rata-rata adalah total jarak dibagi total waktu, bukan rata-rata aritmetika dari dua kecepatan. Perjalanan pergi menempuh 180 km dengan kecepatan 60 km/jam selama 3 jam. Perjalanan pulang menempuh 180 km dengan kecepatan 90 km/jam selama 2 jam. Total jarak 360 km dan total waktu 5 jam, sehingga kecepatan rata-rata adalah 72 km/jam.",
+    "stem": "Seorang pegawai melakukan perjalanan dinas dari kantor pusat menuju kantor cabang sejauh 180 km dengan kecepatan rata-rata 60 km/jam. Dalam perjalanan pulang melalui rute yang sama, ia menempuh jarak tersebut dengan kecepatan rata-rata 90 km/jam. Berapakah kecepatan rata-rata untuk keseluruhan perjalanan pergi-pulang?",
+    "options": {
+      "A": "68 km/jam.",
+      "B": "70 km/jam.",
+      "C": "72 km/jam.",
+      "D": "75 km/jam.",
+      "E": "80 km/jam."
+    },
+    "hint": "Gunakan total jarak dibagi total durasi. Kedua perjalanan memiliki jarak yang sama, tetapi waktunya berbeda.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Kecepatan tersebut tidak diperoleh dari pembagian total jarak dengan total waktu kedua perjalanan.",
+      "B": "Salah. Perhitungan 360 km dibagi 5 jam menghasilkan 72 km/jam, bukan 70 km/jam.",
+      "C": "Benar. Total jarak 360 km dibagi total waktu 3 + 2 = 5 jam menghasilkan 72 km/jam.",
+      "D": "Salah. Rata-rata aritmetika dari 60 dan 90 bukan kecepatan rata-rata perjalanan dengan jarak yang sama.",
+      "E": "Salah. Nilai ini tidak sesuai dengan total jarak 360 km dan total waktu 5 jam."
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-akses-digital-lansia-001",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Berorientasi Pelayanan. Hierarki penilaian mengutamakan pelayanan yang responsif, solutif, inklusif, dan memberikan kepastian bagi masyarakat (5), kemudian bantuan yang cukup efektif tetapi belum menyelesaikan seluruh kebutuhan (4), komunikasi dan bantuan terbatas (3), respons minimal (2), serta pengabaian kebutuhan masyarakat (1).",
+    "stem": "Anda bertugas di loket pelayanan administrasi kependudukan yang baru menerapkan sistem pendaftaran daring. Seorang warga lanjut usia datang membawa dokumen lengkap, tetapi kesulitan menggunakan telepon pintar untuk mengakses aplikasi. Antrean mulai bertambah dan beberapa warga lain menunggu giliran. Apa tindakan yang paling tepat?",
+    "options": {
+      "A": "Membantu warga menggunakan fasilitas pendampingan digital, menjelaskan tahapan secara sederhana, dan menjaga agar antrean tetap berjalan tertib.",
+      "B": "Memberikan panduan tertulis mengenai aplikasi dan menyarankan warga meminta bantuan anggota keluarga untuk menyelesaikan pendaftaran.",
+      "C": "Meminta petugas lain mendampingi warga setelah seluruh pemohon yang telah mendaftar daring selesai dilayani.",
+      "D": "Menjelaskan bahwa pendaftaran wajib dilakukan secara daring dan memberikan alamat layanan bantuan apabila warga mengalami kendala berikutnya.",
+      "E": "Mempersilakan warga kembali pada hari berikutnya ketika antrean lebih sedikit agar pelayanan loket tidak mengalami keterlambatan."
+    },
+    "hint": "Pertimbangkan aksesibilitas pelayanan, kepastian proses, dan kebutuhan kelompok masyarakat dengan keterbatasan penggunaan teknologi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 4,
+      "C": 3,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Pendampingan langsung memberikan akses yang setara, menjaga martabat warga, dan tetap mempertahankan ketertiban antrean.",
+      "B": "Poin 4 — Panduan membantu warga secara mandiri, tetapi belum memberikan penyelesaian langsung terhadap hambatan digital yang sedang terjadi.",
+      "C": "Poin 3 — Tetap menyediakan bantuan, tetapi penundaan membuat warga lanjut usia menunggu tanpa kepastian waktu.",
+      "D": "Poin 2 — Informasi disampaikan dengan benar, tetapi belum memberikan solusi yang efektif bagi warga yang sedang mengalami kesulitan.",
+      "E": "Poin 1 — Memindahkan beban kendala pelayanan kepada masyarakat dan menambah hambatan akses terhadap layanan publik."
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-akumulasi-antrean-002",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Berorientasi Pelayanan. Skor 5 diberikan kepada tindakan yang mengidentifikasi penyebab masalah, menetapkan prioritas objektif, memberi kepastian informasi, dan mengupayakan perbaikan layanan. Skor 4 menunjukkan tindakan proaktif tetapi belum menyelesaikan semua aspek. Skor 3 berupa komunikasi atau evaluasi terbatas, skor 2 respons parsial tanpa pengelolaan menyeluruh, dan skor 1 membiarkan masalah berlanjut.",
+    "stem": "Di sebuah kantor pelayanan perizinan, jumlah permohonan yang belum diproses meningkat tajam selama tiga minggu. Masyarakat mulai mengeluhkan ketidakjelasan estimasi penyelesaian, sementara sebagian pemohon memiliki kebutuhan layanan yang mendesak. Sebagai koordinator loket, tindakan paling tepat adalah ...",
+    "options": {
+      "A": "Menyampaikan permohonan maaf atas keterlambatan dan meminta masyarakat memantau informasi penyelesaian melalui situs resmi instansi.",
+      "B": "Memetakan penyebab penumpukan, menetapkan prioritas sesuai kriteria yang transparan, dan menyampaikan estimasi serta perkembangan kepada pemohon.",
+      "C": "Mengusulkan penambahan jam layanan kepada pimpinan sambil meminta petugas menyelesaikan berkas sesuai urutan masuk.",
+      "D": "Mendahulukan permohonan yang memiliki tenggat resmi paling dekat dan menginformasikan perubahan urutan kepada pemohon terkait.",
+      "E": "Mengimbau masyarakat mengajukan permohonan lebih awal pada periode berikutnya agar penumpukan serupa tidak kembali terjadi."
+    },
+    "hint": "Perhatikan perbedaan antara penanganan gejala, penentuan prioritas, dan perbaikan akar penyebab masalah pelayanan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 4,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Komunikasi terbuka menunjukkan kepedulian, tetapi belum memperbaiki proses dan belum memberikan kepastian individual.",
+      "B": "Poin 5 — Menggabungkan evaluasi penyebab, prioritas objektif, transparansi informasi, dan perbaikan sistem pelayanan secara terukur.",
+      "C": "Poin 4 — Penambahan jam layanan dapat meningkatkan kapasitas, tetapi belum secara langsung mengidentifikasi penyebab penumpukan.",
+      "D": "Poin 2 — Prioritas tenggat mendesak membantu sebagian pemohon, tetapi belum menyelesaikan pengelolaan seluruh antrean.",
+      "E": "Poin 1 — Imbauan kepada masyarakat tidak menyelesaikan masalah internal dan mengabaikan tanggung jawab perbaikan layanan."
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-validasi-data-lintas-instansi-003",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Kolaboratif. Hierarki skor 5 mengutamakan sinergi aktif, penyelarasan data, pembagian tanggung jawab, serta tujuan bersama. Skor 4 menunjukkan koordinasi rutin tetapi belum mengatasi perbedaan substantif, skor 3 berbagi informasi secara terbatas, skor 2 mengandalkan proses pasif, dan skor 1 memperburuk hubungan kerja.",
+    "stem": "Anda menjadi anggota tim lintas instansi untuk menyalurkan bantuan bagi masyarakat terdampak bencana. Namun, data penerima dari pemerintah daerah, dinas sosial, dan lembaga mitra menunjukkan jumlah serta identitas yang berbeda. Penyaluran bantuan dijadwalkan berlangsung dua hari lagi. Langkah yang paling tepat adalah ...",
+    "options": {
+      "A": "Menyampaikan data milik instansi sendiri kepada koordinator dan meminta instansi lain menyesuaikan data mereka sebelum penyaluran.",
+      "B": "Menunggu koordinator lintas instansi menetapkan satu data resmi sebelum melakukan pemeriksaan lebih lanjut terhadap daftar penerima.",
+      "C": "Memfasilitasi validasi bersama, menyepakati kriteria data, menetapkan penanggung jawab, dan menggunakan satu basis data yang diperbarui bersama.",
+      "D": "Mengadakan rapat koordinasi rutin dan meminta masing-masing instansi menyampaikan perkembangan data pada setiap pertemuan berikutnya.",
+      "E": "Menyampaikan ketidaksesuaian data kepada pimpinan dengan meminta instansi yang dianggap terlambat segera memperbaiki laporannya."
+    },
+    "hint": "Pertimbangkan bagaimana setiap pihak dapat menghasilkan informasi yang konsisten tanpa menghilangkan tanggung jawab masing-masing.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Berbagi data merupakan kontribusi awal, tetapi pendekatan sepihak tidak menghasilkan kesepakatan validasi bersama.",
+      "B": "Poin 2 — Menunggu keputusan koordinator menjaga hierarki, tetapi mengurangi inisiatif untuk menyelesaikan ketidaksesuaian data.",
+      "C": "Poin 5 — Menghasilkan sinergi nyata melalui standar bersama, verifikasi lintas pihak, kepemilikan data, dan pembaruan terkoordinasi.",
+      "D": "Poin 4 — Rapat rutin memperkuat komunikasi, tetapi belum menjamin kesamaan definisi maupun penyelesaian perbedaan data.",
+      "E": "Poin 1 — Menyalahkan instansi lain tanpa membangun mekanisme penyelesaian dapat memperburuk hubungan dan menghambat kerja bersama."
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-ketergantungan-program-004",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Kolaboratif. Skor 5 menuntut koordinasi lintas fungsi yang menghasilkan kejelasan ketergantungan, pemilik pekerjaan, tenggat, dan penanganan hambatan. Skor 4 menunjukkan upaya koordinasi yang baik tetapi belum cukup sistematis, skor 3 membantu bagian tertentu, skor 2 melakukan eskalasi tanpa solusi operasional, dan skor 1 menghindari tanggung jawab bersama.",
+    "stem": "Anda bertugas dalam tim pengembangan layanan terpadu yang melibatkan empat unit berbeda. Penyelesaian pekerjaan unit Anda bergantung pada data dari unit lain, sedangkan jadwal peluncuran sudah ditetapkan. Dalam rapat terakhir, setiap unit menyatakan pekerjaannya hampir selesai, tetapi belum ada kepastian mengenai integrasi keseluruhan. Tindakan terbaik adalah ...",
+    "options": {
+      "A": "Menyelesaikan seluruh pekerjaan unit sendiri terlebih dahulu dan melaporkan ketergantungan pada unit lain menjelang tenggat peluncuran.",
+      "B": "Menginisiasi pertemuan koordinasi mingguan untuk meminta setiap unit melaporkan kemajuan dan kendala pekerjaan masing-masing.",
+      "C": "Menyampaikan keterlambatan integrasi kepada pimpinan agar pimpinan menentukan unit yang harus menyelesaikan pekerjaan lebih dahulu.",
+      "D": "Memetakan ketergantungan tugas bersama, menetapkan penanggung jawab dan tenggat antartahap, serta menyepakati mekanisme eskalasi hambatan.",
+      "E": "Mengurangi cakupan pekerjaan unit sendiri agar target internal tetap tercapai meskipun integrasi layanan belum dapat diselesaikan."
+    },
+    "hint": "Bedakan koordinasi yang sekadar mengumpulkan laporan dari koordinasi yang menyelaraskan ketergantungan dan tanggung jawab.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 2,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Menjaga penyelesaian tugas sendiri, tetapi keterlambatan antartim tidak ditangani sejak awal.",
+      "B": "Poin 4 — Pertemuan rutin meningkatkan komunikasi, tetapi belum memastikan hubungan antartugas dan tenggat integrasi.",
+      "C": "Poin 2 — Eskalasi dapat diperlukan, tetapi belum didahului upaya operasional untuk mengidentifikasi dan menyelesaikan hambatan bersama.",
+      "D": "Poin 5 — Membangun koordinasi terstruktur, memperjelas akuntabilitas, dan memastikan setiap ketergantungan pekerjaan memiliki solusi.",
+      "E": "Poin 1 — Mengutamakan capaian unit sendiri dengan mengorbankan tujuan bersama dan keberhasilan layanan terpadu."
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-pendekatan-komunitas-lokal-005",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Harmonis. Skor 5 mengutamakan penghormatan terhadap keberagaman, komunikasi yang inklusif, dan penyesuaian pendekatan tanpa mengorbankan substansi pelayanan. Skor 4 melibatkan tokoh masyarakat tetapi belum mengintegrasikan semua kelompok, skor 3 melakukan adaptasi terbatas, skor 2 menggunakan pendekatan seragam tanpa mempertimbangkan kondisi warga, dan skor 1 mengabaikan keberagaman.",
+    "stem": "Anda ditugaskan mengoordinasikan sosialisasi kesehatan masyarakat di sebuah daerah dengan beragam bahasa lokal dan kebiasaan komunitas. Materi sosialisasi telah disusun oleh kantor pusat, tetapi beberapa warga menyampaikan bahwa istilah yang digunakan sulit dipahami dan jadwal kegiatan berbenturan dengan aktivitas adat setempat. Apa yang sebaiknya Anda lakukan?",
+    "options": {
+      "A": "Menggunakan materi resmi sesuai naskah pusat agar informasi yang disampaikan tetap seragam di seluruh wilayah.",
+      "B": "Meminta tokoh masyarakat menentukan jadwal kegiatan, kemudian tetap menggunakan materi sosialisasi tanpa perubahan substansi.",
+      "C": "Menerjemahkan materi ke bahasa setempat dan meminta satu petugas lokal menyampaikan seluruh informasi kepada masyarakat.",
+      "D": "Menunda kegiatan sampai masyarakat dapat mengikuti jadwal dan bentuk penyampaian yang telah ditetapkan kantor pusat.",
+      "E": "Melibatkan perwakilan komunitas menyusun jadwal dan cara komunikasi yang mudah dipahami dengan menjaga ketepatan materi kesehatan."
+    },
+    "hint": "Cari pendekatan yang mempertahankan tujuan pelayanan sekaligus menghormati keragaman kebutuhan masyarakat.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 4,
+      "C": 3,
+      "D": 1,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Konsistensi informasi terjaga, tetapi pendekatan seragam tidak menjawab hambatan pemahaman dan perbedaan jadwal.",
+      "B": "Poin 4 — Pelibatan tokoh dan penyesuaian jadwal menunjukkan penghormatan lokal, tetapi belum mengatasi kesulitan memahami materi.",
+      "C": "Poin 3 — Penerjemahan merupakan adaptasi positif, tetapi belum memastikan terjemahan dipahami dan disepakati oleh berbagai kelompok.",
+      "D": "Poin 1 — Mengabaikan kebutuhan komunitas dan menunda pelayanan tanpa upaya membangun pendekatan yang sesuai.",
+      "E": "Poin 5 — Menggabungkan partisipasi masyarakat, penghormatan terhadap kebiasaan setempat, dan akurasi informasi yang disampaikan."
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-inklusi-lingkungan-kerja-006",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Harmonis. Skor 5 diberikan untuk perilaku yang aktif menghentikan perlakuan tidak menghargai keberagaman, menjaga martabat rekan, dan memastikan lingkungan kerja inklusif. Skor 4 mendukung korban dan mengatasi perilaku secara konstruktif tetapi tidak segera menghentikannya, skor 3 memberi dukungan personal, skor 2 membiarkan situasi, dan skor 1 ikut memperkuat perlakuan diskriminatif.",
+    "stem": "Dalam diskusi internal, beberapa rekan kerja menertawakan seorang pegawai baru karena logat daerahnya berbeda. Pegawai tersebut mulai jarang menyampaikan pendapat dalam rapat. Sebagai rekan kerja yang menyaksikan situasi tersebut, tindakan paling tepat adalah ...",
+    "options": {
+      "A": "Menghentikan candaan secara santun, menegaskan pentingnya saling menghormati, dan membantu pegawai tersebut kembali terlibat dalam diskusi.",
+      "B": "Mengajak rekan yang membuat candaan berbicara setelah rapat dan meminta mereka menyampaikan permintaan maaf kepada pegawai tersebut.",
+      "C": "Mendekati pegawai baru secara pribadi untuk memberikan dukungan dan mendorongnya agar kembali percaya diri menyampaikan pendapat.",
+      "D": "Tidak mencampuri percakapan rekan kerja selama tidak terdapat penghinaan yang disampaikan secara terbuka di hadapan pimpinan.",
+      "E": "Ikut tertawa agar suasana rapat tetap santai sambil berharap rekan kerja tidak lagi mengulangi candaan serupa."
+    },
+    "hint": "Pertimbangkan perlindungan martabat individu dan pengaruh tindakan langsung terhadap budaya kerja tim.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 4,
+      "C": 3,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Menghentikan perilaku tidak menghormati keberagaman sekaligus membangun kembali partisipasi dan rasa aman rekan kerja.",
+      "B": "Poin 4 — Konfrontasi konstruktif dan permintaan maaf penting, tetapi respons tertunda sehingga perilaku tidak segera dihentikan.",
+      "C": "Poin 3 — Memberikan dukungan emosional, tetapi belum mengubah perilaku kelompok yang menyebabkan masalah.",
+      "D": "Poin 2 — Sikap diam membiarkan perilaku merendahkan berlangsung dan mengurangi rasa aman dalam lingkungan kerja.",
+      "E": "Poin 1 — Ikut tertawa memperkuat perilaku yang merendahkan dan berpotensi membuat lingkungan kerja semakin tidak inklusif."
+    }
+  },
+  {
+    "slug": "tkp-tik-keamanan-phishing-instansi-007",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Adaptif. Hierarki skor 5 mengutamakan respons tanggap terhadap ancaman digital, pelaporan melalui prosedur keamanan, dan perlindungan sistem serta data. Skor 4 menunjukkan pencegahan yang baik tetapi belum sepenuhnya menjaga bukti dan prosedur insiden, skor 3 memberi peringatan terbatas, skor 2 melakukan tindakan parsial, dan skor 1 justru meningkatkan risiko keamanan.",
+    "stem": "Anda menerima surat elektronik yang mengatasnamakan administrator sistem instansi dan meminta Anda memperbarui kata sandi melalui tautan tertentu. Alamat pengirim terlihat berbeda dari domain resmi dan terdapat lampiran yang tidak pernah diminta. Rekan kerja Anda juga menerima pesan serupa. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Meneruskan tangkapan layar pesan kepada seluruh pegawai agar mereka dapat mengenali potensi penipuan digital.",
+      "B": "Tidak membuka tautan atau lampiran, melaporkan pesan melalui kanal keamanan TI, dan menjaga bukti sesuai prosedur insiden.",
+      "C": "Menghapus surat elektronik tersebut dan segera mengingatkan rekan satu ruangan agar lebih teliti memeriksa pengirim pesan.",
+      "D": "Membalas pengirim untuk meminta konfirmasi identitas sebelum memutuskan apakah tautan tersebut aman digunakan.",
+      "E": "Membuka lampiran menggunakan perangkat kantor yang berbeda agar dapat memastikan apakah dokumen tersebut benar-benar berbahaya."
+    },
+    "hint": "Utamakan pengendalian risiko dan prosedur penanganan insiden sebelum melakukan tindakan terhadap pesan mencurigakan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 4,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Peringatan kepada pegawai bermanfaat, tetapi penyebaran tangkapan layar belum menggantikan pelaporan resmi dan pengamanan bukti.",
+      "B": "Poin 5 — Menghindari interaksi berisiko, menggunakan jalur pelaporan resmi, serta mempertahankan bukti untuk pemeriksaan keamanan.",
+      "C": "Poin 4 — Penghapusan dan peringatan mengurangi paparan awal, tetapi penghapusan dapat menghilangkan bukti yang dibutuhkan tim keamanan.",
+      "D": "Poin 2 — Menghubungi pengirim yang mencurigakan dapat memperpanjang interaksi dengan pihak berpotensi berbahaya.",
+      "E": "Poin 1 — Membuka lampiran pada perangkat lain tetap berpotensi menimbulkan infeksi dan penyebaran ancaman digital."
+    }
+  },
+  {
+    "slug": "tkp-tik-integrasi-migrasi-data-008",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Adaptif. Skor 5 menuntut pemanfaatan teknologi secara terencana, menjaga keamanan dan integritas data, melakukan pengujian, serta menyediakan mitigasi kegagalan. Skor 4 memiliki mitigasi dasar tetapi belum lengkap, skor 3 mengutamakan penyelesaian sebagian, skor 2 menunda tanpa solusi, dan skor 1 mengabaikan tata kelola data.",
+    "stem": "Instansi Anda akan memindahkan data pelayanan dari aplikasi lama ke sistem berbasis komputasi awan. Tenggat migrasi tinggal dua minggu, sedangkan beberapa tabel masih memiliki format berbeda dan memuat informasi pribadi masyarakat. Pimpinan meminta pekerjaan dipercepat. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Mengekspor seluruh data ke format spreadsheet dan meminta masing-masing unit memperbaiki kesalahan setelah migrasi selesai.",
+      "B": "Melakukan uji coba pada sebagian data dan membuat cadangan sebelum migrasi, kemudian melanjutkan pemindahan sesuai jadwal.",
+      "C": "Menginventarisasi data, menetapkan kontrol akses, melakukan pencadangan, menguji migrasi, dan menyiapkan prosedur pemulihan sebelum penerapan penuh.",
+      "D": "Mengusulkan penundaan migrasi tanpa batas waktu sampai seluruh unit memiliki format data yang sama secara mandiri.",
+      "E": "Menyimpan salinan sementara pada penyimpanan awan pribadi agar pekerjaan tetap dapat dilakukan ketika sistem resmi belum siap."
+    },
+    "hint": "Pikirkan bagaimana inovasi teknologi dapat berjalan tanpa mengorbankan kerahasiaan, integritas, dan keberlanjutan data.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 5,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Menyiapkan data untuk diproses, tetapi koreksi setelah migrasi dapat menyebabkan kerusakan data dan masalah privasi.",
+      "B": "Poin 4 — Uji coba dan pencadangan merupakan langkah baik, tetapi pengendalian akses serta rencana pemulihan belum dijelaskan secara menyeluruh.",
+      "C": "Poin 5 — Menggabungkan kesiapan teknis, perlindungan data pribadi, validasi hasil, dan keberlanjutan sistem melalui mitigasi yang terencana.",
+      "D": "Poin 2 — Penundaan dapat menghindari kesalahan sementara, tetapi tidak memberikan rencana penyelesaian perbedaan format data.",
+      "E": "Poin 1 — Penyimpanan data instansi pada akun pribadi berisiko melanggar keamanan informasi dan tata kelola data."
+    }
+  },
+  {
+    "slug": "tkp-anti-radikalisme-propaganda-kekerasan-009",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Loyal, yang menuntut pengabdian kepada negara dan menjaga persatuan serta keutuhan bangsa sesuai Pancasila dan UUD NRI 1945. Skor 5 mengutamakan penanganan konten yang mendorong kekerasan melalui pelaporan bertanggung jawab dan perlindungan lingkungan kerja. Skor 4 menunjukkan dialog konstruktif tetapi belum melakukan pelaporan, skor 3 klarifikasi terbatas, skor 2 penyebaran ulang yang tidak terkendali, dan skor 1 keterlibatan dalam kelompok yang mempromosikan kekerasan.",
+    "stem": "Dalam sebuah grup percakapan internal, Anda melihat seorang rekan membagikan materi yang secara terbuka membenarkan kekerasan terhadap kelompok masyarakat tertentu dan mengajak anggota mengikuti pertemuan tertutup. Beberapa pegawai mulai membagikan ulang materi tersebut. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Menghubungi rekan tersebut secara pribadi untuk mengetahui maksud penyebaran materi sebelum mengambil keputusan lebih lanjut.",
+      "B": "Mengajak anggota grup berdiskusi mengenai pentingnya toleransi dan meminta semua pihak menghentikan perdebatan yang memicu konflik.",
+      "C": "Meneruskan materi kepada seluruh pegawai agar mereka mengetahui adanya konten berbahaya yang sedang beredar.",
+      "D": "Menyimpan bukti secara proporsional dan melaporkan konten melalui mekanisme resmi, termasuk eskalasi jika terdapat ancaman kekerasan yang kredibel.",
+      "E": "Bergabung dalam pertemuan tertutup tersebut secara diam-diam tanpa koordinasi agar dapat mengamati aktivitas kelompok secara langsung."
+    },
+    "hint": "Bedakan dialog yang konstruktif dengan penanganan formal terhadap indikasi ajakan kekerasan yang dapat mengancam keselamatan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 2,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Klarifikasi dapat memberikan pemahaman awal, tetapi belum menangani penyebaran materi dan potensi ancaman terhadap keselamatan.",
+      "B": "Poin 4 — Dialog toleransi dapat meredakan konflik, tetapi belum menjamin pemeriksaan terhadap indikasi ajakan kekerasan.",
+      "C": "Poin 2 — Peringatan kepada pegawai memiliki tujuan baik, tetapi meneruskan materi berpotensi memperluas distribusi konten berbahaya.",
+      "D": "Poin 5 — Penanganan bukti secara bertanggung jawab dan pelaporan resmi menjaga keselamatan tanpa melakukan tindakan di luar kewenangan.",
+      "E": "Poin 1 — Bergabung tanpa koordinasi meningkatkan risiko keselamatan dan melampaui kewenangan pegawai dalam menangani dugaan ancaman."
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-keterbatasan-kompetensi-010",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Kompeten. Hierarki skor 5 mengutamakan kesadaran batas kompetensi, tanggung jawab terhadap hasil, konsultasi dengan tenaga ahli, dan pemeriksaan yang dapat dipertanggungjawabkan. Skor 4 menunjukkan upaya konsultasi tetapi belum sepenuhnya terdokumentasi, skor 3 melakukan pemeriksaan terbatas dengan pengungkapan risiko, skor 2 menghindari pekerjaan tanpa membantu transisi, dan skor 1 mengesahkan hasil di luar kompetensi.",
+    "stem": "Anda bekerja sebagai analis administrasi dan diminta oleh atasan untuk mengesahkan kelayakan teknis suatu instalasi listrik gedung sebelum digunakan. Tenggat pemeriksaan sangat dekat, tetapi Anda belum memiliki kompetensi dan kewenangan untuk melakukan penilaian teknis tersebut. Apa yang sebaiknya Anda lakukan?",
+    "options": {
+      "A": "Melakukan pemeriksaan dokumen yang tersedia dan memberikan catatan awal mengenai aspek yang belum dapat dipastikan secara teknis.",
+      "B": "Menolak seluruh penugasan karena penilaian instalasi listrik bukan bagian dari pekerjaan administrasi yang selama ini Anda lakukan.",
+      "C": "Meminta pendapat informal seorang teknisi berpengalaman dan mempertimbangkan rekomendasinya sebelum mengambil keputusan.",
+      "D": "Mengesahkan dokumen berdasarkan pemeriksaan sebelumnya agar penggunaan gedung tidak mengalami keterlambatan.",
+      "E": "Menjelaskan batas kompetensi, meminta pemeriksa berwenang melakukan evaluasi, dan membantu menyiapkan dokumen untuk pemeriksaan yang dapat dipertanggungjawabkan."
+    },
+    "hint": "Pertimbangkan hubungan antara tanggung jawab pekerjaan, batas kewenangan, keselamatan, dan pengembangan kompetensi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 1,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Pemeriksaan administratif dan pencatatan keterbatasan merupakan kontribusi positif, tetapi belum memastikan evaluasi teknis oleh pihak berwenang.",
+      "B": "Poin 2 — Penolakan mencegah tindakan di luar kompetensi, tetapi tidak menunjukkan inisiatif membantu penyelesaian pekerjaan secara bertanggung jawab.",
+      "C": "Poin 4 — Konsultasi dengan teknisi membantu pengambilan keputusan, tetapi pendapat informal belum menggantikan pemeriksaan dan pengesahan yang berwenang.",
+      "D": "Poin 1 — Pengesahan tanpa kompetensi dan evaluasi yang sah dapat membahayakan keselamatan pengguna gedung.",
+      "E": "Poin 5 — Mengakui batas keahlian, memastikan keterlibatan tenaga berwenang, dan tetap memberikan kontribusi profesional terhadap penyelesaian tugas."
+    }
+  }
+]
