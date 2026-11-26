@@ -5,12 +5,13 @@ import {
   quizAttempts,
   quizQuestionMaterials,
   quizQuestions,
+  quizSessions,
   studyMaterials,
 } from '@/lib/db/schema';
 import { authOptions } from '@/lib/auth';
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { eq, and, or, inArray, desc } from 'drizzle-orm';
+import { eq, and, or, inArray, isNull, desc } from 'drizzle-orm';
 import z from 'zod';
 import {
   ApiError,
@@ -122,6 +123,7 @@ async function handleGetQuizzes(request: NextRequest) {
   const url = new URL(request.url);
   const chatId = url.searchParams.get('chatId');
   const chatIdsParam = url.searchParams.get('chatIds');
+  const sessionIdsParam = url.searchParams.get('sessionIds');
   const categoryParam = url.searchParams.get('category');
   const statusParam = url.searchParams.get('status');
 
@@ -143,6 +145,24 @@ async function handleGetQuizzes(request: NextRequest) {
           `Format chatId tidak valid: ${id}`,
           400,
           'INVALID_CHAT_ID'
+        );
+      }
+    }
+  }
+
+  let sessionIds: string[] = [];
+  if (sessionIdsParam) {
+    sessionIds = sessionIdsParam
+      .split(',')
+      .map((s) => s.trim())
+      .filter((s) => s.length > 0);
+
+    for (const id of sessionIds) {
+      if (!isValidUuid(id)) {
+        throw new ApiError(
+          `Format sessionId tidak valid: ${id}`,
+          400,
+          'INVALID_SESSION_ID'
         );
       }
     }
@@ -219,39 +239,59 @@ async function handleGetQuizzes(request: NextRequest) {
         chatTitle: conversations.title,
       })
       .from(quizAttempts)
-      .innerJoin(conversations, eq(quizAttempts.chatId, conversations.id))
+      .leftJoin(conversations, eq(quizAttempts.chatId, conversations.id))
       .where(eq(quizAttempts.chatId, chatId))
       .orderBy(desc(quizAttempts.createdAt));
   } else if (authUserId) {
-    // 2. Authenticated user: fetch all quiz attempts for this user
+    // 2. Authenticated user: fetch all quiz attempts for this user (including standalone practice/CAT sessions)
     rows = await db
       .select({
         quiz: quizAttempts,
         chatTitle: conversations.title,
       })
       .from(quizAttempts)
-      .innerJoin(conversations, eq(quizAttempts.chatId, conversations.id))
+      .leftJoin(conversations, eq(quizAttempts.chatId, conversations.id))
+      .leftJoin(quizSessions, eq(quizAttempts.sessionId, quizSessions.id))
       .where(
         or(
           eq(quizAttempts.userId, authUserId),
-          eq(conversations.userId, authUserId)
+          eq(conversations.userId, authUserId),
+          eq(quizSessions.userId, authUserId)
         )
       )
       .orderBy(desc(quizAttempts.createdAt));
-  } else if (chatIds.length > 0) {
-    // 3. Guest user multi-chat history: fetch attempts belonging to guest chats
-    rows = await db
-      .select({
-        quiz: quizAttempts,
-        chatTitle: conversations.title,
-      })
-      .from(quizAttempts)
-      .innerJoin(conversations, eq(quizAttempts.chatId, conversations.id))
-      .where(
+  } else if (chatIds.length > 0 || sessionIds.length > 0) {
+    // 3. Guest user multi-chat / standalone session history
+    const guestConditions = [];
+    if (chatIds.length > 0) {
+      guestConditions.push(
         and(
           inArray(quizAttempts.chatId, chatIds),
           eq(conversations.isGuestChat, true)
         )
+      );
+    }
+    if (sessionIds.length > 0) {
+      guestConditions.push(
+        and(
+          inArray(quizAttempts.sessionId, sessionIds),
+          isNull(quizSessions.userId)
+        )
+      );
+    }
+
+    rows = await db
+      .select({
+        quiz: quizAttempts,
+        chatTitle: conversations.title,
+      })
+      .from(quizAttempts)
+      .leftJoin(conversations, eq(quizAttempts.chatId, conversations.id))
+      .leftJoin(quizSessions, eq(quizAttempts.sessionId, quizSessions.id))
+      .where(
+        guestConditions.length === 1
+          ? guestConditions[0]
+          : or(...guestConditions)
       )
       .orderBy(desc(quizAttempts.createdAt));
   } else {
