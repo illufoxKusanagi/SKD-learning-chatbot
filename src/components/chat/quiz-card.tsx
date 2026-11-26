@@ -1,8 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import type { QuizAttemptItem } from "@/hooks/use-chat";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import type { PracticeQuestionMaterialItem } from "@/lib/services/practice.service";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -10,29 +9,20 @@ import {
   CardAction,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Collapsible,
-  CollapsibleContent,
-  CollapsibleTrigger,
-} from "@/components/ui/collapsible";
-import { Separator } from "@/components/ui/separator";
-import { Skeleton } from "@/components/ui/skeleton";
 import { Spinner } from "@/components/ui/spinner";
 import { cn } from "@/lib/utils";
-import {
-  ArrowRight,
-  BookOpen,
-  ChevronDown,
-  ChevronUp,
-  MessageSquarePlus,
-  PanelRightOpen,
-} from "lucide-react";
+import { PanelRightOpen, RotateCcw } from "lucide-react";
+import { QuizCardFooter } from "./quiz/quiz-card-footer";
+import { QuizHintToggle } from "./quiz/quiz-hint-toggle";
+import { QuizLegacyRationale } from "./quiz/quiz-legacy-rationale";
 import { QuizOptionItem } from "./quiz/quiz-option-item";
+import { QuizOptionRationaleList } from "./quiz/quiz-option-rationale-list";
 import { OPTION_KEYS, type QuizCategory, type QuizOptionKey } from "./quiz/quiz-utils";
+
+export { QuizCardSkeleton } from "./quiz/quiz-card-skeleton";
 
 interface QuizCardProps {
   quiz: QuizAttemptItem;
@@ -47,6 +37,14 @@ interface QuizCardProps {
   showOpenCanvas?: boolean;
   nextButtonLabel?: string;
   className?: string;
+  hint?: string | null;
+  isHintRevealed?: boolean;
+  onRevealHint?: () => void;
+  optionRationales?: Record<QuizOptionKey, string> | null;
+  materials?: PracticeQuestionMaterialItem[];
+  onOpenMaterial?: (material: PracticeQuestionMaterialItem) => void;
+  syncStatus?: "synced" | "syncing" | "failed";
+  onRetrySync?: () => void;
 }
 
 export function QuizCard({
@@ -62,6 +60,14 @@ export function QuizCard({
   showOpenCanvas = true,
   nextButtonLabel = "Soal Berikutnya",
   className,
+  hint,
+  isHintRevealed = false,
+  onRevealHint,
+  optionRationales = null,
+  materials,
+  onOpenMaterial,
+  syncStatus,
+  onRetrySync,
 }: QuizCardProps) {
   const isAnswered = quiz.status === "answered";
   const isTKP = quiz.category === "TKP";
@@ -70,14 +76,6 @@ export function QuizCard({
     isAnswered &&
     (quiz.scoreEarned === 5 ||
       Boolean(quiz.userAnswer && quiz.correctOption && quiz.userAnswer === quiz.correctOption));
-
-  const [isExplanationOpen, setIsExplanationOpen] = useState(isAnswered);
-
-  useEffect(() => {
-    setIsExplanationOpen(quiz.status === "answered");
-  }, [quiz.id, quiz.status]);
-
-  const hasRationale = Boolean(quiz.rubricRationale || quiz.aiExplanation);
 
   return (
     <Card className={cn("w-full gap-4 py-5 shadow-xs", className)}>
@@ -99,6 +97,18 @@ export function QuizCard({
                   : "0 Poin (Salah)"}
             </Badge>
           )}
+          {syncStatus === "syncing" && (
+            <Badge variant="outline">
+              <Spinner />
+              Menyimpan
+            </Badge>
+          )}
+          {syncStatus === "failed" && onRetrySync && (
+            <Button type="button" variant="destructive" size="sm" onClick={onRetrySync}>
+              <RotateCcw data-icon="inline-start" />
+              Gagal Sinkron • Ulangi
+            </Button>
+          )}
         </div>
 
         <CardTitle className="text-base leading-snug font-semibold">
@@ -106,7 +116,7 @@ export function QuizCard({
         </CardTitle>
         <CardDescription>
           {isAnswered
-            ? "Evaluasi terkunci — pilih soal berikutnya atau diskusikan dengan tutor."
+            ? "Evaluasi terkunci — pelajari rasional opsi atau bedah bersama tutor."
             : "Pilih satu jawaban terbaik (A–E) untuk melihat pembahasan instan."}
         </CardDescription>
 
@@ -129,6 +139,15 @@ export function QuizCard({
         <p className="text-sm leading-relaxed whitespace-pre-line text-foreground">
           {quiz.questionStem}
         </p>
+
+        {hint && onRevealHint && (
+          <QuizHintToggle
+            hint={hint}
+            isRevealed={isHintRevealed}
+            isAnswered={isAnswered}
+            onReveal={onRevealHint}
+          />
+        )}
 
         <div
           role="group"
@@ -158,102 +177,35 @@ export function QuizCard({
           })}
         </div>
 
-        {isAnswered && hasRationale && (
-          <Collapsible
-            open={isExplanationOpen}
-            onOpenChange={setIsExplanationOpen}
-            className="flex flex-col gap-2"
-          >
-            <CollapsibleTrigger asChild>
-              <Button
-                type="button"
-                variant="ghost"
-                size="sm"
-                className="w-fit"
-              >
-                <BookOpen data-icon="inline-start" />
-                {isExplanationOpen
-                  ? "Sembunyikan Pembahasan"
-                  : "Lihat Pembahasan Resmi"}
-                {isExplanationOpen ? (
-                  <ChevronUp data-icon="inline-end" />
-                ) : (
-                  <ChevronDown data-icon="inline-end" />
-                )}
-              </Button>
-            </CollapsibleTrigger>
-
-            <CollapsibleContent>
-              <Alert className="bg-muted/40">
-                <BookOpen />
-                <AlertTitle>Pembahasan & Rasional Rubrik</AlertTitle>
-                <AlertDescription className="flex flex-col gap-2 whitespace-pre-line">
-                  {quiz.rubricRationale && <p>{quiz.rubricRationale}</p>}
-                  {quiz.aiExplanation && <p>{quiz.aiExplanation}</p>}
-                </AlertDescription>
-              </Alert>
-            </CollapsibleContent>
-          </Collapsible>
+        {isAnswered && optionRationales ? (
+          <QuizOptionRationaleList
+            optionRationales={optionRationales}
+            isTKP={isTKP}
+            userAnswer={quiz.userAnswer}
+            correctOption={quiz.correctOption}
+            scoringRubric={quiz.scoringRubric}
+          />
+        ) : (
+          isAnswered && (
+            <QuizLegacyRationale
+              quizId={quiz.id}
+              rubricRationale={quiz.rubricRationale}
+              aiExplanation={quiz.aiExplanation}
+            />
+          )
         )}
       </CardContent>
 
-      {(onAskTutor || onNextQuiz) && (
-        <>
-          <Separator />
-          <CardFooter className="flex flex-wrap items-center justify-between gap-2">
-            {onAskTutor ? (
-              <Button
-                type="button"
-                variant="outline"
-                size="sm"
-                disabled={isChatLoading}
-                onClick={() => onAskTutor(quiz)}
-              >
-                <MessageSquarePlus data-icon="inline-start" />
-                Diskusikan dengan Tutor
-              </Button>
-            ) : (
-              <div />
-            )}
-
-            {onNextQuiz && (
-              <Button
-                type="button"
-                size="sm"
-                disabled={isGeneratingNext}
-                onClick={() => onNextQuiz(quiz.category)}
-              >
-                {isGeneratingNext && <Spinner data-icon="inline-start" />}
-                {nextButtonLabel}
-                {!isGeneratingNext && <ArrowRight data-icon="inline-end" />}
-              </Button>
-            )}
-          </CardFooter>
-        </>
-      )}
-    </Card>
-  );
-}
-
-export function QuizCardSkeleton({ className }: { className?: string }) {
-  return (
-    <Card className={cn("w-full gap-4 py-5", className)}>
-      <CardHeader className="gap-2 border-b pb-4">
-        <div className="flex items-center gap-2">
-          <Skeleton className="h-5 w-14 rounded-full" />
-          <Skeleton className="h-5 w-28" />
-        </div>
-        <Skeleton className="h-4 w-3/4" />
-      </CardHeader>
-      <CardContent className="flex flex-col gap-3">
-        <Skeleton className="h-4 w-full" />
-        <Skeleton className="h-4 w-5/6" />
-        <div className="flex flex-col gap-2 pt-2">
-          {OPTION_KEYS.map((key) => (
-            <Skeleton key={key} className="h-12 w-full rounded-xl" />
-          ))}
-        </div>
-      </CardContent>
+      <QuizCardFooter
+        quiz={quiz}
+        materials={materials}
+        onOpenMaterial={onOpenMaterial}
+        onAskTutor={onAskTutor}
+        onNextQuiz={onNextQuiz}
+        isChatLoading={isChatLoading}
+        isGeneratingNext={isGeneratingNext}
+        nextButtonLabel={nextButtonLabel}
+      />
     </Card>
   );
 }

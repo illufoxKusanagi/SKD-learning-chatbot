@@ -105,4 +105,60 @@ PostgreSQL with `pgvector` (`vector(768)` + HNSW `vector_cosine_ops` indexes), i
   - `material-filter-bar.tsx`: Search input, *"Topik TWK Sering Salah"* toggle with mistake count badge, and 9 canonical TWK subtopic filter pills.
   - `material-drawer.tsx`: Reusable right-side `Sheet` drawer supporting `0 ms` preloaded rendering or `/api/materials/[slug]` fetch with practice & tutor CTAs.
   - `material-browser-workspace.tsx`: Desktop split-view + mobile drawer workspace with `Map`-cached details and `localStorage` guest `chatIds` mistake tracking.
-- **`/chat` Deep-Linking** (`src/app/chat/page.tsx`, `src/hooks/use-chat.ts`): Handles `?practiceMaterial=<slug>` (opens `QuizCanvasPanel` + requests linked TWK quiz) and `?discussMaterial=<slug>` (sends deterministic `materialSlugs` tutor discussion), plus header link to `/materi`.
+- **`/chat` Deep-Linking** (`src/app/chat/page.tsx`, `src/hooks/use-chat.ts`): Handles `?practiceMaterial=<slug>` (opens `QuizCanvasPanel` and loads a `0 ms` TWK practice pack via `usePracticePack`), `?discussMaterial=<slug>` (sends deterministic `materialSlugs` tutor discussion), and `?discussQuestion=<slug>&selectedAnswer=<A-E>` (triggers Deep Tutor post-exam analysis for CAT review items), plus header links to `/materi` and `/tryout`.
+
+---
+
+## 7. Phase 2 Architecture — Mode A `0 ms` Practice Packs, Hint Toggle, Option Rationales & Tutor Bridge
+
+### Service & Scoring (`src/lib/services/practice.service.ts`, `src/lib/scoring/skd-scoring.ts`)
+- **`createPracticePack(input)`**: Creates a `quizSessions` (`mode: "practice"`, `status: "in_progress"`) and returns `PracticePackResult` (`10 | 15 | 20` validated questions prioritized unattempted-first, filtered by `category`, `subtopic`, `materialSlug`, `wrongOnly`, or explicit `questionIds`), pre-attaching TWK `materials` (`PreloadedMaterialData`) for `0 ms` `<MaterialDrawer>` reading, plus `hint`, `correctOption`, `scoringRubric`, and `optionRationales`.
+- **`syncPracticeAttempt(input)`**: Idempotently upserts `quizAttempts` (`onConflictDoUpdate` on `(sessionId, questionId)`), computes authoritative BKN score via `scoreSingleQuestion`, and automatically marks `quizSessions.status = "completed"` with `scoreSummary` (`byCategory`, `weakSubtopics`) once all pack items are answered.
+
+### API Routes
+- **`GET /api/practice/pack`** (`src/app/api/practice/pack/route.ts`): Query params `count=10|15|20`, `category`, `subtopic`, `materialSlug`, `wrongOnly`, `questionIds`, `chatIds`, `sessionIds` (guest ownership via `skd_guest_chat_ids` + `skd_guest_practice_session_ids`).
+- **`POST /api/practice/sync`** (`src/app/api/practice/sync/route.ts`): Zod-validated payload `{ sessionId, questionId, chatId?, selectedOption, usedHint?, timeSpentSeconds? }`.
+
+### Client Hook & Modular UI Primitives (`< 250` lines per `.tsx` file in `src/components/chat/`)
+- **`usePracticePack`** (`src/hooks/use-practice-pack.ts`): Manages `sessionId`, `questions`, `answers`, `revealedHints`, `activeIndex`, and `skd_guest_practice_session_ids` (`localStorage`, max 30). `selectOptionInstant` grades synchronously in `0 ms` via `scoreSingleQuestion` and dispatches background `POST /api/practice/sync` with `"Coba Lagi"` retry toast (`retrySync`), plus `retryWrongQuestions` for 1-click re-practice of suboptimal/wrong items (`scoreEarned < 5`).
+- **`src/components/chat/`**:
+  - `quiz-card.tsx` + `quiz/quiz-card-skeleton.tsx` + `quiz/quiz-card-footer.tsx` + `quiz/quiz-legacy-rationale.tsx`: Backward-compatible inline chat & Mode A `QuizCard` with sync status, *"Baca Materi Terkait"* (`0 ms` `<MaterialDrawer>`), and *"Bedah Bareng Tutor"*.
+  - `quiz/quiz-pack-configurator.tsx`: `ToggleGroup` configurator for `10/15/20` count, `Campuran/TWK/TIU/TKP`, and `Semua Soal` vs. `Pernah Salah (Review)`.
+  - `quiz/quiz-hint-toggle.tsx`: Pre-answer conceptual `hint` toggle rendered in a subtle `bg-muted/50` `Alert`.
+  - `quiz/quiz-option-rationale-list.tsx`: Instant `A..E` option rationale cards with semantic `success`/`warning`/`destructive`/`secondary` badges.
+  - `quiz/quiz-summary-view.tsx` + `quiz/quiz-summary-breakdown.tsx`: Accuracy %, per-subtest breakdown, `weakSubtopics` (`< 70%`), 1-click *"Latih Ulang Soal Salah"*, and *"Paket Latihan Baru"*.
+  - `quiz/quiz-canvas-panel.tsx` + `quiz/quiz-canvas-workspace.tsx` + `quiz/quiz-canvas-header.tsx` + `quiz/quiz-canvas-footer.tsx`: Split-panel & mobile `Sheet` workspace supporting both Mode A practice packs (with embedded `0 ms` `<MaterialDrawer>`) and inline chat quiz cards.
+
+---
+
+## 8. Phase 3 Architecture — Mode B Simulasi CAT BKN (`/tryout`), 1–110 Grid, Persistent Timer & Diagnostic Report
+
+### Service Layer (`src/lib/services/tryout.service.ts`)
+- **`getTryoutBankReadiness()`**: Queries validated `quizQuestions` counts by category (`TWK`, `TIU`, `TKP`) and computes `fullCat` (`30/35/45 = 110`, 6000s, PG `65/80/166`) and `miniCat` (`8/10/12 = 30`, 1620s, PG `18/23/45`) readiness & per-subtest deficits.
+- **`startTryoutSession(input)`**: Enforces bank readiness (`400 BANK_NOT_READY`), prioritizes unattempted validated questions per category (`TWK` -> `TIU` -> `TKP`), creates a `quizSessions` (`mode: "cat_tryout" | "mini_tryout"`, `status: "in_progress"`, `questionOrder`, `flaggedQuestionIds`), and returns masked `TryoutSessionDetail` with zero spoilers.
+- **`getTryoutSessionState(input)`**: Computes server-authoritative `remainingSeconds` from `startedAt + durationSeconds`; automatically finalizes expired `in_progress` sessions; returns masked questions while `in_progress` and full `TryoutQuestionReviewItem[]` (`correctOption`, `scoringRubric`, `optionRationales`, `reasoningChain`, preloaded TWK `materials`, and `scoreSummary`) once `completed`.
+- **`updateTryoutProgress(input)`**: Transactionally locks `quizSessions` (`FOR UPDATE`), rejects expired/completed sessions (`409 EXAM_TIME_EXPIRED` / `EXAM_ALREADY_FINISHED`), upserts pending `quizAttempts` (`selectedOption`, clamped `timeSpentDeltaSeconds`), and toggles `flaggedQuestionIds`.
+- **`finalizeTryoutSession(input)`**: Idempotently grades all `questionOrder` items (`0` for unanswered, graduated `1..5` for TKP, `+5`/`0` for TWK/TIU), evaluates independent subtest passing grades via `evaluateCatTryout`, persists `scoreSummary`, and locks the session as `completed`.
+- **`listTryoutSessions(input)`**: Lists up to 20 tryout sessions for authenticated users or guest `sessionIds` (`isNull(userId)`), auto-finalizing any expired `in_progress` rows.
+
+### API Routes
+- **`GET /api/tryout/readiness`** (`src/app/api/tryout/readiness/route.ts`): Public readiness summary for Full CAT & Mini CAT.
+- **`GET / POST /api/tryout/sessions`** (`src/app/api/tryout/sessions/route.ts`): Lists user/guest tryout sessions (`?sessionIds=...`) or starts a new `cat_tryout` / `mini_tryout` session.
+- **`GET / PATCH / POST /api/tryout/sessions/[id]`** (`src/app/api/tryout/sessions/[id]/route.ts`): Polls session state, updates answer/flag/timeSpentDeltaSeconds, or finalizes `{ action: "finish" }`.
+
+### Client Hook, Routes & Modular UI (`< 150` lines/page, `< 250` lines/component)
+- **`useCatSession`** (`src/hooks/use-cat-session.ts`): Syncs `deadlineMs` against server `remainingSeconds` (surviving tab backgrounding via `visibilitychange`), tracks per-question `timeSpentDeltaSeconds`, performs optimistic answer/flag updates with background `PATCH` + retry toast, and auto-submits once when timer hits `0` or on `409 EXAM_TIME_EXPIRED`. Persists guest session UUIDs in `localStorage` (`skd_guest_tryout_session_ids`, max 20).
+- **App Router Pages**:
+  - `/tryout` (`src/app/tryout/page.tsx`, public in `src/middleware.ts`): Lobby shell with guest sync notice, `AppSidebar`, and `<TryoutLobbyWorkspace>`.
+  - `/tryout/[sessionId]` (`src/app/tryout/[sessionId]/page.tsx`, public in `src/middleware.ts`): Live exam & post-exam diagnostic shell hosting `<CatExamWorkspace>`.
+- **Components (`src/components/tryout/`)**:
+  - `tryout-utils.ts`: Guest UUID storage (`skd_guest_tryout_session_ids`), `HH:MM:SS`/`MM:SS` countdown formatter, `Xm Ys` duration formatter, and date formatter.
+  - `tryout-lobby-workspace.tsx` + `tryout-mode-cards.tsx` + `tryout-history-list.tsx`: Active `in_progress` resume banner, Full CAT vs. Mini CAT readiness cards (with Bank Readiness Guard deficits), and completed tryout history cards.
+  - `exam-countdown-timer.tsx`: Semantic timer badge (`secondary` >= 10m, `warning` < 10m, pulsing `destructive` < 2m).
+  - `cat-navigation-grid.tsx`: Filterable `1..110` (`1..30`) number grid (`Belum Dijawab`, `Ragu-ragu` `warning`, `Sudah Dijawab` `success`, active `ring-2 ring-primary`), persistent on desktop and inside a mobile `<Sheet>`.
+  - `cat-question-stage.tsx` + `cat-finish-dialog.tsx`: Zero-spoiler `A–E` exam stage with `"Ragu-ragu"` toggle, Prev/Next navigation, and confirmation `<Dialog>` summarizing answered/unanswered/flagged counts.
+  - `cat-exam-workspace.tsx`: Coordinates `useCatSession`, switching seamlessly from live exam mode to post-exam diagnostic mode.
+  - `cat-diagnostic-report.tsx` + `cat-review-list.tsx` + `cat-review-card.tsx`: Official `LULUS` / `TIDAK LULUS` passing-grade breakdown with `<Progress>` bars, per-subtest `Xm Ys` timing, `weakSubtopics`, filterable `1..110` review cards reusing `<QuizOptionRationaleList>`, `0 ms` `<MaterialDrawer>` for TWK items, and `/chat?discussQuestion=<slug>&selectedAnswer=<A-E>` Deep Tutor links.
+- **Cross-App Integration**:
+  - `src/components/ui/app-sidebar.tsx`, `src/app/chat/page.tsx`, and `src/app/materi/page.tsx` link directly to `/tryout`.
+  - `src/app/quiz-history/page.tsx` merges `skd_guest_tryout_session_ids` alongside `skd_guest_practice_session_ids` so guest tryout attempts appear in `/quiz-history`.

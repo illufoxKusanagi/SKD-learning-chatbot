@@ -1,8 +1,61 @@
 import type { QuizAttemptItem } from "@/hooks/use-chat";
+import type { PracticeQuestionItem } from "@/lib/services/practice.service";
 
 export const OPTION_KEYS = ["A", "B", "C", "D", "E"] as const;
 export type QuizOptionKey = (typeof OPTION_KEYS)[number];
 export type QuizCategory = "TWK" | "TIU" | "TKP";
+
+export interface PracticeAnswerState {
+  selectedOption: QuizOptionKey;
+  scoreEarned: number;
+  usedHint: boolean;
+  timeSpentSeconds: number;
+  syncStatus: "synced" | "syncing" | "failed";
+}
+
+export function getBestOptionKey(
+  correctOption: QuizOptionKey | null,
+  scoringRubric: Record<QuizOptionKey, number> | null
+): QuizOptionKey | null {
+  if (correctOption) return correctOption;
+  if (!scoringRubric) return null;
+  for (const key of OPTION_KEYS) {
+    if (scoringRubric[key] === 5) return key;
+  }
+  return null;
+}
+
+export function practiceItemToQuizAttempt(
+  item: PracticeQuestionItem,
+  answer?: PracticeAnswerState,
+  sessionId?: string | null
+): QuizAttemptItem {
+  const isAnswered = Boolean(answer);
+  const resolvedCorrect = isAnswered
+    ? getBestOptionKey(item.correctOption, item.scoringRubric)
+    : null;
+
+  return {
+    id: item.id,
+    chatId: sessionId || "",
+    questionId: item.id,
+    ragSourceId: item.slug,
+    category: item.category,
+    subtopic: item.subtopic,
+    questionStem: item.stem,
+    options: item.options,
+    correctOption: resolvedCorrect,
+    scoringRubric: isAnswered ? item.scoringRubric : null,
+    rubricRationale: null,
+    userAnswer: answer?.selectedOption ?? null,
+    scoreEarned: answer?.scoreEarned ?? null,
+    maxScore: 5,
+    aiExplanation: null,
+    status: isAnswered ? "answered" : "pending",
+    createdAt: new Date(0).toISOString(),
+    answeredAt: isAnswered ? new Date().toISOString() : null,
+  };
+}
 
 export interface ChatStreamErrorPayload {
   code: string;
@@ -115,6 +168,14 @@ export interface CategorySummary {
   optimalCount: number;
 }
 
+export interface WeakSubtopicSummary {
+  category: QuizCategory;
+  subtopic: string;
+  earned: number;
+  max: number;
+  accuracyPercent: number;
+}
+
 export interface QuizSessionSummary {
   total: number;
   answered: number;
@@ -123,6 +184,7 @@ export interface QuizSessionSummary {
   maxScore: number;
   accuracyPercent: number;
   wrongOrSuboptimalIndices: number[];
+  weakSubtopics: WeakSubtopicSummary[];
   byCategory: Record<QuizCategory, CategorySummary>;
 }
 
@@ -134,6 +196,10 @@ export function computeQuizSessionSummary(
     TIU: { total: 0, answered: 0, scoreEarned: 0, maxScore: 0, optimalCount: 0 },
     TKP: { total: 0, answered: 0, scoreEarned: 0, maxScore: 0, optimalCount: 0 },
   };
+  const subtopicBuckets = new Map<
+    string,
+    { category: QuizCategory; subtopic: string; earned: number; max: number }
+  >();
 
   let answered = 0;
   let scoreEarned = 0;
@@ -163,11 +229,36 @@ export function computeQuizSessionSummary(
         }
       }
 
+      if (quiz.subtopic) {
+        const key = `${cat}::${quiz.subtopic}`;
+        const bucket = subtopicBuckets.get(key);
+        if (bucket) {
+          bucket.earned += earned;
+          bucket.max += max;
+        } else {
+          subtopicBuckets.set(key, {
+            category: cat,
+            subtopic: quiz.subtopic,
+            earned,
+            max,
+          });
+        }
+      }
+
       if (earned < max) {
         wrongOrSuboptimalIndices.push(index);
       }
     }
   });
+
+  const weakSubtopics: WeakSubtopicSummary[] = Array.from(subtopicBuckets.values())
+    .map((bucket) => ({
+      ...bucket,
+      accuracyPercent:
+        bucket.max > 0 ? Math.round((bucket.earned / bucket.max) * 100) : 0,
+    }))
+    .filter((entry) => entry.max > 0 && entry.earned / entry.max < 0.7)
+    .sort((a, b) => a.accuracyPercent - b.accuracyPercent);
 
   const accuracyPercent =
     maxScore > 0 ? Math.round((scoreEarned / maxScore) * 100) : 0;
@@ -180,6 +271,7 @@ export function computeQuizSessionSummary(
     maxScore,
     accuracyPercent,
     wrongOrSuboptimalIndices,
+    weakSubtopics,
     byCategory,
   };
 }

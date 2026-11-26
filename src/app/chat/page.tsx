@@ -28,9 +28,11 @@ import {
   type QuizOptionKey,
 } from '@/components/chat/quiz/quiz-utils';
 import { useChat, type QuizAttemptItem } from '@/hooks/use-chat';
+import { usePracticePack } from '@/hooks/use-practice-pack';
+import type { PracticeQuestionItem } from '@/lib/services/practice.service';
 import type { Message } from '@/lib/types/chat';
 import { cn } from '@/lib/utils';
-import { AlertTriangle, Award, BookOpen, History, Library, RotateCcw } from 'lucide-react';
+import { AlertTriangle, Award, BookOpen, ClipboardCheck, History, Library, RotateCcw } from 'lucide-react';
 
 interface TextBubbleProps extends Message {
   isThinking?: boolean;
@@ -312,11 +314,16 @@ function ChatContent() {
   const practiceMaterial = searchParams.get('practiceMaterial');
   const discussMaterial = searchParams.get('discussMaterial');
   const discussTitle = searchParams.get('title');
+  const discussQuestion = searchParams.get('discussQuestion');
+  const selectedAnswerParam = searchParams.get('selectedAnswer');
   const chatIdParam = searchParams.get('id');
   const handledMaterialParamRef = useRef<string | null>(null);
 
   const [isCanvasOpen, setIsCanvasOpen] = useState(false);
+  const [canvasMode, setCanvasMode] = useState<'practice' | 'chat'>('practice');
   const [activeQuizId, setActiveQuizId] = useState<string | null>(null);
+  const practicePack = usePracticePack({ chatId: activeChatId });
+  const { loadPack } = practicePack;
 
   useEffect(() => {
     if (status === 'loading') return;
@@ -326,18 +333,15 @@ function ChatContent() {
       if (handledMaterialParamRef.current === key) return;
       handledMaterialParamRef.current = key;
 
+      setCanvasMode('practice');
       setIsCanvasOpen(true);
-      requestNextQuiz({
+      loadPack({
+        count: 10,
         category: 'TWK',
         materialSlug: practiceMaterial,
-        insertChatMarker: true,
-      }).then((created) => {
-        if (created) {
-          setActiveQuizId(created.id);
-        }
-        const targetChatId = created?.chatId || chatIdParam;
+      }).finally(() => {
         router.replace(
-          targetChatId ? `/chat?id=${encodeURIComponent(targetChatId)}` : '/chat'
+          chatIdParam ? `/chat?id=${encodeURIComponent(chatIdParam)}` : '/chat'
         );
       });
       return;
@@ -357,14 +361,45 @@ function ChatContent() {
         undefined,
         { materialSlugs: [discussMaterial], isTutorDiscussion: true }
       );
+      return;
+    }
+
+    if (discussQuestion) {
+      const normalizedAns = selectedAnswerParam?.trim().toUpperCase();
+      const validAnswer: QuizOptionKey | null =
+        normalizedAns === 'A' ||
+        normalizedAns === 'B' ||
+        normalizedAns === 'C' ||
+        normalizedAns === 'D' ||
+        normalizedAns === 'E'
+          ? normalizedAns
+          : null;
+      const key = `discussQuestion:${discussQuestion}:${validAnswer ?? ''}`;
+      if (handledMaterialParamRef.current === key) return;
+      handledMaterialParamRef.current = key;
+
+      router.replace(
+        chatIdParam ? `/chat?id=${encodeURIComponent(chatIdParam)}` : '/chat'
+      );
+      handleSendMessage(
+        `Tolong bedah mendalam soal simulasi CAT (${discussQuestion})${validAnswer ? ` — pilihan saya opsi ${validAnswer}` : ''} beserta analisis pengecoh dan trik cepatnya.`,
+        undefined,
+        {
+          questionSlug: discussQuestion,
+          selectedAnswer: validAnswer ?? undefined,
+          isTutorDiscussion: true,
+        }
+      );
     }
   }, [
     status,
     practiceMaterial,
     discussMaterial,
     discussTitle,
+    discussQuestion,
+    selectedAnswerParam,
     chatIdParam,
-    requestNextQuiz,
+    loadPack,
     handleSendMessage,
     router,
   ]);
@@ -375,8 +410,46 @@ function ChatContent() {
     : '/quiz-history';
 
   const openQuizInCanvas = (quizId?: string) => {
-    setActiveQuizId(quizId ?? quizzes[quizzes.length - 1]?.id ?? null);
+    if (quizId) {
+      setActiveQuizId(quizId);
+      setCanvasMode('chat');
+    } else if (practicePack.questions.length > 0 || quizzes.length === 0) {
+      setCanvasMode('practice');
+    } else {
+      setActiveQuizId(quizzes[quizzes.length - 1]?.id ?? null);
+      setCanvasMode('chat');
+    }
     setIsCanvasOpen(true);
+  };
+
+  const handleAskTutorPractice = (
+    question: PracticeQuestionItem,
+    selectedAnswer: QuizOptionKey | null
+  ) => {
+    const bestOption =
+      question.correctOption ||
+      (question.scoringRubric
+        ? (Object.entries(question.scoringRubric).find(([, s]) => s === 5)?.[0] ?? 'terbaik')
+        : 'terbaik');
+    const prompt = selectedAnswer
+      ? `Tolong bahas lebih dalam soal ${question.category} (${question.subtopic}) tadi. Mengapa opsi ${bestOption} paling tepat dibanding pilihan saya (${selectedAnswer}) dan apa trik cepat SKD-nya?`
+      : `Tolong berikan petunjuk konsep untuk menjawab soal ${question.category} (${question.subtopic}) tanpa langsung menyebutkan jawabannya.`;
+
+    void handleSendMessage(prompt, undefined, {
+      questionId: question.id,
+      questionSlug: question.slug,
+      materialSlugs: question.materials.map((m) => m.slug),
+      selectedAnswer,
+      isTutorDiscussion: true,
+    });
+  };
+
+  const handleDiscussMaterialFromDrawer = (slug: string, title: string) => {
+    void handleSendMessage(
+      `Tolong bedah inti konsep, logika sebab-akibat, dan jebakan soal HOTS pada materi TWK "${title}".`,
+      undefined,
+      { materialSlugs: [slug], isTutorDiscussion: true }
+    );
   };
 
   const handleNextQuizFromStream = async (category: QuizCategory) => {
@@ -438,10 +511,14 @@ function ChatContent() {
                 >
                   <BookOpen data-icon="inline-start" />
                   <span>Panel Kuis</span>
-                  {quizzes.length > 0 && (
-                    <Badge variant="secondary">{quizzes.length}</Badge>
+                  {(practicePack.questions.length > 0 || quizzes.length > 0) && (
+                    <Badge variant="secondary">
+                      {canvasMode === 'practice' && practicePack.questions.length > 0
+                        ? `${Object.keys(practicePack.answers).length}/${practicePack.questions.length}`
+                        : quizzes.length}
+                    </Badge>
                   )}
-                  {pendingQuizCount > 0 && (
+                  {pendingQuizCount > 0 && canvasMode === 'chat' && (
                     <Badge variant="default">{pendingQuizCount} baru</Badge>
                   )}
                 </Button>
@@ -455,6 +532,18 @@ function ChatContent() {
                   <Link href="/materi">
                     <Library data-icon="inline-start" />
                     Bank Materi
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="hidden sm:inline-flex"
+                >
+                  <Link href="/tryout">
+                    <ClipboardCheck data-icon="inline-start" />
+                    Simulasi CAT
                   </Link>
                 </Button>
 
@@ -531,6 +620,8 @@ function ChatContent() {
               <QuizCanvasPanel
                 open={isCanvasOpen}
                 onOpenChange={setIsCanvasOpen}
+                canvasMode={canvasMode}
+                onCanvasModeChange={setCanvasMode}
                 chatId={activeChatId}
                 quizzes={quizzes}
                 activeQuizId={activeQuizId}
@@ -547,6 +638,22 @@ function ChatContent() {
                 isGeneratingQuiz={isGeneratingQuiz}
                 onAskTutor={askTutorAboutQuiz}
                 isChatLoading={isLoading}
+                practice={{
+                  sessionId: practicePack.sessionId,
+                  questions: practicePack.questions,
+                  answers: practicePack.answers,
+                  revealedHints: practicePack.revealedHints,
+                  activeIndex: practicePack.activeIndex,
+                  isLoadingPack: practicePack.isLoadingPack,
+                  onSelectIndex: practicePack.setActiveIndex,
+                  onLoadPack: practicePack.loadPack,
+                  onSelectOption: practicePack.selectOptionInstant,
+                  onRevealHint: practicePack.revealHint,
+                  onRetrySync: practicePack.retrySync,
+                  onRetryWrongQuestions: practicePack.retryWrongQuestions,
+                  onAskTutor: handleAskTutorPractice,
+                  onDiscussMaterial: handleDiscussMaterialFromDrawer,
+                }}
               />
             </div>
           </main>
