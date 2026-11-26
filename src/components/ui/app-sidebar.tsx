@@ -1,5 +1,5 @@
 "use client";
-import { Plus, History, BookOpen } from "lucide-react";
+import { Plus, History, BookOpen, ClipboardCheck } from "lucide-react";
 
 import {
   Sidebar,
@@ -136,6 +136,19 @@ export function AppSidebar() {
               <BookOpen className="size-4 shrink-0 text-primary" />
               {open && (
                 <span className="body-medium-bold">Bank Materi TWK</span>
+              )}
+            </Link>
+          </SidebarMenuButton>
+
+          <SidebarMenuButton
+            variant="block"
+            className="h-10 px-4 py-3 justify-start gap-3 transition-colors text-primary hover:text-primary"
+            asChild
+          >
+            <Link href="/tryout">
+              <ClipboardCheck className="size-4 shrink-0 text-primary" />
+              {open && (
+                <span className="body-medium-bold">Simulasi CAT BKN</span>
               )}
             </Link>
           </SidebarMenuButton>

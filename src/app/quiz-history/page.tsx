@@ -170,8 +170,11 @@ function QuizHistoryContent() {
 
         if (!isAuthenticated && typeof window !== "undefined") {
           const validChatIds = readStorageUuidList("skd_guest_chat_ids");
-          const validSessionIds = readStorageUuidList(
-            "skd_guest_practice_session_ids"
+          const validSessionIds = Array.from(
+            new Set([
+              ...readStorageUuidList("skd_guest_practice_session_ids"),
+              ...readStorageUuidList("skd_guest_tryout_session_ids"),
+            ])
           );
           if (validChatIds.length > 0 || validSessionIds.length > 0) {
             const params = new URLSearchParams();

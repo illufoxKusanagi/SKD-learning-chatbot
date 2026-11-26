@@ -32,7 +32,7 @@ import { usePracticePack } from '@/hooks/use-practice-pack';
 import type { PracticeQuestionItem } from '@/lib/services/practice.service';
 import type { Message } from '@/lib/types/chat';
 import { cn } from '@/lib/utils';
-import { AlertTriangle, Award, BookOpen, History, Library, RotateCcw } from 'lucide-react';
+import { AlertTriangle, Award, BookOpen, ClipboardCheck, History, Library, RotateCcw } from 'lucide-react';
 
 interface TextBubbleProps extends Message {
   isThinking?: boolean;
@@ -314,6 +314,8 @@ function ChatContent() {
   const practiceMaterial = searchParams.get('practiceMaterial');
   const discussMaterial = searchParams.get('discussMaterial');
   const discussTitle = searchParams.get('title');
+  const discussQuestion = searchParams.get('discussQuestion');
+  const selectedAnswerParam = searchParams.get('selectedAnswer');
   const chatIdParam = searchParams.get('id');
   const handledMaterialParamRef = useRef<string | null>(null);
 
@@ -359,12 +361,43 @@ function ChatContent() {
         undefined,
         { materialSlugs: [discussMaterial], isTutorDiscussion: true }
       );
+      return;
+    }
+
+    if (discussQuestion) {
+      const normalizedAns = selectedAnswerParam?.trim().toUpperCase();
+      const validAnswer: QuizOptionKey | null =
+        normalizedAns === 'A' ||
+        normalizedAns === 'B' ||
+        normalizedAns === 'C' ||
+        normalizedAns === 'D' ||
+        normalizedAns === 'E'
+          ? normalizedAns
+          : null;
+      const key = `discussQuestion:${discussQuestion}:${validAnswer ?? ''}`;
+      if (handledMaterialParamRef.current === key) return;
+      handledMaterialParamRef.current = key;
+
+      router.replace(
+        chatIdParam ? `/chat?id=${encodeURIComponent(chatIdParam)}` : '/chat'
+      );
+      handleSendMessage(
+        `Tolong bedah mendalam soal simulasi CAT (${discussQuestion})${validAnswer ? ` — pilihan saya opsi ${validAnswer}` : ''} beserta analisis pengecoh dan trik cepatnya.`,
+        undefined,
+        {
+          questionSlug: discussQuestion,
+          selectedAnswer: validAnswer ?? undefined,
+          isTutorDiscussion: true,
+        }
+      );
     }
   }, [
     status,
     practiceMaterial,
     discussMaterial,
     discussTitle,
+    discussQuestion,
+    selectedAnswerParam,
     chatIdParam,
     loadPack,
     handleSendMessage,
@@ -499,6 +532,18 @@ function ChatContent() {
                   <Link href="/materi">
                     <Library data-icon="inline-start" />
                     Bank Materi
+                  </Link>
+                </Button>
+
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="hidden sm:inline-flex"
+                >
+                  <Link href="/tryout">
+                    <ClipboardCheck data-icon="inline-start" />
+                    Simulasi CAT
                   </Link>
                 </Button>
 

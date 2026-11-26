@@ -11,7 +11,7 @@ import ModeToggleButton from '@/components/ui/mode-toggle-button';
 import { SidebarProvider, SidebarTrigger } from '@/components/ui/sidebar';
 import { Skeleton } from '@/components/ui/skeleton';
 import { MaterialBrowserWorkspace } from '@/components/materials/material-browser-workspace';
-import { AlertTriangle, BookOpen, MessageSquare } from 'lucide-react';
+import { AlertTriangle, BookOpen, ClipboardCheck, MessageSquare } from 'lucide-react';
 
 const UUID_REGEX =
   /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -81,6 +81,17 @@ export default function MateriPage() {
               </div>
 
               <div className="flex shrink-0 items-center gap-2">
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="sm"
+                  className="hidden sm:inline-flex"
+                >
+                  <Link href="/tryout">
+                    <ClipboardCheck data-icon="inline-start" />
+                    <span>Simulasi CAT</span>
+                  </Link>
+                </Button>
                 <Button asChild variant="outline" size="sm">
                   <Link href={returnChatHref}>
                     <MessageSquare data-icon="inline-start" />
