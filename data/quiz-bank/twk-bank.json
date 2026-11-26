@@ -1,0 +1,1437 @@
+[
+  {
+    "slug": "twk-bela-negara-profesi-jembatan-001",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-pengabdian-profesi-infrastruktur"
+    ],
+    "reasoningChain": "UU 3/2002 Pasal 9 ayat (2) huruf d memasukkan pengabdian sesuai profesi sebagai bentuk bela negara. Penjelasannya mencakup tindakan profesional untuk menanggulangi atau memperkecil dampak bencana. Karena itu, kontribusi insinyur harus memakai kompetensi teknis, diarahkan pada pengurangan dampak, dan memperhatikan koordinasi serta keselamatan.",
+    "stem": "Sebuah gempa merusak jembatan penghubung menuju rumah sakit kabupaten. Seorang insinyur sipil ASN diminta membantu tim penanganan bencana. Tindakan yang paling tepat mencerminkan pengabdian sesuai profesi sebagai bela negara adalah ...",
+    "options": {
+      "A": "Melakukan penilaian struktur dan merancang akses sementara bersama instansi berwenang dengan mengutamakan keselamatan pengguna.",
+      "B": "Menghentikan seluruh pekerjaan teknis dan mendaftar sebagai prajurit agar dapat ikut mempertahankan wilayah terdampak.",
+      "C": "Mengerahkan kontraktor kenalannya untuk membangun jembatan permanen tanpa menunggu asesmen teknis dan koordinasi pemerintah.",
+      "D": "Menyampaikan perkiraan kerusakan melalui media sosial agar masyarakat dapat menilai sendiri kelayakan jembatan tersebut.",
+      "E": "Membuka jembatan untuk kendaraan ringan berdasarkan pengamatan visual agar distribusi bantuan segera kembali berjalan."
+    },
+    "hint": "Perhatikan hubungan kompetensi profesi, pengurangan dampak bencana, dan standar keselamatan.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Keahlian insinyur digunakan untuk mengurangi dampak bencana melalui penilaian dan solusi teknis yang terkoordinasi serta aman.",
+      "B": "Salah. Menjadi prajurit merupakan jalur berbeda dalam Pasal 9 ayat (2), bukan prasyarat bagi pengabdian sesuai profesi.",
+      "C": "Salah. Rekonstruksi tanpa asesmen dan koordinasi berisiko menambah bahaya serta tidak menunjukkan pengabdian profesional yang bertanggung jawab.",
+      "D": "Salah. Informasi publik tidak menggantikan penilaian teknis; penyampaian kesimpulan tanpa pemeriksaan dapat menimbulkan risiko keselamatan.",
+      "E": "Salah. Pengamatan visual bukan dasar memadai untuk membuka jembatan; tindakan tersebut mengabaikan kompetensi teknis dan keselamatan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 3 Tahun 2002 tentang Pertahanan Negara",
+      "url": "https://peraturan.bpk.go.id/Download/32692/UU%20Nomor%203%20Tahun%202002.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-profesi-logistik-air-002",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-pengabdian-profesi-infrastruktur"
+    ],
+    "reasoningChain": "Penjelasan UU 3/2002 Pasal 9 ayat (2) huruf d mengakui pengabdian profesi untuk memperkecil akibat bencana. Ketika jaringan air rusak, kompetensi teknisi dan tenaga kesehatan dapat melindungi warga. Kontribusi yang tepat harus berbasis kebutuhan, terukur, dan tersinkron dengan penanggung jawab penanganan bencana.",
+    "stem": "Setelah banjir besar, instalasi pengolahan air bersih di suatu kota berhenti beroperasi. Seorang teknisi pompa dari perusahaan daerah ingin membantu, tetapi beberapa relawan menawarkan perbaikan cepat tanpa pemeriksaan kualitas air. Langkah teknisi yang paling tepat adalah ...",
+    "options": {
+      "A": "Membagikan air dari sumber terdekat tanpa pengujian agar kebutuhan warga dapat dipenuhi sesegera mungkin.",
+      "B": "Berkoordinasi dengan pengelola dan posko, memeriksa kerusakan, lalu memulihkan instalasi dengan uji mutu air sebelum digunakan.",
+      "C": "Menyerahkan pekerjaan kepada relawan karena keterlibatan warga lebih penting daripada penggunaan keahlian teknis profesional.",
+      "D": "Mengunggah daftar kerusakan beserta dugaan penyebabnya agar perusahaan dapat menentukan langkah tanpa pemeriksaan lapangan.",
+      "E": "Mengganti seluruh peralatan instalasi sekaligus meskipun belum diketahui bagian yang rusak dan kebutuhan pemulihannya."
+    },
+    "hint": "Nilai manfaat profesi melalui prosedur yang aman dan sesuai keahlian.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pemenuhan kebutuhan air tidak boleh mengabaikan kelayakan dan keamanan; distribusi tanpa pengujian dapat membahayakan warga.",
+      "B": "Benar. Teknisi menerapkan keahlian untuk memperkecil dampak bencana melalui koordinasi, pemeriksaan, dan verifikasi mutu air.",
+      "C": "Salah. Partisipasi masyarakat penting, tetapi tidak menggantikan kompetensi teknis ketika pekerjaan memerlukan keahlian dan pengujian khusus.",
+      "D": "Salah. Pelaporan awal berguna, tetapi dugaan jarak jauh tidak cukup untuk memulihkan instalasi yang membutuhkan pemeriksaan teknis.",
+      "E": "Salah. Penggantian menyeluruh tanpa diagnosis tidak berbasis kebutuhan dan dapat memboroskan sumber daya pemulihan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 3 Tahun 2002 tentang Pertahanan Negara",
+      "url": "https://peraturan.bpk.go.id/Download/32692/UU%20Nomor%203%20Tahun%202002.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-profesi-komunikasi-003",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-pengabdian-profesi-infrastruktur"
+    ],
+    "reasoningChain": "UU 3/2002 Pasal 9 ayat (2) huruf d beserta penjelasannya menempatkan pengabdian profesi untuk mengurangi dampak bencana sebagai bentuk keikutsertaan bela negara. Dalam kasus ini, pemulihan komunikasi mendukung koordinasi bantuan, tetapi harus dilakukan sesuai kompetensi dan jalur komando yang sah.",
+    "stem": "Gempa susulan memutus jaringan komunikasi di beberapa kecamatan sehingga data kebutuhan logistik tidak masuk ke pusat komando. Seorang ahli jaringan menawarkan bantuan teknis. Pilihan yang paling mencerminkan bela negara melalui pengabdian profesi adalah ...",
+    "options": {
+      "A": "Membangun jaringan radio pribadi dan menetapkan sendiri frekuensi operasi tanpa berkoordinasi dengan pihak penanganan bencana.",
+      "B": "Menyebarkan perangkat komunikasi ke semua lokasi tanpa pendataan agar setiap kelompok dapat bekerja secara mandiri.",
+      "C": "Menyusun pemulihan jaringan darurat bersama posko dan operator, termasuk pendataan prioritas serta pengujian jangkauan komunikasi.",
+      "D": "Menunggu instruksi tertulis berjenjang meskipun posko telah meminta asesmen awal yang sesuai dengan keahliannya.",
+      "E": "Mengutamakan pemulihan jaringan komersial di pusat kota karena jumlah penggunanya lebih besar daripada daerah terisolasi."
+    },
+    "hint": "Cari tindakan profesional yang memperkuat koordinasi dan menjangkau kebutuhan darurat.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Jaringan tanpa koordinasi dapat mengganggu komunikasi operasi dan tidak menjamin penggunaan sumber daya secara tertib.",
+      "B": "Salah. Distribusi tanpa pemetaan kebutuhan berisiko salah sasaran dan tidak memastikan perangkat dapat digunakan secara efektif.",
+      "C": "Benar. Keahlian jaringan dipakai untuk mengurangi dampak bencana melalui pemulihan komunikasi yang terkoordinasi dan teruji.",
+      "D": "Salah. Kehati-hatian perlu, tetapi menolak asesmen awal yang diminta dan berada dalam kompetensinya menghambat bantuan.",
+      "E": "Salah. Prioritas pemulihan harus mempertimbangkan fungsi darurat dan keterisolasian, bukan semata-mata jumlah pengguna komersial."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 3 Tahun 2002 tentang Pertahanan Negara",
+      "url": "https://peraturan.bpk.go.id/Download/32692/UU%20Nomor%203%20Tahun%202002.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-profesi-integritas-proyek-004",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-pengabdian-profesi-infrastruktur"
+    ],
+    "reasoningChain": "Pengabdian sesuai profesi dalam Penjelasan Pasal 9 ayat (2) huruf d UU 3/2002 ditujukan bagi kepentingan pertahanan negara, termasuk mengurangi dampak bencana. Tindakan profesional harus bertanggung jawab. Mengabaikan spesifikasi dan pengawasan justru menciptakan kerentanan baru pada infrastruktur publik.",
+    "stem": "Dalam pemulihan jembatan pascabanjir, seorang insinyur pemerintah menemukan kontraktor menggunakan material di bawah spesifikasi dengan alasan agar jembatan segera dibuka. Atasan meminta proyek tetap dilaporkan selesai. Sikap yang paling tepat adalah ...",
+    "options": {
+      "A": "Menyetujui laporan sementara karena percepatan pembukaan akses lebih mendesak daripada pemeriksaan mutu material.",
+      "B": "Membiarkan kontraktor menyelesaikan pekerjaan, lalu menyerahkan seluruh tanggung jawab teknis kepada pejabat pengadaan.",
+      "C": "Mengumumkan tuduhan korupsi kepada publik sebelum mengumpulkan bukti teknis dan menyampaikan temuan melalui jalur resmi.",
+      "D": "Mendokumentasikan ketidaksesuaian, menahan rekomendasi laik fungsi, dan melaporkan temuan melalui mekanisme pengawasan yang berlaku.",
+      "E": "Mengganti spesifikasi material secara lisan agar pekerjaan tetap berjalan dan risiko administrasi tidak menghambat pemulihan."
+    },
+    "hint": "Utamakan keselamatan publik dan akuntabilitas profesi, bukan sekadar kecepatan laporan.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Kecepatan pemulihan tidak membenarkan pengabaian mutu yang dapat membahayakan pengguna jembatan.",
+      "B": "Salah. Insinyur tetap bertanggung jawab menyampaikan penilaian profesional; pelimpahan kepada pejabat lain tidak menghapus risiko teknis.",
+      "C": "Salah. Temuan harus didukung bukti dan disampaikan melalui mekanisme yang tepat, bukan tuduhan prematur di ruang publik.",
+      "D": "Benar. Dokumentasi, penolakan rekomendasi laik fungsi, dan pelaporan resmi menjaga keselamatan serta tanggung jawab profesional.",
+      "E": "Salah. Perubahan spesifikasi tanpa prosedur dan dasar teknis mengabaikan standar keselamatan serta akuntabilitas pekerjaan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 3 Tahun 2002 tentang Pertahanan Negara",
+      "url": "https://peraturan.bpk.go.id/Download/32692/UU%20Nomor%203%20Tahun%202002.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-profesi-kontribusi-bukan-militer-005",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-pengabdian-profesi-infrastruktur"
+    ],
+    "reasoningChain": "Pasal 9 ayat (2) UU 3/2002 memisahkan jalur pendidikan kewarganegaraan, pelatihan dasar kemiliteran wajib, pengabdian sebagai prajurit TNI, dan pengabdian sesuai profesi. Penjelasan huruf d memasukkan penanggulangan akibat bencana. Karena itu, pengabdian profesional tidak boleh disamakan dengan kewajiban menjadi prajurit.",
+    "stem": "Dalam diskusi internal, seorang pegawai negeri menyatakan bahwa warga yang ingin ikut bela negara saat bencana harus terlebih dahulu mengikuti pelatihan dasar kemiliteran. Rekannya menugaskan tenaga ahli konstruksi untuk membantu penilaian bangunan rusak. Penilaian hukum yang paling tepat adalah ...",
+    "options": {
+      "A": "Pernyataan itu tepat karena seluruh bentuk keikutsertaan bela negara harus didahului pelatihan dasar kemiliteran wajib.",
+      "B": "Penugasan tenaga ahli tidak termasuk bela negara karena pemulihan bangunan merupakan urusan sipil dan bukan pertahanan.",
+      "C": "Kedua pendapat tepat karena pengabdian profesi hanya berlaku bagi warga yang telah menjadi prajurit cadangan.",
+      "D": "Penugasan tenaga ahli hanya sah apabila seluruh personel sipil lebih dahulu memperoleh status komponen cadangan.",
+      "E": "Pendapat pertama keliru; pengabdian sesuai profesi merupakan jalur tersendiri dan dapat mencakup pengurangan dampak bencana."
+    },
+    "hint": "Bandingkan empat jalur keikutsertaan warga negara yang disebut dalam Pasal 9 ayat (2).",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pasal 9 ayat (2) menyebut beberapa bentuk keikutsertaan yang berdiri sebagai jalur berbeda, bukan prasyarat berurutan.",
+      "B": "Salah. Penjelasan Pasal 9 ayat (2) huruf d justru memasukkan pengabdian profesi untuk mengurangi akibat bencana.",
+      "C": "Salah. Pengabdian profesi bukan dibatasi hanya bagi prajurit atau anggota komponen cadangan.",
+      "D": "Salah. Pasal 9 ayat (2) huruf d tidak mensyaratkan status komponen cadangan bagi pengabdian sesuai profesi.",
+      "E": "Benar. Pengabdian sesuai profesi merupakan bentuk keikutsertaan tersendiri dan penjelasannya mencakup penanggulangan akibat bencana."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 3 Tahun 2002 tentang Pertahanan Negara",
+      "url": "https://peraturan.bpk.go.id/Download/32692/UU%20Nomor%203%20Tahun%202002.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-klasifikasi-pemulihan-vital-006",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-tahapan-pemulihan-infrastruktur-bencana"
+    ],
+    "reasoningChain": "UU 24/2007 Pasal 48 huruf f menempatkan pemulihan segera prasarana dan sarana vital dalam kegiatan tanggap darurat. Pasal 56 menjelaskan bentuknya berupa perbaikan dan/atau penggantian kerusakan akibat bencana. Karena situasi masih darurat, tujuan utamanya ialah mengembalikan fungsi vital secepatnya secara aman.",
+    "stem": "Gempa menyebabkan satu-satunya jembatan menuju rumah sakit rusak. Status tanggap darurat masih berlaku dan ambulans harus memutar lebih dari tiga jam. Pemerintah daerah perlu menentukan tindakan awal terhadap jembatan tersebut. Kebijakan yang paling sesuai adalah ...",
+    "options": {
+      "A": "Memulihkan fungsi akses vital secara segera melalui pemeriksaan keselamatan dan perbaikan atau penggantian bagian yang rusak.",
+      "B": "Menunda seluruh pekerjaan sampai tahap pascabencana agar perbaikan dapat dimasukkan ke program rehabilitasi tahunan daerah.",
+      "C": "Membangun jembatan permanen dengan desain baru tanpa asesmen kebutuhan darurat karena hasilnya akan digunakan jangka panjang.",
+      "D": "Memusatkan kegiatan pada pemulihan sosial ekonomi masyarakat sebelum akses rumah sakit kembali dapat digunakan.",
+      "E": "Menyerahkan keputusan pembukaan jembatan kepada warga sekitar karena mereka paling memahami kondisi akses setempat."
+    },
+    "hint": "Identifikasi fase yang sedang berlangsung dan tujuan langsung pemulihan prasarana vital.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Pasal 48 huruf f dan Pasal 56 mengatur pemulihan segera fungsi prasarana vital melalui perbaikan atau penggantian kerusakan.",
+      "B": "Salah. Menunggu pascabencana bertentangan dengan kebutuhan pemulihan segera prasarana vital pada tahap tanggap darurat.",
+      "C": "Salah. Pembangunan kembali yang lebih baik merupakan agenda rekonstruksi pascabencana, bukan pengganti tindakan darurat.",
+      "D": "Salah. Pemulihan sosial ekonomi penting, tetapi tidak mengesampingkan pemulihan segera akses vital ketika keadaan masih darurat.",
+      "E": "Salah. Partisipasi warga bermanfaat, tetapi keputusan teknis pembukaan jembatan harus mempertimbangkan keselamatan dan kewenangan yang tepat."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2007 tentang Penanggulangan Bencana",
+      "url": "https://peraturan.bpk.go.id/Download/29492/UU%20Nomor%2024%20Tahun%202007.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-klasifikasi-rehabilitasi-007",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-tahapan-pemulihan-infrastruktur-bencana"
+    ],
+    "reasoningChain": "UU 24/2007 Pasal 57 menetapkan rehabilitasi sebagai salah satu kegiatan pascabencana. Pasal 58 ayat (1) huruf b, i, dan j mencakup perbaikan prasarana umum serta pemulihan fungsi pemerintahan dan pelayanan publik. Fokus skenario ialah mengembalikan layanan setelah fase darurat terlewati.",
+    "stem": "Dua bulan setelah banjir besar, status tanggap darurat telah berakhir. Jalan utama sudah dapat dilalui kendaraan penyelamat, tetapi sekolah negeri, kantor kecamatan, dan saluran air umum belum berfungsi normal. Program yang paling tepat dikategorikan sebagai rehabilitasi adalah ...",
+    "options": {
+      "A": "Menyediakan perahu penyelamat dan membuka jalur evakuasi sementara ketika banjir kembali mengancam permukiman.",
+      "B": "Memperbaiki fasilitas umum dan memulihkan fungsi sekolah, kantor pemerintahan, serta pelayanan publik di wilayah terdampak.",
+      "C": "Membangun ulang seluruh kawasan dengan tata ruang baru dan standar konstruksi yang lebih tahan terhadap bencana berikutnya.",
+      "D": "Menetapkan status keadaan darurat baru dan mengerahkan logistik untuk memenuhi kebutuhan dasar pengungsi.",
+      "E": "Mengganti kerusakan jembatan vital secara segera agar kendaraan penyelamat dapat mencapai rumah sakit terdampak."
+    },
+    "hint": "Bedakan pemulihan fungsi layanan pascabencana dari respons darurat dan pembangunan kembali.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Perahu penyelamat dan jalur evakuasi merupakan respons kesiapsiagaan atau kedaruratan, bukan inti rehabilitasi pascabencana.",
+      "B": "Benar. Pasal 58 memasukkan perbaikan prasarana umum serta pemulihan fungsi pemerintahan dan pelayanan publik dalam rehabilitasi.",
+      "C": "Salah. Pembangunan kembali dengan rancangan lebih tahan bencana merupakan karakter rekonstruksi menurut Pasal 59.",
+      "D": "Salah. Penetapan keadaan darurat dan pemenuhan kebutuhan pengungsi merupakan tindakan tanggap darurat, bukan rehabilitasi.",
+      "E": "Salah. Pemulihan segera prasarana vital termasuk kegiatan tanggap darurat sebagaimana Pasal 48 huruf f dan Pasal 56."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2007 tentang Penanggulangan Bencana",
+      "url": "https://peraturan.bpk.go.id/Download/29492/UU%20Nomor%2024%20Tahun%202007.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-klasifikasi-rekonstruksi-008",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-tahapan-pemulihan-infrastruktur-bencana"
+    ],
+    "reasoningChain": "UU 24/2007 Pasal 57 menyebut rekonstruksi sebagai bagian dari tahap pascabencana. Pasal 59 mengarahkan pembangunan kembali prasarana dan sarana dengan pendekatan lebih baik, termasuk penerapan rancang bangun yang tepat dan peralatan yang lebih tahan bencana. Kuncinya adalah pengurangan kerentanan masa depan.",
+    "stem": "Sebuah kabupaten membangun kembali jembatan yang runtuh akibat banjir bandang. Jembatan lama berada pada titik rawan gerusan dan berulang kali rusak. Pemerintah mengubah desain fondasi, meningkatkan kapasitas aliran, dan memakai material yang lebih tahan. Kegiatan tersebut paling tepat disebut ...",
+    "options": {
+      "A": "Tanggap darurat karena setiap kegiatan perbaikan jembatan setelah bencana selalu termasuk penanganan darurat.",
+      "B": "Rehabilitasi karena seluruh kegiatan pascabencana yang menyentuh prasarana umum bertujuan mengembalikan fungsi layanan.",
+      "C": "Rekonstruksi karena pembangunan kembali dilakukan dengan rancangan yang lebih baik dan ketahanan lebih tinggi terhadap bencana.",
+      "D": "Pencegahan karena perubahan desain dilakukan sebelum banjir berikutnya dan bukan setelah kerusakan terjadi.",
+      "E": "Kesiapsiagaan karena pemerintah sedang menyiapkan sarana agar masyarakat dapat merespons bencana di masa mendatang."
+    },
+    "hint": "Perhatikan apakah pekerjaan sekadar memulihkan layanan atau membangun kembali dengan standar lebih baik.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Tanggap darurat berfokus pada pemulihan segera prasarana vital, bukan pembangunan kembali permanen dengan peningkatan ketahanan.",
+      "B": "Salah. Rehabilitasi memulihkan aspek layanan dan prasarana; pembangunan kembali dengan standar lebih baik merupakan rekonstruksi.",
+      "C": "Benar. Pasal 59 menempatkan pembangunan kembali prasarana dengan rancang bangun yang lebih tepat dan tahan bencana sebagai rekonstruksi.",
+      "D": "Salah. Pengurangan risiko menjadi manfaat desain, tetapi klasifikasi kegiatan pascabencana membangun kembali adalah rekonstruksi.",
+      "E": "Salah. Kesiapsiagaan dilakukan sebelum bencana; skenario ini merupakan pembangunan kembali setelah kerusakan terjadi."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2007 tentang Penanggulangan Bencana",
+      "url": "https://peraturan.bpk.go.id/Download/29492/UU%20Nomor%2024%20Tahun%202007.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-kontrafaktual-tanggap-darurat-009",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-tahapan-pemulihan-infrastruktur-bencana"
+    ],
+    "reasoningChain": "Pasal 48 huruf f UU 24/2007 menempatkan pemulihan segera prasarana vital dalam tahap tanggap darurat, sedangkan Pasal 57-59 mengatur rehabilitasi dan rekonstruksi pada tahap pascabencana. Jika pemulihan vital ditunda sampai rekonstruksi, akses penyelamatan dan layanan esensial dapat terputus lebih lama.",
+    "stem": "Dalam rapat penanganan gempa, seorang pejabat mengusulkan agar semua perbaikan jalan dan jembatan ditunda sampai tahap rekonstruksi supaya pekerjaan dapat dilaksanakan sekaligus. Apabila usulan itu diterapkan ketika beberapa akses vital masih terputus, konsekuensi paling mendasar adalah ...",
+    "options": {
+      "A": "Tahap rekonstruksi kehilangan dasar hukum karena seluruh kegiatan infrastruktur hanya dapat dilakukan saat tanggap darurat.",
+      "B": "Pemerintah daerah otomatis kehilangan kewenangan karena pemulihan infrastruktur sepenuhnya menjadi urusan pemerintah pusat.",
+      "C": "Masyarakat tidak lagi dapat berpartisipasi karena undang-undang membatasi pemulihan prasarana hanya kepada aparatur pemerintah.",
+      "D": "Akses penyelamatan dan layanan vital berpotensi tetap terganggu karena pemulihan segera yang diwajibkan pada fase darurat tertunda.",
+      "E": "Seluruh kegiatan rehabilitasi harus dihentikan karena perbaikan akses vital hanya dapat dilakukan setelah rekonstruksi selesai."
+    },
+    "hint": "Uji akibat penundaan tindakan yang secara eksplisit ditempatkan pada fase tanggap darurat.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Rekonstruksi tetap memiliki dasar hukum pada tahap pascabencana; yang keliru adalah menunda pemulihan vital saat darurat.",
+      "B": "Salah. UU 24/2007 menempatkan pemerintah dan pemerintah daerah sebagai penanggung jawab penanggulangan bencana.",
+      "C": "Salah. UU 24/2007 mengakui peran masyarakat; tidak ada larangan umum partisipasi dalam pemulihan prasarana.",
+      "D": "Benar. Penundaan mengabaikan pemulihan segera prasarana vital pada tanggap darurat sehingga akses penyelamatan dan layanan esensial terganggu.",
+      "E": "Salah. Rehabilitasi merupakan kegiatan pascabencana tersendiri dan tidak harus menunggu seluruh rekonstruksi selesai."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2007 tentang Penanggulangan Bencana",
+      "url": "https://peraturan.bpk.go.id/Download/29492/UU%20Nomor%2024%20Tahun%202007.pdf"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-partisipasi-rekonstruksi-010",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-tahapan-pemulihan-infrastruktur-bencana"
+    ],
+    "reasoningChain": "UU 24/2007 Pasal 5 menetapkan pemerintah dan pemerintah daerah sebagai penanggung jawab penanggulangan bencana. Pasal 4 mendorong partisipasi, kemitraan publik-swasta, dan gotong royong; Pasal 59 juga memasukkan peran lembaga dan masyarakat dalam rekonstruksi. Partisipasi memperkuat pelaksanaan, tetapi tidak menghapus tanggung jawab pemerintah.",
+    "stem": "Setelah longsor, sebuah desa menggalang dana dan menawarkan tenaga untuk membangun kembali jembatan penghubung. Sebagian warga ingin langsung memulai pembangunan tanpa rancangan teknis, sementara pemerintah daerah belum menetapkan mekanisme koordinasi. Sikap yang paling tepat adalah ...",
+    "options": {
+      "A": "Menolak seluruh bantuan warga karena tanggung jawab pemerintah berarti masyarakat tidak boleh terlibat dalam rekonstruksi.",
+      "B": "Membiarkan warga membangun sendiri karena semangat gotong royong dapat menggantikan prosedur teknis dan tanggung jawab pemerintah.",
+      "C": "Mengalihkan seluruh pekerjaan kepada perusahaan swasta agar pemerintah tidak perlu lagi mengawasi proses pembangunan kembali.",
+      "D": "Menunda seluruh partisipasi masyarakat sampai semua kegiatan rekonstruksi selesai direncanakan dan dilaksanakan oleh pemerintah.",
+      "E": "Mengintegrasikan bantuan warga dalam koordinasi pemerintah daerah, dengan rancangan teknis, standar keselamatan, dan akuntabilitas yang jelas."
+    },
+    "hint": "Seimbangkan tanggung jawab pemerintah dengan ruang partisipasi publik yang terkoordinasi.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Tanggung jawab pemerintah tidak meniadakan partisipasi dan kemitraan publik yang didorong UU 24/2007.",
+      "B": "Salah. Gotong royong tidak menggantikan standar teknis, keselamatan, dan tanggung jawab pemerintah sebagai penanggung jawab.",
+      "C": "Salah. Keterlibatan swasta dapat dilakukan, tetapi pemerintah tetap memegang tanggung jawab dan fungsi pengawasan.",
+      "D": "Salah. Partisipasi dapat diintegrasikan dalam perencanaan dan pelaksanaan; tidak perlu dilarang sampai seluruh pekerjaan selesai.",
+      "E": "Benar. Pendekatan ini menjaga tanggung jawab pemerintah sekaligus memanfaatkan partisipasi masyarakat secara aman dan akuntabel."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2007 tentang Penanggulangan Bencana",
+      "url": "https://peraturan.bpk.go.id/Download/29492/UU%20Nomor%2024%20Tahun%202007.pdf"
+    }
+  },
+  {
+    "slug": "twk-uud45-checks-balances-001",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-checks-balances-presiden-dpr"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-uud45-checks-balances-presiden-dpr dan Pasal 20 ayat (2), (4), dan (5) UUD NRI 1945, Presiden hanya dapat menolak suatu RUU pada tahap pembahasan bersama sebelum tercapai persetujuan bersama. Apabila RUU telah disetujui bersama oleh DPR dan Presiden dalam rapat paripurna tetapi Presiden tidak menandatanganinya dalam waktu 30 hari, RUU tersebut otomatis sah menjadi undang-undang dan wajib diundangkan (opsi D). Opsi A salah karena aturan larangan pengajuan ulang di masa sidang berlaku bagi RUU yang gagal mendapat persetujuan bersama (Pasal 20 ayat 3); B salah karena pembahasan tidak diulang setelah persetujuan bersama; C salah karena MK tidak menerbitkan putusan sela pemaksaan pengesahan; E salah karena Perppu mensyaratkan kegentingan memaksa dan tidak digunakan untuk membatalkan RUU yang belum diundangkan.",
+    "stem": "Rancangan Undang-Undang tentang Pengelolaan Data Sektor Publik telah dibahas dan disetujui bersama oleh DPR serta wakil pemerintah dalam rapat paripurna. Akan tetapi, akibat gelombang kritik masyarakat sipil, Presiden menolak membubuhkan tanda tangan pengesahan hingga melewati tenggat 30 hari sejak persetujuan bersama. Status konstitusional RUU tersebut menurut mekanisme checks and balances UUD NRI 1945 adalah...",
+    "options": {
+      "A": "RUU tersebut otomatis gugur demi hukum sehingga DPR dilarang mengajukannya kembali pada masa persidangan berjalan.",
+      "B": "DPR wajib mengulang pembahasan dari awal bersama Presiden guna memperoleh tanda tangan pengesahan secara formal.",
+      "C": "Mahkamah Konstitusi berwenang menerbitkan putusan sela untuk memaksa Presiden menandatangani naskah RUU tersebut.",
+      "D": "RUU tersebut tetap sah menjadi undang-undang dan wajib diundangkan karena hak penolakan Presiden hanya berlaku saat pembahasan.",
+      "E": "Presiden dapat menerbitkan Perppu untuk membatalkan RUU tersebut sebelum dicatatkan ke dalam Lembaran Negara RI."
+    },
+    "hint": "Tinjau kembali perbedaan tahap pembahasan bersama dan batas waktu pengesahan dalam Pasal 20 UUD NRI 1945.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Ketentuan tidak boleh diajukan kembali dalam masa sidang itu hanya berlaku bila RUU gagal memperoleh persetujuan bersama sesuai Pasal 20 ayat (3).",
+      "B": "Salah. Pembahasan ulang tidak diperlukan karena kesepakatan formal antara DPR dan Presiden telah dicapai pada tingkat paripurna.",
+      "C": "Salah. MK tidak memiliki kewenangan memaksa Presiden menandatangani RUU; UUD NRI 1945 sudah menyediakan mekanisme pengesahan otomatis.",
+      "D": "Benar. Sesuai Pasal 20 ayat (5), RUU yang telah disetujui bersama tetapi tidak disahkan Presiden dalam 30 hari otomatis sah menjadi UU dan wajib diundangkan.",
+      "E": "Salah. Perppu hanya diterbitkan dalam hal ihwal kegentingan memaksa sesuai Pasal 22, bukan sebagai instrumen veto atas RUU yang sudah disetujui bersama."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 (Perubahan I-IV)",
+      "url": "https://bphn.go.id/data/documents/uud_1945.pdf"
+    }
+  },
+  {
+    "slug": "twk-uud45-checks-balances-002",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-checks-balances-presiden-dpr"
+    ],
+    "reasoningChain": "Berdasarkan materi twk-uud45-checks-balances-presiden-dpr, Pasal 22 ayat (2) dan (3) UUD NRI 1945 menegaskan bahwa Perppu harus mendapat persetujuan DPR pada masa sidang berikutnya, dan jika tidak disetujui maka Perppu tersebut wajib dicabut. Sementara itu, Pasal 7C secara tegas melarang Presiden membekukan dan/atau membubarkan DPR. Oleh sebab itu, penolakan DPR mengharuskan pencabutan Perppu dan usulan pembekuan DPR melanggar konstitusi (opsi A). Opsi B keliru karena Perppu tidak berlaku satu tahun anggaran otomatis dan MA tidak menguji Perppu; C keliru karena tidak ada pengecualian atas Pasal 7C; D keliru karena Perppu tetap tunduk pada kontrol legislatif; E keliru karena kewajiban pencabutan lahir langsung dari penolakan DPR tanpa melalui putusan MK.",
+    "stem": "Menghadapi gangguan pasokan energi nasional, Presiden menerbitkan Peraturan Pemerintah Pengganti Undang-Undang (Perppu) tentang Alokasi Cadangan Strategis. Pada masa persidangan berikutnya, mayoritas fraksi DPR secara resmi menolak menyetujui Perppu tersebut. Menyikapi situasi itu, seorang penasihat kebijakan mengusulkan agar Presiden membekukan sementara aktivitas DPR demi kelancaran program darurat. Penilaian konstitusional paling tepat atas kondisi tersebut adalah...",
+    "options": {
+      "A": "Perppu tersebut wajib dicabut oleh Presiden dan usulan pembekuan DPR bertentangan dengan ketentuan Pasal 7C UUD NRI 1945.",
+      "B": "Perppu tetap berlaku selama satu tahun anggaran penuh sembari menunggu hasil uji materiil dari Mahkamah Agung terhadapnya.",
+      "C": "Presiden berwenang membekukan DPR sementara apabila kegentingan memaksa telah disetujui oleh pimpinan Majelis Permusyawaratan.",
+      "D": "Penolakan DPR tidak membatalkan Perppu secara langsung karena hak menerbitkan Perppu adalah kewenangan prerogatif mutlak.",
+      "E": "DPR harus mengajukan usul pembatalan Perppu kepada Mahkamah Konstitusi sebelum Presiden berkewajiban menghentikan berlakunya."
+    },
+    "hint": "Periksa syarat keberlanjutan hukum peraturan darurat di hadapan parlemen serta larangan konstitusional terhadap eksistensi DPR.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Pasal 22 ayat (3) mewajibkan pencabutan Perppu yang tidak disetujui DPR, sedangkan Pasal 7C melarang keras Presiden membekukan atau membubarkan DPR.",
+      "B": "Salah. Perppu tidak memiliki masa berlaku otomatis satu tahun anggaran setelah ditolak DPR, dan MA tidak berwenang menguji peraturan setingkat UU.",
+      "C": "Salah. Larangan Pasal 7C bersifat mutlak tanpa pengecualian persetujuan MPR guna menjaga keseimbangan sistem presidensial.",
+      "D": "Salah. Penerbitan Perppu bukan kewenangan mutlak tanpa batas karena keberlanjutannya dikontrol penuh oleh persetujuan DPR.",
+      "E": "Salah. Mekanisme kontrol legislatif atas Perppu berlangsung langsung melalui rapat paripurna DPR tanpa menunggu putusan MK."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 (Perubahan I-IV)",
+      "url": "https://bphn.go.id/data/documents/uud_1945.pdf"
+    }
+  },
+  {
+    "slug": "twk-uud45-checks-balances-003",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-checks-balances-presiden-dpr",
+      "twk-uud45-yudikatif-ma-mk-pemakzulan"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-uud45-checks-balances-presiden-dpr dan Pasal 14 UUD NRI 1945, hak prerogatif Presiden di bidang pengampunan pidana dibedakan mekanisme pertimbangannya berdasarkan sifat perkaranya. Pengampunan kolektif yang menghapus akibat hukum pidana bagi sekelompok orang bernuansa politis adalah amnesti, yang diberikan Presiden dengan memperhatikan pertimbangan DPR (Pasal 14 ayat 2). Sementara itu, pengurangan atau pengampunan hukuman bagi individu terpidana berdasarkan putusan pengadilan berkekuatan hukum tetap adalah grasi, yang memerlukan pertimbangan Mahkamah Agung (Pasal 14 ayat 1) agar intervensi eksekutif tetap menghormati ranah yudisial. Dengan demikian, pasangan yang tepat adalah opsi E. Opsi A dan D menukar lembaga pemberi pertimbangan; B keliru menyamakan amnesti dengan abolisi serta salah lembaga; C keliru melibatkan MK dan KY yang tidak diatur dalam Pasal 14.",
+    "stem": "Dalam rangka rekonsiliasi pascakonflik sosial di wilayah perbatasan, Presiden berencana memberikan pengampunan kolektif yang menghapus seluruh akibat hukum pidana bagi sekelompok aktivis lokal, sekaligus memberikan keringanan hukuman bagi seorang terpidana lanjut usia yang putusannya telah berkekuatan hukum tetap. Pasangan instrumen hukum dan lembaga pemberi pertimbangan yang tepat beserta landasan rasionalnya menurut Pasal 14 UUD NRI 1945 adalah...",
+    "options": {
+      "A": "Grasi dengan pertimbangan DPR untuk kelompok aktivis serta amnesti dengan pertimbangan MA bagi terpidana lansia tersebut.",
+      "B": "Abolisi dengan pertimbangan MA bagi kelompok aktivis serta rehabilitasi dengan pertimbangan DPR bagi terpidana lansia itu.",
+      "C": "Rehabilitasi dengan pertimbangan MK bagi kelompok aktivis serta grasi dengan pertimbangan KY bagi terpidana lansia tersebut.",
+      "D": "Amnesti dengan pertimbangan MA karena menyangkut tindak pidana massal, serta grasi dengan pertimbangan DPR karena isu sosial.",
+      "E": "Amnesti dengan pertimbangan DPR karena berdimensi politis, serta grasi dengan pertimbangan MA karena terkait putusan hakim."
+    },
+    "hint": "Bedakan pengampunan bernuansa politis kolektif dan pengurangan hukuman individual, lalu cocokkan dengan lembaga pengimbang yang relevan.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Jenis instrumen dan lembaga pemberi pertimbangan terbalik sepenuhnya dari ketentuan Pasal 14 ayat (1) dan (2).",
+      "B": "Salah. Abolisi menghentikan proses penuntutan dengan pertimbangan DPR, sedangkan rehabilitasi memulihkan nama baik dengan pertimbangan MA.",
+      "C": "Salah. MK dan KY tidak memiliki kewenangan memberikan pertimbangan hak prerogatif pengampunan Presiden menurut Pasal 14.",
+      "D": "Salah. Lembaga pemberi pertimbangan tertukar: amnesti memerlukan pertimbangan DPR, sedangkan grasi memerlukan pertimbangan MA.",
+      "E": "Benar. Pasal 14 ayat (2) mensyaratkan pertimbangan DPR untuk amnesti yang berdimensi politis, dan ayat (1) mensyaratkan pertimbangan MA untuk grasi yang menyentuh putusan peradilan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 (Perubahan I-IV)",
+      "url": "https://bphn.go.id/data/documents/uud_1945.pdf"
+    }
+  },
+  {
+    "slug": "twk-uud45-checks-balances-004",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-yudikatif-ma-mk-pemakzulan"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-uud45-yudikatif-ma-mk-pemakzulan, UUD NRI 1945 menganut bifurkasi kewenangan uji materiil. Pasal 24C ayat (1) membatasi kewenangan uji materiil Mahkamah Konstitusi hanya pada pengujian undang-undang terhadap UUD NRI 1945. Sementara itu, Pasal 24A ayat (1) menempatkan pengujian peraturan perundang-undangan di bawah undang-undang (termasuk Peraturan Presiden) terhadap undang-undang sebagai kewenangan absolut Mahkamah Agung. Oleh karena objek permohonan asosiasi nelayan adalah Peraturan Presiden, MK tidak berwenang memeriksanya (opsi B). Opsi A salah karena MK tidak menguji semua jenis regulasi; C salah karena persetujuan DPR/Presiden tidak dapat memperluas kewenangan konstitusional MK; D salah karena KY menjaga perilaku hakim, bukan membatalkan Perpres; E salah karena MPR tidak memiliki fungsi peradilan uji materiil.",
+    "stem": "Gabungan koperasi nelayan di Provinsi Kalimantan Timur menilai sebuah Peraturan Presiden (Perpres) tentang zonasi penangkapan ikan bertentangan dengan Undang-Undang Perikanan sekaligus merugikan hak ekonomi nelayan kecil. Kuasa hukum koperasi tersebut langsung mendaftarkan permohonan uji materiil terhadap Perpres dimaksud ke Mahkamah Konstitusi. Analisis ketatanegaraan paling tepat atas langkah hukum tersebut adalah...",
+    "options": {
+      "A": "Langkah tersebut sudah tepat karena setiap pelanggaran hak konstitusional warga negara dalam regulasi wajib diperiksa langsung oleh MK.",
+      "B": "Permohonan akan dinyatakan tidak berwenang oleh MK karena pengujian Perpres terhadap undang-undang merupakan kewenangan absolut MA.",
+      "C": "MK dapat tetap memeriksa Perpres tersebut asalkan DPR dan Presiden terlebih dahulu memberikan persetujuan sengketa kewenangan.",
+      "D": "Asosiasi nelayan seharusnya mengajukan gugatan pembatalan Perpres ke Komisi Yudisial agar diteruskan menjadi fatwa hukum MA.",
+      "E": "Uji materiil Perpres harus diajukan kepada MPR sebagai lembaga pengubah konstitusi sebelum dilanjutkan ke peradilan tata usaha."
+    },
+    "hint": "Cermati hierarki objek peraturan yang digugat serta pembagian kewenangan uji materiil antara dua puncak kekuasaan kehakiman.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Meskipun menyangkut kerugian hak warga, kewenangan uji materiil MK dibatasi secara konstitusional hanya terhadap undang-undang, bukan peraturan di bawahnya.",
+      "B": "Benar. Sesuai Pasal 24A ayat (1), pengujian peraturan perundang-undangan di bawah UU (seperti Perpres) terhadap UU merupakan kewenangan absolut MA, bukan MK.",
+      "C": "Salah. Persetujuan DPR dan Presiden tidak dapat menggeser atau memperluas yurisdiksi konstitusional MK yang telah ditetapkan secara limitatif oleh Pasal 24C.",
+      "D": "Salah. Komisi Yudisial hanya berwenang mengusulkan calon hakim agung dan menegakkan kode etik hakim, bukan membatalkan regulasi eksekutif.",
+      "E": "Salah. MPR adalah lembaga legislatif pengubah UUD, bukan lembaga kekuasaan kehakiman yang memeriksa permohonan uji materiil."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 (Perubahan I-IV)",
+      "url": "https://bphn.go.id/data/documents/uud_1945.pdf"
+    }
+  },
+  {
+    "slug": "twk-uud45-checks-balances-005",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-yudikatif-ma-mk-pemakzulan"
+    ],
+    "reasoningChain": "Berdasarkan materi twk-uud45-yudikatif-ma-mk-pemakzulan serta Pasal 7A, Pasal 7B ayat (1)–(7), dan Pasal 24C ayat (2) UUD NRI 1945, pemberhentian Presiden dan/atau Wakil Presiden tidak boleh diproses secara murni politis. Usul pemberhentian oleh DPR kepada MPR hanya dapat diajukan setelah DPR terlebih dahulu meminta Mahkamah Konstitusi memeriksa, mengadili, dan memutus pendapat DPR atas dugaan pelanggaran hukum (paling lambat 90 hari). Apabila MK memutus terbukti, barulah DPR menggelar paripurna meneruskan usul tersebut ke MPR. Oleh karena itu, melewati MK menuju MPR secara langsung adalah inkonstitusional (opsi C). Opsi A mengabaikan syarat prosedural Pasal 7B; B salah menyebut MA alih-alih MK; D salah menyebut DPD dan meniadakan forum yudisial; E salah karena DPR tidak dapat mengeksekusi pemakzulan sendiri.",
+    "stem": "Dalam rapat paripurna yang memenuhi kuorum dua pertiga anggota, mayoritas DPR menyepakati pendapat bahwa Wakil Presiden diduga terlibat penyuapan dan perbuatan tercela. Seorang pimpinan DPR berargumen bahwa demi efektivitas kedaulatan rakyat, usul pemberhentian tersebut dapat langsung diserahkan kepada MPR untuk segera diputuskan melalui pemungutan suara. Evaluasi konstitusional paling tepat terhadap argumen pimpinan DPR tersebut adalah...",
+    "options": {
+      "A": "Argumen tersebut sah secara konstitusional karena MPR memiliki kewenangan tertinggi untuk memberhentikan Wakil Presiden secara langsung.",
+      "B": "Usul pemberhentian cukup meminta pertimbangan hukum dari Mahkamah Agung sebelum dibawa ke sidang paripurna MPR dalam waktu 30 hari.",
+      "C": "Langkah itu inkonstitusional karena DPR wajib meminta MK memeriksa dan memutus dugaan pelanggaran tersebut sebelum meneruskannya ke MPR.",
+      "D": "DPR hanya perlu mengesahkan hak angket bersama DPD agar proses pemakzulan tidak perlu melalui pembuktian di lembaga kekuasaan kehakiman.",
+      "E": "Putusan pemakzulan dapat langsung dieksekusi oleh DPR apabila didukung sekurang-kurangnya tiga perempat dari seluruh anggota parlemen."
+    },
+    "hint": "Ingat syarat hukum wajib yang menjadi jembatan antara pendapat parlemen dan sidang pemakzulan di MPR menurut Pasal 7B UUD NRI 1945.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pasca-amandemen, MPR bukan lagi lembaga tertinggi negara dan hanya dapat memberhentikan Presiden/Wapres mengikuti prosedur ketat Pasal 7B.",
+      "B": "Salah. Lembaga yudikatif yang berwenang memutus pendapat DPR dalam proses pemakzulan adalah Mahkamah Konstitusi (Pasal 24C ayat 2), bukan Mahkamah Agung.",
+      "C": "Benar. Pasal 7B ayat (1) mewajibkan DPR terlebih dahulu mengajukan permintaan kepada MK untuk memeriksa, mengadili, dan memutus dugaan pelanggaran sebelum diteruskan ke MPR.",
+      "D": "Salah. DPD tidak terlibat dalam mekanisme pemakzulan di Pasal 7B, dan pembuktian hukum oleh MK tidak dapat ditiadakan.",
+      "E": "Salah. DPR hanya berwenang mengusulkan, bukan mengeksekusi pemberhentian; keputusan akhir tetap menjadi wewenang sidang paripurna MPR."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 (Perubahan I-IV)",
+      "url": "https://bphn.go.id/data/documents/uud_1945.pdf"
+    }
+  },
+  {
+    "slug": "twk-uud45-checks-balances-006",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-yudikatif-ma-mk-pemakzulan"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-uud45-yudikatif-ma-mk-pemakzulan dan Pasal 24C ayat (3) UUD NRI 1945, sembilan hakim konstitusi ditetapkan oleh Presiden dengan pengajuan seimbang dari tiga cabang kekuasaan: 3 oleh MA, 3 oleh DPR, dan 3 oleh Presiden. Desain tripartit ini memastikan pengawal konstitusi tidak dikuasai oleh pembentuk undang-undang (DPR dan Presiden) yang produk hukumnya justru menjadi objek pengujian MK. Jika unsur pengajuan dari MA dihapus sehingga seluruh hakim dipilih oleh DPR dan Presiden, risiko paling mendasar adalah rusaknya keseimbangan antar-cabang kekuasaan dan rentannya independensi MK terhadap kepentingan pembentuk UU (opsi A). Opsi B keliru karena KY hanya mengusulkan hakim agung (MA), bukan hakim konstitusi; C keliru karena kewenangan kasasi MA diatur terpisah pada Pasal 24A ayat (1); D keliru karena Presiden tetap menetapkan hakim; E keliru karena MK tidak menangani perkara pidana umum.",
+    "stem": "Dalam sebuah forum akademik hukum tata negara, muncul gagasan amandemen agar seluruh sembilan hakim konstitusi dipilih sepenuhnya oleh DPR dan Presiden tanpa melibatkan pengajuan dari Mahkamah Agung demi mempercepat keselarasan kebijakan legislasi. Apabila gagasan tersebut diterapkan, risiko paling mendasar terhadap prinsip checks and balances dalam UUD NRI 1945 adalah...",
+    "options": {
+      "A": "Melemahnya keseimbangan representasi cabang kekuasaan sehingga MK rentan dikooptasi kepentingan pembentuk undang-undang.",
+      "B": "Hilangnya kewenangan Komisi Yudisial dalam menyeleksi serta mengusulkan calon hakim konstitusi kepada Presiden dan DPR.",
+      "C": "Berakhirnya kewenangan Mahkamah Agung dalam memutus perkara tingkat kasasi serta menguji peraturan di bawah undang-undang.",
+      "D": "Tertundanya jadwal persidangan sengketa hasil pemilu karena sembilan hakim konstitusi tidak lagi ditetapkan oleh Presiden.",
+      "E": "Meningkatnya beban perkara pidana umum di Mahkamah Konstitusi akibat tidak adanya hakim karier dari lingkungan peradilan."
+    },
+    "hint": "Pikirkan mengapa konstitusi membagi pengajuan hakim konstitusi secara merata ke tiga cabang kekuasaan, terutama kaitannya dengan siapa yang membentuk undang-undang.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Komposisi 3-3-3 dalam Pasal 24C ayat (3) dirancang agar MK tetap independen saat menguji UU buatan DPR dan Presiden; penghapusan unsur MA membuat pembentuk UU mendominasi pengisian MK.",
+      "B": "Salah. Komisi Yudisial sejak awal hanya berwenang mengusulkan calon hakim agung di MA (Pasal 24A ayat 3), bukan hakim konstitusi di MK.",
+      "C": "Salah. Kewenangan kasasi dan uji peraturan di bawah UU milik MA berdiri sendiri berdasarkan Pasal 24A ayat (1) dan tidak hilang akibat perubahan mekanisme pengisian hakim MK.",
+      "D": "Salah. Dalam skenario tersebut, Presiden justru masih terlibat memilih dan menetapkan hakim konstitusi sehingga alasan penundaan sidang tidak relevan.",
+      "E": "Salah. Mahkamah Konstitusi tidak mengadili perkara pidana umum; perkara tersebut tetap berada di bawah lingkungan peradilan umum dan Mahkamah Agung."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 (Perubahan I-IV)",
+      "url": "https://bphn.go.id/data/documents/uud_1945.pdf"
+    }
+  },
+  {
+    "slug": "twk-pancasila-dilema-sila2-sila5-001",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-nilai-instrumental-dilema"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-pancasila-nilai-instrumental-dilema, terdapat pembeda tegas antara fokus Sila 2 (martabat kemanusiaan universal dan HAM individual) dan Sila 5 (keadilan sosial struktural, pemerataan akses fasilitas publik, serta keseimbangan hak dan kewajiban kolektif masyarakat). Kebijakan pemerintah kabupaten mengalihkan anggaran renovasi gedung serbaguna yang masih layak untuk membangun jembatan penghubung dan jaringan air bersih bagi tiga desa terisolasi bertujuan mewujudkan pemerataan infrastruktur dasar serta keadilan distributif bagi kesejahteraan bersama masyarakat. Oleh karena itu, kebijakan tersebut paling mencerminkan Sila Kelima (opsi B). Opsi A keliru mereduksi kebijakan struktural ini menjadi urusan kemanusiaan individual Sila 2; C keliru mengaitkannya dengan musyawarah Sila 4; D keliru menyebut kepentingan persatuan wilayah Sila 3 semata; E keliru menyebut toleransi beragama Sila 1.",
+    "stem": "Pemerintah kabupaten memutuskan menunda proyek renovasi gedung serbaguna ibu kota kabupaten yang masih layak pakai, lalu mengalihkan anggaran tersebut untuk membangun jembatan penghubung dan saluran air bersih di tiga kecamatan terisolasi agar warga memperoleh akses ekonomi dan layanan dasar secara merata. Apabila membedakan fokus pengamalan antarsila Pancasila, kebijakan anggaran tersebut paling tepat merepresentasikan...",
+    "options": {
+      "A": "Sila Kedua, karena fokus utamanya adalah melindungi kebebasan berpendapat individu warga di kecamatan terisolasi tersebut.",
+      "B": "Sila Kelima, karena kebijakan tersebut mengutamakan keadilan distributif serta pemerataan akses fasilitas publik bagi masyarakat.",
+      "C": "Sila Keempat, karena penundaan renovasi gedung serbaguna lahir dari mekanisme pemungutan suara terbuka di tingkat kecamatan.",
+      "D": "Sila Ketiga, karena pembangunan saluran air bersih ditujukan semata-mata untuk menyeragamkan identitas budaya seluruh warga desa.",
+      "E": "Sila Kesatu, karena pengalihan anggaran pembangunan daerah merupakan bentuk pembinaan kerukunan antarumat beragama setempat."
+    },
+    "hint": "Bedakan pengamalan yang berporos pada perlindungan martabat individu dari kebijakan pemerataan kesejahteraan dan akses infrastruktur publik.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Sila Kedua berfokus pada penghormatan harkat, martabat, dan hak asasi kemanusiaan universal, bukan pemerataan alokasi fasilitas publik struktural.",
+      "B": "Benar. Pengalihan anggaran untuk membuka akses ekonomi dan air bersih bagi wilayah tertinggal merupakan wujud nyata keadilan sosial dan pemerataan kesejahteraan Sila Kelima.",
+      "C": "Salah. Skenario tidak menyoroti mekanisme permusyawaratan atau perwakilan politik yang menjadi inti Sila Keempat.",
+      "D": "Salah. Persatuan Indonesia pada Sila Ketiga tidak bertujuan menyeragamkan budaya, dan substansi kasus ini adalah pemerataan akses kesejahteraan.",
+      "E": "Salah. Kebijakan distribusi anggaran infrastruktur dasar tidak berkaitan langsung dengan kebebasan beragama atau ketuhanan pada Sila Kesatu."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 12 Tahun 2011 tentang Pembentukan Peraturan Perundang-Undangan",
+      "url": "https://peraturan.bpk.go.id"
+    }
+  },
+  {
+    "slug": "twk-pancasila-ideologi-terbuka-002",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-nilai-instrumental-dilema"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-pancasila-nilai-instrumental-dilema, Pancasila sebagai ideologi terbuka memiliki tiga dimensi nilai: nilai dasar (tetap dan tidak boleh diubah), nilai instrumental (penjabaran hukum dan kebijakan yang adaptif terhadap perkembangan zaman), serta nilai praksis (implementasi nyata dalam praktik sehari-hari). Penerbitan undang-undang perlindungan data pribadi untuk menjawab tantangan ekonomi digital tanpa mengubah lima sila dasar merupakan wujud adaptasi pada dimensi nilai instrumental agar nilai dasar kemanusiaan dan keadilan tetap relevan (opsi D). Opsi A keliru karena nilai dasar tidak boleh diubah; B keliru karena nilai praksis merujuk pada perilaku nyata bukan pembentukan norma undang-undang; C keliru karena ideologi tertutup justru membekukan penafsiran; E keliru karena keterbukaan ideologi tetap tunduk pada batas nilai dasar Pancasila.",
+    "stem": "Menghadapi maraknya kebocoran data digital dan transaksi lintas batas, pembentuk undang-undang menyusun regulasi baru tentang perlindungan data pribadi warga negara serta tata kelola kecerdasan buatan yang berlandaskan prinsip keadilan dan penghormatan martabat manusia. Dalam kerangka Pancasila sebagai ideologi terbuka, langkah legislasi tersebut paling tepat dipahami sebagai...",
+    "options": {
+      "A": "Perubahan terhadap nilai dasar Pancasila agar rumusan lima sila dapat menyesuaikan perkembangan teknologi global modern.",
+      "B": "Perwujudan nilai praksis Pancasila karena seluruh warga negara secara spontan mempraktikkan etika digital tanpa aturan hukum.",
+      "C": "Penerapan karakter ideologi tertutup yang membekukan aturan lama supaya kedaulatan digital tidak terpengaruh pembaruan zaman.",
+      "D": "Aktualisasi nilai instrumental Pancasila yang menerjemahkan nilai dasar tetap ke dalam regulasi adaptif sesuai tantangan zaman.",
+      "E": "Pelepasan batas keterbukaan Pancasila agar pembentuk undang-undang bebas mengadopsi norma asing tanpa penyaringan ideologis."
+    },
+    "hint": "Ingat tiga tingkatan nilai dalam ideologi terbuka Pancasila dan bedakan unsur yang bersifat tetap dari unsur regulatif yang adaptif.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Nilai dasar Pancasila bersifat tetap dan tidak dapat diubah meskipun teknologi dan tatanan sosial berkembang pesat.",
+      "B": "Salah. Nilai praksis adalah pelaksanaan nyata dalam sikap dan perilaku sehari-hari, sedangkan perumusan undang-undang termasuk nilai instrumental.",
+      "C": "Salah. Ideologi tertutup bersifat kaku dan dogmatis, berkebalikan dengan upaya menyusun regulasi adaptif untuk tantangan baru.",
+      "D": "Benar. Nilai instrumental menjabarkan nilai dasar Pancasila ke dalam perangkat hukum dan kebijakan yang dinamis sesuai perkembangan zaman.",
+      "E": "Salah. Keterbukaan Pancasila tetap memiliki batas tegas, yaitu tidak boleh bertentangan dengan nilai dasar lima sila."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 12 Tahun 2011 tentang Pembentukan Peraturan Perundang-Undangan",
+      "url": "https://peraturan.bpk.go.id"
+    }
+  },
+  {
+    "slug": "twk-pancasila-musyawarah-sila4-003",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-nilai-instrumental-dilema"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-pancasila-nilai-instrumental-dilema, esensi Sila Keempat Pancasila menekankan musyawarah untuk mencapai mufakat dengan menghargai pendapat berbeda tanpa pemaksaan kehendak, serta menerima dan melaksanakan hasil keputusan bersama dengan iktikad baik dan penuh rasa tanggung jawab. Dalam skenario rapat penentuan lokasi puskesmas pembantu, usulan Nadia tidak terpilih setelah seluruh data dipertimbangkan secara adil. Sikap yang paling tepat mengamalkan Sila Keempat adalah menghormati keputusan forum dan melaksanakannya secara bertanggung jawab demi kepentingan warga (opsi A). Opsi B menunjukkan pemaksaan kehendak dan sabotase pascaputusan; C mengancam memboikot rapat berikutnya; D menyebarkan sentimen golongan untuk menjatuhkan mufakat; E menunjukkan sikap pasif apatis yang melalaikan tanggung jawab pelaksanaan.",
+    "stem": "Dalam musyawarah perencanaan pembangunan kecamatan, Nadia mengusulkan lokasi pembangunan puskesmas pembantu di wilayah timur karena kepadatan penduduknya tinggi. Setelah forum menelaah peta akses jalan dan jarak tempuh desa terjauh secara terbuka, musyawarah menyepakati lokasi berada di wilayah tengah. Sikap Nadia yang paling tepat mengamalkan substansi Sila Keempat Pancasila pascakeputusan tersebut adalah...",
+    "options": {
+      "A": "Menerima keputusan forum dengan lapang dada serta mendukung pelaksanaannya secara bertanggung jawab demi kepentingan bersama.",
+      "B": "Menolak menandatangani berita acara rapat sambil menggalang petisi warga wilayah timur guna membatalkan kesepakatan kecamatan.",
+      "C": "Menyatakan mundur dari forum perencanaan tahun depan karena menganggap argumen teknis yang ia sampaikan telah diabaikan peserta.",
+      "D": "Mengajak perwakilan wilayah timur menyusun proposal tandingan secara diam-diam langsung ke dinas provinsi di luar kesepakatan.",
+      "E": "Membiarkan pelaksanaan pembangunan berjalan sepenuhnya tanpa keterlibatan unsur wilayah timur agar forum menyadari kekeliruannya."
+    },
+    "hint": "Fokus pada komitmen moral peserta musyawarah setelah suatu keputusan bersama ditetapkan secara adil dan rasional.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Pengamalan Sila Keempat menuntut setiap pihak menghormati hasil musyawarah dan melaksanakannya dengan iktikad baik serta tanggung jawab.",
+      "B": "Salah. Menolak hasil mufakat yang sah melalui penggalangan penolakan mencerminkan pemaksaan kehendak pribadi atau kelompok.",
+      "C": "Salah. Menarik diri karena usulan tidak terpilih bertentangan dengan kedewasaan berdemokrasi dalam semangat kekeluargaan.",
+      "D": "Salah. Mengajukan proposal tandingan di luar forum mencederai kepercayaan dan integritas proses musyawarah bersama.",
+      "E": "Salah. Bersikap pasif dan melepas tanggung jawab kolektif menghambat pencapaian tujuan bersama yang telah disepakati."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 12 Tahun 2011 tentang Pembentukan Peraturan Perundang-Undangan",
+      "url": "https://peraturan.bpk.go.id"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-integrasi-fungsional-004",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-integrasi-sosial-primordialisme"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-bhinneka-integrasi-sosial-primordialisme, integrasi nasional dibangun melalui tiga pola: normatif (kesepakatan nilai/hukum), fungsional (kesalingtergantungan peran ekonomi dan pelayanan antarwilayah), dan koersif (paksaan kekuasaan). Program tol laut dan pertukaran komoditas pangan-logistik antarprovinsi yang menciptakan ketergantungan saling menguntungkan antara daerah produsen hasil laut di timur dan pusat industri pengolahan di barat merupakan perwujudan nyata integrasi fungsional yang lebih kokoh daripada integrasi koersif (opsi E). Opsi A keliru menyebut asimilasi paksa; B keliru menyebut integrasi koersif; C keliru menyebut primordialisme daerah; D keliru menyebut etnosentrisme ekonomi.",
+    "stem": "Pemerintah membangun konektivitas pelabuhan perintis dan skema perdagangan antarpulau sehingga hasil perikanan dari provinsi kepulauan timur terserap rutin oleh industri pengolahan di barat, sementara bahan bangunan dan komoditas pangan tersalur stabil kembali ke timur dengan harga terjangkau. Jika dianalisis berdasarkan pola penguatan persatuan dalam kerangka Bhinneka Tunggal Ika, kebijakan tersebut memperkuat ketahanan nasional melalui...",
+    "options": {
+      "A": "Asimilasi budaya paksa karena pertukaran barang dagang secara otomatis menghapus identitas bahasa lokal masyarakat pesisir.",
+      "B": "Integrasi koersif karena distribusi logistik antarpulau hanya dapat bertahan apabila seluruh jalur niaga dikawal aparat bersenjata.",
+      "C": "Primordialisme wilayah karena setiap provinsi didorong mengutamakan keuntungan kelompok daerah asalnya dibanding kepentingan nasional.",
+      "D": "Etnosentrisme ekonomi karena kawasan industri barat diposisikan lebih unggul daripada potensi sumber daya maritim wilayah timur.",
+      "E": "Integrasi fungsional karena terbentuk kesalingtergantungan ekonomi dan layanan saling menguntungkan lintas wilayah di Indonesia."
+    },
+    "hint": "Cermati pola integrasi sosial yang lahir dari hubungan saling membutuhkan secara nyata antarwilayah, bukan dari paksaan kekuasaan.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Konektivitas niaga antarpulau tidak bertujuan menghilangkan identitas bahasa maupun budaya daerah asal masyarakat.",
+      "B": "Salah. Integrasi koersif bertumpu pada paksaan kekuasaan, sedangkan skenario ini bekerja lewat manfaat ekonomi timbal balik.",
+      "C": "Salah. Primordialisme justru mempersempit solidaritas pada ikatan daerah sendiri, berlawanan dengan sinergi ekonomi antarpulau.",
+      "D": "Salah. Hubungan perdagangan yang saling menguntungkan tidak menempatkan satu budaya atau wilayah sebagai superior atas lainnya.",
+      "E": "Benar. Integrasi fungsional terwujud ketika berbagai daerah dan kelompok saling bergantung secara ekonomi serta layanan sehingga memperkokoh persatuan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2009 tentang Bendera, Bahasa, dan Lambang Negara serta Lagu Kebangsaan",
+      "url": "https://peraturan.bpk.go.id"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-primordialisme-etnosentrisme-005",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-integrasi-sosial-primordialisme"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-bhinneka-integrasi-sosial-primordialisme, primordialisme sempit adalah kecenderungan mengutamakan ikatan asal (suku, daerah, keturunan) secara berlebihan dalam keputusan publik, sedangkan etnosentrisme adalah sikap menganggap budaya sendiri paling unggul dan merendahkan budaya kelompok lain memakai standar budayanya sendiri. Dalam kasus Hendrawan, penolakannya terhadap kandidat berprestasi karena menganggap tradisi komunikasi daerah asal kandidat 'kasar dan tidak beradab dibanding kehalusan tata krama sukunya' menonjolkan penilaian merendahkan budaya lain berdasar ukuran budaya sendiri (etnosentrisme) sekaligus menggerus sistem merit dan semangat Bhinneka Tunggal Ika (opsi C). Opsi A keliru menyebut akulturasi sehat; B keliru menyebut integrasi normatif; D keliru menyebut pluralisme inklusif; E keliru karena menilai budaya lain lebih rendah bukan sekadar adaptasi prosedural.",
+    "stem": "Dalam rapat penempatan kepala bidang pelayanan publik, seorang pejabat senior, Hendrawan, menolak usulan promosi kandidat berprestasi dari provinsi lain dengan alasan gaya bicara khas daerah asal kandidat tersebut dianggap kurang beradab dibandingkan kehalusan tutur kata adat sukunya sendiri. Sikap Hendrawan tersebut paling tepat diidentifikasi sebagai penghambat Bhinneka Tunggal Ika berupa...",
+    "options": {
+      "A": "Akulturasi birokrasi, karena ia berupaya memadukan tata krama daerah asalnya ke dalam standar komunikasi pelayanan instansi.",
+      "B": "Integrasi normatif, karena ia berpegang teguh pada norma adat lokal sebagai pedoman tunggal penilaian kompetensi seluruh pegawai.",
+      "C": "Etnosentrisme, karena ia menggunakan standar budayanya sendiri untuk merendahkan kebiasaan budaya lain dalam penilaian objektif.",
+      "D": "Pluralisme inklusif, karena ia mengakui adanya keragaman gaya tutur antarsuku namun membatasi ruang promosi bagi kelompok pendatang.",
+      "E": "Adaptasi kultural, karena ia menyesuaikan penempatan jabatan publik berdasarkan tingkat kesamaan latar belakang budaya masyarakat lokal."
+    },
+    "hint": "Bedakan sikap setia berlebihan pada asal daerah dari sikap menilai serta merendahkan budaya lain dengan ukuran budayanya sendiri.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Akulturasi adalah perpaduan budaya secara terbuka tanpa menghilangkan jati diri asli, bukan penolakan diskriminatif terhadap budaya lain.",
+      "B": "Salah. Integrasi normatif bertumpu pada kesepakatan nilai dan hukum nasional bersama (seperti sistem merit), bukan norma adat sepihak.",
+      "C": "Benar. Menilai gaya budaya kelompok lain lebih rendah berdasarkan standar budayanya sendiri merupakan ciri inti etnosentrisme yang merusak persatuan dan objektivitas ASN.",
+      "D": "Salah. Pluralisme inklusif menghargai keberagaman secara setara dan justru menolak pembatasan kesempatan berdasarkan latar belakang suku.",
+      "E": "Salah. Melabeli gaya bicara daerah lain sebagai tidak beradab bukan adaptasi kultural, melainkan prasangka kultural yang diskriminatif."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2009 tentang Bendera, Bahasa, dan Lambang Negara serta Lagu Kebangsaan",
+      "url": "https://peraturan.bpk.go.id"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-akulturasi-vs-asimilasi-006",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-integrasi-sosial-primordialisme"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-bhinneka-integrasi-sosial-primordialisme, Pasal 36A dan Pasal 32 ayat (1) UUD NRI 1945 menjamin persatuan bangsa seraya melindungi keberlangsungan nilai dan bahasa daerah. Semangat Bhinneka Tunggal Ika menolak asimilasi paksa (penyeragaman yang menghapus ciri khas budaya lokal) dan mengedepankan akulturasi serta multikulturalisme. Oleh karena itu, rancangan kebijakan yang melarang total penggunaan bahasa daerah dan arsitektur tradisional dalam festival kota demi keseragaman nasional bertentangan dengan Bhinneka Tunggal Ika karena menerapkan asimilasi paksa yang menghapus jati diri budaya lokal, alih-alih merawat keragaman dalam kesatuan (opsi A). Opsi B keliru karena Bhinneka Tunggal Ika tidak menuntut penyeragaman bentuk budaya; C keliru karena Pasal 32 justru menjamin pemeliharaan budaya lokal; D keliru menyamakan larangan budaya dengan integrasi normatif; E keliru karena penghapusan arsitektur lokal bukan akulturasi.",
+    "stem": "Demi mempercepat keseragaman identitas kota baru yang dihuni pendatang dari beragam etnis, sebuah rancangan kebijakan daerah mengusulkan larangan penggunaan bahasa ibu pada acara budaya masyarakat serta penghapusan ornamen arsitektur tradisional setempat agar seluruh ruang publik tampil seragam. Evaluasi paling tepat terhadap usulan kebijakan tersebut berdasarkan prinsip Bhinneka Tunggal Ika dan Pasal 32 UUD NRI 1945 adalah...",
+    "options": {
+      "A": "Kebijakan itu keliru karena memaksakan asimilasi yang menghapus jati diri budaya lokal, padahal kesatuan bangsa merawat keberagaman.",
+      "B": "Kebijakan itu tepat karena semboyan Bhinneka Tunggal Ika menuntut peleburan seluruh tradisi daerah menjadi satu budaya tunggal seragam.",
+      "C": "Kebijakan itu selaras dengan Pasal 32 UUD NRI 1945 karena negara berwenang membatasi bahasa daerah demi efisiensi komunikasi resmi.",
+      "D": "Kebijakan itu mencerminkan integrasi normatif yang efektif untuk menghilangkan seluruh potensi perbedaan sosial di wilayah perkotaan.",
+      "E": "Kebijakan itu merupakan bentuk akulturasi modern yang sehat karena menggantikan unsur arsitektur tradisional dengan desain universal."
+    },
+    "hint": "Bandingkan konsep persatuan yang merawat identitas budaya daerah dengan kebijakan penyeragaman paksa yang meleburkan ciri khas lokal.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Asimilasi paksa yang melarang bahasa daerah dan menghapus budaya lokal melanggar semangat Bhinneka Tunggal Ika serta jaminan Pasal 32 UUD NRI 1945.",
+      "B": "Salah. Bhinneka Tunggal Ika berarti berbeda-beda tetapi tetap satu jua, bukan menyeragamkan atau menghapus kekayaan budaya daerah.",
+      "C": "Salah. Pasal 32 ayat (1) dan (2) UUD NRI 1945 justru mewajibkan negara menghormati dan memelihara bahasa daerah serta nilai budaya nasional.",
+      "D": "Salah. Meniadakan ekspresi budaya lokal melalui larangan merupakan pemaksaan (koersif), bukan integrasi normatif yang menghormati kemajemukan.",
+      "E": "Salah. Akulturasi memadukan unsur budaya baru tanpa menghilangkan kepribadian budaya asli, sedangkan usulan ini menghapus unsur tradisional."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2009 tentang Bendera, Bahasa, dan Lambang Negara serta Lagu Kebangsaan",
+      "url": "https://peraturan.bpk.go.id"
+    }
+  },
+  {
+    "slug": "twk-bahasa-kalimat-efektif-dinas-007",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-eyd5-kalimat-efektif-baku"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-bahasa-eyd5-kalimat-efektif-baku, kalimat efektif harus memiliki struktur subjek-predikat yang jelas tanpa preposisi di depan subjek, paralel dalam bentuk imbuhan, hemat (tanpa pleonasme), serta bebas konjungsi ganda. Analisis opsi: A salah karena preposisi 'Bagi' di depan subjek menghilangkan subjek dan terdapat pleonasme 'agar supaya'; B salah karena konjungsi ganda 'Meskipun..., namun...' dan ketidaklogisan predikat ('pelayanan... melakukan verifikasi'); C salah karena ketidakhematan 'membahas mengenai' serta ketidakparalelan ('penyusunan', 'pelaksanaan', 'mengevaluasi'); D benar karena subjek ('Tim inspektorat'), predikat ('mengevaluasi'), dan rincian objek nomina ('penyusunan...', 'pelaksanaan...', 'pelaporan...') semuanya paralel, hemat, dan logis; E salah karena pleonasme ganda 'Para seluruh' dan 'naik ke atas'. Maka jawaban benar adalah opsi D.",
+    "stem": "Dalam penyuntingan laporan evaluasi tahunan instansi daerah, analis kebijakan diminta memastikan seluruh kalimat memenuhi syarat kesepadanan struktur, keparalelan bentuk, dan kehematan kata sesuai kaidah bahasa Indonesia baku. Manakah di antara kalimat laporan berikut yang paling efektif?",
+    "options": {
+      "A": "Bagi seluruh kepala seksi wajib menghadiri rapat evaluasi agar supaya penyerapan anggaran berjalan lancar.",
+      "B": "Meskipun jaringan server sempat terganggu, namun pelayanan dokumen tetap berjalan dan melakukan verifikasi berkas.",
+      "C": "Rapat koordinasi itu membahas mengenai penyusunan jadwal, pelaksanaan survei, serta mengevaluasi capaian kinerja.",
+      "D": "Tim inspektorat mengevaluasi penyusunan rencana kerja, pelaksanaan pengadaan barang, serta pelaporan realisasi anggaran.",
+      "E": "Para seluruh peserta sosialisasi dimohon segera naik ke atas aula utama untuk mendengarkan arahan dari pimpinan."
+    },
+    "hint": "Periksa keberadaan preposisi di depan subjek, pasangan konjungsi ganda, kesejajaran bentuk kata pada perincian, dan pemborosan makna.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Kata depan 'Bagi' membuat kalimat kehilangan subjek, dan frasa 'agar supaya' mengandung pemborosan kata (pleonasme).",
+      "B": "Salah. Pemakaian 'Meskipun' dan 'namun' secara bersamaan melanggar kaidah konjungsi ganda, dan subjek 'pelayanan' tidak logis 'melakukan verifikasi'.",
+      "C": "Salah. Verba transitif 'membahas' tidak memerlukan preposisi 'mengenai', serta bentuk 'mengevaluasi' tidak paralel dengan 'penyusunan' dan 'pelaksanaan'.",
+      "D": "Benar. Struktur subjek-predikat jelas, bebas pemborosan kata, dan seluruh objek perincian paralel menggunakan bentuk nomina berimbuhan peN-...-an.",
+      "E": "Salah. Mengandung pleonasme ganda pada frasa 'Para seluruh' (jamak ganda) dan 'naik ke atas' (arah yang sudah terkandung dalam kata naik)."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Keputusan Kepala Badan Pengembangan dan Pembinaan Bahasa Nomor 0424/I/BS.00.01/2022 tentang Ejaan Bahasa Indonesia yang Disempurnakan Edisi V",
+      "url": "https://ejaan.kemdikbud.go.id"
+    }
+  },
+  {
+    "slug": "twk-bahasa-eyd5-bentuk-terikat-008",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-eyd5-kalimat-efektif-baku"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-bahasa-eyd5-kalimat-efektif-baku berdasarkan EYD Edisi V (2022), bentuk terikat seperti antar-, pasca-, non-, dan sub- ditulis serangkai dengan kata yang mengikutinya apabila diawali huruf kecil ('antardaerah', 'pascabencana', 'subbagian'), serta dirangkaikan dengan tanda hubung (-) apabila diikuti oleh kata yang diawali huruf kapital atau singkatan berhuruf kapital ('non-ASN'). Pemeriksaan tiap opsi: A salah pada 'antar daerah', 'pasca bencana', 'nonASN', dan 'sub bagian'; B benar seluruhnya ('antardaerah', 'pascabencana', 'non-ASN', 'subbagian'); C salah memakai tanda hubung sebelum huruf kecil ('antar-daerah', 'pasca-bencana', 'sub-bagian') dan spasi pada 'non ASN'; D salah pada 'non-asn' (singkatan tidak kapital) dan 'sub bagian'; E salah pada 'antar daerah' dan 'pasca-bencana'. Maka jawaban benar adalah opsi B.",
+    "stem": "Sekar sedang memeriksa draf surat edaran koordinasi penanggulangan dampak banjir di tingkat provinsi agar seluruh penulisan bentuk terikat dan tanda hubung mematuhi EYD Edisi V. Kalimat yang seluruh penulisannya telah sesuai dengan kaidah EYD Edisi V adalah...",
+    "options": {
+      "A": "Koordinasi antar daerah diperkuat pasca bencana untuk mendata pegawai nonASN pada seluruh sub bagian teknis.",
+      "B": "Koordinasi antardaerah diperkuat pascabencana untuk mendata pegawai non-ASN pada seluruh subbagian teknis.",
+      "C": "Koordinasi antar-daerah diperkuat pasca-bencana untuk mendata pegawai non ASN pada seluruh sub-bagian teknis.",
+      "D": "Koordinasi antardaerah diperkuat pascabencana untuk mendata pegawai non-asn pada seluruh sub bagian teknis.",
+      "E": "Koordinasi antar daerah diperkuat pasca-bencana untuk mendata pegawai non-ASN pada seluruh subbagian teknis."
+    },
+    "hint": "Ingat aturan penulisan bentuk terikat ketika bertemu kata berhuruf kecil dibandingkan saat bertemu singkatan berhuruf kapital.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Bentuk terikat 'antar-', 'pasca-', dan 'sub-' tidak boleh dipisah dengan spasi, sedangkan 'non-' sebelum singkatan kapital wajib memakai tanda hubung.",
+      "B": "Benar. Sesuai EYD V, 'antardaerah', 'pascabencana', dan 'subbagian' ditulis serangkai, sedangkan 'non-ASN' memakai tanda hubung sebelum singkatan kapital.",
+      "C": "Salah. Tanda hubung tidak digunakan sebelum kata dasar berhuruf kecil, dan 'non ASN' tidak boleh dipisah dengan spasi.",
+      "D": "Salah. Singkatan 'ASN' harus ditulis huruf kapital penuh ('non-ASN'), serta 'subbagian' wajib ditulis serangkai tanpa spasi.",
+      "E": "Salah. Penulisan 'antar daerah' tidak boleh dipisah spasi dan 'pasca-bencana' tidak memerlukan tanda hubung."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Keputusan Kepala Badan Pengembangan dan Pembinaan Bahasa Nomor 0424/I/BS.00.01/2022 tentang Ejaan Bahasa Indonesia yang Disempurnakan Edisi V",
+      "url": "https://ejaan.kemdikbud.go.id"
+    }
+  },
+  {
+    "slug": "twk-bahasa-peluluhan-ktsp-baku-009",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-eyd5-kalimat-efektif-baku"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-bahasa-eyd5-kalimat-efektif-baku, kaidah peluluhan awalan meN- menyatakan bahwa kata dasar berawal K, T, S, P diikuti vokal luluh ('pengaruh' -> 'memengaruhi'), sedangkan kata dasar berawal gugus konsonan (kluster) tidak luluh ('proses' -> 'memproses'). Selain itu, kata dasar 'ubah' dengan awalan meN- menjadi 'mengubah' (bukan 'merubah'), dan bentuk baku KBBI adalah 'analisis', 'risiko', 'praktik', dan 'sistem'. Evaluasi opsi: A mengandung banyak bentuk tidak baku ('analisa', 'resiko', 'merubah', 'praktek', 'mempengaruhi', 'sistim'); B salah pada 'merubah' dan 'mempengaruhi'; C salah pada 'memroses' (kluster pr- tidak luluh); D salah pada 'resiko' dan 'praktek'; E benar seluruhnya ('memproses', 'analisis', 'risiko', 'mengubah', 'praktik', 'memengaruhi', 'sistem'). Jawaban benar adalah opsi E.",
+    "stem": "Dalam penyusunan telaah staf mengenai pembaruan tata kelola layanan daring, Bagas harus memastikan seluruh kata berimbuhan dan istilah teknis menggunakan bentuk baku sesuai KBBI serta kaidah peluluhan bunyi bahasa Indonesia. Kalimat yang seluruh bentuk katanya baku adalah...",
+    "options": {
+      "A": "Tim teknis mengkaji analisa resiko guna merubah praktek pelayanan yang mempengaruhi kinerja sistim informasi.",
+      "B": "Tim teknis memproses analisis risiko guna merubah praktik pelayanan yang mempengaruhi kinerja sistem informasi.",
+      "C": "Tim teknis memroses analisis risiko guna mengubah praktik pelayanan yang memengaruhi kinerja sistem informasi.",
+      "D": "Tim teknis memproses analisis resiko guna mengubah praktek pelayanan yang memengaruhi kinerja sistem informasi.",
+      "E": "Tim teknis memproses analisis risiko guna mengubah praktik pelayanan yang memengaruhi kinerja sistem informasi."
+    },
+    "hint": "Cermati perbedaan peluluhan awalan meN- pada gugus konsonan dibanding konsonan diikuti vokal, serta cek ejaan kata serapan baku KBBI.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Memuat enam bentuk tidak baku sekaligus: 'analisa', 'resiko', 'merubah', 'praktek', 'mempengaruhi', dan 'sistim'.",
+      "B": "Salah. Bentuk 'merubah' tidak baku (seharusnya 'mengubah') dan 'mempengaruhi' tidak meluluhkan fonem 'p' (seharusnya 'memengaruhi').",
+      "C": "Salah. Kata dasar 'proses' berawal gugus konsonan 'pr-' sehingga tidak luluh; bentuk bakunya adalah 'memproses', bukan 'memroses'.",
+      "D": "Salah. Penulisan 'resiko' dan 'praktek' merupakan bentuk tidak baku dalam KBBI; bentuk bakunya adalah 'risiko' dan 'praktik'.",
+      "E": "Benar. Seluruh kata ('memproses', 'analisis', 'risiko', 'mengubah', 'praktik', 'memengaruhi', 'sistem') mematuhi kaidah peluluhan dan KBBI."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Keputusan Kepala Badan Pengembangan dan Pembinaan Bahasa Nomor 0424/I/BS.00.01/2022 tentang Ejaan Bahasa Indonesia yang Disempurnakan Edisi V",
+      "url": "https://ejaan.kemdikbud.go.id"
+    }
+  },
+  {
+    "slug": "twk-bahasa-eyd5-kapital-geografi-010",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-eyd5-kalimat-efektif-baku"
+    ],
+    "reasoningChain": "Mengacu pada materi twk-bahasa-eyd5-kalimat-efektif-baku berdasarkan EYD Edisi V, unsur nama wilayah administratif dan nama geografi ditulis kapital jika diikuti nama diri ('Kabupaten Banyuwangi', 'Selat Bali'), nama jabatan yang tidak diikuti nama orang, instansi, atau daerah ditulis huruf kecil ('para kepala dinas'), serta unsur geografi yang sudah menjadi nama jenis ditulis huruf kecil semua ('gula jawa'). Evaluasi opsi: A salah pada 'para Kepala Dinas' dan 'Gula Jawa'; B salah pada 'kabupaten Banyuwangi'; C benar seluruhnya ('Kabupaten Banyuwangi', 'para kepala dinas', 'gula jawa', 'Selat Bali'); D salah pada 'gula Jawa' dan 'selat Bali'; E salah pada 'para Kepala Dinas' dan 'selat Bali'. Jadi jawaban benar adalah opsi C.",
+    "stem": "Suryo bertugas menyunting berita acara rapat distribusi komoditas pangan antarwilayah sebelum dipublikasikan pada portal resmi pemerintah daerah. Manakah penulisan huruf kapital pada unsur jabatan, nama wilayah, nama geografi, dan nama jenis di bawah ini yang sepenuhnya mematuhi EYD Edisi V?",
+    "options": {
+      "A": "Dalam rapat di Kabupaten Banyuwangi, para Kepala Dinas membahas pengiriman komoditas Gula Jawa melewati Selat Bali.",
+      "B": "Dalam rapat di kabupaten Banyuwangi, para kepala dinas membahas pengiriman komoditas gula jawa melewati Selat Bali.",
+      "C": "Dalam rapat di Kabupaten Banyuwangi, para kepala dinas membahas pengiriman komoditas gula jawa melewati Selat Bali.",
+      "D": "Dalam rapat di Kabupaten Banyuwangi, para kepala dinas membahas pengiriman komoditas gula Jawa melewati selat Bali.",
+      "E": "Dalam rapat di Kabupaten Banyuwangi, para Kepala Dinas membahas pengiriman komoditas gula jawa melewati selat Bali."
+    },
+    "hint": "Periksa syarat penggunaan huruf kapital pada nama jabatan tanpa nama instansi/orang, nama jenis berunsur geografi, dan unsur geografi bernamadiri.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Jabatan 'para kepala dinas' tanpa nama orang/instansi dan nama jenis 'gula jawa' harus ditulis dengan huruf kecil.",
+      "B": "Salah. Unsur wilayah administratif yang diikuti nama diri ('Kabupaten Banyuwangi') wajib diawali huruf kapital.",
+      "C": "Benar. Sesuai EYD V: 'Kabupaten Banyuwangi' dan 'Selat Bali' berhuruf kapital, sedangkan 'para kepala dinas' serta nama jenis 'gula jawa' berhuruf kecil.",
+      "D": "Salah. Nama jenis 'gula jawa' tidak memakai huruf kapital pada kata 'jawa', sedangkan 'Selat Bali' wajib diawali huruf kapital.",
+      "E": "Salah. Penulisan 'para Kepala Dinas' seharusnya huruf kecil, sedangkan nama geografi 'Selat Bali' wajib diawali huruf kapital."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Keputusan Kepala Badan Pengembangan dan Pembinaan Bahasa Nomor 0424/I/BS.00.01/2022 tentang Ejaan Bahasa Indonesia yang Disempurnakan Edisi V",
+      "url": "https://ejaan.kemdikbud.go.id"
+    }
+  },
+  {
+    "slug": "twk-legacy-b01-01-kedaulatan-data-geospasial-maritim-dalam-kerja-sama-riset-internasional",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-uu23-pengabdian-profesi"
+    ],
+    "reasoningChain": "Merujuk pada Pasal 6 dan Pasal 7 UU No. 23 Tahun 2019 tentang Pengelolaan Sumber Daya Nasional untuk Pertahanan Negara, keikutsertaan warga negara dalam usaha Bela Negara diselenggarakan salah satunya melalui pengabdian sesuai dengan profesi untuk menghadapi ancaman militer, ancaman nonmiliter, maupun ancaman hibrida. Kebocoran data geospasial strategis (batimetri perbatasan) merupakan potensi ancaman nonmiliter berdimensi keamanan informasi dan kedaulatan wilayah. Tindakan Dr. Mahendra bukan sekadar kepatuhan administratif atau chauvinisme, melainkan aktualisasi Bela Negara nonfisik melalui pengabdian profesi sebagai ilmuwan. Opsi D bernilai 5, sedangkan opsi A, B, C, dan E bernilai 0.",
+    "stem": "Dr. Mahendra, seorang peneliti oseanografi pada pusat riset kelautan nasional, menerima tawaran hibah penelitian bernilai besar dari konsorsium lembaga asing untuk memetakan arus bawah laut di perairan kepulauan perbatasan. Dalam draf perjanjian kerja sama, pihak pemberi hibah menyisipkan klausul yang mewajibkan penyerahan data mentah batimetri (peta topografi kedalaman dasar laut) beresolusi tinggi sebelum diverifikasi oleh otoritas pertahanan nasional. Menyadari bahwa data batimetri presisi tinggi merupakan informasi strategis yang berkaitan dengan keselamatan navigasi bawah air dan pertahanan maritim, Dr. Mahendra menolak klausul tersebut dan memilih mengoptimalkan anggaran riset dalam negeri yang terbatas. Berdasarkan UU No. 23 Tahun 2019 tentang Pengelolaan Sumber Daya Nasional untuk Pertahanan Negara, tindakan Dr. Mahendra merupakan bentuk...",
+    "options": {
+      "A": "Pelaksanaan pertahanan militer sebagai bagian dari Komponen Utama karena berkaitan langsung dengan pengamanan jalur navigasi kapal selam.",
+      "B": "Sikap chauvinisme ilmiah yang menutup peluang kolaborasi riset global demi mengagungkan kemandirian teknologi kelautan nasional.",
+      "C": "Kepatuhan hukum normatif-administratif yang semata-mata bertujuan menghindari sanksi pelanggaran prosedur pengadaan barang dan jasa pemerintah.",
+      "D": "Aktualisasi Bela Negara secara nonfisik melalui pengabdian sesuai profesi guna menangkal potensi ancaman nonmiliter terhadap keamanan informasi strategis negara.",
+      "E": "Manifestasi nasionalisme etnis-kultural untuk melindungi kearifan lokal masyarakat pesisir dari penetrasi nilai budaya asing."
+    },
+    "hint": "Pertimbangkan bagaimana kompetensi profesi sipil digunakan secara terkoordinasi untuk menangkal ancaman nonmiliter.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena peneliti sipil bukan Komponen Utama (TNI).",
+      "B": "Pilihan B (skor 0) salah karena menolak klausul yang membahayakan kedaulatan negara bukan bentuk chauvinisme.",
+      "C": "Pilihan C (skor 0) terlalu menyempitkan motif substansial pertahanan negara menjadi sekadar administrasi birokrasi.",
+      "D": "Pilihan D (skor 5) tepat karena sesuai Pasal 6 ayat (2) huruf d dan Pasal 7 ayat (3) UU No. 23 Tahun 2019, pengabdian sesuai profesi oleh ilmuwan dalam menjaga kerahasiaan data strategis negara dari ancaman nonmiliter adalah wujud nyata Bela Negara nonfisik.",
+      "E": "Pilihan E (skor 0) tidak relevan karena kasus berfokus pada kedaulatan data strategis, bukan kebudayaan lokal."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b01"
+    }
+  },
+  {
+    "slug": "twk-legacy-b01-02-dilema-hilirisasi-industri-tambang-dan-hak-konstitusional-lingkungan-hidup",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-konstitusi-lembaga-negara"
+    ],
+    "reasoningChain": "Permasalahan ini menguji pemahaman komprehensif atas Pasal 33 ayat (3), Pasal 33 ayat (4), dan Pasal 28H ayat (1) UUD NRI 1945 (serta yurisprudensi Mahkamah Konstitusi tentang pengertian 'dikuasai oleh negara'). Hak menguasai negara dalam Pasal 33 ayat (3) bukan berarti hak memiliki secara absolut tanpa batas, melainkan dimandatkan untuk sebesar-besar kemakmuran rakyat. Selain itu, Pasal 33 ayat (4) mewajibkan perekonomian nasional diselenggarakan berdasar atas demokrasi ekonomi dengan prinsip berkelanjutan dan berwawasan lingkungan, yang beririsan langsung dengan hak konstitusional warga negara atas lingkungan hidup yang baik dan sehat pada Pasal 28H ayat (1). Dengan demikian, argumen otoritas daerah tersebut bertentangan dengan konstitusi. Opsi E bernilai 5, sedangkan opsi A, B, C, dan D bernilai 0.",
+    "stem": "Pemerintah daerah di sebuah provinsi sentra pertambangan mineral menerbitkan kebijakan percepatan operasional kawasan industri peleburan bijih logam yang berhasil melipatgandakan pendapatan asli daerah. Namun, hasil pemantauan independen membuktikan bahwa pembuangan limbah bahang dan tailing ke perairan teluk telah merusak terumbu karang, menurunkan hasil tangkapan ribuan nelayan tradisional secara drastis, serta memicu lonjakan penyakit saluran pernapasan pada warga pesisir. Ketika masyarakat menuntut evaluasi izin operasional, otoritas daerah berargumen bahwa hak menguasai negara atas kekayaan alam memberikan kewenangan mutlak bagi pemerintah untuk memprioritaskan pertumbuhan ekonomi makro di atas kepentingan ekologis lokal. Tinjauan konstitusional yang paling tepat terhadap argumen otoritas daerah tersebut berdasarkan UUD NRI 1945 adalah...",
+    "options": {
+      "A": "Argumen tersebut sah secara konstitusional karena Pasal 33 ayat (3) memberikan mandat absolut kepada negara untuk mengeksploitasi sumber daya alam selama hasilnya masuk ke kas daerah.",
+      "B": "Argumen tersebut dapat dibenarkan apabila pemerintah daerah telah memperoleh fatwa uji materiil undang-undang terhadap UUD NRI 1945 dari Mahkamah Agung.",
+      "C": "Argumen tersebut melanggar Pasal 23A UUD NRI 1945 sebab pemungutan hasil tambang daerah seharusnya ditetapkan terlebih dahulu melalui persetujuan Dewan Perwakilan Daerah.",
+      "D": "Argumen tersebut hanya melanggar etika kebijakan publik, karena naskah UUD NRI 1945 pasca-amandemen belum mengatur klausul wawasan lingkungan dalam bab perekonomian nasional.",
+      "E": "Argumen tersebut keliru karena hak menguasai negara dalam Pasal 33 ayat (3) wajib diselaraskan dengan prinsip berkelanjutan dan berwawasan lingkungan pada Pasal 33 ayat (4) serta hak atas lingkungan hidup yang sehat pada Pasal 28H ayat (1)."
+    },
+    "hint": "Hubungkan hak konstitusional warga negara dan pembagian kewenangan antarlembaga dalam pasal-pasal UUD NRI 1945.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah menafsirkan hak menguasai negara sebagai kekuasaan absolut yang mengabaikan kemakmuran rakyat dan kelestarian lingkungan.",
+      "B": "Pilihan B (skor 0) salah karena uji materiil UU terhadap UUD NRI 1945 merupakan kewenangan Mahkamah Konstitusi, bukan Mahkamah Agung.",
+      "C": "Pilihan C (skor 0) keliru merujuk Pasal 23A (pajak dan pungutan) serta kewenangan DPD.",
+      "D": "Pilihan D (skor 0) salah secara faktual karena Pasal 33 ayat (4) hasil Amandemen Keempat secara eksplisit memuat prinsip berwawasan lingkungan.",
+      "E": "Pilihan E (skor 5) benar karena mengintegrasikan secara tepat Pasal 33 ayat (3) (sebesar-besar kemakmuran rakyat), Pasal 33 ayat (4) (prinsip berkelanjutan dan berwawasan lingkungan), serta Pasal 28H ayat (1) (hak atas lingkungan hidup yang baik dan sehat)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b01"
+    }
+  },
+  {
+    "slug": "twk-legacy-b01-03-evaluasi-kalimat-efektif-dan-ketepatan-kosakata-baku-dalam-laporan-klinis",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-kalimat-efektif-eyd"
+    ],
+    "reasoningChain": "Analisis kebakuan kata (KBBI) dan keefektifan kalimat untuk setiap nomor:\n- Kalimat (1): Terdapat kata tidak baku 'standarisasi' (bentuk baku menurut KBBI adalah 'standardisasi' karena diserap dari 'standardization').\n- Kalimat (2): Terdapat kata tidak baku 'antrian' (bentuk baku menurut KBBI adalah 'antrean' dari kata dasar 'antre').\n- Kalimat (3): Seluruh kata ('manajemen', 'menginstruksikan', 'apoteker', 'generik', 'formularium') merupakan kata baku KBBI. Struktur kalimat memiliki Subjek ('Manajemen rumah sakit'), Predikat ('telah menginstruksikan'), Objek ('seluruh apoteker'), dan Keterangan tujuan ('agar memastikan...') yang jelas, paralel, serta hemat kata.\n- Kalimat (4): Terdapat kata tidak baku 'dihimbau' (bentuk baku adalah 'diimbau' dari kata dasar 'imbau').\n- Kalimat (5): Terdapat kata tidak baku 'merubah' (imbuhan meN- + ubah menghasilkan bentuk baku 'mengubah', bukan 'merubah').\nDengan demikian, hanya kalimat (3) yang sepenuhnya tepat. Opsi A bernilai 5, sedangkan opsi B, C, D, dan E bernilai 0.",
+    "stem": "Cermati paragraf laporan evaluasi tata kelola layanan di rumah sakit rujukan nasional berikut!\n\n(1) Transformasi layanan kesehatan primer di Rumah Sakit Umum Pusat (RSUP) menuntut standarisasi prosedur diagnosis yang akurat dan terintegrasi. (2) Namun, hasil audit klinis menunjukkan bahwa antrian pasien rawat jalan masih sering mengalami penumpukan akibat belum sinkronnya pangkalan data rekam medis elektronik. (3) Manajemen rumah sakit telah menginstruksikan seluruh apoteker agar memastikan ketersediaan obat generik sesuai formularium nasional. (4) Selain itu, para dokter spesialis dihimbau untuk mengoptimalkan konsultasi telemedisin guna memangkas waktu tunggu layanan. (5) Langkah strategis ini diharapkan mampu merubah paradigma pelayanan kesehatan menjadi lebih responsif, akuntabel, dan berorientasi pada keselamatan pasien.\n\nKalimat dalam paragraf di atas yang telah memenuhi syarat kalimat efektif sekaligus menggunakan kosakata baku sesuai KBBI dan EYD Edisi V adalah...",
+    "options": {
+      "A": "Kalimat (3)",
+      "B": "Kalimat (2)",
+      "C": "Kalimat (1)",
+      "D": "Kalimat (4)",
+      "E": "Kalimat (5)"
+    },
+    "hint": "Periksa kejelasan struktur Subjek-Predikat, kehematan kata, serta kebakuan ejaan menurut KBBI dan EYD Edisi V.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 5) benar karena kalimat (3) memiliki struktur sintaksis yang efektif (S-P-O-K) dan seluruh kosakatanya ('menginstruksikan', 'apoteker', 'generik', 'formularium') baku menurut KBBI.",
+      "B": "Pilihan B (skor 0) salah karena menggunakan bentuk tidak baku 'antrian' (seharusnya 'antrean').",
+      "C": "Pilihan C (skor 0) salah karena kalimat (1) menggunakan bentuk tidak baku 'standarisasi' (seharusnya 'standardisasi').",
+      "D": "Pilihan D (skor 0) salah karena menggunakan bentuk tidak baku 'dihimbau' (seharusnya 'diimbau').",
+      "E": "Pilihan E (skor 0) salah karena menggunakan bentuk tidak baku 'merubah' (seharusnya 'mengubah')."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b01"
+    }
+  },
+  {
+    "slug": "twk-legacy-b02-01-peran-nelayan-perbatasan-dalam-menjaga-perairan-dari-penangkapan-ikan-ilegal",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-uu23-pengabdian-profesi"
+    ],
+    "reasoningChain": "Berdasarkan Pasal 27 ayat (3) UUD NRI 1945 dan UU No. 23 Tahun 2019 tentang Pengelolaan Sumber Daya Nasional untuk Pertahanan Negara (khususnya Pasal 6 dan 7), keikutsertaan warga negara dalam upaya pembelaan negara dapat diwujudkan melalui pengabdian sesuai profesi guna menghadapi ancaman kedaulatan wilayah. Nelayan yang secara aktif mengawasi wilayah perbatasan saat melaut dan melaporkan aktivitas ilegal kepada Bakamla dan TNI AL merupakan implementasi nyata Bela Negara nonfisik sesuai profesi. Kelima konsep pada opsi A–E merupakan konsep kebangsaan yang positif dan benar secara definisi, namun Bela Negara (opsi C) adalah kategorisasi konstitusional dan yuridis yang paling tepat dan spesifik terhadap konteks menjaga kedaulatan negara. Opsi A (Nasionalisme), B (Patriotisme), D (Integritas), dan E (Kepatuhan hukum) merupakan nilai pendukung yang positif, tetapi bukan kategorisasi yuridis utama tindakan pertahanan negara tersebut. Opsi C bernilai 5, sedangkan opsi A, B, D, dan E bernilai 0.",
+    "stem": "Para nelayan di Pulau Sebatik, Kabupaten Nunukan, secara bergantian meronda perairan perbatasan sambil melaut. Ketika melihat kapal asing menangkap ikan secara ilegal, mereka segera melaporkan koordinat kapal tersebut kepada Bakamla dan TNI AL tanpa melakukan tindakan main hakim sendiri. Sikap para nelayan tersebut paling tepat dikategorikan sebagai ...",
+    "options": {
+      "A": "Nasionalisme, karena mencerminkan kesadaran kolektif masyarakat kepulauan dalam menjaga identitas dan kedaulatan maritim bangsa.",
+      "B": "Patriotisme, karena menunjukkan kerelaan berkorban waktu dan tenaga di tengah aktivitas melaut demi menjaga kehormatan wilayah negara.",
+      "C": "Bela Negara, karena merupakan keikutsertaan aktif warga negara dalam upaya pembelaan negara melalui pengabdian sesuai profesi sebagaimana Pasal 27 ayat (3) UUD NRI 1945 dan UU No. 23 Tahun 2019.",
+      "D": "Integritas, karena membuktikan keteguhan moral para nelayan untuk tidak berkompromi terhadap praktik penangkapan ikan ilegal di perbatasan.",
+      "E": "Kepatuhan hukum, karena para nelayan mengutamakan prosedur pelaporan resmi kepada aparat berwenang daripada melakukan tindakan main hakim sendiri."
+    },
+    "hint": "Pertimbangkan bagaimana kompetensi profesi sipil digunakan secara terkoordinasi untuk menangkal ancaman nonmiliter.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A, B, D, dan E (skor 0) menyajikan konsep kebangsaan yang bernilai positif dan benar secara konseptual, namun kurang spesifik terhadap konteks pertahanan kedaulatan negara: Nasionalisme (A) berfokus pada kesadaran identitas dan kedaulatan bangsa; Patriotisme (B) berfokus pada kerelaan berkorban demi kehormatan negara; Integritas (D) menekankan keteguhan moral; serta Kepatuhan hukum (E) menekankan ketaatan prosedur resmi.",
+      "B": "Pilihan A, B, D, dan E (skor 0) menyajikan konsep kebangsaan yang bernilai positif dan benar secara konseptual, namun kurang spesifik terhadap konteks pertahanan kedaulatan negara: Nasionalisme (A) berfokus pada kesadaran identitas dan kedaulatan bangsa; Patriotisme (B) berfokus pada kerelaan berkorban demi kehormatan negara; Integritas (D) menekankan keteguhan moral; serta Kepatuhan hukum (E) menekankan ketaatan prosedur resmi.",
+      "C": "Pilihan C (skor 5) benar karena tindakan para nelayan perbatasan merupakan bentuk keikutsertaan aktif warga negara dalam upaya pembelaan negara melalui pengabdian sesuai profesi, sebagaimana diatur dalam Pasal 27 ayat (3) UUD NRI 1945 dan UU No. 23 Tahun 2019 Pasal 6–7.",
+      "D": "Pilihan A, B, D, dan E (skor 0) menyajikan konsep kebangsaan yang bernilai positif dan benar secara konseptual, namun kurang spesifik terhadap konteks pertahanan kedaulatan negara: Nasionalisme (A) berfokus pada kesadaran identitas dan kedaulatan bangsa; Patriotisme (B) berfokus pada kerelaan berkorban demi kehormatan negara; Integritas (D) menekankan keteguhan moral; serta Kepatuhan hukum (E) menekankan ketaatan prosedur resmi.",
+      "E": "Pilihan A, B, D, dan E (skor 0) menyajikan konsep kebangsaan yang bernilai positif dan benar secara konseptual, namun kurang spesifik terhadap konteks pertahanan kedaulatan negara: Nasionalisme (A) berfokus pada kesadaran identitas dan kedaulatan bangsa; Patriotisme (B) berfokus pada kerelaan berkorban demi kehormatan negara; Integritas (D) menekankan keteguhan moral; serta Kepatuhan hukum (E) menekankan ketaatan prosedur resmi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b02"
+    }
+  },
+  {
+    "slug": "twk-legacy-b02-02-pungutan-sekolah-dasar-negeri-yang-menyebabkan-anak-putus-sekolah",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-konstitusi-lembaga-negara"
+    ],
+    "reasoningChain": "Kebijakan membebankan biaya pada peserta didik pendidikan dasar. Pasal 31 ayat (2) UUD NRI 1945 berbunyi: setiap warga negara wajib mengikuti pendidikan dasar dan pemerintah wajib membiayainya. Inilah ketentuan yang paling spesifik karena mengatur kewajiban pembiayaan oleh pemerintah pada jenjang dasar. Pasal 31 ayat (1) hanya mengatur hak mendapat pendidikan secara umum. Pasal 31 ayat (4) mengatur alokasi minimal 20 persen anggaran dan tidak mengatur pungutan kepada siswa. Pasal 28C ayat (1) dan Pasal 28D ayat (1) bersifat umum atau tidak relevan. Jawaban benar: E.",
+    "stem": "Sebuah pemerintah kabupaten di pesisir selatan menetapkan 'sumbangan wajib pembangunan' sebesar Rp1,5 juta per tahun bagi setiap siswa sekolah dasar negeri. Akibatnya, puluhan anak dari keluarga nelayan berhenti sekolah. Pemerintah kabupaten berdalih bahwa anggaran operasional sekolah tidak mencukupi. Ketentuan UUD NRI 1945 yang secara paling spesifik diabaikan oleh kebijakan tersebut adalah ...",
+    "options": {
+      "A": "Pasal 28C ayat (1) tentang hak mengembangkan diri melalui pemenuhan kebutuhan dasar.",
+      "B": "Pasal 31 ayat (1) tentang hak setiap warga negara untuk mendapat pendidikan.",
+      "C": "Pasal 31 ayat (4) tentang alokasi anggaran pendidikan minimal 20 persen dari APBN dan APBD.",
+      "D": "Pasal 28D ayat (1) tentang jaminan kepastian hukum yang adil dan perlakuan yang sama di hadapan hukum.",
+      "E": "Pasal 31 ayat (2) tentang kewajiban warga negara mengikuti pendidikan dasar dan kewajiban pemerintah membiayainya."
+    },
+    "hint": "Hubungkan hak konstitusional warga negara dan pembagian kewenangan antarlembaga dalam pasal-pasal UUD NRI 1945.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A terlalu umum.",
+      "B": "Pilihan B menyangkut hak pendidikan secara umum sehingga kurang spesifik.",
+      "C": "Pilihan C mengatur besaran alokasi anggaran, bukan larangan membebani siswa, sehingga dalih kekurangan anggaran tidak otomatis melanggar ayat ini.",
+      "D": "Pilihan D menyangkut kepastian hukum dan kesetaraan di hadapan hukum, yang tidak menjadi inti kasus.",
+      "E": "Pilihan E benar karena pungutan pada pendidikan dasar bertentangan langsung dengan kewajiban pemerintah membiayai pendidikan dasar."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b02"
+    }
+  },
+  {
+    "slug": "twk-legacy-b02-03-perbaikan-kalimat-pada-naskah-siaran-pers-dinas-lingkungan-hidup",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-kalimat-efektif-eyd"
+    ],
+    "reasoningChain": "Kalimat asli mengandung tiga masalah: (1) 'melakukan sosialisasi tentang' boros dan dapat diringkas menjadi verba transitif; (2) 'para warga-warga' adalah pemborosan karena bentuk jamak ganda; (3) verba bentukan dari 'sosialisasi' dengan prefiks me- mengikuti kaidah peluluhan fonem /s/ menjadi 'menyosialisasikan' (bukan 'mensosialisasikan'). Verba transitif 'menyosialisasikan' sudah langsung diikuti objek sehingga kata 'tentang' tidak diperlukan. Kalimat efektif dan baku: 'Pemerintah daerah menyosialisasikan pentingnya pengelolaan sampah kepada warga di setiap kelurahan.' Opsi A. Opsi B salah (peluluhan), C salah ('tentang' berlebih), D salah (jamak ganda), E salah (pengulangan 'kelurahan').",
+    "stem": "Sebuah naskah siaran pers dinas lingkungan hidup memuat kalimat berikut: 'Pemerintah daerah melakukan sosialisasi tentang pentingnya pengelolaan sampah kepada para warga-warga di setiap kelurahan.' Kalimat tersebut belum memenuhi kaidah kalimat efektif dan ejaan baku. Perbaikan yang paling tepat adalah ...",
+    "options": {
+      "A": "Pemerintah daerah menyosialisasikan pentingnya pengelolaan sampah kepada warga di setiap kelurahan.",
+      "B": "Pemerintah daerah mensosialisasikan pentingnya pengelolaan sampah kepada warga di setiap kelurahan.",
+      "C": "Pemerintah daerah menyosialisasikan tentang pentingnya pengelolaan sampah kepada warga di setiap kelurahan.",
+      "D": "Pemerintah daerah menyosialisasikan pentingnya pengelolaan sampah kepada para warga-warga di setiap kelurahan.",
+      "E": "Pemerintah daerah menyosialisasikan pentingnya pengelolaan sampah kepada warga di setiap kelurahan yang ada di wilayah kelurahan."
+    },
+    "hint": "Periksa kejelasan struktur Subjek-Predikat, kehematan kata, serta kebakuan ejaan menurut KBBI dan EYD Edisi V.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A benar karena ringkas, tidak mengandung kata mubazir, dan menggunakan bentuk baku 'menyosialisasikan' (fonem /s/ luluh).",
+      "B": "Pilihan B memakai bentuk tidak baku 'mensosialisasikan'.",
+      "C": "Pilihan C masih memuat kata 'tentang' yang berlebihan setelah verba transitif.",
+      "D": "Pilihan D mengandung bentuk jamak ganda 'para warga-warga'.",
+      "E": "Pilihan E mengandung pengulangan makna 'kelurahan' sehingga tidak efektif."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b02"
+    }
+  },
+  {
+    "slug": "twk-legacy-b03-01-pemulihan-infrastruktur-strategis-sebagai-tanggung-jawab-warga-negara",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-uu23-pengabdian-profesi"
+    ],
+    "reasoningChain": "Dasar konstitusional yang relevan adalah Pasal 27 ayat (3) UUD NRI 1945, yang menyatakan: 'Setiap warga negara berhak dan wajib ikut serta dalam upaya pembelaan negara.' Bela negara tidak terbatas pada pertahanan bersenjata atau keikutsertaan dalam pelatihan militer. Kontribusi melalui profesi, pengabdian kepada masyarakat, perlindungan kepentingan nasional, dan pemeliharaan infrastruktur strategis juga dapat menjadi bentuk bela negara. Dalam kasus ini, pegawai tersebut berkontribusi langsung terhadap pemulihan konektivitas wilayah dan perlindungan kepentingan masyarakat melalui kompetensi profesionalnya. Opsi B benar karena menghubungkan tindakan konkret tersebut dengan hak dan kewajiban konstitusional warga negara. Opsi A keliru karena membatasi bela negara pada kegiatan militer. Opsi C keliru karena menyamakan bela negara dengan patriotisme simbolik. Opsi D keliru karena mengabaikan kepentingan nasional yang lebih luas. Opsi E keliru karena memisahkan pengabdian profesional dari tanggung jawab konstitusional warga negara.",
+    "stem": "Setelah banjir memutus jembatan penghubung beberapa desa, seorang pegawai dinas infrastruktur daerah secara sukarela mengoordinasikan pendataan jalur alternatif, mengamankan peralatan pembangunan milik negara, dan membantu pemulihan akses logistik bersama masyarakat. Ia melakukan tindakan tersebut meskipun tugas rutinnya hanya berkaitan dengan pemeriksaan dokumen proyek. Penalaran konstitusional yang paling tepat untuk mengategorikan tindakan tersebut sebagai implementasi bela negara adalah...",
+    "options": {
+      "A": "Tindakan tersebut baru dapat dikategorikan sebagai bela negara apabila pegawai mengikuti pelatihan militer atau terlibat langsung dalam operasi pertahanan bersenjata.",
+      "B": "Tindakan tersebut merupakan pelaksanaan hak dan kewajiban warga negara untuk ikut serta dalam pembelaan negara melalui kontribusi profesional dalam menjaga kepentingan dan keberlangsungan kehidupan masyarakat.",
+      "C": "Tindakan tersebut lebih tepat dikategorikan sebagai patriotisme simbolik karena bela negara terutama diwujudkan melalui penghormatan terhadap simbol dan sejarah nasional.",
+      "D": "Tindakan tersebut merupakan bentuk nasionalisme yang mengutamakan kepentingan masyarakat setempat tanpa perlu mempertimbangkan kepentingan nasional secara menyeluruh.",
+      "E": "Tindakan tersebut hanya mencerminkan integritas pribadi karena pelaksanaan tugas profesional tidak berkaitan dengan kewajiban warga negara dalam pembelaan negara."
+    },
+    "hint": "Pertimbangkan bagaimana kompetensi profesi sipil digunakan secara terkoordinasi untuk menangkal ancaman nonmiliter.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena mempersempit bela negara menjadi aktivitas militer.",
+      "B": "Pilihan B (skor 5) merupakan jawaban paling tepat karena bela negara dapat diwujudkan melalui pengabdian profesional yang melindungi kepentingan nasional dan masyarakat, sebagaimana diamanatkan Pasal 27 ayat (3) UUD NRI 1945.",
+      "C": "Pilihan C (skor 0) salah karena patriotisme simbolik bukan satu-satunya maupun bentuk utama yang harus digunakan untuk mengategorikan tindakan tersebut.",
+      "D": "Pilihan D (skor 0) salah karena nasionalisme tidak membenarkan pengabaian kepentingan nasional.",
+      "E": "Pilihan E (skor 0) salah karena pengabdian profesional dapat menjadi implementasi nyata bela negara."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b03"
+    }
+  },
+  {
+    "slug": "twk-legacy-b03-02-kesetaraan-kesempatan-dalam-seleksi-penerimaan-peserta-didik",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-konstitusi-lembaga-negara"
+    ],
+    "reasoningChain": "Ketentuan konstitusional yang paling langsung memberikan perlindungan terhadap kasus perlakuan berbeda dalam seleksi sekolah negeri atas dasar kelompok bahasa ibu adalah Pasal 28I ayat (2) UUD NRI 1945, yang menyatakan bahwa setiap orang berhak bebas dari perlakuan yang bersifat diskriminatif atas dasar apa pun dan berhak mendapatkan perlindungan terhadap perlakuan diskriminatif tersebut. Kebiasaan lokal tidak dapat dijadikan dasar pembenaran tindakan diskriminatif. Opsi E bernilai 5. Distraktor opsi A merujuk Pasal 28E ayat (1) mengenai kebebasan beragama dan memilih tempat tinggal/pendidikan; opsi B merujuk Pasal 31 ayat (1) mengenai hak pendidikan secara umum tanpa norma anti-diskriminasi spesifik; opsi C merujuk Pasal 28D ayat (3) mengenai kesempatan dalam pemerintahan; dan opsi D merujuk Pasal 18B ayat (2) mengenai pengakuan kesatuan masyarakat hukum adat, bukan diskriminasi layanan publik.",
+    "stem": "Sebuah sekolah negeri menerapkan kebijakan bahwa calon peserta didik dari kelompok bahasa ibu tertentu harus menjalani seleksi tambahan yang tidak diberlakukan kepada calon peserta didik lainnya, meskipun seluruh persyaratan administrasi dan nilai akademik mereka setara. Pihak sekolah beralasan bahwa kebijakan tersebut merupakan kebiasaan lokal yang telah berlangsung selama bertahun-tahun. Ketentuan UUD NRI 1945 yang paling langsung memberikan perlindungan terhadap calon peserta didik tersebut adalah...",
+    "options": {
+      "A": "Pasal 28E ayat (1) UUD NRI 1945 mengenai kebebasan setiap orang untuk memeluk agama, memilih pendidikan, dan memilih tempat tinggal di wilayah negara.",
+      "B": "Pasal 31 ayat (1) UUD NRI 1945 mengenai hak setiap warga negara untuk memperoleh layanan pendidikan yang diselenggarakan oleh pemerintah.",
+      "C": "Pasal 28D ayat (3) UUD NRI 1945 mengenai hak setiap warga negara untuk memperoleh kesempatan yang sama dalam pemerintahan.",
+      "D": "Pasal 18B ayat (2) UUD NRI 1945 mengenai pengakuan dan penghormatan negara terhadap kesatuan masyarakat hukum adat beserta hak tradisionalnya.",
+      "E": "Pasal 28I ayat (2) UUD NRI 1945 mengenai hak setiap orang untuk bebas dari perlakuan yang bersifat diskriminatif atas dasar apa pun dan berhak mendapatkan perlindungan terhadap perlakuan diskriminatif tersebut."
+    },
+    "hint": "Hubungkan hak konstitusional warga negara dan pembagian kewenangan antarlembaga dalam pasal-pasal UUD NRI 1945.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena Pasal 28E ayat (1) mengatur kebebasan memilih pendidikan dan memeluk agama.",
+      "B": "Pilihan B (skor 0) salah karena Pasal 31 ayat (1) mengatur hak umum warga negara atas pendidikan tanpa spesifikasi perlindungan diskriminasi.",
+      "C": "Pilihan C (skor 0) salah karena Pasal 28D ayat (3) mengatur kesempatan dalam pemerintahan.",
+      "D": "Pilihan D (skor 0) salah karena Pasal 18B ayat (2) mengatur kesatuan masyarakat hukum adat, bukan jaminan kesetaraan seleksi pendidikan.",
+      "E": "Pilihan E (skor 5) tepat karena merujuk secara eksplisit pada Pasal 28I ayat (2) UUD NRI 1945 yang menjamin hak setiap orang bebas dari perlakuan diskriminatif atas dasar apa pun (termasuk bahasa daerah/bahasa ibu) serta berhak mendapatkan perlindungan dari diskriminasi tersebut."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b03"
+    }
+  },
+  {
+    "slug": "twk-legacy-b03-03-penyuntingan-kalimat-efektif-dalam-dokumen-evaluasi-kebijakan",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-kalimat-efektif-eyd"
+    ],
+    "reasoningChain": "Permasalahan dalam paragraf mencakup ketidakefektifan struktur kalimat, pemborosan kata, serta penggunaan kosakata tidak baku. Frasa 'dalam rangka untuk' mengandung pemborosan karena kedua unsur tersebut menyatakan tujuan. Kata 'maka' tidak diperlukan setelah konstruksi tujuan tersebut. Bentuk 'data-data' dapat disederhanakan menjadi 'data' karena konteksnya telah jelas. Menurut kaidah bahasa baku, bentuk yang tepat adalah 'analisis', bukan 'analisa', dan 'risiko', bukan 'resiko'. Konjungsi antarkalimat 'Namun' perlu diikuti tanda koma ketika digunakan pada awal kalimat. Opsi A memenuhi prinsip kehematan, ketepatan diksi, dan kepaduan kalimat. Opsi B masih mengandung pemborosan kata dan mempertahankan bentuk tidak baku. Opsi C menggunakan kosakata tidak baku. Opsi D masih mempertahankan konstruksi yang tidak efektif dan tanda baca yang kurang tepat. Opsi E mengubah hubungan makna antarkalimat sehingga tidak mempertahankan maksud awal paragraf.",
+    "stem": "Tim penyusun laporan sebuah kementerian menulis paragraf berikut: 'Dalam rangka untuk meningkatkan akurasi data, maka setiap unit diwajibkan melakukan verifikasi ulang terhadap data-data yang telah dikumpulkan. Hasil analisa menunjukkan bahwa resiko kesalahan meningkat ketika proses pencatatan dilakukan secara manual, namun demikian tindak lanjutnya belum dirumuskan.' Manakah hasil penyuntingan yang paling efektif, baku, dan tetap mempertahankan makna paragraf tersebut?",
+    "options": {
+      "A": "Untuk meningkatkan akurasi data, setiap unit wajib memverifikasi data yang telah dikumpulkan. Hasil analisis menunjukkan bahwa risiko kesalahan meningkat ketika pencatatan dilakukan secara manual. Namun, tindak lanjutnya belum dirumuskan.",
+      "B": "Dalam rangka meningkatkan akurasi data maka setiap unit diwajibkan untuk melakukan verifikasi ulang terhadap data yang telah dikumpulkan. Hasil analisa menunjukkan bahwa resiko kesalahan meningkat ketika pencatatan dilakukan secara manual.",
+      "C": "Untuk meningkatkan akurasi data, setiap unit harus melakukan verifikasi terhadap data yang sudah dikumpulkan. Hasil analisa memperlihatkan bahwa risiko kesalahan bertambah dalam pencatatan manual, tetapi tindak lanjutnya belum dirumuskan.",
+      "D": "Dalam rangka untuk meningkatkan akurasi data, setiap unit wajib melakukan verifikasi ulang terhadap data yang sudah dikumpulkan. Hasil analisis menunjukkan bahwa risiko kesalahan meningkat ketika proses pencatatan dilakukan secara manual, namun demikian tindak lanjutnya belum dirumuskan.",
+      "E": "Setiap unit wajib meningkatkan akurasi data karena proses verifikasi yang telah dilakukan menyebabkan risiko pencatatan manual semakin tinggi dan tindak lanjutnya tidak diperlukan."
+    },
+    "hint": "Periksa kejelasan struktur Subjek-Predikat, kehematan kata, serta kebakuan ejaan menurut KBBI dan EYD Edisi V.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 5) merupakan penyuntingan terbaik karena menghilangkan pemborosan kata, menggunakan bentuk baku 'analisis' dan 'risiko', serta memperbaiki hubungan antarkalimat dan tanda baca.",
+      "B": "Pilihan B (skor 0) masih menggunakan 'analisa' dan 'resiko' yang tidak baku serta mempertahankan konstruksi yang kurang efektif.",
+      "C": "Pilihan C (skor 0) masih menggunakan bentuk tidak baku 'analisa', sehingga belum memenuhi standar kebahasaan.",
+      "D": "Pilihan D (skor 0) masih mengandung pemborosan pada frasa 'dalam rangka untuk' dan penggunaan konjungsi yang kurang efektif.",
+      "E": "Pilihan E (skor 0) mengubah hubungan sebab-akibat dan menghilangkan makna asli paragraf sehingga bukan merupakan penyuntingan yang tepat."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b03"
+    }
+  },
+  {
+    "slug": "twk-legacy-b04-chatgpt-01-penerapan-prinsip-demokrasi-dalam-perencanaan-pembangunan-wilayah-pesisir",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-pengamalan-kontekstual"
+    ],
+    "reasoningChain": "Prinsip yang diuji adalah penerapan sila keempat Pancasila, yaitu Kerakyatan yang Dipimpin oleh Hikmat Kebijaksanaan dalam Permusyawaratan/Perwakilan. Nilai utamanya meliputi penghormatan terhadap hak masyarakat untuk menyampaikan pendapat, pengambilan keputusan melalui musyawarah, pertimbangan kepentingan bersama, dan tanggung jawab terhadap keputusan kolektif. Dalam kasus ini, indikator yang paling spesifik bukan sekadar perlakuan manusiawi terhadap kelompok nelayan kecil, melainkan proses deliberasi yang memberikan ruang representasi dan mempertimbangkan kepentingan berbagai kelompok sebelum mencapai kesepakatan. Opsi D tepat karena secara langsung menggambarkan prinsip permusyawaratan/perwakilan. Opsi A menggambarkan nilai sila pertama mengenai ketuhanan dan toleransi beragama. Opsi B menggambarkan sila kedua mengenai martabat dan kesetaraan manusia. Opsi C menggambarkan sila ketiga mengenai persatuan nasional. Opsi E menggambarkan sila kelima mengenai pemerataan kesejahteraan dan keadilan sosial. Seluruh konsep pada pilihan tersebut benar, tetapi hanya D yang secara langsung sesuai dengan proses pengambilan keputusan dalam skenario.",
+    "stem": "Dalam musyawarah perencanaan pembangunan sebuah desa pesisir, mayoritas warga mengusulkan pembangunan dermaga besar yang menguntungkan kelompok nelayan utama. Namun, perwakilan nelayan dari pulau-pulau kecil menyampaikan bahwa rancangan tersebut berpotensi menghambat akses transportasi dan distribusi hasil tangkapan mereka. Ketua musyawarah kemudian memberikan kesempatan yang setara kepada seluruh perwakilan untuk menyampaikan argumentasi, mempertimbangkan berbagai kepentingan, dan menyusun keputusan melalui kesepakatan bersama. Perilaku tersebut paling spesifik mencerminkan pengamalan sila Pancasila yang berbunyi...",
+    "options": {
+      "A": "Sila pertama, yang mengutamakan penghormatan terhadap kebebasan beragama dan berkeyakinan serta membangun toleransi antarumat dalam kehidupan bermasyarakat.",
+      "B": "Sila kedua, yang menegaskan penghormatan terhadap martabat manusia, kesetaraan hak, dan perlakuan adil tanpa membedakan latar belakang individu.",
+      "C": "Sila ketiga, yang menekankan persatuan bangsa, solidaritas kebangsaan, serta penempatan kepentingan bersama di atas kepentingan kelompok atau golongan.",
+      "D": "Sila keempat, yang mengutamakan musyawarah melalui perwakilan, penghargaan terhadap pendapat, dan pengambilan keputusan secara bijaksana untuk kepentingan bersama.",
+      "E": "Sila kelima, yang menghendaki pemerataan kesempatan, distribusi kesejahteraan, dan kebijakan yang menciptakan keadilan sosial bagi seluruh masyarakat."
+    },
+    "hint": "Tentukan sila Pancasila yang paling presisi menjawab inti dilema antara martabat kemanusiaan, musyawarah, dan keadilan.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) benar menggambarkan nilai ketuhanan dan toleransi, tetapi tidak menjadi fokus utama skenario.",
+      "B": "Pilihan B (skor 0) benar menggambarkan penghormatan terhadap martabat dan kesetaraan manusia, tetapi tidak secara khusus menjelaskan mekanisme pengambilan keputusan.",
+      "C": "Pilihan C (skor 0) benar menggambarkan persatuan dan kepentingan nasional, tetapi bukan indikator utama proses musyawarah.",
+      "D": "Pilihan D (skor 5) merupakan jawaban paling tepat karena inti tindakan ketua musyawarah adalah memberikan ruang representasi, menghargai pendapat, dan mencapai keputusan melalui permusyawaratan sebagaimana nilai sila keempat.",
+      "E": "Pilihan E (skor 0) benar menggambarkan keadilan sosial dan pemerataan kesejahteraan, tetapi tidak secara spesifik mengidentifikasi mekanisme deliberasi yang dilakukan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b04-chatgpt"
+    }
+  },
+  {
+    "slug": "twk-legacy-b04-chatgpt-02-pengelolaan-benturan-kepentingan-dalam-evaluasi-pengadaan-peralatan-laboratorium",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-antikorupsi-asn"
+    ],
+    "reasoningChain": "Indikator utama yang diuji adalah Kompetensi Manajerial Integritas (M.01) dalam Lampiran II PermenPAN-RB Nomor 38 Tahun 2017 tentang Standar Kompetensi Jabatan ASN. Definisi kompetensi ini adalah konsistensi berperilaku selaras dengan nilai, norma, dan/atau etika organisasi, kejujuran dalam hubungan dengan pemangku kepentingan, serta tanggung jawab atas tindakan atau keputusan beserta risikonya. Dalam skenario, tindakan yang paling mencerminkan integritas adalah mengungkapkan hubungan pribadi secara terbuka dan mengajukan pengunduran diri dari proses penilaian untuk menghindari potensi benturan kepentingan. Opsi B merupakan jawaban paling tepat karena mengutamakan kejujuran dan konsistensi etis meskipun terdapat tekanan dari rekan kerja. Opsi A menggambarkan akuntabilitas, yaitu kewajiban mempertanggungjawabkan pelaksanaan tugas dan penggunaan kewenangan. Opsi C menggambarkan kepatuhan hukum, yaitu pelaksanaan tindakan berdasarkan ketentuan peraturan yang berlaku. Opsi D menggambarkan profesionalisme, yaitu pelaksanaan pekerjaan sesuai kompetensi dan standar profesi. Opsi E menggambarkan objektivitas, yaitu penilaian berdasarkan fakta dan kriteria tanpa pengaruh kepentingan pribadi. Seluruh konsep tersebut benar, tetapi integritas merupakan nilai yang paling menyeluruh dan paling langsung tercermin dalam kejujuran mengungkapkan potensi konflik kepentingan.",
+    "stem": "Seorang aparatur ditunjuk sebagai anggota tim evaluasi pengadaan peralatan laboratorium pengujian mineral. Ketika memeriksa daftar peserta pengadaan, ia mengetahui bahwa salah satu perusahaan peserta dikelola oleh kerabat dekatnya. Rekan satu tim menyarankan agar hubungan tersebut tidak perlu disampaikan karena perusahaan itu telah memenuhi persyaratan administrasi dan hasil evaluasi teknis belum tentu menguntungkannya. Tindakan aparatur tersebut yang paling mencerminkan nilai dasar integritas adalah...",
+    "options": {
+      "A": "Akuntabilitas, yaitu kewajiban mempertanggungjawabkan pelaksanaan tugas, keputusan, penggunaan kewenangan, dan hasil pekerjaan secara transparan kepada pihak yang berwenang.",
+      "B": "Integritas, yaitu konsistensi perilaku dengan nilai, norma, dan etika organisasi, disertai kejujuran serta tanggung jawab atas keputusan dan risiko yang menyertainya.",
+      "C": "Kepatuhan hukum, yaitu kesediaan melaksanakan kewajiban dan membatasi tindakan berdasarkan peraturan perundang-undangan serta prosedur yang mengikat.",
+      "D": "Profesionalisme, yaitu pelaksanaan pekerjaan berdasarkan kompetensi, standar kualitas, tanggung jawab jabatan, dan etika profesi yang berlaku.",
+      "E": "Objektivitas, yaitu kemampuan memberikan penilaian berdasarkan fakta, bukti, dan kriteria yang relevan tanpa dipengaruhi kepentingan pribadi."
+    },
+    "hint": "Fokus pada kejujuran prosedural, penolakan benturan kepentingan, dan pelaporan resmi sesuai mekanisme pengawasan.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) merupakan konsep akuntabilitas yang benar, tetapi lebih berfokus pada pertanggungjawaban pelaksanaan kewenangan.",
+      "B": "Pilihan B (skor 5) paling tepat karena aparatur menunjukkan kejujuran, konsistensi etis, dan tanggung jawab dengan mengungkapkan hubungan pribadi serta menghindari potensi benturan kepentingan.",
+      "C": "Pilihan C (skor 0) benar menggambarkan kepatuhan terhadap ketentuan hukum, tetapi skenario secara khusus menguji konsistensi moral dan kejujuran ketika menghadapi tekanan.",
+      "D": "Pilihan D (skor 0) benar menggambarkan profesionalisme, tetapi tidak secara spesifik menjelaskan keberanian mengungkapkan konflik kepentingan.",
+      "E": "Pilihan E (skor 0) benar menggambarkan penilaian tanpa bias, tetapi integritas mencakup kewajiban untuk secara jujur mengakui dan mengelola kondisi yang dapat memengaruhi independensi penilaian."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b04-chatgpt"
+    }
+  },
+  {
+    "slug": "twk-legacy-b04-chatgpt-03-perlindungan-kepentingan-nasional-dalam-kerja-sama-riset-internasional",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-identitas-kedaulatan"
+    ],
+    "reasoningChain": "Konsep yang diuji adalah Nasionalisme, yaitu kesadaran dan komitmen kebangsaan yang diwujudkan melalui kecintaan terhadap bangsa, penghormatan terhadap identitas nasional, serta pengutamaan kepentingan, martabat, kedaulatan, dan kesejahteraan bangsa dalam hubungan dengan pihak lain. Nasionalisme tidak mengharuskan penolakan terhadap kerja sama internasional, melainkan menuntut agar kerja sama tersebut tetap memberikan manfaat dan tidak mengorbankan kepentingan nasional. Opsi E paling tepat karena menggambarkan orientasi kebijakan yang mengutamakan kepentingan nasional sekaligus mempertahankan hubungan internasional yang setara. Opsi A menggambarkan patriotisme, yaitu kecintaan terhadap tanah air yang diwujudkan melalui pengabdian dan kesediaan berkorban. Opsi B menggambarkan bela negara, yaitu pelaksanaan hak dan kewajiban warga negara untuk berkontribusi dalam mempertahankan negara melalui berbagai bidang. Opsi C menggambarkan kedaulatan negara, yaitu kewenangan tertinggi negara dalam mengatur urusan dalam wilayah dan sistem pemerintahannya tanpa intervensi yang tidak sah. Opsi D menggambarkan Bhinneka Tunggal Ika, yaitu prinsip persatuan yang tetap mengakui dan menghormati keberagaman. Keempat konsep tersebut benar, tetapi nasionalisme paling spesifik menjelaskan orientasi kepentingan bangsa dalam kerja sama tersebut.",
+    "stem": "Sebuah lembaga penelitian nasional mengembangkan bank plasma nutfah kakao yang memiliki nilai strategis bagi ketahanan perkebunan Indonesia. Ketika bekerja sama dengan lembaga penelitian asing, tim peneliti menyepakati pertukaran pengetahuan dan teknologi, tetapi memastikan pengelolaan sumber daya genetik tetap sesuai kewenangan nasional serta hasil pengembangan memberikan manfaat bagi petani dalam negeri. Tim tersebut tetap terbuka terhadap kolaborasi internasional tanpa mengabaikan kepentingan strategis bangsa. Konsep wawasan kebangsaan yang paling tepat menggambarkan tindakan tersebut adalah...",
+    "options": {
+      "A": "Patriotisme, yaitu kecintaan terhadap tanah air yang diwujudkan melalui pengabdian, kesetiaan, dan kesediaan memberikan kontribusi atau pengorbanan bagi bangsa.",
+      "B": "Bela Negara, yaitu pelaksanaan hak dan kewajiban setiap warga negara untuk berkontribusi mempertahankan negara melalui kemampuan dan profesi masing-masing.",
+      "C": "Kedaulatan Negara, yaitu kewenangan tertinggi negara dalam mengatur wilayah, pemerintahan, dan kepentingan nasional tanpa intervensi eksternal yang tidak sah.",
+      "D": "Bhinneka Tunggal Ika, yaitu prinsip persatuan bangsa yang tetap mengakui, menghormati, dan menjaga keberagaman identitas sosial serta kebudayaan.",
+      "E": "Nasionalisme, yaitu kesadaran kebangsaan yang mengutamakan kepentingan, identitas, kedaulatan, martabat, dan kesejahteraan bangsa dalam hubungan dengan pihak lain."
+    },
+    "hint": "Identifikasi tindakan yang menjaga kepentingan dan kedaulatan bangsa secara terbuka tanpa terjebak sikap chauvinisme.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) benar menggambarkan patriotisme sebagai kecintaan dan pengabdian terhadap tanah air, tetapi fokus skenario adalah orientasi kepentingan nasional dalam kebijakan kerja sama.",
+      "B": "Pilihan B (skor 0) benar menggambarkan bela negara melalui kontribusi profesional, tetapi tidak secara khusus menunjukkan orientasi kebijakan nasional dalam hubungan internasional.",
+      "C": "Pilihan C (skor 0) benar menggambarkan kedaulatan negara, tetapi hanya menjelaskan aspek kewenangan tertinggi negara, bukan keseluruhan orientasi kebangsaan yang mendasari tindakan.",
+      "D": "Pilihan D (skor 0) benar menggambarkan persatuan dalam keberagaman, tetapi tidak menjadi fokus persoalan pengelolaan sumber daya strategis.",
+      "E": "Pilihan E (skor 5) tepat karena tindakan tim peneliti memperlihatkan pengutamaan kepentingan nasional dalam pengelolaan sumber daya strategis sekaligus mempertahankan kerja sama internasional yang saling menguntungkan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b04-chatgpt"
+    }
+  },
+  {
+    "slug": "twk-legacy-b05-claude-sonnet-01-sikap-bendahara-pembantu-terhadap-kelebihan-transfer-dana-perjalanan-dinas",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-antikorupsi-asn"
+    ],
+    "reasoningChain": "Rubrik pilar TWK Integritas merujuk pada nilai dasar ASN BerAKHLAK (Surat MenPAN-RB Nomor B/102/M.SM.02.03/2021), khususnya nilai Akuntabel: melaksanakan tugas dengan jujur, bertanggung jawab, cermat, disiplin, dan berintegritas tinggi. Integritas adalah keselarasan antara nilai moral dan tindakan yang dipertahankan tanpa dorongan eksternal. Fakta kasus: (1) tidak ada pengawasan karena pemeriksaan masih delapan bulan lagi; (2) kewajiban prosedural pengembalian belum berlaku karena baru muncul setelah ada temuan; (3) tidak ada pihak yang meminta pertanggungjawaban. Kartika bertindak mendahului kewajiban dan pengawasan. Opsi A (kepatuhan hukum) berhenti pada batas kewajiban yang berlaku, padahal kewajiban itu belum aktif. Opsi B (akuntabilitas) mensyaratkan adanya pihak yang menuntut pertanggungjawaban, dan tidak ada. Opsi C (loyalitas) berkaitan dengan kesetiaan kepada organisasi atau pimpinan, tidak relevan. Opsi E (profesionalisme) berkaitan dengan keahlian dan standar teknis kerja, bukan konsistensi nilai moral. Jawaban benar: D.",
+    "stem": "Kartika, bendahara pembantu pada sebuah balai penelitian pertanian di bawah kementerian, mendapati bahwa akibat kesalahan sistem perbankan, rekening operasionalnya menerima kelebihan transfer dana perjalanan dinas sebesar Rp4 juta. Prosedur internal baru mewajibkan pengembalian kelebihan bayar setelah ada temuan pemeriksa, sedangkan pemeriksaan berikutnya baru dijadwalkan delapan bulan lagi. Tidak seorang pun menyadari kelebihan tersebut. Kartika menyetorkan dana itu ke kas negara pada hari yang sama ketika ia menyadarinya, tanpa diminta siapa pun. Sikap Kartika paling tepat menggambarkan nilai ...",
+    "options": {
+      "A": "Kepatuhan hukum, yaitu ketaatan pada peraturan perundang-undangan yang berlaku beserta konsekuensi sanksi bagi pelanggarnya.",
+      "B": "Akuntabilitas, yaitu kesediaan mempertanggungjawabkan tindakan dan hasil kerja kepada pihak yang berwenang atau pemberi mandat.",
+      "C": "Loyalitas, yaitu kesetiaan dan komitmen terhadap organisasi, pimpinan, serta tujuan instansi tempat seseorang bekerja.",
+      "D": "Integritas, yaitu keselarasan nilai moral dan tindakan yang dijaga konsisten meski tanpa pengawasan atau paksaan aturan.",
+      "E": "Profesionalisme, yaitu penerapan keahlian dan standar kerja sesuai bidang tugas secara cermat dan bertanggung jawab."
+    },
+    "hint": "Fokus pada kejujuran prosedural, penolakan benturan kepentingan, dan pelaporan resmi sesuai mekanisme pengawasan.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A kurang spesifik karena kepatuhan hukum diukur dari ketaatan pada kewajiban yang sudah berlaku, sedangkan kewajiban pengembalian baru muncul setelah ada temuan pemeriksa.",
+      "B": "Pilihan B kurang spesifik karena tidak ada pihak yang menuntut pertanggungjawaban saat Kartika bertindak.",
+      "C": "Pilihan C kurang spesifik karena kasus tidak berkaitan dengan kesetiaan kepada organisasi atau pimpinan.",
+      "D": "Pilihan D benar karena Kartika bertindak sesuai nilai moralnya pada kondisi tanpa pengawasan dan tanpa kewajiban prosedural yang berlaku, yang merupakan inti integritas.",
+      "E": "Pilihan E kurang spesifik karena kasus tidak menyoal keahlian teknis atau standar kerja, melainkan konsistensi nilai moral."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b05-claude-sonnet"
+    }
+  },
+  {
+    "slug": "twk-legacy-b05-claude-sonnet-02-izin-penambangan-pasir-pesisir-bagi-satu-perusahaan-dan-dampaknya-bagi-nelayan-s",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-konstitusi-lembaga-negara"
+    ],
+    "reasoningChain": "Pasal 33 ayat (3) UUD NRI 1945 menyatakan bahwa bumi dan air dan kekayaan alam yang terkandung di dalamnya dikuasai oleh negara dan dipergunakan untuk sebesar-besar kemakmuran rakyat. Pasir pesisir adalah kekayaan alam, dan kasus memperlihatkan manfaatnya tidak kembali kepada rakyat (penerimaan daerah kecil, nelayan dirugikan), sehingga unsur 'dipergunakan untuk sebesar-besar kemakmuran rakyat' diabaikan. Seluruh opsi memuat substansi pasal yang benar, tetapi tingkat kespesifikannya berbeda. Opsi B (Pasal 33 ayat (2)) mengatur cabang produksi yang penting bagi negara, yaitu sektor usaha, bukan sumber daya alam sebagai objek penguasaan. Opsi C (Pasal 33 ayat (4)) mengatur prinsip penyelenggaraan perekonomian nasional secara umum. Opsi D (Pasal 27 ayat (2)) mengatur hak individual atas pekerjaan dan penghidupan layak. Opsi E (Pasal 28H ayat (1)) mengatur hak hidup sejahtera dan lingkungan hidup yang baik, tanpa menyoal penguasaan sumber daya alam. Jawaban benar: A.",
+    "stem": "Pemerintah sebuah provinsi menerbitkan izin penambangan pasir di wilayah pesisir kepada satu perusahaan swasta untuk jangka waktu 20 tahun. Hampir seluruh hasil tambang dijual ke luar negeri, penerimaan daerah dari kegiatan itu sangat kecil, dan nelayan setempat kehilangan wilayah tangkap tanpa kompensasi maupun manfaat ekonomi lain. Ketentuan UUD NRI 1945 yang paling spesifik diabaikan dalam hal penguasaan dan pemanfaatan sumber daya alam pada kasus tersebut adalah ...",
+    "options": {
+      "A": "Pasal 33 ayat (3): bumi, air, dan kekayaan alam di dalamnya dikuasai negara dan dipergunakan untuk sebesar-besar kemakmuran rakyat.",
+      "B": "Pasal 33 ayat (2): cabang-cabang produksi yang penting bagi negara dan menguasai hajat hidup orang banyak dikuasai oleh negara.",
+      "C": "Pasal 33 ayat (4): perekonomian nasional diselenggarakan berdasar demokrasi ekonomi dengan prinsip, antara lain, efisiensi berkeadilan, berkelanjutan, dan berwawasan lingkungan.",
+      "D": "Pasal 27 ayat (2): tiap-tiap warga negara berhak atas pekerjaan dan penghidupan yang layak bagi kemanusiaan.",
+      "E": "Pasal 28H ayat (1): setiap orang berhak hidup sejahtera lahir dan batin serta mendapat lingkungan hidup yang baik dan sehat."
+    },
+    "hint": "Hubungkan hak konstitusional warga negara dan pembagian kewenangan antarlembaga dalam pasal-pasal UUD NRI 1945.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A benar karena kasus ini menyoal pemanfaatan kekayaan alam yang manfaatnya tidak kembali kepada rakyat, tepat pada unsur 'sebesar-besar kemakmuran rakyat' dalam Pasal 33 ayat (3).",
+      "B": "Pilihan B kurang spesifik karena ayat (2) mengatur penguasaan cabang produksi, bukan kekayaan alam sebagai objek.",
+      "C": "Pilihan C kurang spesifik karena ayat (4) memuat prinsip umum perekonomian nasional.",
+      "D": "Pilihan D kurang spesifik karena Pasal 27 ayat (2) berkaitan dengan hak individual atas pekerjaan, sedangkan inti kasus adalah tata kelola sumber daya alam.",
+      "E": "Pilihan E kurang spesifik karena Pasal 28H ayat (1) berkaitan dengan hak atas kesejahteraan dan lingkungan sehat, bukan penguasaan sumber daya alam."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b05-claude-sonnet"
+    }
+  },
+  {
+    "slug": "twk-legacy-b05-claude-sonnet-03-penentuan-ide-pokok-paragraf-tentang-pengelolaan-rekam-medis-rumah-sakit",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-kalimat-efektif-eyd"
+    ],
+    "reasoningChain": "Kaidah: ide pokok adalah gagasan utama yang dikembangkan oleh seluruh kalimat dalam paragraf, sedangkan kalimat penjelas hanya memberikan latar, bukti, atau contoh. Paragraf ini berpola induktif: kalimat (1) memberi latar masalah, kalimat (2) menjelaskan akibat, kalimat (3) memberi bukti pembanding, dan kalimat (4) yang ditandai penanda simpulan 'dengan demikian' memuat gagasan utama, yaitu digitalisasi rekam medis perlu diprioritaskan untuk membenahi layanan rumah sakit daerah. Opsi A adalah detail kalimat (1). Opsi B adalah detail kalimat (2). Opsi C adalah detail kalimat (3). Opsi D adalah latar masalah kalimat (1) dan bukan gagasan yang dikembangkan seluruh paragraf. Opsi E merangkum kalimat (4) yang didukung kalimat (1) sampai (3). Jawaban benar: E.",
+    "stem": "Bacalah paragraf berikut. (1) Sejumlah rumah sakit daerah masih menyimpan rekam medis pasien dalam bentuk kertas di ruang penyimpanan yang sempit dan lembap. (2) Berkas yang rusak atau salah letak sering memaksa petugas menelusuri riwayat pasien dari awal sehingga waktu tunggu memanjang. (3) Sebaliknya, rumah sakit yang telah memindai rekam medis secara bertahap melaporkan waktu pencarian berkas yang jauh lebih singkat. (4) Dengan demikian, digitalisasi rekam medis layak ditetapkan sebagai prioritas pembenahan layanan rumah sakit daerah. Ide pokok paragraf tersebut adalah ...",
+    "options": {
+      "A": "Rekam medis kertas disimpan di ruang penyimpanan yang sempit dan lembap.",
+      "B": "Berkas yang rusak atau salah letak memperpanjang waktu tunggu pasien.",
+      "C": "Pemindaian rekam medis secara bertahap mempersingkat waktu pencarian berkas.",
+      "D": "Sejumlah rumah sakit daerah masih menyimpan rekam medis dalam bentuk kertas.",
+      "E": "Digitalisasi rekam medis layak diprioritaskan dalam pembenahan layanan rumah sakit daerah."
+    },
+    "hint": "Periksa kejelasan struktur Subjek-Predikat, kehematan kata, serta kebakuan ejaan menurut KBBI dan EYD Edisi V.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A hanya merupakan detail kondisi penyimpanan.",
+      "B": "Pilihan B hanya merupakan akibat dari kerusakan berkas.",
+      "C": "Pilihan C hanya merupakan bukti pendukung dari rumah sakit yang telah melakukan pemindaian.",
+      "D": "Pilihan D hanya merupakan latar masalah yang menjadi dasar argumen, bukan gagasan yang dikembangkan seluruh paragraf.",
+      "E": "Pilihan E benar karena merangkum gagasan utama pada kalimat simpulan (4) yang didukung oleh kalimat (1) sampai (3)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b05-claude-sonnet"
+    }
+  },
+  {
+    "slug": "twk-legacy-b06-gemini-argon-01-evaluasi-dokumen-uji-mutu-reagen-diagnostik-pada-tender-nasional",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-antikorupsi-asn"
+    ],
+    "reasoningChain": "Merujuk pada kerangka sembilan nilai antikorupsi KPK (Jujur, Peduli, Mandiri, Disiplin, Tanggung Jawab, Kerja Keras, Sederhana, Berani, Adil), tindakan menolak memvalidasi dokumen yang dimanipulasi merupakan manifestasi inti nilai Kejujuran (konsistensi menjaga kebenaran materiil tanpa kompromi), sedangkan kesediaan menggugurkan peserta yang terafiliasi pejabat tinggi dan melaporkannya ke Inspektorat Jenderal di tengah tekanan struktural merupakan manifestasi inti nilai Keberanian. Seluruh opsi pengecoh (A, B, C, E) memuat definisi konseptual yang benar mengenai nilai-nilai antikorupsi lainnya, namun kurang spesifik menjawab inti konflik pemalsuan dokumen dan resistensi terhadap tekanan jabatan pada skenario. Oleh karena itu, Opsi D bernilai 5, sedangkan Opsi A, B, C, dan E bernilai 0.",
+    "stem": "Dalam proses evaluasi tender pengadaan reagen laboratorium rujukan nasional di Kementerian Kesehatan, Dr. Kartika selaku Ketua Kelompok Kerja Pemilihan menemukan bahwa perusahaan penawar harga terendah kedua milik kerabat pejabat eselon satu ternyata memodifikasi tanggal kedaluwarsa pada sertifikat uji stabilitas suhu distribusi. Meskipun tidak ada imbalan finansial yang dijanjikan kepadanya dan terdapat desakan implisit agar lelang tidak diulang demi mengejar target serapan anggaran triwulan, Dr. Kartika tetap menggugurkan penawaran tersebut secara terbuka dalam berita acara serta melaporkan anomali dokumen itu ke Inspektorat Jenderal. Berdasarkan matriks sembilan nilai dasar antikorupsi, tindakan Dr. Kartika secara spesifik merepresentasikan irisan nilai...",
+    "options": {
+      "A": "Nilai kepedulian dan kemandirian, yaitu kepekaan sosial menjaga kelancaran layanan publik sekaligus kapasitas menyelesaikan tugas teknis tanpa bergantung pada bantuan pihak luar.",
+      "B": "Nilai kesederhanaan dan kedisiplinan, yaitu gaya hidup proporsional sesuai penghasilan sah serta kepatuhan administratif terhadap jadwal penyelesaian tahapan lelang tahunan.",
+      "C": "Nilai keadilan distributif dan kesetaraan, yaitu pemberian kesempatan berusaha yang setara kepada seluruh penyedia barang tanpa membedakan skala modal korporasi.",
+      "D": "Nilai kejujuran dan keberanian, yaitu konsistensi menjaga kebenaran materiil dokumen evaluasi tanpa kompromi serta keteguhan hati melaporkan kecurangan meskipun menghadapi risiko tekanan jabatan.",
+      "E": "Nilai kerja keras dan tanggung jawab fungsional, yaitu upaya sungguh-sungguh mengoptimalkan kapasitas laboratorium nasional serta kesediaan menuntaskan target serapan anggaran tepat waktu."
+    },
+    "hint": "Fokus pada kejujuran prosedural, penolakan benturan kepentingan, dan pelaporan resmi sesuai mekanisme pengawasan.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A, B, C, dan E (skor 0) menyajikan definisi konseptual yang benar tentang nilai antikorupsi lainnya, tetapi tidak merepresentasikan inti tindakan verifikasi kebenaran dokumen dan pelaporan kecurangan pada skenario.",
+      "B": "Pilihan A, B, C, dan E (skor 0) menyajikan definisi konseptual yang benar tentang nilai antikorupsi lainnya, tetapi tidak merepresentasikan inti tindakan verifikasi kebenaran dokumen dan pelaporan kecurangan pada skenario.",
+      "C": "Pilihan A, B, C, dan E (skor 0) menyajikan definisi konseptual yang benar tentang nilai antikorupsi lainnya, tetapi tidak merepresentasikan inti tindakan verifikasi kebenaran dokumen dan pelaporan kecurangan pada skenario.",
+      "D": "Pilihan D (skor 5) paling tepat karena mengidentifikasi secara presisi dua nilai inti pada kasus, yakni kejujuran (menolak mengesahkan sertifikat uji mutu yang dimanipulasi) dan keberanian (menggugurkan penawar terafiliasi pejabat serta melaporkannya ke Inspektorat Jenderal meski berisiko ditekan).",
+      "E": "Pilihan A, B, C, dan E (skor 0) menyajikan definisi konseptual yang benar tentang nilai antikorupsi lainnya, tetapi tidak merepresentasikan inti tindakan verifikasi kebenaran dokumen dan pelaporan kecurangan pada skenario."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
+    }
+  },
+  {
+    "slug": "twk-legacy-b06-gemini-argon-02-landasan-konstitusional-perlindungan-jaminan-sosial-pekerja-platform-digital",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - UUD NRI 1945",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-uud45-konstitusi-lembaga-negara"
+    ],
+    "reasoningChain": "Kasus ini berfokus pada dua isu konstitusional utama: (1) hak pekerja atas imbalan dan perlakuan yang adil serta layak dalam hubungan kerja, yang diatur secara eksplisit dalam Pasal 28D ayat (2) UUD NRI 1945; dan (2) kewajiban negara mengembangkan sistem jaminan sosial bagi seluruh rakyat untuk melindungi pekerja dari risiko kecelakaan kerja, yang diatur dalam Pasal 34 ayat (2) UUD NRI 1945. Opsi B, C, D, dan E memuat bunyi dan substansi pasal-pasal UUD NRI 1945 yang sah dan akurat secara hukum tata negara, namun mengatur ranah kebebasan berserikat/informasi, pendidikan/iptek, pertahanan negara, serta hak milik/cabang produksi strategis. Dengan demikian, Opsi A bernilai 5 dan opsi lainnya bernilai 0.",
+    "stem": "Sejumlah asosiasi pengemudi logistik daring dan pekerja lepas platform digital mengajukan permohonan uji materiil undang-undang karena regulasi yang berlaku belum mewajibkan penyelenggara aplikasi menyediakan skema jaminan sosial ketenagakerjaan serta standar imbalan kerja yang layak. Mereka menilai hubungan kemitraan asimetris selama ini membuat pekerja rentan mengalami pemutusan akses sepihak tanpa jaring pengaman sosial ketika mengalami kecelakaan kerja di jalan raya. Pemerintah bersama pembentuk undang-undang kemudian merumuskan regulasi baru yang mewajibkan kepesertaan jaminan sosial dan transparansi komisi yang adil bagi seluruh pekerja platform digital. Landasan konstitusional paling spesifik dalam UUD NRI 1945 yang mendasari pembaruan kebijakan tersebut adalah...",
+    "options": {
+      "A": "Pasal 28D ayat (2) dan Pasal 34 ayat (2), yang menjamin hak atas imbalan serta perlakuan kerja yang adil sekaligus kewajiban negara mengembangkan sistem jaminan sosial bagi seluruh rakyat.",
+      "B": "Pasal 28E ayat (3) dan Pasal 28F, yang menjamin kemerdekaan berserikat serta berkumpul sekaligus hak warga negara untuk memperoleh informasi guna mengembangkan lingkungan sosialnya.",
+      "C": "Pasal 28C ayat (1) dan Pasal 31 ayat (1), yang menjamin hak pengembangan diri melalui pemenuhan kebutuhan dasar serta hak setiap warga negara untuk mendapatkan layanan pendidikan.",
+      "D": "Pasal 27 ayat (3) dan Pasal 30 ayat (1), yang mengatur hak serta kewajiban warga negara dalam upaya pembelaan negara dan penyelenggaraan pertahanan keamanan nasional.",
+      "E": "Pasal 28H ayat (4) dan Pasal 33 ayat (2), yang melindungi hak milik pribadi dari pengambilalihan sewenang-wenang serta mengatur penguasaan cabang produksi penting oleh negara."
+    },
+    "hint": "Hubungkan hak konstitusional warga negara dan pembagian kewenangan antarlembaga dalam pasal-pasal UUD NRI 1945.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 5) benar karena masalah ketimpangan komisi kerja dan ketiadaan perlindungan kecelakaan kerja pada pekerja platform digital beririsan langsung dengan Pasal 28D ayat (2) (hak atas imbalan dan perlakuan yang adil dan layak dalam hubungan kerja) serta Pasal 34 ayat (2) (kewajiban negara mengembangkan sistem jaminan sosial bagi seluruh rakyat).",
+      "B": "Pilihan B, C, D, dan E (skor 0) menyatakan substansi pasal UUD NRI 1945 yang benar secara teoritis, tetapi tidak relevan dengan substansi pengupahan dan jaminan sosial ketenagakerjaan pada soal.",
+      "C": "Pilihan B, C, D, dan E (skor 0) menyatakan substansi pasal UUD NRI 1945 yang benar secara teoritis, tetapi tidak relevan dengan substansi pengupahan dan jaminan sosial ketenagakerjaan pada soal.",
+      "D": "Pilihan B, C, D, dan E (skor 0) menyatakan substansi pasal UUD NRI 1945 yang benar secara teoritis, tetapi tidak relevan dengan substansi pengupahan dan jaminan sosial ketenagakerjaan pada soal.",
+      "E": "Pilihan B, C, D, dan E (skor 0) menyatakan substansi pasal UUD NRI 1945 yang benar secara teoritis, tetapi tidak relevan dengan substansi pengupahan dan jaminan sosial ketenagakerjaan pada soal."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
+    }
+  },
+  {
+    "slug": "twk-legacy-b06-gemini-argon-03-penyuntingan-kalimat-efektif-dan-kosakata-baku-pada-dokumen-ketahanan-pangan",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-kalimat-efektif-eyd"
+    ],
+    "reasoningChain": "Analisis kesalahan tata bahasa dan leksikal pada kalimat soal:\n1. Ketidaklengkapan struktur Subjek: Penggunaan preposisi 'Di dalam' di awal kalimat aktif transitif ('Di dalam rapat koordinasi nasional tersebut membahas...') membuat kalimat kehilangan Subjek. Perbaikannya adalah menghilangkan 'Di dalam' sehingga 'Rapat koordinasi nasional tersebut' berfungsi sebagai Subjek.\n2. Preposisi mubazir setelah verba transitif: Verba 'membahas' tidak boleh diikuti preposisi 'tentang' sebelum Objek.\n3. Kosakata tidak baku (KBBI): Kata 'meminimalisir' (serapan akhiran Belanda -iseren) tidak baku, bentuk bakunya adalah 'meminimalkan'; kata 'resiko' tidak baku, bentuk bakunya adalah 'risiko'; kata 'terorganisir' tidak baku, bentuk bakunya adalah 'terorganisasi'.\n4. Pleonasme (kemubaziran jamak): Frasa 'berbagai daerah-daerah' mubazir karena 'berbagai' sudah menyatakan jamak; perbaikannya adalah 'berbagai daerah'.\nEvaluasi opsi: Hanya Opsi E yang memperbaiki seluruh cacat sintaksis dan leksikal tersebut secara tuntas (skor 5). Opsi A masih berpreposisi di awal kalimat; Opsi B masih memuat 'meminimalisir' dan 'daerah-daerah'; Opsi C masih memuat 'membahas tentang' dan 'resiko'; Opsi D masih memuat 'terorganisir' dan 'berbagai daerah-daerah'.",
+    "stem": "Cermati kalimat tidak efektif yang dikutip dari draf laporan evaluasi ketahanan pangan berikut!\n\n\"Di dalam rapat koordinasi nasional tersebut membahas tentang strategi untuk meminimalisir resiko gagal panen melalui modernisasi irigasi yang terorganisir secara sistematis di berbagai daerah-daerah sentra produksi beras.\"\n\nPerbaikan kalimat tersebut agar memenuhi kaidah kalimat efektif, kehematan kata, dan kebakuan kosakata sesuai KBBI serta EYD Edisi V yang paling tepat adalah...",
+    "options": {
+      "A": "Di dalam rapat koordinasi nasional tersebut membahas strategi untuk meminimalkan risiko gagal panen melalui modernisasi irigasi yang terorganisasi di berbagai daerah sentra produksi beras.",
+      "B": "Rapat koordinasi nasional tersebut membahas strategi untuk meminimalisir risiko gagal panen melalui modernisasi irigasi yang terorganisasi di berbagai daerah-daerah sentra produksi beras.",
+      "C": "Rapat koordinasi nasional tersebut membahas tentang strategi untuk meminimalkan resiko gagal panen melalui modernisasi irigasi yang terorganisasi di berbagai daerah sentra produksi beras.",
+      "D": "Dalam rapat koordinasi nasional tersebut dibahas strategi untuk meminimalkan risiko gagal panen melalui modernisasi irigasi yang terorganisir di berbagai daerah-daerah sentra produksi beras.",
+      "E": "Rapat koordinasi nasional tersebut membahas strategi untuk meminimalkan risiko gagal panen melalui modernisasi irigasi yang terorganisasi di berbagai daerah sentra produksi beras."
+    },
+    "hint": "Periksa kejelasan struktur Subjek-Predikat, kehematan kata, serta kebakuan ejaan menurut KBBI dan EYD Edisi V.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) tidak memiliki Subjek akibat preposisi 'Di dalam' di awal kalimat aktif.",
+      "B": "Pilihan B (skor 0) masih menggunakan kata tidak baku 'meminimalisir' dan pleonasme 'berbagai daerah-daerah'.",
+      "C": "Pilihan C (skor 0) menyisipkan preposisi mubazir 'tentang' setelah verba transitif 'membahas' serta kata tidak baku 'resiko'.",
+      "D": "Pilihan D (skor 0) masih memuat kata tidak baku 'terorganisir' dan pleonasme 'berbagai daerah-daerah'.",
+      "E": "Pilihan E (skor 5) benar karena memiliki struktur Subjek-Predikat-Objek-Keterangan yang jelas ('Rapat koordinasi nasional tersebut' sebagai Subjek, 'membahas' sebagai Predikat, 'strategi...' sebagai Objek), bebas dari pleonasme ('berbagai daerah'), dan menggunakan kosakata baku KBBI ('meminimalkan', 'risiko', 'terorganisasi')."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
+    }
+  }
+]

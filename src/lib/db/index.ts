@@ -30,31 +30,121 @@ export async function ensureDatabaseSchema(opts: { throwOnError?: boolean } = {}
     // 1. Ensure pgvector extension is enabled
     await db.execute(sql`CREATE EXTENSION IF NOT EXISTS vector`);
 
-    // 2. Ensure quiz_attempts table exists matching Drizzle schema
+    // 2. Ensure study_materials table and indexes exist
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS study_materials (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        slug VARCHAR(160) NOT NULL UNIQUE,
+        title TEXT NOT NULL,
+        category VARCHAR(10) NOT NULL DEFAULT 'TWK',
+        subtopic TEXT NOT NULL,
+        summary TEXT NOT NULL,
+        content_markdown TEXT NOT NULL,
+        content_hash VARCHAR(64) NOT NULL,
+        source_type VARCHAR(30) NOT NULL DEFAULT 'manual',
+        source_url TEXT,
+        source_meta JSONB,
+        embedding vector(768),
+        created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+        updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+      )
+    `);
+    await db.execute(sql`
+      CREATE INDEX IF NOT EXISTS study_materials_embedding_idx
+      ON study_materials USING hnsw (embedding vector_cosine_ops)
+    `);
+    await db.execute(sql`
+      CREATE INDEX IF NOT EXISTS study_materials_subtopic_idx
+      ON study_materials (category, subtopic)
+    `);
+
+    // 3. Ensure quiz_questions table and index exist
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS quiz_questions (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        slug VARCHAR(160) NOT NULL UNIQUE,
+        category VARCHAR(10) NOT NULL,
+        subtopic TEXT NOT NULL,
+        difficulty VARCHAR(20) NOT NULL DEFAULT 'hots',
+        reasoning_chain TEXT NOT NULL,
+        stem TEXT NOT NULL,
+        options JSONB NOT NULL,
+        hint TEXT NOT NULL,
+        correct_option VARCHAR(5),
+        scoring_rubric JSONB,
+        option_rationales JSONB NOT NULL,
+        source_url TEXT,
+        source_meta JSONB,
+        is_validated BOOLEAN NOT NULL DEFAULT TRUE,
+        created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+        updated_at TIMESTAMP NOT NULL DEFAULT NOW()
+      )
+    `);
+    await db.execute(sql`
+      CREATE INDEX IF NOT EXISTS quiz_questions_cat_subtopic_idx
+      ON quiz_questions (category, subtopic, is_validated)
+    `);
+
+    // 4. Ensure quiz_question_materials join table and index exist
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS quiz_question_materials (
+        question_id UUID NOT NULL REFERENCES quiz_questions(id) ON DELETE CASCADE,
+        material_id UUID NOT NULL REFERENCES study_materials(id) ON DELETE CASCADE,
+        PRIMARY KEY (question_id, material_id)
+      )
+    `);
+    await db.execute(sql`
+      CREATE INDEX IF NOT EXISTS quiz_question_materials_material_idx
+      ON quiz_question_materials (material_id)
+    `);
+
+    // 5. Ensure quiz_sessions table exists
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS quiz_sessions (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+        guest_session_id TEXT,
+        mode VARCHAR(20) NOT NULL,
+        status VARCHAR(20) NOT NULL DEFAULT 'in_progress',
+        duration_seconds INTEGER,
+        started_at TIMESTAMP NOT NULL DEFAULT NOW(),
+        completed_at TIMESTAMP,
+        question_order JSONB NOT NULL,
+        flagged_question_ids JSONB NOT NULL DEFAULT '[]'::jsonb,
+        score_summary JSONB,
+        created_at TIMESTAMP NOT NULL DEFAULT NOW()
+      )
+    `);
+
+    // 6. Ensure quiz_attempts table exists matching updated Drizzle schema
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS quiz_attempts (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-        chat_id UUID NOT NULL REFERENCES chat_history(id) ON DELETE CASCADE,
+        chat_id UUID REFERENCES chat_history(id) ON DELETE CASCADE,
+        session_id UUID REFERENCES quiz_sessions(id) ON DELETE CASCADE,
+        question_id UUID REFERENCES quiz_questions(id) ON DELETE SET NULL,
         user_id UUID REFERENCES users(id) ON DELETE CASCADE,
         rag_source_id VARCHAR(255),
         category VARCHAR(10) NOT NULL,
         subtopic TEXT NOT NULL,
         question_stem TEXT NOT NULL,
         options JSONB NOT NULL,
-        correct_option VARCHAR(5) NOT NULL,
-        scoring_rubric JSONB NOT NULL,
-        rubric_rationale TEXT NOT NULL,
+        correct_option VARCHAR(5),
+        scoring_rubric JSONB,
+        rubric_rationale TEXT,
         user_answer VARCHAR(5),
         score_earned INTEGER,
         max_score INTEGER NOT NULL DEFAULT 5,
         ai_explanation TEXT,
         status VARCHAR(20) NOT NULL DEFAULT 'pending',
+        time_spent_seconds INTEGER,
+        used_hint BOOLEAN NOT NULL DEFAULT FALSE,
         created_at TIMESTAMP NOT NULL DEFAULT NOW(),
         answered_at TIMESTAMP
       )
     `);
 
-    // Safe idempotent migration to allow external string IDs
+    // Safe idempotent migration for existing quiz_attempts tables
     await client`
       DO $$
       BEGIN
@@ -64,8 +154,32 @@ export async function ensureDatabaseSchema(opts: { throwOnError?: boolean } = {}
         NULL;
       END $$;
     `;
+    await db.execute(sql`ALTER TABLE quiz_attempts ALTER COLUMN chat_id DROP NOT NULL`);
+    await db.execute(sql`ALTER TABLE quiz_attempts ALTER COLUMN correct_option DROP NOT NULL`);
+    await db.execute(sql`ALTER TABLE quiz_attempts ALTER COLUMN scoring_rubric DROP NOT NULL`);
+    await db.execute(sql`ALTER TABLE quiz_attempts ALTER COLUMN rubric_rationale DROP NOT NULL`);
+    await db.execute(sql`
+      ALTER TABLE quiz_attempts
+      ADD COLUMN IF NOT EXISTS session_id UUID REFERENCES quiz_sessions(id) ON DELETE CASCADE
+    `);
+    await db.execute(sql`
+      ALTER TABLE quiz_attempts
+      ADD COLUMN IF NOT EXISTS question_id UUID REFERENCES quiz_questions(id) ON DELETE SET NULL
+    `);
+    await db.execute(sql`
+      ALTER TABLE quiz_attempts
+      ADD COLUMN IF NOT EXISTS time_spent_seconds INTEGER
+    `);
+    await db.execute(sql`
+      ALTER TABLE quiz_attempts
+      ADD COLUMN IF NOT EXISTS used_hint BOOLEAN NOT NULL DEFAULT FALSE
+    `);
+    await db.execute(sql`
+      CREATE UNIQUE INDEX IF NOT EXISTS quiz_attempts_session_question_uidx
+      ON quiz_attempts (session_id, question_id)
+    `);
 
-    // 3. Ensure rate_limits table exists
+    // 7. Ensure rate_limits table exists
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS rate_limits (
         key TEXT NOT NULL,
@@ -75,7 +189,7 @@ export async function ensureDatabaseSchema(opts: { throwOnError?: boolean } = {}
       )
     `);
 
-    // 4. Ensure HNSW cosine index on rag_data.embedding exists
+    // 8. Ensure HNSW cosine index on rag_data.embedding exists
     try {
       await db.execute(sql`
         CREATE UNIQUE INDEX IF NOT EXISTS rag_data_external_id_uidx
@@ -90,7 +204,7 @@ export async function ensureDatabaseSchema(opts: { throwOnError?: boolean } = {}
     }
 
     schemaInitialized = true;
-    console.log("[DB] Database schema, quiz_attempts table, rate_limits table, and pgvector extension ensured");
+    console.log("[DB] Database schema, normalized SKD tables, quiz_attempts, rate_limits, and pgvector extension ensured");
   } catch (error) {
     console.error("[DB] Failed to ensure database schema:", error);
     if (opts.throwOnError) {

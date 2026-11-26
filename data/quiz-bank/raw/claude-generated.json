@@ -1,0 +1,662 @@
+[
+  {
+    "slug": "tiu-verbal-silogisme-kontraposisi-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan A = analis kebijakan bersertifikat, T = pegawai tim penyusun regulasi, B = bendahara. Premis 1: A -> T. Premis 2: tidak ada T yang B, sehingga T -> bukan B, dan kontraposisinya B -> bukan T. Premis 3: Bagus adalah B. Maka Bagus bukan T. Kontraposisi premis 1 (bukan T -> bukan A) menghasilkan Bagus bukan A. Jadi kesimpulan yang pasti benar adalah opsi C. Opsi A bertentangan dengan premis 2; B tidak dapat disimpulkan karena Bagus mungkin bukan analis sama sekali; D menggeneralisasi ke analis tidak bersertifikat yang tidak dicakup premis 1; E bertentangan dengan premis 2.",
+    "stem": "Pada sebuah Biro Hukum kementerian berlaku tiga pernyataan berikut:\n1. Semua analis kebijakan bersertifikat ditugaskan pada tim penyusun regulasi.\n2. Tidak ada pegawai tim penyusun regulasi yang merangkap sebagai bendahara.\n3. Bagus adalah seorang bendahara.\nKesimpulan yang PASTI benar berdasarkan ketiga pernyataan tersebut adalah...",
+    "options": {
+      "A": "Bagus ditugaskan pada tim penyusun regulasi karena statusnya sebagai bendahara.",
+      "B": "Bagus adalah analis kebijakan yang belum memiliki sertifikat kompetensi.",
+      "C": "Bagus pasti bukan merupakan analis kebijakan yang telah bersertifikat.",
+      "D": "Seluruh analis kebijakan, bersertifikat maupun tidak, bukan merangkap bendahara.",
+      "E": "Sebagian pegawai tim penyusun regulasi merangkap sebagai bendahara."
+    },
+    "hint": "Telusuri hubungan antarhimpunan: apa konsekuensi logisnya bagi seseorang yang berada di luar himpunan tim penyusun regulasi?",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Bertentangan dengan premis 2: bendahara tidak mungkin berada di tim penyusun regulasi.",
+      "B": "Salah. Tidak ada premis yang menyatakan Bagus seorang analis; ia bisa saja bukan analis sama sekali, sehingga pernyataan ini tidak pasti.",
+      "C": "Benar. Bagus bendahara, maka bukan anggota tim penyusun regulasi (premis 2); dengan kontraposisi premis 1, ia bukan analis kebijakan bersertifikat.",
+      "D": "Salah. Premis 1 hanya mengikat analis yang bersertifikat; analis tanpa sertifikat tidak tercakup sehingga generalisasi ini tidak pasti.",
+      "E": "Salah. Kontradiksi langsung dengan premis 2 yang menyatakan tidak ada pegawai tim tersebut yang merangkap bendahara."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Silogisme BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-penempatan-ruang-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indah = 303, sehingga pasangan ruang bersebelahan yang masih mungkin hanya {301,302} atau {304,305}. Pasangan Dewi-Fajar dan pasangan Gita-Hendra masing-masing menempati salah satunya. Jika Dewi-Fajar di {304,305} maka Dewi 304 dan Fajar 305, bertentangan dengan syarat 4. Maka Dewi-Fajar di {301,302}: Dewi 301, Fajar 302; dan Gita-Hendra di {304,305}: Gita 304, Hendra 305 (Gita lebih kecil). Susunan unik: 301 Dewi, 302 Fajar, 303 Indah, 304 Gita, 305 Hendra. Verifikasi opsi: A benar (Gita 304 tepat di kanan Indah 303); B salah (301 dan 303 tidak bersebelahan); C salah (Hendra 305); D salah (Fajar 302 di kiri Indah); E salah (Gita 304 dan Dewi 301 tidak bersebelahan).",
+    "stem": "Lima pegawai Kantor Imigrasi, yaitu Dewi, Fajar, Gita, Hendra, dan Indah, masing-masing menempati satu dari lima ruang kerja berderet bernomor 301 sampai 305 dari kiri ke kanan. Diketahui:\n1. Indah menempati ruang 303.\n2. Dewi menempati ruang yang bersebelahan langsung dengan ruang Fajar, dengan nomor ruang Dewi lebih kecil daripada nomor ruang Fajar.\n3. Gita menempati ruang yang bersebelahan langsung dengan ruang Hendra, dengan nomor ruang Gita lebih kecil daripada nomor ruang Hendra.\n4. Fajar tidak menempati ruang 305.\nPernyataan yang PASTI benar mengenai penempatan tersebut adalah...",
+    "options": {
+      "A": "Gita menempati ruang yang bersebelahan langsung di sebelah kanan ruang Indah.",
+      "B": "Dewi menempati ruang yang bersebelahan langsung dengan ruang Indah.",
+      "C": "Hendra menempati ruang 304 tepat di sebelah kanan ruang Indah.",
+      "D": "Fajar menempati ruang yang berada di sebelah kanan ruang Indah.",
+      "E": "Gita dan Dewi menempati dua ruang yang saling bersebelahan."
+    },
+    "hint": "Karena ruang 303 sudah terisi, tentukan dahulu pasangan ruang bersebelahan mana saja yang masih mungkin ditempati kedua pasangan pegawai.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Susunan unik: Dewi 301, Fajar 302, Indah 303, Gita 304, Hendra 305; Gita berada tepat di kanan Indah.",
+      "B": "Salah. Dewi di ruang 301 sedangkan Indah di 303, sehingga tidak bersebelahan.",
+      "C": "Salah. Hendra menempati ruang 305, bukan 304; ruang 304 ditempati Gita.",
+      "D": "Salah. Fajar di ruang 302, yaitu di sebelah kiri Indah, bukan di kanannya.",
+      "E": "Salah. Gita di ruang 304 dan Dewi di ruang 301, sehingga keduanya terpisah dua ruang."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Analitis BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-deret-dua-larik-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret dipisah menjadi dua larik berselang-seling. Larik suku ganjil: 5, 8, 14, 26, ... dengan selisih 3, 6, 12 (berlipat dua tiap tahap), sehingga selisih berikutnya 24 dan suku ke-9 = 26 + 24 = 50. Larik suku genap: 100, 90, 80, 70, ... turun 10 tiap tahap, sehingga suku ke-10 = 70 - 10 = 60. Jumlah suku ke-9 dan ke-10 = 50 + 60 = 110, yaitu opsi E.",
+    "stem": "Perhatikan deret bilangan berikut:\n5, 100, 8, 90, 14, 80, 26, 70, ..., ...\nJumlah suku ke-9 dan suku ke-10 dari deret tersebut adalah...",
+    "options": {
+      "A": "98",
+      "B": "104",
+      "C": "120",
+      "D": "76",
+      "E": "110"
+    },
+    "hint": "Periksa apakah seluruh suku mengikuti satu aturan tunggal atau tersusun dari beberapa barisan yang berselang-seling.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menganggap selisih larik ganjil naik tetap +12 sehingga suku ke-9 = 38; 38 + 60 = 98.",
+      "B": "Salah. Menganggap selisih larik ganjil menjadi 3, 6, 12, 18 sehingga suku ke-9 = 44; 44 + 60 = 104.",
+      "C": "Salah. Menjumlahkan suku ke-9 (50) dengan suku ke-8 (70), bukan dengan suku ke-10 (60).",
+      "D": "Salah. Menjumlahkan suku ke-7 (26) dan suku ke-9 (50), bukan suku ke-9 dan suku ke-10.",
+      "E": "Benar. Suku ke-9 = 50 (selisih 3, 6, 12, 24) dan suku ke-10 = 60 (turun 10); jumlahnya 110."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Deret Dua Larik BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-perbandingan-pagu-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Pagu awal = Rp250.000.000. Setelah naik 20%: 250 juta x 1,2 = 300 juta. Pemotongan 20% dihitung dari pagu hasil revisi (300 juta): 300 juta x 0,8 = 240 juta. Maka X = 240 juta dan Y = 250 juta, sehingga X < Y (selisih 10 juta atau 4% dari Y). Faktor gabungan 1,2 x 0,8 = 0,96 < 1. Opsi B benar; C keliru karena basis persentase berbeda; E keliru karena penurunan bersih hanya 4%; D keliru karena seluruh nilai diketahui.",
+    "stem": "Sebuah satuan kerja memiliki pagu awal kegiatan sebesar Rp250.000.000. Setelah revisi anggaran, pagu tersebut dinaikkan 20%. Pada tahap penyesuaian berikutnya, pagu hasil revisi itu dipotong 20%.\nX = pagu kegiatan setelah penyesuaian\nY = pagu awal kegiatan\nHubungan antara X dan Y yang benar adalah...",
+    "options": {
+      "A": "Nilai X lebih besar daripada nilai Y.",
+      "B": "Nilai X lebih kecil daripada nilai Y.",
+      "C": "Nilai X sama dengan nilai Y.",
+      "D": "Hubungan X dan Y tidak dapat ditentukan dari informasi yang diberikan.",
+      "E": "Nilai X tepat 20% lebih rendah daripada nilai Y."
+    },
+    "hint": "Perhatikan bahwa basis perhitungan persentase pada tahap kedua berbeda dari basis pada tahap pertama.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Nilai X justru lebih kecil: Rp240.000.000 < Rp250.000.000.",
+      "B": "Benar. X = 250 juta x 1,2 x 0,8 = 240 juta, sedangkan Y = 250 juta, sehingga X < Y.",
+      "C": "Salah. Kenaikan dan pemotongan 20% tidak saling meniadakan karena pemotongan dihitung dari basis yang lebih besar (300 juta).",
+      "D": "Salah. Seluruh nilai yang diperlukan diketahui sehingga hubungan X dan Y dapat dipastikan.",
+      "E": "Salah. Penurunan bersih hanya Rp10.000.000 atau 4% dari Y, bukan 20%."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Perbandingan Kuantitatif BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-sosial-koperasi-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total modal = 200 kg x Rp12.000 = Rp2.400.000. Beras rusak = 10% x 200 = 20 kg, sehingga beras terjual = 180 kg. Target laba 20% dari total modal berarti total penjualan = 2.400.000 x 1,2 = Rp2.880.000. Harga jual per kg = 2.880.000 : 180 = Rp16.000, yaitu opsi D. Opsi A (14.400) mengabaikan beras rusak; B (15.600) menjumlahkan 20% laba dan 10% kerusakan secara aditif (12.000 x 1,3); C (15.840) memakai 12.000 x 1,2 x 1,1; E (18.000) memakai pembagi 0,8 seolah 20% beras rusak.",
+    "stem": "Koperasi Tani Makmur Sejahtera membeli 200 kg beras dengan harga Rp12.000 per kg. Sebanyak 10% dari seluruh beras tersebut rusak sehingga tidak dapat dijual, sedangkan sisanya dijual habis dengan harga yang sama per kilogram. Jika koperasi menargetkan laba sebesar 20% dari total modal pembelian, harga jual per kilogram beras yang harus ditetapkan adalah...",
+    "options": {
+      "A": "Rp14.400",
+      "B": "Rp15.600",
+      "C": "Rp15.840",
+      "D": "Rp16.000",
+      "E": "Rp18.000"
+    },
+    "hint": "Hitung dahulu total modal dan jumlah beras yang benar-benar terjual sebelum menentukan harga per kilogram.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Rp12.000 x 1,2 = Rp14.400 mengabaikan 20 kg beras rusak yang tidak menghasilkan pendapatan.",
+      "B": "Salah. Menjumlahkan 20% laba dan 10% kerusakan menjadi 30% atas harga beli (12.000 x 1,3), padahal kerusakan mengurangi jumlah barang terjual.",
+      "C": "Salah. Mengalikan 12.000 x 1,2 x 1,1; kerusakan 10% seharusnya dikompensasi dengan membagi 0,9, bukan mengalikan 1,1.",
+      "D": "Benar. Target penjualan Rp2.880.000 dibagi 180 kg terjual = Rp16.000 per kg.",
+      "E": "Salah. Memakai pembagi 0,8 (14.400 : 0,8) seolah 20% beras rusak, padahal yang rusak 10%."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Aritmetika Sosial BKN"
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-surat-pengantar-001",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 25 Tahun 2009 tentang Pelayanan Publik (asas kepastian prosedur, kemudahan, dan kecepatan) serta nilai BerAKHLAK 'Berorientasi Pelayanan' dan 'Akuntabel', hierarki skor adalah 5 > 4 > 3 > 2 > 1. D (skor 5) memenuhi persyaratan SOP sekaligus menuntaskan layanan pada hari yang sama melalui jalur elektronik; C (skor 4) proaktif namun menunda layanan satu hari; A (skor 3) sopan dan patuh prosedur tetapi pasif sehingga beban perjalanan warga tidak berkurang; B (skor 2) melanggar SOP dan melemahkan akuntabilitas dokumen; E (skor 1) menolak warga dan melempar tanggung jawab.",
+    "stem": "Anda adalah petugas loket Dinas Kependudukan dan Pencatatan Sipil Kabupaten Pacitan. Pukul 15.30 WIB, seorang warga lanjut usia (72 tahun) tiba setelah menempuh perjalanan tiga jam dari desa terpencil untuk mengurus perubahan Kartu Keluarga. Ia lupa membawa surat pengantar desa yang wajib dilampirkan menurut SOP, sedangkan loket ditutup pukul 16.00 WIB. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menjelaskan dengan sopan bahwa surat pengantar wajib dilampirkan, memberikan daftar kelengkapan tertulis, lalu mempersilakan warga kembali setelah berkas lengkap.",
+      "B": "Menerima dan memproses permohonan terlebih dahulu, lalu meminta warga menyusulkan surat pengantar kapan pun sempat agar tidak perlu bolak-balik.",
+      "C": "Mencatat data warga, menghubungi pemerintah desa asalnya agar surat pengantar dikirim besok, lalu menjadwalkan layanan prioritas bagi lansia pada hari berikutnya.",
+      "D": "Menghubungi perangkat desa asal warga saat itu juga agar surat pengantar dikirim secara elektronik, lalu memproses berkas sebelum loket tutup sesuai SOP.",
+      "E": "Menyampaikan bahwa kekurangan berkas bukan tanggung jawab petugas dan meminta warga meninggalkan loket karena antrean berikutnya sudah menunggu."
+    },
+    "hint": "Cari tindakan yang tetap mematuhi persyaratan baku sekaligus menurunkan beban warga melalui kemudahan akses layanan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Sopan dan sesuai prosedur, tetapi pasif karena beban perjalanan tiga jam warga tidak dikurangi sama sekali.",
+      "B": "Poin 2 — Empatik namun melanggar SOP dengan memproses berkas tidak lengkap serta tanpa kepastian pelengkapan, sehingga akuntabilitas dokumen lemah.",
+      "C": "Poin 4 — Proaktif dan peduli terhadap lansia serta tetap patuh SOP, tetapi layanan baru tuntas pada hari berikutnya.",
+      "D": "Poin 5 — Memenuhi persyaratan SOP sekaligus menuntaskan layanan pada hari yang sama melalui verifikasi elektronik, sehingga cepat, pasti, dan akuntabel.",
+      "E": "Poin 1 — Menolak warga dan melempar tanggung jawab, bertentangan dengan prinsip pelayanan yang berorientasi pada kebutuhan masyarakat."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Pelayanan Publik BKN"
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-data-lintas-instansi-001",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Kolaboratif' (membuka ruang kolaborasi dan memanfaatkan sumber daya bersama lintas instansi), hierarki skor adalah 5 > 4 > 3 > 2 > 1. A (skor 5) membangun hubungan dua arah melalui pertemuan koordinasi, menegaskan manfaat bersama, dan menyepakati mekanisme berbagi data secara tertulis; D (skor 4) resmi dan terpantau tetapi bersifat satu arah; B (skor 3) mandiri menjaga tenggat namun berisiko memakai data usang dan tidak memperbaiki relasi; C (skor 2) mengandalkan tekanan hierarki yang merusak relasi antarinstansi; E (skor 1) hanya mencatat hambatan tanpa upaya penyelesaian.",
+    "stem": "Anda bertugas pada Badan Penanggulangan Bencana Daerah (BPBD) Kota Batu dan menyusun dokumen kajian risiko banjir yang harus diserahkan dalam sepuluh hari. Data tata ruang terbaru berada di Dinas PUPR, tetapi dua permintaan lisan Anda sebelumnya belum ditanggapi karena staf Dinas PUPR sedang menyelesaikan proyek lain. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengajukan pertemuan koordinasi singkat dengan Dinas PUPR, menjelaskan manfaat bersama kajian ini, lalu menyepakati format serta jadwal berbagi data secara tertulis.",
+      "B": "Memakai data tata ruang tahun lalu yang sudah dimiliki BPBD agar kajian tetap selesai tepat waktu sambil menunggu pembaruan dari Dinas PUPR.",
+      "C": "Meminta atasan memerintahkan Dinas PUPR melalui pimpinannya agar stafnya segera menyerahkan data karena keterlambatan itu menghambat kajian.",
+      "D": "Mengirim surat permohonan data resmi melalui atasan dengan tenggat jelas, kemudian rutin menghubungi staf Dinas PUPR untuk memantau perkembangannya.",
+      "E": "Mencantumkan keterlambatan Dinas PUPR sebagai faktor penghambat dalam laporan kajian tanpa melakukan upaya penghubungan lebih lanjut."
+    },
+    "hint": "Pilih langkah yang membangun kesepahaman dua arah dan mekanisme kerja bersama, bukan sekadar menuntut atau menunggu pihak lain.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 3,
+      "C": 2,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Menunjukkan kolaborasi sejati: dialog langsung, kepentingan bersama dijelaskan, dan mekanisme berbagi data disepakati tertulis sehingga jejaring kerja berkelanjutan.",
+      "B": "Poin 3 — Mandiri dan menjaga tenggat, tetapi berisiko memakai data usang serta tidak memperbaiki hubungan koordinasi dengan Dinas PUPR.",
+      "C": "Poin 2 — Mengandalkan tekanan hierarki sehingga berpotensi merusak relasi antarinstansi dan tidak menyelesaikan akar hambatan.",
+      "D": "Poin 4 — Prosedural dan proaktif memantau, tetapi komunikasi bersifat satu arah dan belum membangun kesepahaman bersama.",
+      "E": "Poin 1 — Hanya mencatat hambatan tanpa upaya koordinasi sehingga mengabaikan tanggung jawab menjalin kerja sama."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Kolaboratif Jejaring Kerja BKN"
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-upacara-adat-001",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Harmonis' (saling peduli dan menghargai perbedaan) serta tanggung jawab pelayanan yang tetap berorientasi pada target, hierarki skor adalah 5 > 4 > 3 > 2 > 1. C (skor 5) menggabungkan dialog dengan tokoh adat, kesepakatan waktu yang menghormati rangkaian inti upacara, dan jemput bola agar target tetap terkejar; D (skor 4) menghormati adat dan komunikatif tetapi menggeser jadwal tanpa dialog langsung dengan pemangku adat; B (skor 3) hormat terhadap adat namun pasif dan menyerah pada target; A (skor 2) memaksakan jadwal tanpa memedulikan konteks budaya; E (skor 1) merendahkan adat dan melabeli warga secara negatif.",
+    "stem": "Anda adalah Kepala Seksi Pelayanan di Kantor Kecamatan Kodi, Kabupaten Sumba Barat Daya. Anda menjadwalkan perekaman KTP-el keliling di dua desa pada akhir pekan ini demi mengejar target triwulan. Anda kemudian mengetahui bahwa kedua desa tersebut menggelar upacara adat besar pada tanggal yang sama sehingga sebagian besar warga diperkirakan tidak dapat hadir. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Tetap menjalankan jadwal pendataan sesuai rencana demi mengejar target triwulan dan meminta warga yang berhalangan hadir datang sendiri ke kantor kecamatan.",
+      "B": "Menunda pendataan hingga seluruh rangkaian upacara selesai dan melaporkan kepada atasan bahwa target triwulan ini kemungkinan tidak tercapai.",
+      "C": "Berdialog dengan tokoh adat untuk menyepakati sesi pendataan di luar rangkaian inti upacara, lalu menyiapkan petugas jemput bola agar target tetap terkejar.",
+      "D": "Meminta kepala desa mengumumkan jadwal pendataan pengganti setelah upacara selesai, lalu menyampaikan perubahan jadwal tersebut kepada atasan.",
+      "E": "Menganggap upacara adat sebagai alasan warga mengabaikan layanan pemerintah dan mencatat desa tersebut sebagai wilayah tidak kooperatif dalam laporan."
+    },
+    "hint": "Utamakan solusi yang menghormati kearifan lokal sekaligus tetap menjaga komitmen pelayanan kepada masyarakat.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Berorientasi target semata dan mengabaikan konteks budaya, sehingga berpotensi menimbulkan penolakan dan partisipasi rendah.",
+      "B": "Poin 3 — Menghormati adat, tetapi pasif dan langsung menerima kegagalan target tanpa mencari solusi pelayanan alternatif.",
+      "C": "Poin 5 — Menunjukkan sikap harmonis melalui dialog dengan pemangku adat, waktu pelayanan yang disepakati bersama, dan jemput bola sehingga target tetap terkejar.",
+      "D": "Poin 4 — Menghormati upacara dan proaktif menyampaikan jadwal baru, namun tidak melibatkan tokoh adat secara langsung dalam menyepakati waktu pelayanan.",
+      "E": "Poin 1 — Merendahkan tradisi setempat dan memberi label negatif kepada warga, bertentangan dengan sikap menghargai keberagaman budaya."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Harmonis Sosial Budaya BKN"
+    }
+  },
+  {
+    "slug": "tkp-tik-kerahasiaan-data-bansos-001",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (pemrosesan data harus terbatas, spesifik, dan terlindungi) serta nilai BerAKHLAK 'Akuntabel', hierarki skor adalah 5 > 4 > 3 > 2 > 1. E (skor 5) menolak kanal pribadi, hanya membagikan kolom yang benar-benar dibutuhkan, memakai penyimpanan resmi dengan akses terbatas, dan melibatkan atasan; D (skor 4) memakai kanal resmi berakses terbatas tetapi membagikan seluruh kolom termasuk NIK tanpa minimalisasi data; B (skor 3) patuh tetapi pasif sehingga verifikasi lapangan tertunda; A (skor 2) tetap memakai kanal pribadi dan membocorkan kata sandi pada percakapan yang sama; C (skor 1) menyebarkan data utuh ke grup pribadi tanpa perlindungan.",
+    "stem": "Anda adalah pengelola data pada Dinas Sosial Kabupaten Banyuwangi. Seorang rekan lapangan meminta Anda mengirim spreadsheet berisi NIK, alamat, dan nomor telepon penerima bantuan sosial ke grup WhatsApp pribadi tim agar verifikasi lapangan besok pagi dapat berjalan cepat. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengirim berkas lewat WhatsApp setelah diberi kata sandi, lalu menyampaikan kata sandinya pada percakapan yang sama agar rekan dapat segera membukanya.",
+      "B": "Menolak mengirim berkas melalui WhatsApp dan meminta rekan mengajukan permohonan data secara resmi kepada atasan terlebih dahulu sebelum Anda memprosesnya.",
+      "C": "Mengirim berkas utuh ke grup WhatsApp karena verifikasi lapangan bersifat mendesak dan seluruh anggota grup merupakan rekan satu bidang.",
+      "D": "Mengunggah berkas lengkap ke penyimpanan awan instansi dengan akses terbatas bagi tim verifikasi, lalu membagikan tautannya kepada rekan yang membutuhkan.",
+      "E": "Menolak kanal pribadi, lalu membagikan hanya kolom yang diperlukan verifikasi melalui penyimpanan resmi instansi dengan akses terbatas dan sepengetahuan atasan."
+    },
+    "hint": "Pertimbangkan prinsip pelindungan data pribadi: kanal yang sah, cakupan data yang dibagikan, dan siapa yang berhak mengakses.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 1,
+      "D": 4,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Memberi kata sandi, tetapi menyampaikannya pada percakapan yang sama sehingga perlindungan tidak efektif dan kanal pribadi tetap dipakai.",
+      "B": "Poin 3 — Patuh pada kanal resmi, tetapi pasif sehingga kebutuhan verifikasi lapangan esok hari tidak terbantu.",
+      "C": "Poin 1 — Menyebarkan data pribadi penerima bansos secara utuh ke grup pribadi tanpa perlindungan, melanggar prinsip kerahasiaan dan pelindungan data.",
+      "D": "Poin 4 — Memakai kanal resmi berakses terbatas dan membantu kebutuhan lapangan, namun masih membagikan seluruh data termasuk NIK tanpa minimalisasi.",
+      "E": "Poin 5 — Menjaga akuntabilitas melalui kanal resmi, pembatasan akses, minimalisasi data, dan sepengetahuan atasan, sementara kebutuhan verifikasi tetap terpenuhi."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Akuntabel TIK BKN"
+    }
+  },
+  {
+    "slug": "tkp-anti-radikalisme-grup-whatsapp-001",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 20 Tahun 2023 tentang ASN (kewajiban setia dan taat pada Pancasila, UUD NRI 1945, NKRI, dan pemerintah yang sah) serta nilai BerAKHLAK 'Loyal', hierarki skor adalah 5 > 4 > 3 > 2 > 1. B (skor 5) menggabungkan koreksi santun di ruang yang sama agar anggota lain tidak terpengaruh dengan pelaporan berjenjang kepada atasan; D (skor 4) melapor secara berjenjang namun tidak meluruskan narasi di grup; C (skor 3) membangun dialog personal tetapi tidak melibatkan atasan sehingga unggahan tetap beredar; A (skor 2) bersikap permisif dengan mengabaikan; E (skor 1) mengecam dan menyebarkan ke media sosial sehingga memperkeruh keadaan.",
+    "stem": "Dalam grup WhatsApp kantor, seorang rekan senior membagikan video ceramah yang menyerukan penggantian Pancasila sebagai dasar negara serta mengajak anggota grup memboikot upacara hari besar nasional. Beberapa rekan lain mulai memberi komentar yang mendukung. Anda adalah ASN di unit yang sama. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengabaikan unggahan tersebut karena dianggap pendapat pribadi rekan senior dan Anda tidak ingin merusak suasana kerja di unit Anda.",
+      "B": "Menyampaikan keberatan secara santun di grup dengan merujuk kewajiban ASN setia pada Pancasila dan UUD 1945, lalu melaporkannya kepada atasan.",
+      "C": "Menegur rekan tersebut secara pribadi di luar grup dan mengajaknya berdiskusi tentang pandangannya tanpa melibatkan atasan terlebih dahulu.",
+      "D": "Melaporkan unggahan tersebut beserta tangkapan layar kepada atasan tanpa menanggapi di grup agar tidak menimbulkan kegaduhan di antara anggota.",
+      "E": "Membalas unggahan itu dengan kecaman keras di grup dan menyebarkannya ke media sosial agar publik mengetahui sikap rekan tersebut."
+    },
+    "hint": "Cari tindakan yang meluruskan narasi secara beradab kepada pihak yang terpapar sekaligus menggunakan jalur kelembagaan yang berwenang.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 5,
+      "C": 3,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Permisif terhadap ajakan yang bertentangan dengan kewajiban ASN, sehingga narasi tersebut dapat meluas tanpa koreksi.",
+      "B": "Poin 5 — Meluruskan narasi secara santun berbasis kewajiban ASN agar anggota grup tidak terpengaruh, sekaligus melapor kepada atasan melalui jalur berjenjang.",
+      "C": "Poin 3 — Dialog personal itu positif, tetapi unggahan tetap beredar di grup dan atasan tidak mengetahui sehingga tindak lanjut kelembagaan tidak berjalan.",
+      "D": "Poin 4 — Pelaporan berjenjang disertai bukti sudah tepat, tetapi anggota grup yang terpapar belum mendapat penyeimbang narasi.",
+      "E": "Poin 1 — Kecaman keras dan penyebaran ke media sosial memperkeruh keadaan, melanggar etika ASN, dan tidak menempuh jalur kelembagaan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Loyal Anti-Radikalisme BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-inflasi-daya-beli-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Relasi 'Inflasi : Daya Beli' adalah faktor yang menurunkan : hal yang diturunkan, karena kenaikan harga umum menggerus kemampuan beli masyarakat. Pasangan yang setara harus memiliki jenis relasi dan arah pengaruh yang sama. Erosi lahan mengikis lapisan tanah sehingga menurunkan kesuburan tanah, jadi 'Erosi Lahan : Kesuburan Tanah' setara (opsi D). Opsi A berelasi faktor pendukung : hal yang ditingkatkan (arah pengaruh berlawanan); B berelasi sarana : objek; C berelasi pelaku : lokasi; E berelasi kegiatan : tempat penyimpanan hasil.",
+    "stem": "Perhatikan pasangan kata berikut: Inflasi : Daya Beli. Pasangan kata yang memiliki hubungan paling setara dengan pasangan tersebut adalah...",
+    "options": {
+      "A": "Irigasi Teknis : Hasil Panen Padi",
+      "B": "Pupuk Organik : Tanaman Padi",
+      "C": "Petani Penggarap : Sawah Desa",
+      "D": "Erosi Lahan : Kesuburan Tanah",
+      "E": "Panen Raya : Lumbung Desa"
+    },
+    "hint": "Perhatikan bukan hanya adanya hubungan sebab-akibat, tetapi juga arah pengaruh faktor pertama terhadap hal kedua.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Irigasi justru mendukung dan meningkatkan hasil panen sehingga arah pengaruhnya berlawanan dengan inflasi terhadap daya beli.",
+      "B": "Salah. Relasinya sarana : objek yang dikenai sarana, bukan faktor yang menurunkan suatu nilai.",
+      "C": "Salah. Relasinya pelaku : lokasi kerja, tidak mengandung pengaruh menurunkan.",
+      "D": "Benar. Erosi lahan menurunkan kesuburan tanah, sebagaimana inflasi menurunkan daya beli: faktor penurun : hal yang diturunkan.",
+      "E": "Salah. Relasinya kegiatan : tempat penyimpanan hasil, bukan hubungan pengaruh menurunkan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Analogi Arah Pengaruh BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-jadwal-rapat-koordinasi-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Beri nomor hari: Senin = 1 sampai Jumat = 5. Syarat 4: Pengadaan = 5. Sisa hari 1-4 untuk Anggaran, Humas, Audit, Kepegawaian. Syarat 2: Kepegawaian = Audit + 1, dan hari 5 sudah terisi sehingga Audit tidak boleh 4. Syarat 1: Anggaran < Audit sehingga Audit tidak boleh 1. Syarat 5: Audit bukan 2. Maka Audit = 3 (Rabu) dan Kepegawaian = 4 (Kamis). Syarat 3: Humas bukan 1 dan bukan 5, serta hari 3 dan 4 terisi, sehingga Humas = 2 (Selasa). Anggaran = 1 (Senin). Susunan unik: Senin Anggaran, Selasa Humas, Rabu Audit, Kamis Kepegawaian, Jumat Pengadaan. Hanya opsi C yang sesuai: Humas (Selasa) tepat sehari sebelum Audit (Rabu).",
+    "stem": "Sekretariat sebuah kementerian menjadwalkan lima rapat koordinasi, yaitu rapat Anggaran, Kepegawaian, Pengadaan, Humas, dan Audit. Kelima rapat itu dilaksanakan pada hari Senin sampai Jumat, masing-masing satu rapat per hari. Diketahui:\n1. Rapat Anggaran dilaksanakan lebih awal daripada rapat Audit.\n2. Rapat Kepegawaian dilaksanakan tepat sehari setelah rapat Audit.\n3. Rapat Humas tidak dilaksanakan pada hari Senin maupun Jumat.\n4. Rapat Pengadaan dilaksanakan pada hari Jumat.\n5. Rapat Audit tidak dilaksanakan pada hari Selasa.\nPernyataan yang PASTI benar mengenai jadwal tersebut adalah...",
+    "options": {
+      "A": "Rapat Anggaran dilaksanakan pada hari Selasa sebelum rapat Humas.",
+      "B": "Rapat Kepegawaian dilaksanakan sebelum rapat Humas.",
+      "C": "Rapat Humas dilaksanakan tepat sehari sebelum rapat Audit.",
+      "D": "Rapat Audit dilaksanakan pada hari Kamis tepat sebelum rapat Pengadaan.",
+      "E": "Rapat Pengadaan dilaksanakan tepat sehari setelah rapat Audit."
+    },
+    "hint": "Mulailah dari syarat yang menetapkan hari secara pasti, lalu telusuri hari mana yang masih mungkin bagi pasangan rapat yang berurutan.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Rapat Anggaran dilaksanakan pada hari Senin, bukan Selasa; hari Selasa ditempati rapat Humas.",
+      "B": "Salah. Rapat Kepegawaian (Kamis) dilaksanakan setelah rapat Humas (Selasa), bukan sebelumnya.",
+      "C": "Benar. Rapat Humas pada hari Selasa dan rapat Audit pada hari Rabu, sehingga Humas tepat sehari sebelum Audit.",
+      "D": "Salah. Rapat Audit dilaksanakan pada hari Rabu; hari Kamis ditempati rapat Kepegawaian.",
+      "E": "Salah. Sehari setelah rapat Audit (Rabu) adalah rapat Kepegawaian (Kamis), sedangkan rapat Pengadaan dilaksanakan pada hari Jumat."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Analitis Penjadwalan BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-perbandingan-rata-rata-gabungan-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Jumlah nilai Kelas A = 30 x 80 = 2.400; jumlah nilai Kelas B = 20 x 70 = 1.400. Jumlah seluruh nilai = 3.800 untuk 50 peserta, sehingga X = 3.800 : 50 = 76. Y = (80 + 70) : 2 = 75. Karena 76 > 75, maka X > Y (opsi A). Rata-rata gabungan lebih condong ke Kelas A karena pesertanya lebih banyak, sedangkan Y memperlakukan kedua kelas dengan bobot sama. Opsi B dan C keliru karena bobot jumlah peserta diabaikan; D keliru karena seluruh data diketahui; E keliru karena perbedaan jumlah peserta justru menjadi dasar perhitungan rata-rata berbobot.",
+    "stem": "Dalam seleksi kompetensi, Kelas A terdiri atas 30 peserta dengan nilai rata-rata 80, sedangkan Kelas B terdiri atas 20 peserta dengan nilai rata-rata 70.\nX = nilai rata-rata seluruh peserta kedua kelas\nY = rata-rata dari nilai rata-rata Kelas A dan nilai rata-rata Kelas B\nHubungan antara X dan Y yang benar adalah...",
+    "options": {
+      "A": "Nilai X lebih besar daripada nilai Y.",
+      "B": "Nilai X lebih kecil daripada nilai Y.",
+      "C": "Nilai X sama dengan nilai Y.",
+      "D": "Hubungan X dan Y tidak dapat ditentukan dari informasi yang diberikan.",
+      "E": "Nilai X dan Y tidak dapat dibandingkan karena jumlah peserta kedua kelas berbeda."
+    },
+    "hint": "Pertimbangkan apakah setiap kelas memberi kontribusi yang sama besar terhadap rata-rata seluruh peserta.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. X = (2.400 + 1.400) : 50 = 76, sedangkan Y = (80 + 70) : 2 = 75, sehingga X > Y.",
+      "B": "Salah. Kelas yang pesertanya lebih banyak memiliki rata-rata lebih tinggi sehingga menarik X ke atas, bukan ke bawah Y.",
+      "C": "Salah. X dan Y hanya sama apabila jumlah peserta kedua kelas sama, sedangkan di sini 30 berbanding 20.",
+      "D": "Salah. Seluruh nilai yang diperlukan tersedia sehingga X dan Y dapat dihitung secara pasti.",
+      "E": "Salah. Perbedaan jumlah peserta tidak menghalangi perbandingan; justru menjadi bobot dalam menghitung X."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Perbandingan Kuantitatif Rata-Rata Berbobot BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-sosial-diskon-ppn-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Harga normal = Rp5.000.000. Diskon 10%: 5.000.000 x 0,90 = 4.500.000. Diskon tambahan 5% dari harga setelah diskon pertama: 4.500.000 x 0,95 = 4.275.000. PPN 11% atas harga setelah seluruh diskon: 4.275.000 x 1,11 = 4.745.250 (opsi E). Opsi A: 4.275.000 x 0,89 = 3.804.750 (PPN dikurangkan, bukan ditambahkan). Opsi B: 4.275.000 (lupa PPN). Opsi C: 4.275.000 x 1,10 = 4.702.500 (memakai PPN 10%). Opsi D: 5.000.000 x 0,85 x 1,11 = 4.717.500 (diskon dijumlahkan menjadi 15%, padahal diskon kedua dihitung dari harga setelah diskon pertama).",
+    "stem": "Sebuah kantor kecamatan membeli satu unit mesin pengganda dokumen dengan harga normal Rp5.000.000. Penyedia memberikan diskon 10% dari harga normal, kemudian diskon tambahan 5% dari harga setelah diskon pertama. PPN sebesar 11% dikenakan atas harga setelah seluruh diskon. Total yang harus dibayar kantor kecamatan tersebut adalah...",
+    "options": {
+      "A": "Rp3.804.750",
+      "B": "Rp4.275.000",
+      "C": "Rp4.702.500",
+      "D": "Rp4.717.500",
+      "E": "Rp4.745.250"
+    },
+    "hint": "Perhatikan basis hitung setiap tahap: diskon kedua dan pajak masing-masing dikenakan pada harga hasil tahap sebelumnya.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Mengurangkan PPN (4.275.000 x 0,89), padahal PPN menambah total yang harus dibayar.",
+      "B": "Salah. Ini harga setelah dua diskon tanpa menambahkan PPN 11%.",
+      "C": "Salah. Memakai tarif PPN 10% (4.275.000 x 1,10), padahal tarif yang berlaku 11%.",
+      "D": "Salah. Menjumlahkan diskon menjadi 15% (5.000.000 x 0,85 x 1,11), padahal diskon kedua dihitung dari harga setelah diskon pertama.",
+      "E": "Benar. 5.000.000 x 0,90 x 0,95 x 1,11 = 4.745.250."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Aritmetika Sosial Diskon dan Pajak BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-pekerja-berbalik-nilai-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total beban pekerjaan = 12 pekerja x 30 hari = 360 pekerja-hari. Dalam 10 hari pertama telah selesai 12 x 10 = 120 pekerja-hari, sehingga sisa 360 - 120 = 240 pekerja-hari. Target baru selesai 5 hari lebih cepat, yaitu hari ke-25, sehingga sisa waktu = 25 - 10 = 15 hari. Pekerja yang dibutuhkan = 240 : 15 = 16 orang. Tambahan = 16 - 12 = 4 orang (opsi B). Opsi A memakai 360 : 25 = 14,4 (dibulatkan 15) tanpa memperhitungkan 10 hari yang sudah berjalan; C menyamakan tambahan dengan jumlah hari percepatan; D memakai 12 x 5/10; E adalah total pekerja, bukan tambahan.",
+    "stem": "Dinas Pekerjaan Umum mempekerjakan 12 pekerja untuk merenovasi gedung kantor kelurahan yang dijadwalkan selesai dalam 30 hari. Seluruh pekerja memiliki produktivitas yang sama dan konstan. Setelah 10 hari bekerja, pimpinan memutuskan renovasi harus selesai 5 hari lebih cepat dari jadwal awal. Jumlah tambahan pekerja minimal yang dibutuhkan untuk memenuhi target baru tersebut adalah...",
+    "options": {
+      "A": "3 orang",
+      "B": "4 orang",
+      "C": "5 orang",
+      "D": "6 orang",
+      "E": "16 orang"
+    },
+    "hint": "Hitung beban pekerjaan dalam satuan pekerja-hari, lalu fokus pada sisa pekerjaan dan sisa waktu setelah 10 hari berjalan.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Memakai 360 : 25 = 14,4 (dibulatkan 15 pekerja) tanpa memperhitungkan pekerjaan yang sudah selesai dalam 10 hari pertama, sehingga tambahan 3.",
+      "B": "Benar. Sisa 240 pekerja-hari dalam 15 hari memerlukan 16 pekerja; tambahan 16 - 12 = 4 orang.",
+      "C": "Salah. Menyamakan jumlah tambahan pekerja dengan jumlah hari percepatan tanpa dasar perhitungan beban kerja.",
+      "D": "Salah. Memakai perbandingan 5 hari percepatan terhadap 10 hari yang telah berjalan (12 x 5/10 = 6), padahal yang relevan adalah sisa pekerjaan dan sisa waktu.",
+      "E": "Salah. Angka 16 adalah total pekerja yang dibutuhkan, bukan jumlah tambahan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Soal Cerita Perbandingan Berbalik Nilai BKN"
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-data-stunting-001",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada Perpres No. 72 Tahun 2021 tentang Percepatan Penurunan Stunting (konvergensi lintas sektor) dan nilai BerAKHLAK 'Kolaboratif', hierarki skor adalah 5 > 4 > 3 > 2 > 1. C (skor 5) memfasilitasi dialog langsung kedua dinas, menyepakati satu sumber data dan pembagian peran, serta mendokumentasikannya sehingga konvergensi berjalan; D (skor 4) konstruktif tetapi penyatuan data baru diusulkan pada rapat berikutnya sehingga bantuan tetap tertunda; A (skor 3) tertib secara administrasi tetapi pasif karena hanya mencatat; B (skor 2) memihak salah satu pihak dan merusak kepercayaan antarinstansi; E (skor 1) menunda tanpa fasilitasi.",
+    "stem": "Anda adalah sekretaris Tim Percepatan Penurunan Stunting Kabupaten Lumajang. Pada rapat koordinasi, Dinas Kesehatan dan Dinas Sosial saling menyalahkan karena data balita berisiko stunting yang mereka pegang berbeda, sehingga distribusi bantuan pangan tambahan tertunda. Ketua tim meminta Anda menindaklanjuti persoalan ini. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menyusun notulen rapat yang mencatat perbedaan data kedua dinas apa adanya dan menyerahkannya kepada ketua tim untuk diputuskan.",
+      "B": "Memihak data Dinas Kesehatan karena dianggap lebih ilmiah dan meminta Dinas Sosial menyesuaikan datanya agar rapat cepat selesai.",
+      "C": "Memfasilitasi pertemuan kedua dinas untuk menyepakati satu sumber data rujukan dan pembagian peran, lalu mendokumentasikan hasilnya secara tertulis.",
+      "D": "Meminta masing-masing dinas memaparkan dasar penghimpunan datanya, kemudian mengusulkan penyatuan data pada rapat koordinasi berikutnya.",
+      "E": "Menunda pembahasan program hingga kedua dinas menyelesaikan perbedaan data secara mandiri tanpa melibatkan tim percepatan."
+    },
+    "hint": "Nilai Kolaboratif menuntut Anda menjembatani pihak yang berbeda hingga tercapai kesepakatan kerja yang dapat ditindaklanjuti bersama.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Tertib administrasi, tetapi pasif karena hanya mencatat perbedaan dan menyerahkan penyelesaian sepenuhnya kepada ketua tim.",
+      "B": "Poin 2 — Memihak satu pihak merusak kepercayaan antarinstansi dan tidak menyelesaikan sumber perbedaan data.",
+      "C": "Poin 5 — Memfasilitasi dialog langsung, menyepakati satu sumber data dan pembagian peran, serta mendokumentasikannya sehingga konvergensi lintas sektor dapat berjalan segera.",
+      "D": "Poin 4 — Konstruktif karena menelusuri dasar data kedua pihak, tetapi penyatuan data baru diusulkan pada rapat berikutnya sehingga bantuan masih tertunda.",
+      "E": "Poin 1 — Menunda program dan melepas tanggung jawab fasilitasi, padahal keterlambatan merugikan balita penerima bantuan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Kolaboratif Jejaring Kerja BKN"
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-koreksi-rekap-anggaran-001",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Akuntabel' (bertanggung jawab atas hasil kerja) dan 'Kompeten' (menjaga kualitas kerja dan terus memperbaiki diri), hierarki skor adalah 5 > 4 > 3 > 2 > 1. A (skor 5) segera mengoreksi, menyampaikan revisi beserta penjelasan secara terbuka sebelum rapat, dan memeriksa ulang pos lain; C (skor 4) mengoreksi dan mengirim revisi tetapi tanpa keterbukaan mengenai kesalahan; B (skor 3) berniat mengoreksi namun pasif sehingga pimpinan berisiko memakai angka keliru; D (skor 2) mengubah berkas diam-diam sehingga menghilangkan jejak akuntabilitas; E (skor 1) membiarkan kesalahan.",
+    "stem": "Anda adalah staf Subbagian Keuangan Dinas Pendidikan Kota Kediri. Sore hari setelah mengirim rekap usulan anggaran kegiatan kepada Kepala Dinas melalui surel, Anda menyadari ada kesalahan hitung pada satu pos belanja yang membuat total usulan lebih besar dari seharusnya. Rekap tersebut rencananya dibahas dalam rapat pimpinan esok pagi. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Segera memperbaiki perhitungan, mengirim rekap revisi beserta penjelasan kesalahan kepada Kepala Dinas, serta memeriksa ulang pos lainnya.",
+      "B": "Menunggu rapat pimpinan esok pagi lalu menyampaikan koreksi secara lisan apabila ada pimpinan yang mempertanyakan angka tersebut.",
+      "C": "Memperbaiki perhitungan dan mengirim rekap revisi tanpa penjelasan tambahan agar tidak menimbulkan kegaduhan di antara para pimpinan.",
+      "D": "Mengubah berkas rekap pada folder bersama tanpa memberi tahu siapa pun karena yang dikirim hanyalah rancangan usulan.",
+      "E": "Membiarkan kesalahan tersebut karena selisihnya kecil dan dianggap tidak akan memengaruhi keputusan dalam rapat pimpinan."
+    },
+    "hint": "Nilai Akuntabel dan Kompeten menuntut kesalahan sendiri dikoreksi secara terbuka dan tepat waktu sebelum dipakai untuk mengambil keputusan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 3,
+      "C": 4,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Bertanggung jawab penuh: koreksi segera, penjelasan terbuka kepada pimpinan sebelum rapat, dan pemeriksaan ulang agar kesalahan serupa tidak terulang.",
+      "B": "Poin 3 — Ada niat mengoreksi, tetapi pasif sehingga pimpinan berisiko memakai angka keliru dalam pengambilan keputusan.",
+      "C": "Poin 4 — Kesalahan diperbaiki dan revisi dikirim tepat waktu, tetapi tanpa penjelasan sehingga keterbukaan dan pembelajaran kurang.",
+      "D": "Poin 2 — Mengubah berkas diam-diam menghilangkan jejak akuntabilitas dan dapat membingungkan pihak yang telah menerima versi pertama.",
+      "E": "Poin 1 — Membiarkan kesalahan dan menganggap remeh dampaknya bertentangan dengan tanggung jawab profesional atas mutu hasil kerja."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Akuntabel dan Kompeten Profesionalisme BKN"
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-akses-disabilitas-001",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 25 Tahun 2009 tentang Pelayanan Publik (pelayanan khusus bagi kelompok berkebutuhan khusus), UU No. 8 Tahun 2016 tentang Penyandang Disabilitas (hak atas aksesibilitas layanan publik), serta nilai BerAKHLAK 'Berorientasi Pelayanan', hierarki skor adalah 5 > 4 > 3 > 2 > 1. E (skor 5) menjemput bola dengan melayani di lantai satu secara prioritas dan mengusulkan perbaikan akses secara kelembagaan; C (skor 4) melayani tetapi tidak melaporkan kendala sehingga hambatan akses tidak diperbaiki; A (skor 3) berupaya membantu tetapi tetap membebani pengguna dan tanpa prioritas; D (skor 2) mengalihkan beban kepada keluarga; B (skor 1) menolak melayani dengan alasan kewenangan.",
+    "stem": "Anda adalah petugas pelayanan di Kantor Samsat Kota Semarang. Seorang pengguna kursi roda datang untuk memperpanjang pajak kendaraan. Loket pelayanan berada di lantai dua, sedangkan lift penumpang sedang dalam perbaikan dan hanya tersedia tangga serta lift barang. Antrean di loket cukup panjang. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengantar pengguna menggunakan lift barang menuju lantai dua agar dapat mengikuti antrean di loket seperti pemohon lainnya.",
+      "B": "Menyampaikan bahwa keterbatasan fasilitas gedung berada di luar kewenangan petugas sehingga layanan hanya dapat diberikan di lantai dua.",
+      "C": "Melayani pengguna tersebut di lantai satu bersama rekan petugas pada hari itu tanpa menyampaikan kendala akses gedung kepada atasan.",
+      "D": "Menyarankan pengguna mengutus anggota keluarga untuk mengurus perpanjangan agar tidak perlu menaiki tangga menuju loket lantai dua.",
+      "E": "Menyelesaikan layanan di lantai satu bersama rekan petugas dengan prioritas, lalu mengusulkan perbaikan akses gedung kepada atasan."
+    },
+    "hint": "Pelayanan bagi kelompok berkebutuhan khusus menuntut penyesuaian dari penyelenggara layanan, bukan dari pengguna.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 1,
+      "C": 4,
+      "D": 2,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Berupaya membantu pengguna, tetapi masih membebani pengguna dengan mengikuti antrean dan memakai sarana yang tidak dirancang untuk penumpang.",
+      "B": "Poin 1 — Menolak menyesuaikan layanan dengan alasan kewenangan, sehingga mengabaikan hak aksesibilitas pengguna.",
+      "C": "Poin 4 — Menjemput bola dan menuntaskan layanan hari itu, tetapi hambatan akses tidak dilaporkan sehingga pengguna berikutnya akan mengalami masalah yang sama.",
+      "D": "Poin 2 — Mengalihkan beban kepada keluarga pengguna dan tidak mengupayakan layanan yang dapat diakses.",
+      "E": "Poin 5 — Pelayanan prioritas yang menyesuaikan lokasi layanan dengan kebutuhan pengguna sekaligus mengusulkan perbaikan akses secara kelembagaan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Pelayanan Publik Kelompok Rentan BKN"
+    }
+  },
+  {
+    "slug": "tkp-tik-waspada-phishing-siasn-001",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan prinsip keamanan informasi dalam Perpres No. 95 Tahun 2018 tentang SPBE dan nilai BerAKHLAK 'Akuntabel' (menjaga keamanan dan kerahasiaan informasi) serta 'Kolaboratif', hierarki skor adalah 5 > 4 > 3 > 2 > 1. B (skor 5) menolak mengisi tautan, melaporkan ancaman kepada tim keamanan informasi, dan melindungi rekan yang telanjur membuka tautan; C (skor 4) memverifikasi keaslian surel melalui kanal resmi tetapi tidak melaporkan atau memperingatkan rekan; A (skor 3) aman secara pribadi tetapi tidak melindungi organisasi; D (skor 2) tetap memasukkan data ke situs tidak terverifikasi; E (skor 1) menyebarkan surel berbahaya ke seluruh pegawai.",
+    "stem": "Anda adalah staf Badan Kepegawaian Daerah Kabupaten Blitar. Anda menerima surel dari pengirim bernama 'Admin SIASN Pusat' yang berisi tautan formulir dan meminta Anda memasukkan nama pengguna serta kata sandi akun kepegawaian paling lambat hari ini agar akun tidak diblokir. Seorang rekan di ruangan Anda mengaku sudah membuka tautan tersebut. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Tidak mengisi tautan tersebut dan langsung menghapus surel, tanpa melaporkannya atau memberi tahu rekan kerja lainnya di unit.",
+      "B": "Tidak mengisi tautan, melaporkan surel kepada tim keamanan informasi, dan meminta rekan yang telah membukanya segera mengganti kata sandi.",
+      "C": "Memastikan keaslian surel dengan menghubungi bagian kepegawaian melalui nomor resmi, lalu menghapus surel tersebut setelah terbukti palsu.",
+      "D": "Mengisi formulir pada tautan tersebut dengan data yang tidak lengkap agar akun tidak sepenuhnya terbuka bagi pengirim surel.",
+      "E": "Meneruskan surel itu ke seluruh grup pegawai agar semua orang mengetahui adanya permintaan verifikasi akun tersebut."
+    },
+    "hint": "Keamanan informasi organisasi menuntut respons yang melindungi akun sendiri sekaligus akun rekan yang mungkin sudah terdampak.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 4,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Menghindari jebakan secara pribadi, tetapi tidak melindungi organisasi karena ancaman dan rekan yang terdampak tidak ditangani.",
+      "B": "Poin 5 — Menolak jebakan, melaporkan ancaman kepada pihak berwenang agar dapat dimitigasi, dan melindungi rekan yang telanjur membuka tautan.",
+      "C": "Poin 4 — Proaktif memverifikasi melalui kanal resmi, tetapi tidak melaporkan ancaman kepada tim keamanan dan tidak memperingatkan rekan yang telah membuka tautan.",
+      "D": "Poin 2 — Tetap memasukkan data ke situs yang belum terverifikasi sehingga akun berisiko disalahgunakan.",
+      "E": "Poin 1 — Menyebarkan surel berbahaya ke seluruh pegawai memperluas risiko tanpa mengikuti prosedur pelaporan insiden."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Akuntabel Keamanan Informasi TIK BKN"
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-candaan-logat-001",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Harmonis' (saling peduli, menghargai perbedaan, dan membangun lingkungan kerja yang kondusif), hierarki skor adalah 5 > 4 > 3 > 2 > 1. D (skor 5) menegur pelaku secara santun dan terpisah, mendukung pegawai baru, dan mengajak tim menjaga suasana inklusif; C (skor 4) menempuh jalur atasan yang tepat tetapi tidak mendukung pegawai baru secara langsung dan melewatkan pendekatan personal kepada rekan senior; A (skor 3) peduli pada pegawai baru tetapi tidak mengoreksi sumber masalah; B (skor 2) ikut tertawa sehingga melanggengkan candaan yang menyinggung; E (skor 1) menyalahkan korban.",
+    "stem": "Anda adalah pegawai pada Dinas Pariwisata dan Kebudayaan Kota Bandung. Dalam jeda rapat tim, seorang rekan senior berulang kali melontarkan candaan yang menyinggung logat dan asal daerah seorang pegawai baru yang berasal dari Nusa Tenggara Timur. Beberapa rekan tertawa, sementara pegawai baru tersebut tampak tidak nyaman dan memilih diam. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengajak pegawai baru bergabung dalam kegiatan tim tanpa membahas candaan tersebut agar suasana tetap nyaman bagi semua pihak.",
+      "B": "Ikut tertawa agar tidak dianggap kaku oleh rekan senior dan tidak merusak keakraban yang sudah terjalin di dalam tim kerja.",
+      "C": "Menyampaikan kepada atasan bahwa candaan tersebut menyinggung pegawai baru dan meminta atasan menegur rekan senior secara langsung.",
+      "D": "Menegur rekan senior dengan santun secara terpisah, menemui pegawai baru untuk memberi dukungan, dan mengajak tim menjaga suasana kerja inklusif.",
+      "E": "Menyarankan pegawai baru agar tidak terlalu sensitif dan belajar menerima candaan sebagai bagian dari budaya kerja kantor."
+    },
+    "hint": "Nilai Harmonis menuntut penghargaan terhadap perbedaan budaya dengan cara yang menjaga martabat semua pihak.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Peduli terhadap pegawai baru, tetapi candaan yang menyinggung tidak dikoreksi sehingga dapat terulang.",
+      "B": "Poin 2 — Ikut tertawa melanggengkan perilaku yang merendahkan asal daerah rekan dan memperburuk rasa tidak aman pegawai baru.",
+      "C": "Poin 4 — Menempuh jalur kelembagaan yang tepat, tetapi tidak mendukung pegawai baru secara langsung dan melewatkan pendekatan personal yang lebih cepat kepada rekan senior.",
+      "D": "Poin 5 — Mengoreksi perilaku dengan santun tanpa mempermalukan, mendukung pegawai yang terdampak, dan membangun budaya kerja inklusif bersama tim.",
+      "E": "Poin 1 — Menyalahkan korban dan membenarkan candaan yang menyinggung, bertentangan dengan sikap saling menghargai."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Harmonis Sosial Budaya BKN"
+    }
+  }
+]
