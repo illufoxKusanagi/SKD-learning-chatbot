@@ -1,0 +1,1232 @@
+[
+  {
+    "slug": "tiu-verbal-analogi-editor-auditor-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hubungan pasangan pertama adalah profesi terhadap objek yang menjadi sasaran pemeriksaan atau penyuntingan. Editor menyunting naskah, sedangkan auditor memeriksa laporan keuangan. Hubungan yang dicari adalah aktivitas profesional terhadap objek kerjanya, bukan sekadar hubungan antara dua benda yang berkaitan.",
+    "stem": "Editor : Naskah memiliki hubungan yang paling sepadan dengan Auditor : ...",
+    "options": {
+      "A": "Menyusun jadwal kegiatan organisasi.",
+      "B": "Mengelola persediaan barang kantor.",
+      "C": "Mengesahkan keputusan pimpinan instansi.",
+      "D": "Memeriksa laporan dan catatan keuangan.",
+      "E": "Mendistribusikan surat kepada unit kerja."
+    },
+    "hint": "Perhatikan hubungan antara profesi dan aktivitas utama yang dilakukan terhadap objek pekerjaannya.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menyusun jadwal merupakan fungsi perencanaan kegiatan, bukan pemeriksaan terhadap suatu objek pekerjaan.",
+      "B": "Salah. Pengelolaan persediaan merupakan kegiatan administrasi logistik yang tidak menunjukkan hubungan pemeriksaan profesional.",
+      "C": "Salah. Pengesahan keputusan merupakan kewenangan pengambil keputusan, bukan fungsi pemeriksaan auditor.",
+      "D": "Benar. Editor menyunting naskah, sedangkan auditor memeriksa laporan dan catatan keuangan sebagai objek pekerjaan profesionalnya.",
+      "E": "Salah. Distribusi surat merupakan fungsi administrasi persuratan, bukan pemeriksaan atau evaluasi profesional."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-instrumen-pengukuran-002",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Termometer merupakan instrumen untuk mengukur suhu, sedangkan anemometer merupakan instrumen untuk mengukur kecepatan angin. Hubungan analogi bersifat instrumen terhadap besaran yang diukur. Distraktor berupa besaran meteorologi lain harus ditolak karena bukan variabel utama yang diukur oleh instrumen tersebut.",
+    "stem": "Termometer : Suhu memiliki hubungan yang paling sepadan dengan Anemometer : ...",
+    "options": {
+      "A": "Kecepatan angin.",
+      "B": "Curah hujan.",
+      "C": "Tekanan udara.",
+      "D": "Kelembapan udara.",
+      "E": "Intensitas cahaya."
+    },
+    "hint": "Identifikasi besaran fisika yang menjadi sasaran pengukuran setiap instrumen.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Anemometer digunakan untuk mengukur kecepatan angin, sebagaimana termometer digunakan untuk mengukur suhu.",
+      "B": "Salah. Curah hujan diukur menggunakan alat penakar hujan atau ombrometer, bukan anemometer.",
+      "C": "Salah. Tekanan udara diukur menggunakan barometer, sehingga tidak sesuai dengan fungsi anemometer.",
+      "D": "Salah. Kelembapan udara diukur menggunakan higrometer, bukan anemometer.",
+      "E": "Salah. Intensitas cahaya diukur menggunakan lux meter atau fotometer, bukan anemometer."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-kuantifikasi-pengadaan-003",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Premis 1: Semua analis risiko mengikuti pelatihan keamanan data. Premis 2: Sebagian pegawai pengadaan merupakan analis risiko. Dengan instansiasi universal dan hubungan subset, sebagian pegawai pengadaan tersebut pasti mengikuti pelatihan keamanan data. Tidak dapat disimpulkan bahwa seluruh pegawai pengadaan adalah analis risiko atau bahwa seluruh peserta pelatihan merupakan analis risiko.",
+    "stem": "Dalam suatu instansi berlaku ketentuan berikut:\n\n1. Semua analis risiko mengikuti pelatihan keamanan data.\n2. Sebagian pegawai unit pengadaan merupakan analis risiko.\n3. Tidak satu pun pegawai kontrak yang masa kerjanya berakhir memiliki akses aplikasi internal.\n\nKesimpulan yang pasti benar berdasarkan seluruh premis tersebut adalah ...",
+    "options": {
+      "A": "Semua pegawai unit pengadaan mengikuti pelatihan keamanan data.",
+      "B": "Semua peserta pelatihan keamanan data merupakan analis risiko.",
+      "C": "Sebagian pegawai unit pengadaan mengikuti pelatihan keamanan data.",
+      "D": "Sebagian pegawai kontrak yang berakhir masa kerjanya merupakan analis risiko.",
+      "E": "Tidak ada analis risiko yang dapat menggunakan aplikasi internal."
+    },
+    "hint": "Gunakan hubungan himpunan antara kelompok yang seluruh anggotanya memenuhi suatu sifat dan kelompok yang hanya sebagian anggotanya termasuk di dalamnya.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Premis kedua hanya menyatakan sebagian pegawai pengadaan merupakan analis risiko, bukan seluruhnya.",
+      "B": "Salah. Premis hanya menyatakan analis risiko mengikuti pelatihan, bukan bahwa semua peserta pelatihan adalah analis risiko.",
+      "C": "Benar. Sebagian pegawai pengadaan merupakan analis risiko dan seluruh analis risiko mengikuti pelatihan keamanan data.",
+      "D": "Salah. Tidak ada premis yang menyatakan sebagian pegawai kontrak tersebut merupakan analis risiko.",
+      "E": "Salah. Ketentuan akses aplikasi hanya berlaku bagi pegawai kontrak yang masa kerjanya berakhir, bukan seluruh analis risiko."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-implikasi-registrasi-004",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Premis universal menyatakan bahwa setiap naskah yang lolos verifikasi pasti memperoleh nomor registrasi. Dengan modus tollens, naskah yang tidak mempunyai nomor registrasi tidak termasuk kelompok yang telah lolos verifikasi. Karena sebagian naskah dinas belum memperoleh nomor registrasi, sebagian naskah dinas tersebut belum lolos verifikasi.",
+    "stem": "Sebuah unit administrasi memiliki ketentuan sebagai berikut:\n\n1. Semua naskah yang lolos verifikasi memperoleh nomor registrasi.\n2. Sebagian naskah dinas belum memperoleh nomor registrasi.\n3. Semua naskah dinas disimpan oleh unit tata usaha.\n\nKesimpulan yang dapat dipastikan benar adalah ...",
+    "options": {
+      "A": "Semua naskah dinas telah lolos verifikasi.",
+      "B": "Sebagian naskah yang memiliki nomor registrasi tidak disimpan di tata usaha.",
+      "C": "Semua naskah yang disimpan di tata usaha belum lolos verifikasi.",
+      "D": "Sebagian naskah dinas telah memperoleh nomor registrasi.",
+      "E": "Sebagian naskah dinas belum lolos verifikasi."
+    },
+    "hint": "Uji implikasi dengan membalik konsekuensi universal secara logis, bukan sekadar menukar subjek dan predikat.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Adanya sebagian naskah dinas yang belum memiliki nomor registrasi tidak memungkinkan kesimpulan bahwa semuanya lolos verifikasi.",
+      "B": "Salah. Tidak terdapat premis mengenai penyimpanan naskah berregistrasi di luar unit tata usaha.",
+      "C": "Salah. Tidak semua dokumen yang disimpan di tata usaha merupakan naskah dinas, dan tidak ada informasi bahwa semuanya gagal verifikasi.",
+      "D": "Salah. Tidak ada premis yang secara eksplisit menjamin keberadaan sebagian naskah dinas yang telah memperoleh nomor registrasi.",
+      "E": "Benar. Jika lolos verifikasi pasti memperoleh nomor registrasi, naskah yang belum memiliki nomor registrasi pasti belum lolos verifikasi."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-jadwal-presentasi-005",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Terdapat lima posisi berurutan dari Senin sampai Jumat. Olin menempati Rabu, sehingga Mahendra yang harus tampil tepat setelah Olin menempati Kamis. Prita menempati Jumat. Posisi tersisa adalah Senin dan Selasa untuk Niko dan Laras. Karena Niko harus mendahului Laras, Niko tampil Senin dan Laras Selasa.",
+    "stem": "Lima pegawai, yaitu Laras, Mahendra, Niko, Olin, dan Prita, dijadwalkan menyampaikan presentasi masing-masing satu orang per hari dari Senin hingga Jumat. Ketentuannya adalah:\n\n- Olin tampil pada hari Rabu.\n- Mahendra tampil tepat satu hari setelah Olin.\n- Prita tampil pada hari Jumat.\n- Niko tampil sebelum Laras.\n\nSiapakah pegawai yang tampil pada hari Selasa?",
+    "options": {
+      "A": "Niko.",
+      "B": "Laras.",
+      "C": "Mahendra.",
+      "D": "Olin.",
+      "E": "Prita."
+    },
+    "hint": "Tempatkan jadwal dengan posisi tetap terlebih dahulu, kemudian gunakan hubungan urutan untuk mengisi posisi yang tersisa.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Niko harus tampil sebelum Laras dan menempati posisi pertama yang tersisa, yaitu Senin.",
+      "B": "Benar. Setelah Rabu ditempati Olin, Kamis Mahendra, dan Jumat Prita, Niko berada pada Senin sehingga Laras berada pada Selasa.",
+      "C": "Salah. Mahendra harus tampil tepat setelah Olin yang berada pada Rabu, sehingga jadwalnya Kamis.",
+      "D": "Salah. Olin telah ditetapkan tampil pada hari Rabu berdasarkan ketentuan pertama.",
+      "E": "Salah. Prita telah ditetapkan tampil pada hari Jumat berdasarkan ketentuan ketiga."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-deret-pola-penggandaan-006",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret yang diberikan adalah 4, 7, 13, 25, 49. Selisih antarangka berturut-turut adalah 3, 6, 12, dan 24. Setiap selisih merupakan dua kali selisih sebelumnya. Dengan demikian, selisih selanjutnya adalah 48 dan angka berikutnya adalah 49 + 48 = 97. Pola alternatif yang setara adalah mengalikan angka sebelumnya dengan dua lalu mengurangi satu.",
+    "stem": "Perhatikan deret bilangan berikut: 4, 7, 13, 25, 49, ... Angka berikutnya yang paling tepat untuk melengkapi deret tersebut adalah ...",
+    "options": {
+      "A": "97",
+      "B": "95",
+      "C": "99",
+      "D": "101",
+      "E": "103"
+    },
+    "hint": "Periksa perubahan antara dua suku yang berurutan, bukan hanya selisih terhadap suku pertama.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Selisihnya 3, 6, 12, 24, kemudian 48. Jadi suku berikutnya adalah 49 + 48 = 97.",
+      "B": "Salah. Angka 95 menghasilkan kenaikan 46, padahal pola selisih berikutnya harus 48.",
+      "C": "Salah. Angka 99 menghasilkan kenaikan 50, tidak sesuai dengan penggandaan selisih sebelumnya.",
+      "D": "Salah. Angka 101 menghasilkan kenaikan 52, bukan kelanjutan dari pola selisih yang berlipat dua.",
+      "E": "Salah. Angka 103 menghasilkan kenaikan 54, sehingga tidak mempertahankan pola selisih deret."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-perbandingan-kuantitatif-operasi-007",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hitung kedua besaran secara terpisah. X = 3/5 × 250 = 150. Y = 7/8 × 160 = 140. Karena 150 lebih besar daripada 140, maka X > Y. Perbandingan harus didasarkan pada hasil operasi pecahan, bukan membandingkan pembilang atau penyebut secara terpisah.",
+    "stem": "Diketahui dua besaran berikut:\n\nX = 3/5 dari 250\nY = 7/8 dari 160\n\nHubungan yang benar antara X dan Y adalah ...",
+    "options": {
+      "A": "X lebih kecil daripada Y.",
+      "B": "X sama dengan Y.",
+      "C": "X dua kali lebih besar daripada Y.",
+      "D": "X lebih besar daripada Y.",
+      "E": "Hubungan X dan Y tidak dapat ditentukan."
+    },
+    "hint": "Ubah setiap pecahan menjadi nilai numerik terlebih dahulu sebelum membandingkan hasil akhirnya.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Nilai X adalah 150, sedangkan Y adalah 140, sehingga X justru lebih besar.",
+      "B": "Salah. Kedua besaran tidak sama karena 150 berbeda dari 140.",
+      "C": "Salah. X tidak dua kali Y karena 2 × 140 = 280, bukan 150.",
+      "D": "Benar. X = 150 dan Y = 140, sehingga secara matematis X > Y.",
+      "E": "Salah. Seluruh informasi untuk menghitung kedua besaran tersedia, sehingga hubungannya dapat ditentukan secara pasti."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-sosial-diskon-pajak-008",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Harga awal barang adalah Rp800.000. Diskon 15% menghasilkan harga setelah diskon sebesar 800.000 × 0,85 = Rp680.000. Pajak 11% dikenakan terhadap harga setelah diskon, sehingga pajak adalah 680.000 × 0,11 = Rp74.800. Total pembayaran menjadi Rp680.000 + Rp74.800 = Rp754.800. Urutan diskon dan pajak harus diperhatikan.",
+    "stem": "Sebuah perangkat kantor memiliki harga sebelum potongan sebesar Rp800.000. Toko memberikan diskon 15%, kemudian mengenakan pajak 11% atas harga setelah diskon. Berapakah total pembayaran yang harus dilakukan pembeli?",
+    "options": {
+      "A": "Rp748.000",
+      "B": "Rp754.800",
+      "C": "Rp756.000",
+      "D": "Rp770.000",
+      "E": "Rp788.000"
+    },
+    "hint": "Perhatikan dasar pengenaan pajak dan urutan penerapan potongan harga dalam transaksi.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Nilai ini tidak sesuai dengan penjumlahan harga setelah diskon dan pajak 11% atas harga tersebut.",
+      "B": "Benar. Harga setelah diskon adalah Rp680.000 dan pajaknya Rp74.800, sehingga totalnya Rp754.800.",
+      "C": "Salah. Nilai ini tidak sesuai dengan perhitungan pajak 11% dari Rp680.000 yang menghasilkan Rp74.800.",
+      "D": "Salah. Nilai ini lebih tinggi daripada hasil yang diperoleh dari penerapan diskon terlebih dahulu dan pajak setelahnya.",
+      "E": "Salah. Nilai ini mendekati harga awal setelah pajak, tetapi tidak memperhitungkan diskon 15% secara benar."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-kombinasi-pekerjaan-009",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Petugas pertama memproses 120 berkas dalam 6 jam, sehingga lajunya 20 berkas per jam. Petugas kedua memproses 120 berkas dalam 8 jam, sehingga lajunya 15 berkas per jam. Jika bekerja bersama dengan laju tetap, kapasitas gabungannya adalah 20 + 15 = 35 berkas per jam. Waktu untuk menyelesaikan 280 berkas adalah 280/35 = 8 jam.",
+    "stem": "Dua petugas administrasi ditugaskan memeriksa 280 berkas. Petugas pertama mampu menyelesaikan 120 berkas dalam 6 jam, sedangkan petugas kedua mampu menyelesaikan 120 berkas dalam 8 jam. Jika keduanya bekerja bersama dengan kecepatan tetap dan tidak mengalami hambatan, berapa lama waktu yang diperlukan untuk memeriksa seluruh berkas?",
+    "options": {
+      "A": "6 jam.",
+      "B": "7 jam.",
+      "C": "9 jam.",
+      "D": "10 jam.",
+      "E": "8 jam."
+    },
+    "hint": "Gabungkan kapasitas pekerjaan per satuan waktu, bukan menjumlahkan durasi penyelesaian masing-masing petugas.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Dalam 6 jam, kapasitas gabungan hanya 35 × 6 = 210 berkas, belum mencapai 280 berkas.",
+      "B": "Salah. Dalam 7 jam, kapasitas gabungan hanya 35 × 7 = 245 berkas.",
+      "C": "Salah. Dalam 9 jam, kapasitas gabungan mencapai 315 berkas, melebihi kebutuhan 280 berkas.",
+      "D": "Salah. Dalam 10 jam, kapasitas gabungan mencapai 350 berkas, sehingga waktu tersebut terlalu lama.",
+      "E": "Benar. Kapasitas gabungan adalah 35 berkas per jam, sehingga 280 ÷ 35 = 8 jam."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-kecepatan-rata-rata-010",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Kecepatan rata-rata adalah total jarak dibagi total waktu, bukan rata-rata aritmetika dari dua kecepatan. Perjalanan pergi menempuh 180 km dengan kecepatan 60 km/jam selama 3 jam. Perjalanan pulang menempuh 180 km dengan kecepatan 90 km/jam selama 2 jam. Total jarak 360 km dan total waktu 5 jam, sehingga kecepatan rata-rata adalah 72 km/jam.",
+    "stem": "Seorang pegawai melakukan perjalanan dinas dari kantor pusat menuju kantor cabang sejauh 180 km dengan kecepatan rata-rata 60 km/jam. Dalam perjalanan pulang melalui rute yang sama, ia menempuh jarak tersebut dengan kecepatan rata-rata 90 km/jam. Berapakah kecepatan rata-rata untuk keseluruhan perjalanan pergi-pulang?",
+    "options": {
+      "A": "68 km/jam.",
+      "B": "70 km/jam.",
+      "C": "72 km/jam.",
+      "D": "75 km/jam.",
+      "E": "80 km/jam."
+    },
+    "hint": "Gunakan total jarak dibagi total durasi. Kedua perjalanan memiliki jarak yang sama, tetapi waktunya berbeda.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Kecepatan tersebut tidak diperoleh dari pembagian total jarak dengan total waktu kedua perjalanan.",
+      "B": "Salah. Perhitungan 360 km dibagi 5 jam menghasilkan 72 km/jam, bukan 70 km/jam.",
+      "C": "Benar. Total jarak 360 km dibagi total waktu 3 + 2 = 5 jam menghasilkan 72 km/jam.",
+      "D": "Salah. Rata-rata aritmetika dari 60 dan 90 bukan kecepatan rata-rata perjalanan dengan jarak yang sama.",
+      "E": "Salah. Nilai ini tidak sesuai dengan total jarak 360 km dan total waktu 5 jam."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-kontraposisi-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan A = analis kebijakan bersertifikat, T = pegawai tim penyusun regulasi, B = bendahara. Premis 1: A -> T. Premis 2: tidak ada T yang B, sehingga T -> bukan B, dan kontraposisinya B -> bukan T. Premis 3: Bagus adalah B. Maka Bagus bukan T. Kontraposisi premis 1 (bukan T -> bukan A) menghasilkan Bagus bukan A. Jadi kesimpulan yang pasti benar adalah opsi C. Opsi A bertentangan dengan premis 2; B tidak dapat disimpulkan karena Bagus mungkin bukan analis sama sekali; D menggeneralisasi ke analis tidak bersertifikat yang tidak dicakup premis 1; E bertentangan dengan premis 2.",
+    "stem": "Pada sebuah Biro Hukum kementerian berlaku tiga pernyataan berikut:\n1. Semua analis kebijakan bersertifikat ditugaskan pada tim penyusun regulasi.\n2. Tidak ada pegawai tim penyusun regulasi yang merangkap sebagai bendahara.\n3. Bagus adalah seorang bendahara.\nKesimpulan yang PASTI benar berdasarkan ketiga pernyataan tersebut adalah...",
+    "options": {
+      "A": "Bagus ditugaskan pada tim penyusun regulasi karena statusnya sebagai bendahara.",
+      "B": "Bagus adalah analis kebijakan yang belum memiliki sertifikat kompetensi.",
+      "C": "Bagus pasti bukan merupakan analis kebijakan yang telah bersertifikat.",
+      "D": "Seluruh analis kebijakan, bersertifikat maupun tidak, bukan merangkap bendahara.",
+      "E": "Sebagian pegawai tim penyusun regulasi merangkap sebagai bendahara."
+    },
+    "hint": "Telusuri hubungan antarhimpunan: apa konsekuensi logisnya bagi seseorang yang berada di luar himpunan tim penyusun regulasi?",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Bertentangan dengan premis 2: bendahara tidak mungkin berada di tim penyusun regulasi.",
+      "B": "Salah. Tidak ada premis yang menyatakan Bagus seorang analis; ia bisa saja bukan analis sama sekali, sehingga pernyataan ini tidak pasti.",
+      "C": "Benar. Bagus bendahara, maka bukan anggota tim penyusun regulasi (premis 2); dengan kontraposisi premis 1, ia bukan analis kebijakan bersertifikat.",
+      "D": "Salah. Premis 1 hanya mengikat analis yang bersertifikat; analis tanpa sertifikat tidak tercakup sehingga generalisasi ini tidak pasti.",
+      "E": "Salah. Kontradiksi langsung dengan premis 2 yang menyatakan tidak ada pegawai tim tersebut yang merangkap bendahara."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Silogisme BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-penempatan-ruang-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indah = 303, sehingga pasangan ruang bersebelahan yang masih mungkin hanya {301,302} atau {304,305}. Pasangan Dewi-Fajar dan pasangan Gita-Hendra masing-masing menempati salah satunya. Jika Dewi-Fajar di {304,305} maka Dewi 304 dan Fajar 305, bertentangan dengan syarat 4. Maka Dewi-Fajar di {301,302}: Dewi 301, Fajar 302; dan Gita-Hendra di {304,305}: Gita 304, Hendra 305 (Gita lebih kecil). Susunan unik: 301 Dewi, 302 Fajar, 303 Indah, 304 Gita, 305 Hendra. Verifikasi opsi: A benar (Gita 304 tepat di kanan Indah 303); B salah (301 dan 303 tidak bersebelahan); C salah (Hendra 305); D salah (Fajar 302 di kiri Indah); E salah (Gita 304 dan Dewi 301 tidak bersebelahan).",
+    "stem": "Lima pegawai Kantor Imigrasi, yaitu Dewi, Fajar, Gita, Hendra, dan Indah, masing-masing menempati satu dari lima ruang kerja berderet bernomor 301 sampai 305 dari kiri ke kanan. Diketahui:\n1. Indah menempati ruang 303.\n2. Dewi menempati ruang yang bersebelahan langsung dengan ruang Fajar, dengan nomor ruang Dewi lebih kecil daripada nomor ruang Fajar.\n3. Gita menempati ruang yang bersebelahan langsung dengan ruang Hendra, dengan nomor ruang Gita lebih kecil daripada nomor ruang Hendra.\n4. Fajar tidak menempati ruang 305.\nPernyataan yang PASTI benar mengenai penempatan tersebut adalah...",
+    "options": {
+      "A": "Gita menempati ruang yang bersebelahan langsung di sebelah kanan ruang Indah.",
+      "B": "Dewi menempati ruang yang bersebelahan langsung dengan ruang Indah.",
+      "C": "Hendra menempati ruang 304 tepat di sebelah kanan ruang Indah.",
+      "D": "Fajar menempati ruang yang berada di sebelah kanan ruang Indah.",
+      "E": "Gita dan Dewi menempati dua ruang yang saling bersebelahan."
+    },
+    "hint": "Karena ruang 303 sudah terisi, tentukan dahulu pasangan ruang bersebelahan mana saja yang masih mungkin ditempati kedua pasangan pegawai.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Susunan unik: Dewi 301, Fajar 302, Indah 303, Gita 304, Hendra 305; Gita berada tepat di kanan Indah.",
+      "B": "Salah. Dewi di ruang 301 sedangkan Indah di 303, sehingga tidak bersebelahan.",
+      "C": "Salah. Hendra menempati ruang 305, bukan 304; ruang 304 ditempati Gita.",
+      "D": "Salah. Fajar di ruang 302, yaitu di sebelah kiri Indah, bukan di kanannya.",
+      "E": "Salah. Gita di ruang 304 dan Dewi di ruang 301, sehingga keduanya terpisah dua ruang."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Analitis BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-deret-dua-larik-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret dipisah menjadi dua larik berselang-seling. Larik suku ganjil: 5, 8, 14, 26, ... dengan selisih 3, 6, 12 (berlipat dua tiap tahap), sehingga selisih berikutnya 24 dan suku ke-9 = 26 + 24 = 50. Larik suku genap: 100, 90, 80, 70, ... turun 10 tiap tahap, sehingga suku ke-10 = 70 - 10 = 60. Jumlah suku ke-9 dan ke-10 = 50 + 60 = 110, yaitu opsi E.",
+    "stem": "Perhatikan deret bilangan berikut:\n5, 100, 8, 90, 14, 80, 26, 70, ..., ...\nJumlah suku ke-9 dan suku ke-10 dari deret tersebut adalah...",
+    "options": {
+      "A": "98",
+      "B": "104",
+      "C": "120",
+      "D": "76",
+      "E": "110"
+    },
+    "hint": "Periksa apakah seluruh suku mengikuti satu aturan tunggal atau tersusun dari beberapa barisan yang berselang-seling.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menganggap selisih larik ganjil naik tetap +12 sehingga suku ke-9 = 38; 38 + 60 = 98.",
+      "B": "Salah. Menganggap selisih larik ganjil menjadi 3, 6, 12, 18 sehingga suku ke-9 = 44; 44 + 60 = 104.",
+      "C": "Salah. Menjumlahkan suku ke-9 (50) dengan suku ke-8 (70), bukan dengan suku ke-10 (60).",
+      "D": "Salah. Menjumlahkan suku ke-7 (26) dan suku ke-9 (50), bukan suku ke-9 dan suku ke-10.",
+      "E": "Benar. Suku ke-9 = 50 (selisih 3, 6, 12, 24) dan suku ke-10 = 60 (turun 10); jumlahnya 110."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Deret Dua Larik BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-perbandingan-pagu-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Pagu awal = Rp250.000.000. Setelah naik 20%: 250 juta x 1,2 = 300 juta. Pemotongan 20% dihitung dari pagu hasil revisi (300 juta): 300 juta x 0,8 = 240 juta. Maka X = 240 juta dan Y = 250 juta, sehingga X < Y (selisih 10 juta atau 4% dari Y). Faktor gabungan 1,2 x 0,8 = 0,96 < 1. Opsi B benar; C keliru karena basis persentase berbeda; E keliru karena penurunan bersih hanya 4%; D keliru karena seluruh nilai diketahui.",
+    "stem": "Sebuah satuan kerja memiliki pagu awal kegiatan sebesar Rp250.000.000. Setelah revisi anggaran, pagu tersebut dinaikkan 20%. Pada tahap penyesuaian berikutnya, pagu hasil revisi itu dipotong 20%.\nX = pagu kegiatan setelah penyesuaian\nY = pagu awal kegiatan\nHubungan antara X dan Y yang benar adalah...",
+    "options": {
+      "A": "Nilai X lebih besar daripada nilai Y.",
+      "B": "Nilai X lebih kecil daripada nilai Y.",
+      "C": "Nilai X sama dengan nilai Y.",
+      "D": "Hubungan X dan Y tidak dapat ditentukan dari informasi yang diberikan.",
+      "E": "Nilai X tepat 20% lebih rendah daripada nilai Y."
+    },
+    "hint": "Perhatikan bahwa basis perhitungan persentase pada tahap kedua berbeda dari basis pada tahap pertama.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Nilai X justru lebih kecil: Rp240.000.000 < Rp250.000.000.",
+      "B": "Benar. X = 250 juta x 1,2 x 0,8 = 240 juta, sedangkan Y = 250 juta, sehingga X < Y.",
+      "C": "Salah. Kenaikan dan pemotongan 20% tidak saling meniadakan karena pemotongan dihitung dari basis yang lebih besar (300 juta).",
+      "D": "Salah. Seluruh nilai yang diperlukan diketahui sehingga hubungan X dan Y dapat dipastikan.",
+      "E": "Salah. Penurunan bersih hanya Rp10.000.000 atau 4% dari Y, bukan 20%."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Perbandingan Kuantitatif BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-sosial-koperasi-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total modal = 200 kg x Rp12.000 = Rp2.400.000. Beras rusak = 10% x 200 = 20 kg, sehingga beras terjual = 180 kg. Target laba 20% dari total modal berarti total penjualan = 2.400.000 x 1,2 = Rp2.880.000. Harga jual per kg = 2.880.000 : 180 = Rp16.000, yaitu opsi D. Opsi A (14.400) mengabaikan beras rusak; B (15.600) menjumlahkan 20% laba dan 10% kerusakan secara aditif (12.000 x 1,3); C (15.840) memakai 12.000 x 1,2 x 1,1; E (18.000) memakai pembagi 0,8 seolah 20% beras rusak.",
+    "stem": "Koperasi Tani Makmur Sejahtera membeli 200 kg beras dengan harga Rp12.000 per kg. Sebanyak 10% dari seluruh beras tersebut rusak sehingga tidak dapat dijual, sedangkan sisanya dijual habis dengan harga yang sama per kilogram. Jika koperasi menargetkan laba sebesar 20% dari total modal pembelian, harga jual per kilogram beras yang harus ditetapkan adalah...",
+    "options": {
+      "A": "Rp14.400",
+      "B": "Rp15.600",
+      "C": "Rp15.840",
+      "D": "Rp16.000",
+      "E": "Rp18.000"
+    },
+    "hint": "Hitung dahulu total modal dan jumlah beras yang benar-benar terjual sebelum menentukan harga per kilogram.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Rp12.000 x 1,2 = Rp14.400 mengabaikan 20 kg beras rusak yang tidak menghasilkan pendapatan.",
+      "B": "Salah. Menjumlahkan 20% laba dan 10% kerusakan menjadi 30% atas harga beli (12.000 x 1,3), padahal kerusakan mengurangi jumlah barang terjual.",
+      "C": "Salah. Mengalikan 12.000 x 1,2 x 1,1; kerusakan 10% seharusnya dikompensasi dengan membagi 0,9, bukan mengalikan 1,1.",
+      "D": "Benar. Target penjualan Rp2.880.000 dibagi 180 kg terjual = Rp16.000 per kg.",
+      "E": "Salah. Memakai pembagi 0,8 (14.400 : 0,8) seolah 20% beras rusak, padahal yang rusak 10%."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Aritmetika Sosial BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-inflasi-daya-beli-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Relasi 'Inflasi : Daya Beli' adalah faktor yang menurunkan : hal yang diturunkan, karena kenaikan harga umum menggerus kemampuan beli masyarakat. Pasangan yang setara harus memiliki jenis relasi dan arah pengaruh yang sama. Erosi lahan mengikis lapisan tanah sehingga menurunkan kesuburan tanah, jadi 'Erosi Lahan : Kesuburan Tanah' setara (opsi D). Opsi A berelasi faktor pendukung : hal yang ditingkatkan (arah pengaruh berlawanan); B berelasi sarana : objek; C berelasi pelaku : lokasi; E berelasi kegiatan : tempat penyimpanan hasil.",
+    "stem": "Perhatikan pasangan kata berikut: Inflasi : Daya Beli. Pasangan kata yang memiliki hubungan paling setara dengan pasangan tersebut adalah...",
+    "options": {
+      "A": "Irigasi Teknis : Hasil Panen Padi",
+      "B": "Pupuk Organik : Tanaman Padi",
+      "C": "Petani Penggarap : Sawah Desa",
+      "D": "Erosi Lahan : Kesuburan Tanah",
+      "E": "Panen Raya : Lumbung Desa"
+    },
+    "hint": "Perhatikan bukan hanya adanya hubungan sebab-akibat, tetapi juga arah pengaruh faktor pertama terhadap hal kedua.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Irigasi justru mendukung dan meningkatkan hasil panen sehingga arah pengaruhnya berlawanan dengan inflasi terhadap daya beli.",
+      "B": "Salah. Relasinya sarana : objek yang dikenai sarana, bukan faktor yang menurunkan suatu nilai.",
+      "C": "Salah. Relasinya pelaku : lokasi kerja, tidak mengandung pengaruh menurunkan.",
+      "D": "Benar. Erosi lahan menurunkan kesuburan tanah, sebagaimana inflasi menurunkan daya beli: faktor penurun : hal yang diturunkan.",
+      "E": "Salah. Relasinya kegiatan : tempat penyimpanan hasil, bukan hubungan pengaruh menurunkan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Analogi Arah Pengaruh BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-jadwal-rapat-koordinasi-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Beri nomor hari: Senin = 1 sampai Jumat = 5. Syarat 4: Pengadaan = 5. Sisa hari 1-4 untuk Anggaran, Humas, Audit, Kepegawaian. Syarat 2: Kepegawaian = Audit + 1, dan hari 5 sudah terisi sehingga Audit tidak boleh 4. Syarat 1: Anggaran < Audit sehingga Audit tidak boleh 1. Syarat 5: Audit bukan 2. Maka Audit = 3 (Rabu) dan Kepegawaian = 4 (Kamis). Syarat 3: Humas bukan 1 dan bukan 5, serta hari 3 dan 4 terisi, sehingga Humas = 2 (Selasa). Anggaran = 1 (Senin). Susunan unik: Senin Anggaran, Selasa Humas, Rabu Audit, Kamis Kepegawaian, Jumat Pengadaan. Hanya opsi C yang sesuai: Humas (Selasa) tepat sehari sebelum Audit (Rabu).",
+    "stem": "Sekretariat sebuah kementerian menjadwalkan lima rapat koordinasi, yaitu rapat Anggaran, Kepegawaian, Pengadaan, Humas, dan Audit. Kelima rapat itu dilaksanakan pada hari Senin sampai Jumat, masing-masing satu rapat per hari. Diketahui:\n1. Rapat Anggaran dilaksanakan lebih awal daripada rapat Audit.\n2. Rapat Kepegawaian dilaksanakan tepat sehari setelah rapat Audit.\n3. Rapat Humas tidak dilaksanakan pada hari Senin maupun Jumat.\n4. Rapat Pengadaan dilaksanakan pada hari Jumat.\n5. Rapat Audit tidak dilaksanakan pada hari Selasa.\nPernyataan yang PASTI benar mengenai jadwal tersebut adalah...",
+    "options": {
+      "A": "Rapat Anggaran dilaksanakan pada hari Selasa sebelum rapat Humas.",
+      "B": "Rapat Kepegawaian dilaksanakan sebelum rapat Humas.",
+      "C": "Rapat Humas dilaksanakan tepat sehari sebelum rapat Audit.",
+      "D": "Rapat Audit dilaksanakan pada hari Kamis tepat sebelum rapat Pengadaan.",
+      "E": "Rapat Pengadaan dilaksanakan tepat sehari setelah rapat Audit."
+    },
+    "hint": "Mulailah dari syarat yang menetapkan hari secara pasti, lalu telusuri hari mana yang masih mungkin bagi pasangan rapat yang berurutan.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Rapat Anggaran dilaksanakan pada hari Senin, bukan Selasa; hari Selasa ditempati rapat Humas.",
+      "B": "Salah. Rapat Kepegawaian (Kamis) dilaksanakan setelah rapat Humas (Selasa), bukan sebelumnya.",
+      "C": "Benar. Rapat Humas pada hari Selasa dan rapat Audit pada hari Rabu, sehingga Humas tepat sehari sebelum Audit.",
+      "D": "Salah. Rapat Audit dilaksanakan pada hari Rabu; hari Kamis ditempati rapat Kepegawaian.",
+      "E": "Salah. Sehari setelah rapat Audit (Rabu) adalah rapat Kepegawaian (Kamis), sedangkan rapat Pengadaan dilaksanakan pada hari Jumat."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Analitis Penjadwalan BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-perbandingan-rata-rata-gabungan-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Jumlah nilai Kelas A = 30 x 80 = 2.400; jumlah nilai Kelas B = 20 x 70 = 1.400. Jumlah seluruh nilai = 3.800 untuk 50 peserta, sehingga X = 3.800 : 50 = 76. Y = (80 + 70) : 2 = 75. Karena 76 > 75, maka X > Y (opsi A). Rata-rata gabungan lebih condong ke Kelas A karena pesertanya lebih banyak, sedangkan Y memperlakukan kedua kelas dengan bobot sama. Opsi B dan C keliru karena bobot jumlah peserta diabaikan; D keliru karena seluruh data diketahui; E keliru karena perbedaan jumlah peserta justru menjadi dasar perhitungan rata-rata berbobot.",
+    "stem": "Dalam seleksi kompetensi, Kelas A terdiri atas 30 peserta dengan nilai rata-rata 80, sedangkan Kelas B terdiri atas 20 peserta dengan nilai rata-rata 70.\nX = nilai rata-rata seluruh peserta kedua kelas\nY = rata-rata dari nilai rata-rata Kelas A dan nilai rata-rata Kelas B\nHubungan antara X dan Y yang benar adalah...",
+    "options": {
+      "A": "Nilai X lebih besar daripada nilai Y.",
+      "B": "Nilai X lebih kecil daripada nilai Y.",
+      "C": "Nilai X sama dengan nilai Y.",
+      "D": "Hubungan X dan Y tidak dapat ditentukan dari informasi yang diberikan.",
+      "E": "Nilai X dan Y tidak dapat dibandingkan karena jumlah peserta kedua kelas berbeda."
+    },
+    "hint": "Pertimbangkan apakah setiap kelas memberi kontribusi yang sama besar terhadap rata-rata seluruh peserta.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. X = (2.400 + 1.400) : 50 = 76, sedangkan Y = (80 + 70) : 2 = 75, sehingga X > Y.",
+      "B": "Salah. Kelas yang pesertanya lebih banyak memiliki rata-rata lebih tinggi sehingga menarik X ke atas, bukan ke bawah Y.",
+      "C": "Salah. X dan Y hanya sama apabila jumlah peserta kedua kelas sama, sedangkan di sini 30 berbanding 20.",
+      "D": "Salah. Seluruh nilai yang diperlukan tersedia sehingga X dan Y dapat dihitung secara pasti.",
+      "E": "Salah. Perbedaan jumlah peserta tidak menghalangi perbandingan; justru menjadi bobot dalam menghitung X."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Perbandingan Kuantitatif Rata-Rata Berbobot BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-sosial-diskon-ppn-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Harga normal = Rp5.000.000. Diskon 10%: 5.000.000 x 0,90 = 4.500.000. Diskon tambahan 5% dari harga setelah diskon pertama: 4.500.000 x 0,95 = 4.275.000. PPN 11% atas harga setelah seluruh diskon: 4.275.000 x 1,11 = 4.745.250 (opsi E). Opsi A: 4.275.000 x 0,89 = 3.804.750 (PPN dikurangkan, bukan ditambahkan). Opsi B: 4.275.000 (lupa PPN). Opsi C: 4.275.000 x 1,10 = 4.702.500 (memakai PPN 10%). Opsi D: 5.000.000 x 0,85 x 1,11 = 4.717.500 (diskon dijumlahkan menjadi 15%, padahal diskon kedua dihitung dari harga setelah diskon pertama).",
+    "stem": "Sebuah kantor kecamatan membeli satu unit mesin pengganda dokumen dengan harga normal Rp5.000.000. Penyedia memberikan diskon 10% dari harga normal, kemudian diskon tambahan 5% dari harga setelah diskon pertama. PPN sebesar 11% dikenakan atas harga setelah seluruh diskon. Total yang harus dibayar kantor kecamatan tersebut adalah...",
+    "options": {
+      "A": "Rp3.804.750",
+      "B": "Rp4.275.000",
+      "C": "Rp4.702.500",
+      "D": "Rp4.717.500",
+      "E": "Rp4.745.250"
+    },
+    "hint": "Perhatikan basis hitung setiap tahap: diskon kedua dan pajak masing-masing dikenakan pada harga hasil tahap sebelumnya.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Mengurangkan PPN (4.275.000 x 0,89), padahal PPN menambah total yang harus dibayar.",
+      "B": "Salah. Ini harga setelah dua diskon tanpa menambahkan PPN 11%.",
+      "C": "Salah. Memakai tarif PPN 10% (4.275.000 x 1,10), padahal tarif yang berlaku 11%.",
+      "D": "Salah. Menjumlahkan diskon menjadi 15% (5.000.000 x 0,85 x 1,11), padahal diskon kedua dihitung dari harga setelah diskon pertama.",
+      "E": "Benar. 5.000.000 x 0,90 x 0,95 x 1,11 = 4.745.250."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Aritmetika Sosial Diskon dan Pajak BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-pekerja-berbalik-nilai-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total beban pekerjaan = 12 pekerja x 30 hari = 360 pekerja-hari. Dalam 10 hari pertama telah selesai 12 x 10 = 120 pekerja-hari, sehingga sisa 360 - 120 = 240 pekerja-hari. Target baru selesai 5 hari lebih cepat, yaitu hari ke-25, sehingga sisa waktu = 25 - 10 = 15 hari. Pekerja yang dibutuhkan = 240 : 15 = 16 orang. Tambahan = 16 - 12 = 4 orang (opsi B). Opsi A memakai 360 : 25 = 14,4 (dibulatkan 15) tanpa memperhitungkan 10 hari yang sudah berjalan; C menyamakan tambahan dengan jumlah hari percepatan; D memakai 12 x 5/10; E adalah total pekerja, bukan tambahan.",
+    "stem": "Dinas Pekerjaan Umum mempekerjakan 12 pekerja untuk merenovasi gedung kantor kelurahan yang dijadwalkan selesai dalam 30 hari. Seluruh pekerja memiliki produktivitas yang sama dan konstan. Setelah 10 hari bekerja, pimpinan memutuskan renovasi harus selesai 5 hari lebih cepat dari jadwal awal. Jumlah tambahan pekerja minimal yang dibutuhkan untuk memenuhi target baru tersebut adalah...",
+    "options": {
+      "A": "3 orang",
+      "B": "4 orang",
+      "C": "5 orang",
+      "D": "6 orang",
+      "E": "16 orang"
+    },
+    "hint": "Hitung beban pekerjaan dalam satuan pekerja-hari, lalu fokus pada sisa pekerjaan dan sisa waktu setelah 10 hari berjalan.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Memakai 360 : 25 = 14,4 (dibulatkan 15 pekerja) tanpa memperhitungkan pekerjaan yang sudah selesai dalam 10 hari pertama, sehingga tambahan 3.",
+      "B": "Benar. Sisa 240 pekerja-hari dalam 15 hari memerlukan 16 pekerja; tambahan 16 - 12 = 4 orang.",
+      "C": "Salah. Menyamakan jumlah tambahan pekerja dengan jumlah hari percepatan tanpa dasar perhitungan beban kerja.",
+      "D": "Salah. Memakai perbandingan 5 hari percepatan terhadap 10 hari yang telah berjalan (12 x 5/10 = 6), padahal yang relevan adalah sisa pekerjaan dan sisa waktu.",
+      "E": "Salah. Angka 16 adalah total pekerja yang dibutuhkan, bukan jumlah tambahan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Soal Cerita Perbandingan Berbalik Nilai BKN"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b01-04-deduksi-silogisme-tiga-premis-pada-audit-proyek-energi-hijau-bumn",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Pemodelan logika predikat:\nMisalkan:\n- P(x): x adalah proyek pembangunan PLTP di wilayah timur.\n- H(x): x adalah proyek strategis BUMN energi yang menggunakan skema pembiayaan obligasi hijau.\n- K(x): x wajib lolos verifikasi audit emisi karbon.\n- A(x): x mengantongi sertifikat AMDAL kategori A.\n- R(x): x diizinkan beroperasi hanya dengan sistem pemantauan limbah waktu nyata (tidak diizinkan beroperasi tanpa sistem pemantauan limbah waktu nyata).\n\nDari Premis 1: ∀x (H(x) → K(x))\nDari Premis 2: ∀x (K(x) → A(x))\nDari Premis 3 bagian kedua: ∀x (A(x) → R(x))\nDengan silogisme hipotesis berantai: ∀x (H(x) → K(x) → A(x) → R(x)), sehingga ∀x (H(x) → R(x)).\nDari Premis 3 bagian pertama: ∃x (P(x) ∧ H(x)).\nSubstitusi implikasi universal ke dalam kuantor eksistensial menghasilkan: ∃x (P(x) ∧ R(x)).\nArtinya: Sebagian proyek pembangunan pembangkit listrik tenaga panas bumi (PLTP) di wilayah timur tidak diizinkan beroperasi tanpa sistem pemantauan limbah waktu nyata (real-time).\nVerifikasi opsi: Opsi B tepat mewakili ∃x (P(x) ∧ R(x)) dan bernilai 5. Opsi A salah kuantor (semua), Opsi C terjebak fallacy of the converse, Opsi D kontradiktif dengan premis 1 dan 2, dan Opsi E membalikkan negasi.",
+    "stem": "Perhatikan premis-premis terkait regulasi pendanaan proyek infrastruktur BUMN berikut!\n1. Semua proyek strategis BUMN energi yang menggunakan skema pembiayaan obligasi hijau wajib lolos verifikasi audit emisi karbon.\n2. Apabila sebuah proyek wajib lolos verifikasi audit emisi karbon, maka proyek tersebut harus mengantongi sertifikat analisis dampak lingkungan (AMDAL) kategori A.\n3. Sebagian proyek pembangunan pembangkit listrik tenaga panas bumi (PLTP) di wilayah timur merupakan proyek strategis BUMN energi yang menggunakan skema pembiayaan obligasi hijau, sementara tidak satu pun proyek yang mengantongi sertifikat AMDAL kategori A diizinkan beroperasi tanpa sistem pemantauan limbah waktu nyata (real-time).\n\nSimpulan yang paling tepat berdasarkan ketiga premis tersebut adalah...",
+    "options": {
+      "A": "Semua proyek pembangunan pembangkit listrik tenaga panas bumi (PLTP) di wilayah timur wajib lolos verifikasi audit emisi karbon.",
+      "B": "Sebagian proyek pembangunan pembangkit listrik tenaga panas bumi (PLTP) di wilayah timur tidak diizinkan beroperasi tanpa sistem pemantauan limbah waktu nyata (real-time).",
+      "C": "Semua proyek infrastruktur yang mengantongi sertifikat AMDAL kategori A merupakan proyek strategis BUMN energi berskema obligasi hijau.",
+      "D": "Sebagian proyek pembangunan pembangkit listrik tenaga panas bumi (PLTP) di wilayah timur yang menggunakan obligasi hijau tidak memerlukan sertifikat AMDAL kategori A.",
+      "E": "Tidak satu pun proyek pembangunan pembangkit listrik tenaga panas bumi (PLTP) di wilayah timur yang diizinkan beroperasi dengan sistem pemantauan limbah waktu nyata (real-time)."
+    },
+    "hint": "Petakan hubungan antarkelas himpunan menggunakan kontraposisi dan hindari penarikan simpulan di luar cakupan kuantor.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena menggeneralisasi kuantor 'sebagian' menjadi 'semua'.",
+      "B": "Pilihan B (skor 5) benar karena mengikuti rantai deduksi silogisme hipotesis (Obligasi Hijau → Audit Karbon → AMDAL Kategori A → Tidak boleh beroperasi tanpa pemantauan limbah waktu nyata) yang dikenakan pada kuantor partikular (Sebagian proyek PLTP di wilayah timur).",
+      "C": "Pilihan C (skor 0) merupakan sesat pikir pembalikan implikasi (fallacy of the converse).",
+      "D": "Pilihan D (skor 0) bertentangan langsung dengan premis 1 dan 2.",
+      "E": "Pilihan E (skor 0) salah karena membalikkan makna 'tidak diizinkan tanpa sistem pemantauan' menjadi 'tidak diizinkan dengan sistem pemantauan'."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b01"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b01-05-penjadwalan-enam-tim-inspeksi-jembatan-dinas-pekerjaan-umum",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mari kita susun posisi keenam tim pada hari ke-1 (Senin) hingga hari ke-6 (Sabtu):\n1. Perhatikan syarat ketiga dan keempat: Tim L bertugas tepat sehari sebelum Tim J ([L, J]), dan Tim F bertugas setelah Tim J tetapi sebelum Tim G (L < J < F < G). Artinya, sebelum hari penugasan Tim G, harus tersedia minimal 3 hari untuk menempatkan L, J, dan F.\n2. Berdasarkan syarat kedua, Tim G hanya bisa bertugas pada hari Selasa (hari ke-2) atau Kamis (hari ke-4). Jika G bertugas pada hari Selasa, hanya ada 1 hari sebelumnya (Senin), sehingga mustahil menempatkan L, J, dan F. Oleh sebab itu, Tim G pasti bertugas pada hari Kamis (hari ke-4).\n3. Karena G berada di hari Kamis (hari ke-4), maka 3 hari sebelum Kamis (Senin, Selasa, Rabu) harus diisi oleh L, J, dan F dengan urutan L < J < F:\n   - Senin (hari ke-1): Tim L\n   - Selasa (hari ke-2): Tim J\n   - Rabu (hari ke-3): Tim F\n   - Kamis (hari ke-4): Tim G\n4. Sisa hari yang belum terisi adalah Jumat (hari ke-5) dan Sabtu (hari ke-6) untuk Tim H dan Tim K. Berdasarkan syarat pertama, Tim H harus bertugas tepat satu hari sebelum Tim K ([H, K]), sehingga:\n   - Jumat (hari ke-5): Tim H\n   - Sabtu (hari ke-6): Tim K\n5. Urutan lengkap yang 100% pasti dari Senin hingga Sabtu adalah: Senin = L, Selasa = J, Rabu = F, Kamis = G, Jumat = H, Sabtu = K.\nVerifikasi opsi: Opsi E menyatakan 'Tim F bertugas pada hari Rabu dan Tim H bertugas pada hari Jumat', yang terbukti pasti benar (skor 5). Opsi A, B, C, dan D salah (skor 0).",
+    "stem": "Dinas Pekerjaan Umum dan Penataan Ruang (PUPR) menjadwalkan enam tim inspeksi struktur jembatan—yaitu Tim F, Tim G, Tim H, Tim J, Tim K, dan Tim L—untuk melakukan uji beban secara bergantian dari hari Senin hingga Sabtu (satu tim per hari) dengan ketentuan berikut:\n- Tim H harus bertugas tepat satu hari sebelum Tim K bertugas.\n- Tim G hanya dapat dijadwalkan pada hari Selasa atau Kamis.\n- Tim F harus bertugas pada hari setelah Tim J, namun sebelum Tim G.\n- Tim L harus bertugas tepat satu hari sebelum Tim J dan tidak boleh bertugas pada hari Sabtu.\n\nBerdasarkan seluruh ketentuan di atas, pernyataan penjadwalan yang pasti benar adalah...",
+    "options": {
+      "A": "Tim G bertugas pada hari Selasa dan Tim F bertugas pada hari Senin.",
+      "B": "Tim J bertugas pada hari Senin dan Tim L bertugas pada hari Rabu.",
+      "C": "Tim H bertugas pada hari Selasa dan Tim K bertugas pada hari Rabu.",
+      "D": "Tim F bertugas pada hari Kamis dan Tim K bertugas pada hari Sabtu.",
+      "E": "Tim F bertugas pada hari Rabu dan Tim H bertugas pada hari Jumat."
+    },
+    "hint": "Ubah setiap syarat menjadi batasan urutan atau posisi tetap, lalu eliminasi susunan yang melanggar salah satu syarat.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A, B, C, dan D (skor 0) bertentangan dengan hasil deduksi tunggal tersebut.",
+      "B": "Pilihan A, B, C, dan D (skor 0) bertentangan dengan hasil deduksi tunggal tersebut.",
+      "C": "Pilihan A, B, C, dan D (skor 0) bertentangan dengan hasil deduksi tunggal tersebut.",
+      "D": "Pilihan A, B, C, dan D (skor 0) bertentangan dengan hasil deduksi tunggal tersebut.",
+      "E": "Pilihan E (skor 5) benar karena urutan L < J < F < G memaksa Tim G menempati hari Kamis (sebab hari Selasa tidak menyisakan tiga hari sebelumnya untuk L, J, dan F)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b01"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b01-06-perbandingan-kuantitatif-pengenceran-larutan-pupuk-dan-aljabar-selisih-kuadrat",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Langkah 1: Menghitung nilai X (pengenceran larutan).\nVolume awal V1 = 24 liter, konsentrasi awal C1 = 35%.\nVolume zat nutrisi murni di dalam larutan tetap konstan sebelum dan sesudah pengenceran:\nV_zat = 24 × 35% = 24 × (35 / 100) = 8,4 liter.\nMisalkan X adalah volume air murni yang ditambahkan, maka volume akhir V2 = 24 + X dengan konsentrasi akhir C2 = 20%:\n8,4 / (24 + X) = 20 / 100 = 1 / 5\n24 + X = 8,4 × 5\n24 + X = 42\nX = 42 - 24 = 18.\n\nLangkah 2: Menghitung nilai Y (identitas selisih dua kuadrat).\nGunakan sifat a² - b² = (a + b)(a - b) dengan a = 183 dan b = 117:\na + b = 183 + 117 = 300\na - b = 183 - 117 = 66\nMaka:\nY = (300 × 66) / 1.200\nSederhanakan 300 / 1.200 = 1 / 4:\nY = 66 / 4 = 16,5.\n\nLangkah 3: Membandingkan X dan Y.\nKarena X = 18 dan Y = 16,5, maka X > Y (selisih X - Y = 1,5).\nPeriksa kecocokan persamaan lain:\n- 2X = 36 sedangkan 3Y = 49,5 (sehingga 2X ≠ 3Y).\nDengan demikian, hubungan yang benar adalah X > Y pada Opsi A (skor 5), sedangkan Opsi B, C, D, dan E bernilai 0.",
+    "stem": "Laboratorium kultur jaringan di sebuah SMK Negeri Pertanian sedang melakukan kalibrasi kepekatan nutrisi hidroponik dan perhitungan indeks efisiensi alat.\n- Kuantitas X: Volume air murni (dalam satuan liter) yang harus ditambahkan ke dalam 24 liter larutan nutrisi berkonsentrasi 35% agar konsentrasi larutan tersebut turun menjadi 20%.\n- Kuantitas Y: Hasil perhitungan eksak dari ekspresi aljabar (183² - 117²) / 1.200.\n\nHubungan yang tepat antara kuantitas X dan kuantitas Y adalah...",
+    "options": {
+      "A": "X > Y",
+      "B": "X < Y",
+      "C": "X = Y",
+      "D": "2X = 3Y",
+      "E": "Hubungan antara X dan Y tidak dapat ditentukan"
+    },
+    "hint": "Sederhanakan kedua kuantitas ke bentuk aljabar atau nilai eksak sebelum membandingkan hubungannya.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 5) benar karena dari persamaan pengenceran diperoleh 24 × 35% = (24 + X) × 20% → 8,4 = 0,2(24 + X) → 24 + X = 42 → X = 18, sedangkan dari pemfaktoran selisih kuadrat diperoleh Y = (183 + 117)(183 - 117) / 1.200 = (300 × 66) / 1.200 = 66 / 4 = 16,5.",
+      "B": "Pilihan B (skor 0) merupakan jebakan bagi peserta yang lupa mengurangkan volume akhir 42 dengan 24 atau salah mengalikan selisih persentase.",
+      "C": "Pilihan C (skor 0) menjebak peserta yang membulatkan 66/4 menjadi 18.",
+      "D": "Pilihan D dan E (skor 0) salah secara matematis.",
+      "E": "Pilihan D dan E (skor 0) salah secara matematis."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b01"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b01-07-kombinasi-beban-kerja-dan-percepatan-target-proyek-gudang-logistik-pangan",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Perhitungan aljabar perbandingan berbalik nilai (beban kerja hari-orang / man-days):\n1. Total beban kerja keseluruhan proyek:\n   W_total = 36 hari × 15 teknisi = 540 hari-orang.\n2. Beban kerja yang telah diselesaikan selama 12 hari pertama oleh 15 teknisi:\n   W_selesai = 12 hari × 15 teknisi = 180 hari-orang.\n3. Sisa beban kerja yang belum diselesaikan:\n   W_sisa = 540 - 180 = 360 hari-orang.\n4. Menghitung sisa hari kerja efektif:\n   Target durasi total baru = 36 hari - 3 hari = 33 hari.\n   Waktu yang sudah terpakai = 12 hari kerja + 6 hari berhenti = 18 hari.\n   Sisa hari efektif yang tersedia (T_sisa) = 33 - 18 = 15 hari.\n5. Jumlah total teknisi yang dibutuhkan pada sisa 15 hari:\n   N_akhir = W_sisa / T_sisa = 360 / 15 = 24 teknisi.\n6. Jumlah teknisi tambahan yang harus direkrut:\n   ΔN = N_akhir - N_awal = 24 - 15 = 9 orang.\n\nAnalisis pengecoh (distractors):\n- Opsi A (5 orang): Jebakan jika lupa memperhitungkan percepatan 3 hari (menggunakan sisa hari 36 - 18 = 18 hari → 360/18 - 15 = 5).\n- Opsi B (9 orang): Jawaban tepat (skor 5).\n- Opsi C (12 orang): Jebakan jika salah menghitung sisa beban kerja.\n- Opsi D (15 orang): Jebakan jika mengurangi 3 hari percepatan dua kali (sisa waktu 12 hari → 360/12 - 15 = 15).\n- Opsi E (24 orang): Jebakan klasik memilih total pekerja akhir (N_akhir = 24) tanpa dikurangi 15 teknisi awal.",
+    "stem": "Proyek instalasi sistem pendingin terpadu di gudang logistik pangan nasional direncanakan selesai dalam waktu 36 hari apabila dikerjakan oleh 15 teknisi dengan kecepatan kerja yang identik. Setelah pengerjaan berjalan selama 12 hari, proyek terpaksa dihentikan total selama 6 hari akibat kendala distribusi katup kompresor di pelabuhan. Mengingat musim panen raya semakin dekat, pimpinan instansi menginstruksikan agar proyek justru harus rampung 3 hari lebih cepat dari jadwal semula (total durasi menjadi 33 hari sejak hari pertama). Berapa jumlah teknisi tambahan dengan kemampuan setara yang harus direkrut agar target percepatan tersebut tercapai tepat waktu?",
+    "options": {
+      "A": "5 orang",
+      "B": "9 orang",
+      "C": "12 orang",
+      "D": "15 orang",
+      "E": "24 orang"
+    },
+    "hint": "Modelkan laju kerja atau komposisi beban per satuan waktu sebagai persamaan linear yang konsisten.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena mengabaikan syarat percepatan 3 hari (360 / 18 - 15 = 5).",
+      "B": "Pilihan B (skor 5) benar karena sisa beban kerja sebesar (36 - 12) × 15 = 360 hari-orang harus diselesaikan dalam sisa waktu efektif 33 - 12 - 6 = 15 hari, sehingga dibutuhkan total 360 / 15 = 24 teknisi atau tambahan 24 - 15 = 9 orang.",
+      "C": "Pilihan C dan D (skor 0) salah akibat kekeliruan pengurangan hari efektif.",
+      "D": "Pilihan C dan D (skor 0) salah akibat kekeliruan pengurangan hari efektif.",
+      "E": "Pilihan E (skor 0) salah karena menyatakan jumlah total teknisi (24 orang), bukan jumlah teknisi tambahan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b01"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b02-04-penarikan-kesimpulan-dari-tiga-premis-tentang-sertifikasi-pegawai-kementerian",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Notasi: A = analis data, S = lulus sertifikasi, I = instruktur pelatihan, P = bertugas di unit pengadaan. P1: A ⊂ S. P2: ada x sehingga x ∈ S dan x ∈ I. P3: I ∩ P = ∅. Ambil x dari P2: x ∈ S dan x ∈ I; karena I ∩ P = ∅, x ∉ P. Maka ada anggota S yang bukan P, yaitu 'Sebagian pegawai lulus sertifikasi tidak bertugas di unit pengadaan' (opsi D) pasti benar. Opsi A salah: x belum tentu analis data (S lebih luas dari A). Opsi B salah: P3 tidak membatasi analis data secara langsung. Opsi C salah: konversi keliru dari P2. Opsi E salah: tidak ada premis yang mengaitkan unit pengadaan dengan analis data bersertifikasi.",
+    "stem": "Perhatikan premis-premis berikut.\nPremis 1: Semua analis data di sebuah kementerian telah lulus sertifikasi kompetensi.\nPremis 2: Sebagian pegawai yang telah lulus sertifikasi kompetensi menjadi instruktur pelatihan.\nPremis 3: Tidak ada instruktur pelatihan yang bertugas di unit pengadaan.\nKesimpulan yang pasti benar berdasarkan ketiga premis tersebut adalah ...",
+    "options": {
+      "A": "Sebagian analis data adalah instruktur pelatihan.",
+      "B": "Tidak ada analis data yang bertugas di unit pengadaan.",
+      "C": "Semua instruktur pelatihan adalah analis data.",
+      "D": "Sebagian pegawai yang lulus sertifikasi tidak bertugas di unit pengadaan.",
+      "E": "Sebagian pegawai di unit pengadaan adalah analis data yang lulus sertifikasi."
+    },
+    "hint": "Petakan hubungan antarkelas himpunan menggunakan kontraposisi dan hindari penarikan simpulan di luar cakupan kuantor.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A jatuh pada jebakan 'middle term tidak terdistribusi': instruktur bersertifikasi belum tentu analis data.",
+      "B": "Pilihan B tidak dapat disimpulkan karena analis data tidak dibatasi oleh Premis 3.",
+      "C": "Pilihan C adalah kekeliruan konversi dari 'sebagian' menjadi 'semua'.",
+      "D": "Pilihan D benar: pegawai bersertifikasi yang menjadi instruktur (Premis 2) tidak mungkin bertugas di unit pengadaan (Premis 3), sehingga sebagian pegawai bersertifikasi tidak di unit pengadaan.",
+      "E": "Pilihan E tidak memiliki dasar premis."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b02"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b02-05-penentuan-posisi-duduk-lima-pejabat-dalam-rapat-koordinasi",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Syarat (1): Laras di kursi 1. Syarat (2) dan (3): Rizal di tengah dan Maya di kanan Hendra, sehingga urutan blok tiga kursi berurutan adalah Hendra-Rizal-Maya. Blok ini menempati kursi 2-4 atau 3-5 (karena kursi 1 milik Laras). Kasus blok 3-5: Maya di kursi 5 (paling kanan), melanggar syarat (5). Kasus blok 2-4: Hendra 2, Rizal 3, Maya 4, sisa Yusuf di kursi 5; syarat (4): Yusuf (5) tidak bersebelahan dengan Rizal (3), terpenuhi. Susunan unik: Laras-Hendra-Rizal-Maya-Yusuf. Kursi paling kanan: Yusuf (opsi B). Opsi lain tidak mungkin: Maya melanggar (5), Rizal di kursi 3, Hendra di kursi 2, Laras di kursi 1.",
+    "stem": "Lima pejabat sebuah BPBD, yaitu Hendra, Laras, Maya, Rizal, dan Yusuf, duduk berjajar pada lima kursi bernomor 1 sampai 5 dari kiri ke kanan dalam rapat koordinasi. Diketahui: (1) Laras duduk di kursi paling kiri; (2) Rizal duduk tepat di antara Hendra dan Maya, yaitu bersebelahan langsung dengan keduanya; (3) Maya duduk di sebelah kanan Hendra (tidak harus bersebelahan); (4) Yusuf tidak duduk bersebelahan dengan Rizal; (5) Maya tidak duduk di kursi paling kanan. Pejabat yang duduk di kursi paling kanan adalah ...",
+    "options": {
+      "A": "Maya",
+      "B": "Yusuf",
+      "C": "Rizal",
+      "D": "Hendra",
+      "E": "Laras"
+    },
+    "hint": "Ubah setiap syarat menjadi batasan urutan atau posisi tetap, lalu eliminasi susunan yang melanggar salah satu syarat.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Maya (A) hanya mungkin di kursi paling kanan jika syarat (5) diabaikan.",
+      "B": "Susunan yang memenuhi seluruh syarat hanya satu: Laras, Hendra, Rizal, Maya, Yusuf dari kiri ke kanan, sehingga Yusuf (B) di kursi paling kanan.",
+      "C": "Rizal (C), Hendra (D), dan Laras (E) berturut-turut menempati kursi 3, 2, dan 1.",
+      "D": "Rizal (C), Hendra (D), dan Laras (E) berturut-turut menempati kursi 3, 2, dan 1.",
+      "E": "Rizal (C), Hendra (D), dan Laras (E) berturut-turut menempati kursi 3, 2, dan 1."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b02"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b02-06-perbandingan-dua-kuantitas-dari-panjang-dua-ruas-jalan-provinsi",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Dari a + b = 12 dan ab = 35, a dan b adalah akar t² − 12t + 35 = 0, yaitu (t − 5)(t − 7) = 0, sehingga t = 5 atau 7. Karena a > b, a = 7 dan b = 5. P = a² − b² = 49 − 25 = 24 (atau (a+b)(a−b) = 12 × 2 = 24). Q = ab − (a+b) = 35 − 12 = 23. Jadi P = 24 > Q = 23, selisih P − Q = 1. Opsi A benar. Opsi B dan C salah karena P tidak lebih kecil atau sama dengan Q. Opsi D salah karena nilai a dan b dapat ditentukan secara unik. Opsi E salah karena selisihnya 1, bukan 2.",
+    "stem": "Panjang dua ruas jalan provinsi masing-masing a km dan b km, dengan a + b = 12, ab = 35, dan a > b. Kuantitas P = a² − b². Kuantitas Q = ab − (a + b). Hubungan yang benar antara P dan Q adalah ...",
+    "options": {
+      "A": "P > Q",
+      "B": "P < Q",
+      "C": "P = Q",
+      "D": "Hubungan P dan Q tidak dapat ditentukan",
+      "E": "P > Q dan selisih P − Q tepat sama dengan 2"
+    },
+    "hint": "Sederhanakan kedua kuantitas ke bentuk aljabar atau nilai eksak sebelum membandingkan hubungannya.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Nilai a = 7 dan b = 5 diperoleh dari persamaan kuadrat, sehingga P = 24 dan Q = 23, maka P > Q (A).",
+      "B": "Pilihan B keliru.",
+      "C": "Pilihan C menjebak peserta yang menyamakan kedua kuantitas tanpa menghitung.",
+      "D": "Pilihan D keliru karena a dan b dapat ditentukan secara unik.",
+      "E": "Pilihan E keliru karena selisih sebenarnya 1."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b02"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b02-07-waktu-pengisian-reservoir-pdam-dengan-dua-pompa-dan-satu-pipa-pembuangan",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Laju: A = 1/6, B = 1/9, C = −1/18 (bagian per jam). Laju A + B = 3/18 + 2/18 = 5/18 per jam. Selama 2 jam pertama (07.00-09.00): terisi 2 × 5/18 = 10/18 = 5/9. Sisa = 1 − 5/9 = 4/9. Setelah C dibuka, laju bersih = 5/18 − 1/18 = 4/18 = 2/9 per jam. Waktu sisa = (4/9) ÷ (2/9) = 2 jam. Total = 2 + 2 = 4 jam, jadi penuh pukul 11.00 (opsi E). Verifikasi opsi lain: A (10.00, 3 jam) terlalu cepat; B (10.36) = 3,6 jam adalah hasil jika C diabaikan: 2 + (4/9)/(5/18) = 2 + 1,6; C (11.30) = 4,5 jam adalah hasil jika C dibuka sejak awal: 1 ÷ (2/9) = 4,5; D (12.00) = 5 jam tidak sesuai perhitungan manapun.",
+    "stem": "Sebuah reservoir PDAM yang kosong dapat diisi penuh oleh pompa A saja dalam 6 jam atau oleh pompa B saja dalam 9 jam. Pipa pembuangan C dapat mengosongkan reservoir yang penuh dalam 18 jam. Pada pukul 07.00 pompa A dan B dibuka bersamaan. Pada pukul 09.00 pipa C ikut dibuka tanpa menutup pompa mana pun. Reservoir akan penuh pada pukul ...",
+    "options": {
+      "A": "10.00",
+      "B": "10.36",
+      "C": "11.30",
+      "D": "12.00",
+      "E": "11.00"
+    },
+    "hint": "Modelkan laju kerja atau komposisi beban per satuan waktu sebagai persamaan linear yang konsisten.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A dan D tidak sesuai dengan perhitungan laju kerja.",
+      "B": "Pilihan B adalah jebakan karena mengabaikan pipa C setelah dibuka (3,6 jam).",
+      "C": "Pilihan C adalah jebakan karena menghitung seolah C dibuka sejak awal (4,5 jam).",
+      "D": "Pilihan A dan D tidak sesuai dengan perhitungan laju kerja.",
+      "E": "Pilihan E benar: dua jam pertama mengisi 5/9 bagian, sisa 4/9 bagian diisi dengan laju bersih 2/9 per jam selama 2 jam, total 4 jam (pukul 11.00)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b02"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b03-04-penarikan-kesimpulan-dari-ketentuan-akses-arsip-digital",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan I adalah himpunan anggota tim investigasi yang memperoleh akses arsip terbatas, V adalah pegawai yang lulus verifikasi keamanan, F adalah analis forensik, dan R adalah pegawai yang wajib memperbarui kredensial. Dari premis (1), diperoleh I ⊆ V. Dari premis (2), terdapat setidaknya satu individu x yang termasuk dalam F dan I, sehingga x ∈ F ∩ I. Karena I ⊆ V, individu tersebut juga termasuk V. Dari premis (3), diperoleh V ⊆ R. Dengan demikian, terdapat setidaknya satu individu yang termasuk F dan R. Kesimpulan yang pasti benar adalah sebagian analis forensik wajib memperbarui kredensial akses setiap enam bulan. Opsi A merupakan generalisasi tidak sah karena keberadaan sebagian analis tidak membuktikan seluruh analis. Opsi B tidak dapat disimpulkan karena tidak ada informasi mengenai pegawai nonanalis yang memperbarui kredensial. Opsi C benar karena mengikuti rantai implikasi ketiga premis. Opsi D melakukan pembalikan implikasi dari premis pertama. Opsi E melakukan generalisasi dari sebagian analis menjadi seluruh analis.",
+    "stem": "Dalam suatu proses audit arsip digital berlaku tiga ketentuan berikut: (1) Semua anggota tim investigasi yang diberi akses ke arsip terbatas telah lulus verifikasi keamanan. (2) Sebagian analis forensik merupakan anggota tim investigasi yang diberi akses ke arsip terbatas. (3) Setiap pegawai yang lulus verifikasi keamanan wajib memperbarui kredensial akses setiap enam bulan. Kesimpulan manakah yang pasti benar berdasarkan ketiga premis tersebut?",
+    "options": {
+      "A": "Semua analis forensik wajib memperbarui kredensial akses setiap enam bulan.",
+      "B": "Sebagian pegawai yang memperbarui kredensial akses bukan merupakan analis forensik.",
+      "C": "Sebagian analis forensik wajib memperbarui kredensial akses setiap enam bulan.",
+      "D": "Semua pegawai yang lulus verifikasi keamanan merupakan anggota tim investigasi yang memperoleh akses arsip terbatas.",
+      "E": "Tidak ada analis forensik yang belum lulus verifikasi keamanan."
+    },
+    "hint": "Petakan hubungan antarkelas himpunan menggunakan kontraposisi dan hindari penarikan simpulan di luar cakupan kuantor.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena melakukan generalisasi dari sebagian menjadi semua.",
+      "B": "Pilihan B (skor 0) salah karena keberadaan pegawai nonanalis yang memperbarui kredensial tidak dijelaskan dalam premis.",
+      "C": "Pilihan C (skor 5) merupakan kesimpulan yang valid berdasarkan tiga premis.",
+      "D": "Pilihan D (skor 0) merupakan kesalahan pembalikan implikasi: semua anggota tim investigasi berakses terbatas lulus verifikasi tidak berarti semua pegawai yang lulus verifikasi merupakan anggota tim tersebut.",
+      "E": "Pilihan E (skor 0) salah karena premis hanya menyatakan sebagian analis forensik termasuk anggota tim investigasi berakses terbatas, bukan seluruh analis forensik."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b03"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b03-05-penentuan-urutan-sesi-evaluasi-berdasarkan-sejumlah-ketentuan",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Terdapat lima sesi dan lima slot waktu, sehingga setiap sesi hanya dapat menempati satu posisi. Ketentuan L tepat setelah K membentuk pasangan berurutan K-L. Ketentuan N tepat sebelum O membentuk pasangan N-O. Karena O harus berlangsung sebelum M, pasangan N-O harus ditempatkan sebelum M. Selain itu, K harus berlangsung sebelum M dengan sedikitnya satu sesi di antaranya. Dengan demikian, pasangan K-L juga harus berada sebelum M. Karena seluruh lima sesi harus dijadwalkan, kedua pasangan tersebut harus menempati empat posisi pertama dan M berada pada posisi kelima. Terdapat dua kemungkinan urutan pasangan, yaitu K-L-N-O-M dan N-O-K-L-M. Kemungkinan pertama tidak memenuhi ketentuan karena K menempati slot pertama. Oleh karena itu, hanya N-O-K-L-M yang memenuhi seluruh ketentuan. Opsi D benar. Opsi A melanggar ketentuan bahwa K tidak boleh berada di posisi pertama. Opsi B menempatkan M sebelum K. Opsi C membalik urutan N dan O. Opsi E tidak menempatkan N tepat sebelum O.",
+    "stem": "Panitia evaluasi pengadaan harus menempatkan lima sesi pemeriksaan, yaitu K, L, M, N, dan O, ke dalam lima slot waktu berurutan. Ketentuan yang berlaku adalah K harus berlangsung sebelum M dengan sedikitnya satu sesi di antaranya, L harus berlangsung tepat setelah K, N harus berlangsung tepat sebelum O, O harus berlangsung sebelum M, dan K tidak boleh menempati slot pertama. Urutan sesi yang memenuhi seluruh ketentuan tersebut adalah...",
+    "options": {
+      "A": "K – L – N – O – M",
+      "B": "N – O – M – K – L",
+      "C": "O – N – K – L – M",
+      "D": "N – O – K – L – M",
+      "E": "N – K – L – O – M"
+    },
+    "hint": "Ubah setiap syarat menjadi batasan urutan atau posisi tetap, lalu eliminasi susunan yang melanggar salah satu syarat.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena K menempati slot pertama.",
+      "B": "Pilihan B (skor 0) salah karena M berada sebelum K sehingga melanggar ketentuan K harus mendahului M.",
+      "C": "Pilihan C (skor 0) salah karena urutan N dan O terbalik.",
+      "D": "Pilihan D (skor 5) merupakan satu-satunya urutan yang memenuhi seluruh batasan.",
+      "E": "Pilihan E (skor 0) salah karena N tidak berada tepat sebelum O."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b03"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b03-06-perbandingan-hasil-perhitungan-dua-metode-estimasi-persediaan",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Perhitungan harus memperhatikan urutan operasi perkalian dan pembagian. Nilai X = (3/5 × 80% × 750) ÷ 1,25. Pertama, 80% × 750 = 600. Berikutnya, 3/5 × 600 = 360. Selanjutnya, X = 360 ÷ 1,25 = 288. Nilai Y = 45% × 640 = 0,45 × 640 = 288. Dengan demikian, X = 288 dan Y = 288, sehingga X = Y. Opsi A benar. Opsi B salah karena menganggap X lebih besar dari Y, misalnya akibat mengabaikan faktor pembagi. Opsi C salah karena menganggap Y lebih besar meskipun hasil kedua metode sama. Opsi D salah karena selisih kedua hasil bukan seperlima dari Y, melainkan nol. Opsi E salah karena faktor koreksi tidak membuat perbandingan kedua nilai menjadi tidak dapat ditentukan.",
+    "stem": "Seorang analis membandingkan dua metode estimasi persediaan bahan. Metode pertama menghasilkan nilai X, yaitu tiga per lima dari 80% atas 750 unit, kemudian hasilnya dibagi dengan faktor koreksi 1,25. Metode kedua menghasilkan nilai Y sebesar 45% dari 640 unit. Berdasarkan perhitungan tersebut, hubungan yang benar antara X dan Y adalah...",
+    "options": {
+      "A": "X sama dengan Y.",
+      "B": "X lebih besar daripada Y.",
+      "C": "X lebih kecil daripada Y.",
+      "D": "X lebih kecil sebesar seperlima dari nilai Y.",
+      "E": "Hubungan antara X dan Y tidak dapat ditentukan karena keduanya menggunakan metode perhitungan yang berbeda."
+    },
+    "hint": "Sederhanakan kedua kuantitas ke bentuk aljabar atau nilai eksak sebelum membandingkan hubungannya.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 5) benar karena kedua metode menghasilkan nilai yang sama, yaitu 288 unit.",
+      "B": "Pilihan B (skor 0) salah karena mengabaikan hasil pembagian faktor koreksi atau melakukan kesalahan aritmetika sehingga nilai X tampak lebih besar.",
+      "C": "Pilihan C (skor 0) salah karena nilai Y tidak lebih besar daripada X.",
+      "D": "Pilihan D (skor 0) salah karena tidak terdapat selisih antara X dan Y.",
+      "E": "Pilihan E (skor 0) salah karena perbedaan metode tidak menghalangi perbandingan selama nilai masing-masing dapat dihitung secara pasti."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b03"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b03-07-perubahan-kapasitas-tenaga-kerja-dalam-proyek-kalibrasi-konveyor",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Pekerjaan memiliki hubungan berbanding terbalik dengan jumlah teknisi karena produktivitas setiap teknisi dianggap tetap. Total beban kerja = 4 teknisi × 9 jam = 36 jam-teknisi. Dalam tiga jam pertama, pekerjaan yang diselesaikan = 4 × 3 = 12 jam-teknisi. Sisa pekerjaan = 36 - 12 = 24 jam-teknisi. Setelah dua teknisi dialihkan, jumlah teknisi yang melanjutkan pekerjaan adalah dua orang. Waktu untuk menyelesaikan sisa pekerjaan = 24 ÷ 2 = 12 jam. Total waktu = 3 + 12 = 15 jam. Jadi, jawaban yang benar adalah E. Opsi A salah karena hanya menghitung waktu pengerjaan sisa pekerjaan dengan mengabaikan tiga jam pertama. Opsi B dan C tidak sesuai dengan hasil pembagian beban kerja dan jumlah teknisi yang tersisa. Opsi D salah karena menghitung seluruh pekerjaan seolah-olah sejak awal hanya dikerjakan dua teknisi. Opsi E sesuai dengan perhitungan jam-teknisi secara keseluruhan.",
+    "stem": "Pada lini pemeliharaan sebuah BUMN logistik, empat teknisi dengan produktivitas sama dapat menyelesaikan kalibrasi enam unit konveyor dalam waktu sembilan jam. Setelah bekerja selama tiga jam, dua teknisi dialihkan ke proyek lain sehingga hanya dua teknisi yang melanjutkan pekerjaan dengan produktivitas tetap. Berapa lama total waktu yang diperlukan sejak pekerjaan dimulai hingga seluruh kalibrasi selesai?",
+    "options": {
+      "A": "12 jam.",
+      "B": "13,5 jam.",
+      "C": "14 jam.",
+      "D": "18 jam.",
+      "E": "15 jam."
+    },
+    "hint": "Modelkan laju kerja atau komposisi beban per satuan waktu sebagai persamaan linear yang konsisten.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena hanya menghitung waktu pengerjaan sisa pekerjaan dan mengabaikan tiga jam pertama.",
+      "B": "Pilihan B (skor 0) salah karena tidak sesuai dengan pembagian sisa beban kerja terhadap produktivitas dua teknisi.",
+      "C": "Pilihan C (skor 0) salah karena menghasilkan selisih perhitungan yang tidak didukung oleh data.",
+      "D": "Pilihan D (skor 0) salah karena menghitung 36 jam-teknisi dibagi dua teknisi tanpa mempertimbangkan pekerjaan yang telah diselesaikan sebelumnya.",
+      "E": "Pilihan E (skor 5) benar karena total beban pekerjaan setara dengan 36 jam-teknisi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b03"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b04-chatgpt-04-identifikasi-hubungan-fungsional-dalam-analogi-profesi-dan-objek-kerja",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hubungan antara kurator dan koleksi merupakan hubungan profesi dengan objek utama yang diproses melalui kegiatan seleksi, pengorganisasian, dan penyempurnaan penyajian. Kurator tidak sekadar menggunakan koleksi, tetapi melakukan pengelolaan substantif agar koleksi memiliki susunan dan konteks yang bermakna. Pasangan yang paling setara adalah editor dan naskah karena editor menyeleksi, mengorganisasi, serta menyunting materi naskah agar tersaji secara utuh dan sistematis. Dengan demikian, opsi A benar. Opsi B menggambarkan hubungan pustakawan dengan pemustaka, yaitu penyedia layanan dengan penerima layanan. Opsi C menggambarkan hubungan sutradara dengan aktor, yaitu pengarah dengan pelaksana dalam produksi pertunjukan. Opsi D menggambarkan hubungan kritikus dengan ulasan, yaitu pelaku penilaian dengan hasil tulisan evaluatif. Opsi E menggambarkan hubungan penerbit dengan percetakan, yaitu pihak penerbitan dengan fasilitas produksi. Keempat pasangan tersebut memiliki hubungan profesi yang benar, tetapi jenis hubungan fungsionalnya berbeda dari hubungan kurator dengan koleksi.",
+    "stem": "Seorang kurator bertugas menyeleksi, mengorganisasi, dan memberikan konteks terhadap suatu koleksi agar dapat disajikan secara utuh dan bermakna dalam sebuah pameran. Berdasarkan pola hubungan antara profesi dan objek kerja tersebut, pasangan kata yang memiliki hubungan makna paling setara adalah...",
+    "options": {
+      "A": "Editor : Naskah",
+      "B": "Pustakawan : Pemustaka",
+      "C": "Sutradara : Aktor",
+      "D": "Kritikus : Ulasan",
+      "E": "Penerbit : Percetakan"
+    },
+    "hint": "Rumuskan relasi fungsional atau sebab-akibat yang presisi di antara pasangan kata pada premis terlebih dahulu.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 5) benar karena editor mengelola dan menyempurnakan naskah sebagaimana kurator mengelola serta mengorganisasi koleksi.",
+      "B": "Pilihan B (skor 0) salah karena menggambarkan hubungan penyedia layanan dengan penerima layanan.",
+      "C": "Pilihan C (skor 0) salah karena menggambarkan hubungan pengarah dengan pihak yang diarahkan dalam suatu produksi.",
+      "D": "Pilihan D (skor 0) salah karena menggambarkan hubungan pelaku evaluasi dengan hasil evaluasinya.",
+      "E": "Pilihan E (skor 0) salah karena menggambarkan hubungan penerbit dengan fasilitas produksi, bukan hubungan profesi dengan objek yang disunting dan dikurasi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b04-chatgpt"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b04-chatgpt-05-analisis-dua-pola-bilangan-yang-berselang-seling",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret terdiri atas dua pola bilangan yang saling berselang-seling. Pola pertama berada pada posisi ganjil, yaitu suku ke-1, ke-3, ke-5, ke-7, dan ke-9. Nilainya adalah 3, 9, 27, 81, dan ... . Setiap suku pada pola tersebut diperoleh dengan mengalikan suku sebelumnya dengan 3. Secara aljabar: U(2n-1) = 3 × 3^(n-1). Maka suku ke-9 adalah U9 = 81 × 3 = 243. Pola kedua berada pada posisi genap, yaitu 8, 13, 18, dan 23. Pola ini merupakan deret aritmetika dengan beda tetap +5, sehingga tidak digunakan untuk menentukan suku ke-9. Opsi C tepat karena menghasilkan 243. Opsi A (162) salah karena tidak mengikuti perkalian tiga pada pola posisi ganjil. Opsi B (216) salah karena menggunakan rasio yang tidak konsisten dengan pola. Opsi D (324) salah karena menggandakan hasil yang seharusnya. Opsi E (486) salah karena menerapkan perkalian enam, bukan perkalian tiga.",
+    "stem": "Dalam suatu pengujian kemampuan numerik, peserta diberikan deret berikut: 3, 8, 9, 13, 27, 18, 81, 23, .... Deret tersebut terbentuk melalui dua pola operasi berbeda yang diterapkan secara berselang-seling pada posisi bilangan ganjil dan genap. Berdasarkan keteraturan tersebut, nilai suku ke-9 adalah...",
+    "options": {
+      "A": "162",
+      "B": "216",
+      "C": "243",
+      "D": "324",
+      "E": "486"
+    },
+    "hint": "Periksa selisih atau rasio antarsuku secara bertingkat, termasuk kemungkinan adanya dua larik yang berselang-seling.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) tidak konsisten dengan rasio perkalian pola pertama.",
+      "B": "Pilihan B (skor 0) menggunakan nilai yang tidak dihasilkan oleh kelanjutan pola.",
+      "C": "Pilihan C (skor 5) benar karena suku pada posisi ganjil membentuk pola perkalian tiga: 3, 9, 27, 81, dan 243.",
+      "D": "Pilihan D (skor 0) merupakan hasil penggandaan yang tidak sesuai dengan rasio deret.",
+      "E": "Pilihan E (skor 0) menggunakan faktor pengali yang terlalu besar dan tidak mengikuti pola perkalian tiga."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b04-chatgpt"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b04-chatgpt-06-perhitungan-keuntungan-bersih-pada-penjualan-produk-koperasi",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total modal = 120 × Rp80.000 = Rp9.600.000. Jumlah produk yang dijual dengan harga lebih tinggi adalah 75% × 120 = 90 unit. Harga jual awal per unit = Rp80.000 × 1,25 = Rp100.000. Setelah diskon 10%, harga jual aktual = Rp100.000 × 0,90 = Rp90.000. Pendapatan dari 90 unit pertama = 90 × Rp90.000 = Rp8.100.000. Sisa produk = 120 - 90 = 30 unit. Harga jual sisa produk = Rp80.000 × 0,90 = Rp72.000. Pendapatan dari sisa produk = 30 × Rp72.000 = Rp2.160.000. Total pendapatan = Rp8.100.000 + Rp2.160.000 = Rp10.260.000. Keuntungan bersih = Rp10.260.000 - Rp9.600.000 = Rp660.000. Persentase keuntungan = (Rp660.000/Rp9.600.000) × 100% = 6,875%. Dengan demikian, opsi E adalah satu-satunya jawaban benar. Opsi A salah karena hanya menghitung keuntungan 90 unit pertama tanpa memperhitungkan kerugian pada 30 unit sisanya. Opsi B salah karena memperlakukan diskon sebagai pengurangan langsung sepuluh poin persentase dari markup. Opsi C salah karena menerapkan keuntungan bersih produk yang mendapat diskon kepada seluruh stok. Opsi D salah karena mengabaikan pembobotan berdasarkan proporsi jumlah produk dan kerugian pada sisa penjualan.",
+    "stem": "Sebuah koperasi pengrajin membeli 120 unit produk dengan harga modal Rp80.000,00 per unit. Sebanyak 75% dari seluruh produk dijual dengan harga 25% di atas modal per unit, tetapi pembeli memperoleh potongan harga sebesar 10% dari harga jual tersebut. Sisa produk dijual dengan harga 10% di bawah modal per unit. Jika seluruh produk berhasil terjual, persentase keuntungan bersih koperasi terhadap keseluruhan modal adalah...",
+    "options": {
+      "A": "9,375%",
+      "B": "8,75%",
+      "C": "12,5%",
+      "D": "15%",
+      "E": "6,875%"
+    },
+    "hint": "Hitung basis biaya bersih dan penyusutan unit secara berurutan sebelum menentukan persentase laba atau nilai akhir.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena hanya menghitung keuntungan Rp900.000,00 dari 90 unit pertama dan mengabaikan kerugian Rp240.000,00 dari 30 unit sisanya.",
+      "B": "Pilihan B (skor 0) salah karena menganggap diskon 10% sama dengan pengurangan sepuluh poin persentase dari markup 25%, padahal diskon dihitung dari harga yang telah dinaikkan.",
+      "C": "Pilihan C (skor 0) salah karena mengaplikasikan keuntungan 12,5% dari produk yang mendapat diskon kepada seluruh stok.",
+      "D": "Pilihan D (skor 0) salah karena mengabaikan diskon, proporsi penjualan, serta kerugian pada sisa produk.",
+      "E": "Pilihan E (skor 5) benar karena perhitungan pendapatan seluruh produk menghasilkan keuntungan bersih Rp660.000,00 atau 6,875% dari modal Rp9.600.000,00."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b04-chatgpt"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b05-claude-sonnet-05-jumlah-dua-suku-lanjutan-pada-deret-bilangan-berpola-ganda",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret terdiri dari dua barisan yang berselang-seling. Barisan suku ganjil (suku ke-1, 3, 5, ...): 3, 7, 15, 31, 63; setiap suku = 2 × suku sebelumnya + 1 (beda 4, 8, 16, 32 yang menggandakan diri), dengan rumus suku ke-k barisan ini 2^(k+1) − 1. Suku ke-11 adalah suku ganjil ke-6, jadi 2^7 − 1 = 127 (cek: 2 × 63 + 1 = 127). Barisan suku genap (suku ke-2, 4, 6, ...): 1, 4, 9, 16, 25, yaitu bilangan kuadrat 1², 2², 3², 4², 5². Suku ke-12 adalah suku genap ke-6, jadi 6² = 36. Jumlah = 127 + 36 = 163 = opsi C. Verifikasi jebakan: A = 152 = 127 + 25 (memakai suku ke-10 sebagai suku ke-12); B = 162 = 126 + 36 (rumus ×2 tanpa +1); D = 164 = 128 + 36 (memakai 2^n tanpa pengurang 1); E = 176 = 127 + 49 (salah indeks kuadrat, memakai 7²). Hanya C yang sama dengan hasil perhitungan.",
+    "stem": "Perhatikan deret bilangan berikut: 3, 1, 7, 4, 15, 9, 31, 16, 63, 25, ... Jumlah suku ke-11 dan suku ke-12 dari deret tersebut adalah ...",
+    "options": {
+      "A": "152",
+      "B": "162",
+      "C": "163",
+      "D": "164",
+      "E": "176"
+    },
+    "hint": "Periksa selisih atau rasio antarsuku secara bertingkat, termasuk kemungkinan adanya dua larik yang berselang-seling.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A adalah jebakan karena memakai suku ke-10 (25) sebagai suku ke-12.",
+      "B": "Pilihan B adalah jebakan karena menggandakan 63 menjadi 126 tanpa menambah 1.",
+      "C": "Pilihan C benar: suku ke-11 = 127 (pola ×2 + 1 pada suku ganjil) dan suku ke-12 = 36 (kuadrat ke-6 pada suku genap), sehingga jumlahnya 163.",
+      "D": "Pilihan D adalah jebakan karena memakai pola 2^n sehingga diperoleh 128.",
+      "E": "Pilihan E adalah jebakan karena salah indeks kuadrat (7² = 49) untuk suku ke-12."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b05-claude-sonnet"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b05-claude-sonnet-06-persentase-laba-penjualan-bawang-merah-oleh-bumdes-dengan-penyusutan-stok",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Modal = 250 × 32.000 = Rp8.000.000. Bawang busuk = 10% × 250 = 25 kg, sehingga bawang layak jual = 250 − 25 = 225 kg. Penjualan tahap 1 = 100 × 40.000 = Rp4.000.000. Sisa bawang = 225 − 100 = 125 kg, dijual 125 × 36.000 = Rp4.500.000. Total penerimaan = 4.000.000 + 4.500.000 = Rp8.500.000. Laba = 8.500.000 − 8.000.000 = Rp500.000. Persentase laba terhadap modal = 500.000 / 8.000.000 × 100% = 6,25% = opsi A. Verifikasi jebakan: B = 500.000 / 8.500.000 = 5,88% (pembagi memakai penerimaan, bukan modal); C = 6,88% berasal dari harga rata-rata sederhana Rp38.000 × 225 = 8.550.000 (laba 550.000 / 8.000.000 = 6,875%), yang keliru karena bobot kuantitas berbeda; D = 17,5% berasal dari anggapan seluruh 250 kg terjual, yaitu 100 × 40.000 + 150 × 36.000 = 9.400.000 (laba 1.400.000), yang mengabaikan susut; E = 10% berasal dari laba bagian harga tinggi saja, yaitu (40.000 − 32.000) × 100 = 800.000 (800.000 / 8.000.000), yang mengabaikan sisa penjualan dan susut. Hanya A yang sama dengan hasil perhitungan.",
+    "stem": "Sebuah Badan Usaha Milik Desa (BUMDes) di Nusa Tenggara Timur membeli 250 kg bawang merah dengan harga Rp32.000 per kg. Sebanyak 10% dari pembelian tersebut busuk sehingga tidak dapat dijual. Dari bawang yang masih layak, 100 kg dijual dengan harga Rp40.000 per kg dan sisanya dijual dengan harga Rp36.000 per kg. Persentase laba terhadap total modal pembelian adalah ...",
+    "options": {
+      "A": "6,25%",
+      "B": "5,88%",
+      "C": "6,88%",
+      "D": "17,50%",
+      "E": "10,00%"
+    },
+    "hint": "Hitung basis biaya bersih dan penyusutan unit secara berurutan sebelum menentukan persentase laba atau nilai akhir.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A benar: modal Rp8.000.000, penerimaan Rp8.500.000 dari 225 kg bawang layak jual, laba Rp500.000 atau 6,25% dari modal.",
+      "B": "Pilihan B adalah jebakan karena laba dibagi penerimaan, bukan modal.",
+      "C": "Pilihan C adalah jebakan karena memakai harga rata-rata sederhana tanpa memperhitungkan bobot kuantitas yang berbeda.",
+      "D": "Pilihan D adalah jebakan karena mengabaikan bawang busuk dan menganggap seluruh 250 kg terjual.",
+      "E": "Pilihan E adalah jebakan karena hanya menghitung laba dari bagian yang dijual dengan harga tinggi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b05-claude-sonnet"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b05-claude-sonnet-07-analogi-pasangan-kata-berpola-hubungan-tindakan-dan-peristiwa",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hubungan pada pasangan soal: VAKSINASI adalah tindakan yang dilakukan sebelum penyakit terjadi untuk mencegah (menghindarkan) terjadinya CAMPAK. Jadi pola hubungannya adalah 'tindakan preventif : peristiwa yang dicegah'. Evaluasi opsi: A (Antibiotik : Infeksi bakteri) adalah tindakan kuratif setelah infeksi terjadi. B (Alarm asap : Kebakaran) adalah deteksi atau peringatan dini saat api sudah muncul, tidak mencegah terjadinya kebakaran. C (Ambulans : Korban kecelakaan) adalah penanganan atau evakuasi setelah kecelakaan terjadi. D (Tanggul : Luapan sungai) adalah konstruksi yang dibangun sebelum banjir untuk mencegah air meluap, sehingga cocok dengan pola preventif. E (Rehabilitasi : Ketergantungan narkoba) adalah pemulihan setelah ketergantungan terjadi. Hanya D yang berpola preventif. Jawaban benar: D.",
+    "stem": "VAKSINASI : CAMPAK = ... Pilihlah pasangan kata yang hubungannya paling serupa dengan pasangan kata tersebut.",
+    "options": {
+      "A": "Antibiotik : Infeksi bakteri",
+      "B": "Alarm asap : Kebakaran",
+      "C": "Ambulans : Korban kecelakaan",
+      "D": "Tanggul : Luapan sungai",
+      "E": "Rehabilitasi : Ketergantungan narkoba"
+    },
+    "hint": "Rumuskan relasi fungsional atau sebab-akibat yang presisi di antara pasangan kata pada premis terlebih dahulu.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A adalah jebakan karena antibiotik bersifat kuratif, yaitu mengobati infeksi yang sudah terjadi.",
+      "B": "Pilihan B adalah jebakan karena alarm asap hanya mendeteksi dan memberi peringatan saat kebakaran telah terjadi.",
+      "C": "Pilihan C adalah penanganan setelah peristiwa terjadi.",
+      "D": "Pilihan D benar karena tanggul dibangun sebelum banjir untuk mencegah luapan, sama seperti vaksinasi yang dilakukan sebelum sakit untuk mencegah campak.",
+      "E": "Pilihan E adalah pemulihan setelah kondisi terjadi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b05-claude-sonnet"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b06-gemini-argon-04-deret-angka-dua-larik-bertingkat-dengan-relasi-fungsional",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Barisan terdiri atas 8 suku awal: U1 = 4, U2 = 10, U3 = 7, U4 = 19, U5 = 12, U6 = 34, U7 = 19, U8 = 55.\nPembuktian Metode 1 (Pola Dua Larik Aritmetika Bertingkat):\n- Larik ganjil (U1, U3, U5, U7, U9): 4, 7, 12, 19, U9.\n Selisih tingkat pertama antar-suku ganjil:\n U3 - U1 = 7 - 4 = +3\n U5 - U3 = 12 - 7 = +5\n U7 - U5 = 19 - 12 = +7\n Selisih tingkat kedua konstan sebesar +2, sehingga selisih berikutnya adalah +9.\n Maka U9 = 19 + 9 = 28.\n- Larik genap (U2, U4, U6, U8, U10): 10, 19, 34, 55, U10.\n Selisih tingkat pertama antar-suku genap:\n U4 - U2 = 19 - 10 = +9\n U6 - U4 = 34 - 19 = +15\n U8 - U6 = 55 - 34 = +21\n Selisih tingkat kedua konstan sebesar +6, sehingga selisih berikutnya adalah +27.\n Maka U10 = 55 + 27 = 82.\n\nPembuktian Metode 2 (Relasi Pasangan Suku Ganjil-Genap U_{2k} = 3 × U_{2k-1} - 2):\n- Pasangan 1: U2 = 3(4) - 2 = 10\n- Pasangan 2: U4 = 3(7) - 2 = 19\n- Pasangan 3: U6 = 3(12) - 2 = 34\n- Pasangan 4: U8 = 3(19) - 2 = 55\n- Pasangan 5: U10 = 3(U9) - 2 = 3(28) - 2 = 84 - 2 = 82.\nKedua metode membuktikan secara konsisten bahwa suku ke-9 dan ke-10 adalah 28 dan 82 (Opsi C bernilai 5).\nVerifikasi pengecoh:\n- Opsi A (26 dan 76): Jebakan mengulang selisih sebelumnya (+7 dan +21).\n- Opsi B (27 dan 79): Jebakan menambah selisih ganjil dengan +1 (19 + 8 = 27) lalu 3(27) - 2 = 79.\n- Opsi D (28 dan 84): Jebakan benar menghitung U9 = 28 namun lupa mengurangkan 2 saat mengalikan 3 × 28 = 84.\n- Opsi E (30 dan 88): Jebakan menambah selisih +11 (19 + 11 = 30) lalu 3(30) - 2 = 88.",
+    "stem": "Perhatikan barisan bilangan berikut!\n4, 10, 7, 19, 12, 34, 19, 55, ..., ...\nDua bilangan yang tepat untuk melengkapi suku ke-9 dan suku ke-10 pada barisan tersebut berturut-turut adalah...",
+    "options": {
+      "A": "26 dan 76",
+      "B": "27 dan 79",
+      "C": "28 dan 82",
+      "D": "28 dan 84",
+      "E": "30 dan 88"
+    },
+    "hint": "Periksa selisih atau rasio antarsuku secara bertingkat, termasuk kemungkinan adanya dua larik yang berselang-seling.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena mengulang selisih sebelumnya (+7 dan +21).",
+      "B": "Pilihan B (skor 0) salah karena keliru menambahkan selisih +8 pada suku ganjil.",
+      "C": "Pilihan C (skor 5) benar karena larik ganjil (4, 7, 12, 19) memiliki selisih bertingkat +3, +5, +7, dan +9 sehingga U9 = 19 + 9 = 28, sedangkan larik genap (10, 19, 34, 55) memiliki selisih bertingkat +9, +15, +21, dan +27 (atau mengikuti rumus 3 × U9 - 2) sehingga U10 = 55 + 27 = 82.",
+      "D": "Pilihan D (skor 0) salah karena lupa mengurangi 2 pada operasi 3 × 28.",
+      "E": "Pilihan E (skor 0) salah karena melompati selisih menjadi +11."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b06-gemini-argon-05-kalkulasi-harga-jual-kopi-sangrai-pascasortir-dengan-penyusutan-massa",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Perhitungan aljabar aritmetika sosial bertahap:\n1. Menghitung total modal keseluruhan (M_total):\n Biaya beli = 500 kg × Rp80.000 = Rp40.000.000.\n Biaya pengiriman = Rp2.000.000.\n M_total = Rp40.000.000 + Rp2.000.000 = Rp42.000.000.\n2. Menghitung target total pendapatan (R_total) untuk laba 25%:\n R_total = 125% × Rp42.000.000 = (5 / 4) × Rp42.000.000 = Rp52.500.000.\n3. Menghitung massa bersih kopi setelah penyusutan 16% (W_bersih):\n W_bersih = (100% - 16%) × 500 kg = 0,84 × 500 kg = 420 kg.\n4. Menghitung pendapatan dari penjualan kopi kelas Specialty (60% dari 420 kg):\n Massa Specialty = 0,6 × 420 kg = 252 kg.\n Pendapatan Specialty = 252 kg × Rp140.000 = Rp35.280.000.\n5. Menghitung harga jual per kg kopi kelas Komersial (40% dari 420 kg):\n Massa Komersial = 0,4 × 420 kg = 168 kg.\n Sisa pendapatan yang harus dipenuhi dari kelas Komersial:\n R_komersial = Rp52.500.000 - Rp35.280.000 = Rp17.220.000.\n Harga jual per kg kelas Komersial (P_komersial):\n P_komersial = Rp17.220.000 / 168 kg = Rp102.500,00.\n\nVerifikasi cara cepat (rata-rata tertimbang per kg bersih):\n- Modal efektif per kg kopi panggang = Rp42.000.000 / 420 kg = Rp100.000/kg.\n- Target harga jual rata-rata per kg (untung 25%) = 1,25 × Rp100.000 = Rp125.000/kg.\n- Persamaan: 0,6 × Rp140.000 + 0,4 × P_komersial = Rp125.000\n Rp84.000 + 0,4 × P_komersial = Rp125.000\n 0,4 × P_komersial = Rp41.000 → P_komersial = Rp102.500,00 (Opsi B bernilai 5).\n\nAnalisis pengecoh:\n- Opsi A (Rp96.562,50 atau Rp95.000,00): Jebakan jika mengabaikan biaya pengiriman Rp2.000.000 atau lupa mengenakan margin 25% pada biaya kirim.\n- Opsi C (Rp105.000,00): Jebakan menghitung 125% dari modal per kg sebelum penyusutan (Rp84.000 × 1,25 = Rp105.000).\n- Opsi D (Rp110.000,00): Jebakan rata-rata aritmetika tanpa bobot 60%:40% (Rp125.000 - (Rp140.000 - Rp125.000) = Rp110.000).\n- Opsi E (Rp125.000,00): Jebakan memilih target harga rata-rata gabungan per kg.",
+    "stem": "Sebuah koperasi produsen kopi di dataran tinggi membeli 500 kg biji kopi hijau mentah dengan harga Rp80.000,00 per kg dan menanggung biaya pengiriman tetap sebesar Rp2.000.000,00. Setelah melalui proses pemanggangan (roasting), total massa biji kopi mengalami penyusutan sebesar 16%. Koperasi kemudian menyortir seluruh hasil kopi panggang tersebut menjadi dua kelas: 60% dari berat bersih hasil panggangan dikemas sebagai kelas Specialty yang habis terjual dengan harga Rp140.000,00 per kg, sedangkan 40% sisanya dikemas sebagai kelas Komersial. Apabila koperasi menargetkan keuntungan bersih sebesar 25% dari total modal keseluruhan (harga pembelian ditambah biaya pengiriman), berapakah harga jual per kilogram yang harus ditetapkan untuk kopi kelas Komersial?",
+    "options": {
+      "A": "Rp95.000,00",
+      "B": "Rp102.500,00",
+      "C": "Rp105.000,00",
+      "D": "Rp110.000,00",
+      "E": "Rp125.000,00"
+    },
+    "hint": "Hitung basis biaya bersih dan penyusutan unit secara berurutan sebelum menentukan persentase laba atau nilai akhir.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A (skor 0) salah karena mengabaikan proporsi biaya pengiriman.",
+      "B": "Pilihan B (skor 5) benar karena total modal Rp42.000.000,00 untuk berat bersih pascapanggang 420 kg (500 kg dikurangi susut 16%) menghasilkan modal efektif Rp100.000,00/kg dan target harga rata-rata Rp125.000,00/kg (laba 25%).",
+      "C": "Pilihan C (skor 0) salah karena menggunakan berat awal 500 kg tanpa menghitung penyusutan (Rp84.000 × 1,25).",
+      "D": "Pilihan D (skor 0) salah karena mengabaikan rasio bobot 60%:40%.",
+      "E": "Pilihan E (skor 0) salah karena merupakan harga rata-rata gabungan seluruh kopi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
+    }
+  },
+  {
+    "slug": "tiu-legacy-b06-gemini-argon-06-analogi-kalimat-hubungan-fungsional-preventif-dan-pengendalian-mutu",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Analisis relasi semantik dan fungsional pasangan kata soal:\n- KALIBRASI adalah tindakan pemeriksaan/penyesuaian standar secara terukur dan preventif yang dilakukan terhadap instrumen untuk mencegah atau meminimalkan terjadinya BIAS PENGUKURAN (penyimpangan/kesalahan sistematis dalam pengoperasian).\n- Formula relasi: [Tindakan pemeriksaan/standarisasi preventif] diterapkan oleh [subjek pengawas/teknis] untuk mencegah terjadinya [penyimpangan/kesalahan sistematis dalam sistem].\n\nEvaluasi opsi:\n- Opsi A: Rehabilitasi medis untuk memulihkan fungsi motorik pascaserangan penyakit (bersifat kuratif/pemulihan setelah kejadian, bukan pencegahan).\n- Opsi B: Investigasi forensik untuk mengungkap pelaku setelah kejahatan terjadi (bersifat represif/penyelidikan pascakejadian).\n- Opsi C: Kompensasi finansial untuk mengganti kerugian akibat kebakaran (bersifat indemnifikasi/ganti rugi pascabencana).\n- Opsi D: Eksplorasi geologi untuk menemukan cadangan mineral baru (bersifat pencarian potensi sumber daya, bukan pencegahan penyimpangan).\n- Opsi E: Audit kepatuhan diterapkan oleh pengawas internal untuk mencegah terjadinya penyimpangan prosedur pada pengelolaan anggaran instansi (bersifat pemeriksaan standar preventif untuk mencegah penyimpangan sistematis — identik secara struktural dan fungsional, skor 5).",
+    "stem": "Hubungan fungsional antara kata KALIBRASI dan BIAS PENGUKURAN memiliki kesetaraan logis yang paling presisi dengan hubungan antarunsur pada kalimat...",
+    "options": {
+      "A": "Rehabilitasi medis dilakukan oleh dokter spesialis untuk memulihkan fungsi motorik pasien setelah serangan penyakit kronis berakhir.",
+      "B": "Investigasi forensik dilaksanakan oleh tim penyidik untuk mengungkap pelaku pelanggaran hukum setelah insiden kejahatan terjadi.",
+      "C": "Kompensasi finansial diberikan oleh perusahaan asuransi untuk mengganti kerugian materiil nasabah akibat musibah kebakaran gedung.",
+      "D": "Eksplorasi geologi dijalankan oleh insinyur pertambangan untuk menemukan cadangan mineral baru di wilayah cekungan sedimen.",
+      "E": "Audit kepatuhan diterapkan oleh pengawas internal untuk mencegah terjadinya penyimpangan prosedur pada pengelolaan anggaran instansi."
+    },
+    "hint": "Rumuskan relasi fungsional atau sebab-akibat yang presisi di antara pasangan kata pada premis terlebih dahulu.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pilihan A, B, dan C (skor 0) salah karena ketiganya menggambarkan tindakan reaktif setelah peristiwa buruk terjadi (rehabilitasi, investigasi, kompensasi), bukan tindakan pencegahan penyimpangan.",
+      "B": "Pilihan A, B, dan C (skor 0) salah karena ketiganya menggambarkan tindakan reaktif setelah peristiwa buruk terjadi (rehabilitasi, investigasi, kompensasi), bukan tindakan pencegahan penyimpangan.",
+      "C": "Pilihan A, B, dan C (skor 0) salah karena ketiganya menggambarkan tindakan reaktif setelah peristiwa buruk terjadi (rehabilitasi, investigasi, kompensasi), bukan tindakan pencegahan penyimpangan.",
+      "D": "Pilihan D (skor 0) salah karena eksplorasi bertujuan mencari potensi baru, bukan mengendalikan kesesuaian standar.",
+      "E": "Pilihan E (skor 5) benar karena 'audit kepatuhan' merupakan tindakan pemeriksaan terstandar yang berfungsi mencegah 'penyimpangan prosedur', setara secara presisi dengan 'kalibrasi' yang berfungsi mencegah 'bias pengukuran'."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
+    }
+  }
+]

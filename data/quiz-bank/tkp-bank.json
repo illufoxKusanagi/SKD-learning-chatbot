@@ -1,0 +1,1370 @@
+[
+  {
+    "slug": "tkp-pelayanan-publik-akses-digital-lansia-001",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Berorientasi Pelayanan. Hierarki penilaian mengutamakan pelayanan yang responsif, solutif, inklusif, dan memberikan kepastian bagi masyarakat (5), kemudian bantuan yang cukup efektif tetapi belum menyelesaikan seluruh kebutuhan (4), komunikasi dan bantuan terbatas (3), respons minimal (2), serta pengabaian kebutuhan masyarakat (1).",
+    "stem": "Anda bertugas di loket pelayanan administrasi kependudukan yang baru menerapkan sistem pendaftaran daring. Seorang warga lanjut usia datang membawa dokumen lengkap, tetapi kesulitan menggunakan telepon pintar untuk mengakses aplikasi. Antrean mulai bertambah dan beberapa warga lain menunggu giliran. Apa tindakan yang paling tepat?",
+    "options": {
+      "A": "Membantu warga menggunakan fasilitas pendampingan digital, menjelaskan tahapan secara sederhana, dan menjaga agar antrean tetap berjalan tertib.",
+      "B": "Memberikan panduan tertulis mengenai aplikasi dan menyarankan warga meminta bantuan anggota keluarga untuk menyelesaikan pendaftaran.",
+      "C": "Meminta petugas lain mendampingi warga setelah seluruh pemohon yang telah mendaftar daring selesai dilayani.",
+      "D": "Menjelaskan bahwa pendaftaran wajib dilakukan secara daring dan memberikan alamat layanan bantuan apabila warga mengalami kendala berikutnya.",
+      "E": "Mempersilakan warga kembali pada hari berikutnya ketika antrean lebih sedikit agar pelayanan loket tidak mengalami keterlambatan."
+    },
+    "hint": "Pertimbangkan aksesibilitas pelayanan, kepastian proses, dan kebutuhan kelompok masyarakat dengan keterbatasan penggunaan teknologi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 4,
+      "C": 3,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Pendampingan langsung memberikan akses yang setara, menjaga martabat warga, dan tetap mempertahankan ketertiban antrean.",
+      "B": "Poin 4 — Panduan membantu warga secara mandiri, tetapi belum memberikan penyelesaian langsung terhadap hambatan digital yang sedang terjadi.",
+      "C": "Poin 3 — Tetap menyediakan bantuan, tetapi penundaan membuat warga lanjut usia menunggu tanpa kepastian waktu.",
+      "D": "Poin 2 — Informasi disampaikan dengan benar, tetapi belum memberikan solusi yang efektif bagi warga yang sedang mengalami kesulitan.",
+      "E": "Poin 1 — Memindahkan beban kendala pelayanan kepada masyarakat dan menambah hambatan akses terhadap layanan publik."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-akumulasi-antrean-002",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Berorientasi Pelayanan. Skor 5 diberikan kepada tindakan yang mengidentifikasi penyebab masalah, menetapkan prioritas objektif, memberi kepastian informasi, dan mengupayakan perbaikan layanan. Skor 4 menunjukkan tindakan proaktif tetapi belum menyelesaikan semua aspek. Skor 3 berupa komunikasi atau evaluasi terbatas, skor 2 respons parsial tanpa pengelolaan menyeluruh, dan skor 1 membiarkan masalah berlanjut.",
+    "stem": "Di sebuah kantor pelayanan perizinan, jumlah permohonan yang belum diproses meningkat tajam selama tiga minggu. Masyarakat mulai mengeluhkan ketidakjelasan estimasi penyelesaian, sementara sebagian pemohon memiliki kebutuhan layanan yang mendesak. Sebagai koordinator loket, tindakan paling tepat adalah ...",
+    "options": {
+      "A": "Menyampaikan permohonan maaf atas keterlambatan dan meminta masyarakat memantau informasi penyelesaian melalui situs resmi instansi.",
+      "B": "Memetakan penyebab penumpukan, menetapkan prioritas sesuai kriteria yang transparan, dan menyampaikan estimasi serta perkembangan kepada pemohon.",
+      "C": "Mengusulkan penambahan jam layanan kepada pimpinan sambil meminta petugas menyelesaikan berkas sesuai urutan masuk.",
+      "D": "Mendahulukan permohonan yang memiliki tenggat resmi paling dekat dan menginformasikan perubahan urutan kepada pemohon terkait.",
+      "E": "Mengimbau masyarakat mengajukan permohonan lebih awal pada periode berikutnya agar penumpukan serupa tidak kembali terjadi."
+    },
+    "hint": "Perhatikan perbedaan antara penanganan gejala, penentuan prioritas, dan perbaikan akar penyebab masalah pelayanan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 4,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Komunikasi terbuka menunjukkan kepedulian, tetapi belum memperbaiki proses dan belum memberikan kepastian individual.",
+      "B": "Poin 5 — Menggabungkan evaluasi penyebab, prioritas objektif, transparansi informasi, dan perbaikan sistem pelayanan secara terukur.",
+      "C": "Poin 4 — Penambahan jam layanan dapat meningkatkan kapasitas, tetapi belum secara langsung mengidentifikasi penyebab penumpukan.",
+      "D": "Poin 2 — Prioritas tenggat mendesak membantu sebagian pemohon, tetapi belum menyelesaikan pengelolaan seluruh antrean.",
+      "E": "Poin 1 — Imbauan kepada masyarakat tidak menyelesaikan masalah internal dan mengabaikan tanggung jawab perbaikan layanan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-validasi-data-lintas-instansi-003",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Kolaboratif. Hierarki skor 5 mengutamakan sinergi aktif, penyelarasan data, pembagian tanggung jawab, serta tujuan bersama. Skor 4 menunjukkan koordinasi rutin tetapi belum mengatasi perbedaan substantif, skor 3 berbagi informasi secara terbatas, skor 2 mengandalkan proses pasif, dan skor 1 memperburuk hubungan kerja.",
+    "stem": "Anda menjadi anggota tim lintas instansi untuk menyalurkan bantuan bagi masyarakat terdampak bencana. Namun, data penerima dari pemerintah daerah, dinas sosial, dan lembaga mitra menunjukkan jumlah serta identitas yang berbeda. Penyaluran bantuan dijadwalkan berlangsung dua hari lagi. Langkah yang paling tepat adalah ...",
+    "options": {
+      "A": "Menyampaikan data milik instansi sendiri kepada koordinator dan meminta instansi lain menyesuaikan data mereka sebelum penyaluran.",
+      "B": "Menunggu koordinator lintas instansi menetapkan satu data resmi sebelum melakukan pemeriksaan lebih lanjut terhadap daftar penerima.",
+      "C": "Memfasilitasi validasi bersama, menyepakati kriteria data, menetapkan penanggung jawab, dan menggunakan satu basis data yang diperbarui bersama.",
+      "D": "Mengadakan rapat koordinasi rutin dan meminta masing-masing instansi menyampaikan perkembangan data pada setiap pertemuan berikutnya.",
+      "E": "Menyampaikan ketidaksesuaian data kepada pimpinan dengan meminta instansi yang dianggap terlambat segera memperbaiki laporannya."
+    },
+    "hint": "Pertimbangkan bagaimana setiap pihak dapat menghasilkan informasi yang konsisten tanpa menghilangkan tanggung jawab masing-masing.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Berbagi data merupakan kontribusi awal, tetapi pendekatan sepihak tidak menghasilkan kesepakatan validasi bersama.",
+      "B": "Poin 2 — Menunggu keputusan koordinator menjaga hierarki, tetapi mengurangi inisiatif untuk menyelesaikan ketidaksesuaian data.",
+      "C": "Poin 5 — Menghasilkan sinergi nyata melalui standar bersama, verifikasi lintas pihak, kepemilikan data, dan pembaruan terkoordinasi.",
+      "D": "Poin 4 — Rapat rutin memperkuat komunikasi, tetapi belum menjamin kesamaan definisi maupun penyelesaian perbedaan data.",
+      "E": "Poin 1 — Menyalahkan instansi lain tanpa membangun mekanisme penyelesaian dapat memperburuk hubungan dan menghambat kerja bersama."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-ketergantungan-program-004",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Kolaboratif. Skor 5 menuntut koordinasi lintas fungsi yang menghasilkan kejelasan ketergantungan, pemilik pekerjaan, tenggat, dan penanganan hambatan. Skor 4 menunjukkan upaya koordinasi yang baik tetapi belum cukup sistematis, skor 3 membantu bagian tertentu, skor 2 melakukan eskalasi tanpa solusi operasional, dan skor 1 menghindari tanggung jawab bersama.",
+    "stem": "Anda bertugas dalam tim pengembangan layanan terpadu yang melibatkan empat unit berbeda. Penyelesaian pekerjaan unit Anda bergantung pada data dari unit lain, sedangkan jadwal peluncuran sudah ditetapkan. Dalam rapat terakhir, setiap unit menyatakan pekerjaannya hampir selesai, tetapi belum ada kepastian mengenai integrasi keseluruhan. Tindakan terbaik adalah ...",
+    "options": {
+      "A": "Menyelesaikan seluruh pekerjaan unit sendiri terlebih dahulu dan melaporkan ketergantungan pada unit lain menjelang tenggat peluncuran.",
+      "B": "Menginisiasi pertemuan koordinasi mingguan untuk meminta setiap unit melaporkan kemajuan dan kendala pekerjaan masing-masing.",
+      "C": "Menyampaikan keterlambatan integrasi kepada pimpinan agar pimpinan menentukan unit yang harus menyelesaikan pekerjaan lebih dahulu.",
+      "D": "Memetakan ketergantungan tugas bersama, menetapkan penanggung jawab dan tenggat antartahap, serta menyepakati mekanisme eskalasi hambatan.",
+      "E": "Mengurangi cakupan pekerjaan unit sendiri agar target internal tetap tercapai meskipun integrasi layanan belum dapat diselesaikan."
+    },
+    "hint": "Bedakan koordinasi yang sekadar mengumpulkan laporan dari koordinasi yang menyelaraskan ketergantungan dan tanggung jawab.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 2,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Menjaga penyelesaian tugas sendiri, tetapi keterlambatan antartim tidak ditangani sejak awal.",
+      "B": "Poin 4 — Pertemuan rutin meningkatkan komunikasi, tetapi belum memastikan hubungan antartugas dan tenggat integrasi.",
+      "C": "Poin 2 — Eskalasi dapat diperlukan, tetapi belum didahului upaya operasional untuk mengidentifikasi dan menyelesaikan hambatan bersama.",
+      "D": "Poin 5 — Membangun koordinasi terstruktur, memperjelas akuntabilitas, dan memastikan setiap ketergantungan pekerjaan memiliki solusi.",
+      "E": "Poin 1 — Mengutamakan capaian unit sendiri dengan mengorbankan tujuan bersama dan keberhasilan layanan terpadu."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-pendekatan-komunitas-lokal-005",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Harmonis. Skor 5 mengutamakan penghormatan terhadap keberagaman, komunikasi yang inklusif, dan penyesuaian pendekatan tanpa mengorbankan substansi pelayanan. Skor 4 melibatkan tokoh masyarakat tetapi belum mengintegrasikan semua kelompok, skor 3 melakukan adaptasi terbatas, skor 2 menggunakan pendekatan seragam tanpa mempertimbangkan kondisi warga, dan skor 1 mengabaikan keberagaman.",
+    "stem": "Anda ditugaskan mengoordinasikan sosialisasi kesehatan masyarakat di sebuah daerah dengan beragam bahasa lokal dan kebiasaan komunitas. Materi sosialisasi telah disusun oleh kantor pusat, tetapi beberapa warga menyampaikan bahwa istilah yang digunakan sulit dipahami dan jadwal kegiatan berbenturan dengan aktivitas adat setempat. Apa yang sebaiknya Anda lakukan?",
+    "options": {
+      "A": "Menggunakan materi resmi sesuai naskah pusat agar informasi yang disampaikan tetap seragam di seluruh wilayah.",
+      "B": "Meminta tokoh masyarakat menentukan jadwal kegiatan, kemudian tetap menggunakan materi sosialisasi tanpa perubahan substansi.",
+      "C": "Menerjemahkan materi ke bahasa setempat dan meminta satu petugas lokal menyampaikan seluruh informasi kepada masyarakat.",
+      "D": "Menunda kegiatan sampai masyarakat dapat mengikuti jadwal dan bentuk penyampaian yang telah ditetapkan kantor pusat.",
+      "E": "Melibatkan perwakilan komunitas menyusun jadwal dan cara komunikasi yang mudah dipahami dengan menjaga ketepatan materi kesehatan."
+    },
+    "hint": "Cari pendekatan yang mempertahankan tujuan pelayanan sekaligus menghormati keragaman kebutuhan masyarakat.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 4,
+      "C": 3,
+      "D": 1,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Konsistensi informasi terjaga, tetapi pendekatan seragam tidak menjawab hambatan pemahaman dan perbedaan jadwal.",
+      "B": "Poin 4 — Pelibatan tokoh dan penyesuaian jadwal menunjukkan penghormatan lokal, tetapi belum mengatasi kesulitan memahami materi.",
+      "C": "Poin 3 — Penerjemahan merupakan adaptasi positif, tetapi belum memastikan terjemahan dipahami dan disepakati oleh berbagai kelompok.",
+      "D": "Poin 1 — Mengabaikan kebutuhan komunitas dan menunda pelayanan tanpa upaya membangun pendekatan yang sesuai.",
+      "E": "Poin 5 — Menggabungkan partisipasi masyarakat, penghormatan terhadap kebiasaan setempat, dan akurasi informasi yang disampaikan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-inklusi-lingkungan-kerja-006",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Harmonis. Skor 5 diberikan untuk perilaku yang aktif menghentikan perlakuan tidak menghargai keberagaman, menjaga martabat rekan, dan memastikan lingkungan kerja inklusif. Skor 4 mendukung korban dan mengatasi perilaku secara konstruktif tetapi tidak segera menghentikannya, skor 3 memberi dukungan personal, skor 2 membiarkan situasi, dan skor 1 ikut memperkuat perlakuan diskriminatif.",
+    "stem": "Dalam diskusi internal, beberapa rekan kerja menertawakan seorang pegawai baru karena logat daerahnya berbeda. Pegawai tersebut mulai jarang menyampaikan pendapat dalam rapat. Sebagai rekan kerja yang menyaksikan situasi tersebut, tindakan paling tepat adalah ...",
+    "options": {
+      "A": "Menghentikan candaan secara santun, menegaskan pentingnya saling menghormati, dan membantu pegawai tersebut kembali terlibat dalam diskusi.",
+      "B": "Mengajak rekan yang membuat candaan berbicara setelah rapat dan meminta mereka menyampaikan permintaan maaf kepada pegawai tersebut.",
+      "C": "Mendekati pegawai baru secara pribadi untuk memberikan dukungan dan mendorongnya agar kembali percaya diri menyampaikan pendapat.",
+      "D": "Tidak mencampuri percakapan rekan kerja selama tidak terdapat penghinaan yang disampaikan secara terbuka di hadapan pimpinan.",
+      "E": "Ikut tertawa agar suasana rapat tetap santai sambil berharap rekan kerja tidak lagi mengulangi candaan serupa."
+    },
+    "hint": "Pertimbangkan perlindungan martabat individu dan pengaruh tindakan langsung terhadap budaya kerja tim.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 4,
+      "C": 3,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Menghentikan perilaku tidak menghormati keberagaman sekaligus membangun kembali partisipasi dan rasa aman rekan kerja.",
+      "B": "Poin 4 — Konfrontasi konstruktif dan permintaan maaf penting, tetapi respons tertunda sehingga perilaku tidak segera dihentikan.",
+      "C": "Poin 3 — Memberikan dukungan emosional, tetapi belum mengubah perilaku kelompok yang menyebabkan masalah.",
+      "D": "Poin 2 — Sikap diam membiarkan perilaku merendahkan berlangsung dan mengurangi rasa aman dalam lingkungan kerja.",
+      "E": "Poin 1 — Ikut tertawa memperkuat perilaku yang merendahkan dan berpotensi membuat lingkungan kerja semakin tidak inklusif."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tkp-tik-keamanan-phishing-instansi-007",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Adaptif. Hierarki skor 5 mengutamakan respons tanggap terhadap ancaman digital, pelaporan melalui prosedur keamanan, dan perlindungan sistem serta data. Skor 4 menunjukkan pencegahan yang baik tetapi belum sepenuhnya menjaga bukti dan prosedur insiden, skor 3 memberi peringatan terbatas, skor 2 melakukan tindakan parsial, dan skor 1 justru meningkatkan risiko keamanan.",
+    "stem": "Anda menerima surat elektronik yang mengatasnamakan administrator sistem instansi dan meminta Anda memperbarui kata sandi melalui tautan tertentu. Alamat pengirim terlihat berbeda dari domain resmi dan terdapat lampiran yang tidak pernah diminta. Rekan kerja Anda juga menerima pesan serupa. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Meneruskan tangkapan layar pesan kepada seluruh pegawai agar mereka dapat mengenali potensi penipuan digital.",
+      "B": "Tidak membuka tautan atau lampiran, melaporkan pesan melalui kanal keamanan TI, dan menjaga bukti sesuai prosedur insiden.",
+      "C": "Menghapus surat elektronik tersebut dan segera mengingatkan rekan satu ruangan agar lebih teliti memeriksa pengirim pesan.",
+      "D": "Membalas pengirim untuk meminta konfirmasi identitas sebelum memutuskan apakah tautan tersebut aman digunakan.",
+      "E": "Membuka lampiran menggunakan perangkat kantor yang berbeda agar dapat memastikan apakah dokumen tersebut benar-benar berbahaya."
+    },
+    "hint": "Utamakan pengendalian risiko dan prosedur penanganan insiden sebelum melakukan tindakan terhadap pesan mencurigakan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 4,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Peringatan kepada pegawai bermanfaat, tetapi penyebaran tangkapan layar belum menggantikan pelaporan resmi dan pengamanan bukti.",
+      "B": "Poin 5 — Menghindari interaksi berisiko, menggunakan jalur pelaporan resmi, serta mempertahankan bukti untuk pemeriksaan keamanan.",
+      "C": "Poin 4 — Penghapusan dan peringatan mengurangi paparan awal, tetapi penghapusan dapat menghilangkan bukti yang dibutuhkan tim keamanan.",
+      "D": "Poin 2 — Menghubungi pengirim yang mencurigakan dapat memperpanjang interaksi dengan pihak berpotensi berbahaya.",
+      "E": "Poin 1 — Membuka lampiran pada perangkat lain tetap berpotensi menimbulkan infeksi dan penyebaran ancaman digital."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tkp-tik-integrasi-migrasi-data-008",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Adaptif. Skor 5 menuntut pemanfaatan teknologi secara terencana, menjaga keamanan dan integritas data, melakukan pengujian, serta menyediakan mitigasi kegagalan. Skor 4 memiliki mitigasi dasar tetapi belum lengkap, skor 3 mengutamakan penyelesaian sebagian, skor 2 menunda tanpa solusi, dan skor 1 mengabaikan tata kelola data.",
+    "stem": "Instansi Anda akan memindahkan data pelayanan dari aplikasi lama ke sistem berbasis komputasi awan. Tenggat migrasi tinggal dua minggu, sedangkan beberapa tabel masih memiliki format berbeda dan memuat informasi pribadi masyarakat. Pimpinan meminta pekerjaan dipercepat. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Mengekspor seluruh data ke format spreadsheet dan meminta masing-masing unit memperbaiki kesalahan setelah migrasi selesai.",
+      "B": "Melakukan uji coba pada sebagian data dan membuat cadangan sebelum migrasi, kemudian melanjutkan pemindahan sesuai jadwal.",
+      "C": "Menginventarisasi data, menetapkan kontrol akses, melakukan pencadangan, menguji migrasi, dan menyiapkan prosedur pemulihan sebelum penerapan penuh.",
+      "D": "Mengusulkan penundaan migrasi tanpa batas waktu sampai seluruh unit memiliki format data yang sama secara mandiri.",
+      "E": "Menyimpan salinan sementara pada penyimpanan awan pribadi agar pekerjaan tetap dapat dilakukan ketika sistem resmi belum siap."
+    },
+    "hint": "Pikirkan bagaimana inovasi teknologi dapat berjalan tanpa mengorbankan kerahasiaan, integritas, dan keberlanjutan data.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 5,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Menyiapkan data untuk diproses, tetapi koreksi setelah migrasi dapat menyebabkan kerusakan data dan masalah privasi.",
+      "B": "Poin 4 — Uji coba dan pencadangan merupakan langkah baik, tetapi pengendalian akses serta rencana pemulihan belum dijelaskan secara menyeluruh.",
+      "C": "Poin 5 — Menggabungkan kesiapan teknis, perlindungan data pribadi, validasi hasil, dan keberlanjutan sistem melalui mitigasi yang terencana.",
+      "D": "Poin 2 — Penundaan dapat menghindari kesalahan sementara, tetapi tidak memberikan rencana penyelesaian perbedaan format data.",
+      "E": "Poin 1 — Penyimpanan data instansi pada akun pribadi berisiko melanggar keamanan informasi dan tata kelola data."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tkp-anti-radikalisme-propaganda-kekerasan-009",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Loyal, yang menuntut pengabdian kepada negara dan menjaga persatuan serta keutuhan bangsa sesuai Pancasila dan UUD NRI 1945. Skor 5 mengutamakan penanganan konten yang mendorong kekerasan melalui pelaporan bertanggung jawab dan perlindungan lingkungan kerja. Skor 4 menunjukkan dialog konstruktif tetapi belum melakukan pelaporan, skor 3 klarifikasi terbatas, skor 2 penyebaran ulang yang tidak terkendali, dan skor 1 keterlibatan dalam kelompok yang mempromosikan kekerasan.",
+    "stem": "Dalam sebuah grup percakapan internal, Anda melihat seorang rekan membagikan materi yang secara terbuka membenarkan kekerasan terhadap kelompok masyarakat tertentu dan mengajak anggota mengikuti pertemuan tertutup. Beberapa pegawai mulai membagikan ulang materi tersebut. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Menghubungi rekan tersebut secara pribadi untuk mengetahui maksud penyebaran materi sebelum mengambil keputusan lebih lanjut.",
+      "B": "Mengajak anggota grup berdiskusi mengenai pentingnya toleransi dan meminta semua pihak menghentikan perdebatan yang memicu konflik.",
+      "C": "Meneruskan materi kepada seluruh pegawai agar mereka mengetahui adanya konten berbahaya yang sedang beredar.",
+      "D": "Menyimpan bukti secara proporsional dan melaporkan konten melalui mekanisme resmi, termasuk eskalasi jika terdapat ancaman kekerasan yang kredibel.",
+      "E": "Bergabung dalam pertemuan tertutup tersebut secara diam-diam tanpa koordinasi agar dapat mengamati aktivitas kelompok secara langsung."
+    },
+    "hint": "Bedakan dialog yang konstruktif dengan penanganan formal terhadap indikasi ajakan kekerasan yang dapat mengancam keselamatan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 2,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Klarifikasi dapat memberikan pemahaman awal, tetapi belum menangani penyebaran materi dan potensi ancaman terhadap keselamatan.",
+      "B": "Poin 4 — Dialog toleransi dapat meredakan konflik, tetapi belum menjamin pemeriksaan terhadap indikasi ajakan kekerasan.",
+      "C": "Poin 2 — Peringatan kepada pegawai memiliki tujuan baik, tetapi meneruskan materi berpotensi memperluas distribusi konten berbahaya.",
+      "D": "Poin 5 — Penanganan bukti secara bertanggung jawab dan pelaporan resmi menjaga keselamatan tanpa melakukan tindakan di luar kewenangan.",
+      "E": "Poin 1 — Bergabung tanpa koordinasi meningkatkan risiko keselamatan dan melampaui kewenangan pegawai dalam menangani dugaan ancaman."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-keterbatasan-kompetensi-010",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target nilai ASN BerAKHLAK adalah Kompeten. Hierarki skor 5 mengutamakan kesadaran batas kompetensi, tanggung jawab terhadap hasil, konsultasi dengan tenaga ahli, dan pemeriksaan yang dapat dipertanggungjawabkan. Skor 4 menunjukkan upaya konsultasi tetapi belum sepenuhnya terdokumentasi, skor 3 melakukan pemeriksaan terbatas dengan pengungkapan risiko, skor 2 menghindari pekerjaan tanpa membantu transisi, dan skor 1 mengesahkan hasil di luar kompetensi.",
+    "stem": "Anda bekerja sebagai analis administrasi dan diminta oleh atasan untuk mengesahkan kelayakan teknis suatu instalasi listrik gedung sebelum digunakan. Tenggat pemeriksaan sangat dekat, tetapi Anda belum memiliki kompetensi dan kewenangan untuk melakukan penilaian teknis tersebut. Apa yang sebaiknya Anda lakukan?",
+    "options": {
+      "A": "Melakukan pemeriksaan dokumen yang tersedia dan memberikan catatan awal mengenai aspek yang belum dapat dipastikan secara teknis.",
+      "B": "Menolak seluruh penugasan karena penilaian instalasi listrik bukan bagian dari pekerjaan administrasi yang selama ini Anda lakukan.",
+      "C": "Meminta pendapat informal seorang teknisi berpengalaman dan mempertimbangkan rekomendasinya sebelum mengambil keputusan.",
+      "D": "Mengesahkan dokumen berdasarkan pemeriksaan sebelumnya agar penggunaan gedung tidak mengalami keterlambatan.",
+      "E": "Menjelaskan batas kompetensi, meminta pemeriksa berwenang melakukan evaluasi, dan membantu menyiapkan dokumen untuk pemeriksaan yang dapat dipertanggungjawabkan."
+    },
+    "hint": "Pertimbangkan hubungan antara tanggung jawab pekerjaan, batas kewenangan, keselamatan, dan pengembangan kompetensi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 1,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Pemeriksaan administratif dan pencatatan keterbatasan merupakan kontribusi positif, tetapi belum memastikan evaluasi teknis oleh pihak berwenang.",
+      "B": "Poin 2 — Penolakan mencegah tindakan di luar kompetensi, tetapi tidak menunjukkan inisiatif membantu penyelesaian pekerjaan secara bertanggung jawab.",
+      "C": "Poin 4 — Konsultasi dengan teknisi membantu pengambilan keputusan, tetapi pendapat informal belum menggantikan pemeriksaan dan pengesahan yang berwenang.",
+      "D": "Poin 1 — Pengesahan tanpa kompetensi dan evaluasi yang sah dapat membahayakan keselamatan pengguna gedung.",
+      "E": "Poin 5 — Mengakui batas keahlian, memastikan keterlibatan tenaga berwenang, dan tetap memberikan kontribusi profesional terhadap penyelesaian tugas."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi SKD CPNS BKN"
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-surat-pengantar-001",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 25 Tahun 2009 tentang Pelayanan Publik (asas kepastian prosedur, kemudahan, dan kecepatan) serta nilai BerAKHLAK 'Berorientasi Pelayanan' dan 'Akuntabel', hierarki skor adalah 5 > 4 > 3 > 2 > 1. D (skor 5) memenuhi persyaratan SOP sekaligus menuntaskan layanan pada hari yang sama melalui jalur elektronik; C (skor 4) proaktif namun menunda layanan satu hari; A (skor 3) sopan dan patuh prosedur tetapi pasif sehingga beban perjalanan warga tidak berkurang; B (skor 2) melanggar SOP dan melemahkan akuntabilitas dokumen; E (skor 1) menolak warga dan melempar tanggung jawab.",
+    "stem": "Anda adalah petugas loket Dinas Kependudukan dan Pencatatan Sipil Kabupaten Pacitan. Pukul 15.30 WIB, seorang warga lanjut usia (72 tahun) tiba setelah menempuh perjalanan tiga jam dari desa terpencil untuk mengurus perubahan Kartu Keluarga. Ia lupa membawa surat pengantar desa yang wajib dilampirkan menurut SOP, sedangkan loket ditutup pukul 16.00 WIB. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menjelaskan dengan sopan bahwa surat pengantar wajib dilampirkan, memberikan daftar kelengkapan tertulis, lalu mempersilakan warga kembali setelah berkas lengkap.",
+      "B": "Menerima dan memproses permohonan terlebih dahulu, lalu meminta warga menyusulkan surat pengantar kapan pun sempat agar tidak perlu bolak-balik.",
+      "C": "Mencatat data warga, menghubungi pemerintah desa asalnya agar surat pengantar dikirim besok, lalu menjadwalkan layanan prioritas bagi lansia pada hari berikutnya.",
+      "D": "Menghubungi perangkat desa asal warga saat itu juga agar surat pengantar dikirim secara elektronik, lalu memproses berkas sebelum loket tutup sesuai SOP.",
+      "E": "Menyampaikan bahwa kekurangan berkas bukan tanggung jawab petugas dan meminta warga meninggalkan loket karena antrean berikutnya sudah menunggu."
+    },
+    "hint": "Cari tindakan yang tetap mematuhi persyaratan baku sekaligus menurunkan beban warga melalui kemudahan akses layanan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Sopan dan sesuai prosedur, tetapi pasif karena beban perjalanan tiga jam warga tidak dikurangi sama sekali.",
+      "B": "Poin 2 — Empatik namun melanggar SOP dengan memproses berkas tidak lengkap serta tanpa kepastian pelengkapan, sehingga akuntabilitas dokumen lemah.",
+      "C": "Poin 4 — Proaktif dan peduli terhadap lansia serta tetap patuh SOP, tetapi layanan baru tuntas pada hari berikutnya.",
+      "D": "Poin 5 — Memenuhi persyaratan SOP sekaligus menuntaskan layanan pada hari yang sama melalui verifikasi elektronik, sehingga cepat, pasti, dan akuntabel.",
+      "E": "Poin 1 — Menolak warga dan melempar tanggung jawab, bertentangan dengan prinsip pelayanan yang berorientasi pada kebutuhan masyarakat."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Pelayanan Publik BKN"
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-data-lintas-instansi-001",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Kolaboratif' (membuka ruang kolaborasi dan memanfaatkan sumber daya bersama lintas instansi), hierarki skor adalah 5 > 4 > 3 > 2 > 1. A (skor 5) membangun hubungan dua arah melalui pertemuan koordinasi, menegaskan manfaat bersama, dan menyepakati mekanisme berbagi data secara tertulis; D (skor 4) resmi dan terpantau tetapi bersifat satu arah; B (skor 3) mandiri menjaga tenggat namun berisiko memakai data usang dan tidak memperbaiki relasi; C (skor 2) mengandalkan tekanan hierarki yang merusak relasi antarinstansi; E (skor 1) hanya mencatat hambatan tanpa upaya penyelesaian.",
+    "stem": "Anda bertugas pada Badan Penanggulangan Bencana Daerah (BPBD) Kota Batu dan menyusun dokumen kajian risiko banjir yang harus diserahkan dalam sepuluh hari. Data tata ruang terbaru berada di Dinas PUPR, tetapi dua permintaan lisan Anda sebelumnya belum ditanggapi karena staf Dinas PUPR sedang menyelesaikan proyek lain. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengajukan pertemuan koordinasi singkat dengan Dinas PUPR, menjelaskan manfaat bersama kajian ini, lalu menyepakati format serta jadwal berbagi data secara tertulis.",
+      "B": "Memakai data tata ruang tahun lalu yang sudah dimiliki BPBD agar kajian tetap selesai tepat waktu sambil menunggu pembaruan dari Dinas PUPR.",
+      "C": "Meminta atasan memerintahkan Dinas PUPR melalui pimpinannya agar stafnya segera menyerahkan data karena keterlambatan itu menghambat kajian.",
+      "D": "Mengirim surat permohonan data resmi melalui atasan dengan tenggat jelas, kemudian rutin menghubungi staf Dinas PUPR untuk memantau perkembangannya.",
+      "E": "Mencantumkan keterlambatan Dinas PUPR sebagai faktor penghambat dalam laporan kajian tanpa melakukan upaya penghubungan lebih lanjut."
+    },
+    "hint": "Pilih langkah yang membangun kesepahaman dua arah dan mekanisme kerja bersama, bukan sekadar menuntut atau menunggu pihak lain.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 3,
+      "C": 2,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Menunjukkan kolaborasi sejati: dialog langsung, kepentingan bersama dijelaskan, dan mekanisme berbagi data disepakati tertulis sehingga jejaring kerja berkelanjutan.",
+      "B": "Poin 3 — Mandiri dan menjaga tenggat, tetapi berisiko memakai data usang serta tidak memperbaiki hubungan koordinasi dengan Dinas PUPR.",
+      "C": "Poin 2 — Mengandalkan tekanan hierarki sehingga berpotensi merusak relasi antarinstansi dan tidak menyelesaikan akar hambatan.",
+      "D": "Poin 4 — Prosedural dan proaktif memantau, tetapi komunikasi bersifat satu arah dan belum membangun kesepahaman bersama.",
+      "E": "Poin 1 — Hanya mencatat hambatan tanpa upaya koordinasi sehingga mengabaikan tanggung jawab menjalin kerja sama."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Kolaboratif Jejaring Kerja BKN"
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-upacara-adat-001",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Harmonis' (saling peduli dan menghargai perbedaan) serta tanggung jawab pelayanan yang tetap berorientasi pada target, hierarki skor adalah 5 > 4 > 3 > 2 > 1. C (skor 5) menggabungkan dialog dengan tokoh adat, kesepakatan waktu yang menghormati rangkaian inti upacara, dan jemput bola agar target tetap terkejar; D (skor 4) menghormati adat dan komunikatif tetapi menggeser jadwal tanpa dialog langsung dengan pemangku adat; B (skor 3) hormat terhadap adat namun pasif dan menyerah pada target; A (skor 2) memaksakan jadwal tanpa memedulikan konteks budaya; E (skor 1) merendahkan adat dan melabeli warga secara negatif.",
+    "stem": "Anda adalah Kepala Seksi Pelayanan di Kantor Kecamatan Kodi, Kabupaten Sumba Barat Daya. Anda menjadwalkan perekaman KTP-el keliling di dua desa pada akhir pekan ini demi mengejar target triwulan. Anda kemudian mengetahui bahwa kedua desa tersebut menggelar upacara adat besar pada tanggal yang sama sehingga sebagian besar warga diperkirakan tidak dapat hadir. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Tetap menjalankan jadwal pendataan sesuai rencana demi mengejar target triwulan dan meminta warga yang berhalangan hadir datang sendiri ke kantor kecamatan.",
+      "B": "Menunda pendataan hingga seluruh rangkaian upacara selesai dan melaporkan kepada atasan bahwa target triwulan ini kemungkinan tidak tercapai.",
+      "C": "Berdialog dengan tokoh adat untuk menyepakati sesi pendataan di luar rangkaian inti upacara, lalu menyiapkan petugas jemput bola agar target tetap terkejar.",
+      "D": "Meminta kepala desa mengumumkan jadwal pendataan pengganti setelah upacara selesai, lalu menyampaikan perubahan jadwal tersebut kepada atasan.",
+      "E": "Menganggap upacara adat sebagai alasan warga mengabaikan layanan pemerintah dan mencatat desa tersebut sebagai wilayah tidak kooperatif dalam laporan."
+    },
+    "hint": "Utamakan solusi yang menghormati kearifan lokal sekaligus tetap menjaga komitmen pelayanan kepada masyarakat.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Berorientasi target semata dan mengabaikan konteks budaya, sehingga berpotensi menimbulkan penolakan dan partisipasi rendah.",
+      "B": "Poin 3 — Menghormati adat, tetapi pasif dan langsung menerima kegagalan target tanpa mencari solusi pelayanan alternatif.",
+      "C": "Poin 5 — Menunjukkan sikap harmonis melalui dialog dengan pemangku adat, waktu pelayanan yang disepakati bersama, dan jemput bola sehingga target tetap terkejar.",
+      "D": "Poin 4 — Menghormati upacara dan proaktif menyampaikan jadwal baru, namun tidak melibatkan tokoh adat secara langsung dalam menyepakati waktu pelayanan.",
+      "E": "Poin 1 — Merendahkan tradisi setempat dan memberi label negatif kepada warga, bertentangan dengan sikap menghargai keberagaman budaya."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Harmonis Sosial Budaya BKN"
+    }
+  },
+  {
+    "slug": "tkp-tik-kerahasiaan-data-bansos-001",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (pemrosesan data harus terbatas, spesifik, dan terlindungi) serta nilai BerAKHLAK 'Akuntabel', hierarki skor adalah 5 > 4 > 3 > 2 > 1. E (skor 5) menolak kanal pribadi, hanya membagikan kolom yang benar-benar dibutuhkan, memakai penyimpanan resmi dengan akses terbatas, dan melibatkan atasan; D (skor 4) memakai kanal resmi berakses terbatas tetapi membagikan seluruh kolom termasuk NIK tanpa minimalisasi data; B (skor 3) patuh tetapi pasif sehingga verifikasi lapangan tertunda; A (skor 2) tetap memakai kanal pribadi dan membocorkan kata sandi pada percakapan yang sama; C (skor 1) menyebarkan data utuh ke grup pribadi tanpa perlindungan.",
+    "stem": "Anda adalah pengelola data pada Dinas Sosial Kabupaten Banyuwangi. Seorang rekan lapangan meminta Anda mengirim spreadsheet berisi NIK, alamat, dan nomor telepon penerima bantuan sosial ke grup WhatsApp pribadi tim agar verifikasi lapangan besok pagi dapat berjalan cepat. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengirim berkas lewat WhatsApp setelah diberi kata sandi, lalu menyampaikan kata sandinya pada percakapan yang sama agar rekan dapat segera membukanya.",
+      "B": "Menolak mengirim berkas melalui WhatsApp dan meminta rekan mengajukan permohonan data secara resmi kepada atasan terlebih dahulu sebelum Anda memprosesnya.",
+      "C": "Mengirim berkas utuh ke grup WhatsApp karena verifikasi lapangan bersifat mendesak dan seluruh anggota grup merupakan rekan satu bidang.",
+      "D": "Mengunggah berkas lengkap ke penyimpanan awan instansi dengan akses terbatas bagi tim verifikasi, lalu membagikan tautannya kepada rekan yang membutuhkan.",
+      "E": "Menolak kanal pribadi, lalu membagikan hanya kolom yang diperlukan verifikasi melalui penyimpanan resmi instansi dengan akses terbatas dan sepengetahuan atasan."
+    },
+    "hint": "Pertimbangkan prinsip pelindungan data pribadi: kanal yang sah, cakupan data yang dibagikan, dan siapa yang berhak mengakses.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 1,
+      "D": 4,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Memberi kata sandi, tetapi menyampaikannya pada percakapan yang sama sehingga perlindungan tidak efektif dan kanal pribadi tetap dipakai.",
+      "B": "Poin 3 — Patuh pada kanal resmi, tetapi pasif sehingga kebutuhan verifikasi lapangan esok hari tidak terbantu.",
+      "C": "Poin 1 — Menyebarkan data pribadi penerima bansos secara utuh ke grup pribadi tanpa perlindungan, melanggar prinsip kerahasiaan dan pelindungan data.",
+      "D": "Poin 4 — Memakai kanal resmi berakses terbatas dan membantu kebutuhan lapangan, namun masih membagikan seluruh data termasuk NIK tanpa minimalisasi.",
+      "E": "Poin 5 — Menjaga akuntabilitas melalui kanal resmi, pembatasan akses, minimalisasi data, dan sepengetahuan atasan, sementara kebutuhan verifikasi tetap terpenuhi."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Akuntabel TIK BKN"
+    }
+  },
+  {
+    "slug": "tkp-anti-radikalisme-grup-whatsapp-001",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 20 Tahun 2023 tentang ASN (kewajiban setia dan taat pada Pancasila, UUD NRI 1945, NKRI, dan pemerintah yang sah) serta nilai BerAKHLAK 'Loyal', hierarki skor adalah 5 > 4 > 3 > 2 > 1. B (skor 5) menggabungkan koreksi santun di ruang yang sama agar anggota lain tidak terpengaruh dengan pelaporan berjenjang kepada atasan; D (skor 4) melapor secara berjenjang namun tidak meluruskan narasi di grup; C (skor 3) membangun dialog personal tetapi tidak melibatkan atasan sehingga unggahan tetap beredar; A (skor 2) bersikap permisif dengan mengabaikan; E (skor 1) mengecam dan menyebarkan ke media sosial sehingga memperkeruh keadaan.",
+    "stem": "Dalam grup WhatsApp kantor, seorang rekan senior membagikan video ceramah yang menyerukan penggantian Pancasila sebagai dasar negara serta mengajak anggota grup memboikot upacara hari besar nasional. Beberapa rekan lain mulai memberi komentar yang mendukung. Anda adalah ASN di unit yang sama. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengabaikan unggahan tersebut karena dianggap pendapat pribadi rekan senior dan Anda tidak ingin merusak suasana kerja di unit Anda.",
+      "B": "Menyampaikan keberatan secara santun di grup dengan merujuk kewajiban ASN setia pada Pancasila dan UUD 1945, lalu melaporkannya kepada atasan.",
+      "C": "Menegur rekan tersebut secara pribadi di luar grup dan mengajaknya berdiskusi tentang pandangannya tanpa melibatkan atasan terlebih dahulu.",
+      "D": "Melaporkan unggahan tersebut beserta tangkapan layar kepada atasan tanpa menanggapi di grup agar tidak menimbulkan kegaduhan di antara anggota.",
+      "E": "Membalas unggahan itu dengan kecaman keras di grup dan menyebarkannya ke media sosial agar publik mengetahui sikap rekan tersebut."
+    },
+    "hint": "Cari tindakan yang meluruskan narasi secara beradab kepada pihak yang terpapar sekaligus menggunakan jalur kelembagaan yang berwenang.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 5,
+      "C": 3,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Permisif terhadap ajakan yang bertentangan dengan kewajiban ASN, sehingga narasi tersebut dapat meluas tanpa koreksi.",
+      "B": "Poin 5 — Meluruskan narasi secara santun berbasis kewajiban ASN agar anggota grup tidak terpengaruh, sekaligus melapor kepada atasan melalui jalur berjenjang.",
+      "C": "Poin 3 — Dialog personal itu positif, tetapi unggahan tetap beredar di grup dan atasan tidak mengetahui sehingga tindak lanjut kelembagaan tidak berjalan.",
+      "D": "Poin 4 — Pelaporan berjenjang disertai bukti sudah tepat, tetapi anggota grup yang terpapar belum mendapat penyeimbang narasi.",
+      "E": "Poin 1 — Kecaman keras dan penyebaran ke media sosial memperkeruh keadaan, melanggar etika ASN, dan tidak menempuh jalur kelembagaan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Loyal Anti-Radikalisme BKN"
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-data-stunting-001",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada Perpres No. 72 Tahun 2021 tentang Percepatan Penurunan Stunting (konvergensi lintas sektor) dan nilai BerAKHLAK 'Kolaboratif', hierarki skor adalah 5 > 4 > 3 > 2 > 1. C (skor 5) memfasilitasi dialog langsung kedua dinas, menyepakati satu sumber data dan pembagian peran, serta mendokumentasikannya sehingga konvergensi berjalan; D (skor 4) konstruktif tetapi penyatuan data baru diusulkan pada rapat berikutnya sehingga bantuan tetap tertunda; A (skor 3) tertib secara administrasi tetapi pasif karena hanya mencatat; B (skor 2) memihak salah satu pihak dan merusak kepercayaan antarinstansi; E (skor 1) menunda tanpa fasilitasi.",
+    "stem": "Anda adalah sekretaris Tim Percepatan Penurunan Stunting Kabupaten Lumajang. Pada rapat koordinasi, Dinas Kesehatan dan Dinas Sosial saling menyalahkan karena data balita berisiko stunting yang mereka pegang berbeda, sehingga distribusi bantuan pangan tambahan tertunda. Ketua tim meminta Anda menindaklanjuti persoalan ini. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menyusun notulen rapat yang mencatat perbedaan data kedua dinas apa adanya dan menyerahkannya kepada ketua tim untuk diputuskan.",
+      "B": "Memihak data Dinas Kesehatan karena dianggap lebih ilmiah dan meminta Dinas Sosial menyesuaikan datanya agar rapat cepat selesai.",
+      "C": "Memfasilitasi pertemuan kedua dinas untuk menyepakati satu sumber data rujukan dan pembagian peran, lalu mendokumentasikan hasilnya secara tertulis.",
+      "D": "Meminta masing-masing dinas memaparkan dasar penghimpunan datanya, kemudian mengusulkan penyatuan data pada rapat koordinasi berikutnya.",
+      "E": "Menunda pembahasan program hingga kedua dinas menyelesaikan perbedaan data secara mandiri tanpa melibatkan tim percepatan."
+    },
+    "hint": "Nilai Kolaboratif menuntut Anda menjembatani pihak yang berbeda hingga tercapai kesepakatan kerja yang dapat ditindaklanjuti bersama.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Tertib administrasi, tetapi pasif karena hanya mencatat perbedaan dan menyerahkan penyelesaian sepenuhnya kepada ketua tim.",
+      "B": "Poin 2 — Memihak satu pihak merusak kepercayaan antarinstansi dan tidak menyelesaikan sumber perbedaan data.",
+      "C": "Poin 5 — Memfasilitasi dialog langsung, menyepakati satu sumber data dan pembagian peran, serta mendokumentasikannya sehingga konvergensi lintas sektor dapat berjalan segera.",
+      "D": "Poin 4 — Konstruktif karena menelusuri dasar data kedua pihak, tetapi penyatuan data baru diusulkan pada rapat berikutnya sehingga bantuan masih tertunda.",
+      "E": "Poin 1 — Menunda program dan melepas tanggung jawab fasilitasi, padahal keterlambatan merugikan balita penerima bantuan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Kolaboratif Jejaring Kerja BKN"
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-koreksi-rekap-anggaran-001",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Akuntabel' (bertanggung jawab atas hasil kerja) dan 'Kompeten' (menjaga kualitas kerja dan terus memperbaiki diri), hierarki skor adalah 5 > 4 > 3 > 2 > 1. A (skor 5) segera mengoreksi, menyampaikan revisi beserta penjelasan secara terbuka sebelum rapat, dan memeriksa ulang pos lain; C (skor 4) mengoreksi dan mengirim revisi tetapi tanpa keterbukaan mengenai kesalahan; B (skor 3) berniat mengoreksi namun pasif sehingga pimpinan berisiko memakai angka keliru; D (skor 2) mengubah berkas diam-diam sehingga menghilangkan jejak akuntabilitas; E (skor 1) membiarkan kesalahan.",
+    "stem": "Anda adalah staf Subbagian Keuangan Dinas Pendidikan Kota Kediri. Sore hari setelah mengirim rekap usulan anggaran kegiatan kepada Kepala Dinas melalui surel, Anda menyadari ada kesalahan hitung pada satu pos belanja yang membuat total usulan lebih besar dari seharusnya. Rekap tersebut rencananya dibahas dalam rapat pimpinan esok pagi. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Segera memperbaiki perhitungan, mengirim rekap revisi beserta penjelasan kesalahan kepada Kepala Dinas, serta memeriksa ulang pos lainnya.",
+      "B": "Menunggu rapat pimpinan esok pagi lalu menyampaikan koreksi secara lisan apabila ada pimpinan yang mempertanyakan angka tersebut.",
+      "C": "Memperbaiki perhitungan dan mengirim rekap revisi tanpa penjelasan tambahan agar tidak menimbulkan kegaduhan di antara para pimpinan.",
+      "D": "Mengubah berkas rekap pada folder bersama tanpa memberi tahu siapa pun karena yang dikirim hanyalah rancangan usulan.",
+      "E": "Membiarkan kesalahan tersebut karena selisihnya kecil dan dianggap tidak akan memengaruhi keputusan dalam rapat pimpinan."
+    },
+    "hint": "Nilai Akuntabel dan Kompeten menuntut kesalahan sendiri dikoreksi secara terbuka dan tepat waktu sebelum dipakai untuk mengambil keputusan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 3,
+      "C": 4,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Bertanggung jawab penuh: koreksi segera, penjelasan terbuka kepada pimpinan sebelum rapat, dan pemeriksaan ulang agar kesalahan serupa tidak terulang.",
+      "B": "Poin 3 — Ada niat mengoreksi, tetapi pasif sehingga pimpinan berisiko memakai angka keliru dalam pengambilan keputusan.",
+      "C": "Poin 4 — Kesalahan diperbaiki dan revisi dikirim tepat waktu, tetapi tanpa penjelasan sehingga keterbukaan dan pembelajaran kurang.",
+      "D": "Poin 2 — Mengubah berkas diam-diam menghilangkan jejak akuntabilitas dan dapat membingungkan pihak yang telah menerima versi pertama.",
+      "E": "Poin 1 — Membiarkan kesalahan dan menganggap remeh dampaknya bertentangan dengan tanggung jawab profesional atas mutu hasil kerja."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Akuntabel dan Kompeten Profesionalisme BKN"
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-akses-disabilitas-001",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 25 Tahun 2009 tentang Pelayanan Publik (pelayanan khusus bagi kelompok berkebutuhan khusus), UU No. 8 Tahun 2016 tentang Penyandang Disabilitas (hak atas aksesibilitas layanan publik), serta nilai BerAKHLAK 'Berorientasi Pelayanan', hierarki skor adalah 5 > 4 > 3 > 2 > 1. E (skor 5) menjemput bola dengan melayani di lantai satu secara prioritas dan mengusulkan perbaikan akses secara kelembagaan; C (skor 4) melayani tetapi tidak melaporkan kendala sehingga hambatan akses tidak diperbaiki; A (skor 3) berupaya membantu tetapi tetap membebani pengguna dan tanpa prioritas; D (skor 2) mengalihkan beban kepada keluarga; B (skor 1) menolak melayani dengan alasan kewenangan.",
+    "stem": "Anda adalah petugas pelayanan di Kantor Samsat Kota Semarang. Seorang pengguna kursi roda datang untuk memperpanjang pajak kendaraan. Loket pelayanan berada di lantai dua, sedangkan lift penumpang sedang dalam perbaikan dan hanya tersedia tangga serta lift barang. Antrean di loket cukup panjang. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengantar pengguna menggunakan lift barang menuju lantai dua agar dapat mengikuti antrean di loket seperti pemohon lainnya.",
+      "B": "Menyampaikan bahwa keterbatasan fasilitas gedung berada di luar kewenangan petugas sehingga layanan hanya dapat diberikan di lantai dua.",
+      "C": "Melayani pengguna tersebut di lantai satu bersama rekan petugas pada hari itu tanpa menyampaikan kendala akses gedung kepada atasan.",
+      "D": "Menyarankan pengguna mengutus anggota keluarga untuk mengurus perpanjangan agar tidak perlu menaiki tangga menuju loket lantai dua.",
+      "E": "Menyelesaikan layanan di lantai satu bersama rekan petugas dengan prioritas, lalu mengusulkan perbaikan akses gedung kepada atasan."
+    },
+    "hint": "Pelayanan bagi kelompok berkebutuhan khusus menuntut penyesuaian dari penyelenggara layanan, bukan dari pengguna.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 1,
+      "C": 4,
+      "D": 2,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Berupaya membantu pengguna, tetapi masih membebani pengguna dengan mengikuti antrean dan memakai sarana yang tidak dirancang untuk penumpang.",
+      "B": "Poin 1 — Menolak menyesuaikan layanan dengan alasan kewenangan, sehingga mengabaikan hak aksesibilitas pengguna.",
+      "C": "Poin 4 — Menjemput bola dan menuntaskan layanan hari itu, tetapi hambatan akses tidak dilaporkan sehingga pengguna berikutnya akan mengalami masalah yang sama.",
+      "D": "Poin 2 — Mengalihkan beban kepada keluarga pengguna dan tidak mengupayakan layanan yang dapat diakses.",
+      "E": "Poin 5 — Pelayanan prioritas yang menyesuaikan lokasi layanan dengan kebutuhan pengguna sekaligus mengusulkan perbaikan akses secara kelembagaan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Pelayanan Publik Kelompok Rentan BKN"
+    }
+  },
+  {
+    "slug": "tkp-tik-waspada-phishing-siasn-001",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan prinsip keamanan informasi dalam Perpres No. 95 Tahun 2018 tentang SPBE dan nilai BerAKHLAK 'Akuntabel' (menjaga keamanan dan kerahasiaan informasi) serta 'Kolaboratif', hierarki skor adalah 5 > 4 > 3 > 2 > 1. B (skor 5) menolak mengisi tautan, melaporkan ancaman kepada tim keamanan informasi, dan melindungi rekan yang telanjur membuka tautan; C (skor 4) memverifikasi keaslian surel melalui kanal resmi tetapi tidak melaporkan atau memperingatkan rekan; A (skor 3) aman secara pribadi tetapi tidak melindungi organisasi; D (skor 2) tetap memasukkan data ke situs tidak terverifikasi; E (skor 1) menyebarkan surel berbahaya ke seluruh pegawai.",
+    "stem": "Anda adalah staf Badan Kepegawaian Daerah Kabupaten Blitar. Anda menerima surel dari pengirim bernama 'Admin SIASN Pusat' yang berisi tautan formulir dan meminta Anda memasukkan nama pengguna serta kata sandi akun kepegawaian paling lambat hari ini agar akun tidak diblokir. Seorang rekan di ruangan Anda mengaku sudah membuka tautan tersebut. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Tidak mengisi tautan tersebut dan langsung menghapus surel, tanpa melaporkannya atau memberi tahu rekan kerja lainnya di unit.",
+      "B": "Tidak mengisi tautan, melaporkan surel kepada tim keamanan informasi, dan meminta rekan yang telah membukanya segera mengganti kata sandi.",
+      "C": "Memastikan keaslian surel dengan menghubungi bagian kepegawaian melalui nomor resmi, lalu menghapus surel tersebut setelah terbukti palsu.",
+      "D": "Mengisi formulir pada tautan tersebut dengan data yang tidak lengkap agar akun tidak sepenuhnya terbuka bagi pengirim surel.",
+      "E": "Meneruskan surel itu ke seluruh grup pegawai agar semua orang mengetahui adanya permintaan verifikasi akun tersebut."
+    },
+    "hint": "Keamanan informasi organisasi menuntut respons yang melindungi akun sendiri sekaligus akun rekan yang mungkin sudah terdampak.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 4,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Menghindari jebakan secara pribadi, tetapi tidak melindungi organisasi karena ancaman dan rekan yang terdampak tidak ditangani.",
+      "B": "Poin 5 — Menolak jebakan, melaporkan ancaman kepada pihak berwenang agar dapat dimitigasi, dan melindungi rekan yang telanjur membuka tautan.",
+      "C": "Poin 4 — Proaktif memverifikasi melalui kanal resmi, tetapi tidak melaporkan ancaman kepada tim keamanan dan tidak memperingatkan rekan yang telah membuka tautan.",
+      "D": "Poin 2 — Tetap memasukkan data ke situs yang belum terverifikasi sehingga akun berisiko disalahgunakan.",
+      "E": "Poin 1 — Menyebarkan surel berbahaya ke seluruh pegawai memperluas risiko tanpa mengikuti prosedur pelaporan insiden."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Akuntabel Keamanan Informasi TIK BKN"
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-candaan-logat-001",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Harmonis' (saling peduli, menghargai perbedaan, dan membangun lingkungan kerja yang kondusif), hierarki skor adalah 5 > 4 > 3 > 2 > 1. D (skor 5) menegur pelaku secara santun dan terpisah, mendukung pegawai baru, dan mengajak tim menjaga suasana inklusif; C (skor 4) menempuh jalur atasan yang tepat tetapi tidak mendukung pegawai baru secara langsung dan melewatkan pendekatan personal kepada rekan senior; A (skor 3) peduli pada pegawai baru tetapi tidak mengoreksi sumber masalah; B (skor 2) ikut tertawa sehingga melanggengkan candaan yang menyinggung; E (skor 1) menyalahkan korban.",
+    "stem": "Anda adalah pegawai pada Dinas Pariwisata dan Kebudayaan Kota Bandung. Dalam jeda rapat tim, seorang rekan senior berulang kali melontarkan candaan yang menyinggung logat dan asal daerah seorang pegawai baru yang berasal dari Nusa Tenggara Timur. Beberapa rekan tertawa, sementara pegawai baru tersebut tampak tidak nyaman dan memilih diam. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengajak pegawai baru bergabung dalam kegiatan tim tanpa membahas candaan tersebut agar suasana tetap nyaman bagi semua pihak.",
+      "B": "Ikut tertawa agar tidak dianggap kaku oleh rekan senior dan tidak merusak keakraban yang sudah terjalin di dalam tim kerja.",
+      "C": "Menyampaikan kepada atasan bahwa candaan tersebut menyinggung pegawai baru dan meminta atasan menegur rekan senior secara langsung.",
+      "D": "Menegur rekan senior dengan santun secara terpisah, menemui pegawai baru untuk memberi dukungan, dan mengajak tim menjaga suasana kerja inklusif.",
+      "E": "Menyarankan pegawai baru agar tidak terlalu sensitif dan belajar menerima candaan sebagai bagian dari budaya kerja kantor."
+    },
+    "hint": "Nilai Harmonis menuntut penghargaan terhadap perbedaan budaya dengan cara yang menjaga martabat semua pihak.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Peduli terhadap pegawai baru, tetapi candaan yang menyinggung tidak dikoreksi sehingga dapat terulang.",
+      "B": "Poin 2 — Ikut tertawa melanggengkan perilaku yang merendahkan asal daerah rekan dan memperburuk rasa tidak aman pegawai baru.",
+      "C": "Poin 4 — Menempuh jalur kelembagaan yang tepat, tetapi tidak mendukung pegawai baru secara langsung dan melewatkan pendekatan personal yang lebih cepat kepada rekan senior.",
+      "D": "Poin 5 — Mengoreksi perilaku dengan santun tanpa mempermalukan, mendukung pegawai yang terdampak, dan membangun budaya kerja inklusif bersama tim.",
+      "E": "Poin 1 — Menyalahkan korban dan membenarkan candaan yang menyinggung, bertentangan dengan sikap saling menghargai."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Harmonis Sosial Budaya BKN"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b01-08-pendampingan-inklusif-pemohon-lansia-dari-pulau-terluar-pada-layanan-digital",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan indikator Pelayanan Publik PermenPAN-RB, ASN wajib menyelenggarakan layanan yang responsif, inklusif bagi kelompok rentan/lansia, solutif, namun tetap patuh pada prosedur akuntabilitas sistem tanpa mengorbankan antrean reguler lainnya. \n- Opsi C (skor 5): Mengarahkan ke pojok layanan pendampingan inklusif dan menugaskan petugas helpdesk untuk memfasilitasi pemindaian serta pengunggahan berkas fisik ke akun pemohon hingga tuntas sebelum tenggat waktu sore ini, disertai edukasi pemantauan status via SMS/pesan singkat (solutif, patuh aturan digital, memberdayakan, dan tidak menghambat loket utama).\n- Opsi A (skor 4): Membantu memindai dan mengunggah langsung di meja penyelia/loket sendiri hingga selesai meskipun antrean pemohon lain sedikit tertunda (sangat membantu dan tuntas, tetapi kurang optimal dari sisi manajemen alur antrean loket).\n- Opsi E (skor 3): Menjelaskan prosedur dan meminjamkan akses Wi-Fi kantor agar pemohon mencoba mengunggah sendiri di ruang tunggu (kurang efektif karena pemohon lansia terkendala literasi digital).\n- Opsi B (skor 2): Menyimpan berkas fisik sementara dan menyuruh pemohon meminta bantuan kerabatnya untuk mendaftar pada kuota bulan depan (menggugurkan kesempatan pemohon pada kuota hari ini).\n- Opsi D (skor 1): Menolak pengajuan secara kaku karena belum terunggah secara daring dan menyuruhnya kembali lagi (birokratis kaku dan tidak berempati pada kelompok rentan).",
+    "stem": "Anda bertugas sebagai penyelia layanan sertifikasi izin edar pangan olahan di kantor Balai Pengawas Obat dan Makanan wilayah kepulauan. Seorang perajin ikan asap tradisional berusia lanjut datang dari pulau terluar setelah menempuh perjalanan kapal laut selama enam jam. Saat berkasnya diperiksa, terdapat dua dokumen hasil uji laboratorium dan rancangan label gizi yang belum terunggah ke portal registrasi daring karena keterbatasan literasi digital serta ketiadaan sinyal internet di desanya, padahal seluruh berkas fisik aslinya telah ia bawa secara lengkap. Di sisi lain, prosedur instansi mewajibkan seluruh permohonan terekam secara digital di sistem terpadu sebelum batas waktu kuota pendampingan usaha mikro ditutup sore ini. Langkah yang paling tepat Anda ambil adalah...",
+    "options": {
+      "A": "Membantu memindaikan dan mengunggah seluruh dokumen fisik milik pemohon tersebut secara langsung menggunakan perangkat komputer di meja Anda agar kuota pendampingannya tidak hangus, meskipun antrean di loket Anda sedikit tertunda.",
+      "B": "Menerima berkas fisik tersebut sebagai arsip sementara di kantor, lalu menyarankan pemohon menghubungi kerabatnya yang mahir teknologi untuk mengunggah dokumen tersebut pada pembukaan kuota bulan depan.",
+      "C": "Mengarahkan pemohon ke pojok layanan pendampingan inklusif di kantor dan menugaskan petugas helpdesk untuk memandu pemindaian serta pengunggahan berkas fisik ke akun pemohon hingga tuntas sore ini, sembari memberikan panduan ringkas pemantauan status izin.",
+      "D": "Menolak pengajuan berkas fisik tersebut secara sopan karena regulasi mewajibkan seluruh dokumen terunggah secara daring tanpa pengecualian, serta menyarankan pemohon kembali setelah persyaratan digitalnya siap.",
+      "E": "Memberikan penjelasan secara santun mengenai tahapan pengunggahan mandiri dan meminjamkan akses jaringan Wi-Fi kantor agar pemohon dapat mencoba mengunggah berkasnya sendiri di ruang tunggu sebelum jam layanan berakhir."
+    },
+    "hint": "Prioritaskan solusi yang ramah, solutif, prosedural, dan tetap menjaga kepuasan serta hak pengguna layanan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 4,
+      "B": 2,
+      "C": 5,
+      "D": 1,
+      "E": 3
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 4) menunjukkan kepedulian tinggi dan menyelesaikan masalah pemohon, namun sedikit mengganggu kelancaran antrean di loket utama.",
+      "B": "Pilihan B (skor 2) menunda penyelesaian sehingga merugikan pemohon yang sudah datang jauh dari pulau terluar.",
+      "C": "Pilihan C (skor 5) menunjukkan kualitas pelayanan publik prima yang inklusif, tuntas, patuh terhadap syarat digitalisasi sistem, serta menjaga kelancaran antrean reguler melalui pendelegasian ke petugas helpdesk pendampingan.",
+      "D": "Pilihan D (skor 1) kaku, nir-empati, dan mengabaikan prinsip pelayanan publik yang ramah kelompok rentan.",
+      "E": "Pilihan E (skor 3) memberikan fasilitas internet tetapi mengabaikan fakta bahwa pemohon lansia tersebut terkendala literasi digital."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b01"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b01-09-penanganan-penyebaran-paham-ekstrem-dan-rekrutmen-kajian-tertutup-di-unit-teknis",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator kompetensi Anti-Radikalisme dan pembinaan disiplin ASN (PP No. 94 Tahun 2021) menuntut peran aktif atasan langsung dalam melakukan deteksi dini, pembinaan ideologi Pancasila secara dialogis namun tegas, perlindungan terhadap pegawai muda/magang dari infiltrasi paham radikal, serta pelaporan berjenjang melalui mekanisme pengawasan internal yang sah.\n- Opsi D (skor 5): Memanggil Raka secara tertutup untuk melakukan dialog pembinaan dan klarifikasi terkait kewajiban setia pada Pancasila dan UUD 1945 sebagai ASN, melindungi pegawai magang dari ajakan tersebut, serta mendokumentasikan temuan secara objektif untuk dilaporkan kepada bagian kepegawaian dan tim pengawasan internal instansi.\n- Opsi B (skor 4): Menegur Raka secara personal agar menghentikan penyebaran tautan ekstrem di grup kerja dan melarangnya melibatkan pegawai magang dalam aktivitas di luar kedinasan, sambil terus memantau perilakunya secara berkala (tegas secara internal, namun belum mengintegrasikan pelaporan resmi ke tim pengawasan/kepegawaian).\n- Opsi E (skor 3): Segera melaporkan aktivitas Raka kepada pimpinan puncak dan Satgas Pencegahan Radikalisme instansi secara rahasia agar pihak berwenang yang mengambil tindakan tanpa Anda perlu berdialog langsung (patuh alur pelaporan, tetapi mengabaikan fungsi pembinaan awal sebagai atasan langsung).\n- Opsi A (skor 2): Mengeluarkan Raka dari grup pesan dan memisahkan sif kerja pegawai magang tanpa mempermasalahkan pandangannya selama kinerja teknisnya baik (permisif terhadap pelanggaran sumpah ASN).\n- Opsi C (skor 1): Membiarkan tindakan Raka atas nama kebebasan berpendapat selama tidak merusak fasilitas navigasi bandara (abai dan membiarkan radikalisme berkembang di objek vital nasional).",
+    "stem": "Anda baru saja dilantik sebagai Kepala Seksi Teknik Navigasi di sebuah otoritas bandara internasional. Dalam dua bulan terakhir, Anda mencermati seorang teknisi senior berprestasi di unit Anda, Raka, menunjukkan perubahan sikap yang mencolok. Ia kerap membagikan tautan artikel di grup pesan internal yang menolak keabsahan konstitusi negara, enggan mengikuti apel penghormatan bendera dengan alasan ideologis, serta mulai membujuk dua pegawai magang untuk mengikuti pertemuan tertutup yang mendiskreditkan aparat keamanan dan dasar negara. Sebagai atasan langsung, tindakan paling tepat yang Anda ambil adalah...",
+    "options": {
+      "A": "Mengeluarkan Raka dari grup pesan internal dan memindahkan jadwal piket kedua pegawai magang ke sif yang berbeda guna mencegah gesekan ideologis, tanpa mempermasalahkan pandangan pribadinya selama kinerja teknisnya tetap baik.",
+      "B": "Menegur Raka secara personal agar menghentikan penyebaran tautan bermuatan ekstrem di grup kerja serta melarangnya melibatkan pegawai magang dalam aktivitas di luar kedinasan, sambil terus memantau perilakunya secara berkala.",
+      "C": "Menghormati perubahan sikap Raka sebagai bagian dari kebebasan berpendapat dan berkeyakinan individu, sepanjang ia tidak melakukan tindakan kekerasan fisik atau merusak peralatan navigasi bandara.",
+      "D": "Memanggil Raka secara tertutup untuk melakukan dialog pembinaan dan klarifikasi terkait kewajiban setia pada Pancasila dan UUD 1945 sebagai ASN, melindungi pegawai magang dari ajakan tersebut, serta mendokumentasikan temuan secara objektif untuk dilaporkan kepada bagian kepegawaian dan tim pengawasan internal.",
+      "E": "Segera melaporkan aktivitas Raka kepada pimpinan puncak dan Satgas Pencegahan Radikalisme instansi secara rahasia agar pihak berwenang yang mengambil tindakan penertiban tanpa Anda perlu berinteraksi langsung dengannya."
+    },
+    "hint": "Kedepankan respons yang tegas terhadap intoleransi, dialogis, dan berlandaskan mekanisme pembinaan resmi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 4,
+      "C": 1,
+      "D": 5,
+      "E": 3
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 2) hanya bersifat kosmetik dan menoleransi pelanggaran sumpah setia ASN pada konstitusi.",
+      "B": "Pilihan B (skor 4) sudah melakukan intervensi pembinaan dan pencegahan di unit kerja, tetapi belum melibatkan pelaporan terstruktur ke fungsi kepegawaian/pengawasan internal.",
+      "C": "Pilihan C (skor 1) sangat berbahaya karena membiarkan penyebaran radikalisme di lingkungan objek vital transportasi udara.",
+      "D": "Pilihan D (skor 5) paling komprehensif karena menjalankan fungsi atasan langsung dalam pembinaan disiplin ASN (PP No. 94 Tahun 2021), memutus rantai rekrutmen terhadap pegawai magang, serta menempuh prosedur pelaporan resmi berbasis bukti objektif.",
+      "E": "Pilihan E (skor 3) tepat dalam pelaporan namun melepaskan tanggung jawab pembinaan langsung sebagai kepala seksi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b01"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b01-10-independensi-auditor-menghadapi-intervensi-mantan-mentor-pada-proyek-jembatan",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator utama pilar Profesionalisme PermenPAN-RB mencakup integritas profesi, objektivitas, independensi dari konflik kepentingan personal (balas budi/relasi emosional), serta pengutamaan keselamatan publik dan standar mutu kerja.\n- Opsi C (skor 5): Menolak permintaan tersebut secara tegas namun tetap santun, menjelaskan bahwa deviasi spesifikasi struktur jembatan menyangkut keselamatan publik dan kode etik audit, serta tetap mencantumkan temuan faktual secara objektif disertai rekomendasi perbaikan resmi yang wajib ditindaklanjuti sesuai tenggat waktu.\n- Opsi A (skor 4): Tetap menuliskan temuan ketidaksesuaian spesifikasi baja tersebut secara apa adanya di dalam laporan audit final sesuai standar pemeriksaan, serta membatasi komunikasi personal dengan mantan mentor tersebut hingga proses audit selesai (objektif dan independen, namun kurang komunikatif dalam memberikan edukasi profesional saat menolak).\n- Opsi E (skor 3): Melaporkan adanya upaya intervensi tersebut kepada Inspektur Wilayah dan meminta agar posisi Anda digantikan oleh auditor lain guna menghindari konflik kepentingan emosional (menjaga kode etik, tetapi menghindar dari penyelesaian tanggung jawab di akhir penugasan).\n- Opsi D (skor 2): Memberikan tambahan waktu dua hari agar PPK dan kontraktor membuat surat komitmen perbaikan bermeterai sehingga bahasa temuan di laporan dapat diperhalus (kompromistis terhadap kebenaran materiil audit).\n- Opsi B (skor 1): Mengakomodasi permohonan mantan mentor dengan mencatatnya sebagai temuan administratif asalkan ia menandatangani jaminan tertulis pribadi (melanggar kode etik profesi, memalsukan laporan audit, dan membahayakan keselamatan pengguna jembatan).",
+    "stem": "Anda adalah ketua tim auditor internal yang sedang memeriksa proyek pembangunan jembatan penghubung antarkabupaten. Dua hari sebelum laporan hasil audit final dikunci, Pejabat Pembuat Komitmen (PPK) proyek tersebut—yang kebetulan merupakan mantan mentor yang sangat berjasa membimbing Anda di awal karier—menghubungi Anda secara pribadi. Ia mengakui adanya deviasi spesifikasi mutu baja penyangga akibat kelalaian kontraktor, namun memohon agar temuan tersebut dicatat sebagai 'catatan administratif ringan' saja. Ia berjanji kontraktor akan mengganti komponen baja tersebut secara diam-diam bulan depan, demi menyelamatkan predikat wilayah bebas korupsi yang sedang diperjuangkan unit kerjanya. Sikap profesional yang Anda ambil adalah...",
+    "options": {
+      "A": "Tetap menuliskan temuan ketidaksesuaian spesifikasi mutu baja tersebut secara apa adanya di dalam laporan audit final sesuai standar pemeriksaan, serta menghindari komunikasi personal lebih lanjut dengan mantan mentor tersebut hingga seluruh rangkaian audit berakhir.",
+      "B": "Mengakomodasi permohonan mantan mentor tersebut dengan mencantumkannya sebagai catatan administratif ringan dengan syarat ia menandatangani jaminan tertulis pribadi bahwa penggantian baja akan diselesaikan bulan depan.",
+      "C": "Menolak permintaan tersebut secara tegas namun tetap santun, menjelaskan bahwa deviasi spesifikasi struktur jembatan menyangkut keselamatan publik dan kode etik audit, serta tetap mencantumkan temuan faktual secara objektif disertai rekomendasi perbaikan resmi yang wajib ditindaklanjuti sesuai tenggat waktu.",
+      "D": "Memberikan perpanjangan waktu dua hari sebelum laporan dikunci agar pihak kontraktor dan PPK dapat menyusun surat pernyataan komitmen perbaikan bermeterai, sehingga tingkat keparahan temuan dalam laporan dapat sedikit diperhalus.",
+      "E": "Melaporkan adanya upaya intervensi dari Pejabat Pembuat Komitmen tersebut kepada Inspektur Wilayah dan meminta agar posisi Anda sebagai ketua tim digantikan oleh auditor lain guna menghindari konflik kepentingan emosional."
+    },
+    "hint": "Jaga akurasi, standar mutu, dan ketuntasan kerja secara mandiri meskipun menghadapi tekanan tenggat waktu.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 4,
+      "B": 1,
+      "C": 5,
+      "D": 2,
+      "E": 3
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 4) menjaga objektivitas laporan audit dengan baik, tetapi kurang memberikan penjelasan tegas mengenai batas etika profesi kepada pihak yang mengintervensi.",
+      "B": "Pilihan B (skor 1) mencederai integritas profesi auditor dan membahayakan nyawa masyarakat pengguna infrastruktur.",
+      "C": "Pilihan C (skor 5) mencerminkan profesionalisme tertinggi karena menjaga independensi audit dari konflik kepentingan emosional, mengutamakan keselamatan publik atas risiko kegagalan struktur jembatan, berkomunikasi secara asertif-santun, serta menetapkan mekanisme tindak lanjut resmi.",
+      "D": "Pilihan D (skor 2) mengompromikan akurasi laporan audit dengan memperhalus temuan teknis krusial.",
+      "E": "Pilihan E (skor 3) berupaya menghindari konflik kepentingan, namun pengunduran diri dua hari sebelum laporan final justru menghambat penyelesaian tugas."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b01"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b02-08-menghadapi-lansia-dengan-persyaratan-administrasi-belum-lengkap-menjelang-jam-tu",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator Pelayanan Publik (PermenPAN-RB tentang standar pelayanan dan Indeks Kepuasan Masyarakat): daya tanggap, empati terhadap kelompok rentan, kepastian layanan, dan kepatuhan pada persyaratan yang ditetapkan. Nilai 5 diberikan pada tindakan yang proaktif dan tetap sesuai aturan: menjelaskan dengan empatik, membantu menghubungi perangkat desa agar surat pengantar dikirim lewat sarana yang sah, lalu memproses berkas pada hari yang sama begitu persyaratan lengkap. Nilai 4: penjelasan rinci dan penjadwalan prioritas (sesuai aturan, empatik, tetapi menunda). Nilai 3: memproses sementara dengan janji menyusul (cepat dan empatik tetapi menyimpang dari prosedur). Nilai 2: hanya meminta kembali setelah melengkapi tanpa bantuan. Nilai 1: menolak dengan alasan target harian tanpa empati.",
+    "stem": "Anda bertugas di loket Dinas Kependudukan dan Pencatatan Sipil. Menjelang jam tutup, seorang lansia dari desa terpencil yang menempuh perjalanan tiga jam datang untuk mengurus perubahan Kartu Keluarga, tetapi belum membawa surat pengantar dari RT yang menjadi syarat wajib. Lansia tersebut tampak lelah dan khawatir harus kembali lagi. Tindakan yang paling tepat Anda lakukan adalah ...",
+    "options": {
+      "A": "Memproses perubahan Kartu Keluarga terlebih dahulu tanpa surat pengantar dengan catatan lansia tersebut akan menyusulkan dokumen pada kunjungan berikutnya.",
+      "B": "Menjelaskan persyaratan dengan ramah, membantu menghubungi perangkat desa agar surat pengantar dikirim melalui sarana yang sah, lalu memproses berkas pada hari yang sama setelah persyaratan lengkap.",
+      "C": "Menjelaskan bahwa syarat wajib belum lengkap dan meminta lansia kembali setelah melengkapi dokumen.",
+      "D": "Memberikan daftar rinci kekurangan dokumen, lalu mendaftarkan lansia dalam jadwal prioritas pelayanan keesokan harinya.",
+      "E": "Meminta lansia kembali di lain waktu karena Anda harus menyelesaikan target pelayanan harian sebelum loket tutup."
+    },
+    "hint": "Prioritaskan solusi yang ramah, solutif, prosedural, dan tetap menjaga kepuasan serta hak pengguna layanan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 2,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 3) cepat tetapi menyimpang dari persyaratan wajib.",
+      "B": "Pilihan B (skor 5) memadukan empati, inisiatif solusi, dan kepatuhan prosedur sehingga layanan tuntas pada hari yang sama.",
+      "C": "Pilihan C (skor 2) benar secara prosedur tetapi pasif tanpa bantuan.",
+      "D": "Pilihan D (skor 4) sesuai aturan dan empatik tetapi menunda layanan.",
+      "E": "Pilihan E (skor 1) mengabaikan kebutuhan warga dan mengutamakan target internal."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b02"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b02-09-menyikapi-konten-penolakan-simbol-negara-di-grup-percakapan-kantor",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator Anti-Radikalisme pada SKD: komitmen menjaga ideologi Pancasila dan NKRI, bersikap tegas terhadap paham yang bertentangan dengan dasar negara, namun menempuh cara persuasif dan melalui jalur institusional. Nilai 5: mengajak dialog pribadi dengan penjelasan landasan konstitusional (Pancasila sebagai dasar negara), sekaligus melaporkan konten kepada atasan agar dibina melalui mekanisme kepegawaian. Nilai 4: melaporkan langsung dengan bukti tetapi tanpa upaya persuasif. Nilai 3: membantah terbuka di grup (berisiko konflik, tidak melalui jalur institusional). Nilai 2: mengabaikan konten (pembiaran). Nilai 1: keluar dari grup (menghindar).",
+    "stem": "Anda bekerja di sebuah BUMN bidang energi. Seorang rekan kerja dalam grup percakapan kantor berulang kali membagikan konten yang menyebut penghormatan kepada bendera dan Pancasila sebagai perbuatan yang menyimpang, serta mengajak rekan lain tidak mengikuti upacara. Beberapa anggota grup mulai menanggapi dengan nada setuju. Tindakan paling tepat yang Anda ambil adalah ...",
+    "options": {
+      "A": "Mengumpulkan tangkapan layar konten tersebut dan langsung melaporkannya kepada atasan tanpa berbicara terlebih dahulu dengan rekan yang bersangkutan.",
+      "B": "Membantah konten tersebut secara terbuka di dalam grup dengan menyertakan dalil konstitusi agar anggota grup lain tidak terpengaruh.",
+      "C": "Mengabaikan konten tersebut karena menganggap perbedaan pandangan adalah hak pribadi masing-masing pegawai.",
+      "D": "Mengajak rekan tersebut berdiskusi secara pribadi dengan menjelaskan kedudukan Pancasila sebagai dasar negara, serta melaporkan konten itu kepada atasan agar dibina melalui mekanisme kepegawaian.",
+      "E": "Keluar dari grup percakapan agar tidak terlibat dalam perdebatan mengenai konten tersebut."
+    },
+    "hint": "Kedepankan respons yang tegas terhadap intoleransi, dialogis, dan berlandaskan mekanisme pembinaan resmi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 4,
+      "B": 3,
+      "C": 2,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 4) tegas dan prosedural tetapi melewatkan upaya pembinaan langsung.",
+      "B": "Pilihan B (skor 3) berani tetapi berpotensi memicu perdebatan terbuka.",
+      "C": "Pilihan C (skor 2) membiarkan penyebaran paham yang bertentangan dengan dasar negara.",
+      "D": "Pilihan D (skor 5) memadukan pendekatan persuasif dan penegakan melalui jalur kelembagaan.",
+      "E": "Pilihan E (skor 1) menghindari masalah dan tidak berkontribusi pada pencegahan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b02"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b02-10-tekanan-tenggat-serah-terima-proyek-jembatan-terhadap-prosedur-uji-beban",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator Profesionalisme: kompetensi dan tanggung jawab terhadap standar mutu dan keselamatan, integritas pada prosedur teknis, disertai kemampuan mencari solusi dalam batas aturan. Nilai 5: tetap melaksanakan uji beban sesuai SOP, menyampaikan risiko secara tertulis kepada pimpinan, dan mengusulkan percepatan (tambahan personel atau lembur) agar tenggat tetap terpenuhi. Nilai 4: mengajukan keberatan tertulis dan menunda uji menunggu arahan (patuh standar tetapi kurang solutif). Nilai 3: uji sebagian pada titik kritis (kompromi yang tetap menyimpang dari prosedur lengkap). Nilai 2: mengikuti perintah dengan menggeser tanggung jawab kepada atasan. Nilai 1: memalsukan hasil uji, pelanggaran integritas terberat.",
+    "stem": "Anda adalah insinyur pengawas pada sebuah dinas pekerjaan umum. Jembatan yang baru rampung akan diresmikan kepala daerah dalam lima hari. Pimpinan Anda meminta serah terima segera dilakukan tanpa uji beban karena jadwal uji memerlukan tiga hari kerja. Anda menilai uji beban adalah prosedur wajib untuk memastikan keselamatan pengguna. Tindakan paling tepat yang Anda ambil adalah ...",
+    "options": {
+      "A": "Melakukan uji beban hanya pada titik-titik kritis agar penghematan waktu tetap dapat dicapai dan proyek siap diresmikan.",
+      "B": "Mengikuti perintah pimpinan karena tanggung jawab keputusan berada pada atasan, bukan pada pengawas lapangan.",
+      "C": "Tetap melaksanakan uji beban sesuai prosedur, menyampaikan risiko tanpa uji secara tertulis kepada pimpinan, dan mengusulkan tambahan personel serta jam kerja agar uji selesai sebelum peresmian.",
+      "D": "Mengajukan keberatan tertulis kepada pimpinan dan menunda pelaksanaan uji sampai ada arahan lebih lanjut.",
+      "E": "Menandatangani berita acara serah terima dengan mencantumkan hasil uji yang sama seperti proyek jembatan sebelumnya agar tenggat terpenuhi."
+    },
+    "hint": "Jaga akurasi, standar mutu, dan ketuntasan kerja secara mandiri meskipun menghadapi tekanan tenggat waktu.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 3) kompromi yang mengurangi kelengkapan prosedur.",
+      "B": "Pilihan B (skor 2) melepaskan tanggung jawab profesional.",
+      "C": "Pilihan C (skor 5) menjaga standar keselamatan, transparan dalam menyampaikan risiko, dan menawarkan solusi nyata.",
+      "D": "Pilihan D (skor 4) menjaga standar tetapi pasif dan berpotensi menggagalkan tenggat.",
+      "E": "Pilihan E (skor 1) adalah pemalsuan data teknis yang membahayakan keselamatan publik."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b02"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b03-08-optimalisasi-pelayanan-rawat-jalan-dalam-kondisi-keterbatasan-petugas",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator utama pilar Pelayanan Publik adalah kemampuan memberikan layanan yang responsif, cepat, empatik, transparan, adil, dan tetap sesuai prosedur. Dalam situasi ini, tindakan terbaik bukan sekadar menyampaikan permohonan maaf atau mendahulukan sejumlah pasien, melainkan membangun mekanisme mitigasi yang memberikan kepastian pelayanan kepada seluruh pemohon. Pilihan dengan skor 5 harus mengintegrasikan komunikasi transparan, pengaturan prioritas sesuai ketentuan, optimalisasi sumber daya melalui koordinasi resmi, dan pemeliharaan prosedur verifikasi. Pilihan B memenuhi seluruh indikator tersebut. Pilihan A bernilai 4 karena memberikan solusi operasional, tetapi belum mengatur prioritas dan kepastian informasi secara menyeluruh. Pilihan D bernilai 3 karena menunjukkan kesopanan dan empati, tetapi masih bersifat pasif. Pilihan C bernilai 2 karena tidak mengatasi penyebab penumpukan antrean. Pilihan E bernilai 1 karena memindahkan beban gangguan pelayanan kepada masyarakat tanpa upaya penyelesaian.",
+    "stem": "Di sebuah rumah sakit daerah, antrean pelayanan rawat jalan meningkat karena salah satu loket pendaftaran tidak dapat beroperasi. Di ruang tunggu terdapat pasien lanjut usia, pasien dengan jadwal kontrol yang hampir terlewat, dan pasien umum; sementara itu, petugas dari unit lain tersedia tetapi harus dikoordinasikan agar prosedur verifikasi tetap berjalan sesuai ketentuan. Sebagai koordinator pelayanan, tindakan yang paling tepat Anda lakukan adalah...",
+    "options": {
+      "A": "Mengusulkan pembukaan loket sementara dengan memanfaatkan petugas yang tersedia setelah memperoleh persetujuan atasan agar kapasitas pelayanan meningkat.",
+      "B": "Mengoordinasikan pembukaan loket bantuan atas persetujuan atasan sembari memberi informasi estimasi layanan dan memprioritaskan pasien rentan sesuai prosedur.",
+      "C": "Mempertahankan pelayanan melalui loket yang masih beroperasi dan meminta petugas keamanan membantu meredakan keluhan pasien agar suasana ruang tunggu tetap kondusif.",
+      "D": "Menyampaikan permohonan maaf kepada seluruh pasien, menjelaskan kendala operasional, dan meminta mereka menunggu sampai petugas pengganti tersedia.",
+      "E": "Menyarankan seluruh pasien yang belum mendapatkan nomor antrean untuk kembali pada hari berikutnya agar kepadatan ruang tunggu dapat segera dikurangi."
+    },
+    "hint": "Prioritaskan solusi yang ramah, solutif, prosedural, dan tetap menjaga kepuasan serta hak pengguna layanan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 4,
+      "B": 5,
+      "C": 2,
+      "D": 3,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 4) menunjukkan inisiatif yang baik dengan membuka kapasitas tambahan, tetapi belum mengatur keseluruhan mekanisme pelayanan dan prioritas pasien.",
+      "B": "Pilihan B (skor 5) mencerminkan pelayanan publik prima melalui transparansi, empati, responsivitas, koordinasi sumber daya, prioritas berdasarkan kebutuhan yang sah, dan kepastian proses pelayanan.",
+      "C": "Pilihan C (skor 2) hanya berfokus pada pengendalian suasana tanpa memperbaiki kapasitas maupun mekanisme pelayanan.",
+      "D": "Pilihan D (skor 3) menunjukkan komunikasi yang sopan dan empati, tetapi tidak menyediakan solusi konkret untuk mengurangi antrean.",
+      "E": "Pilihan E (skor 1) merupakan tindakan paling tidak tepat karena mengalihkan tanggung jawab instansi kepada masyarakat tanpa menawarkan mitigasi yang memadai."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b03"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b03-09-penanganan-penyebaran-konten-intoleran-dalam-koordinasi-lintas-instansi",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator utama pilar Anti-Radikalisme adalah menolak paham dan tindakan yang mengarah pada kekerasan serta intoleransi, menjunjung tinggi nilai Pancasila, menjaga persatuan dalam keberagaman, dan menggunakan mekanisme pelaporan yang sah. Respons terbaik harus tegas terhadap penyebaran gagasan kekerasan, tetapi tetap objektif, tidak melakukan persekusi, serta tidak menggeneralisasi kesalahan kepada kelompok identitas tertentu. Pilihan C bernilai 5 karena menggabungkan penghentian penyebaran konten, dokumentasi yang relevan, pelaporan melalui jalur kedinasan yang berwenang, dan penguatan toleransi. Pilihan B bernilai 4 karena menunjukkan inisiatif komunikasi personal, tetapi belum memastikan penanganan melalui mekanisme resmi. Pilihan A bernilai 3 karena memberikan teguran yang tepat tetapi tidak diikuti tindak lanjut yang memadai. Pilihan D bernilai 2 karena mengabaikan indikasi penyebaran gagasan kekerasan. Pilihan E bernilai 1 karena justru memperluas penyebaran konten bermasalah.",
+    "stem": "Di sebuah pos pengawasan perbatasan, Anda menjadi administrator grup komunikasi koordinasi lintas instansi. Salah seorang anggota mengirimkan ajakan menghadiri pertemuan tertutup yang materi promosinya memuat seruan permusuhan terhadap kelompok berbeda dan pembenaran kekerasan, kemudian beberapa anggota lain mulai meneruskan pesan tersebut. Sebagai administrator sekaligus aparatur yang bertanggung jawab menjaga persatuan, tindakan yang paling tepat adalah...",
+    "options": {
+      "A": "Menanggapi pesan tersebut di dalam grup dengan menjelaskan bahwa ajakan yang mengandung permusuhan bertentangan dengan toleransi dan meminta anggota lain tidak menyebarkannya.",
+      "B": "Menghubungi pengirim pesan secara pribadi untuk meminta klarifikasi dan mengingatkan bahwa materi tersebut berpotensi bertentangan dengan nilai kebangsaan serta prinsip toleransi.",
+      "C": "Menghentikan penerusan pesan di grup, mendokumentasikan bukti secara objektif, dan melaporkannya melalui mekanisme kedinasan resmi untuk ditindaklanjuti.",
+      "D": "Mengabaikan pesan tersebut karena setiap anggota memiliki kebebasan menyampaikan pendapat selama belum terjadi tindakan kekerasan secara langsung.",
+      "E": "Meneruskan pesan tersebut ke berbagai grup komunikasi lainnya disertai komentar pribadi agar seluruh pegawai mengetahui adanya kelompok yang dianggap berbahaya."
+    },
+    "hint": "Kedepankan respons yang tegas terhadap intoleransi, dialogis, dan berlandaskan mekanisme pembinaan resmi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 5,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 3) menunjukkan sikap tidak mendukung intoleransi, tetapi belum mencakup dokumentasi dan tindak lanjut melalui mekanisme yang berwenang.",
+      "B": "Pilihan B (skor 4) menunjukkan kesadaran dan inisiatif yang positif, tetapi belum menjamin adanya penanganan institusional terhadap indikasi penyebaran konten tersebut.",
+      "C": "Pilihan C (skor 5) merupakan tindakan paling tepat karena menunjukkan penolakan tegas terhadap intoleransi dan pembenaran kekerasan, disertai penanganan melalui jalur resmi, dokumentasi objektif, dan penguatan nilai persatuan.",
+      "D": "Pilihan D (skor 2) kurang tepat karena mengabaikan indikasi penyebaran gagasan yang membenarkan kekerasan.",
+      "E": "Pilihan E (skor 1) paling tidak tepat karena memperluas penyebaran pesan dan berpotensi menimbulkan prasangka kolektif terhadap kelompok tertentu."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b03"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b03-10-menjaga-akurasi-data-dalam-penyusunan-laporan-kinerja-instansi",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator utama pilar Profesionalisme mencakup penguasaan kompetensi, tanggung jawab terhadap hasil pekerjaan, ketelitian, akuntabilitas, kepatuhan pada standar kerja, serta komitmen terhadap mutu. Permasalahan utama dalam kasus ini adalah risiko penyajian informasi yang belum tervalidasi sebagai fakta yang benar. Pilihan D bernilai 5 karena mengutamakan verifikasi data, transparansi kepada pimpinan, pemisahan data yang sudah dan belum tervalidasi, serta kepastian tindak lanjut. Pilihan B bernilai 4 karena melibatkan rekan dalam pemeriksaan data secara kolaboratif, tetapi belum secara eksplisit mengomunikasikan risiko kepada pimpinan. Pilihan A bernilai 3 karena hanya menyampaikan data terverifikasi tanpa penjelasan memadai mengenai kelengkapan dan risiko data yang belum tersedia. Pilihan C bernilai 2 karena menunda seluruh pekerjaan tanpa komunikasi dan strategi mitigasi. Pilihan E bernilai 1 karena menyajikan angka yang tidak terverifikasi dan menyembunyikan kondisi sebenarnya, sehingga melanggar akuntabilitas profesional.",
+    "stem": "Di unit penyusunan laporan sebuah kementerian, Anda bertanggung jawab menyerahkan ringkasan indikator kinerja kepada pimpinan pada hari yang sama. Salah satu sumber data belum diverifikasi dan apabila langsung dimasukkan dapat mengubah kesimpulan laporan, sementara seorang rekan menyarankan penggunaan angka periode sebelumnya agar dokumen terlihat lengkap. Dalam kondisi tersebut, tindakan yang paling mencerminkan profesionalisme adalah...",
+    "options": {
+      "A": "Menyusun laporan menggunakan data yang telah terverifikasi dan menghilangkan sementara indikator yang belum tersedia agar informasi yang disampaikan tetap akurat.",
+      "B": "Meminta rekan kerja melakukan pemeriksaan silang terhadap sumber yang belum diverifikasi sambil tetap menyusun bagian laporan lainnya agar pekerjaan dapat diselesaikan sesuai tenggat waktu.",
+      "C": "Menunda seluruh penyusunan laporan sampai semua sumber data tersedia dan terverifikasi sepenuhnya, meskipun belum memberikan informasi mengenai keterlambatan kepada pimpinan.",
+      "D": "Menginformasikan risiko data kepada pimpinan, memverifikasi silang sumber primer, dan menyerahkan laporan tervalidasi disertai catatan indikator yang sedang diverifikasi.",
+      "E": "Menggunakan angka pada laporan periode sebelumnya untuk melengkapi indikator yang belum tersedia tanpa memberikan keterangan bahwa angka tersebut belum diverifikasi."
+    },
+    "hint": "Jaga akurasi, standar mutu, dan ketuntasan kerja secara mandiri meskipun menghadapi tekanan tenggat waktu.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 2,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 3) menjaga akurasi data yang disampaikan, tetapi tidak memberikan informasi lengkap mengenai indikator yang belum tersedia dan kebutuhan tindak lanjutnya.",
+      "B": "Pilihan B (skor 4) menunjukkan inisiatif dan kerja sama yang baik, tetapi belum memastikan komunikasi formal mengenai risiko terhadap hasil laporan.",
+      "C": "Pilihan C (skor 2) menunjukkan kehati-hatian, tetapi tidak mencerminkan kemampuan mengelola pekerjaan dan berkomunikasi ketika menghadapi kendala.",
+      "D": "Pilihan D (skor 5) merupakan tindakan paling profesional karena mengintegrasikan akurasi, transparansi, akuntabilitas, pengelolaan risiko, dan pemenuhan tenggat waktu melalui komunikasi yang jelas kepada pimpinan.",
+      "E": "Pilihan E (skor 1) paling tidak tepat karena menggunakan angka yang belum tervalidasi dan menyembunyikan informasi tersebut, sehingga berpotensi menghasilkan laporan yang menyesatkan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b03"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b04-chatgpt-08-penyelarasan-data-antarinstansi-dalam-sistem-distribusi-pangan-daerah",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator kompetensi yang diuji adalah Kompetensi Manajerial Kerja Sama (M.02) dalam Lampiran II PermenPAN-RB Nomor 38 Tahun 2017 tentang Standar Kompetensi Jabatan ASN. Definisi kompetensi Kerja Sama menekankan kemampuan menjalin, membina, dan mempertahankan hubungan kerja yang efektif, memiliki komitmen saling membantu dalam penyelesaian tugas, serta mengoptimalkan sumber daya untuk tujuan organisasi. Indikator yang paling relevan adalah Level 4, khususnya 4.1 membangun sinergi antarunit kerja dan 4.2 memfasilitasi kepentingan yang berbeda dari unit kerja lain agar tercipta sinergi dalam pencapaian target organisasi. Perbedaan definisi dan sumber data dalam kasus ini membutuhkan penyepakatan bersama, bukan keputusan sepihak. Pilihan D bernilai 5 karena menginisiasi kolaborasi lintas instansi dan membangun mekanisme validasi serta pembaruan bersama. Pilihan B bernilai 4 karena melakukan komunikasi dengan seluruh petugas data dan verifikasi, tetapi belum menciptakan mekanisme kerja sama kolektif yang terstruktur. Pilihan A bernilai 3 karena tetap menyelesaikan pekerjaan secara bertanggung jawab, tetapi menggunakan sumber data secara sepihak. Pilihan C bernilai 2 karena menyerahkan seluruh penyelesaian kepada atasan tanpa berinisiatif membangun koordinasi. Pilihan E bernilai 1 karena menetapkan estimasi secara mandiri tanpa menyelesaikan ketidaksesuaian sumber data.",
+    "stem": "Anda bertugas sebagai koordinator analis pada badan ketahanan pangan daerah yang sedang menyusun dasbor pemantauan distribusi komoditas pangan. Data persediaan dari dinas pertanian, pengelola pelabuhan, dan pengelola pasar menunjukkan angka yang berbeda karena setiap instansi menggunakan definisi persediaan tersedia yang tidak sama. Laporan tersebut harus diselesaikan dalam dua hari, sehingga diperlukan penyelesaian yang tidak hanya menjaga ketepatan data, tetapi juga memperkuat koordinasi lintas instansi. Tindakan yang paling tepat adalah...",
+    "options": {
+      "A": "Menyusun dasbor dari data instansi yang paling lengkap, mencantumkan catatan perbedaan definisi, lalu menyerahkan hasil awal kepada pimpinan sesuai tenggat.",
+      "B": "Menghubungi petugas data dari setiap instansi secara bergantian, meminta klarifikasi tertulis, lalu memperbarui angka yang memiliki bukti pendukung paling kuat.",
+      "C": "Menyampaikan ketidaksesuaian data kepada atasan, meminta arahan mengenai sumber yang harus dipakai, lalu melanjutkan pekerjaan setelah keputusan diberikan.",
+      "D": "Menginisiasi forum lintas instansi untuk menyepakati definisi, memvalidasi sumber dan penanggung jawab data, lalu menetapkan jadwal pembaruan bersama.",
+      "E": "Mengolah seluruh data secara mandiri dengan rumus seragam, memilih angka tengah sebagai estimasi, lalu menjelaskan metode tersebut dalam catatan dasbor."
+    },
+    "hint": "Pilih langkah kolaboratif yang menyelaraskan komunikasi lintas unit tanpa mengabaikan tanggung jawab bersama.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 2,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 3) menunjukkan tanggung jawab terhadap tenggat dan transparansi keterbatasan data, tetapi masih mengandalkan keputusan sepihak mengenai sumber yang digunakan.",
+      "B": "Pilihan B (skor 4) menunjukkan inisiatif komunikasi dan koordinasi yang baik, tetapi belum mengembangkan kerja sama menjadi mekanisme bersama yang terstruktur.",
+      "C": "Pilihan C (skor 2) menunjukkan kesediaan berkonsultasi dengan atasan, tetapi kurang memperlihatkan inisiatif penyelesaian melalui hubungan kerja lintas instansi.",
+      "D": "Pilihan D (skor 5) paling tepat karena mengutamakan pembentukan sinergi lintas instansi, penyelesaian perbedaan kepentingan, kesepakatan definisi, dan pembagian tanggung jawab yang jelas.",
+      "E": "Pilihan E (skor 1) paling tidak tepat karena menggunakan estimasi statistik tanpa menyelesaikan persoalan perbedaan definisi maupun validitas data."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b04-chatgpt"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b04-chatgpt-09-pengelolaan-perbedaan-identitas-budaya-dalam-pameran-museum-daerah",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator utama yang diuji adalah Kompetensi Sosial Kultural Perekat Bangsa (SK.01) dalam Lampiran III PermenPAN-RB Nomor 38 Tahun 2017 tentang Standar Kompetensi Jabatan ASN. Definisi kompetensi ini mencakup kemampuan mempromosikan sikap toleransi dan keterbukaan, peka terhadap perbedaan individu maupun kelompok masyarakat, mempersatukan masyarakat, serta membangun hubungan sosial psikologis di tengah kemajemukan Indonesia. Indikator yang paling relevan adalah Level 3: Mempromosikan dan Mengembangkan Sikap Toleransi dan Persatuan. Indikator 3.1 menekankan promosi sikap menghargai perbedaan untuk mendorong toleransi dan keterbukaan, sedangkan indikator 3.2 menekankan pemetaan sosial agar respons sesuai dengan budaya yang berlaku. Pilihan C bernilai 5 karena mengintegrasikan dialog setara, pemahaman konteks budaya, dan representasi yang menghargai keberagaman. Pilihan E bernilai 4 karena melibatkan tokoh komunitas, tetapi penyelesaian berdasarkan suara terbanyak belum tentu menjamin pengakuan yang setara. Pilihan B bernilai 3 karena memberikan ruang representasi, tetapi belum secara aktif membangun pemahaman bersama. Pilihan D bernilai 2 karena menghindari sumber perbedaan tanpa menyelesaikan persoalan sosial yang mendasarinya. Pilihan A bernilai 1 karena menetapkan satu tradisi secara sepihak sehingga berpotensi mengabaikan identitas komunitas lainnya.",
+    "stem": "Anda menjadi koordinator penyelenggaraan pameran budaya pada sebuah museum daerah. Dalam rapat persiapan, dua komunitas masyarakat menyampaikan perbedaan pandangan mengenai urutan penyajian dan penamaan kain tradisional yang berasal dari masing-masing komunitas. Kedua pihak menganggap tradisi mereka memiliki kedudukan penting dalam sejarah daerah, sehingga diskusi mulai menimbulkan ketegangan. Anda dituntut menjaga kualitas pameran sekaligus memastikan setiap komunitas merasa dihargai. Tindakan yang paling tepat adalah...",
+    "options": {
+      "A": "Meminta pimpinan museum menetapkan satu tradisi yang paling dikenal sebagai representasi daerah, lalu menjelaskan keputusan tersebut kepada seluruh perwakilan komunitas.",
+      "B": "Membagi ruang pamer secara proporsional menurut jumlah anggota tiap komunitas, kemudian meminta setiap pengurus merumuskan narasi budaya masing-masing secara mandiri.",
+      "C": "Memfasilitasi dialog setara, menggali makna dari tiap komunitas, memetakan konteks sosial budaya, lalu menyusun narasi pameran yang mewakili keragaman.",
+      "D": "Menunda pembahasan materi yang diperdebatkan dan memusatkan pameran pada benda-benda lain yang tidak menimbulkan perbedaan pandangan antarkomunitas.",
+      "E": "Mengundang tokoh senior dari kedua komunitas untuk menyampaikan pendapat, kemudian menggunakan suara terbanyak sebagai dasar penetapan narasi akhir pameran."
+    },
+    "hint": "Utamakan sikap inklusif, empatik, dan menghormati keberagaman latar budaya dalam batas aturan kerja yang adil.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 1,
+      "B": 3,
+      "C": 5,
+      "D": 2,
+      "E": 4
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 1) paling tidak tepat karena menjadikan popularitas sebagai dasar penetapan representasi budaya dan berpotensi mengesampingkan identitas komunitas lainnya.",
+      "B": "Pilihan B (skor 3) menunjukkan pengakuan terhadap keberagaman melalui pembagian ruang, tetapi belum membangun dialog dan pemahaman bersama antarkomunitas.",
+      "C": "Pilihan C (skor 5) merupakan tindakan terbaik karena mengembangkan toleransi, keterbukaan, pemetaan sosial, dan penghargaan terhadap identitas budaya setiap komunitas melalui dialog yang setara.",
+      "D": "Pilihan D (skor 2) menjaga kelancaran penyelenggaraan, tetapi menghindari persoalan tanpa memperkuat hubungan sosial.",
+      "E": "Pilihan E (skor 4) menunjukkan upaya melibatkan tokoh masyarakat dan mendengar berbagai perspektif, tetapi keputusan berdasarkan suara terbanyak dapat mengabaikan kepentingan komunitas yang lebih kecil."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b04-chatgpt"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b04-chatgpt-10-penanganan-paparan-data-pribadi-pada-sistem-perpustakaan-digital",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator operasional pilar Teknologi Informasi dan Komunikasi (TIK) dalam soal ini meliputi pemanfaatan teknologi secara bertanggung jawab, keamanan akses, perlindungan data pribadi, pengamanan bukti insiden, serta penanganan gangguan melalui prosedur resmi. Dasar hukum yang relevan adalah Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi. Pasal 35 mengatur kewajiban pengendali data pribadi untuk melindungi dan memastikan keamanan data pribadi melalui langkah teknis dan operasional. Pasal 36 mewajibkan penjagaan kerahasiaan data pribadi. Pasal 39 mengatur kewajiban mencegah akses tidak sah. Pasal 46 mengatur kewajiban pemberitahuan tertulis paling lambat 3 × 24 jam kepada subjek data pribadi dan lembaga apabila terjadi kegagalan pelindungan data pribadi. Karena akses eksternal telah terdeteksi, tindakan harus berfokus pada penghentian paparan, pengamanan bukti, pelaporan insiden, dan pelaksanaan kewajiban pemberitahuan sesuai ketentuan. Pilihan B bernilai 5 karena mencakup seluruh prioritas tersebut. Pilihan A bernilai 4 karena melakukan pembatasan akses dan pemeriksaan log, tetapi belum secara eksplisit mencakup seluruh prosedur pemberitahuan formal. Pilihan C bernilai 3 karena meminta penghapusan salinan kepada penerima, tetapi tidak cukup untuk memastikan penghentian akses dan penanganan insiden secara institusional. Pilihan E bernilai 2 karena melakukan penelusuran tetapi menunda tindakan pembatasan akses. Pilihan D bernilai 1 karena menghapus dokumen tanpa mempertahankan bukti dan jejak audit yang diperlukan dalam investigasi.",
+    "stem": "Anda bertugas dalam tim pengelola sistem perpustakaan digital milik pemerintah daerah. Saat melakukan pemeriksaan rutin, ditemukan bahwa sebuah lembar kerja yang berisi nama lengkap, nomor identitas, alamat surel, dan nomor telepon anggota perpustakaan telah dibagikan melalui tautan publik. Catatan audit menunjukkan bahwa tautan tersebut telah diakses dari beberapa alamat eksternal yang tidak dikenal. Sebagai petugas yang bertanggung jawab terhadap pengelolaan sistem, tindakan yang paling tepat adalah...",
+    "options": {
+      "A": "Menonaktifkan tautan berbagi, melapor kepada atasan, lalu meminta tim keamanan memeriksa log untuk memastikan jangkauan akses dan kemungkinan pengunduhan berkas.",
+      "B": "Menonaktifkan akses publik, mempertahankan log dan bukti insiden, melapor melalui kanal respons keamanan data, lalu memulai pemberitahuan tertulis sesuai tenggat UU PDP.",
+      "C": "Mengirim pesan kepada seluruh penerima tautan agar menghapus salinan berkas, kemudian memperbarui pengaturan berbagi setelah memperoleh konfirmasi dari mereka.",
+      "D": "Menghapus berkas yang terunggah dari penyimpanan bersama, mengganti nama dokumen, lalu mengunggah versi baru yang telah diperiksa tanpa data pribadi.",
+      "E": "Meminta rekan satu tim menelusuri penerima tautan, menyusun daftar kemungkinan paparan, lalu menunggu instruksi pimpinan sebelum mengubah pengaturan akses."
+    },
+    "hint": "Lindungi keamanan kredensial, integritas data, dan etika pemanfaatan sistem informasi instansi secara akuntabel.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 4,
+      "B": 5,
+      "C": 3,
+      "D": 1,
+      "E": 2
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 4) merupakan respons awal yang baik karena segera membatasi akses dan memeriksa log, tetapi belum secara eksplisit mencakup prosedur pemberitahuan kepada subjek data dan lembaga.",
+      "B": "Pilihan B (skor 5) paling tepat karena menghentikan paparan data, menjaga bukti digital, mengaktifkan jalur respons insiden, dan memulai pemberitahuan sesuai kewajiban dalam UU Nomor 27 Tahun 2022.",
+      "C": "Pilihan C (skor 3) menunjukkan upaya mengurangi penyebaran salinan, tetapi tidak memastikan penanganan kebocoran melalui mekanisme keamanan resmi.",
+      "D": "Pilihan D (skor 1) paling tidak tepat karena penghapusan dokumen tanpa pengamanan log dapat menghilangkan bukti penting dan menghambat proses investigasi insiden.",
+      "E": "Pilihan E (skor 2) menunjukkan inisiatif investigasi, tetapi penundaan pembatasan akses memperbesar potensi paparan lanjutan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b04-chatgpt"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b05-claude-sonnet-08-penyelarasan-jadwal-proyek-normalisasi-sungai-antarinstansi",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator pilar Jejaring Kerja pada SKD: kemampuan membangun dan memelihara hubungan kerja sama lintas unit atau instansi secara proaktif dan langsung untuk mencapai tujuan bersama, selaras dengan nilai BerAKHLAK 'Kolaboratif' (terbuka dalam bekerja sama, memberi kesempatan berbagai pihak berkontribusi, dan menggerakkan sumber daya untuk tujuan bersama). Opsi bernilai 5 adalah mengajak PLN dan Satpol PP berdiskusi langsung untuk menyusun jadwal terpadu yang disepakati bersama. Nilai 4 untuk melaporkan benturan kepada pimpinan agar dibahas di forum koordinasi antarinstansi (mengarah ke kolaborasi tetapi inisiatif didelegasikan). Nilai 3 untuk menyusun jadwal Balai sendiri lalu mengirimkannya sebagai acuan (informatif tetapi satu arah). Nilai 2 untuk tetap mengerjakan jadwal Balai karena merasa itu tanggung jawab utama (mengabaikan pihak lain). Nilai 1 untuk menunggu pihak lain selesai tanpa mengubah rencana (pasif).",
+    "stem": "Anda adalah staf perencanaan pada sebuah Balai Wilayah Sungai. Proyek normalisasi sungai di wilayah kerja Anda terhambat karena jadwal pembersihan lahan oleh Balai, pemindahan jaringan kabel oleh PLN, dan penertiban bangunan oleh Satpol PP pemerintah kota saling berbenturan. Masing-masing pihak merasa jadwalnya harus didahulukan dan belum pernah ada pembahasan bersama. Tindakan paling tepat yang Anda ambil adalah ...",
+    "options": {
+      "A": "Menyusun jadwal pekerjaan Balai Anda sendiri secara ketat, lalu mengirimkannya kepada PLN dan Satpol PP sebagai acuan.",
+      "B": "Melaporkan tumpang tindih jadwal kepada pimpinan Balai agar dibahas pada forum koordinasi antarinstansi tingkat kota.",
+      "C": "Mengajak perwakilan PLN dan Satpol PP berdiskusi langsung guna menyusun jadwal kerja terpadu yang disepakati bersama.",
+      "D": "Tetap mengerjakan pembersihan lahan sesuai jadwal Balai karena proyek normalisasi sungai merupakan tanggung jawab utama Balai.",
+      "E": "Menunggu PLN dan Satpol PP menyelesaikan pekerjaan masing-masing terlebih dahulu tanpa mengubah rencana kerja yang ada."
+    },
+    "hint": "Pilih langkah kolaboratif yang menyelaraskan komunikasi lintas unit tanpa mengabaikan tanggung jawab bersama.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 5,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 3) membagikan informasi, tetapi komunikasinya satu arah dan tidak menyepakati jadwal bersama.",
+      "B": "Pilihan B (skor 4) mengarah pada koordinasi antarinstansi, tetapi inisiatif diserahkan kepada pimpinan.",
+      "C": "Pilihan C (skor 5) menunjukkan inisiatif membangun kerja sama lintas instansi secara langsung untuk menghasilkan jadwal yang disepakati bersama.",
+      "D": "Pilihan D (skor 2) mengabaikan kebutuhan pihak lain dan tidak menyelesaikan benturan jadwal.",
+      "E": "Pilihan E (skor 1) pasif dan membiarkan hambatan proyek berlarut-larut."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b05-claude-sonnet"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b05-claude-sonnet-09-penggunaan-akun-individual-pada-aplikasi-input-nilai-menjelang-tenggat",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator pilar TIK pada SKD: kemampuan memanfaatkan teknologi informasi secara efektif, aman, dan bertanggung jawab (termasuk menjaga kerahasiaan kredensial akun dan integritas data), serta adaptif dan mendukung rekan beradaptasi dengan sistem baru. Prinsip keamanan informasi ini selaras dengan Perpres Nomor 95 Tahun 2018 tentang Sistem Pemerintahan Berbasis Elektronik (SPBE). Opsi bernilai 5 adalah mendampingi rekan menginput nilai melalui akunnya sendiri sambil memperagakan fitur utama (aman, menjaga akuntabilitas akun, dan menularkan kompetensi). Nilai 4 untuk meminta operator sekolah mengajukan perpanjangan waktu dan menjadwalkan pelatihan (aman dan prosedural, tetapi tidak membantu langsung). Nilai 3 untuk menyarankan menunggu pelatihan dan mencatat manual (aman, tetapi tidak adaptif dan berpotensi melewati tenggat). Nilai 2 untuk menginput nilai kelas rekan melalui akun sendiri lalu melapor (transparan, tetapi melanggar prinsip akun individual dan memuat data atas nama yang keliru). Nilai 1 untuk meminta kata sandi rekan (berbagi kredensial, pelanggaran keamanan terberat).",
+    "stem": "Anda adalah guru di sebuah SMA Negeri. Dinas Pendidikan provinsi mewajibkan seluruh sekolah menginput nilai siswa melalui aplikasi baru yang menggunakan akun individual untuk setiap guru, dengan batas akhir malam ini pukul 23.59. Seorang rekan guru senior belum mahir menggunakan aplikasi tersebut dan meminta Anda membantu menyelesaikan penginputan nilai kelasnya. Tindakan paling tepat yang Anda ambil adalah ...",
+    "options": {
+      "A": "Menyarankan rekan menunggu pelatihan resmi dari dinas dan sementara waktu mencatat nilai kelasnya pada berkas manual.",
+      "B": "Mendampingi rekan menginput nilai melalui akunnya sendiri sambil memperagakan langkah penggunaan fitur utama aplikasi secara bertahap.",
+      "C": "Meminta rekan menyerahkan kata sandi akunnya agar Anda dapat menginput seluruh nilai kelas tersebut dengan cepat.",
+      "D": "Menginput nilai kelas rekan tersebut melalui akun Anda sendiri agar tenggat terpenuhi, lalu melaporkannya kepada kepala sekolah.",
+      "E": "Meminta operator sekolah mengajukan perpanjangan waktu kepada dinas dan menjadwalkan pelatihan singkat bagi rekan tersebut."
+    },
+    "hint": "Lindungi keamanan kredensial, integritas data, dan etika pemanfaatan sistem informasi instansi secara akuntabel.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 1,
+      "D": 2,
+      "E": 4
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 3) aman, tetapi tidak adaptif dan berisiko melewati tenggat.",
+      "B": "Pilihan B (skor 5) menjaga keamanan akun individual, menyelesaikan penginputan tepat waktu, dan meningkatkan kemampuan rekan memakai aplikasi.",
+      "C": "Pilihan C (skor 1) berbagi kata sandi sehingga membahayakan keamanan akun dan data.",
+      "D": "Pilihan D (skor 2) transparan, tetapi melanggar prinsip akun individual karena data kelas rekan diinput melalui akun Anda.",
+      "E": "Pilihan E (skor 4) aman dan prosedural, tetapi tidak membantu rekan secara langsung dan bergantung pada persetujuan perpanjangan waktu."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b05-claude-sonnet"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b05-claude-sonnet-10-pemeriksaan-barang-adat-rombongan-warga-di-pos-lintas-batas",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator pilar Sosial Budaya pada SKD: kemampuan menghargai keberagaman budaya dan membangun harmoni sosial sambil tetap menjalankan tugas sesuai aturan, selaras dengan nilai BerAKHLAK 'Harmonis' (saling peduli dan menghargai perbedaan) dan semangat Pasal 32 ayat (1) UUD NRI 1945 yang menjamin kebebasan masyarakat memelihara dan mengembangkan nilai budayanya. Opsi bernilai 5 menjelaskan alasan pemeriksaan dengan santun dan melibatkan tokoh adat untuk mendampingi pemeriksaan sesaji, sehingga aturan tetap dijalankan dengan cara yang menghormati tradisi. Nilai 4 untuk menjelaskan ketentuan secara tegas dan sopan lalu tetap memeriksa (taat aturan dan sopan, tetapi kurang peka budaya). Nilai 3 untuk membebaskan sesaji dari pemeriksaan sebagai bentuk penghormatan (peka budaya, tetapi menyimpang dari ketentuan). Nilai 2 untuk melimpahkan penanganan kepada rekan lain (menghindar dari tanggung jawab). Nilai 1 untuk menahan rombongan tanpa kelonggaran apa pun (kaku dan mengabaikan kepekaan budaya).",
+    "stem": "Anda adalah petugas pada sebuah pos lintas batas negara di Kalimantan. Menjelang upacara adat tahunan, rombongan warga adat dari desa seberang perbatasan tiba dengan membawa sesaji dan alat musik tradisional. Menurut ketentuan kepabeanan, sesaji berupa hasil bumi harus diperiksa, tetapi rombongan menganggap pemeriksaan itu sebagai penghinaan terhadap tradisi sehingga sebagian dari mereka mulai berdebat dengan petugas lain. Tindakan paling tepat yang Anda ambil adalah ...",
+    "options": {
+      "A": "Mengizinkan sesaji dan alat musik adat melintas tanpa diperiksa sebagai bentuk penghormatan, sedangkan barang bawaan lain tetap diperiksa.",
+      "B": "Menahan seluruh rombongan di pos sampai pemeriksaan selesai tanpa kelonggaran apa pun karena ketentuan kepabeanan berlaku bagi semua orang.",
+      "C": "Menjelaskan ketentuan kepabeanan secara tegas dan sopan kepada rombongan, lalu tetap memeriksa sesaji sesuai prosedur standar pos.",
+      "D": "Menyerahkan penanganan rombongan kepada rekan lain yang lebih memahami adat setempat agar Anda dapat melanjutkan tugas pemeriksaan lainnya.",
+      "E": "Menjelaskan alasan pemeriksaan dengan santun dan meminta tokoh adat mendampingi pemeriksaan sesaji agar berlangsung dengan cara yang dihormati."
+    },
+    "hint": "Utamakan sikap inklusif, empatik, dan menghormati keberagaman latar budaya dalam batas aturan kerja yang adil.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 1,
+      "C": 4,
+      "D": 2,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 3) menghormati budaya, tetapi menyimpang dari ketentuan kepabeanan.",
+      "B": "Pilihan B (skor 1) kaku, mengabaikan kepekaan budaya, dan berpotensi memperburuk ketegangan.",
+      "C": "Pilihan C (skor 4) sopan dan sesuai prosedur, tetapi tidak menunjukkan upaya menjaga martabat tradisi.",
+      "D": "Pilihan D (skor 2) menghindari tanggung jawab dan tidak menyelesaikan masalah.",
+      "E": "Pilihan E (skor 5) memadukan kepatuhan pada aturan dengan penghormatan budaya melalui pelibatan tokoh adat, sehingga ketegangan mereda tanpa melanggar ketentuan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b05-claude-sonnet"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b06-gemini-argon-08-sinkronisasi-protokol-data-lintas-instansi-pada-sistem-peringatan-dini-banjir",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator utama pilar Jejaring Kerja (KemenPAN-RB) adalah kemampuan membangun kolaborasi setara lintas instansi, menjembatani perbedaan kepentingan sektoral secara diplomatis, serta menciptakan solusi integratif (win-win solution) tanpa mengorbankan target bersama.\n- Opsi D (skor 5): Memfasilitasi lokakarya teknis bersama untuk merancang antarmuka jembatan konversi data otomatis, sehingga kedua instansi dapat terhubung tanpa harus merombak basis data internalnya (kolaboratif, menghargai otonomi mitra, dan menyelesaikan hambatan teknis tepat waktu).\n- Opsi C (skor 4): Mengadakan pertemuan mediasi tambahan agar kedua tim teknis terus berunding mencari kesepakatan satu format tunggal, meskipun jadwal uji coba lapangan harus dipangkas (mengedepankan musyawarah, tetapi kurang solutif secara teknis dan mengorbankan waktu uji coba).\n- Opsi A (skor 3): Meminta pimpinan kepala daerah menerbitkan surat instruksi mengikat yang mewajibkan salah satu instansi menyesuaikan standar datanya demi mengejar tenggat waktu peluncuran sistem (mengandalkan paksaan struktural yang dapat merenggangkan hubungan kemitraan).\n- Opsi B (skor 2): Menunda jadwal integrasi otomatis antarsistem hingga tahun anggaran berikutnya dan sementara waktu menugaskan staf untuk menginput data laporan harian secara manual (pasif dan gagal memenuhi target kolaborasi tepat waktu).\n- Opsi E (skor 1): Mengambil alih penyusunan modul integrasi secara sepihak menggunakan skema standar internal unit Anda, lalu mewajibkan kedua instansi mitra mengikuti ketetapan tersebut (otoriter dan merusak jejaring kerja).",
+    "stem": "Anda ditunjuk memimpin tim gabungan lintas instansi untuk mengintegrasikan sensor pemantauan tinggi muka air milik Balai Wilayah Sungai dengan sistem prakiraan cuaca BMKG ke dalam satu dasbor peringatan dini bencana daerah. Dalam rapat koordinasi teknis, perwakilan kedua instansi saling mempertahankan format protokol data masing-masing karena enggan merombak arsitektur basis data lama mereka, sementara tenggat peluncuran sistem sebelum puncak musim penghujan tersisa tiga pekan. Sebagai koordinator tim, langkah paling efektif yang Anda ambil adalah...",
+    "options": {
+      "A": "Meminta pimpinan kepala daerah menerbitkan surat instruksi mengikat yang mewajibkan salah satu instansi menyesuaikan standar datanya demi mengejar tenggat waktu peluncuran sistem.",
+      "B": "Menunda jadwal integrasi otomatis antarsistem hingga tahun anggaran berikutnya dan sementara waktu menugaskan staf untuk menginput data laporan harian secara manual.",
+      "C": "Mengadakan pertemuan mediasi tambahan agar kedua tim teknis terus berunding mencari kesepakatan satu format tunggal, meskipun jadwal uji coba lapangan harus dipangkas.",
+      "D": "Memfasilitasi lokakarya teknis bersama untuk merancang antarmuka jembatan konversi data otomatis, sehingga kedua instansi dapat terhubung tanpa harus merombak basis data internalnya.",
+      "E": "Mengambil alih penyusunan modul integrasi secara sepihak menggunakan skema standar internal unit Anda, lalu mewajibkan kedua instansi mitra mengikuti ketetapan tersebut."
+    },
+    "hint": "Pilih langkah kolaboratif yang menyelaraskan komunikasi lintas unit tanpa mengabaikan tanggung jawab bersama.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 3) menyelesaikan kebuntuan lewat intervensi atasan, tetapi kurang membangun sinergi horizontal antarinstansi.",
+      "B": "Pilihan B (skor 2) bersifat pasif dengan menunda integrasi sistem.",
+      "C": "Pilihan C (skor 4) mengupayakan kompromi lewat mediasi, namun mengorbankan durasi uji coba sistem.",
+      "D": "Pilihan D (skor 5) mencerminkan kompetensi jejaring kerja tertinggi karena memfasilitasi kolaborasi teknis yang menghormati arsitektur sistem tiap instansi mitra melalui jembatan konversi data (middleware/API), sehingga kemitraan terjaga dan target tercapai.",
+      "E": "Pilihan E (skor 1) menunjukkan ego sektoral yang merusak kepercayaan mitra kerja."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b06-gemini-argon-09-tata-kelola-keamanan-kredensial-digital-pada-sistem-otorisasi-manifes-kepabeanan",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator kompetensi Teknologi Informasi dan Komunikasi (TIK) PermenPAN-RB mencakup pemanfaatan sistem digital secara optimal untuk menunjang kinerja sekaligus kepatuhan terhadap prinsip keamanan siber (cyber hygiene), kerahasiaan kredensial, dan akuntabilitas jejak audit elektronik.\n- Opsi B (skor 5): Mengedukasi rekan kerja mengenai kerawanan kebocoran data kepabeanan, memandu aktivasi fitur pengelola sandi aman serta otorisasi cepat resmi, dan mengusulkan penyegaran literasi keamanan siber (menggabungkan kesadaran keamanan informasi, solusi efisiensi fitur TIK yang sah, dan pencegahan sistemik).\n- Opsi A (skor 4): Menegur rekan-rekan tersebut secara sopan agar segera melepas catatan kata sandi di monitor serta mengingatkan risiko penyalahgunaan wewenang apabila akun dipinjamkan kepada orang lain (tepat menjaga keamanan akun, namun belum memberikan solusi teknis atas kendala kecepatan kerja yang mereka keluhkan).\n- Opsi C (skor 3): Melaporkan temuan pelanggaran prosedur keamanan akun tersebut secara langsung kepada unit kepatuhan internal agar segera dilakukan pemblokiran akun sementara dan pemeriksaan disiplin pegawai (patuh aturan, tetapi pemblokiran mendadak tanpa pembinaan awal dapat melumpuhkan layanan pelabuhan).\n- Opsi D (skor 2): Memaklumi kebiasaan tersebut selama masa transisi sistem baru karena prioritas utama kantor pelabuhan adalah menjaga kecepatan arus keluar masuk barang ekspor dan impor (mengabaikan celah keamanan siber yang fatal).\n- Opsi E (skor 1): Mengikuti cara rekan-rekan senior tersebut dengan membagikan akses akun Anda saat jam sibuk agar target waktu layanan pemeriksaan kargo di sif Anda tercapai (ikut melanggar integritas dan keamanan sistem TIK).",
+    "stem": "Kantor pengawasan kepabeanan pelabuhan tempat Anda bertugas baru saja mengimplementasikan sistem otorisasi manifes kargo berbasis tanda tangan digital terenkripsi. Pada pekan pertama penerapan, Anda mendapati beberapa pemeriksa senior menuliskan kata sandi serta kode otorisasi mereka pada kertas catatan yang ditempel di bingkai monitor, bahkan saling meminjamkan akun kepada rekan satu sif agar antrean persetujuan kontainer selesai lebih cepat. Menghadapi situasi tersebut, langkah paling tepat yang Anda lakukan adalah...",
+    "options": {
+      "A": "Menegur rekan-rekan tersebut secara sopan agar segera melepas catatan kata sandi di monitor serta mengingatkan risiko penyalahgunaan wewenang apabila akun dipinjamkan kepada orang lain.",
+      "B": "Mengedukasi rekan kerja mengenai kerawanan kebocoran data kepabeanan, memandu aktivasi fitur pengelola sandi aman serta otorisasi cepat resmi, dan mengusulkan penyegaran literasi keamanan siber.",
+      "C": "Melaporkan temuan pelanggaran prosedur keamanan akun tersebut secara langsung kepada unit kepatuhan internal agar segera dilakukan pemblokiran akun sementara dan pemeriksaan disiplin pegawai.",
+      "D": "Memaklumi kebiasaan tersebut selama masa transisi sistem baru karena prioritas utama kantor pelabuhan adalah menjaga kecepatan arus keluar masuk barang ekspor dan impor.",
+      "E": "Mengikuti cara rekan-rekan senior tersebut dengan membagikan akses akun Anda saat jam sibuk agar target waktu layanan pemeriksaan kargo di sif Anda tercapai."
+    },
+    "hint": "Lindungi keamanan kredensial, integritas data, dan etika pemanfaatan sistem informasi instansi secara akuntabel.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 4,
+      "B": 5,
+      "C": 3,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 4) sudah melakukan koreksi langsung terhadap celah keamanan, namun belum memfasilitasi kemudahan teknis bagi pegawai senior.",
+      "B": "Pilihan B (skor 5) paling tepat karena tidak hanya menghentikan praktik berbagi kredensial yang membahayakan keamanan siber, tetapi juga memberikan solusi teknologi yang sah (pengelola sandi aman dan fitur otorisasi cepat) agar efisiensi layanan tetap terjaga.",
+      "C": "Pilihan C (skor 3) kaku dan berisiko menghentikan operasional pelabuhan akibat pemblokiran massal.",
+      "D": "Pilihan D (skor 2) permisif terhadap pelanggaran keamanan informasi strategis.",
+      "E": "Pilihan E (skor 1) turut melakukan pelanggaran keamanan digital dan merusak akuntabilitas jejak audit."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
+    }
+  },
+  {
+    "slug": "tkp-legacy-b06-gemini-argon-10-adaptasi-program-intensifikasi-pertanian-terhadap-kalender-pantangan-adat",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Indikator utama pilar Sosial Budaya PermenPAN-RB adalah kepekaan terhadap kemajemukan tradisi lokal, penghormatan terhadap norma adat, komunikasi empatik-inklusif, serta kemampuan menyelaraskan inovasi kebijakan pemerintah dengan kearifan lokal tanpa menimbulkan konflik sosial.\n- Opsi C (skor 5): Mengunjungi para tetua adat secara santun untuk berdialog, memahami siklus kalender kearifan lokal mereka, dan menyelaraskan jadwal teknis pemupukan agar selaras dengan tradisi setempat (proaktif, menghormati budaya lokal, membangun kepercayaan, dan memastikan program tetap berjalan efektif).\n- Opsi D (skor 4): Meminta tokoh pemuda desa yang berpendidikan tinggi untuk membantu menjelaskan manfaat ekonomi program tersebut kepada para tetua adat agar jadwal pemupukan dapat segera disetujui (menggunakan pendekatan kultural tidak langsung, namun masih berfokus memaksakan jadwal awal daripada menyelaraskannya dengan pantangan adat).\n- Opsi A (skor 3): Menunggu hingga seluruh pekan pantangan adat selesai tanpa melakukan aktivitas apa pun di desa, kemudian melanjutkan jadwal penyuluhan semula meskipun target masa tanam mundur (menghormati adat tetapi pasif dan tidak segera memulihkan komunikasi dengan tetua adat).\n- Opsi B (skor 2): Meminta bantuan aparat kecamatan setempat untuk mengumpulkan warga secara resmi di balai desa agar sosialisasi kajian ilmiah pertanian modern tetap terlaksana sesuai jadwal (pendekatan koersif yang memicu resistensi masyarakat adat).\n- Opsi E (skor 1): Mengalihkan alokasi bantuan pupuk dan pendampingan teknis ke desa tetangga yang masyarakatnya lebih terbuka terhadap metode pertanian modern agar serapan program tidak terhambat (abai terhadap inklusivitas layanan dan meninggalkan tanggung jawab).",
+    "stem": "Anda ditugaskan memimpin tim penyuluhan program intensifikasi pertanian modern di sebuah kabupaten pedalaman yang masyarakatnya masih memegang teguh kalender tanam adat serta pantangan mengolah tanah pada pekan ritual leluhur. Ketika Anda memperkenalkan jadwal pemupukan serentak yang kebetulan bertepatan dengan pekan pantangan adat tersebut, para tetua kampung menolak hadir di balai desa dan warga mulai bersikap tertutup terhadap tim Anda. Sikap paling tepat yang Anda ambil untuk menyukseskan program tersebut adalah...",
+    "options": {
+      "A": "Menunggu hingga seluruh pekan pantangan adat selesai tanpa melakukan aktivitas apa pun di desa, kemudian melanjutkan jadwal penyuluhan semula meskipun target masa tanam mundur.",
+      "B": "Meminta bantuan aparat kecamatan setempat untuk mengumpulkan warga secara resmi di balai desa agar sosialisasi kajian ilmiah pertanian modern tetap terlaksana sesuai jadwal.",
+      "C": "Mengunjungi para tetua adat secara santun untuk berdialog, memahami siklus kalender kearifan lokal mereka, dan menyelaraskan jadwal teknis pemupukan agar selaras dengan tradisi setempat.",
+      "D": "Meminta tokoh pemuda desa yang berpendidikan tinggi untuk membantu menjelaskan manfaat ekonomi program tersebut kepada para tetua adat agar jadwal pemupukan dapat segera disetujui.",
+      "E": "Mengalihkan alokasi bantuan pupuk dan pendampingan teknis ke desa tetangga yang masyarakatnya lebih terbuka terhadap metode pertanian modern agar serapan program tidak terhambat."
+    },
+    "hint": "Utamakan sikap inklusif, empatik, dan menghormati keberagaman latar budaya dalam batas aturan kerja yang adil.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Pilihan A (skor 3) menghargai waktu ritual adat namun pasif tanpa membangun komunikasi rekonsiliatif.",
+      "B": "Pilihan B (skor 2) menggunakan pendekatan kekuasaan formal yang berpotensi memicu benturan budaya.",
+      "C": "Pilihan C (skor 5) menunjukkan kepekaan sosial budaya tertinggi melalui dialog langsung yang santun dengan pemangku adat serta adaptasi jadwal teknis pemupukan agar harmonis dengan kalender lokal.",
+      "D": "Pilihan D (skor 4) melibatkan mediator lokal secara positif, tetapi masih berorientasi meminta persetujuan sepihak atas jadwal yang menabrak hari pantangan.",
+      "E": "Pilihan E (skor 1) bersikap eksklusif dan mengabaikan hak pembangunan masyarakat adat."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
+    }
+  }
+]
