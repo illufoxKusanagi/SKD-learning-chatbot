@@ -105,4 +105,26 @@ PostgreSQL with `pgvector` (`vector(768)` + HNSW `vector_cosine_ops` indexes), i
   - `material-filter-bar.tsx`: Search input, *"Topik TWK Sering Salah"* toggle with mistake count badge, and 9 canonical TWK subtopic filter pills.
   - `material-drawer.tsx`: Reusable right-side `Sheet` drawer supporting `0 ms` preloaded rendering or `/api/materials/[slug]` fetch with practice & tutor CTAs.
   - `material-browser-workspace.tsx`: Desktop split-view + mobile drawer workspace with `Map`-cached details and `localStorage` guest `chatIds` mistake tracking.
-- **`/chat` Deep-Linking** (`src/app/chat/page.tsx`, `src/hooks/use-chat.ts`): Handles `?practiceMaterial=<slug>` (opens `QuizCanvasPanel` + requests linked TWK quiz) and `?discussMaterial=<slug>` (sends deterministic `materialSlugs` tutor discussion), plus header link to `/materi`.
+- **`/chat` Deep-Linking** (`src/app/chat/page.tsx`, `src/hooks/use-chat.ts`): Handles `?practiceMaterial=<slug>` (opens `QuizCanvasPanel` and loads a `0 ms` TWK practice pack via `usePracticePack`) and `?discussMaterial=<slug>` (sends deterministic `materialSlugs` tutor discussion), plus header link to `/materi`.
+
+---
+
+## 7. Phase 2 Architecture — Mode A `0 ms` Practice Packs, Hint Toggle, Option Rationales & Tutor Bridge
+
+### Service & Scoring (`src/lib/services/practice.service.ts`, `src/lib/scoring/skd-scoring.ts`)
+- **`createPracticePack(input)`**: Creates a `quizSessions` (`mode: "practice"`, `status: "in_progress"`) and returns `PracticePackResult` (`10 | 15 | 20` validated questions prioritized unattempted-first, filtered by `category`, `subtopic`, `materialSlug`, `wrongOnly`, or explicit `questionIds`), pre-attaching TWK `materials` (`PreloadedMaterialData`) for `0 ms` `<MaterialDrawer>` reading, plus `hint`, `correctOption`, `scoringRubric`, and `optionRationales`.
+- **`syncPracticeAttempt(input)`**: Idempotently upserts `quizAttempts` (`onConflictDoUpdate` on `(sessionId, questionId)`), computes authoritative BKN score via `scoreSingleQuestion`, and automatically marks `quizSessions.status = "completed"` with `scoreSummary` (`byCategory`, `weakSubtopics`) once all pack items are answered.
+
+### API Routes
+- **`GET /api/practice/pack`** (`src/app/api/practice/pack/route.ts`): Query params `count=10|15|20`, `category`, `subtopic`, `materialSlug`, `wrongOnly`, `questionIds`, `chatIds`, `sessionIds` (guest ownership via `skd_guest_chat_ids` + `skd_guest_practice_session_ids`).
+- **`POST /api/practice/sync`** (`src/app/api/practice/sync/route.ts`): Zod-validated payload `{ sessionId, questionId, chatId?, selectedOption, usedHint?, timeSpentSeconds? }`.
+
+### Client Hook & Modular UI Primitives (`< 250` lines per `.tsx` file in `src/components/chat/`)
+- **`usePracticePack`** (`src/hooks/use-practice-pack.ts`): Manages `sessionId`, `questions`, `answers`, `revealedHints`, `activeIndex`, and `skd_guest_practice_session_ids` (`localStorage`, max 30). `selectOptionInstant` grades synchronously in `0 ms` via `scoreSingleQuestion` and dispatches background `POST /api/practice/sync` with `"Coba Lagi"` retry toast (`retrySync`), plus `retryWrongQuestions` for 1-click re-practice of suboptimal/wrong items (`scoreEarned < 5`).
+- **`src/components/chat/`**:
+  - `quiz-card.tsx` + `quiz/quiz-card-skeleton.tsx` + `quiz/quiz-card-footer.tsx` + `quiz/quiz-legacy-rationale.tsx`: Backward-compatible inline chat & Mode A `QuizCard` with sync status, *"Baca Materi Terkait"* (`0 ms` `<MaterialDrawer>`), and *"Bedah Bareng Tutor"*.
+  - `quiz/quiz-pack-configurator.tsx`: `ToggleGroup` configurator for `10/15/20` count, `Campuran/TWK/TIU/TKP`, and `Semua Soal` vs. `Pernah Salah (Review)`.
+  - `quiz/quiz-hint-toggle.tsx`: Pre-answer conceptual `hint` toggle rendered in a subtle `bg-muted/50` `Alert`.
+  - `quiz/quiz-option-rationale-list.tsx`: Instant `A..E` option rationale cards with semantic `success`/`warning`/`destructive`/`secondary` badges.
+  - `quiz/quiz-summary-view.tsx` + `quiz/quiz-summary-breakdown.tsx`: Accuracy %, per-subtest breakdown, `weakSubtopics` (`< 70%`), 1-click *"Latih Ulang Soal Salah"*, and *"Paket Latihan Baru"*.
+  - `quiz/quiz-canvas-panel.tsx` + `quiz/quiz-canvas-workspace.tsx` + `quiz/quiz-canvas-header.tsx` + `quiz/quiz-canvas-footer.tsx`: Split-panel & mobile `Sheet` workspace supporting both Mode A practice packs (with embedded `0 ms` `<MaterialDrawer>`) and inline chat quiz cards.

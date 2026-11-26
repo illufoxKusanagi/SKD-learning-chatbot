@@ -29,7 +29,7 @@ import { cn } from "@/lib/utils";
 
 interface QuizAttemptDetail {
   id: string;
-  chatId: string;
+  chatId: string | null;
   chatTitle?: string;
   category: "TWK" | "TIU" | "TKP";
   subtopic: string;
@@ -79,6 +79,19 @@ function isValidChatUuid(val?: string | null): val is string {
   return /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(
     val
   );
+}
+
+function readStorageUuidList(key: string): string[] {
+  if (typeof window === "undefined") return [];
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed)) return [];
+    return parsed.filter((id): id is string => isValidChatUuid(id));
+  } catch {
+    return [];
+  }
 }
 
 function QuizHistoryContent() {
@@ -156,18 +169,19 @@ function QuizHistoryContent() {
         let endpoint = "/api/quiz";
 
         if (!isAuthenticated && typeof window !== "undefined") {
-          const rawGuestIds = localStorage.getItem("skd_guest_chat_ids");
-          if (rawGuestIds) {
-            try {
-              const ids: string[] = JSON.parse(rawGuestIds);
-              if (ids.length > 0) {
-                endpoint = `/api/quiz?chatIds=${encodeURIComponent(
-                  ids.join(",")
-                )}`;
-              }
-            } catch (parseErr) {
-              console.warn("Failed to parse guest chat ids:", parseErr);
+          const validChatIds = readStorageUuidList("skd_guest_chat_ids");
+          const validSessionIds = readStorageUuidList(
+            "skd_guest_practice_session_ids"
+          );
+          if (validChatIds.length > 0 || validSessionIds.length > 0) {
+            const params = new URLSearchParams();
+            if (validChatIds.length > 0) {
+              params.set("chatIds", validChatIds.join(","));
             }
+            if (validSessionIds.length > 0) {
+              params.set("sessionIds", validSessionIds.join(","));
+            }
+            endpoint = `/api/quiz?${params.toString()}`;
           }
         }
 
@@ -624,16 +638,22 @@ function QuizHistoryContent() {
                               )}
 
                               {/* Buka di Chat Link */}
-                              <Link href={`/chat?id=${quiz.chatId}`}>
-                                <Button
-                                  variant="ghost"
-                                  size="sm"
-                                  className="h-7 px-2.5 text-xs text-primary hover:text-primary gap-1"
-                                >
-                                  <span>Buka di Chat</span>
-                                  <ArrowRight className="w-3 h-3" />
-                                </Button>
-                              </Link>
+                              {isValidChatUuid(quiz.chatId) ? (
+                                <Link href={`/chat?id=${quiz.chatId}`}>
+                                  <Button
+                                    variant="ghost"
+                                    size="sm"
+                                    className="h-7 px-2.5 text-xs text-primary hover:text-primary gap-1"
+                                  >
+                                    <span>Buka di Chat</span>
+                                    <ArrowRight className="w-3 h-3" />
+                                  </Button>
+                                </Link>
+                              ) : (
+                                <span className="text-[11px] font-medium text-muted-foreground px-2 py-0.5 rounded-md border border-border bg-background">
+                                  Sesi Latihan Mandiri
+                                </span>
+                              )}
                             </div>
                           </div>
 
@@ -803,9 +823,17 @@ function QuizHistoryContent() {
                                 <span>
                                   Soal ini belum dijawab. Kunci jawaban dan skor disembunyikan sampai Anda menjawab.
                                 </span>
-                                <Link href={`/chat?id=${quiz.chatId}`}>
+                                <Link
+                                  href={
+                                    isValidChatUuid(quiz.chatId)
+                                      ? `/chat?id=${quiz.chatId}`
+                                      : "/chat"
+                                  }
+                                >
                                   <Button size="sm" className="h-7 text-xs font-semibold">
-                                    Jawab di Chat
+                                    {isValidChatUuid(quiz.chatId)
+                                      ? "Jawab di Chat"
+                                      : "Buka Tutor Chat"}
                                   </Button>
                                 </Link>
                               </div>
