@@ -10,13 +10,13 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Separator } from '@/components/ui/separator';
+import { Spinner } from '@/components/ui/spinner';
 import Link from 'next/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { toast } from 'sonner';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import {
   Form,
   FormControl,
@@ -26,8 +26,6 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import React, { useEffect, Suspense, useState } from 'react';
-import Image from 'next/image';
-import { useSearchParams } from 'next/navigation';
 import { signIn, useSession } from 'next-auth/react';
 
 const schema = z.object({
@@ -36,6 +34,30 @@ const schema = z.object({
 });
 
 type FormData = z.infer<typeof schema>;
+
+function formatLoginError(errorCode: string): string {
+  if (errorCode.startsWith('RATE_LIMITED:')) {
+    const seconds = Number(errorCode.split(':')[1]) || 60;
+    const minutes = Math.floor(seconds / 60);
+    const remainingSeconds = seconds % 60;
+    const waitText =
+      minutes > 0
+        ? remainingSeconds > 0
+          ? `${minutes} menit ${remainingSeconds} detik`
+          : `${minutes} menit`
+        : `${seconds} detik`;
+    return `Terlalu banyak percobaan login yang gagal. Silakan tunggu sekitar ${waitText} sebelum mencoba lagi.`;
+  }
+
+  if (
+    errorCode === 'INVALID_CREDENTIALS' ||
+    errorCode === 'CredentialsSignin'
+  ) {
+    return 'Email/username atau password tidak valid.';
+  }
+
+  return 'Gagal memproses login. Silakan coba lagi.';
+}
 
 function LoginContent() {
   const router = useRouter();
@@ -61,7 +83,6 @@ function LoginContent() {
 
   useEffect(() => {
     if (status === 'authenticated') {
-      console.log('User already authenticated, redirecting to:', returnUrl);
       router.push(returnUrl);
     }
   }, [status, router, returnUrl]);
@@ -76,6 +97,7 @@ function LoginContent() {
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     setIsLoading(true);
+    form.clearErrors('root');
     try {
       const result = await signIn('credentials', {
         identifier: data.identifier,
@@ -83,37 +105,34 @@ function LoginContent() {
         redirect: false,
       });
       if (result?.error) {
+        const errorMessage = formatLoginError(result.error);
         form.setError('root', {
           type: 'manual',
-          message: 'Email/username atau password tidak valid',
+          message: errorMessage,
         });
-        toast.error('Login gagal');
+        toast.error(errorMessage);
       } else {
         toast.success('Login berhasil, Selamat Datang!!');
         router.push(returnUrl);
         router.refresh();
       }
     } catch (error) {
-      toast.error('Terjadi kesalahan saat login');
+      const fallbackMessage = 'Gagal memproses login. Silakan coba lagi.';
+      form.setError('root', {
+        type: 'manual',
+        message: fallbackMessage,
+      });
+      toast.error(fallbackMessage);
       console.error('Login error:', error);
     } finally {
       setIsLoading(false);
     }
   };
 
-  if (isLoading) {
-    return (
-      <div className="flex min-h-screen items-center justify-center bg-gray-50 dark:bg-gray-900">
-        <div className="text-center">
-          <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
-          <p className="mt-4 body-big-bold">Checking authentication...</p>
-        </div>
-      </div>
-    );
-  }
+  const isBusy = isLoading || form.formState.isSubmitting;
 
   return (
-    <div className="flex h-screen items-center justify-center">
+    <div className="flex min-h-screen items-center justify-center p-4">
       <Card className="w-full max-w-xs">
         <CardHeader className="text-center m-2">
           <CardTitle>Login</CardTitle>
@@ -134,6 +153,7 @@ function LoginContent() {
                       <Input
                         type="text"
                         placeholder="john.doe@example.com"
+                        disabled={isBusy}
                         {...field}
                       />
                     </FormControl>
@@ -148,43 +168,38 @@ function LoginContent() {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input type="password" {...field} />
+                      <Input
+                        type="password"
+                        disabled={isBusy}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               {form.formState.errors.root && (
-                <p className="text-sm font-medium text-destructive">
+                <div
+                  role="alert"
+                  className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive"
+                >
                   {form.formState.errors.root.message}
-                </p>
+                </div>
               )}
-              <Button
-                type="submit"
-                className="w-full"
-                disabled={form.formState.isSubmitting}
-              >
-                {form.formState.isSubmitting ? 'Memproses...' : 'Masuk'}
+              <Button type="submit" className="w-full" disabled={isBusy}>
+                {isBusy ? (
+                  <>
+                    <Spinner data-icon="inline-start" />
+                    Memproses...
+                  </>
+                ) : (
+                  'Masuk'
+                )}
               </Button>
             </form>
           </Form>
         </CardContent>
         <CardFooter className="flex-col gap-4">
-          <div className="flex flex-col w-full gap-1 items-center">
-            <Separator />
-            <p className="body-small-regular text-gray-400">Atau</p>
-            <Separator />
-          </div>
-          <Button variant="outline" className="w-full">
-            <Image
-              src="/google_icon.svg"
-              alt="Google logo"
-              width={16}
-              height={16}
-              className="mr-2"
-            />
-            Masuk dengan Google
-          </Button>
           <CardDescription className="text-center text-sm">
             Belum punya akun?{' '}
             <Link

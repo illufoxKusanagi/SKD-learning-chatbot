@@ -10,7 +10,7 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Separator } from '@/components/ui/separator';
+import { Spinner } from '@/components/ui/spinner';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -25,7 +25,6 @@ import {
   FormLabel,
   FormMessage,
 } from '@/components/ui/form';
-import Image from 'next/image';
 
 const formSchema = z.object({
   username: z
@@ -41,7 +40,7 @@ const formSchema = z.object({
   password: z
     .string()
     .min(6, 'Password minimal 6 karakter')
-    .max(50, 'Password maksimal 50 karakter'),
+    .max(72, 'Password maksimal 72 karakter'),
 });
 
 type FormData = z.infer<typeof formSchema>;
@@ -58,6 +57,7 @@ export default function RegisterPage() {
   });
 
   const onSubmit: SubmitHandler<FormData> = async (data) => {
+    form.clearErrors('root');
     try {
       const response = await fetch('/api/auth/register', {
         method: 'POST',
@@ -79,10 +79,16 @@ export default function RegisterPage() {
             }
           }
         }
-        if (result.code === 'EMAIL_ALREADY_REGISTERED') {
+        if (
+          result.code === 'EMAIL_ALREADY_EXISTS' ||
+          result.code === 'EMAIL_ALREADY_REGISTERED'
+        ) {
           form.setError('email', { message: result.error });
         }
-        if (result.code === 'USERNAME_ALREADY_TAKEN') {
+        if (
+          result.code === 'USERNAME_ALREADY_EXISTS' ||
+          result.code === 'USERNAME_ALREADY_TAKEN'
+        ) {
           form.setError('username', { message: result.error });
         }
         form.setError('root', {
@@ -105,8 +111,10 @@ export default function RegisterPage() {
     }
   };
 
+  const isSubmitting = form.formState.isSubmitting;
+
   return (
-    <div className="flex h-screen items-center justify-center overflow-auto">
+    <div className="flex min-h-screen items-center justify-center overflow-auto p-4">
       <Card className="w-full max-w-xs">
         <CardHeader className="text-center m-2">
           <CardTitle>Buat akun</CardTitle>
@@ -124,7 +132,11 @@ export default function RegisterPage() {
                   <FormItem>
                     <FormLabel>Username</FormLabel>
                     <FormControl>
-                      <Input placeholder="john_doe" {...field} />
+                      <Input
+                        placeholder="john_doe"
+                        disabled={isSubmitting}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -140,6 +152,7 @@ export default function RegisterPage() {
                       <Input
                         type="email"
                         placeholder="m@example.com"
+                        disabled={isSubmitting}
                         {...field}
                       />
                     </FormControl>
@@ -147,35 +160,6 @@ export default function RegisterPage() {
                   </FormItem>
                 )}
               />
-              {/* <FormField
-                control={form.control}
-                name="role"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Role</FormLabel>
-                    <Select
-                      onValueChange={(value) => field.onChange(Number(value))}
-                      defaultValue={String(field.value)}
-                    >
-                      <FormControl>
-                        <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select a role" />
-                        </SelectTrigger>
-                      </FormControl>
-                      <SelectContent>
-                        {Object.keys(UserRole)
-                          .filter((key) => !isNaN(Number(key)))
-                          .map((key) => (
-                            <SelectItem key={key} value={key}>
-                              {UserRole[Number(key)]}
-                            </SelectItem>
-                          ))}
-                      </SelectContent>
-                    </Select>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              /> */}
               <FormField
                 control={form.control}
                 name="password"
@@ -185,40 +169,41 @@ export default function RegisterPage() {
                     <FormControl>
                       <Input
                         type="password"
-                        {...field}
                         placeholder="Masukkan password"
+                        disabled={isSubmitting}
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
+              {form.formState.errors.root && (
+                <div
+                  role="alert"
+                  className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive"
+                >
+                  {form.formState.errors.root.message}
+                </div>
+              )}
               <Button
-                disabled={form.formState.isSubmitting}
+                disabled={isSubmitting}
                 type="submit"
                 className="w-full"
               >
-                {form.formState.isSubmitting ? 'Membuat akun...' : 'Daftar'}
+                {isSubmitting ? (
+                  <>
+                    <Spinner data-icon="inline-start" />
+                    Membuat akun...
+                  </>
+                ) : (
+                  'Daftar'
+                )}
               </Button>
             </form>
           </Form>
         </CardContent>
         <CardFooter className="flex-col gap-4">
-          <div className="flex flex-col w-full gap-1 items-center">
-            <Separator />
-            <p className="body-small-regular text-gray-400">Atau</p>
-            <Separator />
-          </div>
-          <Button variant="outline" className="w-full">
-            <Image
-              src="/google_icon.svg"
-              alt="Google logo"
-              width={16}
-              height={16}
-              className="mr-2"
-            />
-            Lanjutkan dengan Google
-          </Button>
           <CardDescription className="text-center">
             Sudah punya akun?{' '}
             <Link href={'/auth/login'} className="text-primary hover:underline">

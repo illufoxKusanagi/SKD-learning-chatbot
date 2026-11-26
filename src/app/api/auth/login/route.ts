@@ -1,101 +1,13 @@
-import { z } from 'zod';
-import { NextRequest, NextResponse } from 'next/server';
-import {
-  ApiError,
-  createRateLimitMiddleware,
-  createValidationMiddleware,
-  withMiddleware,
-  RequestWithValidation,
-} from '@/middleware/api';
-import { getDb } from '@/lib/db';
-import { users } from '@/lib/db/schema';
-import { or, eq, sql } from 'drizzle-orm';
-import { verifyPassword } from '@/lib/auth/password';
-import { generateTokens } from '@/lib/auth/jwt';
+import { NextResponse } from 'next/server';
 
-const loginSchema = z.object({
-  identifier: z.string().min(1, 'Masukkan email atau username'),
-  password: z.string().min(1, 'Masukkan password'),
-});
-
-async function loginHandler(
-  request: RequestWithValidation<z.infer<typeof loginSchema>>
-) {
-  const { identifier, password } = request.validatedData || {};
-  if (!identifier || !password) {
-    throw new ApiError(
-      'Email/username dan password diperlukan',
-      400,
-      'MISSING_CREDENTIALS'
-      // { received: { identifier: !!identifier, password: !!password } }
-    );
-  }
-  const trimmedIdentifier = identifier.trim();
-  const normalizedEmail = trimmedIdentifier.toLowerCase();
-  const db = getDb();
-
-  // Find user by email or username
-  const [user] = await db
-    .select()
-    .from(users)
-    .where(
-      or(
-        sql`lower(${users.email}) = ${normalizedEmail}`,
-        eq(users.username, trimmedIdentifier)
-      )
-    )
-    .limit(1);
-
-  if (!user) {
-    throw new ApiError('Invalid credentials', 401);
-  }
-
-  const isPasswordValid = await verifyPassword(password, user.password);
-  if (!isPasswordValid) {
-    throw new ApiError('Invalid credentials', 401);
-  }
-
-  const { accessToken, refreshToken } = generateTokens(user.id, user.email);
-
-  await db
-    .update(users)
-    .set({ lastLogin: new Date() })
-    .where(eq(users.id, user.id));
-
-  const response = NextResponse.json({
-    success: true,
-    message: 'Login successful',
-    data: {
-      user: {
-        id: user.id,
-        username: user.username,
-        email: user.email,
-        role: user.role,
-      },
-      accessToken,
+export async function POST() {
+  return NextResponse.json(
+    {
+      success: false,
+      error:
+        'Endpoint ini sudah tidak digunakan. Gunakan NextAuth (/auth/login).',
+      code: 'ENDPOINT_RETIRED',
     },
-  });
-
-  // Set refresh token as HTTP-only cookie
-  response.cookies.set('refresh-token', refreshToken, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
-  });
-
-  return response;
+    { status: 410 }
+  );
 }
-
-const loginRateLimit = createRateLimitMiddleware({
-  prefix: 'auth-login',
-  windowMs: 300_000,
-  max: 5,
-  guestMax: 5,
-  failClosed: true,
-});
-const validateLogin = createValidationMiddleware(loginSchema);
-
-export const POST = (request: NextRequest) => {
-  return withMiddleware(loginRateLimit, validateLogin)(request, loginHandler);
-};
