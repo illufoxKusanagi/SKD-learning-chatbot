@@ -7,7 +7,8 @@ vi.hoisted(async () => {
 });
 
 import { NextRequest } from "next/server";
-import { closeConnection, db, ensureDatabaseSchema, rateLimits } from "@/lib/db";
+import { closeConnection, db, rateLimits } from "@/lib/db";
+import { ensureDatabaseSchema } from "@/lib/db/ensure-schema";
 import { like } from "drizzle-orm";
 import {
   SIGNIN_IP_MAX_FAILURES,

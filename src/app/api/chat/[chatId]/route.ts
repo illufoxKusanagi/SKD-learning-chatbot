@@ -1,4 +1,4 @@
-import { getDb } from '@/lib/db';
+import { db } from '@/lib/db';
 import { conversations, messages } from '@/lib/db/schema';
 import {
   withMiddleware,
@@ -39,8 +39,6 @@ async function getChatHandler(
   }
 
   try {
-    const db = getDb();
-
     const [chat] = await db
       .select({
         id: conversations.id,
@@ -178,8 +176,6 @@ async function deleteChatHandler(
   );
 
   try {
-    const db = getDb();
-
     // Get chat details to verify access
     const [chat] = await db
       .select({

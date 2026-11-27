@@ -7,7 +7,7 @@ import {
   withMiddleware,
   RequestWithValidation,
 } from '@/middleware/api';
-import { getDb } from '@/lib/db';
+import { db } from '@/lib/db';
 import { users } from '@/lib/db/schema';
 import { eq } from 'drizzle-orm';
 import { hashPassword } from '@/lib/auth/password';
@@ -44,7 +44,6 @@ async function registerHandler(
       'MISSING_REQUIRED_FIELDS'
     );
   }
-  const db = getDb();
   const hashedPassword = await hashPassword(password);
 
   let newUser: typeof users.$inferSelect;

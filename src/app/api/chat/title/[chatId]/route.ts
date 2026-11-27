@@ -1,4 +1,4 @@
-import { getDb } from '@/lib/db';
+import { db } from '@/lib/db';
 import { conversations } from '@/lib/db/schema';
 import {
   withMiddleware,
@@ -45,8 +45,6 @@ async function getChatTitleHandler(
   const chatId = (await params).chatId;
 
   try {
-    const db = getDb();
-
     const [chat] = await db
       .select({
         title: conversations.title,
@@ -133,8 +131,6 @@ async function updateChatTitleHandler(
   );
 
   try {
-    const db = getDb();
-
     // Verify chat exists and user owns it
     const [existingChat] = await db
       .select({ userId: conversations.userId })

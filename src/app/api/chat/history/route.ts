@@ -1,4 +1,4 @@
-import { getDb } from '@/lib/db';
+import { db } from '@/lib/db';
 import { conversations, messages } from '@/lib/db/schema';
 import {
   withMiddleware,
@@ -10,7 +10,7 @@ import { authOptions } from '@/lib/auth';
 import { eq, sql } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 
-async function getChatHistoryHandler(_request: NextRequest) {
+async function getChatHistoryHandler() {
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {
@@ -22,8 +22,6 @@ async function getChatHistoryHandler(_request: NextRequest) {
   console.log(`[CHAT_HISTORY] Fetching history for user: ${userId}`);
 
   try {
-    const db = getDb();
-
     // Get chat history with message counts
     const chats = await db
       .select({

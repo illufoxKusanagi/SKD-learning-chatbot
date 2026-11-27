@@ -14,7 +14,10 @@ function requireDatabaseEnv(): void {
 
 async function main() {
   requireDatabaseEnv();
-  const { ensureDatabaseSchema, closeConnection } = await import("../src/lib/db");
+  const [{ ensureDatabaseSchema }, { closeConnection }] = await Promise.all([
+    import("../src/lib/db/ensure-schema"),
+    import("../src/lib/db"),
+  ]);
   try {
     await ensureDatabaseSchema({ throwOnError: true });
     console.log("[ensure-schema] Database schema and extensions ensured successfully.");
