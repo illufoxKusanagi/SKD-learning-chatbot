@@ -195,9 +195,10 @@ async function main() {
     requireSeedEnv();
   }
 
-  const { ensureDatabaseSchema, closeConnection } = await import(
-    "../src/lib/db"
-  );
+  const [{ ensureDatabaseSchema }, { closeConnection }] = await Promise.all([
+    import("../src/lib/db/ensure-schema"),
+    import("../src/lib/db"),
+  ]);
 
   let userStats = { inserted: 0, updated: 0, skipped: 0, failed: 0 };
   let upserted = 0;

@@ -55,10 +55,12 @@ async function main(): Promise<void> {
   requireImportEnv();
 
   const [
-    { db, ensureDatabaseSchema, closeConnection, studyMaterials, quizQuestions, quizQuestionMaterials },
+    { db, closeConnection, studyMaterials, quizQuestions, quizQuestionMaterials },
+    { ensureDatabaseSchema },
     { generateEmbedding },
   ] = await Promise.all([
     import("../src/lib/db"),
+    import("../src/lib/db/ensure-schema"),
     import("../src/lib/services/ai/embeddings.service"),
   ]);
 

@@ -1,4 +1,4 @@
-import { getDb } from '@/lib/db';
+import { db } from '@/lib/db';
 import { conversations, messages } from '@/lib/db/schema';
 import { and, eq, inArray, isNotNull, lt } from 'drizzle-orm';
 import { NextResponse } from 'next/server';
@@ -6,7 +6,6 @@ import { NextResponse } from 'next/server';
 // This endpoint cleans up expired guest chats
 export async function DELETE() {
   try {
-    const db = getDb();
     const now = new Date();
 
     // Find expired guest chats

@@ -5,7 +5,7 @@ import {
   studyMaterials,
 } from '@/lib/db/schema';
 import { sql, desc, eq, and, notInArray } from 'drizzle-orm';
-import { getDb } from '@/lib/db/index';
+import { db } from '@/lib/db/index';
 import { generateEmbedding } from './embeddings.service';
 import {
   SKD_KNOWLEDGE_BASE,
@@ -303,7 +303,6 @@ export async function findRelevantContents(
     .filter((w) => w.length >= 3);
 
   try {
-    const db = getDb();
     const nonEmptyAttemptedSlugs = Array.from(attemptedIds)
       .map((id) => id.trim())
       .filter((id) => id.length > 0);
@@ -602,7 +601,6 @@ export async function getChatHistoryTitle(
   userId: string
 ): Promise<string> {
   try {
-    const db = getDb();
     const [chat] = await db
       .select({
         title: conversations.title,
@@ -648,7 +646,6 @@ export async function getChatHistoryTitleWithAuth(
       };
     }
 
-    const db = getDb();
     const [chat] = await db
       .select({
         title: conversations.title,

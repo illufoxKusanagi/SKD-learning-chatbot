@@ -1,5 +1,16 @@
 "use client";
-import { Plus, History, BookOpen, ClipboardCheck } from "lucide-react";
+
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useSession } from "next-auth/react";
+import {
+  BookOpen,
+  ClipboardCheck,
+  GraduationCap,
+  History,
+  Plus,
+} from "lucide-react";
 
 import {
   Sidebar,
@@ -12,13 +23,8 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-  useSidebar,
 } from "@/components/ui/sidebar";
-import { cn } from "@/lib/utils";
 import { NavUser } from "./nav-user";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
 
 interface ChatHistoryItem {
   id: string;
@@ -27,8 +33,14 @@ interface ChatHistoryItem {
   createdAt: string;
 }
 
+const NAV_ITEMS = [
+  { href: "/materi", label: "Bank Materi TWK", icon: BookOpen },
+  { href: "/tryout", label: "Simulasi CAT BKN", icon: ClipboardCheck },
+  { href: "/quiz-history", label: "Riwayat Latihan SKD", icon: History },
+] as const;
+
 export function AppSidebar() {
-  const { open } = useSidebar();
+  const pathname = usePathname();
   const [conversations, setChatHistory] = useState<ChatHistoryItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const { data: session, status } = useSession();
@@ -49,12 +61,8 @@ export function AppSidebar() {
 
   useEffect(() => {
     const fetchChatHistory = async () => {
-      // Wait for auth to finish loading before checking authentication
-      if (authLoading) {
-        return;
-      }
+      if (authLoading) return;
 
-      // Only fetch chat history if user is authenticated
       if (!isAuthenticated || !user) {
         setChatHistory([]);
         setIsLoading(false);
@@ -73,7 +81,6 @@ export function AppSidebar() {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
         const result = await response.json();
-        // API returns { success: true, data: { chats: [...] } }
         setChatHistory(result.data?.chats || []);
       } catch (error) {
         console.error("Failed to fetch chat history:", error);
@@ -88,133 +95,99 @@ export function AppSidebar() {
 
   return (
     <Sidebar variant="sidebar" collapsible="icon">
-      <SidebarHeader
-        className={cn(
-          "overflow-hidden transition-all duration-300 ease-in-out",
-          open ? "px-4 pt-4 pb-2 block opacity-100" : "p-0 opacity-0 hidden"
-        )}
-      >
+      <SidebarHeader className="border-b border-sidebar-border/60 p-2">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild className="hover:bg-accent/50 h-16">
-              <Link href="/">
-                <h1 className="body-big-bold text-primary text-center">
-                  Tutor SKD CPNS
-                </h1>
+            <SidebarMenuButton size="lg" asChild tooltip="Tutor SKD CPNS">
+              <Link href="/chat">
+                <div className="flex size-8 shrink-0 items-center justify-center rounded-lg bg-primary text-primary-foreground">
+                  <GraduationCap className="size-4" />
+                </div>
+                <div className="grid flex-1 text-left text-sm leading-tight">
+                  <span className="truncate font-semibold">Tutor SKD CPNS</span>
+                  <span className="truncate text-xs text-muted-foreground">Personal Mastery</span>
+                </div>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
 
-      <SidebarContent
-        className={cn(
-          "flex flex-col gap-4 transition-all duration-300",
-          open ? "px-4 py-2" : "p-2"
-        )}
-      >
-        <SidebarMenu>
-          <SidebarMenuButton
-            variant="block"
-            className="h-10 px-4 py-3 justify-start gap-3 transition-colors"
-            asChild
-          >
-            <Link href="/">
-              <Plus className="size-4 shrink-0" />
-              {open && (
-                <span className="body-medium-bold">Percakapan Baru</span>
-              )}
-            </Link>
-          </SidebarMenuButton>
+      <SidebarContent className="gap-3 p-2">
+        <SidebarGroup className="pb-0">
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                asChild
+                tooltip="Percakapan Baru"
+                className="h-9 bg-primary text-primary-foreground font-medium shadow-xs hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground"
+              >
+                <Link href="/chat">
+                  <Plus />
+                  <span>Percakapan Baru</span>
+                </Link>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarGroup>
 
-          <SidebarMenuButton
-            variant="block"
-            className="h-10 px-4 py-3 justify-start gap-3 transition-colors text-primary hover:text-primary"
-            asChild
-          >
-            <Link href="/materi">
-              <BookOpen className="size-4 shrink-0 text-primary" />
-              {open && (
-                <span className="body-medium-bold">Bank Materi TWK</span>
-              )}
-            </Link>
-          </SidebarMenuButton>
+        <SidebarGroup>
+          <SidebarGroupLabel>Menu Belajar</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
+                <SidebarMenuItem key={href}>
+                  <SidebarMenuButton asChild isActive={pathname.startsWith(href)} tooltip={label}>
+                    <Link href={href}>
+                      <Icon />
+                      <span>{label}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+        </SidebarGroup>
 
-          <SidebarMenuButton
-            variant="block"
-            className="h-10 px-4 py-3 justify-start gap-3 transition-colors text-primary hover:text-primary"
-            asChild
-          >
-            <Link href="/tryout">
-              <ClipboardCheck className="size-4 shrink-0 text-primary" />
-              {open && (
-                <span className="body-medium-bold">Simulasi CAT BKN</span>
-              )}
-            </Link>
-          </SidebarMenuButton>
-
-          <SidebarMenuButton
-            variant="block"
-            className="h-10 px-4 py-3 justify-start gap-3 transition-colors text-primary hover:text-primary"
-            asChild
-          >
-            <Link href="/quiz-history">
-              <History className="size-4 shrink-0 text-primary" />
-              {open && (
-                <span className="body-medium-bold">Riwayat Latihan SKD</span>
-              )}
-            </Link>
-          </SidebarMenuButton>
-
-          <SidebarGroup className="mt-2">
-            <SidebarGroupLabel className="px-2 py-2">
-              <span className="body-small-bold text-muted-foreground uppercase ">
-                History
-              </span>
-            </SidebarGroupLabel>
-            <SidebarGroupContent className="flex flex-col gap-1">
-              {isAuthenticated && (
-                <SidebarGroup>
-                  <SidebarGroupLabel>Chat History</SidebarGroupLabel>
-                  <SidebarGroupContent>
-                    <SidebarMenu>
-                      {isLoading ? (
-                        <SidebarMenuItem>
-                          <SidebarMenuButton disabled>
-                            <span>Loading...</span>
-                          </SidebarMenuButton>
-                        </SidebarMenuItem>
-                      ) : conversations.length > 0 ? (
-                        conversations.map((chat) => (
-                          <SidebarMenuItem key={chat.id}>
-                            <SidebarMenuButton asChild>
-                              <Link href={`/chat?id=${chat.id}`}>
-                                <span className="truncate">{chat.title}</span>
-                              </Link>
-                            </SidebarMenuButton>
-                          </SidebarMenuItem>
-                        ))
-                      ) : (
-                        <SidebarMenuItem>
-                          <SidebarMenuButton disabled>
-                            <span>No chats yet</span>
-                          </SidebarMenuButton>
-                        </SidebarMenuItem>
-                      )}
-                    </SidebarMenu>
-                  </SidebarGroupContent>
-                </SidebarGroup>
-              )}
+        {isAuthenticated && (
+          <SidebarGroup>
+            <SidebarGroupLabel>Riwayat Percakapan</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {isLoading ? (
+                  <SidebarMenuItem>
+                    <SidebarMenuButton disabled className="text-muted-foreground">
+                      <span>Memuat...</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                ) : conversations.length > 0 ? (
+                  conversations.map((chat) => (
+                    <SidebarMenuItem key={chat.id}>
+                      <SidebarMenuButton
+                        asChild
+                        isActive={pathname === `/chat/${chat.id}`}
+                        tooltip={chat.title}
+                      >
+                        <Link href={`/chat?id=${chat.id}`}>
+                          <span className="truncate">{chat.title}</span>
+                        </Link>
+                      </SidebarMenuButton>
+                    </SidebarMenuItem>
+                  ))
+                ) : (
+                  <SidebarMenuItem>
+                    <SidebarMenuButton disabled className="text-muted-foreground">
+                      <span>Belum ada percakapan</span>
+                    </SidebarMenuButton>
+                  </SidebarMenuItem>
+                )}
+              </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
-        </SidebarMenu>
-      </SidebarContent>
-      <SidebarFooter
-        className={cn(
-          "absolute bottom-0 w-full border-t bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60",
-          open ? "p-3" : "p-2"
         )}
-      >
+      </SidebarContent>
+
+      <SidebarFooter className="border-t border-sidebar-border/60 p-2">
         <NavUser user={data.user} />
       </SidebarFooter>
     </Sidebar>
