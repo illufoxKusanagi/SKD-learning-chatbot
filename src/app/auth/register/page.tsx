@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -10,7 +12,14 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+} from '@/components/ui/input-group';
 import { Spinner } from '@/components/ui/spinner';
+import { AlertCircle, Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { SubmitHandler, useForm } from 'react-hook-form';
@@ -47,6 +56,7 @@ type FormData = z.infer<typeof formSchema>;
 
 export default function RegisterPage() {
   const router = useRouter();
+  const [showPassword, setShowPassword] = useState(false);
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -115,8 +125,8 @@ export default function RegisterPage() {
 
   return (
     <div className="flex min-h-screen items-center justify-center overflow-auto p-4">
-      <Card className="w-full max-w-xs">
-        <CardHeader className="text-center m-2">
+      <Card className="w-full max-w-sm">
+        <CardHeader className="text-center">
           <CardTitle>Buat akun</CardTitle>
           <CardDescription>
             Masukkan detail Anda untuk membuat akun
@@ -124,7 +134,10 @@ export default function RegisterPage() {
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex flex-col gap-5"
+            >
               <FormField
                 control={form.control}
                 name="username"
@@ -134,6 +147,7 @@ export default function RegisterPage() {
                     <FormControl>
                       <Input
                         placeholder="john_doe"
+                        autoComplete="username"
                         disabled={isSubmitting}
                         {...field}
                       />
@@ -152,6 +166,7 @@ export default function RegisterPage() {
                       <Input
                         type="email"
                         placeholder="m@example.com"
+                        autoComplete="email"
                         disabled={isSubmitting}
                         {...field}
                       />
@@ -167,24 +182,42 @@ export default function RegisterPage() {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input
-                        type="password"
-                        placeholder="Masukkan password"
-                        disabled={isSubmitting}
-                        {...field}
-                      />
+                      <InputGroup>
+                        <InputGroupInput
+                          type={showPassword ? 'text' : 'password'}
+                          placeholder="••••••••"
+                          autoComplete="new-password"
+                          disabled={isSubmitting}
+                          {...field}
+                        />
+                        <InputGroupAddon align="inline-end">
+                          <InputGroupButton
+                            type="button"
+                            size="icon-xs"
+                            aria-label={
+                              showPassword
+                                ? 'Sembunyikan password'
+                                : 'Tampilkan password'
+                            }
+                            onClick={() => setShowPassword((prev) => !prev)}
+                            disabled={isSubmitting}
+                          >
+                            {showPassword ? <EyeOff /> : <Eye />}
+                          </InputGroupButton>
+                        </InputGroupAddon>
+                      </InputGroup>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               {form.formState.errors.root && (
-                <div
-                  role="alert"
-                  className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive"
-                >
-                  {form.formState.errors.root.message}
-                </div>
+                <Alert variant="destructive">
+                  <AlertCircle />
+                  <AlertDescription>
+                    {form.formState.errors.root.message}
+                  </AlertDescription>
+                </Alert>
               )}
               <Button
                 disabled={isSubmitting}

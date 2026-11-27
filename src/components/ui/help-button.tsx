@@ -11,16 +11,16 @@ export default function HelpButton() {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Link href="/help">
-          <Button
-            variant="outline"
-            size="icon"
-            className="p-2"
-            aria-label="Bantuan"
-          >
-            <CircleQuestionMark size="icon" aria-hidden />
-          </Button>
-        </Link>
+        <Button
+          asChild
+          variant="outline"
+          size="icon"
+          aria-label="Bantuan"
+        >
+          <Link href="/help">
+            <CircleQuestionMark aria-hidden />
+          </Link>
+        </Button>
       </TooltipTrigger>
       <TooltipContent>
         <p>Bantuan</p>

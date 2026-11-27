@@ -120,7 +120,7 @@ export function AppSidebar() {
             asChild
           >
             <Link href="/">
-              <Plus size="icon" className="shrink-0" />
+              <Plus className="size-4 shrink-0" />
               {open && (
                 <span className="body-medium-bold">Percakapan Baru</span>
               )}
@@ -159,7 +159,7 @@ export function AppSidebar() {
             asChild
           >
             <Link href="/quiz-history">
-              <History size="icon" className="shrink-0 text-primary" />
+              <History className="size-4 shrink-0 text-primary" />
               {open && (
                 <span className="body-medium-bold">Riwayat Latihan SKD</span>
               )}
@@ -172,7 +172,7 @@ export function AppSidebar() {
                 History
               </span>
             </SidebarGroupLabel>
-            <SidebarGroupContent className="space-y-1">
+            <SidebarGroupContent className="flex flex-col gap-1">
               {isAuthenticated && (
                 <SidebarGroup>
                   <SidebarGroupLabel>Chat History</SidebarGroupLabel>

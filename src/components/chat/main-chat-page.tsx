@@ -42,7 +42,7 @@ export default function MainContent() {
       {/* Hero Header */}
       <div className="flex flex-col w-full gap-3 items-center text-center">
         <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-primary/10 text-primary border border-primary/20">
-          <Sparkles className="w-3.5 h-3.5" />
+          <Sparkles className="size-3.5" />
           <span>Tutor Interaktif Seleksi Kompetensi Dasar CPNS</span>
         </div>
 
@@ -56,17 +56,18 @@ export default function MainContent() {
 
         {/* Action Link to Quiz History */}
         <div className="pt-1">
-          <Link href="/quiz-history">
-            <Button
-              variant="outline"
-              size="sm"
-              className="gap-2 h-8 text-xs font-semibold border-border hover:bg-accent cursor-pointer"
-            >
-              <History className="w-3.5 h-3.5 text-primary" />
+          <Button
+            asChild
+            variant="outline"
+            size="sm"
+            className="h-8 text-xs font-semibold border-border hover:bg-accent"
+          >
+            <Link href="/quiz-history">
+              <History data-icon="inline-start" className="text-primary" />
               <span>Lihat Riwayat Latihan Soal</span>
-              <ArrowRight className="w-3 h-3 text-muted-foreground" />
-            </Button>
-          </Link>
+              <ArrowRight data-icon="inline-end" className="text-muted-foreground" />
+            </Link>
+          </Button>
         </div>
       </div>
 
@@ -78,7 +79,7 @@ export default function MainContent() {
             type="button"
             disabled={isLoading}
             onClick={() => handleSendMessage(topic.prompt)}
-            className={`p-3.5 rounded-xl border bg-card text-left transition-all cursor-pointer shadow-xs active:scale-[0.98] ${topic.color} disabled:opacity-50 disabled:cursor-not-allowed`}
+            className={`p-3.5 rounded-xl border bg-card text-left transition-all cursor-pointer shadow-xs active:scale-[0.98] focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50 ${topic.color} disabled:opacity-50 disabled:cursor-not-allowed`}
           >
             <div className="flex items-center justify-between mb-1.5">
               <span
@@ -86,7 +87,7 @@ export default function MainContent() {
               >
                 {topic.title}
               </span>
-              <ArrowRight className="w-3.5 h-3.5 text-muted-foreground" />
+              <ArrowRight className="size-3.5 text-muted-foreground" />
             </div>
             <p className="text-xs text-muted-foreground leading-snug">
               {topic.desc}

@@ -1,5 +1,6 @@
 'use client';
 
+import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -10,7 +11,14 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+} from '@/components/ui/input-group';
 import { Spinner } from '@/components/ui/spinner';
+import { AlertCircle, Eye, EyeOff } from 'lucide-react';
 import Link from 'next/link';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -64,6 +72,7 @@ function LoginContent() {
   const searchParams = useSearchParams();
   const { status } = useSession();
   const [isLoading, setIsLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const rawReturnUrl = searchParams.get('returnUrl');
   const returnUrl =
@@ -133,8 +142,8 @@ function LoginContent() {
 
   return (
     <div className="flex min-h-screen items-center justify-center p-4">
-      <Card className="w-full max-w-xs">
-        <CardHeader className="text-center m-2">
+      <Card className="w-full max-w-sm">
+        <CardHeader className="text-center">
           <CardTitle>Login</CardTitle>
           <CardDescription>
             Masukkan email atau username anda untuk melanjutkan
@@ -142,7 +151,10 @@ function LoginContent() {
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+            <form
+              onSubmit={form.handleSubmit(onSubmit)}
+              className="flex flex-col gap-5"
+            >
               <FormField
                 control={form.control}
                 name="identifier"
@@ -153,6 +165,7 @@ function LoginContent() {
                       <Input
                         type="text"
                         placeholder="john.doe@example.com"
+                        autoComplete="username"
                         disabled={isBusy}
                         {...field}
                       />
@@ -168,23 +181,42 @@ function LoginContent() {
                   <FormItem>
                     <FormLabel>Password</FormLabel>
                     <FormControl>
-                      <Input
-                        type="password"
-                        disabled={isBusy}
-                        {...field}
-                      />
+                      <InputGroup>
+                        <InputGroupInput
+                          type={showPassword ? 'text' : 'password'}
+                          placeholder="••••••••"
+                          autoComplete="current-password"
+                          disabled={isBusy}
+                          {...field}
+                        />
+                        <InputGroupAddon align="inline-end">
+                          <InputGroupButton
+                            type="button"
+                            size="icon-xs"
+                            aria-label={
+                              showPassword
+                                ? 'Sembunyikan password'
+                                : 'Tampilkan password'
+                            }
+                            onClick={() => setShowPassword((prev) => !prev)}
+                            disabled={isBusy}
+                          >
+                            {showPassword ? <EyeOff /> : <Eye />}
+                          </InputGroupButton>
+                        </InputGroupAddon>
+                      </InputGroup>
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
               {form.formState.errors.root && (
-                <div
-                  role="alert"
-                  className="rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2 text-sm font-medium text-destructive"
-                >
-                  {form.formState.errors.root.message}
-                </div>
+                <Alert variant="destructive">
+                  <AlertCircle />
+                  <AlertDescription>
+                    {form.formState.errors.root.message}
+                  </AlertDescription>
+                </Alert>
               )}
               <Button type="submit" className="w-full" disabled={isBusy}>
                 {isBusy ? (
@@ -217,7 +249,13 @@ function LoginContent() {
 
 export default function LoginPage() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center">
+          <Spinner className="size-8 text-primary" />
+        </div>
+      }
+    >
       <LoginContent />
     </Suspense>
   );

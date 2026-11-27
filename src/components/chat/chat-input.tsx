@@ -82,32 +82,37 @@ export default function ChatInput({
     >
       {/* Suggestions / Saran Drawer Bar */}
       {showSuggestions && (
-        <div className="p-3 rounded-xl border border-border bg-card/95 shadow-md backdrop-blur transition-all space-y-2 animate-in fade-in-50 duration-150">
+        <div className="p-3 rounded-xl border border-border bg-card/95 shadow-md backdrop-blur transition-all flex flex-col gap-2 animate-in fade-in-50 duration-150">
           <div className="flex items-center justify-between">
             <span className="flex items-center gap-1.5 text-xs font-bold text-primary">
-              <Sparkles className="w-3.5 h-3.5" />
+              <Sparkles className="size-3.5" />
               Rekomendasi Latihan Cepat SKD
             </span>
-            <button
+            <Button
               type="button"
+              variant="ghost"
+              size="icon"
               onClick={() => setShowSuggestions(false)}
-              className="text-muted-foreground hover:text-foreground text-xs p-1 rounded cursor-pointer"
+              aria-label="Tutup rekomendasi"
+              className="size-7 text-muted-foreground hover:text-foreground"
             >
-              <X className="w-3.5 h-3.5" />
-            </button>
+              <X />
+            </Button>
           </div>
 
           <div className="flex flex-wrap gap-1.5">
             {QUICK_PROMPTS.map((item) => (
-              <button
+              <Button
                 key={item.label}
                 type="button"
+                variant="outline"
+                size="sm"
                 disabled={isLoading}
                 onClick={() => handleSelectQuickPrompt(item.prompt)}
-                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg border border-border bg-background text-xs font-medium text-foreground hover:bg-primary/10 hover:border-primary/50 hover:text-primary transition-all cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-auto rounded-lg px-3 py-1.5 text-xs font-medium hover:bg-primary/10 hover:border-primary/50 hover:text-primary"
               >
-                <span>{item.label}</span>
-              </button>
+                {item.label}
+              </Button>
             ))}
           </div>
         </div>
@@ -120,9 +125,9 @@ export default function ChatInput({
             type="submit"
             size="icon"
             disabled={isLoading || !inputValue.trim()}
-            className="rounded-lg h-9 w-9 cursor-pointer transition-all disabled:opacity-40"
+            className="rounded-lg size-9 cursor-pointer transition-all disabled:opacity-40"
           >
-            <ArrowUp className="h-4 w-4" />
+            <ArrowUp />
             <span className="sr-only">Send</span>
           </Button>
         </div>
@@ -145,11 +150,11 @@ export default function ChatInput({
             onClick={() => setShowSuggestions((prev) => !prev)}
             aria-label="Saran Cepat SKD"
             className={cn(
-              'rounded-lg h-8 w-8 cursor-pointer transition-colors',
+              'rounded-lg size-8 cursor-pointer transition-colors',
               showSuggestions && 'bg-primary text-primary-foreground'
             )}
           >
-            <Lightbulb className="h-4 w-4" />
+            <Lightbulb />
           </Button>
         </div>
 

@@ -99,7 +99,7 @@ export function CatQuestionStage({
                 aria-checked={isSelected}
                 onClick={() => onSelectOption(key)}
                 className={cn(
-                  "flex w-full items-start gap-3 rounded-lg border p-3.5 text-left text-sm transition-colors",
+                  "flex w-full items-start gap-3 rounded-lg border p-3.5 text-left text-sm transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50",
                   isSelected
                     ? "border-primary bg-primary/10 text-foreground ring-1 ring-primary"
                     : "border-border bg-card text-foreground hover:bg-accent/50"

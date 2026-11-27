@@ -1,8 +1,8 @@
 "use client";
 
-import { useParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { Spinner } from "@/components/ui/spinner";
 
 export default function ChatPage() {
   const params = useParams();
@@ -16,10 +16,10 @@ export default function ChatPage() {
   }, [chatId, router]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="text-center">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-gray-900 mx-auto mb-4"></div>
-        <p>Loading chat...</p>
+    <div className="flex min-h-screen items-center justify-center">
+      <div className="flex flex-col items-center gap-3 text-center">
+        <Spinner className="size-8 text-primary" />
+        <p className="text-sm text-muted-foreground">Loading chat...</p>
       </div>
     </div>
   );
