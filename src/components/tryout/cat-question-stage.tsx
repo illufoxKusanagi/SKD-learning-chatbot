@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { FiguralImageFrame } from "@/components/quiz/figural-image-frame";
 import type { OptionKey } from "@/lib/scoring/skd-scoring";
 import type { TryoutQuestionMaskedItem } from "@/lib/services/tryout.service";
 import { cn } from "@/lib/utils";
@@ -82,6 +83,13 @@ export function CatQuestionStage({
           {question.stem}
         </p>
 
+        {question.imageUrl && (
+          <FiguralImageFrame
+            src={question.imageUrl}
+            alt={`Ilustrasi soal ${question.number} (${question.subtopic})`}
+          />
+        )}
+
         <div
           role="radiogroup"
           aria-label={`Pilihan jawaban soal ${question.number}`}
@@ -99,7 +107,7 @@ export function CatQuestionStage({
                 aria-checked={isSelected}
                 onClick={() => onSelectOption(key)}
                 className={cn(
-                  "flex w-full items-start gap-3 rounded-lg border p-3.5 text-left text-sm transition-colors",
+                  "flex w-full items-start gap-3 rounded-lg border p-3.5 text-left text-sm transition-colors focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50",
                   isSelected
                     ? "border-primary bg-primary/10 text-foreground ring-1 ring-primary"
                     : "border-border bg-card text-foreground hover:bg-accent/50"

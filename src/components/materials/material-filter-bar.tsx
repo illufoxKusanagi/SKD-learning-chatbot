@@ -2,7 +2,12 @@
 
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+} from '@/components/ui/input-group';
 import { TWK_SUBTOPICS } from './material-types';
 import { AlertTriangle, Search, X } from 'lucide-react';
 
@@ -32,29 +37,30 @@ export function MaterialFilterBar({
   return (
     <div className="flex flex-col gap-3 border-b border-border bg-card/50 px-4 py-3 sm:px-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-        <div className="relative flex-1">
-          <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground" />
-          <Input
+        <InputGroup className="flex-1">
+          <InputGroupAddon align="inline-start">
+            <Search />
+          </InputGroupAddon>
+          <InputGroupInput
             type="search"
             value={search}
             onChange={(e) => onSearchChange(e.target.value)}
             placeholder="Cari topik, UU, pasal, peristiwa..."
             aria-label="Cari materi TWK"
-            className="pl-9 pr-9"
           />
           {search && (
-            <Button
-              type="button"
-              variant="ghost"
-              size="icon"
-              aria-label="Hapus pencarian"
-              onClick={() => onSearchChange('')}
-              className="absolute top-1/2 right-1 size-7 -translate-y-1/2"
-            >
-              <X />
-            </Button>
+            <InputGroupAddon align="inline-end">
+              <InputGroupButton
+                type="button"
+                size="icon-xs"
+                aria-label="Hapus pencarian"
+                onClick={() => onSearchChange('')}
+              >
+                <X />
+              </InputGroupButton>
+            </InputGroupAddon>
           )}
-        </div>
+        </InputGroup>
 
         <div className="flex items-center gap-2">
           <Button

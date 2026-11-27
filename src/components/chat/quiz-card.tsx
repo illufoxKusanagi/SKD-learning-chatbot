@@ -13,6 +13,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Spinner } from "@/components/ui/spinner";
+import { FiguralImageFrame } from "@/components/quiz/figural-image-frame";
 import { cn } from "@/lib/utils";
 import { PanelRightOpen, RotateCcw } from "lucide-react";
 import { QuizCardFooter } from "./quiz/quiz-card-footer";
@@ -139,6 +140,13 @@ export function QuizCard({
         <p className="text-sm leading-relaxed whitespace-pre-line text-foreground">
           {quiz.questionStem}
         </p>
+
+        {quiz.imageUrl && (
+          <FiguralImageFrame
+            src={quiz.imageUrl}
+            alt={`Ilustrasi soal ${quiz.subtopic || quiz.category}`}
+          />
+        )}
 
         {hint && onRevealHint && (
           <QuizHintToggle

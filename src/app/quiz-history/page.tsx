@@ -8,8 +8,35 @@ import { AppSidebar } from "@/components/ui/app-sidebar";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import ModeToggleButton from "@/components/ui/mode-toggle-button";
 import HelpButton from "@/components/ui/help-button";
+import { Alert, AlertDescription } from "@/components/ui/alert";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+} from "@/components/ui/card";
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import {
+  Empty,
+  EmptyContent,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "@/components/ui/empty";
+import { Separator } from "@/components/ui/separator";
+import { Spinner } from "@/components/ui/spinner";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { FiguralImageFrame } from "@/components/quiz/figural-image-frame";
+import {
+  AlertCircle,
+  AlertTriangle,
   Award,
   BookOpen,
   CheckCircle2,
@@ -34,6 +61,7 @@ interface QuizAttemptDetail {
   category: "TWK" | "TIU" | "TKP";
   subtopic: string;
   questionStem: string;
+  imageUrl?: string | null;
   options: { A: string; B: string; C: string; D: string; E: string };
   correctOption: "A" | "B" | "C" | "D" | "E" | null;
   scoringRubric: { A: number; B: number; C: number; D: number; E: number } | null;
@@ -241,11 +269,11 @@ function QuizHistoryContent() {
   const getCategoryColor = (category: string) => {
     switch (category) {
       case "TWK":
-        return "bg-rose-500/10 text-rose-700 dark:text-rose-300 border-rose-500/20";
+        return "bg-destructive/10 text-destructive border-destructive/20";
       case "TIU":
-        return "bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-500/20";
+        return "bg-primary/10 text-primary border-primary/20";
       case "TKP":
-        return "bg-emerald-500/10 text-emerald-700 dark:text-emerald-300 border-emerald-500/20";
+        return "bg-success/10 text-success border-success/20";
       default:
         return "bg-muted text-muted-foreground border-border";
     }
@@ -270,18 +298,21 @@ function QuizHistoryContent() {
     <div className="flex flex-col min-h-screen bg-background">
       {/* Top Banner for Guest Users */}
       {!isAuthenticated && (
-        <div className="bg-amber-50 dark:bg-amber-950/30 border-b border-amber-200 dark:border-amber-800/50 px-4 py-2.5 text-center">
-          <div className="flex items-center justify-center text-xs text-amber-800 dark:text-amber-300 gap-1.5 flex-wrap">
-            <span>
-              ⚠️ Mode Tamu: Menampilkan riwayat latihan dari perangkat ini (disimpan hingga 24 jam).
-            </span>
-            <Link
-              href="/auth/login"
-              className="underline hover:no-underline font-semibold ml-1"
-            >
-              Login untuk simpan riwayat permanen
-            </Link>
-          </div>
+        <div className="border-b border-warning/30 bg-warning/10 px-4 py-2.5">
+          <Alert className="mx-auto w-fit border-0 bg-transparent p-0 text-foreground [&>svg]:text-warning">
+            <AlertTriangle />
+            <AlertDescription className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-center text-xs text-foreground">
+              <span>
+                Mode Tamu: Menampilkan riwayat latihan dari perangkat ini (disimpan hingga 24 jam).
+              </span>
+              <Link
+                href="/auth/login"
+                className="font-semibold text-primary underline underline-offset-4 hover:no-underline"
+              >
+                Login untuk simpan riwayat permanen
+              </Link>
+            </AlertDescription>
+          </Alert>
         </div>
       )}
 
@@ -303,21 +334,26 @@ function QuizHistoryContent() {
               </div>
 
               <div className="flex items-center gap-3">
-                <Link href={returnChatHref}>
-                  <Button variant="outline" size="sm" className="h-8 gap-1.5 text-xs font-semibold">
-                    <MessageSquare className="w-3.5 h-3.5" />
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="h-8 text-xs font-semibold"
+                >
+                  <Link href={returnChatHref}>
+                    <MessageSquare className="size-3.5" />
                     <span>Kembali ke Chat</span>
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
                 <ModeToggleButton />
                 <HelpButton />
               </div>
             </header>
 
             {/* Main Content Area */}
-            <div className="p-4 sm:p-8 max-w-6xl mx-auto w-full space-y-8">
+            <div className="p-4 sm:p-8 max-w-6xl mx-auto w-full flex flex-col gap-8">
               {/* Overview & BKN Passing Grade Stats Cards */}
-              <section className="space-y-4">
+              <section className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center gap-2">
                     <BarChart3 className="w-4 h-4 text-primary" />
@@ -334,14 +370,14 @@ function QuizHistoryContent() {
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {/* Card 1: Total Overall */}
-                  <div className="p-4 rounded-xl border border-border bg-card shadow-xs space-y-2">
-                    <div className="flex items-center justify-between">
+                  <Card className="gap-3 py-4 shadow-xs">
+                    <CardHeader className="flex flex-row items-center justify-between gap-2 px-4">
                       <span className="text-xs font-semibold text-muted-foreground uppercase">
                         Total Latihan
                       </span>
                       <Layers className="w-4 h-4 text-primary" />
-                    </div>
-                    <div className="space-y-1">
+                    </CardHeader>
+                    <CardContent className="px-4 flex flex-col gap-1">
                       <div className="text-2xl font-extrabold text-foreground">
                         {stats?.answeredCount ?? 0}
                         <span className="text-sm font-normal text-muted-foreground">
@@ -355,24 +391,28 @@ function QuizHistoryContent() {
                         </strong>{" "}
                         / {stats?.totalMaxScore ?? 0} poin
                       </p>
-                    </div>
-                    <div className="pt-2 border-t border-border flex justify-between text-[11px] text-muted-foreground">
+                    </CardContent>
+                    <Separator />
+                    <CardFooter className="px-4 justify-between text-[11px] text-muted-foreground">
                       <span>Belum Dijawab:</span>
-                      <span className="font-semibold text-amber-600 dark:text-amber-400">
+                      <span className="font-semibold text-warning">
                         {stats?.pendingCount ?? 0} soal
                       </span>
-                    </div>
-                  </div>
+                    </CardFooter>
+                  </Card>
 
                   {/* Card 2: TWK */}
-                  <div className="p-4 rounded-xl border border-border bg-card shadow-xs space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-rose-700 dark:text-rose-300 bg-rose-500/10 px-2 py-0.5 rounded border border-rose-500/20">
+                  <Card className="gap-3 py-4 shadow-xs">
+                    <CardHeader className="flex flex-row items-center justify-between gap-2 px-4">
+                      <Badge
+                        variant="outline"
+                        className="rounded-md border-destructive/20 bg-destructive/10 text-destructive font-bold"
+                      >
                         TWK (Wawasan Kebangsaan)
-                      </span>
-                      <CheckCircle2 className="w-4 h-4 text-rose-600 dark:text-rose-400" />
-                    </div>
-                    <div className="space-y-1">
+                      </Badge>
+                      <CheckCircle2 className="w-4 h-4 text-destructive shrink-0" />
+                    </CardHeader>
+                    <CardContent className="px-4 flex flex-col gap-1">
                       <div className="text-2xl font-extrabold text-foreground">
                         {stats?.byCategory.TWK.accuracyPercent ?? 0}%
                         <span className="text-xs font-normal text-muted-foreground ml-1.5">
@@ -381,29 +421,33 @@ function QuizHistoryContent() {
                       </div>
                       <p className="text-xs text-muted-foreground">
                         Benar (+5):{" "}
-                        <strong className="text-emerald-600 dark:text-emerald-400">
+                        <strong className="text-success">
                           {stats?.byCategory.TWK.correctCount ?? 0}
                         </strong>{" "}
                         dari {stats?.byCategory.TWK.answered ?? 0} soal
                       </p>
-                    </div>
-                    <div className="pt-2 border-t border-border flex justify-between text-[11px] text-muted-foreground">
+                    </CardContent>
+                    <Separator />
+                    <CardFooter className="px-4 justify-between text-[11px] text-muted-foreground">
                       <span>Passing Grade BKN:</span>
                       <span className="font-semibold text-foreground">
                         65 Poin (min. 13 benar)
                       </span>
-                    </div>
-                  </div>
+                    </CardFooter>
+                  </Card>
 
                   {/* Card 3: TIU */}
-                  <div className="p-4 rounded-xl border border-border bg-card shadow-xs space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-500/10 px-2 py-0.5 rounded border border-blue-500/20">
+                  <Card className="gap-3 py-4 shadow-xs">
+                    <CardHeader className="flex flex-row items-center justify-between gap-2 px-4">
+                      <Badge
+                        variant="outline"
+                        className="rounded-md border-primary/20 bg-primary/10 text-primary font-bold"
+                      >
                         TIU (Inteligensia Umum)
-                      </span>
-                      <Sparkles className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                    </div>
-                    <div className="space-y-1">
+                      </Badge>
+                      <Sparkles className="w-4 h-4 text-primary shrink-0" />
+                    </CardHeader>
+                    <CardContent className="px-4 flex flex-col gap-1">
                       <div className="text-2xl font-extrabold text-foreground">
                         {stats?.byCategory.TIU.accuracyPercent ?? 0}%
                         <span className="text-xs font-normal text-muted-foreground ml-1.5">
@@ -412,29 +456,33 @@ function QuizHistoryContent() {
                       </div>
                       <p className="text-xs text-muted-foreground">
                         Benar (+5):{" "}
-                        <strong className="text-emerald-600 dark:text-emerald-400">
+                        <strong className="text-success">
                           {stats?.byCategory.TIU.correctCount ?? 0}
                         </strong>{" "}
                         dari {stats?.byCategory.TIU.answered ?? 0} soal
                       </p>
-                    </div>
-                    <div className="pt-2 border-t border-border flex justify-between text-[11px] text-muted-foreground">
+                    </CardContent>
+                    <Separator />
+                    <CardFooter className="px-4 justify-between text-[11px] text-muted-foreground">
                       <span>Passing Grade BKN:</span>
                       <span className="font-semibold text-foreground">
                         80 Poin (min. 16 benar)
                       </span>
-                    </div>
-                  </div>
+                    </CardFooter>
+                  </Card>
 
                   {/* Card 4: TKP */}
-                  <div className="p-4 rounded-xl border border-border bg-card shadow-xs space-y-2">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                  <Card className="gap-3 py-4 shadow-xs">
+                    <CardHeader className="flex flex-row items-center justify-between gap-2 px-4">
+                      <Badge
+                        variant="outline"
+                        className="rounded-md border-success/20 bg-success/10 text-success font-bold"
+                      >
                         TKP (Karakteristik Pribadi)
-                      </span>
-                      <Award className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-                    </div>
-                    <div className="space-y-1">
+                      </Badge>
+                      <Award className="w-4 h-4 text-success shrink-0" />
+                    </CardHeader>
+                    <CardContent className="px-4 flex flex-col gap-1">
                       <div className="text-2xl font-extrabold text-foreground">
                         {stats?.byCategory.TKP.averagePoints ?? 0}
                         <span className="text-xs font-normal text-muted-foreground ml-1">
@@ -443,84 +491,107 @@ function QuizHistoryContent() {
                       </div>
                       <p className="text-xs text-muted-foreground">
                         Skor Maksimal (5 pt):{" "}
-                        <strong className="text-emerald-600 dark:text-emerald-400">
+                        <strong className="text-success">
                           {stats?.byCategory.TKP.optimalCount ?? 0}
                         </strong>{" "}
                         soal
                       </p>
-                    </div>
-                    <div className="pt-2 border-t border-border flex justify-between text-[11px] text-muted-foreground">
+                    </CardContent>
+                    <Separator />
+                    <CardFooter className="px-4 justify-between text-[11px] text-muted-foreground">
                       <span>Passing Grade BKN:</span>
                       <span className="font-semibold text-foreground">
                         166 Poin (skala 1–5)
                       </span>
-                    </div>
-                  </div>
+                    </CardFooter>
+                  </Card>
                 </div>
               </section>
 
               {/* Filter Controls Bar */}
-              <section className="p-4 rounded-xl border border-border bg-card/60 space-y-3">
-                <div className="flex items-center gap-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">
-                  <Filter className="w-3.5 h-3.5" />
-                  <span>Filter Soal Latihan</span>
-                </div>
+              <section>
+                <Card className="bg-card/60 gap-3 py-4 shadow-none">
+                  <CardHeader className="px-4 flex flex-row items-center gap-2 text-xs font-bold text-muted-foreground uppercase tracking-wider">
+                    <Filter className="w-3.5 h-3.5" />
+                    <span>Filter Soal Latihan</span>
+                  </CardHeader>
 
-                <div className="flex flex-wrap items-center justify-between gap-4">
-                  {/* Category Filter Pills */}
-                  <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="text-xs text-muted-foreground mr-1">
-                      Materi:
-                    </span>
-                    {(["ALL", "TWK", "TIU", "TKP"] as const).map((cat) => (
-                      <button
-                        key={cat}
-                        type="button"
-                        onClick={() => setSelectedCategory(cat)}
-                        className={cn(
-                          "px-3 py-1 rounded-lg text-xs font-semibold border transition-all cursor-pointer",
-                          selectedCategory === cat
-                            ? "bg-primary text-primary-foreground border-primary shadow-xs"
-                            : "bg-background text-muted-foreground border-border hover:bg-accent"
-                        )}
+                  <CardContent className="px-4 flex flex-wrap items-center justify-between gap-4">
+                    {/* Category Filter Pills */}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-xs text-muted-foreground">
+                        Materi:
+                      </span>
+                      <ToggleGroup
+                        type="single"
+                        variant="outline"
+                        size="sm"
+                        spacing={1}
+                        value={selectedCategory}
+                        onValueChange={(val) => {
+                          if (val) {
+                            setSelectedCategory(
+                              val as "ALL" | "TWK" | "TIU" | "TKP"
+                            );
+                          }
+                        }}
+                        className="flex-wrap gap-1.5"
                       >
-                        {cat === "ALL" ? "Semua Kategori" : cat}
-                      </button>
-                    ))}
-                  </div>
+                        {(["ALL", "TWK", "TIU", "TKP"] as const).map((cat) => (
+                          <ToggleGroupItem
+                            key={cat}
+                            value={cat}
+                            className="text-xs font-semibold cursor-pointer data-[state=on]:bg-primary data-[state=on]:text-primary-foreground data-[state=on]:border-primary data-[state=on]:hover:bg-primary/90 data-[state=on]:hover:text-primary-foreground"
+                          >
+                            {cat === "ALL" ? "Semua Kategori" : cat}
+                          </ToggleGroupItem>
+                        ))}
+                      </ToggleGroup>
+                    </div>
 
-                  {/* Status Filter Pills */}
-                  <div className="flex flex-wrap items-center gap-1.5">
-                    <span className="text-xs text-muted-foreground mr-1">
-                      Status:
-                    </span>
-                    {(
-                      [
-                        { label: "Semua Status", value: "ALL" },
-                        { label: "Sudah Dijawab", value: "answered" },
-                        { label: "Belum Dijawab", value: "pending" },
-                      ] as const
-                    ).map((st) => (
-                      <button
-                        key={st.value}
-                        type="button"
-                        onClick={() => setSelectedStatus(st.value)}
-                        className={cn(
-                          "px-3 py-1 rounded-lg text-xs font-semibold border transition-all cursor-pointer",
-                          selectedStatus === st.value
-                            ? "bg-primary text-primary-foreground border-primary shadow-xs"
-                            : "bg-background text-muted-foreground border-border hover:bg-accent"
-                        )}
+                    {/* Status Filter Pills */}
+                    <div className="flex flex-wrap items-center gap-2">
+                      <span className="text-xs text-muted-foreground">
+                        Status:
+                      </span>
+                      <ToggleGroup
+                        type="single"
+                        variant="outline"
+                        size="sm"
+                        spacing={1}
+                        value={selectedStatus}
+                        onValueChange={(val) => {
+                          if (val) {
+                            setSelectedStatus(
+                              val as "ALL" | "answered" | "pending"
+                            );
+                          }
+                        }}
+                        className="flex-wrap gap-1.5"
                       >
-                        {st.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
+                        {(
+                          [
+                            { label: "Semua Status", value: "ALL" },
+                            { label: "Sudah Dijawab", value: "answered" },
+                            { label: "Belum Dijawab", value: "pending" },
+                          ] as const
+                        ).map((st) => (
+                          <ToggleGroupItem
+                            key={st.value}
+                            value={st.value}
+                            className="text-xs font-semibold cursor-pointer data-[state=on]:bg-primary data-[state=on]:text-primary-foreground data-[state=on]:border-primary data-[state=on]:hover:bg-primary/90 data-[state=on]:hover:text-primary-foreground"
+                          >
+                            {st.label}
+                          </ToggleGroupItem>
+                        ))}
+                      </ToggleGroup>
+                    </div>
+                  </CardContent>
+                </Card>
               </section>
 
               {/* Quiz Attempts Review List */}
-              <section className="space-y-4">
+              <section className="flex flex-col gap-4">
                 <div className="flex items-center justify-between">
                   <h3 className="text-sm font-bold text-foreground">
                     Daftar Soal ({filteredQuizzes.length})
@@ -528,49 +599,57 @@ function QuizHistoryContent() {
                 </div>
 
                 {isLoading ? (
-                  <div className="py-20 text-center space-y-2">
-                    <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin mx-auto" />
+                  <div className="py-20 flex flex-col items-center justify-center gap-2 text-center">
+                    <Spinner className="size-8 text-primary" />
                     <p className="text-xs text-muted-foreground">
                       Memuat riwayat latihan soal SKD...
                     </p>
                   </div>
                 ) : error ? (
-                  <div className="p-8 rounded-xl border border-destructive/30 bg-destructive/5 text-center space-y-2">
-                    <p className="text-sm font-semibold text-destructive">
-                      {error}
-                    </p>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() => window.location.reload()}
-                    >
-                      Coba Lagi
-                    </Button>
-                  </div>
+                  <Alert
+                    variant="destructive"
+                    className="border-destructive/30 bg-destructive/5 p-6"
+                  >
+                    <AlertCircle />
+                    <AlertDescription className="flex w-full flex-wrap items-center justify-between gap-3">
+                      <span className="text-sm font-semibold text-destructive">
+                        {error}
+                      </span>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => window.location.reload()}
+                      >
+                        Coba Lagi
+                      </Button>
+                    </AlertDescription>
+                  </Alert>
                 ) : filteredQuizzes.length === 0 ? (
-                  <div className="p-12 rounded-xl border border-dashed border-border bg-card/40 text-center space-y-4">
-                    <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                      <BookOpen className="w-6 h-6 text-primary" />
-                    </div>
-                    <div className="space-y-1">
-                      <h4 className="text-base font-bold text-foreground">
+                  <Empty className="border border-border bg-card/40">
+                    <EmptyHeader>
+                      <EmptyMedia variant="icon">
+                        <BookOpen className="text-primary" />
+                      </EmptyMedia>
+                      <EmptyTitle className="text-base font-bold">
                         Belum Ada Riwayat Soal Latihan
-                      </h4>
-                      <p className="text-xs text-muted-foreground max-w-md mx-auto leading-relaxed">
+                      </EmptyTitle>
+                      <EmptyDescription className="text-xs leading-relaxed">
                         Mulai percakapan dengan Tutor SKD CPNS dan minta latihan
                         soal TWK HOTS, TIU Silogisme/Numerik, atau TKP
                         BerAKHLAK untuk menguji kemampuan Anda.
-                      </p>
-                    </div>
-                    <Link href={returnChatHref}>
-                      <Button size="sm" className="gap-2 font-semibold">
-                        <span>Mulai Latihan di Chat</span>
-                        <ArrowRight className="w-4 h-4" />
+                      </EmptyDescription>
+                    </EmptyHeader>
+                    <EmptyContent>
+                      <Button asChild size="sm" className="font-semibold">
+                        <Link href={returnChatHref}>
+                          <span>Mulai Latihan di Chat</span>
+                          <ArrowRight className="size-4" />
+                        </Link>
                       </Button>
-                    </Link>
-                  </div>
+                    </EmptyContent>
+                  </Empty>
                 ) : (
-                  <div className="space-y-4">
+                  <div className="flex flex-col gap-4">
                     {filteredQuizzes.map((quiz, index) => {
                       const isExpanded = expandedQuizIds.has(quiz.id);
                       const isAnswered = quiz.status === "answered";
@@ -583,28 +662,32 @@ function QuizHistoryContent() {
                           quiz.userAnswer === quiz.correctOption);
 
                       return (
-                        <div
+                        <Card
                           key={quiz.id}
-                          className="rounded-xl border border-border bg-card shadow-xs overflow-hidden transition-all hover:border-primary/40"
+                          className="gap-0 py-0 shadow-xs overflow-hidden transition-all hover:border-primary/40"
                         >
                           {/* Card Top Info Header */}
-                          <div className="flex flex-wrap items-center justify-between gap-2 px-5 py-3 bg-muted/30 border-b border-border">
+                          <CardHeader className="flex flex-row flex-wrap items-center justify-between gap-2 px-5 py-3 bg-muted/30 border-b border-border [.border-b]:pb-3">
                             <div className="flex items-center gap-2.5 flex-wrap">
                               <span className="text-xs font-mono font-bold text-muted-foreground">
                                 #{index + 1}
                               </span>
-                              <span
+                              <Badge
+                                variant="outline"
                                 className={cn(
-                                  "px-2.5 py-0.5 rounded-md text-xs font-bold border tracking-wider",
+                                  "rounded-md font-bold tracking-wider",
                                   getCategoryColor(quiz.category)
                                 )}
                               >
                                 {quiz.category}
-                              </span>
+                              </Badge>
                               {quiz.subtopic && (
-                                <span className="text-xs px-2.5 py-0.5 rounded-md bg-background border border-border text-muted-foreground font-medium">
+                                <Badge
+                                  variant="outline"
+                                  className="rounded-md bg-background text-muted-foreground font-medium"
+                                >
                                   {quiz.subtopic}
-                                </span>
+                                </Badge>
                               )}
                               <span className="inline-flex items-center gap-1 text-[11px] text-muted-foreground">
                                 <Calendar className="w-3 h-3" />
@@ -617,57 +700,80 @@ function QuizHistoryContent() {
                               {isAnswered ? (
                                 isTWKorTIU ? (
                                   isCorrect ? (
-                                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
-                                      <CheckCircle2 className="w-3 h-3" />
+                                    <Badge
+                                      variant="outline"
+                                      className="border-success/30 bg-success/15 text-success font-bold"
+                                    >
+                                      <CheckCircle2 />
                                       +5 Poin (Benar)
-                                    </span>
+                                    </Badge>
                                   ) : (
-                                    <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-rose-500/15 text-rose-700 dark:text-rose-300 border border-rose-500/30">
-                                      <XCircle className="w-3 h-3" />
+                                    <Badge
+                                      variant="outline"
+                                      className="border-destructive/30 bg-destructive/15 text-destructive font-bold"
+                                    >
+                                      <XCircle />
                                       0 Poin (Salah)
-                                    </span>
+                                    </Badge>
                                   )
                                 ) : (
-                                  <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border border-emerald-500/30">
-                                    <Award className="w-3 h-3" />
+                                  <Badge
+                                    variant="outline"
+                                    className="border-success/30 bg-success/15 text-success font-bold"
+                                  >
+                                    <Award />
                                     Skor TKP: {quiz.scoreEarned ?? 0}/5 Poin
-                                  </span>
+                                  </Badge>
                                 )
                               ) : (
-                                <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-500/15 text-amber-700 dark:text-amber-300 border border-amber-500/30">
-                                  <HelpCircle className="w-3 h-3" />
+                                <Badge
+                                  variant="outline"
+                                  className="border-warning/30 bg-warning/15 text-warning font-semibold"
+                                >
+                                  <HelpCircle />
                                   Menunggu Jawaban
-                                </span>
+                                </Badge>
                               )}
 
                               {/* Buka di Chat Link */}
                               {isValidChatUuid(quiz.chatId) ? (
-                                <Link href={`/chat?id=${quiz.chatId}`}>
-                                  <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className="h-7 px-2.5 text-xs text-primary hover:text-primary gap-1"
-                                  >
+                                <Button
+                                  asChild
+                                  variant="ghost"
+                                  size="sm"
+                                  className="h-7 px-2.5 text-xs text-primary hover:text-primary"
+                                >
+                                  <Link href={`/chat?id=${quiz.chatId}`}>
                                     <span>Buka di Chat</span>
-                                    <ArrowRight className="w-3 h-3" />
-                                  </Button>
-                                </Link>
+                                    <ArrowRight className="size-3" />
+                                  </Link>
+                                </Button>
                               ) : (
-                                <span className="text-[11px] font-medium text-muted-foreground px-2 py-0.5 rounded-md border border-border bg-background">
+                                <Badge
+                                  variant="outline"
+                                  className="rounded-md bg-background text-[11px] font-medium text-muted-foreground"
+                                >
                                   Sesi Latihan Mandiri
-                                </span>
+                                </Badge>
                               )}
                             </div>
-                          </div>
+                          </CardHeader>
 
                           {/* Card Question Stem */}
-                          <div className="p-5 space-y-4">
+                          <CardContent className="p-5 flex flex-col gap-4">
                             <p className="text-sm font-medium leading-relaxed text-foreground whitespace-pre-line">
                               {quiz.questionStem}
                             </p>
 
+                            {quiz.imageUrl && (
+                              <FiguralImageFrame
+                                src={quiz.imageUrl}
+                                alt={`Ilustrasi soal ${quiz.subtopic || quiz.category}`}
+                              />
+                            )}
+
                             {/* Options Breakdown */}
-                            <div className="space-y-2">
+                            <div className="flex flex-col gap-2">
                               {OPTION_KEYS.map((opt) => {
                                 const optionText = quiz.options
                                   ? quiz.options[opt]
@@ -706,42 +812,42 @@ function QuizHistoryContent() {
                                   if (isUserChoice) {
                                     if (rubricScore === 5) {
                                       containerStyle =
-                                        "border-emerald-500/60 bg-emerald-50/70 dark:bg-emerald-950/40 text-foreground font-medium shadow-xs";
+                                        "border-success/60 bg-success/10 text-foreground font-medium shadow-xs";
                                       letterStyle =
-                                        "bg-emerald-500 text-white font-bold";
+                                        "bg-success text-success-foreground border-success font-bold";
                                     } else if (rubricScore === 4) {
                                       containerStyle =
-                                        "border-teal-500/60 bg-teal-50/70 dark:bg-teal-950/40 text-foreground font-medium shadow-xs";
+                                        "border-primary/60 bg-primary/10 text-foreground font-medium shadow-xs";
                                       letterStyle =
-                                        "bg-teal-500 text-white font-bold";
+                                        "bg-primary text-primary-foreground border-primary font-bold";
                                     } else if (rubricScore === 3) {
                                       containerStyle =
-                                        "border-amber-500/60 bg-amber-50/70 dark:bg-amber-950/40 text-foreground font-medium shadow-xs";
+                                        "border-warning/60 bg-warning/10 text-foreground font-medium shadow-xs";
                                       letterStyle =
-                                        "bg-amber-500 text-white font-bold";
+                                        "bg-warning text-warning-foreground border-warning font-bold";
                                     } else {
                                       containerStyle =
-                                        "border-rose-500/60 bg-rose-50/70 dark:bg-rose-950/40 text-foreground font-medium shadow-xs";
+                                        "border-destructive/60 bg-destructive/10 text-foreground font-medium shadow-xs";
                                       letterStyle =
-                                        "bg-rose-500 text-white font-bold";
+                                        "bg-destructive text-white border-destructive font-bold";
                                     }
                                   } else if (rubricScore === 5) {
                                     containerStyle =
-                                      "border-emerald-500/40 bg-emerald-50/40 dark:bg-emerald-950/20 text-foreground font-medium";
+                                      "border-success/40 bg-success/5 text-foreground font-medium";
                                     letterStyle =
-                                      "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 font-bold";
+                                      "bg-success/20 text-success border-success/30 font-bold";
                                   }
                                 } else {
                                   if (isCorrectOpt) {
                                     containerStyle =
-                                      "border-emerald-500/60 bg-emerald-50/70 dark:bg-emerald-950/40 text-foreground font-medium shadow-xs";
+                                      "border-success/60 bg-success/10 text-foreground font-medium shadow-xs";
                                     letterStyle =
-                                      "bg-emerald-500 text-white font-bold";
+                                      "bg-success text-success-foreground border-success font-bold";
                                   } else if (isUserChoice && !isCorrectOpt) {
                                     containerStyle =
-                                      "border-rose-500/60 bg-rose-50/70 dark:bg-rose-950/40 text-foreground font-medium shadow-xs";
+                                      "border-destructive/60 bg-destructive/10 text-foreground font-medium shadow-xs";
                                     letterStyle =
-                                      "bg-rose-500 text-white font-bold";
+                                      "bg-destructive text-white border-destructive font-bold";
                                   }
                                 }
 
@@ -767,51 +873,53 @@ function QuizHistoryContent() {
                                       </span>
                                       <div className="flex items-center gap-1.5 flex-shrink-0">
                                         {isUserChoice && (
-                                          <span
+                                          <Badge
+                                            variant="outline"
                                             className={cn(
-                                              "inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold border",
+                                              "text-[10px] font-bold",
                                               isTKP
                                                 ? rubricScore === 5
-                                                  ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/40"
+                                                  ? "bg-success/15 text-success border-success/40"
                                                   : rubricScore === 4
-                                                  ? "bg-teal-500/20 text-teal-700 dark:text-teal-300 border-teal-500/40"
+                                                  ? "bg-primary/15 text-primary border-primary/40"
                                                   : rubricScore === 3
-                                                  ? "bg-amber-500/20 text-amber-700 dark:text-amber-300 border-amber-500/40"
-                                                  : "bg-rose-500/20 text-rose-700 dark:text-rose-300 border-rose-500/40"
+                                                  ? "bg-warning/15 text-warning border-warning/40"
+                                                  : "bg-destructive/15 text-destructive border-destructive/40"
                                                 : isCorrectOpt
-                                                ? "bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 border-emerald-500/40"
-                                                : "bg-rose-500/20 text-rose-700 dark:text-rose-300 border-rose-500/40"
+                                                ? "bg-success/15 text-success border-success/40"
+                                                : "bg-destructive/15 text-destructive border-destructive/40"
                                             )}
                                           >
                                             {isTKP ? (
                                               (rubricScore ?? 0) >= 4 ? (
-                                                <CheckCircle2 className="w-3 h-3" />
+                                                <CheckCircle2 />
                                               ) : (
-                                                <XCircle className="w-3 h-3" />
+                                                <XCircle />
                                               )
                                             ) : isCorrectOpt ? (
-                                              <CheckCircle2 className="w-3 h-3" />
+                                              <CheckCircle2 />
                                             ) : (
-                                              <XCircle className="w-3 h-3" />
+                                              <XCircle />
                                             )}
                                             Pilihan Anda
-                                          </span>
+                                          </Badge>
                                         )}
                                         {typeof rubricScore === "number" && (
-                                          <span
+                                          <Badge
+                                            variant="outline"
                                             className={cn(
-                                              "px-2 py-0.5 rounded-full text-[10px] font-mono font-bold border",
+                                              "text-[10px] font-mono font-bold",
                                               rubricScore === 5
-                                                ? "bg-emerald-500/15 text-emerald-700 dark:text-emerald-300 border-emerald-500/30"
+                                                ? "bg-success/15 text-success border-success/30"
                                                 : rubricScore === 4
-                                                ? "bg-teal-500/15 text-teal-700 dark:text-teal-300 border-teal-500/30"
+                                                ? "bg-primary/15 text-primary border-primary/30"
                                                 : rubricScore === 3
-                                                ? "bg-amber-500/15 text-amber-700 dark:text-amber-300 border-amber-500/30"
+                                                ? "bg-warning/15 text-warning border-warning/30"
                                                 : "bg-muted text-muted-foreground border-border"
                                             )}
                                           >
                                             {rubricScore} Poin
-                                          </span>
+                                          </Badge>
                                         )}
                                       </div>
                                     </div>
@@ -822,53 +930,69 @@ function QuizHistoryContent() {
 
                             {/* Pending State Prompt */}
                             {!isAnswered && (
-                              <div className="p-3 rounded-lg bg-amber-500/10 border border-amber-500/20 text-xs text-amber-800 dark:text-amber-300 flex items-center justify-between">
-                                <span>
-                                  Soal ini belum dijawab. Kunci jawaban dan skor disembunyikan sampai Anda menjawab.
-                                </span>
-                                <Link
-                                  href={
-                                    isValidChatUuid(quiz.chatId)
-                                      ? `/chat?id=${quiz.chatId}`
-                                      : "/chat"
-                                  }
-                                >
-                                  <Button size="sm" className="h-7 text-xs font-semibold">
-                                    {isValidChatUuid(quiz.chatId)
-                                      ? "Jawab di Chat"
-                                      : "Buka Tutor Chat"}
+                              <Alert className="border-warning/30 bg-warning/10 text-foreground [&>svg]:text-warning">
+                                <AlertTriangle />
+                                <AlertDescription className="flex w-full flex-wrap items-center justify-between gap-3 text-xs text-foreground">
+                                  <span>
+                                    Soal ini belum dijawab. Kunci jawaban dan skor disembunyikan sampai Anda menjawab.
+                                  </span>
+                                  <Button
+                                    asChild
+                                    size="sm"
+                                    className="h-7 text-xs font-semibold shrink-0"
+                                  >
+                                    <Link
+                                      href={
+                                        isValidChatUuid(quiz.chatId)
+                                          ? `/chat?id=${quiz.chatId}`
+                                          : "/chat"
+                                      }
+                                    >
+                                      {isValidChatUuid(quiz.chatId)
+                                        ? "Jawab di Chat"
+                                        : "Buka Tutor Chat"}
+                                    </Link>
                                   </Button>
-                                </Link>
-                              </div>
+                                </AlertDescription>
+                              </Alert>
                             )}
 
                             {/* Answered Explanation Accordion */}
                             {isAnswered &&
                               (quiz.rubricRationale || quiz.aiExplanation) && (
-                                <div className="pt-2 border-t border-border">
-                                  <button
-                                    type="button"
-                                    onClick={() => toggleExpand(quiz.id)}
-                                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-primary hover:underline cursor-pointer"
-                                  >
-                                    <Sparkles className="w-3.5 h-3.5" />
-                                    <span>
-                                      {isExpanded
-                                        ? "Tutup Pembahasan & Rasional Rubrik"
-                                        : "Lihat Pembahasan & Rasional Rubrik"}
-                                    </span>
-                                    {isExpanded ? (
-                                      <ChevronUp className="w-3.5 h-3.5" />
-                                    ) : (
-                                      <ChevronDown className="w-3.5 h-3.5" />
-                                    )}
-                                  </button>
+                                <Collapsible
+                                  open={isExpanded}
+                                  onOpenChange={() => toggleExpand(quiz.id)}
+                                  className="flex flex-col gap-3"
+                                >
+                                  <Separator />
+                                  <div>
+                                    <CollapsibleTrigger asChild>
+                                      <Button
+                                        variant="ghost"
+                                        size="sm"
+                                        className="h-auto px-2 py-1 text-xs font-semibold text-primary hover:text-primary"
+                                      >
+                                        <Sparkles className="size-3.5" />
+                                        <span>
+                                          {isExpanded
+                                            ? "Tutup Pembahasan & Rasional Rubrik"
+                                            : "Lihat Pembahasan & Rasional Rubrik"}
+                                        </span>
+                                        {isExpanded ? (
+                                          <ChevronUp className="size-3.5" />
+                                        ) : (
+                                          <ChevronDown className="size-3.5" />
+                                        )}
+                                      </Button>
+                                    </CollapsibleTrigger>
+                                  </div>
 
-                                  {isExpanded && (
-                                    <div className="mt-3 p-4 rounded-lg bg-muted/50 border border-border text-xs space-y-3 animate-in fade-in-50 duration-200">
+                                  <CollapsibleContent>
+                                    <div className="p-4 rounded-lg bg-muted/50 border border-border text-xs flex flex-col gap-3">
                                       {quiz.rubricRationale && (
-                                        <div>
-                                          <span className="font-bold text-foreground block mb-1">
+                                        <div className="flex flex-col gap-1">
+                                          <span className="font-bold text-foreground">
                                             Rasional Skor & Kunci Jawaban:
                                           </span>
                                           <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
@@ -877,8 +1001,8 @@ function QuizHistoryContent() {
                                         </div>
                                       )}
                                       {quiz.aiExplanation && (
-                                        <div>
-                                          <span className="font-bold text-foreground block mb-1">
+                                        <div className="flex flex-col gap-1">
+                                          <span className="font-bold text-foreground">
                                             Penjelasan Lengkap Tutor:
                                           </span>
                                           <p className="text-muted-foreground whitespace-pre-line leading-relaxed">
@@ -887,11 +1011,11 @@ function QuizHistoryContent() {
                                         </div>
                                       )}
                                     </div>
-                                  )}
-                                </div>
+                                  </CollapsibleContent>
+                                </Collapsible>
                               )}
-                          </div>
-                        </div>
+                          </CardContent>
+                        </Card>
                       );
                     })}
                   </div>
@@ -909,8 +1033,9 @@ export default function QuizHistoryPage() {
   return (
     <Suspense
       fallback={
-        <div className="p-8 text-center text-sm text-muted-foreground">
-          Memuat riwayat latihan soal...
+        <div className="p-8 flex flex-col items-center justify-center gap-2 text-center text-sm text-muted-foreground">
+          <Spinner className="size-6 text-primary" />
+          <span>Memuat riwayat latihan soal...</span>
         </div>
       }
     >

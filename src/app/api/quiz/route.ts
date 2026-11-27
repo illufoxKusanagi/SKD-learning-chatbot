@@ -51,6 +51,7 @@ function sanitizeQuizAttempt(
     category: quiz.category,
     subtopic: quiz.subtopic,
     questionStem: quiz.questionStem,
+    imageUrl: quiz.imageUrl ?? null,
     options: quiz.options,
     maxScore: quiz.maxScore,
     status: quiz.status,
@@ -460,6 +461,7 @@ function buildQuizMetaFromQuestionRow(
     category: (chosen.category as 'TWK' | 'TIU' | 'TKP') || 'TWK',
     subtopic: chosen.subtopic,
     questionStem: chosen.stem,
+    imageUrl: chosen.imageUrl ?? null,
     options: chosen.options,
     correctOption: resolvedCorrect,
     scoringRubric: chosen.scoringRubric ?? {
@@ -875,6 +877,7 @@ async function handlePostQuiz(request: NextRequest) {
           category: resolvedQuizMeta.category,
           subtopic: resolvedQuizMeta.subtopic,
           questionStem: resolvedQuizMeta.questionStem,
+          imageUrl: resolvedQuizMeta.imageUrl ?? null,
           options: resolvedQuizMeta.options,
           correctOption: resolvedQuizMeta.correctOption,
           scoringRubric: resolvedQuizMeta.scoringRubric,

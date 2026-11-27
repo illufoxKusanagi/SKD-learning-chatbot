@@ -43,6 +43,7 @@ export function practiceItemToQuizAttempt(
     category: item.category,
     subtopic: item.subtopic,
     questionStem: item.stem,
+    imageUrl: item.imageUrl ?? null,
     options: item.options,
     correctOption: resolvedCorrect,
     scoringRubric: isAnswered ? item.scoringRubric : null,

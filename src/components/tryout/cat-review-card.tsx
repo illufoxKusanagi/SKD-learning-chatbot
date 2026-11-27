@@ -18,6 +18,7 @@ import {
 } from "@/components/ui/collapsible";
 import { Separator } from "@/components/ui/separator";
 import { QuizOptionRationaleList } from "@/components/chat/quiz/quiz-option-rationale-list";
+import { FiguralImageFrame } from "@/components/quiz/figural-image-frame";
 import type { PreloadedMaterialData } from "@/components/materials/material-drawer";
 import type { TryoutQuestionReviewItem } from "@/lib/services/tryout.service";
 import { cn } from "@/lib/utils";
@@ -104,6 +105,13 @@ export function CatReviewCard({
         <p className="whitespace-pre-line text-sm leading-relaxed text-foreground">
           {question.stem}
         </p>
+
+        {question.imageUrl && (
+          <FiguralImageFrame
+            src={question.imageUrl}
+            alt={`Ilustrasi soal ${question.number} (${question.subtopic})`}
+          />
+        )}
 
         <div className="flex flex-col gap-2">
           {TRYOUT_OPTION_KEYS.map((key) => {

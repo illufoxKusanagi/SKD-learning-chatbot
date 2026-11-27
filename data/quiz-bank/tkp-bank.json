@@ -1366,5 +1366,1365 @@
       "type": "tryout",
       "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
     }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-layanan-prioritas-paspor-001",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 25 Tahun 2009 tentang Pelayanan Publik (asas kepastian, kemudahan, dan kesamaan hak) serta nilai BerAKHLAK 'Berorientasi Pelayanan' dan 'Akuntabel', hierarki skor adalah 5 > 4 > 3 > 2 > 1. D (skor 5) menjelaskan ketentuan layanan prioritas, membantu kelengkapan dokumen pendukung, dan memproses sesuai prosedur sehingga kebutuhan mendesak terlayani tanpa pelanggaran aturan; C (skor 4) membantu mencari alternatif lokasi tetapi pemohon menanggung beban waktu dan perpindahan; A (skor 3) patuh dan informatif tetapi tidak mempertimbangkan kondisi mendesak; B (skor 2) melanggar prosedur dan keadilan antrean; E (skor 1) menolak secara kaku.",
+    "stem": "Anda adalah petugas loket pada Kantor Imigrasi di Kota Balikpapan. Kuota pendaftaran paspor hari ini telah penuh. Seorang pemohon datang membawa surat dari rumah sakit di luar negeri yang menyatakan ayahnya dalam kondisi kritis, dan ia harus berangkat dalam tiga hari. Pemohon tersebut belum memiliki jadwal pendaftaran. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menjelaskan bahwa kuota pendaftaran hari ini telah penuh dan menyarankan pemohon mendaftar pada jadwal terdekat melalui aplikasi resmi.",
+      "B": "Menyisipkan berkas pemohon ke dalam antrean tanpa verifikasi kelengkapan agar persoalannya segera selesai mengingat kondisi yang mendesak.",
+      "C": "Menyarankan pemohon mencoba kantor imigrasi terdekat lain yang kuotanya masih tersedia dan membantu mencarikan informasi kontaknya.",
+      "D": "Menjelaskan ketentuan layanan prioritas, membantu pemohon melengkapi surat pendukung, lalu memprosesnya melalui jalur prioritas sesuai prosedur yang berlaku.",
+      "E": "Menyatakan bahwa kuota tidak dapat diubah dalam keadaan apa pun dan meminta pemohon tidak mengajukan permohonan kembali pada kantor ini."
+    },
+    "hint": "Layanan publik yang baik menyesuaikan diri dengan kebutuhan mendesak pengguna melalui mekanisme yang sah, bukan melalui pengecualian tanpa dasar.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Patuh prosedur dan informatif, tetapi tidak mempertimbangkan kondisi mendesak sehingga pemohon berisiko gagal berangkat tepat waktu.",
+      "B": "Poin 2 — Menyisipkan berkas tanpa verifikasi melanggar prosedur dan mengabaikan keadilan bagi pemohon lain yang telah mengantre.",
+      "C": "Poin 4 — Proaktif membantu mencari alternatif, tetapi pemohon harus menanggung perpindahan lokasi dan tidak ada jaminan kuota masih tersedia.",
+      "D": "Poin 5 — Menempuh mekanisme layanan prioritas yang sah dengan pendampingan kelengkapan dokumen, sehingga kebutuhan mendesak terlayani tanpa melanggar aturan.",
+      "E": "Poin 1 — Penolakan kaku tanpa mempertimbangkan kondisi pemohon bertentangan dengan pelayanan yang berorientasi pada pengguna."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Pelayanan Publik Layanan Prioritas BKN"
+    }
+  },
+  {
+    "slug": "tkp-anti-radikalisme-kajian-internal-001",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 20 Tahun 2023 tentang ASN (kewajiban setia dan taat pada Pancasila, UUD NRI 1945, NKRI, dan pemerintah yang sah) serta nilai BerAKHLAK 'Loyal', hierarki skor adalah 5 > 4 > 3 > 2 > 1. A (skor 5) mendokumentasikan materi dan melaporkannya secara berjenjang kepada pejabat berwenang dengan tetap santun; D (skor 4) berani mengoreksi langsung tetapi tidak melaporkan kepada pihak berwenang sehingga kajian dapat berlanjut; C (skor 3) menghindar tanpa tindak lanjut; B (skor 2) menyela dan membubarkan kegiatan di luar kewenangan sehingga memicu konflik; E (skor 1) menerima materi tanpa sikap kritis.",
+    "stem": "Anda adalah ASN pada Dinas Perhubungan Kabupaten Sleman. Kepala Seksi Anda menyelenggarakan kajian mingguan di kantor setelah jam kerja. Dalam beberapa pertemuan terakhir, materi yang disampaikan mulai menyebut bahwa peraturan perundang-undangan negara tidak wajib ditaati dan mengajak peserta tidak mengikuti kegiatan kenegaraan. Beberapa rekan Anda mulai menyatakan setuju. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mencatat materi yang disampaikan, lalu melaporkannya kepada pejabat yang lebih tinggi atau unit kepegawaian dengan tetap bersikap santun.",
+      "B": "Menyela pemateri saat kajian berlangsung dan mengajak peserta lain meninggalkan ruangan agar kegiatan tersebut segera dibubarkan.",
+      "C": "Tidak lagi menghadiri kajian tersebut dan tidak menyampaikan alasannya kepada siapa pun agar tidak menimbulkan perselisihan dengan atasan.",
+      "D": "Menyampaikan keberatan langsung kepada penyelenggara pada forum kajian bahwa materi tersebut bertentangan dengan kewajiban ASN.",
+      "E": "Tetap mengikuti kajian hingga akhir karena penyelenggaranya adalah atasan sehingga tidak pantas dibantah dalam bentuk apa pun."
+    },
+    "hint": "Kewajiban ASN menjaga ideologi negara menuntut sikap yang tegas namun tetap melalui jalur kelembagaan yang berwenang.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 2,
+      "C": 3,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Mendokumentasikan materi sebagai bukti dan melapor secara berjenjang kepada pejabat berwenang sambil menjaga etika kepada penyelenggara.",
+      "B": "Poin 2 — Menyela dan membubarkan kegiatan berada di luar kewenangan Anda dan berpotensi memicu konflik terbuka tanpa penyelesaian kelembagaan.",
+      "C": "Poin 3 — Menghindari konflik, tetapi tidak ada tindak lanjut sehingga materi bermasalah tetap disampaikan kepada rekan lain.",
+      "D": "Poin 4 — Berani mengoreksi materi secara langsung, tetapi tidak melapor kepada pihak berwenang sehingga kajian dapat berlanjut tanpa pengawasan.",
+      "E": "Poin 1 — Menerima materi yang bertentangan dengan kewajiban ASN tanpa sikap kritis dan membiarkan paparan paham tersebut meluas."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Loyal Anti-Radikalisme BKN"
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-tugas-baru-regresi-001",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Kompeten' (meningkatkan kompetensi diri, melaksanakan tugas dengan kualitas terbaik) dan 'Akuntabel' (bertanggung jawab atas hasil kerja), hierarki skor adalah 5 > 4 > 3 > 2 > 1. C (skor 5) menggabungkan rencana belajar, konsultasi kepada ahli, pelaporan progres berkala, dan ketepatan tenggat; D (skor 4) proaktif belajar tetapi komunikasi kendala baru dilakukan belakangan; A (skor 3) mengerjakan tanpa jaminan mutu dan bergantung pada koreksi atasan; E (skor 2) menyalin metode tanpa validasi sehingga mutu analisis berisiko; B (skor 1) menghindari tanggung jawab.",
+    "stem": "Anda adalah staf Bappeda Kabupaten Gresik yang baru dipindahkan ke bidang evaluasi. Atasan menugaskan Anda menyusun analisis dampak program bantuan modal usaha dengan teknik regresi yang belum Anda kuasai. Laporan harus selesai dalam tiga minggu dan akan digunakan sebagai dasar penyusunan anggaran tahun depan. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengerjakan analisis sesuai pemahaman yang ada dan memperbaikinya setelah atasan memberikan koreksi saat laporan dikumpulkan.",
+      "B": "Meminta atasan menugaskan rekan lain yang lebih mahir karena tugas tersebut dianggap berada di luar tanggung jawab Anda.",
+      "C": "Menyusun rencana belajar mandiri, berkonsultasi dengan rekan yang ahli, melaporkan progres berkala kepada atasan, dan menyelesaikan tugas sesuai tenggat.",
+      "D": "Mengikuti pelatihan statistik daring pada akhir pekan dan baru melaporkan kendala kepada atasan apabila hasil pelatihan belum mencukupi.",
+      "E": "Menyalin metode dan hasil analisis dari laporan tahun lalu tanpa memeriksa kesesuaiannya dengan data periode berjalan agar cepat selesai."
+    },
+    "hint": "Nilai Kompeten menuntut peningkatan kemampuan diri secara aktif, sedangkan nilai Akuntabel menuntut transparansi kemajuan kerja kepada atasan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 1,
+      "C": 5,
+      "D": 4,
+      "E": 2
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Mau mengerjakan, tetapi tidak menjamin mutu analisis dan menggantungkan perbaikan pada koreksi atasan di akhir waktu.",
+      "B": "Poin 1 — Menghindari tanggung jawab penugasan dan tidak berupaya meningkatkan kompetensi.",
+      "C": "Poin 5 — Meningkatkan kompetensi secara terencana, memanfaatkan keahlian rekan, dan menjaga akuntabilitas melalui pelaporan progres serta ketepatan tenggat.",
+      "D": "Poin 4 — Proaktif meningkatkan kompetensi, tetapi komunikasi kendala kepada atasan baru dilakukan belakangan sehingga risiko keterlambatan membesar.",
+      "E": "Poin 2 — Menyalin metode tanpa memvalidasi kesesuaiannya dengan data periode berjalan membahayakan mutu laporan yang menjadi dasar penyusunan anggaran."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Kompeten Profesionalisme BKN"
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-pelatihan-petani-001",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Kolaboratif' (terbuka dalam bekerja sama, memberi kesempatan kepada berbagai pihak untuk berkontribusi, dan menggerakkan pemanfaatan berbagai sumber daya), hierarki skor adalah 5 > 4 > 3 > 2 > 1. E (skor 5) mempertemukan para pihak, memetakan kebutuhan waktu masing-masing, serta menyepakati jadwal dan pembagian peran bersama; C (skor 4) partisipatif karena meminta usulan, tetapi memilih berdasarkan suara terbanyak tanpa negosiasi; A (skor 3) menetapkan jadwal sepihak tetapi tetap menginformasikan; B (skor 2) mengurangi pelibatan mitra; D (skor 1) membatalkan kerja sama.",
+    "stem": "Anda adalah penyuluh pada Dinas Pertanian Kabupaten Jombang. Dinas merencanakan pelatihan pengendalian hama terpadu bagi petani bersama Fakultas Pertanian sebuah universitas negeri dan beberapa kelompok tani. Pihak universitas hanya dapat hadir pada hari kerja, sedangkan para petani hanya dapat hadir di luar masa tanam yang padat. Kedua pihak belum menyepakati jadwal. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menyusun jadwal pelatihan sendiri sesuai kebutuhan dinas, lalu menginformasikan jadwal final kepada universitas dan kelompok tani.",
+      "B": "Mengurangi pelibatan universitas dan kelompok tani agar pelatihan dapat dilaksanakan sepenuhnya oleh dinas pada jadwal yang sudah ditetapkan.",
+      "C": "Meminta universitas dan kelompok tani mengajukan usulan jadwal masing-masing, lalu memilih jadwal yang paling banyak diminati.",
+      "D": "Membatalkan rencana kerja sama karena perbedaan jadwal dianggap menyulitkan koordinasi dan mengganggu program kerja dinas lainnya.",
+      "E": "Mempertemukan perwakilan universitas dan kelompok tani, memetakan kebutuhan waktu masing-masing, lalu menyepakati jadwal dan pembagian peran bersama."
+    },
+    "hint": "Nilai Kolaboratif menuntut perbedaan kepentingan mitra dipertemukan melalui dialog, bukan diputuskan sepihak atau dihindari.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 1,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Tetap menginformasikan jadwal kepada mitra, tetapi keputusan diambil sepihak tanpa mempertimbangkan keterbatasan waktu mereka.",
+      "B": "Poin 2 — Mengurangi pelibatan mitra menghilangkan kontribusi keahlian universitas dan pengalaman petani yang menjadi dasar kerja sama.",
+      "C": "Poin 4 — Partisipatif karena meminta usulan para pihak, tetapi memilih berdasarkan peminat terbanyak tanpa negosiasi sehingga salah satu pihak tetap dapat terabaikan.",
+      "D": "Poin 1 — Membatalkan kerja sama hanya karena perbedaan jadwal, padahal kendala tersebut dapat diselesaikan melalui koordinasi.",
+      "E": "Poin 5 — Menunjukkan kolaborasi sejati: dialog langsung, pemetaan kebutuhan waktu setiap pihak, serta kesepakatan jadwal dan peran yang dimiliki bersama."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Kolaboratif Jejaring Kerja BKN"
+    }
+  },
+  {
+    "slug": "tkp-tik-ai-publik-data-pengaduan-001",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 27 Tahun 2022 tentang Pelindungan Data Pribadi (pemrosesan data pribadi harus terbatas dan terlindungi) serta nilai BerAKHLAK 'Akuntabel' dan 'Adaptif', hierarki skor adalah 5 > 4 > 3 > 2 > 1. B (skor 5) memanfaatkan teknologi secara adaptif dengan menyamarkan seluruh data pribadi dan menanyakan kebijakan penggunaan kepada unit TIK; D (skor 4) tidak mengunggah data pribadi tetapi tidak mengonfirmasi kebijakan; C (skor 3) aman tetapi tidak memanfaatkan teknologi dan menanggung beban kerja sendiri tanpa berkonsultasi; A (skor 2) tetap membuka NIK dan alamat warga; E (skor 1) mengunggah seluruh dokumen apa adanya.",
+    "stem": "Anda adalah staf Dinas Kependudukan dan Pencatatan Sipil Kabupaten Kudus yang diminta menyelesaikan laporan evaluasi layanan dalam dua hari. Seorang rekan menyarankan Anda mengunggah dokumen rekap pengaduan, yang memuat NIK, alamat, dan nomor telepon pelapor, ke layanan kecerdasan artifisial publik agar bahasanya dirapikan secara otomatis. Instansi Anda belum memiliki kebijakan tertulis yang jelas mengenai hal tersebut. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengunggah dokumen ke layanan tersebut setelah menghapus nama pimpinan, tetapi tetap mempertahankan NIK dan alamat warga di dalamnya.",
+      "B": "Mengganti seluruh data pribadi dengan data samaran sebelum memakai layanan itu untuk merapikan bahasa, serta menanyakan kebijakan penggunaannya kepada unit TIK.",
+      "C": "Tidak memakai layanan tersebut dan menyusun laporan secara manual sepenuhnya sambil bekerja lembur agar tetap selesai tepat waktu.",
+      "D": "Memakai layanan tersebut hanya untuk bagian laporan yang tidak memuat data pribadi tanpa menanyakan kebijakan penggunaannya kepada unit TIK.",
+      "E": "Mengunggah seluruh dokumen apa adanya karena layanan tersebut dipakai banyak orang dan dianggap aman bagi data penggunanya."
+    },
+    "hint": "Pemanfaatan teknologi baru tetap harus menjaga data pribadi warga dan sejalan dengan kebijakan instansi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 5,
+      "C": 3,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menghapus nama pimpinan tidak melindungi data warga karena NIK dan alamat pelapor tetap terkirim ke pihak ketiga.",
+      "B": "Poin 5 — Memanfaatkan teknologi secara adaptif tanpa mengorbankan data pribadi warga, sekaligus memastikan kepatuhan terhadap kebijakan melalui konsultasi dengan unit TIK.",
+      "C": "Poin 3 — Aman bagi data warga, tetapi tidak memanfaatkan teknologi yang dapat menunjang efisiensi dan tidak berkonsultasi mengenai penggunaannya.",
+      "D": "Poin 4 — Melindungi data pribadi dengan membatasi bagian yang diolah, tetapi tidak memastikan kebijakan penggunaan layanan kepada unit TIK.",
+      "E": "Poin 1 — Mengunggah data pribadi pelapor apa adanya ke layanan publik melanggar prinsip pelindungan data dan akuntabilitas pengelola data."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Akuntabel dan Adaptif TIK BKN"
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-pasien-bpjs-nonaktif-001",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 25 Tahun 2009 tentang Pelayanan Publik (asas ketepatan waktu, kecepatan, dan kemudahan) serta nilai BerAKHLAK 'Berorientasi Pelayanan', kondisi anak demam tinggi menuntut penanganan awal diutamakan sebelum urusan administrasi. Hierarki skor 5 > 4 > 3 > 2 > 1: E (skor 5) memprioritaskan pemeriksaan awal anak lalu membantu urusan kepesertaan dan pembiayaan; C (skor 4) menuntaskan pendaftaran dan informasi biaya tetapi belum membantu pengurusan kepesertaan; A (skor 3) informatif namun menunda layanan hingga administrasi selesai; B (skor 2) membebankan biaya di muka tanpa alternatif pembiayaan; D (skor 1) memperpanjang antrean sebelum anak diperiksa.",
+    "stem": "Anda adalah petugas pendaftaran pada Puskesmas Kecamatan Tulungagung. Seorang ibu datang membawa anaknya yang demam tinggi dan tampak lemas. Kartu BPJS Kesehatan milik anak tersebut tidak aktif karena tunggakan iuran, sedangkan antrean pendaftaran cukup panjang. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menjelaskan bahwa kartu BPJS tidak aktif sehingga pasien harus mengurus kepesertaan terlebih dahulu sebelum dapat didaftarkan.",
+      "B": "Mendaftarkan anak melalui jalur umum dan meminta ibu segera melunasi biaya di muka tanpa menjelaskan pilihan pembiayaan lainnya.",
+      "C": "Mendaftarkan anak sebagai pasien umum dan menjelaskan besaran biaya serta cara mengaktifkan kembali kepesertaan setelah pemeriksaan selesai.",
+      "D": "Meminta ibu mengantre kembali di loket informasi untuk menanyakan status kepesertaan sebelum anak diperiksa oleh tenaga kesehatan.",
+      "E": "Segera mengarahkan anak ke pemeriksaan awal oleh tenaga kesehatan sesuai kegawatannya, lalu membantu ibu mengurus kepesertaan dan pembiayaan."
+    },
+    "hint": "Kondisi pasien yang mendesak menuntut layanan diprioritaskan, sedangkan urusan administrasi diselesaikan secara paralel.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 1,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Informatif dan sesuai prosedur, tetapi menunda layanan hingga administrasi selesai padahal kondisi anak mendesak.",
+      "B": "Poin 2 — Anak terlayani, tetapi ibu dibebani pembayaran di muka tanpa informasi alternatif pembiayaan.",
+      "C": "Poin 4 — Anak terlayani dan ibu mendapat informasi biaya serta cara aktivasi, tetapi pengurusan kepesertaan belum dibantu dan pemeriksaan belum diprioritaskan.",
+      "D": "Poin 1 — Memperpanjang antrean sebelum anak diperiksa sehingga mengabaikan kondisi mendesak pasien.",
+      "E": "Poin 5 — Memprioritaskan keselamatan anak melalui pemeriksaan awal, lalu membantu ibu menuntaskan urusan kepesertaan dan pembiayaan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Pelayanan Publik Fasilitas Kesehatan BKN"
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-blanko-ktp-el-001",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada UU No. 25 Tahun 2009 tentang Pelayanan Publik (asas kepastian, keterbukaan, dan kemudahan) serta nilai BerAKHLAK 'Berorientasi Pelayanan' dan 'Akuntabel', hierarki skor 5 > 4 > 3 > 2 > 1. C (skor 5) menjelaskan kendala secara terbuka, memberi dokumen pengganti sementara yang sah, dan menghubungi warga saat KTP-el tersedia; D (skor 4) memberi dokumen pengganti tetapi membebani warga mengecek sendiri; A (skor 3) menjelaskan namun tanpa kepastian waktu; B (skor 2) melempar tanggung jawab kepada pihak lain; E (skor 1) menyalahkan situasi dan menolak keluhan warga.",
+    "stem": "Anda adalah petugas layanan administrasi kependudukan di Kelurahan Kebonsari, Kota Surabaya. Seorang warga mengeluh karena KTP-el yang ia urus sudah tiga bulan belum selesai, padahal ia memerlukannya untuk mendaftar kerja. Anda mengetahui bahwa penyebabnya adalah blanko KTP-el sedang habis di tingkat kabupaten atau kota. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menjelaskan bahwa blanko KTP-el sedang kosong dan meminta warga menunggu pemberitahuan dari kantor kecamatan tanpa batas waktu tertentu.",
+      "B": "Mengarahkan warga menanyakan langsung ke dinas kabupaten setiap pekan karena persoalan blanko dianggap bukan wewenang pihak kelurahan.",
+      "C": "Menjelaskan kendala blanko, memberikan surat keterangan pengganti sementara sesuai ketentuan, lalu menghubungi warga ketika KTP-el telah tersedia.",
+      "D": "Mencatat keluhan warga, memberikan surat keterangan pengganti sementara, dan meminta warga mengecek status pencetakan secara mandiri.",
+      "E": "Menyatakan bahwa keterlambatan terjadi di luar kendali kelurahan dan meminta warga tidak lagi mengeluh kepada petugas pelayanan."
+    },
+    "hint": "Pelayanan yang baik menjelaskan kendala secara terbuka sekaligus menyediakan solusi sementara yang sah bagi warga.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Terbuka tentang penyebab keterlambatan, tetapi warga tidak memperoleh kepastian waktu maupun solusi sementara.",
+      "B": "Poin 2 — Melempar tanggung jawab dan membebani warga menghubungi dinas setiap pekan.",
+      "C": "Poin 5 — Menjelaskan kendala secara terbuka, memberi dokumen pengganti yang sah, dan proaktif menghubungi warga saat KTP-el tersedia.",
+      "D": "Poin 4 — Mencatat keluhan dan memberi dokumen pengganti sementara, tetapi warga masih harus mengecek status pencetakan sendiri.",
+      "E": "Poin 1 — Menyalahkan keadaan dan melarang warga mengeluh, bertentangan dengan keterbukaan dan orientasi pelayanan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Pelayanan Publik Administrasi Kependudukan BKN"
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-bazar-umkm-001",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Kolaboratif' (terbuka dalam bekerja sama dan menggerakkan pemanfaatan sumber daya lintas pihak), hierarki skor 5 > 4 > 3 > 2 > 1. A (skor 5) mengumpulkan semua pihak dalam satu forum koordinasi, memaparkan kebutuhan, dan menyepakati pembagian tugas tertulis; D (skor 4) proaktif menghubungi pimpinan tetapi komitmen hanya lisan dan tidak terkoordinasi antarinstansi; B (skor 3) formal namun pasif dan menunggu; C (skor 2) menutup peluang kolaborasi dengan menanggung semuanya sendiri; E (skor 1) mengabaikan pelibatan instansi terkait.",
+    "stem": "Anda adalah staf Dinas Koperasi, Usaha Kecil, dan Menengah Kabupaten Ngawi yang ditugaskan menyelenggarakan bazar produk UMKM selama dua hari di alun-alun kota. Kegiatan ini memerlukan dukungan pengaturan lalu lintas dari Dinas Perhubungan, keamanan dari Satpol PP, dan kebersihan dari Dinas Lingkungan Hidup. Waktu persiapan tinggal dua minggu. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengundang perwakilan setiap instansi terkait ke rapat koordinasi, memaparkan kebutuhan acara, dan menyepakati pembagian tugas secara tertulis.",
+      "B": "Mengirim surat permohonan dukungan secara terpisah kepada setiap instansi dan menunggu tanggapan tertulis sebelum menyusun rencana acara.",
+      "C": "Menyiapkan seluruh kebutuhan parkir, keamanan, dan kebersihan menggunakan tenaga dinas sendiri agar tidak merepotkan instansi lain.",
+      "D": "Menghubungi pimpinan setiap instansi terkait melalui telepon untuk meminta dukungan, lalu mencatat komitmen lisan yang diberikan masing-masing.",
+      "E": "Melaksanakan bazar tanpa melibatkan instansi lain dan menangani kendala yang muncul pada hari pelaksanaan apabila terjadi."
+    },
+    "hint": "Nilai Kolaboratif menuntut seluruh pihak terkait dipertemukan dan komitmen peran dituangkan secara jelas sebelum acara berlangsung.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 3,
+      "C": 2,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Mempertemukan seluruh pihak, menyamakan pemahaman kebutuhan acara, dan mengikat komitmen melalui pembagian tugas tertulis.",
+      "B": "Poin 3 — Menempuh jalur resmi, tetapi pasif dan menunda perencanaan karena menunggu tanggapan tanpa koordinasi antarinstansi.",
+      "C": "Poin 2 — Menanggung seluruh kebutuhan sendiri menutup kolaborasi dan membebani sumber daya dinas yang terbatas.",
+      "D": "Poin 4 — Proaktif menghubungi pimpinan instansi, tetapi komitmen hanya lisan dan antarinstansi belum dikoordinasikan.",
+      "E": "Poin 1 — Tidak melibatkan instansi yang berwenang sehingga risiko kegagalan acara tinggi."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Kolaboratif Jejaring Kerja Lintas Instansi BKN"
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-relawan-simulasi-001",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Kolaboratif' (memberi kesempatan kepada berbagai pihak untuk berkontribusi dan terbuka dalam bekerja sama), hierarki skor 5 > 4 > 3 > 2 > 1. D (skor 5) mendengarkan relawan secara langsung, melibatkan mereka menyusun skenario, serta menyepakati peran dan umpan balik; E (skor 4) menampung keluhan dan mengusulkan perbaikan tetapi hanya melalui atasan dan untuk kegiatan berikutnya; A (skor 3) menjelaskan dan menegaskan peran yang sudah ada tanpa dialog; B (skor 2) mengurangi pelibatan mitra; C (skor 1) mengabaikan keluhan dan merendahkan posisi relawan.",
+    "stem": "Anda adalah staf Badan Penanggulangan Bencana Daerah (BPBD) Kabupaten Lumajang yang menyiapkan simulasi tanggap bencana bersama beberapa komunitas relawan. Dalam rapat persiapan, perwakilan relawan mengeluh bahwa mereka merasa hanya dijadikan pelengkap dan tidak dilibatkan dalam penyusunan skenario. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menjelaskan bahwa peran relawan telah ditetapkan dalam dokumen perencanaan dan meminta mereka menjalankannya sesuai pembagian yang sudah ada.",
+      "B": "Mengurangi jumlah relawan yang dilibatkan agar koordinasi lebih mudah dan seluruh pelaksanaan dapat dikendalikan langsung oleh petugas BPBD.",
+      "C": "Mengabaikan keluhan tersebut karena relawan tidak memiliki hubungan kerja resmi dengan BPBD dan dapat diganti dengan relawan lain.",
+      "D": "Mengundang perwakilan relawan membahas peran mereka, melibatkan mereka menyusun skenario simulasi, dan menyepakati peran beserta mekanisme umpan balik.",
+      "E": "Menyampaikan keluhan relawan kepada atasan dan mengusulkan agar peran mereka dikaji ulang pada kegiatan simulasi berikutnya."
+    },
+    "hint": "Mitra kerja yang merasa tidak dilibatkan perlu diajak berdialog dan ikut merancang peran, bukan sekadar diberi tahu.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 1,
+      "D": 5,
+      "E": 4
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Memberi penjelasan yang jelas, tetapi bersifat satu arah sehingga keluhan relawan tidak ditanggapi secara substansi.",
+      "B": "Poin 2 — Mengurangi pelibatan relawan menghilangkan kontribusi mitra dan memperlemah jejaring kerja.",
+      "C": "Poin 1 — Mengabaikan keluhan dan memandang relawan sebagai pihak yang mudah diganti, bertentangan dengan semangat kolaborasi.",
+      "D": "Poin 5 — Membuka dialog langsung, melibatkan relawan dalam perancangan skenario, serta menyepakati peran dan umpan balik secara bersama.",
+      "E": "Poin 4 — Menampung keluhan dan mengusulkan perbaikan, tetapi perubahan baru dikaji pada kegiatan berikutnya sehingga keluhan saat ini belum tuntas."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Kolaboratif Jejaring Kerja Relawan BKN"
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-pantangan-gizi-001",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Harmonis' (saling peduli dan menghargai perbedaan) serta tanggung jawab edukasi kesehatan, hierarki skor 5 > 4 > 3 > 2 > 1. B (skor 5) berdialog dengan tokoh masyarakat dan kader posyandu, memahami pantangan setempat, lalu menyusun edukasi gizi yang menghormati kebiasaan; D (skor 4) memanfaatkan bidan desa setempat tetapi hanya pendekatan perorangan tanpa melibatkan tokoh masyarakat; A (skor 3) menyampaikan anjuran tanpa memahami konteks budaya; C (skor 2) merendahkan kebiasaan warga di depan umum; E (skor 1) membiarkan risiko gizi ibu hamil tanpa edukasi.",
+    "stem": "Anda adalah penyuluh kesehatan pada Puskesmas di sebuah desa di Kabupaten Timor Tengah Selatan. Anda mendapati banyak ibu hamil di desa tersebut menjalani pantangan makanan turun-temurun yang membuat asupan protein mereka rendah. Warga sangat menjunjung tinggi kebiasaan tersebut. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menyampaikan anjuran gizi sesuai pedoman kesehatan dalam penyuluhan tanpa menyinggung kebiasaan setempat agar tidak menimbulkan perdebatan.",
+      "B": "Berdialog dengan tokoh masyarakat dan kader posyandu, mengenali pantangan yang ada, lalu menyusun edukasi gizi yang menghormati kebiasaan setempat.",
+      "C": "Menyatakan di depan warga bahwa pantangan makanan tersebut tidak ilmiah agar para ibu hamil segera meninggalkan kebiasaan itu.",
+      "D": "Meminta bidan desa yang berasal dari daerah tersebut menyampaikan anjuran gizi kepada ibu hamil secara perorangan di rumah masing-masing.",
+      "E": "Membiarkan ibu hamil mengikuti pantangan tersebut karena kebiasaan setempat dianggap tidak perlu diluruskan oleh petugas kesehatan."
+    },
+    "hint": "Perubahan perilaku kesehatan lebih mudah tercapai bila nilai budaya setempat dipahami dan pemuka masyarakat dilibatkan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 2,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Menyampaikan anjuran yang benar, tetapi tanpa memahami konteks budaya sehingga pesan berisiko tidak diterima.",
+      "B": "Poin 5 — Menghargai budaya melalui dialog dengan tokoh masyarakat dan kader, lalu merancang edukasi yang selaras dengan kebiasaan setempat.",
+      "C": "Poin 2 — Merendahkan kebiasaan warga di depan umum dapat memicu penolakan dan merusak hubungan dengan masyarakat.",
+      "D": "Poin 4 — Memanfaatkan bidan yang dikenal warga, tetapi pendekatan perorangan tidak melibatkan tokoh masyarakat sehingga dukungan sosial lemah.",
+      "E": "Poin 1 — Membiarkan risiko gizi ibu hamil tanpa edukasi bertentangan dengan tanggung jawab petugas kesehatan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Harmonis Sosial Budaya Penyuluhan BKN"
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-konsumsi-ibadah-001",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Harmonis' (menghargai perbedaan dan membangun lingkungan kerja yang kondusif), hierarki skor 5 > 4 > 3 > 2 > 1. E (skor 5) mensurvei kebutuhan peserta lebih dulu, menyediakan pilihan menu beragam, dan menyisipkan jeda ibadah pada rundown; C (skor 4) menyediakan pilihan menu tetapi berdasarkan dugaan tanpa menanyakan kebutuhan; A (skor 3) mengutamakan mayoritas dan membebankan penyesuaian kepada pegawai lain; B (skor 2) mengabaikan kebutuhan ibadah demi ketepatan waktu; D (skor 1) mengecualikan pegawai dari acara.",
+    "stem": "Anda adalah ketua panitia pertemuan tahunan sebuah dinas yang pegawainya berasal dari beragam agama, suku, dan memiliki kebutuhan makanan yang berbeda. Acara berlangsung seharian penuh dan mencakup waktu salat serta ibadah lainnya. Panitia harus menetapkan menu konsumsi dan rundown acara. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Menyediakan menu konsumsi yang umum diterima mayoritas pegawai dan mempersilakan pegawai lain membawa makanan sendiri bila diperlukan.",
+      "B": "Menetapkan satu jenis menu dan rundown acara tanpa jeda ibadah agar acara dapat selesai tepat waktu sesuai rencana awal panitia.",
+      "C": "Menyediakan beberapa pilihan menu konsumsi berdasarkan kebiasaan yang Anda ketahui tanpa menanyakan kebutuhan peserta terlebih dahulu.",
+      "D": "Meminta pegawai yang memiliki kebutuhan khusus untuk tidak menghadiri acara agar persiapan panitia tidak menjadi rumit.",
+      "E": "Mensurvei kebutuhan peserta lebih dulu, menyediakan pilihan menu yang beragam, dan menyisipkan jeda ibadah pada rundown acara."
+    },
+    "hint": "Menghargai perbedaan berarti kebutuhan setiap peserta ditanyakan dan diakomodasi sejak tahap perencanaan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 1,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Menyediakan menu yang umum, tetapi membebankan penyesuaian kepada pegawai yang berbeda kebutuhan.",
+      "B": "Poin 2 — Mengutamakan ketepatan waktu dan menyeragamkan menu sehingga mengabaikan kebutuhan ibadah dan makanan peserta.",
+      "C": "Poin 4 — Menyediakan pilihan menu secara proaktif, tetapi berdasarkan dugaan sehingga kebutuhan sebenarnya dapat terlewat.",
+      "D": "Poin 1 — Mengecualikan pegawai dari acara bertentangan dengan sikap inklusif dan saling menghargai.",
+      "E": "Poin 5 — Menggali kebutuhan peserta secara langsung dan mengakomodasi perbedaan melalui pilihan menu serta jeda ibadah pada rundown."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Harmonis Sosial Budaya Acara Kedinasan BKN"
+    }
+  },
+  {
+    "slug": "tkp-tik-akun-bersama-001",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada prinsip keamanan informasi dalam Perpres No. 95 Tahun 2018 tentang SPBE serta nilai BerAKHLAK 'Akuntabel', akun bersama dengan kata sandi yang terlihat membuat aktivitas tidak dapat ditelusuri kepada individu. Hierarki skor 5 > 4 > 3 > 2 > 1: B (skor 5) mengusulkan akun terpisah per pegawai beserta kebijakan kata sandi dan menghapus catatan kata sandi; D (skor 4) mengurangi paparan kata sandi tetapi akun tetap dipakai bersama; A (skor 3) memperkuat kata sandi tetapi membagikannya lewat grup obrolan dan tetap berbagi akun; C (skor 2) membiarkan risiko; E (skor 1) menyebarkan kata sandi kepada pegawai magang.",
+    "stem": "Anda adalah staf Dinas Komunikasi dan Informatika Kabupaten Banyumas. Seluruh anggota tim di unit Anda memakai satu akun bersama untuk aplikasi pelaporan kinerja, dan kata sandinya dicatat pada kertas yang ditempel di monitor. Seorang pegawai magang baru akan bergabung pekan depan. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengganti kata sandi akun bersama menjadi lebih kuat dan memberi tahu rekan satu tim melalui grup WhatsApp unit.",
+      "B": "Mengusulkan kepada atasan pembuatan akun terpisah bagi setiap pegawai beserta kebijakan kata sandi, dan menghapus catatan kata sandi dari monitor.",
+      "C": "Membiarkan kondisi tersebut karena kata sandi hanya terlihat oleh pegawai di ruangan dan belum pernah ada penyalahgunaan sebelumnya.",
+      "D": "Menutup catatan kata sandi pada monitor dengan kertas dan mengingatkan rekan agar tidak menyebutkannya kepada pihak di luar unit.",
+      "E": "Membagikan kata sandi akun bersama kepada pegawai magang agar mereka dapat membantu menginput data tanpa menunggu pembuatan akun."
+    },
+    "hint": "Akuntabilitas penggunaan sistem menuntut setiap tindakan dapat ditelusuri kepada pengguna yang memiliki akun sendiri.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 2,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Kata sandi yang lebih kuat membantu, tetapi akun tetap dipakai bersama dan dibagikan melalui grup obrolan sehingga jejak penggunaan tidak dapat ditelusuri.",
+      "B": "Poin 5 — Menyelesaikan akar masalah dengan akun individual dan kebijakan kata sandi, sekaligus segera menghilangkan paparan kata sandi di monitor.",
+      "C": "Poin 2 — Membiarkan risiko karena belum ada penyalahgunaan, padahal kerentanan sudah nyata dan akan bertambah dengan pegawai baru.",
+      "D": "Poin 4 — Mengurangi paparan kata sandi dan mengingatkan rekan, tetapi akun tetap dipakai bersama sehingga akuntabilitas individu belum terwujud.",
+      "E": "Poin 1 — Membagikan kata sandi kepada pegawai magang memperluas akses tanpa kendali dan melanggar keamanan informasi."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Akuntabel Keamanan Akun TIK BKN"
+    }
+  },
+  {
+    "slug": "tkp-anti-radikalisme-rumah-ibadah-001",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada Pasal 29 ayat (2) UUD NRI 1945 (negara menjamin kemerdekaan tiap penduduk untuk memeluk agama dan beribadat menurut agamanya), UU No. 20 Tahun 2023 tentang ASN, serta nilai BerAKHLAK 'Harmonis' dan 'Loyal', hierarki skor 5 > 4 > 3 > 2 > 1. A (skor 5) meluruskan dengan santun berdasarkan jaminan konstitusi, mengarahkan keberatan ke forum resmi, dan melapor bila ada ancaman kekerasan; D (skor 4) menempuh musyawarah tetapi tanpa meluruskan dasar hukumnya; C (skor 3) menyampaikan pendapat namun meninggalkan pertemuan tanpa solusi; B (skor 2) menghindar; E (skor 1) ikut mendukung ajakan yang bertentangan dengan konstitusi.",
+    "stem": "Anda adalah ASN yang tinggal di sebuah perumahan di Kota Bekasi. Dalam pertemuan warga, beberapa tetangga mengajak seluruh warga menghalangi secara paksa pembangunan rumah ibadah milik kelompok warga lain yang telah mengurus izin. Suasana pertemuan memanas dan beberapa warga mulai menyatakan dukungan. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengingatkan warga secara santun bahwa kebebasan beribadah dijamin konstitusi, mengarahkan keberatan ke forum resmi, dan melapor kepada aparat bila ada ancaman.",
+      "B": "Menghindari pertemuan tersebut dan tidak ikut campur karena persoalan rumah ibadah dianggap urusan warga dan pemuka agama setempat.",
+      "C": "Menyampaikan pendapat pribadi bahwa tindakan menghalangi pembangunan tidak dibenarkan, lalu meninggalkan pertemuan tanpa menawarkan penyelesaian.",
+      "D": "Meminta ketua RT memimpin musyawarah ulang bersama pengurus kedua belah pihak tanpa menyinggung dasar hukum jaminan kebebasan beribadah.",
+      "E": "Ikut mendukung ajakan tersebut agar tidak dikucilkan oleh warga sekitar dan tetap dianggap sebagai bagian dari masyarakat setempat."
+    },
+    "hint": "Sikap ASN dalam persoalan intoleransi harus bersandar pada jaminan konstitusi dan penyelesaian melalui jalur yang sah.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 2,
+      "C": 3,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Meluruskan secara santun dengan dasar konstitusi, mengarahkan perbedaan ke forum resmi, dan melindungi warga melalui pelaporan bila ada ancaman kekerasan.",
+      "B": "Poin 2 — Menghindar dari persoalan intoleransi berarti membiarkan ajakan yang bertentangan dengan jaminan kebebasan beribadah berkembang.",
+      "C": "Poin 3 — Menyatakan sikap yang benar, tetapi meninggalkan pertemuan tanpa tindak lanjut sehingga ajakan tetap berjalan.",
+      "D": "Poin 4 — Mengupayakan musyawarah yang konstruktif, tetapi tidak meluruskan dasar hukum sehingga pembahasan dapat tetap condong ke penolakan.",
+      "E": "Poin 1 — Ikut mendukung penghalangan rumah ibadah bertentangan dengan UUD NRI 1945 dan kewajiban ASN menjaga persatuan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Harmonis dan Loyal Anti-Radikalisme BKN"
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-benturan-kepentingan-001",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Mengacu pada Perpres No. 16 Tahun 2018 sebagaimana diubah dengan Perpres No. 12 Tahun 2021 tentang Pengadaan Barang/Jasa Pemerintah (etika menghindari dan mencegah pertentangan kepentingan) serta nilai BerAKHLAK 'Akuntabel', hierarki skor 5 > 4 > 3 > 2 > 1. D (skor 5) melaporkan benturan kepentingan secara tertulis dan mengundurkan diri dari penilaian perusahaan tersebut; E (skor 4) menghindari penilaian tetapi tanpa pernyataan tertulis yang dapat dipertanggungjawabkan; A (skor 3) berniat objektif tetapi menyembunyikan hubungan keluarga; B (skor 2) mengungkapkan hanya secara lisan dan tetap menilai; C (skor 1) membocorkan kriteria penilaian kepada kerabat.",
+    "stem": "Anda adalah anggota Kelompok Kerja Pemilihan pada Dinas Pekerjaan Umum Kabupaten Magetan. Saat membuka daftar peserta tender pengadaan jalan lingkungan, Anda menyadari bahwa salah satu perusahaan peserta dimiliki oleh kakak ipar Anda. Ketua Pokja belum mengetahui hubungan tersebut. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Tetap mengevaluasi seluruh peserta tender secara objektif sesuai kriteria dan tidak membahas hubungan keluarga tersebut dengan siapa pun.",
+      "B": "Menyampaikan secara lisan kepada rekan Pokja bahwa perusahaan itu milik kerabat, lalu tetap ikut menilai dokumen penawarannya.",
+      "C": "Memberi tahu kakak ipar mengenai kriteria penilaian agar perusahaannya dapat menyiapkan dokumen penawaran dengan lebih baik.",
+      "D": "Melaporkan benturan kepentingan secara tertulis kepada atasan, lalu mengundurkan diri dari penilaian penawaran perusahaan tersebut sesuai ketentuan pengadaan.",
+      "E": "Meminta ketua Pokja menugaskan anggota lain menilai dokumen perusahaan tersebut, tanpa membuat pernyataan tertulis mengenai hubungan keluarga."
+    },
+    "hint": "Profesionalisme menuntut benturan kepentingan diungkapkan secara resmi dan dihindari, bukan sekadar diyakini tidak memengaruhi penilaian.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 1,
+      "D": 5,
+      "E": 4
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Berniat objektif, tetapi menyembunyikan hubungan keluarga sehingga potensi benturan kepentingan tidak transparan.",
+      "B": "Poin 2 — Pengungkapan lisan tanpa pengunduran diri tetap membiarkan Anda menilai perusahaan kerabat sehingga objektivitas diragukan.",
+      "C": "Poin 1 — Membocorkan kriteria penilaian kepada kerabat merupakan pelanggaran integritas dan merusak persaingan yang sehat.",
+      "D": "Poin 5 — Mengungkapkan benturan kepentingan secara tertulis dan menarik diri dari penilaian, sesuai etika pengadaan dan prinsip akuntabilitas.",
+      "E": "Poin 4 — Menghindari penilaian perusahaan kerabat melalui penugasan ulang, tetapi tanpa pernyataan tertulis sehingga akuntabilitas tidak terdokumentasi."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Akuntabel Profesionalisme Benturan Kepentingan BKN"
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-tugas-bertabrakan-001",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Berdasarkan nilai BerAKHLAK 'Kompeten' (melaksanakan tugas dengan kualitas terbaik) dan 'Akuntabel' (bertanggung jawab atas hasil kerja serta transparan terhadap kemajuan), hierarki skor 5 > 4 > 3 > 2 > 1. C (skor 5) menyampaikan kedua tugas dan tenggatnya kepada atasan langsung, menyepakati prioritas, lalu melaporkan kemajuan; D (skor 4) transparan terhadap kedua atasan tetapi mengalihkan beban koordinasi kepada mereka; A (skor 3) menetapkan prioritas berdasarkan jabatan tanpa komunikasi; B (skor 2) membagi waktu tanpa transparansi sehingga mutu keduanya berisiko; E (skor 1) menolak tugas tanpa penjelasan.",
+    "stem": "Anda adalah staf Biro Perencanaan sebuah kementerian. Pada hari yang sama, Anda menerima dua tugas mendesak dari dua atasan berbeda, yaitu Kepala Bagian Anda dan Kepala Biro lain, dengan tenggat yang sama pada akhir pekan ini. Anda tidak dapat menyelesaikan keduanya dengan mutu baik secara bersamaan. Tindakan Anda yang paling tepat adalah...",
+    "options": {
+      "A": "Mengerjakan tugas dari atasan yang lebih tinggi jabatannya terlebih dahulu dan menyelesaikan tugas lainnya apabila waktu masih memungkinkan.",
+      "B": "Membagi waktu sama rata untuk kedua tugas tanpa memberi tahu siapa pun agar keduanya dapat dikerjakan sekaligus pada hari yang sama.",
+      "C": "Menyampaikan kedua tugas dan tenggatnya kepada atasan langsung, menyepakati urutan prioritas bersama, lalu mengerjakan sesuai kesepakatan dan melaporkan kemajuannya.",
+      "D": "Menyampaikan kepada masing-masing atasan bahwa tenggat tugas bertabrakan dan meminta mereka berdiskusi untuk menentukan tugas yang didahulukan.",
+      "E": "Menolak salah satu tugas dengan alasan beban kerja sudah penuh tanpa menjelaskan kondisi tugas yang sedang dikerjakan."
+    },
+    "hint": "Prioritas pekerjaan yang bertabrakan perlu ditetapkan secara transparan melalui jalur atasan langsung dan dipantau hingga selesai.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Ada dasar penetapan prioritas, tetapi hanya berdasarkan jabatan tanpa komunikasi sehingga atasan lain tidak mengetahui kendala.",
+      "B": "Poin 2 — Membagi waktu tanpa transparansi berisiko membuat kedua tugas tidak bermutu dan tidak seorang pun mengetahui kondisinya.",
+      "C": "Poin 5 — Transparan kepada atasan langsung, prioritas disepakati bersama, dan kemajuan dilaporkan secara akuntabel sehingga mutu terjaga.",
+      "D": "Poin 4 — Transparan kepada kedua atasan, tetapi mengalihkan beban koordinasi kepada mereka tanpa usulan prioritas dari Anda.",
+      "E": "Poin 1 — Menolak tugas tanpa penjelasan mencerminkan sikap menghindari tanggung jawab dan tidak membantu atasan mengambil keputusan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi BerAKHLAK Kompeten dan Akuntabel Profesionalisme Prioritas Tugas BKN"
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-akomodasi-komunikasi-011",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Berorientasi Pelayanan dalam ASN BerAKHLAK. Hierarki operasional 5 > 4 > 3 > 2 > 1 mengutamakan aksesibilitas dan penyelesaian kebutuhan warga secara langsung (5), kemudian dukungan yang baik tetapi belum sepenuhnya menyelesaikan kendala (4), bantuan terbatas (3), respons administratif tanpa akomodasi memadai (2), dan pengabaian kebutuhan warga (1).",
+    "stem": "Anda bertugas pada loket pelayanan administrasi di sebuah kantor pemerintah. Seorang warga penyandang tunarungu datang untuk mengurus dokumen penting, tetapi petugas loket tidak memahami bahasa isyarat. Warga tersebut kesulitan memahami penjelasan prosedur dan tenggat pengurusan. Bagaimana Anda sebaiknya bertindak?",
+    "options": {
+      "A": "Menyediakan komunikasi tertulis yang jelas, mengupayakan bantuan penerjemah yang tersedia, dan memastikan warga memahami seluruh tahapan pelayanan.",
+      "B": "Memberikan lembar panduan prosedur dan meminta warga membacanya terlebih dahulu sebelum melanjutkan pengurusan dokumen.",
+      "C": "Meminta bantuan pegawai lain yang mengenal warga tersebut untuk menjelaskan tahapan pelayanan secara informal.",
+      "D": "Menjelaskan bahwa pelayanan mengikuti prosedur standar dan menyarankan warga datang bersama pendamping pada kunjungan berikutnya.",
+      "E": "Meminta warga menunggu sampai petugas yang mampu berkomunikasi dengan bahasa isyarat tersedia tanpa memberikan perkiraan waktu."
+    },
+    "hint": "Pertimbangkan akses komunikasi, kesetaraan pelayanan, serta kepastian informasi bagi seluruh masyarakat.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 4,
+      "C": 3,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Menggabungkan komunikasi yang aksesibel, bantuan yang sesuai, dan verifikasi pemahaman sehingga warga dapat memperoleh pelayanan setara.",
+      "B": "Poin 4 — Panduan tertulis membantu pemahaman mandiri, tetapi belum tentu cukup untuk menjawab pertanyaan dan memastikan prosedur dipahami.",
+      "C": "Poin 3 — Bantuan pegawai lain dapat membantu, tetapi belum memastikan tersedianya dukungan komunikasi yang tepat dan konsisten.",
+      "D": "Poin 2 — Informasi prosedur tetap diberikan, tetapi pemohon dibebani kewajiban membawa pendamping tanpa upaya akomodasi dari instansi.",
+      "E": "Poin 1 — Membuat warga menunggu tanpa kepastian dan tidak menawarkan alternatif komunikasi yang dapat digunakan segera."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-koreksi-pembayaran-012",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Berorientasi Pelayanan. Skor 5 mengutamakan verifikasi berbasis bukti, penghentian potensi penagihan ganda, koordinasi koreksi resmi, dan pemberian nomor pelacakan tindak lanjut. Skor 4 mencatat keluhan dan memberi kontak bagian keuangan secara proaktif meski belum memastikan pemeriksaan berjalan, skor 3 memberi penjelasan sistem dan mengarahkan pasien menghubungi bagian keuangan keesokan harinya tanpa tindak lanjut awal, skor 2 menunda pemeriksaan hingga akhir hari tanpa kepastian, dan skor 1 mengabaikan indikasi kerugian pemohon.",
+    "stem": "Di loket pembayaran sebuah rumah sakit daerah, seorang pasien menunjukkan bukti bahwa biaya administrasi yang sama telah ditagihkan dua kali. Petugas sebelumnya menyatakan transaksi sudah sesuai sistem, tetapi pasien membawa dua bukti pembayaran dengan nomor layanan yang sama. Sebagai petugas penanggung jawab loket, apa tindakan Anda?",
+    "options": {
+      "A": "Menjelaskan bahwa sistem pembayaran biasanya telah diverifikasi dan meminta pasien menghubungi bagian keuangan pada hari kerja berikutnya.",
+      "B": "Mencatat keluhan pasien dan menyerahkan nomor kontak bagian keuangan agar pasien dapat meminta pemeriksaan transaksi lebih lanjut.",
+      "C": "Meminta pasien menunggu sampai seluruh transaksi pada hari tersebut selesai diproses sebelum dilakukan pemeriksaan terhadap bukti pembayarannya.",
+      "D": "Memverifikasi kedua bukti, menghentikan potensi penagihan ganda, berkoordinasi untuk koreksi resmi, dan memberikan nomor pelacakan pengaduan.",
+      "E": "Menyarankan pasien mengabaikan salah satu bukti pembayaran selama tidak ada tagihan tambahan yang muncul pada kunjungan berikutnya."
+    },
+    "hint": "Nilai tindakan berdasarkan tanggung jawab terhadap bukti transaksi dan kepastian penyelesaian keluhan masyarakat.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 2,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Memberikan penjelasan yang cukup, tetapi belum menindaklanjuti bukti transaksi dan belum menyediakan mekanisme koreksi.",
+      "B": "Poin 4 — Mengarahkan keluhan ke unit yang berwenang merupakan tindakan proaktif, tetapi belum memastikan proses penyelesaian berjalan.",
+      "C": "Poin 2 — Penundaan tanpa pemeriksaan awal memperpanjang ketidakpastian dan tidak menunjukkan respons terhadap bukti yang sudah tersedia.",
+      "D": "Poin 5 — Memastikan pemeriksaan berbasis bukti, mencegah kesalahan berulang, dan memberikan kepastian tindak lanjut sesuai prosedur keuangan.",
+      "E": "Poin 1 — Mengabaikan indikasi kerugian masyarakat dan membebankan risiko kesalahan transaksi kepada pasien."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-sinkronisasi-proyek-infrastruktur-011",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kolaboratif dalam ASN BerAKHLAK. Skor 5 menekankan fasilitasi koordinasi teknis lintas instansi, penyusunan jadwal terpadu, pembagian tanggung jawab, dan informasi pengaturan akses kepada masyarakat. Skor 4 melaporkan potensi benturan kepada pimpinan untuk mencegah tumpang tindih tetapi masih pasif menunggu keputusan alih-alih menginisiasi dialog teknis, skor 3 meminta penyesuaian jadwal untuk menghindari benturan namun secara sepihak tanpa mempertimbangkan kebutuhan teknis mitra, skor 2 tetap melanjutkan jadwal internal secara bersamaan tanpa koordinasi sehingga mengganggu akses dan berisiko bongkar ulang, dan skor 1 mengaspal lebih dulu sebelum pekerjaan pipa sehingga memastikan pembongkaran ulang jalan baru.",
+    "stem": "Anda menjadi anggota tim perencanaan rehabilitasi jalan kabupaten. Jadwal pengaspalan yang disusun dinas pekerjaan umum ternyata bertepatan dengan pekerjaan penggantian pipa air oleh perusahaan daerah. Jika kedua proyek berjalan bersamaan, akses masyarakat akan terganggu dan sebagian pekerjaan berpotensi harus dibongkar kembali. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Melanjutkan pekerjaan sesuai jadwal dinas karena anggaran dan target penyelesaian telah ditetapkan sebelumnya.",
+      "B": "Memfasilitasi koordinasi teknis kedua pihak, menyusun jadwal terpadu, membagi tanggung jawab, dan menyampaikan pengaturan akses kepada masyarakat.",
+      "C": "Meminta perusahaan daerah mengubah jadwal pekerjaan pipanya agar pekerjaan pengaspalan tidak mengalami keterlambatan.",
+      "D": "Menyampaikan potensi benturan pekerjaan kepada pimpinan dan menunggu keputusan mengenai instansi yang harus mengalah.",
+      "E": "Menyelesaikan pekerjaan pengaspalan terlebih dahulu dan meminta perusahaan daerah menyesuaikan pekerjaan pipanya setelah jalan selesai."
+    },
+    "hint": "Perhatikan dampak ketergantungan pekerjaan dan manfaat penyelarasan rencana antarorganisasi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 5,
+      "C": 3,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Tetap berjalan sesuai jadwal internal tanpa koordinasi mengabaikan ketergantungan proyek dan berisiko mengganggu akses serta memicu bongkar ulang.",
+      "B": "Poin 5 — Menghasilkan sinergi melalui koordinasi teknis, jadwal terpadu, pembagian tanggung jawab, dan komunikasi publik yang jelas.",
+      "C": "Poin 3 — Berupaya mencegah benturan jadwal dengan meminta penyesuaian, tetapi dilakukan sepihak tanpa membahas kebutuhan teknis perusahaan daerah.",
+      "D": "Poin 4 — Eskalasi kepada pimpinan mencegah tumpang tindih pekerjaan, namun belum mengupayakan penyelesaian kolaboratif langsung di tingkat teknis.",
+      "E": "Poin 1 — Mengaspal lebih dulu sebelum penggantian pipa memastikan pekerjaan jalan baru harus dibongkar kembali dan menimbulkan pemborosan besar."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-kolaborasi-pelatihan-012",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kolaboratif. Skor 5 mengutamakan koordinasi aktif bersama mitra untuk menyesuaikan agenda, membagi pengisian materi, dan menyepakati tindak lanjut sesi tertunda. Skor 4 berinisiatif mencari pengganti internal dan melanjutkan agenda yang memungkinkan tetapi belum memanfaatkan kolaborasi dengan perguruan tinggi mitra, skor 3 menjalankan materi tersisa tanpa menyesuaikan susunan acara sehingga mutu pembelajaran tidak terjaga, skor 2 menunda seluruh kegiatan tanpa solusi bagi peserta yang sudah hadir, dan skor 1 menyampaikan pembatalan dan pasif menunggu keputusan pimpinan tanpa upaya koordinasi.",
+    "stem": "Anda menjadi koordinator pelatihan peningkatan kapasitas aparatur yang melibatkan perguruan tinggi dan beberapa instansi daerah. Dua narasumber utama membatalkan kehadiran secara bersamaan karena perubahan jadwal mendadak. Para peserta sudah melakukan perjalanan dari berbagai wilayah dan anggaran kegiatan telah digunakan. Tindakan paling tepat adalah ...",
+    "options": {
+      "A": "Menunda seluruh kegiatan dan meminta peserta kembali pada tanggal baru setelah seluruh narasumber dapat hadir.",
+      "B": "Meminta panitia menjalankan materi yang tersedia tanpa mengubah susunan acara agar kegiatan tetap dianggap terlaksana.",
+      "C": "Menyampaikan pembatalan kepada peserta dan menunggu keputusan pimpinan mengenai kelanjutan program pelatihan.",
+      "D": "Menghubungi narasumber pengganti dari lingkungan instansi sendiri dan melanjutkan agenda yang masih dapat dilaksanakan.",
+      "E": "Berkoordinasi dengan mitra untuk menyesuaikan agenda, membagi pengisian materi, dan menyepakati tindak lanjut bagi sesi yang tertunda."
+    },
+    "hint": "Pertimbangkan bagaimana tujuan kegiatan tetap tercapai melalui penyesuaian peran bersama para pihak.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 1,
+      "D": 4,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Penjadwalan ulang dapat menjadi alternatif, tetapi mengabaikan kebutuhan peserta yang telah hadir dan belum mengeksplorasi solusi bersama.",
+      "B": "Poin 3 — Menjaga kegiatan tetap berjalan, tetapi belum memastikan materi yang disampaikan memenuhi tujuan pembelajaran.",
+      "C": "Poin 1 — Menyerahkan masalah tanpa inisiatif koordinasi memperbesar ketidakpastian bagi peserta dan mitra.",
+      "D": "Poin 4 — Mencari pengganti dan melanjutkan agenda menunjukkan inisiatif, tetapi ruang kolaborasi dengan perguruan tinggi belum dimanfaatkan sepenuhnya.",
+      "E": "Poin 5 — Mengintegrasikan sumber daya para mitra, menyepakati penyesuaian, serta menjaga keberlanjutan dan kualitas kegiatan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-ruang-publik-aspirasi-007",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Harmonis dalam ASN BerAKHLAK. Skor 5 mencerminkan penghormatan terhadap keberagaman aspirasi, partisipasi yang seimbang, dan pencarian solusi yang adil. Skor 4 menerima perbedaan tetapi belum menjamin keterwakilan kelompok, skor 3 menampung sebagian aspirasi, skor 2 mengikuti suara mayoritas tanpa evaluasi, dan skor 1 memaksakan kepentingan kelompok tertentu.",
+    "stem": "Anda menjadi fasilitator musyawarah warga untuk menentukan penggunaan sebuah gedung milik pemerintah daerah. Kelompok pemuda menginginkan ruang olahraga dan kegiatan kreatif, sedangkan kelompok lanjut usia mengusulkan ruang pertemuan dan aktivitas sosial. Kedua pihak mulai saling menyalahkan karena merasa kebutuhannya kurang diperhatikan. Tindakan Anda adalah ...",
+    "options": {
+      "A": "Mengutamakan usulan kelompok dengan jumlah anggota paling banyak agar keputusan dapat segera ditetapkan.",
+      "B": "Meminta masing-masing kelompok menyampaikan usulan tertulis dan menyerahkan keputusan akhir kepada pimpinan wilayah.",
+      "C": "Memfasilitasi dialog yang setara, memetakan kebutuhan kedua kelompok, dan merancang penggunaan ruang berdasarkan kapasitas serta jadwal bersama.",
+      "D": "Membagi gedung menjadi dua bagian tanpa mendiskusikan kebutuhan fasilitas dan jadwal penggunaannya lebih lanjut.",
+      "E": "Menetapkan penggunaan gedung sesuai fungsi awal agar perbedaan aspirasi masyarakat tidak memperlambat keputusan."
+    },
+    "hint": "Cari pendekatan yang menjaga penghormatan terhadap perbedaan sekaligus mengupayakan kepentingan bersama.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 4,
+      "C": 5,
+      "D": 3,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menggunakan suara mayoritas tanpa dialog dapat membuat kebutuhan kelompok lain tidak memperoleh perhatian yang layak.",
+      "B": "Poin 4 — Memberi kesempatan menyampaikan aspirasi menunjukkan keterbukaan, tetapi belum memfasilitasi penyelesaian perbedaan secara langsung.",
+      "C": "Poin 5 — Memastikan partisipasi yang seimbang, memahami kebutuhan, dan menghasilkan pengaturan fasilitas yang mempertimbangkan seluruh pengguna.",
+      "D": "Poin 3 — Pembagian ruang merupakan kompromi awal, tetapi belum mempertimbangkan kelayakan fasilitas dan kebutuhan operasional.",
+      "E": "Poin 1 — Memaksakan kondisi awal tanpa mendengarkan aspirasi berpotensi memperkuat konflik dan ketidakpuasan masyarakat."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-pengungsian-kebutuhan-komunitas-008",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Harmonis. Skor 5 menekankan pendataan kebutuhan konsumsi warga, penyiapan alternatif pangan yang tersedia, dan pelibatan perwakilan warga dalam distribusi secara inklusif. Skor 4 memberi keleluasaan warga membawa makanan sendiri tetapi belum menjamin akses setara bagi mereka yang tidak memiliki alternatif, skor 3 menyediakan menu seragam demi kesederhanaan tanpa mengakomodasi keragaman kebiasaan, skor 2 hanya memprioritaskan kelompok terbanyak sehingga kebutuhan minoritas terabaikan, dan skor 1 menolak penyesuaian dengan dalih kondisi darurat.",
+    "stem": "Anda ditugaskan mengoordinasikan distribusi konsumsi di tempat pengungsian bencana. Warga berasal dari latar belakang budaya yang beragam dan memiliki kebiasaan konsumsi berbeda. Sebagian warga mengeluhkan menu yang disediakan, sementara persediaan bahan pangan terbatas. Langkah yang paling tepat adalah ...",
+    "options": {
+      "A": "Menyediakan menu yang sama bagi semua warga agar distribusi lebih sederhana dan tidak menimbulkan perbedaan perlakuan.",
+      "B": "Mendata kebutuhan konsumsi warga, menyiapkan alternatif pangan yang tersedia, dan melibatkan perwakilan warga dalam distribusi.",
+      "C": "Memberikan kesempatan kepada warga untuk membawa makanan sendiri apabila tidak cocok dengan menu dari posko pengungsian.",
+      "D": "Mengutamakan permintaan kelompok warga terbanyak agar bahan pangan yang terbatas dapat didistribusikan secara efisien.",
+      "E": "Meminta warga menerima menu yang tersedia karena keterbatasan kondisi darurat tidak memungkinkan penyesuaian kebutuhan."
+    },
+    "hint": "Pertimbangkan prinsip kesetaraan yang tidak selalu berarti memberikan perlakuan identik kepada setiap orang.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 4,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Keseragaman membantu efisiensi, tetapi belum tentu menghormati kebutuhan konsumsi yang berbeda di antara para pengungsi.",
+      "B": "Poin 5 — Menghasilkan distribusi yang lebih inklusif melalui pemetaan kebutuhan, penggunaan sumber daya secara realistis, dan partisipasi warga.",
+      "C": "Poin 4 — Memberikan ruang pilihan kepada warga, tetapi belum menjamin akses pangan yang setara bagi mereka yang tidak memiliki alternatif.",
+      "D": "Poin 2 — Efisiensi distribusi diperhatikan, tetapi kebutuhan kelompok minoritas berpotensi terabaikan.",
+      "E": "Poin 1 — Mengabaikan aspirasi dan kebutuhan warga tanpa mengupayakan penyesuaian yang masih memungkinkan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-tik-insiden-salah-kirim-data-009",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Adaptif dengan tanggung jawab keamanan informasi. Skor 5 mengutamakan mitigasi insiden, pelaporan cepat, dokumentasi, dan pencegahan dampak lanjutan. Skor 4 melakukan penanganan awal tetapi belum mencakup seluruh prosedur, skor 3 memberi tahu pihak terkait secara terbatas, skor 2 hanya mencoba memperbaiki kesalahan secara mandiri, dan skor 1 menyembunyikan insiden.",
+    "stem": "Saat mengirimkan laporan pekerjaan, Anda secara tidak sengaja mengirimkan lampiran berisi data pribadi masyarakat kepada alamat surel eksternal yang bukan penerima yang dimaksud. Anda baru menyadari kesalahan tersebut beberapa menit setelah pengiriman. Apa tindakan paling tepat?",
+    "options": {
+      "A": "Mengirimkan surel tambahan yang meminta penerima salah mengabaikan pesan sebelumnya dan menghapus lampiran.",
+      "B": "Menghapus salinan surel dari kotak keluar dan membuat ulang laporan menggunakan alamat penerima yang benar.",
+      "C": "Menunggu respons penerima yang salah untuk memastikan apakah lampiran sudah dibuka sebelum melaporkan kejadian tersebut.",
+      "D": "Melakukan upaya penarikan jika tersedia, segera melapor kepada pengelola keamanan informasi, dan mendokumentasikan insiden sesuai prosedur.",
+      "E": "Memberi tahu atasan langsung secara informal dan meminta arahan sebelum melakukan tindakan lain terhadap surel tersebut."
+    },
+    "hint": "Perhatikan pentingnya pengendalian dampak, transparansi insiden, dan pemenuhan prosedur keamanan informasi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 1,
+      "D": 5,
+      "E": 4
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Meminta penghapusan dapat membantu, tetapi belum memastikan bahwa insiden ditangani dan terdokumentasi melalui mekanisme keamanan resmi.",
+      "B": "Poin 2 — Memperbaiki laporan untuk penggunaan berikutnya tidak mengendalikan data yang sudah terkirim ke pihak yang salah.",
+      "C": "Poin 1 — Menunda pelaporan memperbesar risiko paparan data dan menghambat tindakan mitigasi oleh pihak berwenang.",
+      "D": "Poin 5 — Menggabungkan pengendalian awal, eskalasi tepat waktu, dan dokumentasi sehingga risiko kebocoran dapat ditangani secara sistematis.",
+      "E": "Poin 4 — Melibatkan atasan merupakan langkah bertanggung jawab, tetapi perlu dilanjutkan dengan pelaporan segera kepada pengelola keamanan informasi."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-tik-kelangsungan-layanan-offline-010",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Adaptif dalam ASN BerAKHLAK. Skor 5 mengutamakan keberlanjutan pelayanan melalui prosedur alternatif yang disetujui, pengamanan catatan, dan sinkronisasi setelah sistem pulih. Skor 4 menggunakan prosedur alternatif tetapi belum menata seluruh proses pencatatan, skor 3 mempertahankan layanan secara terbatas, skor 2 menghentikan layanan tanpa mengevaluasi alternatif, dan skor 1 menggunakan teknologi tidak aman.",
+    "stem": "Sistem informasi pada sebuah kantor pelayanan daerah tidak dapat diakses selama beberapa jam karena gangguan pusat data. Masyarakat tetap membutuhkan surat keterangan yang harus diterbitkan pada hari itu. Instansi telah memiliki prosedur pelayanan darurat yang memungkinkan pencatatan sementara secara luring. Apa tindakan yang paling tepat?",
+    "options": {
+      "A": "Menghentikan seluruh pelayanan sampai pusat data kembali normal untuk menghindari perbedaan catatan transaksi.",
+      "B": "Mengaktifkan prosedur luring resmi, mencatat setiap transaksi dengan identitas dan nomor kendali, serta menyinkronkan data setelah sistem pulih.",
+      "C": "Meminta pegawai menyimpan data permohonan pada perangkat masing-masing agar pelayanan tetap berjalan selama gangguan.",
+      "D": "Mengutamakan permohonan yang dianggap mendesak dan menunda pencatatan administratif sampai aplikasi dapat digunakan kembali.",
+      "E": "Membagikan formulir kosong kepada masyarakat tanpa memberikan nomor kendali agar pengisian dokumen dapat dilakukan lebih cepat."
+    },
+    "hint": "Perhatikan bagaimana layanan dapat terus berjalan melalui mekanisme cadangan yang menjaga integritas dan keterlacakan data.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 5,
+      "C": 1,
+      "D": 4,
+      "E": 3
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menghindari ketidaksesuaian data, tetapi mengabaikan prosedur darurat yang tersedia dan menghentikan akses pelayanan.",
+      "B": "Poin 5 — Memanfaatkan mekanisme alternatif yang sah, menjaga keterlacakan transaksi, dan memastikan integrasi data setelah sistem normal.",
+      "C": "Poin 1 — Penyimpanan pada perangkat pribadi berpotensi menimbulkan kebocoran data dan menghilangkan kendali administratif.",
+      "D": "Poin 4 — Memprioritaskan kebutuhan mendesak membantu masyarakat, tetapi penundaan pencatatan dapat menimbulkan kehilangan informasi.",
+      "E": "Poin 3 — Formulir membantu pelayanan sementara, tetapi tanpa nomor kendali proses pelacakan dan pengawasan menjadi lemah."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-anti-radikalisme-evaluasi-mitra-pelatihan-011",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Loyal, yang mencakup komitmen terhadap Pancasila, UUD NRI 1945, NKRI, dan perlindungan persatuan bangsa. Skor 5 mengutamakan dokumentasi temuan, verifikasi objektif, dan pelaporan melalui mekanisme berwenang sebelum menetapkan kelayakan. Skor 4 menyampaikan keberatan dalam rapat seleksi dan melakukan eskalasi ke pimpinan meski belum disertai dokumentasi serta verifikasi resmi, skor 3 menunda penilaian untuk penelaahan ulang oleh tim tanpa pelaporan atau keberatan tegas, skor 2 sekadar meminta penghapusan bagian kontroversial tanpa memeriksa tujuan pelatihan lebih lanjut, dan skor 1 tetap menerima materi yang mengagungkan kekerasan hanya karena memenuhi administrasi.",
+    "stem": "Anda menjadi anggota tim seleksi penyedia pelatihan bagi aparatur. Dalam pemeriksaan materi salah satu calon penyedia, ditemukan bagian presentasi yang mengagungkan tindakan kekerasan terhadap kelompok tertentu dan mengajak peserta membenarkan penggunaan kekerasan untuk mencapai tujuan organisasi. Bagaimana Anda bertindak?",
+    "options": {
+      "A": "Menerima materi tersebut karena penyedia telah memenuhi persyaratan administrasi dan memiliki pengalaman pelatihan yang cukup.",
+      "B": "Meminta penyedia menghapus bagian materi yang kontroversial tanpa melakukan pemeriksaan lebih lanjut terhadap tujuan pelatihan.",
+      "C": "Menunda penilaian dan meminta seluruh anggota tim membaca kembali materi sebelum menyepakati keputusan seleksi.",
+      "D": "Menyampaikan keberatan dalam rapat seleksi dan meminta pimpinan menentukan apakah materi tersebut dapat digunakan.",
+      "E": "Mendokumentasikan temuan, melakukan verifikasi objektif, dan melaporkannya melalui mekanisme yang berwenang sebelum menetapkan kelayakan kerja sama."
+    },
+    "hint": "Bedakan perbedaan pendapat yang sah dari materi yang secara eksplisit membenarkan kekerasan dan menimbulkan risiko bagi persatuan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 1,
+      "B": 2,
+      "C": 3,
+      "D": 4,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 1 — Menerima materi yang membenarkan kekerasan hanya karena kelengkapan administrasi bertentangan dengan kewajiban menjaga persatuan dan keamanan.",
+      "B": "Poin 2 — Meminta penghapusan bagian kontroversial merupakan koreksi permukaan, tetapi belum memeriksa tujuan pelatihan maupun risiko paham kekerasan penyedia.",
+      "C": "Poin 3 — Menunda keputusan untuk penelaahan ulang tim menjaga kehati-hatian, namun belum menyampaikan keberatan tegas ataupun pelaporan melalui jalur berwenang.",
+      "D": "Poin 4 — Menyampaikan keberatan dalam rapat dan meminta keputusan pimpinan menunjukkan sikap tegas serta eskalasi awal, meski belum disertai dokumentasi dan verifikasi mekanisme resmi.",
+      "E": "Poin 5 — Mendokumentasikan temuan, melakukan verifikasi objektif, dan melapor melalui mekanisme berwenang menjaga akuntabilitas serta mencegah penyebaran kekerasan secara kelembagaan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-akurasi-capaian-kinerja-011",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kompeten dan Akuntabel. Skor 5 memastikan data sesuai bukti aktual, menjelaskan capaian dan pekerjaan tertunda secara transparan, serta menyusun rencana percepatan yang terukur. Skor 4 menolak manipulasi data laporan demi menjaga integritas meski belum disertai penjelasan konstruktif dan solusi, skor 3 menghindari pemalsuan angka dengan menunda penyusunan laporan tetapi mengorbankan ketepatan waktu pelaporan, skor 2 tetap mencantumkan angka 100% yang tidak sesuai realisasi meski diberi catatan proyeksi, dan skor 1 mengikuti arahan memalsukan capaian menjadi 100% tanpa dasar bukti aktual.",
+    "stem": "Anda bertugas menyusun laporan capaian kinerja triwulanan sebuah unit pemerintah. Data dari sistem menunjukkan bahwa target baru tercapai 92%, sedangkan atasan meminta Anda menuliskan 100% agar laporan unit terlihat memenuhi target evaluasi. Atasan beralasan bahwa sebagian pekerjaan akan selesai dalam beberapa hari berikutnya. Sikap yang paling tepat adalah ...",
+    "options": {
+      "A": "Mengikuti arahan atasan karena selisih capaian diperkirakan akan tertutup sebelum proses evaluasi selesai.",
+      "B": "Menolak permintaan tersebut tanpa memberikan penjelasan lebih lanjut agar tidak terlibat dalam perubahan data laporan.",
+      "C": "Memastikan angka sesuai bukti aktual, menjelaskan capaian dan pekerjaan tertunda, serta menyusun rencana percepatan yang terukur.",
+      "D": "Menunda penyusunan laporan sampai seluruh pekerjaan selesai agar angka capaian tidak perlu diperbaiki kemudian.",
+      "E": "Mencantumkan capaian 100% dengan catatan bahwa angka tersebut masih merupakan proyeksi penyelesaian pekerjaan."
+    },
+    "hint": "Perhatikan perbedaan antara hasil aktual, proyeksi, dan kewajiban menyampaikan informasi kinerja secara akuntabel.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 1,
+      "B": 4,
+      "C": 5,
+      "D": 3,
+      "E": 2
+    },
+    "optionRationales": {
+      "A": "Poin 1 — Mengubah capaian menjadi 100% berdasarkan perkiraan melanggar akuntabilitas dan integritas pelaporan kinerja.",
+      "B": "Poin 4 — Menolak pemalsuan data menjaga integritas laporan kinerja, meskipun belum dilengkapi penjelasan profesional dan rencana percepatan kerja.",
+      "C": "Poin 5 — Menjaga akurasi laporan berbasis bukti aktual sekaligus bersikap transparan dan menawarkan rencana percepatan yang terukur.",
+      "D": "Poin 3 — Menghindari pelaporan angka yang keliru, tetapi menunda penyusunan laporan melewati ketentuan waktu menghambat akuntabilitas pelaporan.",
+      "E": "Poin 2 — Penambahan catatan proyeksi tidak membenarkan pencantuman angka 100% ketika realisasi terverifikasi baru 92%."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-koreksi-dokumen-013",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Berorientasi Pelayanan dalam ASN BerAKHLAK. Urutan penilaian 5 > 4 > 3 > 2 > 1 mengutamakan penyelesaian kebutuhan masyarakat secara cepat, akurat, dan transparan. Tindakan terbaik harus memeriksa bukti, menjalankan koreksi sesuai kewenangan, dan memberi kepastian tindak lanjut. Respons pasif atau sekadar memberikan informasi memperoleh nilai lebih rendah.",
+    "stem": "Seorang pemohon izin usaha menerima dokumen yang telah diterbitkan, tetapi menemukan kesalahan penulisan alamat lokasi usaha. Ia membutuhkan dokumen yang benar untuk mengikuti proses administrasi pada hari berikutnya. Sistem menunjukkan bahwa dokumen tersebut sudah masuk arsip penerbitan. Sebagai petugas pelayanan, apa yang Anda lakukan?",
+    "options": {
+      "A": "Meminta pemohon mengajukan permohonan baru karena dokumen yang telah diarsipkan tidak dapat langsung diubah.",
+      "B": "Memberikan alamat unit pengaduan dan meminta pemohon menghubungi bagian tersebut untuk menanyakan prosedur koreksi.",
+      "C": "Memverifikasi bukti, mengoordinasikan koreksi resmi sesuai kewenangan, serta memberi kepastian proses dan waktu tindak lanjut.",
+      "D": "Menjelaskan bahwa kesalahan penulisan biasanya dapat diperbaiki dan menyarankan pemohon menunggu pemberitahuan berikutnya.",
+      "E": "Meminta pemohon menggunakan dokumen tersebut terlebih dahulu sambil menunggu pembaruan data dari sistem penerbitan."
+    },
+    "hint": "Utamakan ketepatan dokumen, kewenangan koreksi, dan kepastian waktu penyelesaian kebutuhan masyarakat.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menawarkan jalur administrasi baru, tetapi belum memeriksa apakah koreksi dapat diselesaikan melalui mekanisme resmi yang lebih efisien.",
+      "B": "Poin 3 — Memberikan informasi jalur pengaduan, tetapi belum mengambil inisiatif memastikan masalah pemohon ditangani.",
+      "C": "Poin 5 — Memastikan bukti, mempercepat koreksi sesuai kewenangan, dan memberikan kepastian tindak lanjut yang dibutuhkan pemohon.",
+      "D": "Poin 4 — Memberikan informasi yang menenangkan, tetapi belum memastikan proses koreksi berlangsung dan belum memberikan estimasi penyelesaian.",
+      "E": "Poin 1 — Membiarkan dokumen yang diketahui keliru digunakan dalam proses administrasi lain dan berpotensi menimbulkan masalah lanjutan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-pendampingan-subsidi-014",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Berorientasi Pelayanan. Skor 5 mengutamakan akses pelayanan yang mudah, pendampingan sesuai kebutuhan, dan kepatuhan terhadap persyaratan. Skor 4 menyediakan petunjuk yang cukup membantu tetapi belum menyelesaikan seluruh kendala, skor 3 memberikan bantuan terbatas, skor 2 hanya menekankan kelengkapan administratif, dan skor 1 mengabaikan kebutuhan warga.",
+    "stem": "Di kantor dinas sosial, beberapa warga datang untuk mengajukan bantuan pemulihan ekonomi. Sebagian pemohon memiliki keterbatasan kemampuan membaca formulir dan berulang kali salah mengisi bagian persyaratan. Antrean mulai panjang dan petugas lain meminta Anda mempercepat proses. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Mendampingi pengisian bagian yang sulit, menjelaskan persyaratan dengan bahasa sederhana, serta menjaga proses verifikasi tetap tertib.",
+      "B": "Membagikan contoh formulir yang telah terisi agar warga dapat menyalin format pengisian secara mandiri.",
+      "C": "Meminta anggota keluarga pemohon mengisi formulir agar petugas tidak perlu mengulang penjelasan persyaratan.",
+      "D": "Menjelaskan bahwa formulir wajib diisi secara lengkap dan mengarahkan pemohon yang salah mengisi untuk mengulang dari awal.",
+      "E": "Meminta warga mempelajari petunjuk pada papan informasi sebelum kembali mengajukan formulir kepada petugas."
+    },
+    "hint": "Pertimbangkan bagaimana persyaratan pelayanan dapat tetap terpenuhi tanpa mengabaikan hambatan yang dialami pemohon.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 4,
+      "C": 3,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Mengurangi hambatan pemahaman secara langsung sambil mempertahankan ketepatan pemeriksaan dokumen dan ketertiban antrean.",
+      "B": "Poin 4 — Contoh formulir membantu pemohon belajar mandiri, tetapi belum memastikan mereka mampu mengisi setiap bagian dengan benar.",
+      "C": "Poin 3 — Bantuan keluarga dapat mendukung proses, tetapi tanggung jawab pendampingan pelayanan tetap belum dilaksanakan secara optimal.",
+      "D": "Poin 2 — Menjaga kelengkapan persyaratan, tetapi tidak mengupayakan bantuan untuk mengatasi kesulitan yang dialami masyarakat.",
+      "E": "Poin 1 — Mengalihkan tanggung jawab pendampingan kepada warga tanpa memastikan informasi dapat dipahami dan diterapkan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-standarisasi-indikator-013",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kolaboratif dalam ASN BerAKHLAK. Skor 5 mengutamakan penyamaan definisi, metode pengukuran, sumber data, dan tanggung jawab bersama. Skor 4 mengupayakan koordinasi rutin, skor 3 melaporkan data masing-masing tanpa integrasi, skor 2 mengandalkan keputusan satu unit, dan skor 1 menyalahkan unit lain.",
+    "stem": "Anda terlibat dalam penyusunan laporan capaian program lintas dinas. Setiap dinas menggunakan definisi yang berbeda untuk menghitung jumlah penerima manfaat sehingga hasil laporan gabungan tidak konsisten. Batas waktu penyampaian laporan semakin dekat. Apa tindakan terbaik?",
+    "options": {
+      "A": "Menggunakan indikator dari dinas dengan jumlah penerima manfaat terbesar agar laporan dapat segera diselesaikan.",
+      "B": "Meminta setiap dinas mengirimkan ulang data berdasarkan format pelaporan yang telah ditetapkan oleh sekretariat.",
+      "C": "Menyampaikan perbedaan angka kepada pimpinan dan menunggu keputusan mengenai indikator yang akan dipakai.",
+      "D": "Menggabungkan seluruh angka yang tersedia dan menambahkan catatan bahwa metode penghitungan tiap dinas berbeda.",
+      "E": "Memfasilitasi kesepakatan definisi indikator, sumber data, metode verifikasi, dan penanggung jawab bersama sebelum finalisasi laporan."
+    },
+    "hint": "Fokus pada penyelarasan dasar pengukuran agar hasil kerja berbagai pihak dapat dibandingkan secara konsisten.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 4,
+      "C": 3,
+      "D": 1,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Mempercepat penyusunan laporan, tetapi memilih satu angka tanpa kesepakatan dapat mengabaikan data dan metode dinas lain.",
+      "B": "Poin 4 — Format seragam membantu koordinasi, tetapi belum menyelesaikan perbedaan definisi yang menjadi akar ketidakkonsistenan.",
+      "C": "Poin 3 — Melibatkan pimpinan merupakan langkah administratif, tetapi belum memanfaatkan ruang kerja sama untuk membangun kesepakatan teknis.",
+      "D": "Poin 1 — Menggabungkan angka yang tidak sebanding menghasilkan laporan yang berpotensi menyesatkan dan sulit dipertanggungjawabkan.",
+      "E": "Poin 5 — Membangun pemahaman dan standar bersama sehingga seluruh instansi bekerja berdasarkan definisi serta metode yang konsisten."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-pendampingan-pascaprogram-014",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kolaboratif. Skor 5 mengutamakan kesinambungan koordinasi, pembagian peran, mekanisme serah terima, dan tujuan pelayanan bersama. Skor 4 memberikan komunikasi lanjutan tetapi belum membangun sistem pengelolaan tanggung jawab, skor 3 melakukan serah terima administratif, skor 2 mengirim informasi secara terbatas, dan skor 1 mengabaikan kesinambungan pekerjaan.",
+    "stem": "Anda menjadi koordinator program pemberdayaan UMKM yang akan memasuki tahap pendampingan lanjutan. Pada tahap berikutnya, tanggung jawab akan berpindah dari dinas koperasi kepada tim pendamping dari perguruan tinggi. Namun, catatan perkembangan peserta dan jadwal tindak lanjut belum terdokumentasi secara seragam. Apa yang sebaiknya dilakukan?",
+    "options": {
+      "A": "Mengirimkan laporan akhir kegiatan kepada perguruan tinggi dan meminta tim baru memulai pendampingan berdasarkan hasil laporan tersebut.",
+      "B": "Menyusun mekanisme serah terima bersama, menyepakati format perkembangan peserta, pembagian peran, dan jadwal evaluasi lintas tim.",
+      "C": "Meminta dinas koperasi menyelesaikan seluruh catatan internal sebelum perguruan tinggi mulai melakukan kegiatan berikutnya.",
+      "D": "Mempertemukan koordinator kedua tim untuk menjelaskan perkembangan program dan memberikan kontak peserta yang telah terdaftar.",
+      "E": "Menghentikan komunikasi setelah laporan akhir disetujui karena tahap pendampingan berikutnya menjadi tanggung jawab perguruan tinggi."
+    },
+    "hint": "Perhatikan bagaimana informasi, tanggung jawab, dan tujuan program tetap terhubung ketika pelaksana kegiatan berganti.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 2,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Laporan akhir memberikan informasi awal, tetapi belum memastikan kelengkapan data peserta dan pembagian tanggung jawab lanjutan.",
+      "B": "Poin 5 — Menjaga kesinambungan program melalui kesepakatan data, tanggung jawab, jadwal, dan evaluasi bersama.",
+      "C": "Poin 2 — Menjaga ketertiban pencatatan internal, tetapi dapat menunda pendampingan karena belum membangun proses transisi bersama.",
+      "D": "Poin 4 — Pertemuan dan pertukaran informasi membantu koordinasi, tetapi belum menjamin mekanisme tindak lanjut dan akuntabilitas tiap tim.",
+      "E": "Poin 1 — Menghentikan komunikasi dapat mengakibatkan hilangnya informasi penting dan terputusnya kesinambungan pendampingan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-pemulihan-kepercayaan-warga-009",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Harmonis dalam ASN BerAKHLAK. Skor 5 mengutamakan mendengarkan pengalaman warga, menjelaskan kondisi serta batas program secara terbuka, dan menyepakati mekanisme pemantauan bersama. Skor 4 menyampaikan ringkasan program secara tertulis untuk memperluas akses meski komunikasi masih satu arah tanpa ruang dialog, skor 3 menjelaskan dukungan anggaran sambil meminta warga hadir sesuai undangan tanpa menjawab kekecewaan masa lalu, skor 2 sekadar meminta kepala desa mengundang ulang sesuai jadwal tanpa memulihkan kepercayaan warga, dan skor 1 menghindari lokasi yang keberatan sehingga memperlebar jarak komunikasi.",
+    "stem": "Anda ditugaskan melakukan sosialisasi program perbaikan fasilitas umum di sebuah desa. Sebagian warga menolak menghadiri kegiatan karena program pemerintah sebelumnya pernah dijanjikan tetapi tidak terlaksana. Mereka menganggap sosialisasi kali ini hanya akan mengulang janji lama. Bagaimana Anda menyikapinya?",
+    "options": {
+      "A": "Menjelaskan bahwa program telah memperoleh dukungan anggaran dan meminta warga tetap hadir sesuai undangan resmi.",
+      "B": "Meminta kepala desa mengundang warga kembali agar sosialisasi dapat berjalan sesuai jadwal yang telah ditentukan.",
+      "C": "Mengirimkan ringkasan program melalui papan pengumuman agar warga memperoleh informasi tanpa harus menghadiri pertemuan.",
+      "D": "Mendengarkan pengalaman warga, menjelaskan kondisi dan batas program secara terbuka, serta menyepakati mekanisme pemantauan bersama.",
+      "E": "Mengalihkan kegiatan ke lokasi lain agar penolakan sebagian warga tidak menghambat jadwal sosialisasi."
+    },
+    "hint": "Pertimbangkan bagaimana kepercayaan dapat dibangun melalui penghormatan terhadap pengalaman dan keterbukaan komunikasi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Informasi mengenai anggaran dapat meningkatkan pemahaman, tetapi belum menjawab pengalaman warga terkait janji sebelumnya.",
+      "B": "Poin 2 — Memanfaatkan peran kepala desa membantu komunikasi, tetapi belum menyelesaikan persoalan kepercayaan masyarakat.",
+      "C": "Poin 4 — Menyediakan informasi tertulis memperluas akses, tetapi komunikasi satu arah belum memberi ruang bagi aspirasi dan pengawasan warga.",
+      "D": "Poin 5 — Menghargai pengalaman masyarakat, membangun transparansi, dan menciptakan mekanisme akuntabilitas yang melibatkan warga.",
+      "E": "Poin 1 — Menghindari kelompok yang menyampaikan keberatan justru memperbesar jarak komunikasi dan menghambat partisipasi masyarakat."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-partisipasi-generasi-010",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Harmonis. Skor 5 mengutamakan penghormatan terhadap setiap anggota, fasilitasi partisipasi yang adil, dan pemanfaatan perspektif yang berbeda. Skor 4 memberikan kesempatan berbicara tetapi belum mengubah pola interaksi, skor 3 memberi dukungan secara informal, skor 2 membiarkan dominasi berlanjut, dan skor 1 memperkuat stereotip antargenerasi.",
+    "stem": "Dalam rapat penyusunan program pelayanan digital, pegawai muda beberapa kali mencoba menyampaikan gagasan, tetapi pendapatnya selalu dipotong oleh pegawai senior. Diskusi akhirnya didominasi oleh pihak yang lebih lama bekerja, padahal program tersebut juga ditujukan bagi pengguna dengan kebiasaan digital yang beragam. Sebagai fasilitator rapat, apa tindakan Anda?",
+    "options": {
+      "A": "Memberikan kesempatan kepada pegawai muda untuk menyampaikan gagasan secara tertulis setelah rapat selesai.",
+      "B": "Membiarkan pegawai senior memimpin pembahasan karena mereka memiliki pengalaman kerja yang lebih panjang.",
+      "C": "Mengatur giliran bicara secara seimbang dan meminta setiap peserta menilai gagasan berdasarkan kebutuhan pengguna serta bukti yang tersedia.",
+      "D": "Mengadakan diskusi khusus pegawai muda agar mereka dapat menyampaikan gagasan tanpa interupsi dari pegawai senior.",
+      "E": "Mengingatkan peserta agar menjaga kesopanan tanpa mengubah tata cara diskusi yang sudah berlangsung."
+    },
+    "hint": "Bedakan penghormatan terhadap pengalaman kerja dengan pemberian kesempatan yang adil bagi setiap anggota tim.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 1,
+      "C": 5,
+      "D": 4,
+      "E": 2
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Gagasan pegawai muda tetap memperoleh ruang, tetapi tidak memperbaiki ketimpangan partisipasi dalam forum bersama.",
+      "B": "Poin 1 — Mengutamakan senioritas dapat memperkuat dominasi dan mengabaikan perspektif lain yang relevan terhadap kebutuhan pengguna.",
+      "C": "Poin 5 — Menjamin kesempatan yang setara dan mengarahkan perbedaan pendapat pada evaluasi gagasan secara objektif.",
+      "D": "Poin 4 — Diskusi terpisah memberi ruang aman, tetapi belum membangun budaya dialog dan kolaborasi lintas generasi.",
+      "E": "Poin 2 — Mengingatkan etika komunikasi berguna, tetapi tidak menyelesaikan pola interaksi yang menyebabkan sebagian peserta terpinggirkan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-tik-pengendalian-akses-basis-data-011",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Adaptif dalam ASN BerAKHLAK. Skor 5 mengutamakan penolakan berbagi kredensial, pemeriksaan kewenangan pemohon, dan koordinasi akses resmi sesuai kebutuhan tugas. Skor 4 menjaga keamanan akun dengan menolak dan membiarkan pemohon menunggu prosedur administratif tanpa memberi alternatif penyelesaian mendesak, skor 3 membantu mengunduh laporan tetapi tanpa memverifikasi kewenangan serta tujuan penggunaan data kepegawaian, skor 2 memberikan kata sandi sementara dengan risiko penyalahgunaan akun administrator, dan skor 1 menyimpan kata sandi di dokumen bersama sehingga menghilangkan kontrol akses individual.",
+    "stem": "Anda menjadi anggota tim pengelola data kepegawaian. Seorang pegawai dari unit lain meminta kata sandi akun administrator karena perlu mengunduh laporan mendesak. Ia beralasan bahwa proses permohonan akses resmi akan memerlukan waktu beberapa hari. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Memberikan kata sandi sementara dengan meminta pegawai tersebut menggantinya setelah pekerjaan selesai.",
+      "B": "Mengunduh laporan untuk pegawai tersebut tanpa memeriksa kewenangan atau tujuan penggunaan datanya.",
+      "C": "Menyimpan kata sandi administrator pada dokumen bersama agar pegawai yang membutuhkan dapat mengaksesnya.",
+      "D": "Menolak permintaan tersebut dan membiarkan pegawai menunggu sampai proses administratif selesai.",
+      "E": "Menolak berbagi kredensial, memeriksa kewenangan pemohon, dan mengoordinasikan akses resmi sesuai kebutuhan tugas."
+    },
+    "hint": "Pertimbangkan prinsip hak akses minimum dan pentingnya keterlacakan setiap aktivitas pada sistem informasi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 1,
+      "D": 4,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Penggantian kata sandi setelah penggunaan tidak menghilangkan risiko penyalahgunaan akun administrator selama akses diberikan.",
+      "B": "Poin 3 — Membantu menyediakan laporan, tetapi belum memverifikasi kewenangan dan tujuan penggunaan informasi kepegawaian.",
+      "C": "Poin 1 — Penyimpanan kredensial bersama menghilangkan kontrol akses individual dan meningkatkan risiko penyalahgunaan sistem.",
+      "D": "Poin 4 — Menjaga keamanan akun, tetapi belum memberikan solusi alternatif untuk memenuhi kebutuhan pekerjaan yang mendesak.",
+      "E": "Poin 5 — Melindungi akun, memastikan kewenangan pemohon, dan tetap mengupayakan akses yang sah serta dapat ditelusuri."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-anti-radikalisme-kebebasan-berpendapat-012",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Loyal, yaitu menjaga komitmen terhadap Pancasila, UUD NRI 1945, NKRI, dan persatuan bangsa. Penilaian tertinggi menuntut sikap objektif yang membedakan kritik kebijakan yang sah dari ajakan kekerasan atau tindakan yang mengancam keselamatan. Kritik tidak boleh otomatis diberi label radikal, sedangkan indikasi ancaman yang kredibel harus ditangani melalui mekanisme berwenang.",
+    "stem": "Dalam forum konsultasi publik, seorang warga menyampaikan kritik yang sangat keras terhadap kebijakan pemerintah daerah. Beberapa peserta meminta agar warga tersebut langsung dilaporkan sebagai penyebar paham radikal. Namun, dalam pernyataannya tidak ditemukan ajakan kekerasan maupun ancaman terhadap kelompok lain. Sebagai ASN yang bertugas mendampingi forum, tindakan Anda adalah ...",
+    "options": {
+      "A": "Menghentikan seluruh kritik dalam forum agar diskusi tidak berkembang menjadi perdebatan yang berpotensi memecah masyarakat.",
+      "B": "Mencatat pernyataan tersebut sebagai indikasi radikalisme dan menyerahkannya kepada pimpinan untuk ditindaklanjuti.",
+      "C": "Membiarkan perdebatan berlangsung tanpa pengaturan karena setiap warga memiliki hak menyampaikan pendapat.",
+      "D": "Menjaga forum tetap tertib, membedakan kritik dari ajakan kekerasan, dan menindaklanjuti ancaman yang nyata melalui prosedur resmi.",
+      "E": "Meminta peserta lain tidak menanggapi kritik agar suasana forum tetap kondusif dan kegiatan dapat segera diselesaikan."
+    },
+    "hint": "Perhatikan batas antara perbedaan pendapat yang sah dan tindakan yang benar-benar mengancam keselamatan atau persatuan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 1,
+      "C": 3,
+      "D": 5,
+      "E": 4
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menjaga ketertiban memang penting, tetapi menghentikan semua kritik dapat membatasi partisipasi publik yang sah.",
+      "B": "Poin 1 — Melabeli kritik sebagai radikalisme tanpa indikator objektif dapat memicu diskriminasi dan penyalahgunaan kewenangan.",
+      "C": "Poin 3 — Memberikan ruang kebebasan berpendapat merupakan sikap terbuka, tetapi belum memastikan diskusi berjalan tertib dan aman.",
+      "D": "Poin 5 — Menjaga keseimbangan antara kebebasan menyampaikan pendapat, ketertiban forum, dan penanganan ancaman secara objektif.",
+      "E": "Poin 4 — Mengendalikan interaksi dapat menjaga suasana forum, tetapi belum menyediakan ruang tanggapan yang sehat dan mekanisme evaluasi ancaman."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-konflik-kepentingan-vendor-012",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kompeten dan Akuntabel dalam ASN BerAKHLAK. Skor 5 mengutamakan keterbukaan konflik kepentingan, pengunduran diri dari proses yang berpotensi memengaruhi objektivitas, dan pengawasan prosedural. Skor 4 mengungkapkan hubungan tetapi belum sepenuhnya menjaga independensi, skor 3 hanya meminta pendapat atasan, skor 2 tetap terlibat dengan pembatasan informal, dan skor 1 memanfaatkan jabatan untuk kepentingan pribadi.",
+    "stem": "Anda ditunjuk sebagai anggota tim evaluasi penawaran pengadaan perangkat komputer. Setelah dokumen peserta dibuka, Anda mengetahui bahwa salah satu perusahaan peserta dimiliki oleh saudara kandung Anda. Perusahaan tersebut menawarkan harga yang kompetitif dan memenuhi sebagian besar persyaratan teknis. Apa tindakan terbaik?",
+    "options": {
+      "A": "Tetap mengevaluasi penawaran karena hubungan keluarga tidak otomatis membuktikan bahwa perusahaan tersebut melakukan pelanggaran.",
+      "B": "Menyampaikan hubungan keluarga kepada anggota tim lain, tetapi tetap memberikan penilaian selama proses dilakukan secara terbuka.",
+      "C": "Meminta atasan menentukan apakah hubungan tersebut perlu dilaporkan sebelum proses evaluasi dilanjutkan.",
+      "D": "Mengungkapkan potensi konflik kepentingan secara resmi, mengundurkan diri dari penilaian terkait, dan memastikan proses dilanjutkan secara independen.",
+      "E": "Tidak membahas hubungan keluarga tersebut selama penilaian dilakukan berdasarkan dokumen dan kriteria teknis."
+    },
+    "hint": "Perhatikan bagaimana independensi dan persepsi objektivitas dijaga ketika terdapat hubungan pribadi dengan peserta pengadaan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 4,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Mempertimbangkan kriteria teknis merupakan hal penting, tetapi mengabaikan potensi konflik kepentingan dapat merusak independensi evaluasi.",
+      "B": "Poin 3 — Keterbukaan kepada tim merupakan langkah positif, tetapi keterlibatan tetap dapat memengaruhi objektivitas atau persepsi keadilan.",
+      "C": "Poin 4 — Konsultasi kepada atasan menunjukkan kehati-hatian, tetapi pengungkapan dan pengendalian konflik perlu dilakukan secara resmi.",
+      "D": "Poin 5 — Menjaga transparansi, menghindari pengaruh hubungan pribadi, dan memastikan proses evaluasi tetap independen serta akuntabel.",
+      "E": "Poin 1 — Menyembunyikan hubungan keluarga menciptakan risiko konflik kepentingan dan merusak kepercayaan terhadap proses pengadaan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-adaptasi-perubahan-sop-013",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kompeten dan Adaptif dalam ASN BerAKHLAK. Skor 5 mengutamakan pemeriksaan ketentuan terbaru, pembaruan prosedur kerja, sosialisasi, dan konsistensi penerapan. Skor 4 memperbaiki pekerjaan pribadi tetapi belum menyelaraskan tim, skor 3 menunggu arahan resmi tanpa inisiatif verifikasi, skor 2 mempertahankan prosedur lama karena kebiasaan, dan skor 1 mengabaikan perubahan yang telah berlaku.",
+    "stem": "Anda bekerja pada unit pelayanan perizinan. Sebuah ketentuan terbaru mengubah beberapa persyaratan dokumen dan cara verifikasi. Sebagian rekan masih menggunakan templat lama karena belum terbiasa dengan perubahan tersebut. Anda menemukan bahwa penggunaan templat lama berpotensi membuat permohonan masyarakat dikembalikan secara tidak perlu. Apa yang sebaiknya dilakukan?",
+    "options": {
+      "A": "Tetap menggunakan templat lama sambil menunggu pimpinan memberikan instruksi tertulis mengenai perubahan prosedur.",
+      "B": "Memeriksa ketentuan terbaru, memperbarui templat berdasarkan dasar resmi, dan membantu rekan memahami penerapan prosedur yang berlaku.",
+      "C": "Menggunakan templat baru untuk pekerjaan sendiri tanpa mengubah dokumen atau cara kerja rekan satu unit.",
+      "D": "Menghentikan pemeriksaan permohonan sementara sampai seluruh pegawai menyepakati cara penerapan ketentuan baru.",
+      "E": "Menyampaikan perubahan kepada rekan secara informal dan membiarkan setiap petugas menentukan cara penerapan masing-masing."
+    },
+    "hint": "Pertimbangkan hubungan antara pembelajaran berkelanjutan, ketepatan prosedur, dan konsistensi pelayanan dalam tim.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 5,
+      "C": 4,
+      "D": 1,
+      "E": 3
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menunggu arahan dapat menjaga kehati-hatian, tetapi tidak menunjukkan inisiatif memeriksa dan memahami ketentuan yang telah diterbitkan.",
+      "B": "Poin 5 — Memastikan prosedur berdasarkan ketentuan resmi sekaligus meningkatkan kemampuan tim dan konsistensi kualitas pelayanan.",
+      "C": "Poin 4 — Menyesuaikan pekerjaan sendiri merupakan langkah tepat, tetapi belum mencegah kesalahan yang masih dilakukan oleh rekan satu unit.",
+      "D": "Poin 1 — Menghentikan pelayanan tanpa dasar kebutuhan dapat menghambat masyarakat dan tidak menyelesaikan proses adaptasi tim.",
+      "E": "Poin 3 — Penyampaian informasi membantu rekan, tetapi tanpa verifikasi dan standar penerapan bersama dapat menghasilkan perbedaan prosedur."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TKP SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tkp",
+        "hots",
+        "batch-2"
+      ]
+    }
   }
 ]

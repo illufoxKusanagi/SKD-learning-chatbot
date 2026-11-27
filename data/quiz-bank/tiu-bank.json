@@ -1228,5 +1228,1085 @@
       "type": "tryout",
       "title": "Legacy SKD HOTS Batch 2026-11-b06-gemini-argon"
     }
+  },
+  {
+    "slug": "tiu-verbal-analogi-rancangan-perwujudan-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Relasi 'Cetak Biru : Bangunan' adalah rancangan rinci : wujud nyata hasil pelaksanaan rancangan tersebut. Anggaran adalah rancangan rinci penggunaan dana, dan realisasi adalah wujud nyata pelaksanaannya, sehingga 'Anggaran : Realisasi' memiliki relasi yang sama (opsi A). Opsi B berelasi pelaku perancang : hasil karya; C berelasi bahan : hasil olahan; D berelasi alat : objek yang dikerjakan; E berelasi pelaku pelaksana : pekerjaan yang dilaksanakan. Pada B, C, D, dan E kata pertama bukan rancangan, sehingga relasinya tidak setara.",
+    "stem": "Perhatikan pasangan kata berikut: Cetak Biru : Bangunan. Pasangan kata yang memiliki hubungan paling setara dengan pasangan tersebut adalah...",
+    "options": {
+      "A": "Anggaran : Realisasi",
+      "B": "Arsitek : Gedung Kantor",
+      "C": "Semen Portland : Beton",
+      "D": "Cangkul : Tanah Sawah",
+      "E": "Kontraktor : Proyek Jalan"
+    },
+    "hint": "Tentukan hubungan kata pertama dengan kata kedua dalam sebuah proses kerja, bukan sekadar kesamaan bidang kata.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Cetak biru adalah rancangan yang diwujudkan menjadi bangunan, sebagaimana anggaran adalah rancangan yang diwujudkan menjadi realisasi: rancangan : perwujudannya.",
+      "B": "Salah. Relasinya pelaku perancang : hasil karya; kata pertama adalah orang, bukan rancangan.",
+      "C": "Salah. Relasinya bahan : hasil olahan; semen bukan rancangan dari beton.",
+      "D": "Salah. Relasinya alat : objek yang dikerjakan.",
+      "E": "Salah. Relasinya pelaku pelaksana : pekerjaan yang dilaksanakan, bukan rancangan : perwujudan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Analogi Relasi Rancangan BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-auditor-sertifikat-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan K = memiliki sertifikat kompetensi, A = auditor internal, L = pemeriksa lapangan, I = pegawai Inspektorat. Premis 1: A -> K. Premis 2: sebagian I bukan K. Premis 3: L -> A. Kontraposisi premis 1: bukan K -> bukan A. Kontraposisi premis 3: bukan A -> bukan L. Rantai: bukan K -> bukan A -> bukan L. Karena sebagian I bukan K, maka sebagian I bukan L (opsi E). Opsi A bertentangan dengan rantai tersebut; B bertentangan dengan premis 1 (auditor pasti bersertifikat); C adalah kekeliruan konvers dari premis 1; D memperluas 'sebagian bukan' menjadi 'tidak ada'.",
+    "stem": "Pada Inspektorat sebuah pemerintah kota berlaku tiga pernyataan berikut:\n1. Semua auditor internal memiliki sertifikat kompetensi.\n2. Sebagian pegawai Inspektorat tidak memiliki sertifikat kompetensi.\n3. Semua pemeriksa lapangan adalah auditor internal.\nKesimpulan yang PASTI benar berdasarkan ketiga pernyataan tersebut adalah...",
+    "options": {
+      "A": "Semua pegawai Inspektorat merupakan pemeriksa lapangan.",
+      "B": "Sebagian pegawai Inspektorat adalah auditor internal tanpa sertifikat.",
+      "C": "Semua pegawai bersertifikat kompetensi merupakan auditor internal.",
+      "D": "Tidak ada pegawai Inspektorat yang merupakan pemeriksa lapangan.",
+      "E": "Sebagian pegawai Inspektorat bukan merupakan pemeriksa lapangan."
+    },
+    "hint": "Gunakan kontraposisi pada premis berantai untuk menelusuri konsekuensi dari ketiadaan sertifikat kompetensi.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pegawai yang tidak bersertifikat pasti bukan auditor dan bukan pemeriksa lapangan, sehingga tidak mungkin semua pegawai Inspektorat adalah pemeriksa lapangan.",
+      "B": "Salah. Bertentangan dengan premis 1: setiap auditor internal pasti memiliki sertifikat kompetensi.",
+      "C": "Salah. Ini kekeliruan konvers: premis 1 menyatakan auditor pasti bersertifikat, bukan semua yang bersertifikat adalah auditor.",
+      "D": "Salah. Premis hanya menjamin sebagian pegawai bukan pemeriksa lapangan; tidak ada dasar menyatakan tidak ada satu pun yang menjadi pemeriksa lapangan.",
+      "E": "Benar. Sebagian pegawai tidak bersertifikat (premis 2), berarti bukan auditor (kontraposisi premis 1), berarti bukan pemeriksa lapangan (kontraposisi premis 3)."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Silogisme Kontraposisi Berantai BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-deret-selisih-bertingkat-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret tersusun dari dua larik berselang-seling. Larik suku ganjil: 4, 7, 12, 19, ... dengan selisih 3, 5, 7 (naik 2 tiap tahap), sehingga selisih berikutnya 9 dan suku ke-9 = 19 + 9 = 28. Larik suku genap: 81, 27, 9, 3, ... dibagi 3 tiap tahap, sehingga suku ke-10 = 3 : 3 = 1. Jumlah suku ke-9 dan ke-10 = 28 + 1 = 29 (opsi B). Opsi A memakai selisih tetap +7 (suku ke-9 = 26); C memakai selisih 10 (suku ke-9 = 29); D memakai suku ke-8 (3) sebagai suku ke-10; E memakai suku ke-6 (9) sebagai suku ke-10.",
+    "stem": "Perhatikan deret bilangan berikut:\n4, 81, 7, 27, 12, 9, 19, 3, ..., ...\nJumlah suku ke-9 dan suku ke-10 dari deret tersebut adalah...",
+    "options": {
+      "A": "27",
+      "B": "29",
+      "C": "30",
+      "D": "31",
+      "E": "37"
+    },
+    "hint": "Periksa apakah pola berulang pada posisi tertentu, lalu telaah apakah selisih pada tiap larik tetap atau berubah secara teratur.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menganggap selisih larik pertama tetap +7 sehingga suku ke-9 = 26; 26 + 1 = 27.",
+      "B": "Benar. Suku ke-9 = 28 (selisih 3, 5, 7, 9) dan suku ke-10 = 1 (dibagi 3); jumlahnya 29.",
+      "C": "Salah. Menganggap selisih berikutnya 10 sehingga suku ke-9 = 29; 29 + 1 = 30.",
+      "D": "Salah. Memakai suku ke-8 (3) sebagai suku ke-10; 28 + 3 = 31.",
+      "E": "Salah. Memakai suku ke-6 (9) sebagai suku ke-10; 28 + 9 = 37."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Deret Dua Larik Selisih Bertingkat BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-sosial-deposito-pajak-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Modal = Rp8.000.000; bunga tunggal 6% per tahun selama 9 bulan. Bunga bruto = 8.000.000 x 6% x 9/12 = 360.000. Pajak final 20% atas bunga = 20% x 360.000 = 72.000. Bunga bersih = 360.000 - 72.000 = 288.000. Dana yang diterima = 8.000.000 + 288.000 = 8.288.000 (opsi D). Opsi A: menambahkan 72.000 (nilai pajak) ke modal; B: jangka 6 bulan dengan pajak (240.000 x 0,8 = 192.000); C: jangka 6 bulan tanpa pajak (240.000); E: jangka 9 bulan tanpa memotong pajak (360.000).",
+    "stem": "Seorang ASN menempatkan dana sebesar Rp8.000.000 pada deposito berjangka dengan bunga tunggal 6% per tahun selama 9 bulan. Atas bunga yang diperoleh dikenakan pajak final sebesar 20%. Jumlah dana yang diterima ASN tersebut pada akhir jangka waktu (modal ditambah bunga bersih) adalah...",
+    "options": {
+      "A": "Rp8.072.000",
+      "B": "Rp8.192.000",
+      "C": "Rp8.240.000",
+      "D": "Rp8.288.000",
+      "E": "Rp8.360.000"
+    },
+    "hint": "Perhatikan kesesuaian satuan waktu bunga dengan lama penempatan dana serta objek yang dikenai pajak.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Hanya menambahkan nilai pajak (20% x 360.000 = 72.000) ke modal, bukan bunga bersih.",
+      "B": "Salah. Memakai jangka 6 bulan dengan pajak (240.000 x 0,8 = 192.000), padahal jangkanya 9 bulan.",
+      "C": "Salah. Memakai jangka 6 bulan tanpa pajak (bunga 240.000), padahal jangkanya 9 bulan dan bunga kena pajak.",
+      "D": "Benar. Bunga bruto 360.000, pajak 72.000, bunga bersih 288.000; dana diterima 8.000.000 + 288.000 = 8.288.000.",
+      "E": "Salah. Menambahkan bunga bruto 360.000 tanpa memotong pajak final 20%."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Aritmetika Sosial Bunga dan Pajak BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-pipa-pembuangan-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Laju pipa A = 1/4 bak per jam, pipa B = 1/12 bak per jam, pipa pembuangan C = -1/6 bak per jam. Laju A + B = 1/4 + 1/12 = 3/12 + 1/12 = 4/12 = 1/3 bak per jam. Selama 2 jam pertama terisi 2 x 1/3 = 2/3 bak, sisa 1/3 bak. Setelah C dibuka, laju bersih = 1/4 + 1/12 - 1/6 = 3/12 + 1/12 - 2/12 = 2/12 = 1/6 bak per jam. Waktu untuk sisa = (1/3) : (1/6) = 2 jam. Total = 2 + 2 = 4 jam (opsi C). Opsi A memakai ketiga pipa sejak awal (1 : 1/6 = 6); B mengabaikan pipa C (1 : 1/3 = 3); D memakai 2 + 6 (sisa dianggap memerlukan waktu penuh); E memakai 2 + 3.",
+    "stem": "Sebuah bak penampungan air milik Dinas Pekerjaan Umum dalam keadaan kosong. Pipa A dapat mengisi bak hingga penuh dalam 4 jam, sedangkan pipa B dalam 12 jam. Terdapat pula pipa pembuangan C yang dapat mengosongkan bak penuh dalam 6 jam. Pada awalnya hanya pipa A dan B yang dibuka. Dua jam kemudian pipa C ikut dibuka, sementara pipa A dan B tetap terbuka. Jika debit setiap pipa konstan, waktu total sejak awal hingga bak penuh adalah...",
+    "options": {
+      "A": "6 jam",
+      "B": "3 jam",
+      "C": "4 jam",
+      "D": "8 jam",
+      "E": "5 jam"
+    },
+    "hint": "Nyatakan kerja tiap pipa sebagai laju per jam, dan perhatikan bahwa komposisi pipa yang terbuka berubah di tengah proses.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menganggap ketiga pipa terbuka sejak awal sehingga laju bersih 1/6 per jam menghasilkan 6 jam.",
+      "B": "Salah. Mengabaikan pipa pembuangan; laju A + B = 1/3 per jam menghasilkan 3 jam.",
+      "C": "Benar. Dua jam pertama terisi 2/3 bak; sisa 1/3 bak diisi dengan laju bersih 1/6 per jam selama 2 jam; total 4 jam.",
+      "D": "Salah. Menambahkan 2 jam pertama dengan 6 jam, seolah sisa pekerjaan memerlukan waktu penuh dengan ketiga pipa.",
+      "E": "Salah. Menambahkan 2 jam pertama dengan 3 jam, seolah sisa pekerjaan memerlukan waktu penuh dengan pipa A dan B saja."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Soal Cerita Debit dan Pipa BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-pencegahan-wabah-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Relasi 'Vaksinasi : Wabah' adalah tindakan pencegahan : hal yang dicegah. Karantina adalah tindakan membatasi pergerakan untuk mencegah penularan, sehingga 'Karantina : Penularan' memiliki relasi yang sama (opsi A). Opsi B berelasi sebab : akibat (epidemi menimbulkan korban jiwa); C berelasi pelaku : tempat kerja; D berelasi sarana pengobatan : hasil yang diharapkan (menyembuhkan, bukan mencegah); E berelasi tanda : penyakit yang ditandai.",
+    "stem": "Perhatikan pasangan kata berikut: Vaksinasi : Wabah. Pasangan kata yang memiliki hubungan paling setara dengan pasangan tersebut adalah...",
+    "options": {
+      "A": "Karantina : Penularan",
+      "B": "Epidemi : Korban Jiwa",
+      "C": "Perawat : Rumah Sakit",
+      "D": "Obat Generik : Kesembuhan",
+      "E": "Demam Tinggi : Penyakit"
+    },
+    "hint": "Tentukan apakah kata pertama merupakan tindakan yang menghalangi, menyebabkan, atau menandai kata kedua.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Vaksinasi mencegah wabah, sebagaimana karantina mencegah penularan: tindakan pencegahan : hal yang dicegah.",
+      "B": "Salah. Relasinya sebab : akibat, bukan tindakan pencegahan : hal yang dicegah.",
+      "C": "Salah. Relasinya pelaku : tempat kerja, tidak mengandung unsur pencegahan.",
+      "D": "Salah. Relasinya sarana pengobatan : hasil yang diharapkan; obat menyembuhkan, bukan mencegah.",
+      "E": "Salah. Relasinya tanda : penyakit yang ditandai, bukan tindakan pencegahan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Analogi Relasi Pencegahan BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-asesmen-tunjangan-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan L = lulus asesmen kompetensi, T = penerima tunjangan kinerja, F = pejabat fungsional, H = pegawai honorer. Premis 1: L -> T. Premis 2: sebagian T adalah F. Premis 3: tidak ada H yang T (T -> bukan H). Rantai: L -> T -> bukan H, sehingga tidak ada pegawai honorer yang lulus asesmen (opsi B). Opsi A tidak pasti karena penerima tunjangan berstatus fungsional belum tentu yang lulus asesmen; C adalah konvers dari premis 1; D tidak pasti karena premis 2 hanya membahas penerima tunjangan, sedangkan honorer bukan penerima; E tidak pasti karena premis 2 hanya menyebut sebagian.",
+    "stem": "Pada sebuah perangkat daerah berlaku tiga pernyataan berikut:\n1. Semua pegawai yang lulus asesmen kompetensi menerima tunjangan kinerja.\n2. Sebagian penerima tunjangan kinerja berstatus pejabat fungsional.\n3. Tidak ada pegawai honorer yang menerima tunjangan kinerja.\nKesimpulan yang PASTI benar berdasarkan ketiga pernyataan tersebut adalah...",
+    "options": {
+      "A": "Sebagian pejabat fungsional telah lulus asesmen.",
+      "B": "Tidak ada pegawai honorer yang termasuk pegawai lulus asesmen.",
+      "C": "Semua pegawai penerima tunjangan kinerja telah lulus asesmen.",
+      "D": "Sebagian pegawai honorer berstatus pejabat fungsional.",
+      "E": "Semua pejabat fungsional menerima tunjangan kinerja."
+    },
+    "hint": "Susun rantai implikasi dari premis pertama dan ketiga, lalu waspadai pernyataan yang hanya membalik arah premis.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Premis 2 hanya menyatakan sebagian penerima tunjangan berstatus fungsional; belum tentu mereka termasuk yang lulus asesmen.",
+      "B": "Benar. Lulus asesmen berarti menerima tunjangan (premis 1), dan penerima tunjangan bukan honorer (premis 3).",
+      "C": "Salah. Ini kekeliruan konvers: premis 1 menyatakan yang lulus pasti menerima tunjangan, bukan sebaliknya.",
+      "D": "Salah. Premis 2 hanya membahas penerima tunjangan; status fungsional pegawai honorer tidak diketahui.",
+      "E": "Salah. Premis 2 hanya menyebut sebagian pejabat fungsional yang menerima tunjangan, bukan semuanya."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Silogisme Rantai Implikasi BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-brankas-dokumen-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan R = dokumen berstatus rahasia, B = dokumen di dalam brankas, A = dokumen anggaran, K = dokumen yang tidak boleh dibawa keluar kantor. Premis 1: R -> B. Premis 2: sebagian B adalah A. Premis 3: A -> K. Dari premis 2 dan 3, sebagian B adalah K, yaitu sebagian dokumen di dalam brankas tidak boleh dibawa keluar kantor (opsi D). Opsi A tidak dijamin karena R hanya subhimpunan B dan belum tentu beririsan dengan A; B tidak dijamin karena dokumen anggaran di brankas belum tentu berstatus rahasia; C adalah konvers premis 1; E tidak dijamin karena dokumen rahasia belum tentu dokumen anggaran.",
+    "stem": "Pada sebuah kantor berlaku tiga pernyataan berikut:\n1. Semua dokumen berstatus rahasia disimpan di dalam brankas.\n2. Sebagian dokumen di dalam brankas adalah dokumen anggaran.\n3. Tidak ada dokumen anggaran yang boleh dibawa keluar kantor.\nKesimpulan yang PASTI benar berdasarkan ketiga pernyataan tersebut adalah...",
+    "options": {
+      "A": "Semua dokumen berstatus rahasia merupakan dokumen anggaran.",
+      "B": "Sebagian dokumen rahasia tidak boleh dibawa keluar kantor.",
+      "C": "Semua dokumen di dalam brankas berstatus rahasia.",
+      "D": "Sebagian dokumen di dalam brankas tidak boleh dibawa keluar kantor.",
+      "E": "Tidak ada dokumen rahasia yang boleh dibawa keluar kantor."
+    },
+    "hint": "Perhatikan himpunan mana yang menjadi penghubung antarpremis, dan jangan memperluas cakupan melebihi yang dijamin premis.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Premis tidak menyatakan hubungan langsung antara dokumen rahasia dan dokumen anggaran.",
+      "B": "Salah. Dokumen anggaran di brankas belum tentu berstatus rahasia, sehingga irisan dengan dokumen rahasia tidak terjamin.",
+      "C": "Salah. Ini kekeliruan konvers: premis 1 menyatakan yang rahasia pasti di brankas, bukan semua isi brankas rahasia.",
+      "D": "Benar. Sebagian dokumen di brankas adalah dokumen anggaran (premis 2), dan dokumen anggaran tidak boleh dibawa keluar (premis 3).",
+      "E": "Salah. Premis hanya membatasi dokumen anggaran; tidak ada dasar menyatakan semua dokumen rahasia tidak boleh dibawa keluar."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Silogisme Irisan Himpunan BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-peringkat-seleksi-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Peringkat 1 adalah tertinggi. Syarat 1: Pramudya lebih baik daripada Qonita, dan Qonita lebih baik daripada Tiara. Syarat 3: Qonita = peringkat 2, sehingga Pramudya = 1 dan Tiara berada pada peringkat 3, 4, atau 5. Syarat 4: Tiara bukan peringkat 5, sehingga Tiara = 3 atau 4. Syarat 2: Sekar dan Rahmat menempati dua peringkat berurutan (Sekar tepat di atas Rahmat) dari sisa peringkat {3, 4, 5} selain peringkat Tiara. Jika Tiara = 4, sisa {3, 5} tidak berurutan sehingga tidak memenuhi. Maka Tiara = 3, Sekar = 4, Rahmat = 5. Susunan unik: 1 Pramudya, 2 Qonita, 3 Tiara, 4 Sekar, 5 Rahmat. Hanya opsi C yang sesuai.",
+    "stem": "Lima peserta seleksi kompetensi, yaitu Pramudya, Qonita, Rahmat, Sekar, dan Tiara, menempati lima peringkat berbeda (peringkat 1 adalah yang tertinggi dan tidak ada peringkat yang sama). Diketahui:\n1. Pramudya berperingkat lebih baik daripada Qonita, dan Qonita berperingkat lebih baik daripada Tiara.\n2. Sekar berperingkat tepat satu tingkat di atas Rahmat.\n3. Qonita berada pada peringkat 2.\n4. Tiara tidak berada pada peringkat terakhir.\nPernyataan yang PASTI benar mengenai peringkat tersebut adalah...",
+    "options": {
+      "A": "Sekar berperingkat lebih baik daripada Tiara.",
+      "B": "Rahmat berperingkat tepat satu tingkat di bawah Qonita.",
+      "C": "Tiara berperingkat tepat satu tingkat di atas Sekar.",
+      "D": "Pramudya dan Rahmat berperingkat saling bersebelahan.",
+      "E": "Qonita berperingkat lebih rendah daripada Sekar."
+    },
+    "hint": "Tetapkan dahulu peringkat yang pasti, lalu uji posisi sisa peserta yang memungkinkan pasangan berurutan.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Tiara peringkat 3 dan Sekar peringkat 4, sehingga Tiara berperingkat lebih baik daripada Sekar.",
+      "B": "Salah. Rahmat peringkat 5 sedangkan Qonita peringkat 2; keduanya tidak berurutan.",
+      "C": "Benar. Susunan unik: Pramudya 1, Qonita 2, Tiara 3, Sekar 4, Rahmat 5; Tiara tepat satu tingkat di atas Sekar.",
+      "D": "Salah. Pramudya peringkat 1 dan Rahmat peringkat 5, sehingga tidak bersebelahan.",
+      "E": "Salah. Qonita peringkat 2 berperingkat lebih baik daripada Sekar yang peringkat 4."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Analitis Peringkat BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-pemilihan-diklat-001",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan W, X, Y, Z menyatakan pegawai yang dipilih mengikuti diklat. Syarat 4: Zainal tidak dipilih. Syarat 2: Yulia dipilih hanya jika Zainal dipilih (Y -> Z); karena Zainal tidak dipilih, Yulia tidak dipilih. Syarat 1: jika Wulan dipilih maka Xavier tidak dipilih. Syarat 3: paling sedikit satu di antara Wulan dan Xavier dipilih. Jika Wulan dipilih maka Xavier tidak; jika Wulan tidak dipilih maka Xavier wajib dipilih. Jadi tepat satu di antara Wulan dan Xavier dipilih, sedangkan Yulia dan Zainal tidak, sehingga jumlah pegawai yang dipilih tepat satu orang (opsi E). Opsi A dan B tidak pasti karena masing-masing masih mungkin benar atau salah; C melanggar syarat 1; D bertentangan dengan hasil bahwa Yulia tidak dipilih.",
+    "stem": "Dari empat pegawai Biro Umum, yaitu Wulan, Xavier, Yulia, dan Zainal, sebagian dipilih mengikuti diklat. Ketentuan pemilihannya adalah sebagai berikut:\n1. Jika Wulan dipilih, maka Xavier tidak dipilih.\n2. Yulia dipilih hanya jika Zainal dipilih.\n3. Paling sedikit satu di antara Wulan dan Xavier dipilih.\n4. Zainal tidak dipilih.\nPernyataan yang PASTI benar mengenai pemilihan tersebut adalah...",
+    "options": {
+      "A": "Wulan termasuk pegawai yang dipilih mengikuti diklat.",
+      "B": "Xavier termasuk pegawai yang dipilih mengikuti diklat.",
+      "C": "Wulan dan Xavier sama-sama dipilih mengikuti diklat.",
+      "D": "Yulia termasuk pegawai yang dipilih mengikuti diklat.",
+      "E": "Tepat satu orang pegawai yang dipilih mengikuti diklat."
+    },
+    "hint": "Mulailah dari syarat yang menetapkan status pegawai secara pasti, lalu telusuri konsekuensinya pada syarat bersyarat lainnya.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Wulan mungkin dipilih (dan Xavier tidak) atau tidak dipilih (dan Xavier dipilih), sehingga tidak pasti.",
+      "B": "Salah. Xavier mungkin dipilih atau tidak dipilih bergantung pada status Wulan, sehingga tidak pasti.",
+      "C": "Salah. Melanggar syarat 1: jika Wulan dipilih, Xavier tidak boleh dipilih.",
+      "D": "Salah. Yulia hanya dapat dipilih jika Zainal dipilih, sedangkan Zainal tidak dipilih.",
+      "E": "Benar. Yulia dan Zainal tidak dipilih, dan tepat satu di antara Wulan dan Xavier dipilih; jumlah terpilih adalah satu orang."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Verbal Analitis Kondisional BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-deret-selisih-kuadrat-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hitung selisih antarsuku: 4 - 3 = 1 = 1 kuadrat; 8 - 4 = 4 = 2 kuadrat; 17 - 8 = 9 = 3 kuadrat; 33 - 17 = 16 = 4 kuadrat; 58 - 33 = 25 = 5 kuadrat. Jadi selisih suku ke-n dan suku ke-(n+1) sama dengan n kuadrat. Suku ke-7 = 58 + 6 kuadrat = 58 + 36 = 94. Suku ke-8 = 94 + 7 kuadrat = 94 + 49 = 143 (opsi B). Opsi A memakai selisih tingkat dua tetap +9 (selisih 34 dan 43); C adalah suku ke-7; D memakai selisih 36 lalu 64; E menggeser indeks kuadrat (58 + 49 + 64).",
+    "stem": "Perhatikan deret bilangan berikut:\n3, 4, 8, 17, 33, 58, ..., ...\nSuku ke-8 dari deret tersebut adalah...",
+    "options": {
+      "A": "135",
+      "B": "143",
+      "C": "94",
+      "D": "158",
+      "E": "171"
+    },
+    "hint": "Telaah selisih antarsuku yang berurutan, lalu periksa bilangan khusus apa yang membentuk selisih-selisih tersebut.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menganggap selisih tingkat dua tetap +9 sehingga selisih berikutnya 34 dan 43; 58 + 34 + 43 = 135.",
+      "B": "Benar. Selisih mengikuti kuadrat berurutan: suku ke-7 = 58 + 36 = 94 dan suku ke-8 = 94 + 49 = 143.",
+      "C": "Salah. Nilai 94 adalah suku ke-7, bukan suku ke-8.",
+      "D": "Salah. Memakai selisih 36 lalu 64 (melompati kuadrat dari 7); 94 + 64 = 158.",
+      "E": "Salah. Indeks kuadrat bergeser: 58 + 49 = 107 lalu 107 + 64 = 171."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Deret Selisih Kuadrat BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-perbandingan-kuadrat-sempurna-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "X - Y = p^2 + 1 - 2p = (p - 1)^2. Karena kuadrat bilangan real tidak pernah negatif, X - Y >= 0, dan X - Y = 0 hanya ketika p = 1. Uji nilai: p = 1 menghasilkan X = 2 dan Y = 2 sehingga X = Y; p = 2 menghasilkan X = 5 dan Y = 4 sehingga X > Y. Karena hubungan X dan Y berbeda untuk nilai p yang berbeda dan p hanya diketahui positif, hubungan X dan Y tidak dapat ditentukan (opsi D). Opsi A dan C hanya berlaku untuk sebagian nilai p; opsi B dan E bertentangan dengan X >= Y.",
+    "stem": "Diketahui p adalah bilangan real positif.\nX = p kuadrat + 1\nY = 2p\nHubungan antara X dan Y yang benar adalah...",
+    "options": {
+      "A": "Nilai X lebih besar daripada nilai Y.",
+      "B": "Nilai X lebih kecil daripada nilai Y.",
+      "C": "Nilai X sama dengan nilai Y.",
+      "D": "Hubungan X dan Y tidak dapat ditentukan.",
+      "E": "Nilai X selalu lebih kecil atau sama dengan Y."
+    },
+    "hint": "Selidiki bentuk selisih X dan Y, lalu uji beberapa nilai p termasuk nilai yang membuat selisih tersebut nol.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. X lebih besar dari Y hanya untuk p selain 1; untuk p = 1 keduanya sama.",
+      "B": "Salah. Selisih X - Y = (p - 1) kuadrat tidak pernah negatif sehingga X tidak pernah lebih kecil dari Y.",
+      "C": "Salah. X = Y hanya terjadi ketika p = 1, sedangkan p = 2 menghasilkan X = 5 dan Y = 4.",
+      "D": "Benar. Hubungan bergantung pada p: p = 1 menghasilkan X = Y, sedangkan p = 2 menghasilkan X > Y.",
+      "E": "Salah. X - Y = (p - 1) kuadrat >= 0, sehingga X justru selalu lebih besar atau sama dengan Y."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Perbandingan Kuantitatif Bentuk Kuadrat BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-sosial-laba-rugi-buku-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Modal total = 50 x Rp20.000 = Rp1.000.000. Sebanyak 40 buku dijual dengan laba 25%: harga jual per buku = 20.000 x 1,25 = 25.000, sehingga penerimaan = 40 x 25.000 = 1.000.000. Sisa 10 buku dijual rugi 10%: harga jual per buku = 20.000 x 0,90 = 18.000, sehingga penerimaan = 10 x 18.000 = 180.000. Total penerimaan = 1.180.000. Laba bersih = 1.180.000 - 1.000.000 = 180.000, atau 180.000 : 1.000.000 = 18% dari total modal (opsi A). Opsi B memakai rata-rata sederhana (25 + (-10)) : 2; C memakai 25 - 10; D mengabaikan kerugian (40/50 x 25); E menjumlahkan 10% sebagai laba (40 x 25 + 10 x 10) : 50.",
+    "stem": "Koperasi Pegawai Dinas Pendidikan membeli 50 buah buku dengan harga Rp20.000 per buah. Sebanyak 40 buku dijual dengan laba 25% per buku, sedangkan sisanya dijual dengan kerugian 10% per buku. Persentase laba bersih koperasi terhadap total modal pembelian adalah...",
+    "options": {
+      "A": "18%",
+      "B": "7,5%",
+      "C": "15%",
+      "D": "20%",
+      "E": "22%"
+    },
+    "hint": "Hitung total modal dan total penerimaan dari kedua kelompok buku, jangan merata-ratakan persentase tanpa memperhitungkan jumlah buku.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Penerimaan 1.000.000 + 180.000 = 1.180.000; laba bersih 180.000 atau 18% dari modal 1.000.000.",
+      "B": "Salah. Merata-ratakan 25% dan -10% secara sederhana ((25 - 10) : 2) tanpa memperhitungkan jumlah buku tiap kelompok.",
+      "C": "Salah. Hanya mengurangkan 25% dengan 10% tanpa memperhitungkan jumlah buku tiap kelompok.",
+      "D": "Salah. Memakai 40/50 x 25% = 20% sehingga mengabaikan kerugian pada 10 buku sisanya.",
+      "E": "Salah. Menjumlahkan 10% sebagai laba pada 10 buku sisanya padahal buku tersebut dijual rugi."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Aritmetika Sosial Untung Rugi Campuran BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-kendaraan-berlawanan-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Pada pukul 07.00, kendaraan dari Kota P sudah menempuh 60 km/jam x 1 jam = 60 km, sehingga jarak tersisa = 340 - 60 = 280 km. Kedua kendaraan berlawanan arah dengan kecepatan gabungan 60 + 80 = 140 km/jam, sehingga waktu bertemu setelah pukul 07.00 adalah 280 : 140 = 2 jam, yaitu pukul 09.00. Kendaraan dari Kota P telah berjalan 3 jam (pukul 06.00 sampai 09.00), jaraknya dari Kota P = 60 x 3 = 180 km (opsi C). Verifikasi: jarak dari Kota Q = 80 x 2 = 160 km, dan 180 + 160 = 340 km. Opsi A memakai 2 jam untuk kendaraan pertama; B adalah jarak dari Kota Q; D memakai 340 - 140; E memakai waktu 4 jam.",
+    "stem": "Dua kendaraan dinas berangkat dari Kota P dan Kota Q yang berjarak 340 km melalui jalan yang sama dan saling berlawanan arah. Kendaraan dari Kota P berangkat pukul 06.00 dengan kecepatan tetap 60 km/jam, sedangkan kendaraan dari Kota Q berangkat pukul 07.00 dengan kecepatan tetap 80 km/jam. Jarak titik pertemuan kedua kendaraan tersebut dari Kota P adalah...",
+    "options": {
+      "A": "120 km",
+      "B": "160 km",
+      "C": "180 km",
+      "D": "200 km",
+      "E": "240 km"
+    },
+    "hint": "Hitung dahulu jarak yang sudah ditempuh sebelum kendaraan kedua berangkat, lalu gunakan kecepatan gabungan untuk sisa jarak.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Memakai waktu 2 jam untuk kendaraan pertama (60 x 2), padahal kendaraan tersebut berjalan 3 jam sampai bertemu.",
+      "B": "Salah. Ini jarak titik pertemuan dari Kota Q (80 x 2), bukan dari Kota P.",
+      "C": "Benar. Pertemuan pukul 09.00; kendaraan dari Kota P berjalan 3 jam sehingga jaraknya 60 x 3 = 180 km.",
+      "D": "Salah. Mengurangkan jarak total dengan jarak tempuh gabungan satu jam (340 - 140) tanpa dasar penyelesaian yang benar.",
+      "E": "Salah. Memakai waktu 4 jam bagi kendaraan pertama (60 x 4), padahal pertemuan terjadi setelah 3 jam."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Soal Cerita Kecepatan Relatif BKN"
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-persediaan-pengungsi-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total persediaan = 120 orang x 15 hari = 1.800 orang-hari. Setelah 5 hari terpakai 120 x 5 = 600 orang-hari, sehingga sisa 1.800 - 600 = 1.200 orang-hari. Jumlah pengungsi setelah penambahan = 120 + 80 = 200 orang. Sisa persediaan cukup untuk 1.200 : 200 = 6 hari (opsi E). Perbandingan ini berbalik nilai: semakin banyak orang, semakin sedikit hari. Opsi A memakai 1.800 : 200 (mengabaikan 5 hari yang sudah terpakai); B mengabaikan penambahan pengungsi (1.200 : 120); C memakai rata-rata 160 orang; D memakai 1.200 : 80.",
+    "stem": "Dapur umum posko pengungsian banjir di Kabupaten Bojonegoro memiliki persediaan beras yang cukup untuk 120 pengungsi selama 15 hari. Setelah 5 hari, datang tambahan 80 pengungsi dan konsumsi beras per orang per hari tetap sama. Sisa persediaan beras cukup untuk seluruh pengungsi selama...",
+    "options": {
+      "A": "9 hari",
+      "B": "10 hari",
+      "C": "7,5 hari",
+      "D": "15 hari",
+      "E": "6 hari"
+    },
+    "hint": "Ubah persediaan menjadi satuan orang-hari, kurangi yang sudah terpakai, lalu bagi dengan jumlah pengungsi yang baru.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Membagi total 1.800 orang-hari dengan 200 orang sehingga mengabaikan beras yang sudah terpakai selama 5 hari.",
+      "B": "Salah. Ini sisa hari bila jumlah pengungsi tetap 120, sehingga mengabaikan penambahan 80 pengungsi.",
+      "C": "Salah. Memakai rata-rata 160 orang (1.200 : 160), padahal seluruh 200 pengungsi mengonsumsi beras setelah penambahan.",
+      "D": "Salah. Membagi sisa 1.200 orang-hari hanya dengan 80 pengungsi tambahan.",
+      "E": "Benar. Sisa 1.200 orang-hari dibagi 200 pengungsi menghasilkan 6 hari."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Adaptasi Kisi-Kisi TIU Numerik Soal Cerita Perbandingan Berbalik Nilai BKN"
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-kuratorial-011",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hubungan Kurator : Koleksi adalah profesi atau peran terhadap objek yang dikelola. Kurator mengelola dan menyeleksi koleksi, sedangkan arsiparis mengelola dan menjaga arsip. Hubungan ini bukan sekadar pengguna terhadap objek, melainkan tanggung jawab profesional terhadap objek pengelolaan.",
+    "stem": "Kurator : Koleksi memiliki hubungan yang paling sepadan dengan ...",
+    "options": {
+      "A": "Hakim : Persidangan",
+      "B": "Bendahara : Anggaran",
+      "C": "Diplomat : Perjanjian",
+      "D": "Arsiparis : Arsip",
+      "E": "Juru ukur : Peta"
+    },
+    "hint": "Perhatikan hubungan antara peran profesional dan objek yang menjadi tanggung jawab pengelolaannya.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Hakim memimpin atau memutus perkara dalam persidangan, tetapi bukan mengelola persidangan sebagai suatu koleksi objek.",
+      "B": "Bendahara mengelola anggaran, tetapi pasangan kurator dan koleksi lebih dekat dengan pengelolaan serta pemeliharaan kumpulan objek.",
+      "C": "Diplomat menjalankan hubungan diplomatik dan negosiasi, sedangkan perjanjian merupakan salah satu hasil pekerjaannya.",
+      "D": "Arsiparis mengelola, memelihara, dan menjaga arsip sebagaimana kurator bertanggung jawab mengelola koleksi.",
+      "E": "Juru ukur menghasilkan atau menggunakan peta berdasarkan pengukuran, bukan bertanggung jawab mengelola kumpulan objek."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-instrumen-altimeter-012",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Kompas merupakan instrumen yang menunjukkan arah, sedangkan altimeter merupakan instrumen yang mengukur ketinggian. Hubungan analogi adalah instrumen terhadap parameter utama yang diukur atau ditunjukkan. Pilihan lain merupakan besaran berbeda yang memerlukan instrumen pengukuran tersendiri.",
+    "stem": "Kompas : Arah memiliki hubungan yang paling sepadan dengan Altimeter : ...",
+    "options": {
+      "A": "Suhu",
+      "B": "Ketinggian",
+      "C": "Tekanan",
+      "D": "Kelembapan",
+      "E": "Kecepatan"
+    },
+    "hint": "Identifikasi fungsi utama masing-masing instrumen berdasarkan parameter yang dihasilkannya.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Suhu merupakan parameter yang diukur menggunakan termometer, bukan altimeter.",
+      "B": "Altimeter mengukur ketinggian suatu objek atau lokasi, sehingga hubungannya sesuai dengan kompas yang menunjukkan arah.",
+      "C": "Tekanan diukur menggunakan barometer atau instrumen pengukur tekanan yang sesuai, bukan altimeter.",
+      "D": "Kelembapan diukur menggunakan higrometer, sehingga bukan parameter utama altimeter.",
+      "E": "Kecepatan diukur menggunakan instrumen seperti speedometer atau anemometer sesuai objeknya, bukan altimeter."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-agenda-surat-013",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Premis pertama menyatakan bahwa semua dokumen yang disetujui pejabat memperoleh nomor agenda. Premis kedua menyatakan sebagian surat usulan termasuk dokumen yang disetujui pejabat. Dengan silogisme kategoris, sebagian surat usulan tersebut pasti memperoleh nomor agenda. Premis ketiga tidak mengubah relasi himpunan tersebut.",
+    "stem": "Dalam pengelolaan persuratan sebuah instansi berlaku ketentuan berikut:\n\n1. Semua dokumen yang disetujui pejabat memperoleh nomor agenda.\n2. Sebagian surat usulan merupakan dokumen yang disetujui pejabat.\n3. Tidak ada dokumen yang belum diverifikasi yang boleh diarsipkan sebagai dokumen final.\n\nKesimpulan yang pasti benar adalah ...",
+    "options": {
+      "A": "Semua surat usulan memperoleh nomor agenda.",
+      "B": "Semua dokumen yang memperoleh nomor agenda merupakan surat usulan.",
+      "C": "Sebagian surat usulan memperoleh nomor agenda.",
+      "D": "Semua dokumen yang diarsipkan sebagai final merupakan surat usulan.",
+      "E": "Sebagian dokumen yang belum diverifikasi memperoleh nomor agenda."
+    },
+    "hint": "Hubungkan kelompok yang hanya sebagian anggotanya memenuhi suatu kondisi dengan kelompok yang memiliki sifat universal.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Premis kedua hanya menyebut sebagian surat usulan yang disetujui, sehingga tidak membuktikan bahwa seluruh surat usulan memperoleh nomor agenda.",
+      "B": "Implikasi bahwa dokumen yang disetujui memperoleh nomor agenda tidak dapat dibalik menjadi seluruh pemilik nomor agenda harus berupa surat usulan.",
+      "C": "Sebagian surat usulan disetujui pejabat dan setiap dokumen yang disetujui memperoleh nomor agenda, sehingga sebagian surat usulan pasti beragenda.",
+      "D": "Tidak ada premis yang menyatakan bahwa seluruh dokumen final merupakan surat usulan.",
+      "E": "Premis ketiga melarang dokumen yang belum diverifikasi diarsipkan sebagai final, tetapi tidak menghubungkannya dengan kepemilikan nomor agenda."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-pelatihan-verifikator-014",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Semua pegawai yang menjadi verifikator telah mengikuti pelatihan pengadaan. Sebagian pegawai biro umum menjadi verifikator. Oleh karena itu, sebagian pegawai biro umum pasti mengikuti pelatihan pengadaan. Premis bahwa pegawai yang belum mengikuti pelatihan tidak boleh menjadi ketua evaluasi tidak membenarkan pembalikan implikasi.",
+    "stem": "Sebuah instansi menerapkan ketentuan berikut:\n\n1. Semua pegawai yang bertugas sebagai verifikator telah mengikuti pelatihan pengadaan.\n2. Sebagian pegawai biro umum bertugas sebagai verifikator.\n3. Pegawai yang belum mengikuti pelatihan pengadaan tidak boleh menjadi ketua evaluasi.\n\nKesimpulan yang dapat ditarik secara logis adalah ...",
+    "options": {
+      "A": "Semua pegawai biro umum telah mengikuti pelatihan pengadaan.",
+      "B": "Semua pegawai yang mengikuti pelatihan pengadaan merupakan verifikator.",
+      "C": "Sebagian pegawai biro umum telah mengikuti pelatihan pengadaan.",
+      "D": "Semua ketua evaluasi merupakan pegawai biro umum.",
+      "E": "Sebagian pegawai yang menjadi verifikator belum mengikuti pelatihan."
+    },
+    "hint": "Gunakan relasi antara kelompok pegawai yang memenuhi suatu fungsi dan persyaratan universal yang berlaku pada fungsi tersebut.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Premis kedua hanya menyatakan sebagian pegawai biro umum menjadi verifikator, bukan semuanya.",
+      "B": "Premis pertama tidak dapat dibalik karena pegawai yang mengikuti pelatihan belum tentu semuanya menjadi verifikator.",
+      "C": "Sebagian pegawai biro umum adalah verifikator dan seluruh verifikator mengikuti pelatihan, sehingga sebagian pegawai biro umum pasti terlatih.",
+      "D": "Tidak ada premis yang menghubungkan jabatan ketua evaluasi secara eksklusif dengan keanggotaan biro umum.",
+      "E": "Pernyataan ini bertentangan dengan premis pertama yang menyatakan seluruh verifikator telah mengikuti pelatihan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-jadwal-inspeksi-015",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Lima hari menyediakan lima posisi berurutan. Kirana telah ditetapkan pada Rabu dan Nanda pada Jumat. Karena Bagas harus tampil sebelum Kirana dan Ratri harus tampil sebelum Bagas, keduanya menempati Senin dan Selasa secara berurutan. Dengan demikian, Ratri pada Senin, Bagas pada Selasa, Kirana pada Rabu, dan Yudha pada Kamis.",
+    "stem": "Lima pegawai, yaitu Ratri, Bagas, Kirana, Yudha, dan Nanda, dijadwalkan melakukan inspeksi satu orang per hari dari Senin sampai Jumat. Ketentuannya sebagai berikut:\n\n- Kirana bertugas pada hari Rabu.\n- Nanda bertugas pada hari Jumat.\n- Ratri bertugas sebelum Bagas.\n- Bagas bertugas sebelum Kirana.\n\nSiapakah yang bertugas pada hari Selasa?",
+    "options": {
+      "A": "Bagas",
+      "B": "Ratri",
+      "C": "Yudha",
+      "D": "Kirana",
+      "E": "Nanda"
+    },
+    "hint": "Tempatkan jadwal yang sudah pasti terlebih dahulu, lalu gunakan hubungan urutan untuk mengisi posisi yang tersisa.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Ratri harus sebelum Bagas dan Bagas harus sebelum Kirana pada Rabu, sehingga Ratri berada pada Senin dan Bagas pada Selasa.",
+      "B": "Ratri menempati Senin karena harus tampil sebelum Bagas dan keduanya harus mendahului Kirana yang bertugas Rabu.",
+      "C": "Yudha menempati Kamis karena Rabu sudah ditempati Kirana dan Jumat ditempati Nanda.",
+      "D": "Kirana telah ditetapkan bertugas pada hari Rabu, bukan Selasa.",
+      "E": "Nanda telah ditetapkan bertugas pada hari Jumat, bukan Selasa."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-urutan-proses-016",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan P adalah pemeriksaan identitas, Q pencocokan dokumen, R input data, S persetujuan supervisor, dan T penerbitan nomor. P harus tepat sebelum Q, Q sebelum R, dan R sebelum S. T selalu terakhir. Rangkaian tersebut menghasilkan urutan tunggal P-Q-R-S-T. Dengan demikian, pekerjaan pada urutan ketiga adalah input data.",
+    "stem": "Sebuah unit administrasi menerapkan lima tahap pemrosesan dokumen, yaitu pemeriksaan identitas (P), pencocokan dokumen (Q), input data (R), persetujuan supervisor (S), dan penerbitan nomor (T). Ketentuan urutannya adalah:\n\n- P harus dilakukan tepat sebelum Q.\n- Q harus dilakukan sebelum R.\n- R harus dilakukan sebelum S.\n- T selalu menjadi tahap terakhir.\n\nTahap apakah yang harus dilakukan pada urutan ketiga?",
+    "options": {
+      "A": "Pemeriksaan identitas.",
+      "B": "Pencocokan dokumen.",
+      "C": "Input data.",
+      "D": "Persetujuan supervisor.",
+      "E": "Penerbitan nomor."
+    },
+    "hint": "Susun urutan berdasarkan ketergantungan antartahap, kemudian identifikasi posisi yang diminta.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pemeriksaan identitas merupakan tahap pertama karena harus berlangsung tepat sebelum pencocokan dokumen.",
+      "B": "Pencocokan dokumen merupakan tahap kedua karena harus langsung mengikuti pemeriksaan identitas.",
+      "C": "Input data merupakan tahap ketiga setelah pemeriksaan identitas dan pencocokan dokumen, serta sebelum persetujuan supervisor.",
+      "D": "Persetujuan supervisor merupakan tahap keempat karena harus dilakukan setelah input data.",
+      "E": "Penerbitan nomor merupakan tahap terakhir sesuai ketentuan urutan yang diberikan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-numerik-deret-kuadrat-selisih-017",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret 2, 6, 15, 31, 56 memiliki selisih berturut-turut 4, 9, 16, dan 25. Selisih tersebut membentuk kuadrat bilangan berurutan, yaitu 2², 3², 4², dan 5². Selisih berikutnya adalah 6² = 36. Maka suku berikutnya adalah 56 + 36 = 92.",
+    "stem": "Perhatikan deret bilangan berikut: 2, 6, 15, 31, 56, ... Angka yang paling tepat untuk melengkapi deret tersebut adalah ...",
+    "options": {
+      "A": "92",
+      "B": "90",
+      "C": "94",
+      "D": "96",
+      "E": "98"
+    },
+    "hint": "Periksa pola selisih antarsuku dan cari hubungan matematis yang membentuk selisih tersebut.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Selisihnya adalah 4, 9, 16, 25, kemudian 36. Jadi angka selanjutnya ialah 56 + 36 = 92.",
+      "B": "Angka 90 menghasilkan selisih 34, padahal pola selisih berikutnya adalah kuadrat 6, yaitu 36.",
+      "C": "Angka 94 menghasilkan selisih 38 yang tidak mengikuti pola kuadrat bilangan berurutan.",
+      "D": "Angka 96 menghasilkan selisih 40 sehingga tidak sesuai dengan kelanjutan pola selisih kuadrat.",
+      "E": "Angka 98 menghasilkan selisih 42, bukan 36 sebagaimana yang ditentukan oleh pola."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-numerik-perbandingan-komposisi-018",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hitung kedua besaran secara mandiri. X = 40% × 360 + 25 = 144 + 25 = 169. Y = 3/4 × 220 = 165. Karena 169 lebih besar daripada 165, maka X > Y. Perhitungan harus menyelesaikan seluruh operasi sebelum melakukan perbandingan.",
+    "stem": "Diketahui dua besaran sebagai berikut:\n\nX = 40% dari 360 ditambah 25\nY = 3/4 dari 220\n\nHubungan yang benar antara kedua besaran tersebut adalah ...",
+    "options": {
+      "A": "X lebih kecil daripada Y.",
+      "B": "X sama dengan Y.",
+      "C": "X lebih besar daripada Y.",
+      "D": "X merupakan dua kali Y.",
+      "E": "Hubungan keduanya tidak dapat ditentukan."
+    },
+    "hint": "Selesaikan semua operasi pada masing-masing besaran sebelum membandingkan hasilnya.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "X bernilai 169 sedangkan Y bernilai 165, sehingga pernyataan bahwa X lebih kecil tidak sesuai.",
+      "B": "Kedua hasil berbeda, yaitu 169 dan 165, sehingga tidak dapat dinyatakan sama.",
+      "C": "X = 0,4 × 360 + 25 = 169, sedangkan Y = 0,75 × 220 = 165. Oleh karena itu, X lebih besar daripada Y.",
+      "D": "Dua kali Y adalah 330, bukan 169, sehingga hubungan tersebut tidak benar.",
+      "E": "Seluruh nilai dan operasi telah diberikan secara lengkap, sehingga hubungan kedua besaran dapat ditentukan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-diskon-beruntun-019",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Harga awal adalah Rp1.200.000. Diskon pertama 20% menghasilkan Rp960.000. Diskon kedua sebesar 10% dihitung dari harga setelah diskon pertama, yaitu Rp96.000. Harga akhir = Rp960.000 - Rp96.000 = Rp864.000. Diskon berurutan 20% dan 10% setara dengan diskon efektif 28%, bukan 30%.",
+    "stem": "Sebuah perangkat elektronik memiliki harga awal Rp1.200.000. Toko memberikan diskon pertama sebesar 20%, kemudian memberikan diskon tambahan sebesar 10% dari harga setelah potongan pertama. Berapakah harga akhir perangkat tersebut?",
+    "options": {
+      "A": "Rp840.000",
+      "B": "Rp864.000",
+      "C": "Rp880.000",
+      "D": "Rp900.000",
+      "E": "Rp960.000"
+    },
+    "hint": "Diskon kedua dihitung berdasarkan harga yang sudah dikurangi diskon pertama, bukan harga awal.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Nilai ini setara dengan pengurangan 30% langsung dari harga awal, padahal diskon diberikan secara berurutan.",
+      "B": "Setelah diskon 20%, harga menjadi Rp960.000. Diskon tambahan 10% adalah Rp96.000, sehingga harga akhir Rp864.000.",
+      "C": "Nilai ini tidak diperoleh dari pengurangan 10% terhadap harga setelah diskon pertama sebesar Rp960.000.",
+      "D": "Harga Rp900.000 tidak sesuai dengan penerapan diskon beruntun 20% kemudian 10%.",
+      "E": "Rp960.000 merupakan harga setelah diskon pertama saja dan belum dikurangi diskon tambahan 10%."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-pompa-bersamaan-020",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Pompa pertama mengisi 1/6 bak per jam, pompa kedua 1/9 bak per jam, dan kebocoran membuang 1/18 bak per jam. Laju bersih = 1/6 + 1/9 - 1/18 = 3/18 + 2/18 - 1/18 = 4/18 = 2/9 bak per jam. Waktu pengisian satu bak adalah 1 ÷ 2/9 = 9/2 = 4,5 jam.",
+    "stem": "Sebuah bak air kosong diisi menggunakan dua pompa. Pompa pertama mampu mengisi bak penuh dalam 6 jam, sedangkan pompa kedua memerlukan 9 jam. Pada saat yang sama, terdapat kebocoran yang mengeluarkan air setara dengan 1/18 kapasitas bak setiap jam. Jika kedua pompa dan kebocoran bekerja bersamaan dengan laju tetap, berapa lama bak akan terisi penuh?",
+    "options": {
+      "A": "3 jam.",
+      "B": "3,5 jam.",
+      "C": "4 jam.",
+      "D": "5 jam.",
+      "E": "4,5 jam."
+    },
+    "hint": "Gunakan laju pengisian bersih dengan memperhitungkan seluruh aliran yang masuk dan keluar setiap jam.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Dalam 3 jam, pengisian bersih baru mencapai 3 × 2/9 = 2/3 kapasitas bak, sehingga belum penuh.",
+      "B": "Dalam 3,5 jam, pengisian bersih baru mencapai 7/9 kapasitas bak, sehingga masih kurang dari satu bak.",
+      "C": "Dalam 4 jam, pengisian bersih mencapai 8/9 kapasitas bak, sehingga belum penuh.",
+      "D": "Dalam 5 jam, pengisian bersih mencapai 10/9 kapasitas bak, sehingga waktu yang diperlukan terlalu lama.",
+      "E": "Laju bersih adalah 2/9 bak per jam. Waktu pengisian penuh = 1 ÷ 2/9 = 4,5 jam."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-prototipe-021",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Prototipe merupakan bentuk awal atau model percobaan yang dikembangkan sebelum produk akhir dibuat. Draf merupakan bentuk awal naskah yang disempurnakan menjadi naskah final. Hubungan keduanya adalah representasi awal terhadap hasil akhir yang dikembangkan melalui proses penyempurnaan.",
+    "stem": "Prototipe : Produk akhir memiliki hubungan yang paling sepadan dengan ...",
+    "options": {
+      "A": "Draf : Naskah final.",
+      "B": "Arsip : Dokumen lama.",
+      "C": "Indeks : Halaman buku.",
+      "D": "Kuitansi : Transaksi pembayaran.",
+      "E": "Meterai : Perjanjian hukum."
+    },
+    "hint": "Perhatikan hubungan antara bentuk awal suatu hasil kerja dan produk yang telah disempurnakan.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Draf merupakan bentuk awal yang dikembangkan menjadi naskah final, sebagaimana prototipe dikembangkan menjadi produk akhir.",
+      "B": "Arsip merupakan kumpulan dokumen yang disimpan, bukan bentuk awal yang disempurnakan menjadi dokumen lain.",
+      "C": "Indeks merupakan petunjuk untuk menemukan informasi dalam buku, bukan rancangan awal halaman buku.",
+      "D": "Kuitansi merupakan bukti pembayaran setelah transaksi, bukan rancangan awal dari transaksi tersebut.",
+      "E": "Meterai merupakan unsur formalitas dokumen tertentu dan bukan bentuk awal yang dikembangkan menjadi perjanjian."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-kalibrasi-validasi-022",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Kalibrasi merupakan proses untuk memastikan ketepatan hasil pengukuran suatu instrumen. Validasi merupakan proses untuk memastikan keabsahan suatu data atau hasil. Hubungannya adalah tindakan pemeriksaan atau penyesuaian terhadap objek untuk memastikan kualitas tertentu.",
+    "stem": "Kalibrasi : Ketepatan pengukuran memiliki hubungan yang paling sepadan dengan ...",
+    "options": {
+      "A": "Inventarisasi : Jumlah persediaan.",
+      "B": "Distribusi : Lokasi penyimpanan.",
+      "C": "Dokumentasi : Ruang administrasi.",
+      "D": "Evaluasi : Jadwal kegiatan.",
+      "E": "Validasi : Keabsahan data."
+    },
+    "hint": "Identifikasi proses yang bertujuan memastikan kualitas atau kelayakan suatu hasil.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Inventarisasi mencatat jumlah persediaan, tetapi tidak secara langsung memastikan ketepatan suatu hasil pengukuran.",
+      "B": "Distribusi mengatur penyaluran barang, sedangkan lokasi penyimpanan merupakan salah satu unsur pengelolaan logistik.",
+      "C": "Dokumentasi menghasilkan catatan kegiatan, bukan proses pemeriksaan untuk memastikan kualitas suatu hasil.",
+      "D": "Evaluasi menilai pelaksanaan kegiatan, tetapi jadwal bukan kualitas hasil yang secara langsung dipastikan melalui proses tersebut.",
+      "E": "Validasi memeriksa keabsahan data sebagaimana kalibrasi memastikan ketepatan pengukuran instrumen."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-pengelolaan-aset-023",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Premis pertama menyatakan bahwa seluruh pegawai pengelola aset negara mengikuti pelatihan pengelolaan aset. Premis kedua menyatakan sebagian pegawai keuangan daerah merupakan pengelola aset negara. Dengan menerapkan hubungan himpunan, sebagian pegawai keuangan daerah pasti mengikuti pelatihan tersebut. Premis ketiga tidak mengubah kesimpulan mengenai keikutsertaan pelatihan.",
+    "stem": "Dalam suatu instansi berlaku ketentuan berikut:\n\n1. Semua pegawai yang mengelola aset negara telah mengikuti pelatihan pengelolaan aset.\n2. Sebagian pegawai bagian keuangan daerah bertugas mengelola aset negara.\n3. Setiap peserta pelatihan pengelolaan aset wajib mengikuti evaluasi kompetensi.\n\nKesimpulan yang pasti benar adalah ...",
+    "options": {
+      "A": "Semua pegawai bagian keuangan daerah mengikuti pelatihan pengelolaan aset.",
+      "B": "Sebagian pegawai bagian keuangan daerah telah mengikuti pelatihan pengelolaan aset.",
+      "C": "Semua peserta pelatihan pengelolaan aset merupakan pengelola aset negara.",
+      "D": "Sebagian pegawai bagian keuangan daerah tidak wajib mengikuti evaluasi kompetensi.",
+      "E": "Semua pengelola aset negara merupakan pegawai bagian keuangan daerah."
+    },
+    "hint": "Hubungkan kelompok yang hanya sebagian anggotanya memiliki suatu fungsi dengan persyaratan universal yang berlaku pada fungsi tersebut.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Premis kedua hanya menyebut sebagian pegawai keuangan daerah yang mengelola aset, bukan seluruh pegawai bagian tersebut.",
+      "B": "Sebagian pegawai keuangan daerah merupakan pengelola aset dan seluruh pengelola aset mengikuti pelatihan, sehingga sebagian pegawai tersebut pasti terlatih.",
+      "C": "Premis universal hanya menyatakan pengelola aset mengikuti pelatihan, bukan bahwa seluruh peserta pelatihan adalah pengelola aset.",
+      "D": "Tidak ada informasi yang menyatakan sebagian pegawai tersebut bebas dari evaluasi kompetensi setelah mengikuti pelatihan.",
+      "E": "Tidak ada premis yang menyatakan bahwa seluruh pengelola aset negara berasal dari bagian keuangan daerah."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-inspeksi-dokumen-024",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Premis pertama menyatakan sebagian laporan inspeksi merupakan dokumen mendesak. Seluruh dokumen mendesak harus diperiksa oleh bagian hukum. Tidak satu pun dokumen yang diperiksa bagian hukum dapat dirilis sebelum memperoleh persetujuan. Oleh karena itu, sebagian laporan inspeksi pasti diperiksa bagian hukum dan tidak dapat dirilis sebelum memperoleh persetujuan.",
+    "stem": "Sebuah instansi menerapkan ketentuan berikut:\n\n1. Sebagian laporan inspeksi merupakan dokumen mendesak.\n2. Semua dokumen mendesak wajib diperiksa oleh bagian hukum.\n3. Tidak ada dokumen yang telah diperiksa bagian hukum yang boleh dirilis sebelum mendapat persetujuan.\n\nKesimpulan yang dapat dipastikan benar adalah ...",
+    "options": {
+      "A": "Semua laporan inspeksi merupakan dokumen mendesak.",
+      "B": "Semua dokumen yang diperiksa bagian hukum merupakan laporan inspeksi.",
+      "C": "Sebagian laporan inspeksi dapat dirilis sebelum memperoleh persetujuan.",
+      "D": "Sebagian laporan inspeksi diperiksa bagian hukum dan tidak dapat dirilis sebelum memperoleh persetujuan.",
+      "E": "Tidak ada laporan inspeksi yang dapat diperiksa oleh bagian hukum."
+    },
+    "hint": "Gunakan hubungan berantai antara kelompok dokumen dan perhatikan konsekuensi yang berlaku setelah pemeriksaan.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Premis pertama hanya menyatakan sebagian laporan inspeksi termasuk dokumen mendesak, bukan seluruhnya.",
+      "B": "Hubungan bahwa seluruh dokumen mendesak diperiksa bagian hukum tidak dapat dibalik menjadi semua dokumen yang diperiksa harus merupakan dokumen mendesak.",
+      "C": "Kesimpulan tersebut bertentangan dengan ketentuan bahwa dokumen yang diperiksa bagian hukum tidak boleh dirilis sebelum mendapat persetujuan.",
+      "D": "Sebagian laporan inspeksi merupakan dokumen mendesak, seluruh dokumen mendesak diperiksa bagian hukum, dan dokumen tersebut tidak boleh dirilis sebelum persetujuan.",
+      "E": "Premis kedua justru menunjukkan bahwa seluruh dokumen mendesak wajib diperiksa bagian hukum."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-susunan-kursi-026",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Aulia harus tepat di sebelah kiri Bima, sehingga keduanya membentuk blok AB. Damar harus tepat di sebelah kiri Citra, sehingga membentuk blok DC. Eka berada di kursi kelima. Karena Aulia harus berada di sebelah kiri Damar, urutan blok AB harus mendahului DC. Satu-satunya susunan adalah Aulia, Bima, Damar, Citra, Eka.",
+    "stem": "Lima pegawai duduk berjajar pada lima kursi yang menghadap ke depan. Ketentuannya adalah:\n\n- Aulia duduk tepat di sebelah kiri Bima.\n- Damar duduk tepat di sebelah kiri Citra.\n- Eka duduk pada kursi paling kanan.\n- Aulia duduk di sebelah kiri Damar.\n\nSiapakah yang menempati kursi keempat dari kiri?",
+    "options": {
+      "A": "Citra.",
+      "B": "Bima.",
+      "C": "Aulia.",
+      "D": "Damar.",
+      "E": "Eka."
+    },
+    "hint": "Gabungkan setiap pasangan yang harus berdampingan, lalu perhatikan batas kursi paling kanan.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Urutan yang memenuhi seluruh syarat adalah Aulia, Bima, Damar, Citra, Eka. Dengan demikian, kursi keempat ditempati Citra.",
+      "B": "Bima berada pada kursi kedua karena harus tepat di sebelah kanan Aulia.",
+      "C": "Aulia berada pada kursi pertama agar dapat mendahului pasangan Damar dan Citra.",
+      "D": "Damar berada pada kursi ketiga sebagai orang yang harus tepat di sebelah kiri Citra.",
+      "E": "Eka berada pada kursi kelima sesuai ketentuan bahwa ia menempati posisi paling kanan."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-numerik-deret-pola-selang-seling-027",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret memiliki dua pola yang berjalan berselang-seling. Suku pada posisi ganjil adalah 5, 10, 20, 40 yang selalu dikalikan dua. Suku pada posisi genap adalah 12, 24, 48 yang juga selalu dikalikan dua. Oleh karena itu, suku kedelapan adalah 48 × 2 = 96.",
+    "stem": "Perhatikan deret berikut: 5, 12, 10, 24, 20, 48, 40, ... Angka berikutnya yang paling tepat adalah ...",
+    "options": {
+      "A": "80",
+      "B": "96",
+      "C": "88",
+      "D": "92",
+      "E": "100"
+    },
+    "hint": "Pisahkan suku berdasarkan posisi ganjil dan genap untuk memeriksa apakah terdapat dua pola berbeda.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pola posisi genap mengharuskan 48 dikalikan dua, bukan ditambahkan dengan nilai yang menghasilkan 80.",
+      "B": "Suku genap adalah 12, 24, 48, sehingga suku berikutnya adalah 48 × 2 = 96.",
+      "C": "Angka 88 tidak mengikuti pola perkalian dua pada deret posisi genap.",
+      "D": "Angka 92 tidak memenuhi kelanjutan pola 12, 24, 48 yang meningkat dengan rasio dua.",
+      "E": "Angka 100 tidak sesuai dengan hasil penggandaan suku genap terakhir, yaitu 48."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-sosial-laba-distribusi-029",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total modal adalah 80 × Rp125.000 = Rp10.000.000. Pendapatan dari 50 unit pertama adalah 50 × Rp160.000 = Rp8.000.000. Tiga puluh unit sisanya menghasilkan 30 × Rp120.000 = Rp3.600.000. Total pendapatan Rp11.600.000. Keuntungan Rp1.600.000, sehingga persentase keuntungan terhadap modal adalah 1.600.000/10.000.000 × 100% = 16%.",
+    "stem": "Sebuah koperasi membeli 80 unit perlengkapan kantor dengan harga Rp125.000 per unit. Sebanyak 50 unit dijual dengan harga Rp160.000 per unit, sedangkan 30 unit sisanya dijual dengan harga Rp120.000 per unit karena adanya penurunan permintaan. Berapakah persentase keuntungan koperasi terhadap total modal?",
+    "options": {
+      "A": "12%.",
+      "B": "14%.",
+      "C": "18%.",
+      "D": "16%.",
+      "E": "20%."
+    },
+    "hint": "Hitung total modal dan pendapatan dari kedua kelompok barang secara terpisah sebelum menentukan persentase keuntungan.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Keuntungan 12% dari modal berarti Rp1.200.000, sedangkan selisih pendapatan dan modal sebenarnya Rp1.600.000.",
+      "B": "Persentase 14% menghasilkan keuntungan Rp1.400.000, tidak sesuai dengan hasil penjualan kedua kelompok barang.",
+      "C": "Persentase 18% menghasilkan keuntungan Rp1.800.000, lebih besar daripada keuntungan aktual Rp1.600.000.",
+      "D": "Total pendapatan Rp11.600.000 dikurangi modal Rp10.000.000 menghasilkan keuntungan Rp1.600.000 atau 16% dari modal.",
+      "E": "Persentase 20% menghasilkan keuntungan Rp2.000.000, padahal pendapatan aktual hanya menghasilkan keuntungan Rp1.600.000."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-kejar-kendaraan-030",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Kendaraan pertama berangkat pukul 06.30 dengan kecepatan 48 km/jam. Ketika kendaraan kedua berangkat pukul 08.00, kendaraan pertama telah berjalan selama 1,5 jam dan menempuh 72 km. Selisih kecepatan kendaraan adalah 72 - 48 = 24 km/jam. Waktu menyusul adalah 72/24 = 3 jam setelah kendaraan kedua berangkat.",
+    "stem": "Kendaraan dinas pertama berangkat dari sebuah kota pada pukul 06.30 dengan kecepatan tetap 48 km/jam. Kendaraan dinas kedua berangkat dari kota yang sama dan melalui jalur yang sama pada pukul 08.00 dengan kecepatan tetap 72 km/jam. Apabila keduanya bergerak searah tanpa berhenti, berapa lama waktu yang dibutuhkan kendaraan kedua untuk menyusul kendaraan pertama sejak keberangkatannya sendiri?",
+    "options": {
+      "A": "2 jam.",
+      "B": "2,5 jam.",
+      "C": "3,5 jam.",
+      "D": "4 jam.",
+      "E": "3 jam."
+    },
+    "hint": "Hitung jarak keunggulan kendaraan pertama terlebih dahulu, kemudian gunakan selisih kecepatan kedua kendaraan.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Dalam 2 jam kendaraan kedua hanya memperoleh keunggulan 48 km, sedangkan jarak awal yang harus dikejar adalah 72 km.",
+      "B": "Dalam 2,5 jam selisih jarak hanya 60 km, sehingga kendaraan kedua belum menyusul kendaraan pertama.",
+      "C": "Dalam 3,5 jam kendaraan kedua sudah melampaui titik pertemuan yang seharusnya terjadi setelah 3 jam.",
+      "D": "Dalam 4 jam kendaraan kedua telah melewati titik penyusulan karena selisih kecepatan kedua kendaraan tetap 24 km/jam.",
+      "E": "Kendaraan pertama memiliki keunggulan 72 km dan selisih kecepatan 24 km/jam, sehingga waktu penyusulan adalah 72 ÷ 24 = 3 jam."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Bank Soal TIU SKD Batch 2 (ChatGPT Curated)",
+      "tags": [
+        "tiu",
+        "hots",
+        "batch-2"
+      ]
+    }
   }
 ]

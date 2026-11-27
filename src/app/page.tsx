@@ -8,6 +8,7 @@ import HelpButton from "@/components/ui/help-button";
 import ModeToggleButton from "@/components/ui/mode-toggle-button";
 import { useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 import { Suspense } from "react";
 
 function HomeContent() {
@@ -21,7 +22,7 @@ function HomeContent() {
   if (isLoading) {
     return (
       <div className="flex h-screen items-center justify-center">
-        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900"></div>
+        <Spinner className="size-8 text-primary" />
       </div>
     );
   }
@@ -54,9 +55,9 @@ function HomeContent() {
         <ModeToggleButton />
         <HelpButton />
         {!isAuthenticated ? (
-          <Link href={"/auth/login"}>
-            <Button>Login</Button>
-          </Link>
+          <Button asChild>
+            <Link href="/auth/login">Login</Link>
+          </Button>
         ) : (
           <div className="flex items-center">
             {isLoading ? (
@@ -111,7 +112,13 @@ function HomeContent() {
 
 export default function Home() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense
+      fallback={
+        <div className="flex h-screen items-center justify-center">
+          <Spinner className="size-8 text-primary" />
+        </div>
+      }
+    >
       <HomeContent />
     </Suspense>
   );

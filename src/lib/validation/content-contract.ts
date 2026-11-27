@@ -23,6 +23,10 @@ export const CANONICAL_SUBTOPICS = {
     "Numerik - Perbandingan Kuantitatif",
     "Numerik - Aritmetika Sosial",
     "Numerik - Soal Cerita",
+    "Figural - Ketidaksamaan",
+    "Figural - Analogi",
+    "Figural - Serial",
+    "Figural - Spasial",
   ],
   TKP: [
     "Pelayanan Publik",
@@ -89,6 +93,7 @@ export const SourceMetaSchema = z.object({
   title: z.string().trim().min(2, "Source title must be at least 2 characters"),
   channelName: z.string().trim().optional(),
   url: PlainUrlSchema.optional(),
+  originalImageUrl: PlainUrlSchema.optional(),
   timestamp: z.string().optional(),
   timestamps: z.array(z.string()).optional(),
 });
@@ -102,13 +107,6 @@ function makeSubtopicSchema(category: "TWK" | "TIU" | "TKP") {
     .trim()
     .min(1, "Subtopic cannot be empty")
     .superRefine((val, ctx) => {
-      if (category === "TIU" && val.toLowerCase().includes("figural")) {
-        ctx.addIssue({
-          code: "custom",
-          message: `TIU Figural subtopics are strictly excluded (received "${val}").`,
-        });
-        return;
-      }
       if (!allowed.includes(val)) {
         ctx.addIssue({
           code: "custom",
@@ -146,6 +144,9 @@ export const StudyMaterialSeedSchema = z.object({
 
 export type StudyMaterialSeed = z.infer<typeof StudyMaterialSeedSchema>;
 
+export const FIGURAL_IMAGE_URL_REGEX =
+  /^\/figural\/[a-z0-9-]+\.(png|jpg|jpeg|webp|svg)$/;
+
 const sharedQuestionFields = {
   slug: SlugSchema,
   difficulty: z.enum(["medium", "hots"]).default("hots"),
@@ -161,6 +162,14 @@ const sharedQuestionFields = {
       (s) => !/^\s*[A-E][.)]\s+/m.test(s),
       "Options (A./B./...) must not leak into stem"
     ),
+  imageUrl: z
+    .string()
+    .trim()
+    .regex(
+      FIGURAL_IMAGE_URL_REGEX,
+      "imageUrl must be a local /figural/<slug>.(png|jpg|jpeg|webp|svg) path"
+    )
+    .optional(),
   options: OptionMapSchema,
   hint: z.string().trim().min(10, "hint must be at least 10 characters"),
   optionRationales: OptionMapSchema,
@@ -196,17 +205,30 @@ const TwkQuestionSchema = z.object({
   scoringRubric: z.null(),
 });
 
-const TiuQuestionSchema = z.object({
-  ...sharedQuestionFields,
-  category: z.literal("TIU"),
-  subtopic: TiuSubtopicSchema,
-  materialSlugs: z
-    .array(SlugSchema)
-    .max(0, "TIU questions must have empty materialSlugs []")
-    .default([]),
-  correctOption: OptionKeySchema,
-  scoringRubric: z.null(),
-});
+const TiuQuestionSchema = z
+  .object({
+    ...sharedQuestionFields,
+    category: z.literal("TIU"),
+    subtopic: TiuSubtopicSchema,
+    materialSlugs: z
+      .array(SlugSchema)
+      .max(0, "TIU questions must have empty materialSlugs []")
+      .default([]),
+    correctOption: OptionKeySchema,
+    scoringRubric: z.null(),
+  })
+  .superRefine((q, ctx) => {
+    const isFigural =
+      q.subtopic.startsWith("Figural - ") ||
+      q.subtopic.toLowerCase().includes("figural");
+    if (isFigural && !q.imageUrl) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["imageUrl"],
+        message: `TIU Figural question "${q.slug}" must include a valid local imageUrl (/figural/...); text-only Figural questions are not allowed.`,
+      });
+    }
+  });
 
 const TkpQuestionSchema = z.object({
   ...sharedQuestionFields,
@@ -442,6 +464,7 @@ export function validateContentBundles(
 export interface ValidateContentDirectoriesOptions {
   materialsDir: string;
   quizDir: string;
+  publicDir?: string;
   existingDbMaterialSlugs?: Iterable<string>;
 }
 
@@ -508,6 +531,18 @@ export function validateContentDirectories(
     questionFiles,
     existingDbMaterialSlugs: options.existingDbMaterialSlugs,
   });
+
+  const publicDir = options.publicDir ?? path.resolve(process.cwd(), "public");
+  for (const q of report.questions) {
+    if (q.imageUrl) {
+      const resolvedImagePath = path.resolve(publicDir, q.imageUrl.slice(1));
+      if (!fs.existsSync(resolvedImagePath)) {
+        fileErrors.push(
+          `[question] (${q.slug}): Referenced figural image "${q.imageUrl}" does not exist on disk at ${resolvedImagePath}`
+        );
+      }
+    }
+  }
 
   const allErrors = [...fileErrors, ...report.errors];
   return {

@@ -20,7 +20,7 @@ export function MaterialListCard({
     <button
       type="button"
       onClick={() => onSelect(item.slug)}
-      className="w-full text-left focus-visible:outline-none"
+      className="w-full rounded-xl text-left focus-visible:outline-none focus-visible:ring-[3px] focus-visible:ring-ring/50"
     >
       <Card
         className={cn(

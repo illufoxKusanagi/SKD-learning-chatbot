@@ -571,6 +571,7 @@ async function handleChatPost(request: NextRequest) {
                   category: quizMeta.category,
                   subtopic: quizMeta.subtopic,
                   questionStem: quizMeta.questionStem,
+                  imageUrl: quizMeta.imageUrl ?? null,
                   options: quizMeta.options,
                   correctOption: quizMeta.correctOption,
                   scoringRubric: quizMeta.scoringRubric,

@@ -146,11 +146,14 @@ function makeValidTkpQuestion(overrides: Record<string, unknown> = {}): Record<s
 }
 
 describe("content-contract", () => {
-  it("exposes expected canonical subtopics (9 TWK, 7 TIU without Figural, 6 TKP) and required headings", () => {
+  it("exposes expected canonical subtopics (9 TWK, 11 TIU including 4 Figural, 6 TKP) and required headings", () => {
     expect(CANONICAL_SUBTOPICS.TWK).toHaveLength(9);
-    expect(CANONICAL_SUBTOPICS.TIU).toHaveLength(7);
+    expect(CANONICAL_SUBTOPICS.TIU).toHaveLength(11);
     expect(CANONICAL_SUBTOPICS.TKP).toHaveLength(6);
-    expect(CANONICAL_SUBTOPICS.TIU.some((s) => s.toLowerCase().includes("figural"))).toBe(false);
+    expect(CANONICAL_SUBTOPICS.TIU).toContain("Figural - Ketidaksamaan");
+    expect(CANONICAL_SUBTOPICS.TIU).toContain("Figural - Analogi");
+    expect(CANONICAL_SUBTOPICS.TIU).toContain("Figural - Serial");
+    expect(CANONICAL_SUBTOPICS.TIU).toContain("Figural - Spasial");
     expect(REQUIRED_MATERIAL_HEADINGS).toEqual([
       "## Inti Konsep",
       "## Logika Sebab-Akibat",
@@ -238,17 +241,55 @@ describe("content-contract", () => {
     expect(bundleReport.errors.some((e) => e.toLowerCase().includes("reasoningchain"))).toBe(true);
   });
 
-  it("5. rejects TIU Figural subtopic ('Figural - Spasial Verbal') per No-Figural rule", () => {
-    const figural = makeValidTiuQuestion({
+  it("5. rejects TIU Figural without imageUrl and non-canonical Figural, and accepts TIU Figural with valid local imageUrl", () => {
+    const textOnlyCanonicalFigural = makeValidTiuQuestion({
+      slug: "tiu-figural-no-image-01",
+      subtopic: "Figural - Spasial",
+    });
+    const parsedNoImg = QuizQuestionSeedSchema.safeParse(textOnlyCanonicalFigural);
+    expect(parsedNoImg.success).toBe(false);
+    if (!parsedNoImg.success) {
+      const messages = parsedNoImg.error.issues.map((i) => i.message).join(" | ");
+      expect(messages.toLowerCase()).toContain("imageurl");
+    }
+
+    const legacyBannedFigural = makeValidTiuQuestion({
       subtopic: "Figural - Spasial Verbal",
     });
+    const parsedLegacy = QuizQuestionSeedSchema.safeParse(legacyBannedFigural);
+    expect(parsedLegacy.success).toBe(false);
 
-    const parsed = QuizQuestionSeedSchema.safeParse(figural);
-    expect(parsed.success).toBe(false);
-    if (!parsed.success) {
-      const messages = parsed.error.issues.map((i) => i.message).join(" | ");
-      expect(messages.toLowerCase()).toContain("figural");
-    }
+    const externalImageFigural = makeValidTiuQuestion({
+      slug: "tiu-figural-external-01",
+      subtopic: "Figural - Analogi",
+      imageUrl: "https://example.com/diagram.png",
+    });
+    expect(QuizQuestionSeedSchema.safeParse(externalImageFigural).success).toBe(false);
+
+    const validFigural = makeValidTiuQuestion({
+      slug: "tiu-figural-valid-01",
+      subtopic: "Figural - Ketidaksamaan",
+      imageUrl: "/figural/tiu-figural-test.png",
+      source: {
+        type: "tryout",
+        title: "Bank Soal Figural CPNS",
+        url: "https://example.com/soal/figural-01",
+        originalImageUrl: "https://cdn.example.com/images/figural-01.png",
+      },
+    });
+    expect(QuizQuestionSeedSchema.safeParse(validFigural).success).toBe(true);
+
+    const invalidOriginalImageFigural = makeValidTiuQuestion({
+      slug: "tiu-figural-bad-orig-01",
+      subtopic: "Figural - Analogi",
+      imageUrl: "/figural/tiu-figural-test.png",
+      source: {
+        type: "tryout",
+        title: "Bank Soal Figural CPNS",
+        originalImageUrl: "not-a-valid-url",
+      },
+    });
+    expect(QuizQuestionSeedSchema.safeParse(invalidOriginalImageFigural).success).toBe(false);
   });
 
   it("6. rejects TWK question referencing unknown materialSlugs across bundles", () => {
@@ -368,6 +409,39 @@ describe("content-contract", () => {
       expect(report.valid).toBe(true);
       expect(report.materials).toHaveLength(1);
       expect(report.questions).toHaveLength(3);
+
+      // Verify on-disk check for imageUrl in validateContentDirectories
+      const publicDir = path.join(tmpRoot, "public");
+      const figuralQuestion = makeValidTiuQuestion({
+        slug: "tiu-figural-disk-check-01",
+        subtopic: "Figural - Serial",
+        imageUrl: "/figural/tiu-figural-test.png",
+      });
+      fs.writeFileSync(
+        path.join(quizDir, "figural.json"),
+        JSON.stringify([figuralQuestion])
+      );
+
+      const missingImgReport = validateContentDirectories({
+        materialsDir: matDir,
+        quizDir,
+        publicDir,
+      });
+      expect(missingImgReport.valid).toBe(false);
+      expect(
+        missingImgReport.errors.some((e) => e.includes("/figural/tiu-figural-test.png"))
+      ).toBe(true);
+
+      fs.mkdirSync(path.join(publicDir, "figural"), { recursive: true });
+      fs.writeFileSync(path.join(publicDir, "figural", "tiu-figural-test.png"), "png");
+
+      const validImgReport = validateContentDirectories({
+        materialsDir: matDir,
+        quizDir,
+        publicDir,
+      });
+      expect(validImgReport.valid).toBe(true);
+      expect(validImgReport.questions).toHaveLength(4);
     } finally {
       fs.rmSync(tmpRoot, { recursive: true, force: true });
     }

@@ -106,10 +106,10 @@ Evolve `src/lib/db/schema.ts` cleanly while preserving existing chat history:
 | Table                     | Purpose                                    | Key Columns                                                                                                                                                                                                                                                                     |
 | :------------------------ | :----------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `study_materials`         | Normalized *Bank Materi* + `pgvector(768)` | `id`, `slug` (unique), `title`, `category`, `subtopic`, `contentMarkdown`, `sourceType`, `sourceUrl`, `sourceMeta` (JSONB), `embedding` (`vector(768)`), `updatedAt`                                                                                                            |
-| `quiz_questions`          | Persistent normalized *Bank Soal*          | `id`, `slug` (unique), `category`, `subtopic`, `difficulty`, `stem`, `options` (JSONB `A`–`E`), `hint`, `correctOption` (nullable for TKP), `scoringRubric` (JSONB `A`–`E` $\rightarrow$ `1..5`), `optionRationales` (JSONB `A`–`E`), `sourceUrl`, `isValidated` (boolean)      |
+| `quiz_questions`          | Persistent normalized *Bank Soal*          | `id`, `slug` (unique), `category`, `subtopic`, `difficulty`, `stem`, `imageUrl` (nullable `/figural/*`), `options` (JSONB `A`–`E`), `hint`, `correctOption` (nullable for TKP), `scoringRubric` (JSONB `A`–`E` $\rightarrow$ `1..5`), `optionRationales` (JSONB `A`–`E`), `sourceUrl`, `isValidated` (boolean) |
 | `quiz_question_materials` | Deterministic many-to-many link            | `questionId` (FK), `materialId` (FK)                                                                                                                                                                                                                                            |
 | `quiz_sessions`           | Tracks Practice & CAT Tryout sessions      | `id`, `userId`, `mode` (`practice` \| `cat_tryout` \| `mini_tryout`), `status` (`in_progress` \| `completed` \| `abandoned`), `durationSeconds`, `startedAt`, `completedAt`, `questionOrder` (JSONB array of questionIds), `flaggedQuestionIds` (JSONB), `scoreSummary` (JSONB) |
-| `quiz_attempts`           | Per-question user responses (updated)      | Add nullable `sessionId` (FK $\rightarrow$ `quiz_sessions`), `questionId` (FK $\rightarrow$ `quiz_questions`), `timeSpentSeconds`, `usedHint` (boolean)                                                                                                                         |
+| `quiz_attempts`           | Per-question user responses (updated)      | Add nullable `sessionId` (FK $\rightarrow$ `quiz_sessions`), `questionId` (FK $\rightarrow$ `quiz_questions`), `imageUrl` (nullable), `timeSpentSeconds`, `usedHint` (boolean)                                                                                               |
 
 *Migration Note*: Migrate existing 60 questions from `data/quiz-bank/*.json` into `quiz_questions` (backfilling `hint` and `optionRationales` via a one-time enrichment script + review) and link them to initial `study_materials` slugs.
 
@@ -175,6 +175,9 @@ Two structural rules are mandatory:
 2. **Strict Scoring Separation**:
    - `TWK` & `TIU`: Binary scoring (`correctOption`: `"A"|"B"|"C"|"D"|"E"`, `scoringRubric`: `null`).
    - `TKP`: Graduated scoring (`correctOption`: `null`, `scoringRubric`: exact permutation of `{1, 2, 3, 4, 5}` across `A`–`E`; option text lengths should stay balanced so the 5-point answer is not visually obvious).
+3. **Curated TIU Figural Policy**:
+   - **AI-generated / text-only TIU Figural remains strictly banned** (`Figural - Spasial Verbal` or any `Figural - *` entry without a diagram is rejected).
+   - **Curated image-backed TIU Figural items** (`Figural - Ketidaksamaan`, `Figural - Analogi`, `Figural - Serial`, `Figural - Spasial`) are supported under Contract B and across Practice, CAT Tryout, and Chat Quiz when backed by a verified local asset (`imageUrl` matching `/^\/figural\/[a-z0-9-]+\.(png|jpg|jpeg|webp|svg)$/` present on disk in `public/figural/`).
 
 #### Example Entries (`data/quiz-bank/sample-mixed.json`)
 ```json

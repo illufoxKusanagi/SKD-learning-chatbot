@@ -1,0 +1,1190 @@
+[
+  {
+    "slug": "tiu-figural-ketidaksamaan-daun-oval-01",
+    "category": "TIU",
+    "subtopic": "Figural - Ketidaksamaan",
+    "difficulty": "medium",
+    "imageUrl": "/figural/tiu-figural-ketidaksamaan-daun-oval-01.jpg",
+    "stem": "Perhatikan lima gambar berlabel A, B, C, D, dan E di bawah ini. Tentukan satu gambar yang tidak mengikuti aturan pola yang sama dengan keempat gambar lainnya!",
+    "reasoningChain": "Hitung pasangan elemen pada setiap panel: jumlah kelopak daun di bagian atas tangkai dibandingkan dengan jumlah oval di bawah garis berarsir. Panel A memiliki 3 daun dan 3 oval, panel B memiliki 4 daun dan 4 oval, panel D memiliki 2 daun dan 2 oval, serta panel E memiliki 5 daun dan 5 oval. Hanya panel C yang melanggar kesetaraan 1:1 tersebut karena memiliki 1 daun di atas tetapi 2 oval di bawah.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "C",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Bandingkan jumlah daun di bagian atas lengkungan dengan jumlah oval di bawah garis berarsir pada tiap gambar.",
+    "optionRationales": {
+      "A": "Memiliki 3 kelopak daun di atas dan 3 oval di bawah garis arsir (rasio 1:1), sehingga mengikuti aturan mayoritas.",
+      "B": "Memiliki 4 kelopak daun di atas dan 4 oval di bawah garis arsir (rasio 1:1), sehingga konsisten dengan kelompoknya.",
+      "C": "Tepat sebagai anomali karena hanya memiliki 1 kelopak daun di atas tetapi terdapat 2 oval di bawah garis arsir (rasio tidak 1:1).",
+      "D": "Memiliki 2 kelopak daun di atas dan 2 oval di bawah garis arsir (rasio 1:1), sehingga sejalan dengan pola umum.",
+      "E": "Memiliki 5 kelopak daun di atas dan 5 oval di bawah garis arsir (rasio 1:1), sehingga memenuhi aturan yang sama."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "11 Soal Figural CPNS 2021 dan Pembahasannya (DetikEdu)",
+      "url": "https://www.detik.com/edu/detikpedia/d-5727978/11-soal-figural-cpns-2021-dan-pembahasannya-bisa-untuk-latihan",
+      "originalImageUrl": "https://awsimages.detik.net.id/community/media/visual/2021/09/17/soal-figural-cpns-2021-ketidaksamaan.jpeg?w=817"
+    }
+  },
+  {
+    "slug": "tiu-figural-ketidaksamaan-bulatan-garis-02",
+    "category": "TIU",
+    "subtopic": "Figural - Ketidaksamaan",
+    "difficulty": "medium",
+    "imageUrl": "/figural/tiu-figural-ketidaksamaan-bulatan-garis-02.webp",
+    "stem": "Dari lima gambar bangun poligon bertangkai A hingga E berikut, pilihlah satu gambar yang menyimpang dari hubungan kuantitas kelompok gambar lainnya!",
+    "reasoningChain": "Pada setiap gambar terdapat bulatan putih dan bulatan hitam di dalam poligon serta garis-garis mendatar pada tangkai bawah. Hitung jumlah bulatan putih saja lalu bandingkan dengan jumlah garis mendatar di tangkai: B (3 putih, 3 garis), C (2 putih, 2 garis), D (1 putih, 1 garis), dan E (4 putih, 4 garis). Pada A terdapat 2 bulatan putih tetapi garis mendatarnya berjumlah 5, sehingga A menyimpang.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "A",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Fokus hanya pada banyaknya bulatan putih di dalam poligon, lalu cocokkan dengan jumlah garis mendatar pada tangkai bawah.",
+    "optionRationales": {
+      "A": "Tepat sebagai gambar berbeda karena di dalam persegi hanya ada 2 bulatan putih sedangkan tangkai bawahnya memiliki 5 garis mendatar.",
+      "B": "Di dalam segi enam terdapat 3 bulatan putih dan tangkai bawah memiliki tepat 3 garis mendatar (selaras 1:1).",
+      "C": "Di dalam segitiga terdapat 2 bulatan putih dan tangkai bawah memiliki tepat 2 garis mendatar (selaras 1:1).",
+      "D": "Di dalam segi delapan terdapat 1 bulatan putih dan tangkai bawah memiliki tepat 1 garis mendatar (selaras 1:1).",
+      "E": "Di dalam segi tujuh terdapat 4 bulatan putih dan tangkai bawah memiliki tepat 4 garis mendatar (selaras 1:1)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kupas Tuntas Contoh Soal Figural dan Jawabannya (SinauCPNS)",
+      "url": "https://sinaucpns.com/blog/kupas-tuntas-contoh-soal-figural-dan-jawabannya-rahasia-lolos-tes-cpns-bumn",
+      "originalImageUrl": "https://res.cloudinary.com/dmgrceuln/image/upload/v1782143002/ckeditor_uploads/kr2jzixqqrcvb4x7w4hw.webp"
+    }
+  },
+  {
+    "slug": "tiu-figural-ketidaksamaan-diagonal-siku-03",
+    "category": "TIU",
+    "subtopic": "Figural - Ketidaksamaan",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-ketidaksamaan-diagonal-siku-03.png",
+    "stem": "Amati kelima gambar bangun berbentuk huruf L yang memuat dua garis miring sejajar. Tentukanlah satu gambar yang memiliki susunan geometris berbeda dari empat gambar lainnya!",
+    "reasoningChain": "Periksa posisi dua garis diagonal terhadap sudut siku-siku bagian dalam pada tiap bangun L. Pada A, B, C, dan D, kedua garis diagonal hanya memotong salah satu lengan L tanpa menyentuh titik sudut siku-siku bagian dalam. Sebaliknya, pada E salah satu garis diagonal menempel tepat di titik sudut siku-siku bagian dalam.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "E",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Perhatikan letak perpotongan garis miring ganda relatif terhadap titik sudut siku-siku bagian dalam bangun L.",
+    "optionRationales": {
+      "A": "Kedua garis diagonal memotong lengan datar bagian bawah tanpa menyentuh titik sudut siku-siku dalam.",
+      "B": "Kedua garis diagonal memotong lengan tegak bagian bawah tanpa mengenai titik sudut siku-siku dalam.",
+      "C": "Kedua garis diagonal berada di lengan bawah kiri dengan jarak terpisah dari titik sudut siku-siku dalam.",
+      "D": "Kedua garis diagonal memotong lengan tegak kiri tanpa menyentuh titik sudut siku-siku bagian dalam.",
+      "E": "Tepat sebagai pengecualian karena garis diagonal sebelah dalam menempel langsung pada titik sudut siku-siku dalam bangun."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Ketidaksamaan Gambar Paket 1 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-ketidaksamaan-gambar-1",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEisunMsl98rxXn2AhUHXrS3e80mMm9OZvLcJFekq_tFWCWqpPjzMW_V_6mTUCUffKW6pqeMeG-SoEDugBdWP420ur1GxGeIH3sbGBX27kw9RWqoXVxXzrJTKVfftCNNXhDXdryzPxbtQQMlozQwMw1rekOtlMCAMVObLWYigiozwjxS6zBKkh1QWE7P7adn/s585/figural-beda-5.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-ketidaksamaan-amplop-persegi-04",
+    "category": "TIU",
+    "subtopic": "Figural - Ketidaksamaan",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-ketidaksamaan-amplop-persegi-04.png",
+    "stem": "Perhatikan posisi penutup miring dan letak persegi hitam kecil pada kelima gambar amplop berikut. Manakah satu gambar yang tidak konsisten dengan pola lainnya?",
+    "reasoningChain": "Amati sisi horizontal di mana tutup trapesium menonjol ke luar dan bandingkan dengan letak persegi hitam kecil pada bilah seberangnya. Pada B (tutup bawah menonjol ke kiri, persegi hitam atas di kanan), C (tutup atas menonjol ke kiri, persegi hitam bawah di kanan), D (tutup atas menonjol ke kanan, persegi hitam bawah di kiri), dan E (tutup bawah menonjol ke kanan, persegi hitam atas di kiri), keduanya selalu berseberangan sisi kiri-kanan. Hanya pada A penutup menonjol ke kiri dan persegi hitam juga berada di sisi kiri.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "A",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Bandingkan posisi kiri-kanan antara ujung penutup amplop yang menjorok keluar dan letak kotak hitam kecil.",
+    "optionRationales": {
+      "A": "Tepat sebagai gambar berbeda karena ujung penutup atas menjorok ke kiri dan persegi hitam di bawah juga berada di sisi kiri (sepihak).",
+      "B": "Ujung penutup bawah menjorok ke kiri sementara persegi hitam di bilah atas berada di kanan (berseberangan sisi).",
+      "C": "Ujung penutup atas menjorok ke kiri sementara persegi hitam di bilah bawah berada di kanan (berseberangan sisi).",
+      "D": "Ujung penutup atas menjorok ke kanan sementara persegi hitam di bilah bawah berada di kiri (berseberangan sisi).",
+      "E": "Ujung penutup bawah menjorok ke kanan sementara persegi hitam di bilah atas berada di kiri (berseberangan sisi)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Ketidaksamaan Gambar Paket 1 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-ketidaksamaan-gambar-1",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEio7GVMXTTRlsPs8Arz5uToVwx_g2u-U1daeDje7BSlF237ZRr1dYNd0gxnnKdn_IqBARgwSnb8M68wEWrPB_WvNyX9P4os9zP9H8UCOp4kDOrSUdS94K8TgDYz5r9ji4UKcrXMo4viJ2xrCekFm5Hbxj8nZlcnI7AgDHpTg42zu4Z4awKRxeuYddf1vL19/s600/figural-beda-8.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-ketidaksamaan-lengkung-trapesium-05",
+    "category": "TIU",
+    "subtopic": "Figural - Ketidaksamaan",
+    "difficulty": "medium",
+    "imageUrl": "/figural/tiu-figural-ketidaksamaan-lengkung-trapesium-05.webp",
+    "stem": "Kelima gambar di bawah menunjukkan trapesium beserta sebuah garis lengkung di bagian luarnya. Tentukan satu gambar yang berbeda dari aturan keempat gambar lainnya!",
+    "reasoningChain": "Periksa cakupan garis lengkung terhadap sisi-sisi trapesium pada tiap kotak. Pada A, B, C, dan D, lengkungan memanjang menghubungkan pangkal satu sisi sejajar ke sudut berlawanan dengan memayungi dua sisi berdekatan (satu sisi pendek dan satu sisi miring/sejajar). Sebaliknya, pada E lengkungan hanya menempel pada satu sisi miring sebelah kiri saja.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "E",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Amati berapa banyak sisi trapesium yang dinaungi atau dilintasi oleh busur lengkung di bagian luarnya.",
+    "optionRationales": {
+      "A": "Busur lengkung membentang memayungi dua sisi trapesium sekaligus (sisi miring kiri dan sisi sejajar atas).",
+      "B": "Busur lengkung membentang memayungi dua sisi trapesium (sisi sejajar atas yang pendek dan sisi miring kanan).",
+      "C": "Busur lengkung membentang memayungi dua sisi trapesium (sisi atas yang panjang dan sisi kanan yang pendek).",
+      "D": "Busur lengkung membentang memayungi dua sisi trapesium (sisi miring atas dan sisi kanan yang panjang).",
+      "E": "Tepat sebagai anomali karena garis lengkung hanya memayungi satu sisi miring di sebelah kiri tanpa melampaui sudut ke sisi berikutnya."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kupas Tuntas Contoh Soal Figural dan Jawabannya (SinauCPNS)",
+      "url": "https://sinaucpns.com/blog/kupas-tuntas-contoh-soal-figural-dan-jawabannya-rahasia-lolos-tes-cpns-bumn",
+      "originalImageUrl": "https://res.cloudinary.com/dmgrceuln/image/upload/v1776184752/ckeditor_uploads/neqcevrsbry5gwsmkkkv.webp"
+    }
+  },
+  {
+    "slug": "tiu-figural-ketidaksamaan-dimensi-tabung-06",
+    "category": "TIU",
+    "subtopic": "Figural - Ketidaksamaan",
+    "difficulty": "medium",
+    "imageUrl": "/figural/tiu-figural-ketidaksamaan-dimensi-tabung-06.png",
+    "stem": "Perhatikan lima pasangan bangun luar dan dalam berikut ini. Manakah satu gambar yang tidak termasuk ke dalam klasifikasi dimensi bangun yang sama dengan keempat gambar lainnya?",
+    "reasoningChain": "Identifikasi jenis bangun geometri luar dan dalam di tiap panel. Panel A (bintang dalam bintang), B (persegi panjang dalam segi delapan), C (persegi panjang bersudut tumpul di atas oval), dan D (segilima dalam tanda silang) seluruhnya tersusun dari bangun datar dua dimensi (2D). Sebaliknya, panel E memuat gambar tabung di dalam segilima yang merupakan bangun ruang tiga dimensi (3D).",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "E",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Perhatikan dimensi geometris (bangun datar dua dimensi versus bangun ruang tiga dimensi) dari bentuk di bagian dalam.",
+    "optionRationales": {
+      "A": "Kedua objek (bintang luar dan bintang dalam) merupakan bangun datar dua dimensi.",
+      "B": "Segi delapan beraturan dan persegi panjang di dalamnya sama-sama merupakan bangun datar dua dimensi.",
+      "C": "Oval dan persegi panjang bersudut tumpul sama-sama merupakan bangun datar dua dimensi.",
+      "D": "Bangun palang luar dan segi lima di dalamnya sama-sama merupakan bangun datar dua dimensi.",
+      "E": "Tepat sebagai pengecualian karena memuat gambar tabung di bagian dalam yang merupakan bangun ruang tiga dimensi, sedangkan lainnya hanya bangun datar."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Ketidaksamaan Gambar Paket 4 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-ketidaksamaan-gambar-4",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgjkzHese73poyE70c2jwiHk5hcnoPcCT68sbCkEmxC2pqySzUfaKKatUTqkopi7QrYUA1U9RGPo0V4c7Aen0UP92xhW30lC7qDq11qZbgKQXceZE7eWfQyPGSyeqmx8PYTs0hxGDCaLLKemv1eEbkB3tXg70mYTdCLHKrkNc0YBIiuV9EujlbrA7ZPkhXZ/s531/figural-beda-22.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-ketidaksamaan-urutan-siklik-07",
+    "category": "TIU",
+    "subtopic": "Figural - Ketidaksamaan",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-ketidaksamaan-urutan-siklik-07.png",
+    "stem": "Kelima gambar menampilkan palang dua batang berimpit dengan empat simbol (persegi hitam, belah ketupat, lingkaran hitam, dan bintang) di keempat sudutnya. Tentukan satu gambar yang tidak identik lewat rotasi bidang datar!",
+    "reasoningChain": "Telusuri urutan melingkar keempat simbol searah jarum jam dimulai dari persegi hitam. Pada A: persegi hitam (kiri atas) -> belah ketupat (kanan atas) -> lingkaran hitam (kanan bawah) -> bintang (kiri bawah). Pada C, D, dan E, jika bangun diputar 45 hingga 270 derajat, urutan searah jarum jamnya tetap Persegi -> Belah Ketupat -> Lingkaran -> Bintang. Hanya pada B urutan searah jarum jamnya terbalik menjadi Persegi -> Lingkaran -> Bintang -> Belah Ketupat (hasil pencerminan).",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "B",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Baca urutan keempat simbol kecil secara melingkar searah jarum jam dimulai dari kotak persegi hitam.",
+    "optionRationales": {
+      "A": "Urutan searah jarum jam adalah persegi hitam -> belah ketupat -> lingkaran -> bintang (konsisten dengan orientasi rotasi standar).",
+      "B": "Tepat sebagai anomali kiral karena urutan searah jarum jamnya terbalik menjadi persegi hitam -> lingkaran -> bintang -> belah ketupat.",
+      "C": "Merupakan hasil rotasi sekitar 135 derajat berlawanan arah jarum jam, mempertahankan urutan searah jarum jam persegi -> belah ketupat -> lingkaran -> bintang.",
+      "D": "Merupakan hasil rotasi 180 derajat dari susunan standar karena urutan searah jarum jamnya tetap persegi -> belah ketupat -> lingkaran -> bintang.",
+      "E": "Mempertahankan urutan melingkar searah jarum jam persegi -> belah ketupat -> lingkaran -> bintang saat diputar."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Ketidaksamaan Gambar Paket 4 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-ketidaksamaan-gambar-4",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg-ZWHAoYoSkszGwWrJmtDpxqUshQslOShJ3Ilc-gAlgwQPp0GO-CcGAqwzNT4inL62LtLcm5GQS60vxGcxwwxAoCjd6Dsax5cvfNZMzEwQDDq1EN6BPdqHDdLbbxWFZ7yjWQc3oddCzGUXEyIsVSM3qiA2xt-GPb01S8P9yjl-6H9Ms7AXj0HGI8jNAZit/s524/figural-beda-23.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-ketidaksamaan-irisan-titik-08",
+    "category": "TIU",
+    "subtopic": "Figural - Ketidaksamaan",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-ketidaksamaan-irisan-titik-08.png",
+    "stem": "Perhatikan posisi titik hitam terhadap perpotongan persegi panjang dan segitiga dalam setiap kotak. Manakah satu gambar yang memiliki hubungan irisan ruang berbeda?",
+    "reasoningChain": "Periksa daerah tempat titik hitam berada pada tiap panel. Pada A, B, D, dan E, persegi panjang dan segitiga memang beririsan, tetapi titik hitam diletakkan murni di dalam daerah persegi panjang saja (di luar daerah segitiga). Hanya pada C titik hitam terletak tepat di dalam daerah irisan tempat persegi panjang dan segitiga saling tumpang tindih.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "C",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Amati di daerah mana titik hitam ditempatkan: di dalam persegi panjang saja atau di area irisan dua bangun sekaligus.",
+    "optionRationales": {
+      "A": "Titik hitam berada murni di dalam persegi panjang sebelah kanan dan tidak masuk ke dalam segitiga.",
+      "B": "Titik hitam berada murni di dalam persegi panjang sebelah kiri, di luar area segitiga.",
+      "C": "Tepat sebagai gambar berbeda karena titik hitam berada di dalam daerah irisan persegi panjang dan segitiga sekaligus.",
+      "D": "Titik hitam berada di bagian bawah kiri persegi panjang dan berada di luar segitiga.",
+      "E": "Titik hitam berada di ujung bawah persegi panjang dan tidak masuk ke dalam wilayah segitiga."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Ketidaksamaan Gambar Paket 4 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-ketidaksamaan-gambar-4",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh7cKnWQRyMpPljkat7qpKl-jBDbF3BDVcuQm-pCIqjpJ-_JZl3U0fVK7J4V8NKH7MoPC9r9NPNoeoS68bvMXe60-N9lektloANFG9mFyENWFh0gp0sel2BQFkaNiiBx8oOnLjtbsju-EZJ9vwUgCgzTOfDPqozmEeaGpzW0U0xBkbwFtdH-kQWPd5ywia3/s514/figural-beda-25.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-ketidaksamaan-simpul-ganjil-09",
+    "category": "TIU",
+    "subtopic": "Figural - Ketidaksamaan",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-ketidaksamaan-simpul-ganjil-09.png",
+    "stem": "Setiap bangun garis berikut dibentuk oleh titik-titik simpul hitam yang saling terhubung. Tentukan satu gambar yang tidak memenuhi aturan bilangan simpul yang sama!",
+    "reasoningChain": "Hitung banyaknya simpul titik hitam pada masing-masing bangun tertutup: A memiliki 6 titik simpul, B memiliki 8 titik simpul, C memiliki 12 titik simpul, dan E memiliki 8 titik simpul. Semuanya berjumlah genap. Hanya D yang memiliki 7 titik simpul (bilangan ganjil), sehingga menyimpang dari keempat gambar lainnya.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "D",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Hitung total titik simpul hitam pada tiap poligon, lalu periksa sifat ganjil atau genapnya.",
+    "optionRationales": {
+      "A": "Memiliki tepat 6 titik simpul hitam (jumlah genap), sejalan dengan kelompok mayoritas.",
+      "B": "Memiliki tepat 8 titik simpul hitam (jumlah genap), konsisten dengan pola lainnya.",
+      "C": "Memiliki tepat 12 titik simpul hitam membentuk huruf H (jumlah genap), memenuhi aturan kelompok.",
+      "D": "Tepat sebagai anomali karena hanya tersusun atas 7 titik simpul hitam, satu-satunya yang berjumlah ganjil.",
+      "E": "Memiliki tepat 8 titik simpul hitam (jumlah genap), sesuai dengan aturan bilangan genap."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Ketidaksamaan Gambar Paket 5 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-ketidaksamaan-gambar-5",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEikc1fVflOpTTMBVXRS-UKQY6t6WFFilqb7gyIwMYC0BIWrlipQ7_9G1qM425b7tg1MQYwcl6V67uTmfEltQ5XxFj0jLamYnJE_ssPfYBL9IE8NTlsV639fnGI7DFTRGCqFtbRYJeIzT7p9mXw_p6pcMu1z9b7-NgotEqjuvUTpsJy1rwmvqIjTT8jrC_Mm/s529/figural-beda-26.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-analogi-poligon-luar-01",
+    "category": "TIU",
+    "subtopic": "Figural - Analogi",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-analogi-poligon-luar-01.jpg",
+    "stem": "Perhatikan perubahan dari gambar 1 ke gambar 2. Gunakan hubungan transformasi yang identik untuk menentukan gambar 4 dari gambar 3!",
+    "reasoningChain": "Pada pasangan pertama, segitiga (3 sisi) di kotak 1 dibungkus oleh belah ketupat (4 sisi, yaitu 3 + 1 sisi) di kotak 2 dengan puncak atas segitiga berimpit tepat pada sudut puncak atas bangun pembungkus dan alasnya menyentuh sisi pembungkus. Pada kotak 3 terdapat segi lima (5 sisi). Maka di kotak 4, segi lima tersebut tetap tegak dan dibungkus oleh bangun segi enam (5 + 1 = 6 sisi) dengan puncak atas yang berimpit dan alasnya bertumpu pada sisi bangun luar tanpa memotong sudut samping.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "C",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Bandingkan jumlah sisi bangun pembungkus baru terhadap bangun asli serta titik puncak mana yang saling berimpit.",
+    "optionRationales": {
+      "A": "Bangun pembungkus luarnya masih berbentuk segi lima (sama jumlah sisi dengan bangun di dalamnya), bukan bertambah satu sisi.",
+      "B": "Meskipun dibungkus segi enam, orientasi segi enamnya terbalik di alas datar dan puncak segilima memotong sisi datar atas bukan bertemu di titik puncak.",
+      "C": "Tepat karena segi lima (5 sisi) berada utuh di dalam segi enam (6 sisi) dengan puncak teratas saling berimpit simetris.",
+      "D": "Bangun pembungkus luarnya hanya segi empat (belah ketupat), berkurang sisinya daripada bertambah +1.",
+      "E": "Bentuk di bagian dalam terbalik dan bukan merupakan susunan pembungkusan konsentris antarpoligon."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "11 Soal Figural CPNS 2021 dan Pembahasannya (DetikEdu)",
+      "url": "https://www.detik.com/edu/detikpedia/d-5727978/11-soal-figural-cpns-2021-dan-pembahasannya-bisa-untuk-latihan",
+      "originalImageUrl": "https://awsimages.detik.net.id/community/media/visual/2021/09/17/soal-figural-cpns-2021-analogi-gambar-2.jpeg?w=912"
+    }
+  },
+  {
+    "slug": "tiu-figural-analogi-tukar-baris-lateral-02",
+    "category": "TIU",
+    "subtopic": "Figural - Analogi",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-analogi-tukar-baris-lateral-02.jpg",
+    "stem": "Amati transformasi tiga batang simbol bersusun dari kotak 1 ke kotak 2. Terapkan pola analogi yang sama pada kotak 3 untuk menemukan isi kotak 4 (?)!",
+    "reasoningChain": "Dari kotak 1 ke kotak 2 terjadi dua aturan sekaligus: (1) seluruh tiga batang dibalik secara horizontal (kiri-kanan), dan (2) batang baris paling atas dan baris paling bawah bertukar posisi. Terapkan ke kotak 3: baris atas [lingkaran hitam — T tegak] pindah ke bawah dan dibalik menjadi [T terbalik sisi kiri — lingkaran hitam sisi kanan]; baris tengah [segitiga hitam — panah kanan] tetap di tengah namun dibalik menjadi [panah kiri — segitiga hitam kanan]; baris bawah [cabang Y — lingkaran hitam] pindah ke atas dan dibalik menjadi [lingkaran hitam kiri — cabang Y terbalik]. Susunan ini sesuai dengan E.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "E",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Lacak dua perubahan serentak pada ketiga batang: pembalikan ujung kiri-kanan serta pertukaran posisi baris atas dan bawah.",
+    "optionRationales": {
+      "A": "Baris atas dan bawah tidak bertukar tempat dengan benar karena batang T tetap bertahan di baris atas.",
+      "B": "Baris tengah dan baris bawah tertukar posisinya dan batang berlingkaran hitam tidak berpindah secara simetris.",
+      "C": "Baris paling atas berisi batang panah, padahal batang panah seharusnya tetap bertahan di baris tengah.",
+      "D": "Arah cabang Y dan letak lingkaran hitam di baris atas masih sama seperti posisi sebelum dibalik (tidak mengalami refleksi lateral).",
+      "E": "Tepat karena baris atas dan bawah bertukar tempat sekaligus ketiga batang dibalik lateral secara akurat."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "11 Soal Figural CPNS 2021 dan Pembahasannya (DetikEdu)",
+      "url": "https://www.detik.com/edu/detikpedia/d-5727978/11-soal-figural-cpns-2021-dan-pembahasannya-bisa-untuk-latihan",
+      "originalImageUrl": "https://awsimages.detik.net.id/community/media/visual/2021/09/17/soal-figural-cpns-2021-analogi-gambar-3.jpeg?w=914"
+    }
+  },
+  {
+    "slug": "tiu-figural-analogi-rotasi-lepas-elemen-03",
+    "category": "TIU",
+    "subtopic": "Figural - Analogi",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-analogi-rotasi-lepas-elemen-03.png",
+    "stem": "Tentukan gambar pengganti tanda tanya (?) yang memiliki padanan transformasi serupa dengan pasangan gambar di sebelah kiri tanda sama dengan (=)!",
+    "reasoningChain": "Pada pasangan kiri, bangun utama diputar atau dibalik vertikal sehingga bagian kembar berpindah dari atas ke bawah sambil tetap utuh, sedangkan bagian tengah bawah (bintang tiga sudut) membalik ke atas dan berubah arah hadap, serta muncul satu objek baru yang terlepas di kanan atas dari bentuk bagian dalam (atau warna berubah berlawanan menjadi hitam). Terapkan ke kotak ketiga (dua segitiga hitam di atas dan hati hitam di bawah): seluruh kelompok dibalik vertikal sehingga hati hitam menghadap terbalik di atas, dua segitiga hitam menempel di bawah secara simetris (tidak membelah menyamping), dan segitiga kecil terpisah muncul di kanan atas berwarna putih (kebalikan warna asalnya) menghadap ke bawah. Pilihan B memenuhi semua syarat tersebut.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "B",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Perhatikan pembalikan posisi atas-bawah bangun utama dan warna objek kecil yang muncul terpisah di sudut atas.",
+    "optionRationales": {
+      "A": "Segitiga terpisah di sudut kanan atas berwarna hitam, padahal warnanya harus berlawanan (putih) seperti belah ketupat hitam pada pola awal.",
+      "B": "Tepat karena posisi hati dan sepasang segitiga hitam terbalik vertikal serta segitiga terpisah di kanan atas berwarna putih dan menghadap bawah.",
+      "C": "Segitiga putih di kanan atas menghadap ke atas bukan mengikuti arah pembalikan ujung ke bawah.",
+      "D": "Objek terpisah diletakkan di kiri atas dan berwarna hitam, menyalahi posisi kanan atas pada analogi pertama.",
+      "E": "Objek terpisah berada di sisi kiri atas sehingga menyalahi letak sudut kanan atas."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kumpulan Soal TIU Figural CPNS (BelajarBro)",
+      "url": "https://belajarbro.id/cpns/soal-tiu-figural",
+      "originalImageUrl": "https://1.bp.blogspot.com/-TAH0x1aArG4/Xes2uH3LlnI/AAAAAAAABkg/bevHn_UhMmkSzqem9YDy2hk9CqhEUImuQCNcBGAsYHQ/s1600/1.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-analogi-tukar-kolom-titik-04",
+    "category": "TIU",
+    "subtopic": "Figural - Analogi",
+    "difficulty": "medium",
+    "imageUrl": "/figural/tiu-figural-analogi-tukar-kolom-titik-04.png",
+    "stem": "Perhatikan hubungan pasangan gambar pertama di sebelah kiri tanda (=). Terapkan pola perubahan yang sama untuk melengkapi kotak bertanda tanya (?)!",
+    "reasoningChain": "Pada pasangan pertama, blok kolom besar di kiri dan kolom tiga persegi kecil di kanan saling bertukar posisi kiri-kanan, lalu tepat di dalam persegi kecil bagian tengah muncul sebuah titik hitam. Terapkan pada pasangan kedua: kolom kiri (persegi panjang dan segitiga) pindah ke sisi kanan secara tetap, kolom kanan (tiga persegi kecil) pindah ke sisi kiri, dan titik hitam ditempatkan di dalam persegi kecil baris tengah pada kolom kiri. Hasil yang tepat adalah D.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "D",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Amati pertukaran posisi kolom kiri-kanan dan kotak mana yang mendapatkan tambahan titik hitam.",
+    "optionRationales": {
+      "A": "Kolom kiri dan kanan belum bertukar posisi serta titik hitam salah masuk ke kotak persegi besar atas.",
+      "B": "Kolom kiri dan kanan tidak bertukar tempat meski titik hitamnya berada di kotak tengah kanan.",
+      "C": "Meskipun kolom sudah bertukar, titik hitam salah diletakkan di persegi besar kanan atas, bukan di persegi kecil tengah.",
+      "D": "Tepat karena kedua kolom bertukar sisi kiri-kanan dan titik hitam muncul tepat di persegi kecil bagian tengah sebelah kiri.",
+      "E": "Kolom tidak bertukar posisi dan titik hitam malah ditempatkan di dalam segitiga kiri bawah."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kumpulan Soal TIU Figural CPNS (BelajarBro)",
+      "url": "https://belajarbro.id/cpns/soal-tiu-figural",
+      "originalImageUrl": "https://1.bp.blogspot.com/-mEYfwFS8TZA/Xes2vCyIEjI/AAAAAAAABks/nvJ5MHNUhHshUaR8fh7ibInvah97ReziQCNcBGAsYHQ/s1600/12.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-analogi-inversi-ganda-tiga-susun-05",
+    "category": "TIU",
+    "subtopic": "Figural - Analogi",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-analogi-inversi-ganda-tiga-susun-05.png",
+    "stem": "Analisis perubahan tiga elemen terpisah pada pasangan gambar kiri tanda (=), lalu tentukan gambar pengganti tanda tanya (?) untuk susunan segitiga-oval-persegi panjang!",
+    "reasoningChain": "Pada analogi pertama ada tiga elemen: (1) jajar genjang teratas berubah warna dari hitam menjadi putih berongga (inversi warna); (2) bentuk kait di tengah tetap sama persis warna dan bentuknya; (3) oval di bawah bertambah duplikat bentuk yang sama di bagian dalamnya (garis tunggal menjadi ganda). Terapkan pada gambar ketiga: segitiga putih di atas berubah warna menjadi hitam solid; oval hitam di tengah tetap hitam solid; dan persegi panjang putih di bawah diisi persegi panjang putih kecil di dalamnya. Ini tepat sesuai B.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "B",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Lacak aturan masing-masing untuk elemen atas, elemen tengah, dan elemen bawah secara terpisah.",
+    "optionRationales": {
+      "A": "Segitiga atas tidak berubah warna menjadi hitam dan persegi panjang dalam di bawah berwarna hitam solid, bukan berongga.",
+      "B": "Tepat karena segitiga atas menjadi hitam solid, oval tengah tetap hitam, dan persegi panjang bawah berisi persegi panjang garis ganda.",
+      "C": "Segitiga atas diberi segitiga kecil di dalamnya padahal seharusnya berubah warna penuh menjadi hitam, sementara elemen bawah tidak digandakan.",
+      "D": "Oval tengah berubah menjadi putih berongga padahal elemen tengah harus tetap mempertahankan warna aslinya.",
+      "E": "Perubahan warna dan penggandaan diterapkan terbalik pada elemen atas dan tidak mengubah persegi panjang bawah."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Analogi Gambar Paket 1 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-analogi-gambar-1",
+      "originalImageUrl": "https://1.bp.blogspot.com/-EA7TywwkLGs/Xes2vX6g3MI/AAAAAAAABkw/XS9njCzQxI8meZWABVk327gCkVZe3U3lQCNcBGAsYHQ/s1600/13.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-analogi-balik-vertikal-titik-06",
+    "category": "TIU",
+    "subtopic": "Figural - Analogi",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-analogi-balik-vertikal-titik-06.png",
+    "stem": "Perhatikan transformasi posisi, rotasi 180 derajat, serta penambahan warna bentuk ujung pada pasangan pertama. Gambar manakah yang tepat untuk menggantikan tanda tanya (?)?",
+    "reasoningChain": "Pada pasangan pertama, gambar diputar 180 derajat sehingga palang hitam teratas berpindah menjadi palang putih di bawah dan kedua oval berbalik ke atas. Selain itu, ditambahkan elemen baru di sisi berlawanan dengan warna kebalikannya (palang hitam di bawah melengkapi palang putih di atas). Pada soal ketiga, terdapat lingkaran hitam di atas dan segitiga tegak bertitik hitam di bawahnya. Memutar susunan dan menginversi warna menghasilkan: lingkaran putih berongga di bagian atas, segitiga tengah terbalik mengarah ke bawah dengan titik tetap berada di dalamnya, dan lingkaran hitam solid di bagian bawah — sesuai persis dengan D.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "D",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Amati pembalikan orientasi bentuk tengah, perubahan warna elemen atas, dan kemunculan elemen pasangan di sisi berlawanan.",
+    "optionRationales": {
+      "A": "Lingkaran di bagian atas tetap berwarna hitam solid padahal harus berubah menjadi putih berongga.",
+      "B": "Lingkaran di bagian atas masih hitam sedangkan lingkaran bawah menjadi putih, terbalik dari aturan perubahan warna.",
+      "C": "Segitiga di bagian tengah masih menghadap tegak ke atas sehingga belum mengalami pembalikan 180 derajat.",
+      "D": "Tepat karena lingkaran atas menjadi putih berongga, segitiga tengah terbalik ke bawah dengan titik di dalam, dan lingkaran bawah berwarna hitam.",
+      "E": "Lingkaran atas masih hitam solid dan segitiga di tengah tidak berbalik arah."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Analogi Gambar Paket 1 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-analogi-gambar-1",
+      "originalImageUrl": "https://1.bp.blogspot.com/-P8G9TkzrLcI/Xes2v6yw7vI/AAAAAAAABk4/EKL_u8lyfuoIQRQw-QIllV7KiOI3KFHwACNcBGAsYHQ/s1600/15.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-analogi-tarik-sudut-poligon-07",
+    "category": "TIU",
+    "subtopic": "Figural - Analogi",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-analogi-tarik-sudut-poligon-07.png",
+    "stem": "Amati bagaimana bangun segi lima beraturan di baris atas berubah bentuk menjadi bangun cekung di sebelah kanannya. Terapkan perubahan serupa pada segi enam beraturan di baris bawah!",
+    "reasoningChain": "Pada baris atas, titik puncak teratas segi lima beraturan ditarik lurus ke arah dalam pusat bangun sehingga menghasilkan lekukan berbentuk huruf V di sisi atas sambil tetap mempertahankan bentuk alas dan dua sudut sisi kanan-kiri atas. Bila aturan yang sama diterapkan pada segi enam beraturan (yang memiliki puncak di atas dan di bawah), titik sudut paling atas ditarik ke dalam membentuk lekukan cekung di atas, sedangkan dua sudut samping kiri-kanan atas dan sisi bawah tetap utuh — yaitu gambar C.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "C",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Bayangkan titik sudut paling atas pada poligon didorong masuk ke dalam sementara titik-titik sudut lainnya tetap diam.",
+    "optionRationales": {
+      "A": "Kedua sudut sisi atas menyempit bersilangan di tengah membentuk dua segitiga, bukan sekadar menarik satu sudut atas ke dalam.",
+      "B": "Sudut yang ditarik ke dalam berada di sisi kanan (terputar 90 derajat), bukan titik sudut paling atas.",
+      "C": "Tepat karena titik sudut teratas segi enam ditarik masuk ke dalam membentuk cekungan simetris di atas dengan alas dan sisi tetap utuh.",
+      "D": "Lekukan cekung menghadap ke sisi kiri dan sudut puncaknya berorientasi menyamping.",
+      "E": "Bentuk segi enam tidak mengalami penarikan sudut sama sekali."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Analogi Gambar Paket 1 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-analogi-gambar-1",
+      "originalImageUrl": "https://1.bp.blogspot.com/-ANNKYAcolU8/Xes2wXzv_FI/AAAAAAAABlA/EmXvNysBkZAvIXOn6F5EZ9xIq3jNE28sACNcBGAsYHQ/s1600/16.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-analogi-tukar-luar-dalam-arsir-08",
+    "category": "TIU",
+    "subtopic": "Figural - Analogi",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-analogi-tukar-luar-dalam-arsir-08.png",
+    "stem": "Perhatikan analogi dua baris gambar berikut ini. Manakah pasangan gambar yang tepat untuk mengisi kotak bertanda tanya (?) di baris kedua sebelah kiri?",
+    "reasoningChain": "Pada baris pertama, oval putih di luar membungkus segilima hitam di dalam; di sebelah kanannya, segilima menjadi bangun luar berwarna hitam dan oval mengecil di dalam berwarna putih. Artinya terjadi pertukaran posisi luar-dalam antara dua poligon sekaligus mempertahankan warna/arsiran untuk posisi luar dan dalam (luar di kanan -> dalam di kiri dan sebaliknya? Cek lebih teliti: di baris 1 kiri, luar=putih & dalam=hitam; di kanan, luar=hitam & dalam=putih, artinya ukuran bertukar DAN warna lapisan ikut mengikuti posisi bangun atau posisi tetap!). Lihat baris kedua sebelah kanan: luar adalah segi delapan berarsir miring, dan di dalam adalah segi enam putih. Maka di sebelah kiri (?) bangun luar harus segi enam berwarna putih polos dan bangun dalamnya segi delapan berarsir miring satu arah — tepat seperti C.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "C",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Tukar posisi bangun luar dan dalam, lalu periksa mana lapisan yang putih polos dan mana yang berarsir miring satu arah.",
+    "optionRationales": {
+      "A": "Segi enam di luar berarsir miring dan segi delapan di dalam berarsir silang kotak-kotak, menyalahi pola putih polos dan arsir miring tunggal.",
+      "B": "Bangun luar masih berupa segi delapan bukan segi enam, sehingga belum menukar posisi luar dan dalam.",
+      "C": "Tepat karena segi enam menjadi bangun luar berwarna putih polos dan segi delapan berada di dalam berarsir miring satu arah.",
+      "D": "Bangun di dalam berbentuk lingkaran, bukan segi delapan seperti pada gambar pasangan baris kedua.",
+      "E": "Arsiran miring berada pada segi enam luar sedangkan segi delapan di dalam dibiarkan putih polos (terbalik pewarnaannya)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Analogi Gambar Paket 3 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-analogi-gambar-3",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEilzptiHBiDZuSZiPfR1EgplsO_ZftkWWguxcBlAqsBUcWmD-ljwV48RKeKvlxWltT1kv2u1w_xppINgWyDizbGRg2xX_EPboyB2Zr2LqpRSBJqWWN7vY5bYfN5KlO76UD5tZRkKBZU8rpz4Fc-fi1I0gj8NNWqrUKZORR3SDxZJXkiWwNSeLZ97ddnaPaY/s487/figural-analogi-9.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-analogi-skala-warna-konsetris-09",
+    "category": "TIU",
+    "subtopic": "Figural - Analogi",
+    "difficulty": "medium",
+    "imageUrl": "/figural/tiu-figural-analogi-skala-warna-konsetris-09.png",
+    "stem": "Tentukan bangun konsentris yang tepat untuk melengkapi pasangan perbandingan gambar di sebelah kanan tanda (=)!",
+    "reasoningChain": "Pada pasangan pertama, lingkaran putih besar di luar berisi segitiga hitam kecil di dalam berubah menjadi segitiga hitam besar di luar berisi lingkaran putih kecil di dalam (bentuk luar dan dalam bertukar skala, sambil mempertahankan warna asli masing-masing bentuk). Terapkan pada segitiga hitam besar di luar yang berisi persegi putih kecil di dalam: persegi putih membesar ke luar dan segitiga hitam mengecil masuk ke dalam — tepat sesuai A.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "A",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Tukar ukuran besar-kecil kedua bangun sambil mempertahankan warna asli masing-masing bangun tersebut.",
+    "optionRationales": {
+      "A": "Tepat karena persegi putih membesar menjadi bingkai luar dan segitiga hitam mengecil menjadi objek di bagian dalam.",
+      "B": "Bangun luar masih berupa segitiga hitam dengan segitiga putih di dalamnya (tidak menukar bentuk luar dan dalam).",
+      "C": "Persegi luar diwarnai hitam dan segitiga dalamnya putih (warna kedua bangun tertukar).",
+      "D": "Bangun luar berbentuk lingkaran hitam, padahal bangun di dalam sebelumnya adalah persegi putih.",
+      "E": "Bangun luar berupa lingkaran putih berisi persegi hitam, bukan persegi luar dan segitiga dalam."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Analogi Gambar Paket 4 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-analogi-gambar-4",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi1ttjazJSr0xL8jARRY5F1-3Y1iUM8saYNskVuPSgyaAH8GjNh5d5urobhngGIGEZ2O7keOPMVIA8t6pPT1inBOECPz3kmUSZLL-Sr46Gl30oWHSLFaAn6ctNxIbK8dTPKWKGaVEVf2kS9-pG_n-cABQOk1Sz_CZ5v0ZSLUzSSMwiUaJp_UtGFXy1dr7CH/s599/figural-analogi-16.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-serial-matriks-xor-berimpit-01",
+    "category": "TIU",
+    "subtopic": "Figural - Serial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-serial-matriks-xor-berimpit-01.png",
+    "stem": "Perhatikan pola perubahan dari atas ke bawah pada setiap kolom matriks 3x3 berikut. Manakah gambar yang tepat untuk mengisi kotak bertanda tanya (?) pada baris ketiga?",
+    "reasoningChain": "Amati tiap kolom dari atas ke bawah: Baris 1 memuat dua komponen simetris yang terpisah, Baris 2 mendekatkan keduanya hingga bersinggungan, dan Baris 3 menyatukan kedua komponen dengan menghapus garis-garis vertikal/diagonal bagian dalam yang saling bertumpuk (logika XOR). Di kolom 1 panah bawah dan panah atas menyatu menjadi panah dua arah; di kolom 3 dua poligon dengan kotak tengah menyatu menyisakan persegi panjang. Di kolom 2, dua segitiga berbatang dengan garis kait kanan-atas dan kiri-bawah menyatu pada baris 3 sehingga batang vertikal dan silang dalam saling meniadakan, menyisakan bentuk jam pasir dengan garis kanan-atas dan kiri-bawah — yaitu C.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "C",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Baca tiap kolom dari baris teratas ke bawah: komponen kiri dan kanan bergerak mendekat hingga saling menumpuk dan garis yang berimpit menghilang.",
+    "optionRationales": {
+      "A": "Kedua komponen belum bertumpuk menjadi satu jam pasir dan batang vertikalnya masih tampak utuh.",
+      "B": "Menampilkan garis vertikal dan garis silang di bagian dalam jam pasir yang seharusnya saling meniadakan saat berimpit.",
+      "C": "Tepat karena garis batang vertikal dan garis silang di tengah melebur hilang, menyisakan jam pasir utuh beserta garis kait kanan-atas dan kiri-bawah.",
+      "D": "Masih menyisakan garis silang diagonal di bagian tengah jam pasir seperti gabungan biasa tanpa penghapusan garis berimpit.",
+      "E": "Masih memiliki garis silang di dalam jam pasir serta goresan abu-abu tidak utuh pada garis kait kanan bawah."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal 9 Kotak Matriks Gambar Paket 2 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-9-kotak-2",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiU-EVSTZ91-NpUpqPNICJAHO716fpdzfolNUWi7Uxane4nzos80Xa0bK04h75j3EoM2sRxX39wQcaNPcHbPSzZZNCnugJh5Gz9ncNUuwoUKFDpD9-5OwUodBkwTBoYGwmZ0qBZsVu3laDPrdEMMxo6hR2CilqgRYmmMk8Y6CFF517-EdgJVjM8sedusABO/s1600/image.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-serial-matriks-superposisi-warna-02",
+    "category": "TIU",
+    "subtopic": "Figural - Serial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-serial-matriks-superposisi-warna-02.png",
+    "stem": "Analisis pola hubungan antar-kolom di setiap baris matriks 3x3 ini, lalu tentukan gambar yang paling sesuai untuk mengisi sel tengah bertanda tanya (?)!",
+    "reasoningChain": "Pada tiap baris, Kolom 3 terbentuk dari penggabungan (superposisi) bentuk Kolom 1 dan Kolom 2 dengan pembalikan warna (hitam menjadi putih dan putih menjadi hitam). Pada baris 1: bilah baling kiri putih + tonjolan kanan hitam -> baling kiri hitam + tonjolan kanan putih. Pada baris 3: baling utuh hitam + kelopak putih -> baling putih + kelopak hitam. Pada baris 2: Kolom 1 memuat bilah baling kanan putih dan Kolom 3 memuat bilah baling kanan hitam bergabung dengan tonjolan kiri putih. Jadi sel Kolom 2 (?) harus berisi tonjolan sisi kiri berwarna hitam solid — yaitu C.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "C",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Gabungkan bentuk di kolom kiri dan tengah untuk membentuk kolom kanan, lalu perhatikan aturan pembalikan warna hitam dan putih.",
+    "optionRationales": {
+      "A": "Bentuk tonjolan di sebelah kiri berwarna putih bukan hitam, sehingga tidak dapat menghasilkan warna putih setelah dibalik (dan keliru dengan inversi).",
+      "B": "Posisi tonjolan menghadap ke kanan (bagian kanan yang menonjol), padahal di Kolom 3 baris 2 tonjolan berada di sebelah kiri.",
+      "C": "Tepat karena berisi bentuk tonjolan sebelah kiri berwarna hitam solid yang setelah dibalik warna menjadi tonjolan kiri putih di Kolom 3.",
+      "D": "Posisi tonjolan berada di sisi kanan dan berwarna putih.",
+      "E": "Garis sumbu tegaknya menempel di kiri (tonjolan menghadap ke kanan), berlawanan arah dengan belahan kiri pada baris 2."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kumpulan Soal TIU Figural CPNS (BelajarBro)",
+      "url": "https://belajarbro.id/cpns/soal-tiu-figural",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjYGBkrmBdpy6Bon1NHF6Xc-QuPA4bc9y-MJ6FYAf1GRvVmCjdPCslMUv__AHAPUAfwzSmg09s5k7jo8IMtB8P32nDAo7duRGsNAa6DlcmPtCMGI6nIj5_sppNqX7bePIuO_PGUnVmmCGBREwUCK58xPRAvxjOkWMlCElF-VYdi9xxmWwsHAIZ_wbmJ4GCT/s1600/image.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-serial-matriks-skala-pasangan-03",
+    "category": "TIU",
+    "subtopic": "Figural - Serial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-serial-matriks-skala-pasangan-03.png",
+    "stem": "Perhatikan pola transformasi setiap baris pada matriks 9 kotak berikut dari kiri ke kanan. Tentukan isi kotak kiri bawah yang bertanda tanya (?)!",
+    "reasoningChain": "Amati tiap baris dari Kolom 1 ke Kolom 3: bangun kecil di dalam Kolom 1 tampil sebagai bangun tunggal di Kolom 2, lalu di Kolom 3 bangun dalam tersebut membesar menjadi bangun luar sementara bangun luar Kolom 1 mengecil menjadi bangun dalam. Pada baris 3, Kolom 2 adalah segitiga kecil dan Kolom 3 adalah segitiga besar berisi lingkaran kecil. Maka Kolom 1 (?) harus berupa lingkaran besar berisi segitiga kecil — yaitu A.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "A",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Bandingkan elemen yang berada di dalam kotak tengah terhadap posisi pembesaran dan pengecilannya di kolom paling kanan.",
+    "optionRationales": {
+      "A": "Tepat karena lingkaran besar di luar mengecil ke dalam pada Kolom 3, sedangkan segitiga di dalamnya sesuai dengan Kolom 2 sebelum membesar ke luar di Kolom 3.",
+      "B": "Segitiga sudah berada di luar berisi persegi kecil, tidak sesuai dengan lingkaran dalam pada Kolom 3.",
+      "C": "Persegi luar berisi segitiga bukan lingkaran, menyalahi isi Kolom 3.",
+      "D": "Lingkaran besar berisi persegi kecil bukan segitiga, tidak cocok dengan segitiga di Kolom 2.",
+      "E": "Susunan terbalik identik dengan Kolom 3 (segitiga di luar berisi lingkaran), padahal skala luar-dalam harus bertukar."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kumpulan Soal TIU Figural CPNS (BelajarBro)",
+      "url": "https://belajarbro.id/cpns/soal-tiu-figural",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhYedaDag_hyTogFRG5ROHW7jUM6zytbW82XXoTV2-u_RhWBBZYovJK1Kxu_bHmpxsiMrR6ddLjyt4ogvqTuhap6d-GeN6cSgdSy9a280382B6NV8Ll2C-5Jw2K76aj_cdWgzY8_zXwVkDISC1Q8XNd_xqjas2_4EvOsf7YBvorIMS0KBO3auf-onnw11ZC/s1600/image.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-serial-matriks-lapisan-radial-04",
+    "category": "TIU",
+    "subtopic": "Figural - Serial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-serial-matriks-lapisan-radial-04.png",
+    "stem": "Amati jumlah lapisan oval konsentris dan garis lurus yang memancar dari pusat pada matriks 3x3 berikut. Gambar manakah yang tepat mengisi kotak kanan bawah (?)?",
+    "reasoningChain": "Periksa pola berdasarkan kolom dari atas ke bawah: (1) Jumlah garis jari-jari yang keluar dari pusat tetap konstan pada tiap kolom, yakni 3 jari-jari di Kolom 1, 4 jari-jari di Kolom 2, dan 5 jari-jari di Kolom 3; (2) Jumlah lapisan elips/lingkaran konsentris bertambah +1 ke bawah, yaitu 4 lapis (Baris 1), 5 lapis (Baris 2), dan 6 lapis (Baris 3). Jadi kotak kanan bawah (?) harus mempunyai 6 lapisan lingkaran/oval dengan tepat 5 garis jari-jari — tepat pada D.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "D",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Hitung dua kuantitas terpisah pada setiap sel: jumlah cincin/lapisan kurva tertutup dan banyaknya garis radial dari titik pusat.",
+    "optionRationales": {
+      "A": "Hanya memiliki 5 lapisan kurva dan 4 garis jari-jari (belum cukup 6 lapis dan 5 garis).",
+      "B": "Meskipun memiliki beberapa lapisan padat dan garis, susunan jari-jarinya terdiri atas 6 garis (3 diameter penuh melewati pusat), bukan 5 jari-jari.",
+      "C": "Hanya mempunyai 4 garis jari-jari dan 5 lapisan elips, menyalahi aturan kolom 3 baris 3.",
+      "D": "Tepat karena mempunyai 6 lapisan lingkaran konsentris dan tepat 5 garis radial yang memancar dari pusat.",
+      "E": "Hanya memiliki 5 lapisan kurva dengan 3 garis jari-jari seperti sel di kolom pertama."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal 9 Kotak Matriks Gambar Paket 1 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-9-kotak-1",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiMnPwBeDG6-crtdJONGZX512OfMoI92MgZx_qD4D4bo_omaFAUeBLWgNbrb5Ud3ens9ncvQ5E15ehMVefEiJg3xT5zHdul2EQIUe9vboO5W3dAv_q1cMvwZWl2jn9qmfQkgPNEOMSVxHy1l2GfedosM1D8DI6p-AtV1pM5VckpJj9vmoPA4svkiuc1NYqv/s1600/image.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-serial-matriks-irisan-silang-belah-05",
+    "category": "TIU",
+    "subtopic": "Figural - Serial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-serial-matriks-irisan-silang-belah-05.png",
+    "stem": "Analisis pola hubungan antar-kolom pada matriks 9 kotak di bawah ini dari kiri ke kanan, lalu tentukan isi kotak paling kanan bawah (?)!",
+    "reasoningChain": "Perhatikan perubahan segmen diagonal belah ketupat beserta garis sumbu silang (+) di setiap baris matriks 3x3. Baris 1: belah ketupat utuh (Col 1) dipecah garis miringnya menjadi dua sisi atas di Col 2 (^) dan dua sisi bawah di Col 3 (v), masing-masing bersumbu silang penuh (+). Baris 2: dua sisi kiri belah ketupat di Col 1 (<) dipecah menjadi sisi miring kiri atas di Col 2 dan sisi miring kiri bawah di Col 3 beserta garis silang penuh (+). Maka pada Baris 3: dua sisi kanan belah ketupat di Col 1 (>) dipecah menjadi sisi miring kanan atas di Col 2 dan sisi miring kanan bawah di Col 3 lengkap dengan tanda silang (+), yang bertepatan dengan E.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "E",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Amati bagaimana pasangan sisi miring belah ketupat di kolom pertama terpecah ke kolom kedua dan ketiga pada tiap baris.",
+    "optionRationales": {
+      "A": "Menampilkan sisi miring kiri atas, padahal baris ketiga hanya membagi sisi kanan belah ketupat.",
+      "B": "Menampilkan dua sisi miring diagonal sekaligus (kiri atas dan kanan bawah), bukan satu segmen sisi kanan bawah saja.",
+      "C": "Hanya menampilkan tanda silang (+) tanpa segmen garis miring kanan bawah yang tersisa.",
+      "D": "Menampilkan keempat sisi belah ketupat secara utuh seperti sel sudut kiri atas.",
+      "E": "Tepat karena menampilkan tanda silang penuh (+) disertai satu segmen garis miring kanan bawah sebagai pasangan sisi kanan atas di kolom kedua."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Figural Deret dan 9 Kotak PKN STAN (BelajarBro)",
+      "url": "https://belajarbro.id/pknstan/artikel.php?judul=deret-gambar",
+      "originalImageUrl": "https://1.bp.blogspot.com/-76geDPCzsEY/XMUdd7rj5hI/AAAAAAAABBo/x57rymy3EPQZ8ne3LwtPxhRXN4GJEMAsQCLcBGAs/s1600/9kotak.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-serial-poligon-arsir-bolak-balik-06",
+    "category": "TIU",
+    "subtopic": "Figural - Serial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-serial-poligon-arsir-bolak-balik-06.png",
+    "stem": "Perhatikan deret perubahan jumlah sisi bangun luar-dalam serta letak arsirannya berikut ini. Gambar manakah yang paling tepat menempati kotak kelima (?)?",
+    "reasoningChain": "Lacak dua aturan secara terpisah: (1) Banyaknya sisi bangun luar membentuk pola naik-turun simetris 4 (persegi) -> 5 (pita segi 5) -> 6 (segi enam) -> 5 (segilima) -> kembali menjadi 4 sisi (segi empat/trapesium). Bangun dalam juga mengikuti 3 (segitiga) -> 4 -> 5 -> 4 -> kembali 3 sisi (segitiga); (2) Pola arsiran berpindah selang-seling luar-dalam: kotak 1 (arsir luar), kotak 2 (arsir dalam), kotak 3 (arsir luar), kotak 4 (arsir dalam) -> kotak 5 wajib berarsir di bangun LUAR dengan bangun dalam putih polos. Gambar dengan bangun luar 4 sisi berarsir dan bangun dalam segitiga putih polos adalah A.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "A",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Periksa urutan naik-turun jumlah sisi bangun luar dan dalam, serta pergeseran selang-seling letak arsiran antara luar dan dalam.",
+    "optionRationales": {
+      "A": "Tepat karena menampilkan bangun luar 4 sisi (trapesium) berarsir dan bangun dalam 3 sisi (segitiga) putih polos.",
+      "B": "Bangun luar masih bersisi 6 dan arsirannya keliru berada di bagian dalam.",
+      "C": "Bangun luar berbentuk 4 sisi tetapi arsirannya berada pada segitiga dalam bukan di lapisan luar.",
+      "D": "Bangun dalamnya masih berupa segilima (5 sisi) dan tidak turun menjadi segitiga.",
+      "E": "Bangun luar bersisi 5 (segilima) dan dalamnya bersisi 4, bukan kombinasi 4 luar dan 3 dalam."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kumpulan Soal TIU Figural CPNS (BelajarBro)",
+      "url": "https://belajarbro.id/cpns/soal-tiu-figural",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/a/AVvXsEjPBgEiuqu1il4u4XueYdHQAO1bF_svKFiH22Yl4OWsO8UrjY0E15IADD4Vm7PE3qpiOYgcBbbw43W8j1mqCcNUGNfG6lFX1Sg1_86sHm27LQMgQ_Xztu67h9CgoXIYpQkzxbIv8RbyREwt5wQrJ29Qqx9rhoPgVB5uVGcrl4TAa8fhaepSIDYi82c0mffs"
+    }
+  },
+  {
+    "slug": "tiu-figural-serial-tiga-elemen-sudut-07",
+    "category": "TIU",
+    "subtopic": "Figural - Serial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-serial-tiga-elemen-sudut-07.png",
+    "stem": "Lengkapilah serial empat kotak berikut dengan memilih gambar ke-4 (?) yang memenuhi seluruh pola pergerakan elemen pusat, panah, dan sudut!",
+    "reasoningChain": "Urai menjadi tiga aturan independen: (1) Tanda tambah di pusat kotak berganti warna selang-seling putih (1) -> hitam (2) -> putih (3) -> hitam (4); (2) Panah di tengah berputar 90 derajat berlawanan arah jarum jam tiap langkah: atas (1) -> kiri (2) -> bawah (3) -> kanan (4); (3) Kelompok objek sudut berpindah posisi searah jarum jam: kiri atas (1) -> kanan atas (2) -> kanan bawah (3) -> kiri bawah (4), jumlahnya bertambah +1 (1 -> 2 -> 3 -> 4), serta bentuk/warnanya bergantian belah ketupat hitam -> lingkaran putih -> belah ketupat hitam -> 4 lingkaran putih. Gambar yang tepat memenuhi semua ketentuan adalah B.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "B",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Analisis tiga objek secara terpisah: warna ikon pusat, arah putar panah tengah, serta letak, jumlah, dan jenis objek di sudut kotak.",
+    "optionRationales": {
+      "A": "Empat lingkaran di sudut kiri bawah berwarna hitam, padahal harus bergantian menjadi lingkaran putih.",
+      "B": "Tepat karena pusat kotak bertanda plus hitam, panah menunjuk ke kanan, dan sudut kiri bawah berisi 4 lingkaran putih.",
+      "C": "Tanda plus di pusat berwarna putih (seharusnya hitam) dan 4 lingkarannya berwarna hitam.",
+      "D": "Tanda plus pusat masih berwarna putih, tidak selang-seling menjadi hitam.",
+      "E": "Empat bentuk di kiri bawah berupa belah ketupat putih, bukan 4 lingkaran putih."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Serial Gambar Paket 3 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-serial-gambar-3",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjVQo49ONCSwnACpS1QRizYqwkPjJ1hbNQoXtlfjvU0p_7BLRAkAHYM1FgB7IHdpSMXEivDv-XznYunT84IUtpUfu8E7Dtz8UJvDVIbeo3qhfBVk5c0sSklzDcv4fOY0hf59oj_E3sAy-MbatEVkbpNqpG5DjwSY6i7Cq7YpYcwax52Oq1gazbsFSsyeEnY/s526/figural-serial-8.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-serial-kuadran-sisi-poligon-08",
+    "category": "TIU",
+    "subtopic": "Figural - Serial",
+    "difficulty": "medium",
+    "imageUrl": "/figural/tiu-figural-serial-kuadran-sisi-poligon-08.png",
+    "stem": "Perhatikan deretan tiga panel bersumbu kuadran berikut ini. Panel manakah yang paling tepat untuk melanjutkan urutan keempat (?)?",
+    "reasoningChain": "Terdapat tiga pola yang berjalan bersamaan: (1) Posisi kuadran bergeser berlawanan arah jarum jam satu langkah setiap tahap: kuadran kiri atas (1) -> kiri bawah (2) -> kanan bawah (3) -> kanan atas (4); (2) Jumlah sisi poligon bertambah +1 tiap langkah: segitiga (3) -> persegi (4) -> segilima (5) -> segi enam (6); (3) Warna isi poligon bergantian hitam (1) -> putih (2) -> hitam (3) -> putih (4). Jadi panel keempat berisi segi enam putih di kuadran kanan atas — yaitu B.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "B",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Amati perpindahan posisi kuadran pada sumbu silang, pertambahan jumlah sisi bangun, dan pergantian warna hitam-putih.",
+    "optionRationales": {
+      "A": "Menampilkan segi enam di kuadran kanan atas tetapi berwarna hitam solid bukan putih polos.",
+      "B": "Tepat karena menampilkan segi enam berongga putih di kuadran kanan atas sesuai seluruh pola kuadran, jumlah sisi, dan warna.",
+      "C": "Bangun di kuadran kanan atas berupa jajar genjang (4 sisi), bukan segi enam (6 sisi).",
+      "D": "Bangun berupa jajar genjang hitam (4 sisi), keliru jumlah sisi dan warnanya.",
+      "E": "Bangun berupa trapesium terbalik hitam (4 sisi), tidak sesuai dengan segi enam putih."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Serial Gambar Paket 2 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-serial-gambar-2",
+      "originalImageUrl": "https://1.bp.blogspot.com/-_sGI_4KLflk/Xes9ZwI2PRI/AAAAAAAABpY/0Ge_IWXAdEolN6Bf9agV9JWJi70thzNnwCNcBGAsYHQ/s1600/8.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-serial-dua-panah-lawan-arah-09",
+    "category": "TIU",
+    "subtopic": "Figural - Serial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-serial-dua-panah-lawan-arah-09.png",
+    "stem": "Deret berikut memadukan gerak rotasi dua panah bersilangan (hitam dan putih). Tentukan posisi kedua panah yang tepat pada langkah kelima (?)!",
+    "reasoningChain": "Pisahkan gerak rotasi tiap panah sebesar 45 derajat per langkah dengan arah berlawanan: (1) Panah hitam berputar 45 derajat berlawanan arah jarum jam: atas (1) -> kiri atas (2) -> kiri (3) -> kiri bawah (4, tepat menutupi panah putih) -> mengarah ke BAWAH pada langkah 5; (2) Panah putih berputar 45 derajat searah jarum jam: kanan (1) -> kanan bawah (2) -> bawah (3) -> kiri bawah (4, tertutup panah hitam) -> mengarah ke KIRI pada langkah 5. Susunan panah hitam mengarah ke bawah di depan panah putih mengarah ke kiri adalah D.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "D",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Ikuti sudut arah panah hitam dan panah putih masing-masing langkah demi langkah dengan arah putar yang saling berlawanan.",
+    "optionRationales": {
+      "A": "Panah hitam sudah benar ke bawah, tetapi panah putih mengarah ke kanan alih-alih berputar ke kiri.",
+      "B": "Arah warna kedua panah tertukar (panah hitam ke kiri dan panah putih ke bawah).",
+      "C": "Panah hitam menunjuk ke atas bukannya ke bawah.",
+      "D": "Tepat karena panah hitam berputar 45 derajat CCW keempat kalinya mengarah ke bawah dan panah putih berputar 45 derajat CW mengarah ke kiri.",
+      "E": "Panah hitam menunjuk ke kiri dan panah putih menunjuk ke atas, menyalahi rotasi 45 derajat masing-masing."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Serial Gambar Paket 3 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-serial-gambar-3",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhnBH8Iu9KAJQKwLm2RaZVBF2BKLDF61YPQ-P427M7Q3ExFBd-hCwhgHreJVEWFWaSCM_BycRL32cW_sbinjPcF_Oim3Iip3ZfFrkXfl2tLBZB0YUvuwaknP2HaxliXOLymXVfu4LtHVngEv4biL0l86gBU0lcCZVsDQwLXIm809sKk2fTQFXCcoKAHq9Bn/s530/figural-serial-6.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-serial-cincin-tujuh-lingkaran-10",
+    "category": "TIU",
+    "subtopic": "Figural - Serial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-serial-cincin-tujuh-lingkaran-10.webp",
+    "stem": "Amati deret lima kotak berikut yang memiliki kotak ketiga kosong. Tentukan gambar yang tepat untuk mengisi kotak ke-3 agar pola tetap konsisten dari awal hingga akhir!",
+    "reasoningChain": "Lacak dua elemen terpisah pada 7 lingkaran cincin dan 4 sudut bingkai: (1) Titik hitam pada cincin 7 lingkaran melompat +2 posisi searah jarum jam per kotak: posisi kiri-tengah / jam 9 (kotak 1) -> puncak atas / jam 12 (kotak 2) -> sisi kanan-tengah / sekitar jam 3 (kotak 3) -> bawah-kiri / sekitar jam 7 (kotak 4) -> atas-kiri / sekitar jam 10:30 (kotak 5); (2) Persegi hitam di sudut bingkai bergerak 1 sudut berlawanan arah jarum jam: kiri bawah (1) -> kanan bawah (2) -> kanan atas (3) -> kiri atas (4) -> kiri bawah (5). Jadi kotak ke-3 wajib memiliki persegi hitam di sudut kanan atas dan titik hitam cincin di posisi kanan-tengah — tepat pada D.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "D",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Hitung besar lompatan titik hitam di antara 7 lingkaran penyusun cincin dan amati perpindahan sudut persegi hitam bingkai.",
+    "optionRationales": {
+      "A": "Titik hitam baru melangkah +1 posisi di kanan atas dan persegi sudut masih bertahan di kiri bawah.",
+      "B": "Titik hitam sudah benar di kanan-tengah, tetapi persegi sudut masih keliru di kiri bawah bukan kanan atas.",
+      "C": "Persegi sudut sudah benar di kanan atas, tetapi titik hitam cincin tetap di kiri tengah (sama seperti kotak pertama).",
+      "D": "Tepat karena persegi hitam bergeser berlawanan arah jarum jam ke kanan atas dan titik hitam melompat +2 posisi searah jarum jam ke sisi kanan-tengah.",
+      "E": "Titik hitam bergeser terlalu jauh hingga ke lingkaran bawah-kanan (+3 langkah)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kupas Tuntas Contoh Soal Figural dan Jawabannya (SinauCPNS)",
+      "url": "https://sinaucpns.com/blog/kupas-tuntas-contoh-soal-figural-dan-jawabannya-rahasia-lolos-tes-cpns-bumn",
+      "originalImageUrl": "https://res.cloudinary.com/dmgrceuln/image/upload/v1782142547/ckeditor_uploads/gqv6016bedvqueqm5dn6.webp"
+    }
+  },
+  {
+    "slug": "tiu-figural-spasial-jaring-kubus-abu-hitam-01",
+    "category": "TIU",
+    "subtopic": "Figural - Spasial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-spasial-jaring-kubus-abu-hitam-01.jpg",
+    "stem": "Perhatikan gambar kubus tiga dimensi di sebelah kiri yang memiliki satu sisi berwarna hitam dan dua sisi berwarna abu-abu saling bersebelahan. Jika pola warna berada di sisi luar, manakah jaring-jaring kubus (A sampai E) yang dapat membentuk kubus tersebut?",
+    "reasoningChain": "Pada kubus acuan, sisi hitam dan kedua sisi abu-abu saling berdekatan membentuk satu titik sudut temu (ketiganya tampak sekaligus, sehingga tidak ada sepasang pun dari ketiganya yang boleh saling berhadapan). Periksa tiap jaring-jaring (kolom utama 4 persegi: baris 1 berhadapan dengan baris 3; baris 2 berhadapan dengan baris 4; sayap kiri baris 1 berhadapan dengan sayap kanan baris 3): pada A, B, dan C kedua sisi abu-abu terpisah tepat satu kotak di kolom vertikal utama sehingga saling membelakangi/berhadapan; pada D, sisi abu-abu baris 1 dan sisi hitam baris 3 juga berjarak satu kotak sehingga saling berhadapan. Hanya pada E ketiga sisi berwarna (baris 3 abu-abu, sayap kanan baris 3 abu-abu, dan baris 4 hitam) tidak ada yang saling berhadapan dan bertemu tepat di satu sudut kubus yang sama.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "E",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Tentukan sisi mana saja yang saling berhadapan karena selang satu kotak lurus pada jaring-jaring; tiga sisi yang terlihat pada kubus tidak boleh saling berhadapan.",
+    "optionRationales": {
+      "A": "Kedua sisi abu-abu berada di baris ke-2 dan baris ke-4 kolom utama (selang satu kotak), sehingga saling berhadapan dan tidak dapat tampak bersebelahan.",
+      "B": "Kedua sisi abu-abu berada di baris ke-1 dan baris ke-3 kolom utama sehingga saling membelakangi.",
+      "C": "Kedua sisi abu-abu berada di baris ke-1 dan baris ke-3 kolom utama sehingga tetap saling berhadapan.",
+      "D": "Sisi abu-abu di baris ke-1 dan sisi hitam di baris ke-3 terpisah satu kotak pada kolom utama sehingga saling berhadapan.",
+      "E": "Tepat karena sisi abu-abu baris ke-3, sisi abu-abu sayap kanan, dan sisi hitam baris ke-4 semuanya berbatasan di satu sudut dan tidak saling membelakangi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Tips dan Trik Soal Jaring-Jaring Kubus Seleksi CPNS (Kompasiana)",
+      "url": "https://www.kompasiana.com/ekoadisaputro6470/64e98d3518333e5fe3307912/tips-dan-trik-soal-jaring-jaring-kubus-pada-seleksi-cpns-2023",
+      "originalImageUrl": "https://assets.kompasiana.com/items/album/2023/08/26/soal-jaring-jaring-kubus-jpg-64e98b4318333e15d3731fa3.jpg?t=o&v=770"
+    }
+  },
+  {
+    "slug": "tiu-figural-spasial-pencerminan-vertikal-petir-02",
+    "category": "TIU",
+    "subtopic": "Figural - Spasial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-spasial-pencerminan-vertikal-petir-02.png",
+    "stem": "Garis ganda tegak di sebelah kanan jajar genjang berfungsi sebagai cermin datar vertikal. Tentukan hasil pencerminan (refleksi) yang akurat di antara lima pilihan A sampai E!",
+    "reasoningChain": "Pada pencerminan terhadap sumbu cermin tegak di sebelah kanan: (1) kemiringan jajar genjang yang semula condong ke kanan atas (/) harus berbalik menjadi condong ke kiri atas (\\), yang langsung mengeliminasi A, B, dan C; (2) panah di bagian atas yang semula menghadap ke kanan harus berbalik menghadap ke kiri; (3) bentuk petir di bagian bawah harus menempelkan ujung lancipnya di sudut kanan bawah pada gambar asli (sisi terdekat cermin) atau tetap menjaga titik ujungnya di sudut yang bersesuaian? Cek hati-hati! Pada gambar asli, ujung lancip petir bertumpu di sudut KANAN-BAWAH (sisi dekat cermin!) dan badannya miring ke kiri atas menjauhi cermin. Saat dicerminkan ke kanan cermin, sudut terdekat cermin adalah sudut KIRI-BAWAH jajar genjang bayangan, sehingga pangkal lancip petir bertumpu di sudut kiri bawah dan badannya mengarah miring ke kanan atas menjauhi cermin! Susunan ini tepat pada E.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "E",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Periksa tiga ciri sekaligus terhadap garis cermin tegak: arah kemiringan jajar genjang, arah mata panah, dan sudut mana ujung petir bertumpu.",
+    "optionRationales": {
+      "A": "Kemiringan bingkai jajar genjang tetap condong ke kanan atas dan tidak ikut dicerminkan.",
+      "B": "Arah panah tetap menghadap kanan dan kemiringan jajar genjang masih sama seperti benda asal.",
+      "C": "Bingkai jajar genjang maupun panah tidak mengalami pembalikan horizontal terhadap cermin.",
+      "D": "Bingkai jajar genjang dan panah sudah terbalik benar, tetapi ujung petir masih mengarah ke kanan bawah seolah tergeser tanpa refleksi.",
+      "E": "Tepat karena jajar genjang berbalik miring ke kiri atas, panah menghadap ke kiri, dan ujung lancip petir berpindah menumpu sudut kiri bawah."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Pencerminan Gambar TIU PKN STAN (BelajarBro)",
+      "url": "https://belajarbro.id/pknstan/artikel.php?judul=deret-gambar",
+      "originalImageUrl": "https://1.bp.blogspot.com/-0BxRwr8pWAo/XMUdfO5KqaI/AAAAAAAABBw/4aN9lgkMzDYmWNWo8VEJxhBpa6p_yugUgCLcBGAs/s1600/bayang.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-spasial-pencerminan-horizontal-segitiga-03",
+    "category": "TIU",
+    "subtopic": "Figural - Spasial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-spasial-pencerminan-horizontal-segitiga-03.png",
+    "stem": "Garis ganda mendatar di bawah bangun berfungsi sebagai cermin horizontal (seperti permukaan air). Manakah bayangan hasil pencerminan yang paling tepat?",
+    "reasoningChain": "Pada pencerminan terhadap cermin mendatar di bawah: (1) segitiga yang puncaknya ke atas membalik menjadi puncak ke bawah, sementara sudut alas hitam di kiri-bawah berpindah ke kiri-atas di atas palang putih; (2) lingkaran di kanan-bawah bagian dalam menjadi berada tepat di atas palang sisi kanan; (3) lingkaran di luar sisi miring kiri yang berada tepat di atas palang menjadi berada tepat di bawah palang pada sisi miring kiri (bukan menempel di atas batas palang seperti D); (4) lingkaran kecil di dalam sebelah kiri yang pada benda asli menempel di sudut pojok antara sisi miring kiri dan ujung segitiga hitam di atas palang, pada bayangan berada tepat di bawah palang bersinggungan dengan ujung lancip segitiga hitam dan sisi miring kiri (tidak menjauh turun ke bawah seperti B dan C, maupun bergeser renggang seperti E). Gambar A memenuhi seluruh posisi refleksi tersebut.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "A",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Perhatikan jarak dan persinggungan setiap lingkaran putih terhadap batas bilah mendatar serta sisi miring kiri setelah dibalik atas-bawah.",
+    "optionRationales": {
+      "A": "Tepat karena posisi segitiga, bidang hitam, lingkaran luar tepat di bawah bilah kiri, dan lingkaran dalam menyentuh sisi miring tepat di bawah bilah semuanya simetris terhadap cermin mendatar.",
+      "B": "Lingkaran di dalam bagian bawah turun jauh mendekati sudut puncak bawah, tidak simetris dengan jarak benda asli.",
+      "C": "Lingkaran di bagian bawah memotong keluar garis miring dekat puncak bawah, melanggar jarak refleksi.",
+      "D": "Lingkaran luar kiri malah naik menumpuk batas atas sudut kiri bilah mendatar.",
+      "E": "Lingkaran kecil di bawah bilah bergeser lebih renggang menjauhi ujung hitam dan terlalu turun dibanding posisi simetrisnya."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Pencerminan Gambar TIU PKN STAN (BelajarBro)",
+      "url": "https://belajarbro.id/pknstan/artikel.php?judul=deret-gambar",
+      "originalImageUrl": "https://1.bp.blogspot.com/-uwt_ruJLIN8/XMUde5IWHMI/AAAAAAAABB0/2SZK-pnLuksehpOLONM5-l60G-Sh6SrwgCLcBGAs/s1600/bayang2.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-spasial-pencerminan-panah-trapesium-04",
+    "category": "TIU",
+    "subtopic": "Figural - Spasial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-spasial-pencerminan-panah-trapesium-04.png",
+    "stem": "Pasangan gambar di sebelah kiri tanda (=) menunjukkan pencerminan horizontal. Terapkan aturan refleksi yang sama pada gambar di sebelah kanan tanda (=)!",
+    "reasoningChain": "Pada pasangan kiri, bangun di dalam segi enam dicerminkan secara horizontal (kiri-kanan): panah berbelok dari kanan menjadi ke kiri, dan kemiringan garis miring atas berbalik dari arah kanan-bawah ke kiri-bawah. Terapkan pada gambar ketiga: (1) panah berjenjang di bawah yang menunjuk ke kanan berbalik menunjuk ke kiri; (2) jajar genjang di atas yang sisi sejajarnya miring naik ke kanan (/) harus berbalik menjadi miring naik ke kiri (\\), mengeliminasi C dan D yang masih mengarah kanan serta B yang sisi miring jajar genjangnya masih (/); (3) perhatikan sambungan garis tegak ke dasar jajar genjang: pada gambar asal garis tegak bertemu tepat di sudut pojok kiri bawah jajar genjang, maka hasil refleksi kiri-kanan harus bertemu tepat di sudut pojok kanan bawah jajar genjang (seperti A, sedangkan pada E garis tegaknya bergeser ke tengah alas sehingga menyisakan ekor di kanan).",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "A",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Selain membalik arah panah dan kemiringan jajar genjang, perhatikan di titik sudut mana garis tegak terhubung dengan jajar genjang atas.",
+    "optionRationales": {
+      "A": "Tepat karena arah panah terbalik ke kiri, kemiringan jajar genjang terbalik, dan garis tegak menempel persis di sudut kanan-bawah jajar genjang.",
+      "B": "Meskipun panah mengarah ke kiri, kemiringan jajar genjang masih condong ke arah yang sama dengan gambar asal (tidak ikut terbalik).",
+      "C": "Sama persis dengan gambar asal tanpa mengalami pencerminan sedikit pun.",
+      "D": "Sama seperti gambar asal (hanya sudut jajar genjang tidak terbalik dan panah tetap ke kanan).",
+      "E": "Garis tegak menyambung terlalu ke dalam di tengah alas jajar genjang alih-alih tepat di sudut pojok kanan-bawahnya."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Analogi Pencerminan Paket 2 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-analogi-gambar-2",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh0C9nCRepxkvaMuWR8w4OdnfxtLiVeNr6js1xiT3B7jbVfDqQsMFoVjdq3qPI5sWZP0JZyDXa9bNLZ9_S7J17PaNvfGOIrk786QjbhEuEh4pG9PSAwoX5MfionLDnuF3SKy-9F1mcAs8Vg_Ny3uWhgeoibzinfwgM4jaxzxk0WXlRo4riYMF3xu0-XkXbB/s453/figural-analogi-7.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-spasial-pencerminan-segilima-arsir-05",
+    "category": "TIU",
+    "subtopic": "Figural - Spasial",
+    "difficulty": "medium",
+    "imageUrl": "/figural/tiu-figural-spasial-pencerminan-segilima-arsir-05.png",
+    "stem": "Baris pertama memperlihatkan proses pencerminan secara horizontal di dalam bingkai persegi panjang. Gambar manakah yang menjadi bayangan cermin tepat untuk baris kedua?",
+    "reasoningChain": "Pada baris pertama, belah ketupat dua warna di ujung kiri-atas dicerminkan terhadap sumbu tegak tengah bingkai sehingga berpindah ke ujung kanan-atas dengan sisi hitam berada di sebelah luar kanan dan sisi putih di dalam. Pada baris kedua, dua segilima saling berhadapan titik lancipnya di bagian kanan bingkai (kiri: berarsir dengan sisi rata kiri dan ujung lancip kanan; kanan: hitam dengan ujung lancip kiri dan sisi rata kanan). Dicerminkan secara horizontal terhadap sumbu tengah: seluruh pasangan berpindah ke bagian kiri bingkai, dengan segilima hitam di sebelah paling kiri menghadap ke kanan (sisi rata di kiri, ujung lancip ke kanan) dan segilima berarsir di sebelah kanannya menghadap ke kiri (ujung lancip ke kiri, sisi rata di kanan) — tepat pada C.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "C",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Pindahkan pasangan bangun dari sisi kanan ke sisi kiri bingkai sekaligus balikkan letak sisi hitam dan arah ujung lancip masing-masing segilima.",
+    "optionRationales": {
+      "A": "Pasangan kedua segilima hanya bergeser ke kiri tanpa menukar posisi bangun berarsir dan bangun hitam.",
+      "B": "Meskipun segilima hitam sudah di kiri, ujung lancipnya mengarah keluar ke kiri dan segilima berarsir juga salah arah.",
+      "C": "Tepat karena segilima hitam dan berarsir bertukar posisi ke sisi kiri bingkai dengan kedua ujung lancip saling berhadapan tepat di titik temunya.",
+      "D": "Sisi miring atau pertemuan alas ratanya saling menempel rapat seperti kapsul, bukan ujung lancip yang bertemu dan bertukar arah.",
+      "E": "Segilima berarsir di sebelah kanan mengarah ke kanan bukannya mengarah ke kiri menghadapi ujung segilima hitam."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Analogi Pencerminan Paket 3 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-analogi-gambar-3",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj4hOjVU8k5zGGjyGfbax3jUGOxhWAQ7cbonB-pDOU5IBkyA4VYVGrdncMJxdbK6nwwXWRJk3uXgiGKLxQrsDiO_OL-Uo_bLQbNv-xmA_zLatpzAz8myOD9AtGP6CNRV4_IYqQDbh2C3KzpE36mQ3Hda24PK4y0wv8u8loUfUvsw0V0n5i1LMUvjKUdD8d/s606/figural-analogi-8.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-spasial-pencerminan-matriks-poligon-06",
+    "category": "TIU",
+    "subtopic": "Figural - Spasial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-spasial-pencerminan-matriks-poligon-06.png",
+    "stem": "Pasangan kisi 2x2 di sebelah kanan tanda (=) memperlihatkan transformasi pencerminan horizontal. Terapkan aturan yang sama untuk menentukan pasangan kisi 2x2 di sebelah kiri!",
+    "reasoningChain": "Pada pasangan sebelah kanan tanda (=), seluruh isi kisi 2x2 dicerminkan terhadap garis tegak tengah (refleksi horizontal): tanda palang (+) dan jajar genjang di baris atas bertukar kiri-kanan (kemiringan jajar genjang juga berbalik dari / menjadi \\), sedangkan belah ketupat dan segitiga siku-siku di baris bawah bertukar kiri-kanan sekaligus segitiga siku-siku berbalik menghadap ke kiri. Terapkan pencerminan horizontal yang sama pada kisi pertama [baris atas: segitiga sama kaki (kiri), persegi (kanan); baris bawah: segi enam (kiri), segi lima (kanan)]: baris atas menjadi persegi (kiri) dan segitiga tegak (kanan), sedangkan baris bawah menjadi segi lima tegak (kiri, puncak ke atas) dan segi enam (kanan). Perbedaan krusial ada pada orientasi segilima kiri bawah di A (puncak ke bawah) vs E (puncak tetap ke atas seperti cermin horizontal). Jadi jawaban yang tepat adalah E.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "E",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Tukar posisi kolom kiri-kanan tanpa membalik orientasi atas-bawah bangun simetris seperti segi lima.",
+    "optionRationales": {
+      "A": "Segilima di kiri bawah ikut terbalik vertikal (puncak menghadap ke bawah) padahal pencerminan horizontal tidak membalik arah atas-bawah.",
+      "B": "Segitiga di kanan atas ikut terbalik menunjuk ke bawah, salah sumbu pencerminan.",
+      "C": "Segitiga di kanan atas berputar menunjuk ke kiri bukan tetap tegak pada cermin horizontal.",
+      "D": "Segitiga di kanan atas berputar menunjuk ke kanan bukan tetap tegak simetris.",
+      "E": "Tepat karena seluruh elemen kolom kiri dan kanan bertukar tempat secara horizontal dengan orientasi tegak segi lima dan segitiga tetap terjaga."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Analogi Pencerminan Paket 4 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-analogi-gambar-4",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEi-kO5zObdw_11uqQPT20Qt0oLHW0mjMuPGuRt5JZWnwxv8Qxn7dNjgyKMoK98xo1rxM3ilaZk5sQMoK-_BnVuSZ8H4ajhiVps30deMGvPQWNQ-uq57qAEBY7V80Q5lyL2nQDIHfzqwfykHGx7IuOyuClWs7Qbw4gB6gPUOtSLamWHOQgM1rixduNwffAcg/s602/figural-analogi-19.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-spasial-rotasi-kisi-panah-bintang-07",
+    "category": "TIU",
+    "subtopic": "Figural - Spasial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-spasial-rotasi-kisi-panah-bintang-07.png",
+    "stem": "Empat dari lima kisi 2x2 berikut adalah bangun bidang datar yang sama jika diputar 90, 180, atau 270 derajat. Tentukan satu gambar yang bukan hasil rotasi (mengalami pencerminan/pertukaran posisi)!",
+    "reasoningChain": "Periksa posisi relatif dua diagonal kisi 2x2 dan arah putar panah-panahnya pada A: diagonal pertama berisi Bintang (kiri atas) berseberangan diagonal dengan Belah Ketupat (kanan bawah); diagonal kedua berisi Panah Lengkung U (kanan atas, melengkung searah jarum jam ke atas) berseberangan dengan Panah Siku-siku L (kiri bawah). Pada rotasi 90, 180, maupun 270 derajat mana pun, Bintang tetap berseberangan diagonal dengan Belah Ketupat (terpenuhi di C, D, E), dan membaca secara searah jarum jam selalu: Bintang -> Panah Lengkung -> Belah Ketupat -> Panah Siku L. Pada B, letak Bintang (kiri atas) dan Belah Ketupat (kanan bawah) tidak berubah dari A, tetapi Panah Lengkung dan Panah Siku L bertukar kamar (kiri bawah <-> kanan atas) dan berubah arah putar — membuktikan B bukan hasil rotasi.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "B",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Telusuri urutan keempat petak secara searah jarum jam mulai dari petak berisi bintang.",
+    "optionRationales": {
+      "A": "Susunan acuan dengan urutan searah jarum jam: bintang -> panah lengkung -> belah ketupat -> panah siku.",
+      "B": "Tepat sebagai gambar bukan hasil rotasi karena bintang dan belah ketupat tetap di tempatnya seperti gambar A, namun panah lengkung dan panah siku bertukar posisi kamar.",
+      "C": "Merupakan hasil rotasi 90 derajat searah jarum jam dari gambar A (urutan searah jarum jam tetap bintang -> panah lengkung -> belah ketupat -> panah siku).",
+      "D": "Merupakan hasil rotasi 270 derajat searah jarum jam (90 derajat berlawanan) dari gambar A dengan urutan searah jarum jam tetap konsisten.",
+      "E": "Merupakan hasil rotasi 180 derajat dari gambar A sehingga urutan keempat petak tetap sama."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Ketidaksamaan Rotasi Spasial Paket 3 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-ketidaksamaan-gambar-3",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiIoz9A7LyFBfWDP7eqqCRX-vjnDYm94O-G6FHtlSYqN2gBfqX2L3QUAtS35UbLGXgXmIDlFgt6IaNBJzNt8k2kpyfp7PYTOCNW9v-W525MX1XfDllKgPlJBv5V9Xnki2eDYjLu9DKc4-SbQw_n_Nawmbn8Y84iGjmOnwMEPq7Fmf0AljRst1TWPLjDrA5F/s494/figural-beda-17.png"
+    }
+  },
+  {
+    "slug": "tiu-figural-spasial-rotasi-lengan-l-titik-dua-08",
+    "category": "TIU",
+    "subtopic": "Figural - Spasial",
+    "difficulty": "hots",
+    "imageUrl": "/figural/tiu-figural-spasial-rotasi-lengan-l-titik-dua-08.png",
+    "stem": "Keempat gambar kunci-L berpalang silang berikut merupakan objek dua dimensi identik yang hanya diputar pada bidang datar. Manakah satu gambar yang berbeda karena dicerminkan?",
+    "reasoningChain": "Bayangkan berjalan menyusuri batang utama mulai dari titik hitam di ujung yang berdekatan dengan palang persegi panjang melintang, menuju ke titik hitam di siku sudut L, lalu berbelok ke arah ujung panah: pada A (dari bawah ke atas lalu belok ke KIRI), pada B (dari atas ke bawah lalu belok ke KIRI), pada C (dari kiri atas ke kanan bawah lalu belok ke KIRI), dan pada E (dari kanan atas ke kiri bawah lalu belok ke KIRI). Hanya pada D, saat berjalan dari ujung palang sebelah kanan menuju siku kiri lalu berbelok menuju panah, belokannya mengarah ke KANAN (ke atas) — bukti kiral pencerminan.",
+    "options": {
+      "A": "Gambar A",
+      "B": "Gambar B",
+      "C": "Gambar C",
+      "D": "Gambar D",
+      "E": "Gambar E"
+    },
+    "correctOption": "D",
+    "scoringRubric": null,
+    "materialSlugs": [],
+    "hint": "Telusuri arah perjalanan dari ujung bertitik yang memotong palang persegi panjang menuju sudut siku kedua lalu lihat ke sisi mana mata panah berbelok.",
+    "optionRationales": {
+      "A": "Berjalan dari titik bawah melalui palang menuju titik siku atas, ujung panah selalu berbelok ke kiri.",
+      "B": "Jika A diputar 180 derajat menghasilkan B: dari titik atas ke titik siku bawah, ujung panah berbelok ke kiri (arah kanan gambar).",
+      "C": "Merupakan hasil rotasi sekitar 135 derajat berlawanan arah jarum jam; dari ujung palang ke siku, panah tetap berbelok ke kiri.",
+      "D": "Tepat sebagai gambar hasil pencerminan kiral karena dari ujung berpalang di kanan menuju siku kiri, mata panah justru berbelok ke kanan (ke atas).",
+      "E": "Merupakan hasil rotasi sekitar 210 derajat dari A; dari titik palang kanan atas ke kiri bawah, panah tetap berbelok ke kiri."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Soal Ketidaksamaan Rotasi Spasial Paket 5 (BelajarBro)",
+      "url": "https://belajarbro.id/figural/soal-ketidaksamaan-gambar-5",
+      "originalImageUrl": "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjaSw0Lf_uSv3KMA2plsM1lkYRZjTIUDDns9U-POMARszbjbxzpTz53log6iCMvlxeEvhMMlHIZmtZjxiDdWQ-edR_vIjNV7fE2wR1CexqPqVEdT5TwQABZ6DLkMnsRXqT99Y1j9Nkvf-0L06ERA1XYUSbY9wlUiVbnaad4vAI8943n1dk5oTJ5yIO6tVKd/s534/figural-beda-28.png"
+    }
+  }
+]

@@ -13,6 +13,7 @@ export interface QuizAttemptItem {
   category: "TWK" | "TIU" | "TKP";
   subtopic: string;
   questionStem: string;
+  imageUrl?: string | null;
   options: { A: string; B: string; C: string; D: string; E: string };
   correctOption: "A" | "B" | "C" | "D" | "E" | null;
   scoringRubric: { A: number; B: number; C: number; D: number; E: number } | null;

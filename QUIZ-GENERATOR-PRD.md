@@ -46,9 +46,10 @@ Every `contentMarkdown` field MUST be at least `120` characters (~150–250 word
 
 ### 3.1. Subtest Question Authoring Standards (TWK, TIU & TKP)
 - **TWK:** Focus on case-study policy dilemmas, counterfactual historical/constitutional causality, *butir pengamalan Pancasila*, checks and balances (`UUD NRI 1945`), overlapping concept distinctions (*Nasionalisme vs Patriotisme vs Bela Negara*; *Integritas vs Kepatuhan Hukum*), and EYD V / *kalimat efektif* / *kata baku* KBBI. Never author rote trivia. Binary `+5 / 0` scoring; MUST link `materialSlugs` (`min 1`).
-- **TIU (NO FIGURAL — STRICT PROHIBITION):**
-  - **HARD BAN:** **DO NOT** generate any **Figural** questions — neither visual/image/SVG figural items NOR text-adapted/symbolic spatial-verbal figural items (`Figural - Spasial Verbal` is permanently banned).
-  - Allocate **100% of TIU quota** strictly to **Verbal** (`Verbal - Analogi`, `Verbal - Silogisme` 2–3 premises with *Semua/Sebagian/Sementara*, `Verbal - Analitis` seating/scheduling/constraints) and **Numerik** (`Numerik - Deret` 1–3 larik, `Numerik - Perbandingan Kuantitatif` $X$ vs $Y$, `Numerik - Aritmetika Sosial`, `Numerik - Soal Cerita` speed/rate/inverse proportion/combined work).
+- **TIU (Verbal, Numerik & Curated Image-Backed Figural Policy):**
+  - **HARD BAN ON AI-GENERATED / TEXT-ONLY FIGURAL:** **DO NOT** generate any text-only, ASCII, or LLM-hallucinated **Figural** questions (`Figural - Spasial Verbal` is permanently banned). Live LLM chat generation must never output Figural questions or invent `imageUrl` paths.
+  - **Curated Image-Backed Figural (Supported in Bank Soal):** Verified real CPNS Figural items (`Figural - Ketidaksamaan`, `Figural - Analogi`, `Figural - Serial`, `Figural - Spasial`) ARE supported across Practice, CAT Tryout, and Chat Quiz **only** when backed by an inspected local diagram (`imageUrl: "/figural/<slug>.(png|jpg|jpeg|webp|svg)"` verified on disk in `public/figural/`).
+  - For LLM-generated TIU batches, allocate **100% of TIU quota** strictly to **Verbal** (`Verbal - Analogi`, `Verbal - Silogisme` 2–3 premises with *Semua/Sebagian/Sementara*, `Verbal - Analitis` seating/scheduling/constraints) and **Numerik** (`Numerik - Deret` 1–3 larik, `Numerik - Perbandingan Kuantitatif` $X$ vs $Y$, `Numerik - Aritmetika Sosial`, `Numerik - Soal Cerita` speed/rate/inverse proportion/combined work).
   - Distractors must target realistic algebraic or logical traps (*fallacy of the converse*, uninverted work-rate fractions). Binary `+5 / 0` scoring; always `"materialSlugs": []`.
 - **TKP:** Frame realistic government/public-sector workplace dilemmas where at least 3 options appear constructive, anchored cleanly to one target PermenPAN-RB / ASN BerAKHLAK pillar (`Pelayanan Publik`, `Jejaring Kerja`, `Sosial Budaya`, `TIK`, `Anti-Radikalisme`, `Profesionalisme`). Graduated `5, 4, 3, 2, 1` permutation scoring; always `"materialSlugs": []`.
 
@@ -76,7 +77,7 @@ Every `contentMarkdown` field MUST be at least `120` characters (~150–250 word
 
 ---
 
-## 4. Authoritative TypeScript/Zod Contracts, Unified 22 Canonical Subtopics, Validation Rules & Examples
+## 4. Authoritative TypeScript/Zod Contracts, Unified 26 Canonical Subtopics, Validation Rules & Examples
 
 ### 4.1. Exact Contracts (`PRD.md §7.4` Alignment)
 
@@ -96,6 +97,7 @@ export interface SourceMeta {
   title: string;                // min 2 chars
   channelName?: string;
   url?: string;                 // MUST be raw URL (z.string().url()), NEVER Markdown link
+  originalImageUrl?: string;    // Optional provenance URL of upstream figural image
   timestamp?: string;
   timestamps?: string[];
 }
@@ -115,10 +117,12 @@ export interface StudyMaterialSeed {
 interface BaseQuestionSeed {
   slug: string;                 // lowercase kebab-case, min 4 chars, globally unique
   category: "TWK" | "TIU" | "TKP";
-  subtopic: string;             // MUST match one of the 22 canonical subtopics below
+  subtopic: string;             // MUST match one of the 26 canonical subtopics below
   difficulty: "medium" | "hots";
   reasoningChain: string;       // min 30 chars; MUST appear BEFORE stem & options
   stem: string;                 // min 20 chars; scenario + question only (no option list)
+  imageUrl?: string;            // REQUIRED for TIU Figural (/figural/<slug>.(png|jpg|jpeg|webp|svg)); omitted otherwise
+  imageUrl?: string;            // REQUIRED for TIU Figural; local "/figural/<slug>.(png|jpg|jpeg|webp|svg)"
   options: OptionMap;           // A..E non-empty strings; 5-pt/correct <= 30% over median of other 4
   hint: string;                 // min 10 chars; spoiler-free
   optionRationales: OptionMap;  // A..E non-empty strings explaining each option's score/status
@@ -155,10 +159,10 @@ export type TkpQuestionSeed = BaseQuestionSeed & {
 export type QuizQuestionSeed = TwkQuestionSeed | TiuQuestionSeed | TkpQuestionSeed;
 ```
 
-### 4.2. Unified 22 Canonical Subtopics
+### 4.2. Unified 26 Canonical Subtopics
 Every `subtopic` in both Contract A (TWK-only) and Contract B MUST match one of these exact strings:
 - **TWK (9):** `Nasionalisme`, `Integritas`, `Bela Negara`, `Pilar Negara - Pancasila`, `Pilar Negara - UUD NRI 1945`, `Pilar Negara - NKRI`, `Pilar Negara - Bhinneka Tunggal Ika`, `Bahasa Indonesia`, `Sejarah Kebangsaan`
-- **TIU (7 — No Figural):** `Verbal - Analogi`, `Verbal - Silogisme`, `Verbal - Analitis`, `Numerik - Deret`, `Numerik - Perbandingan Kuantitatif`, `Numerik - Aritmetika Sosial`, `Numerik - Soal Cerita`
+- **TIU (11 — 7 Verbal/Numerik + 4 Curated Image-Backed Figural):** `Verbal - Analogi`, `Verbal - Silogisme`, `Verbal - Analitis`, `Numerik - Deret`, `Numerik - Perbandingan Kuantitatif`, `Numerik - Aritmetika Sosial`, `Numerik - Soal Cerita`, `Figural - Ketidaksamaan`, `Figural - Analogi`, `Figural - Serial`, `Figural - Spasial`
 - **TKP (6):** `Pelayanan Publik`, `Jejaring Kerja`, `Sosial Budaya`, `TIK`, `Anti-Radikalisme`, `Profesionalisme`
 
 ### 4.3. Importer Validation Rules (`scripts/validate-content.ts` & `scripts/import-content.ts`)
@@ -169,7 +173,7 @@ Every `subtopic` in both Contract A (TWK-only) and Contract B MUST match one of 
 5. **Discriminated Scoring Separation:** `TWK`/`TIU` requires `correctOption: "A".."E"` and `scoringRubric: null`; `TKP` requires `correctOption: null` and `scoringRubric` as an exact permutation of `[1, 2, 3, 4, 5]`.
 6. **Option Length Parity:** Keep the 5-point TKP option (and correct TWK/TIU option) `<= 30%` longer than the median character length of the other 4 options (strictly below `PRD.md §7.5` Rule 4's `35%` warning).
 7. **Balanced Key Distribution & Raw URL Hygiene:** No single option letter may hold `> 30%` of the correct/5-point answers in a batch, and all `source.url` values must pass `z.string().url()`.
-8. **No Figural TIU Questions:** Any TIU question with a Figural or spatial-verbal subtopic (including `Figural - Spasial Verbal` or any visual/symbolic figural item) is rejected; TIU questions must use only the 7 canonical Verbal and Numerik subtopics.
+8. **Curated Image-Backed Figural Guard:** Any text-only or AI-generated TIU Figural question (including `Figural - Spasial Verbal` or any `Figural - *` item without a valid `/figural/<slug>.<ext>` `imageUrl` verified on disk in `public/figural/`) is rejected. Curated image-backed TIU Figural items (`Figural - Ketidaksamaan`, `Figural - Analogi`, `Figural - Serial`, `Figural - Spasial`) are supported across Practice, CAT Tryout, and Chat Quiz.
 
 ### 4.4. Validated Two-Block Production Example
 
@@ -293,5 +297,5 @@ OUTPUT INSTRUCTIONS (STRICT):
 - Enforce `reasoningChain` BEFORE `stem`/`options` in every question object.
 - Enforce TKP 5-point & TWK/TIU correct option character length <= 30% above the median length of the other 4 options.
 - Ensure every `source.url` (when present) is a raw `https://...` URL, NEVER a Markdown `[url](url)` link.
-- STRICTLY NO FIGURAL: Never generate TIU Figural or spatial-verbal questions; use ONLY Verbal and Numerik TIU subtopics.
+- STRICTLY NO AI-GENERATED FIGURAL: Never generate text-only TIU Figural or spatial-verbal questions (`Figural - Spasial Verbal`); for LLM generation use ONLY Verbal and Numerik TIU subtopics (curated image-backed Figural items require verified local `/figural/*` assets).
 ```
