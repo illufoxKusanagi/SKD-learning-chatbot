@@ -1,22 +1,46 @@
 import postgres from "postgres";
-import { drizzle } from "drizzle-orm/postgres-js";
+import { drizzle, type PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import { eq, or, sql } from "drizzle-orm";
 import * as schema from "./schema";
 
 // Re-export common drizzle operators
 export { eq, or, sql, and, desc } from "drizzle-orm";
 
-const connectionString = process.env.DATABASE_URL;
+type SqlClient = ReturnType<typeof postgres>;
+type DbInstance = PostgresJsDatabase<typeof schema>;
 
-if (!connectionString) {
-  throw new Error("DATABASE_URL is not set in environment variables");
+let sqlClient: SqlClient | null = null;
+let dbInstance: DbInstance | null = null;
+
+function getSqlClient(): SqlClient {
+  if (!sqlClient) {
+    const connectionString = process.env.DATABASE_URL;
+    if (!connectionString) {
+      throw new Error("DATABASE_URL is not set in environment variables");
+    }
+    sqlClient = postgres(connectionString, {
+      prepare: false,
+      max: 5,
+      idle_timeout: 5,
+    });
+  }
+  return sqlClient;
 }
 
-// Edited here: Simple connection setup - removed unnecessary complexity
-// Reason: Your original was over-engineered for a typical Next.js app
-const client = postgres(connectionString, { prepare: false });
+function getDbInstance(): DbInstance {
+  if (!dbInstance) {
+    dbInstance = drizzle(getSqlClient(), { schema });
+  }
+  return dbInstance;
+}
 
-export const db = drizzle(client, { schema });
+export const db: DbInstance = new Proxy({} as DbInstance, {
+  get(_target, prop) {
+    const instance = getDbInstance();
+    const value = Reflect.get(instance, prop, instance);
+    return typeof value === "function" ? value.bind(instance) : value;
+  },
+});
 
 // Re-export schema entities and types for convenient access
 export * from "./schema";
@@ -145,7 +169,7 @@ export async function ensureDatabaseSchema(opts: { throwOnError?: boolean } = {}
     `);
 
     // Safe idempotent migration for existing quiz_attempts tables
-    await client`
+    await getSqlClient()`
       DO $$
       BEGIN
         ALTER TABLE quiz_attempts DROP CONSTRAINT IF EXISTS quiz_attempts_rag_source_id_fkey;
@@ -260,7 +284,7 @@ export async function findUserById(id: string) {
 // Reason: Useful for debugging without the verbose logging
 export const testConnection = async (): Promise<boolean> => {
   try {
-    await client`SELECT 1`;
+    await getSqlClient()`SELECT 1`;
     return true;
   } catch (error) {
     console.error("Database connection failed:", error);
@@ -315,5 +339,9 @@ export async function insertRagData(
 
 // Edited here: Optional cleanup function for graceful shutdown
 export const closeConnection = async (): Promise<void> => {
-  await client.end();
+  if (sqlClient) {
+    await sqlClient.end();
+    sqlClient = null;
+    dbInstance = null;
+  }
 };
