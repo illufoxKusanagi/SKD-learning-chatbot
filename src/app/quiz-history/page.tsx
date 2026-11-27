@@ -33,6 +33,7 @@ import {
 import { Separator } from "@/components/ui/separator";
 import { Spinner } from "@/components/ui/spinner";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
+import { FiguralImageFrame } from "@/components/quiz/figural-image-frame";
 import {
   AlertCircle,
   AlertTriangle,
@@ -60,6 +61,7 @@ interface QuizAttemptDetail {
   category: "TWK" | "TIU" | "TKP";
   subtopic: string;
   questionStem: string;
+  imageUrl?: string | null;
   options: { A: string; B: string; C: string; D: string; E: string };
   correctOption: "A" | "B" | "C" | "D" | "E" | null;
   scoringRubric: { A: number; B: number; C: number; D: number; E: number } | null;
@@ -762,6 +764,13 @@ function QuizHistoryContent() {
                             <p className="text-sm font-medium leading-relaxed text-foreground whitespace-pre-line">
                               {quiz.questionStem}
                             </p>
+
+                            {quiz.imageUrl && (
+                              <FiguralImageFrame
+                                src={quiz.imageUrl}
+                                alt={`Ilustrasi soal ${quiz.subtopic || quiz.category}`}
+                              />
+                            )}
 
                             {/* Options Breakdown */}
                             <div className="flex flex-col gap-2">

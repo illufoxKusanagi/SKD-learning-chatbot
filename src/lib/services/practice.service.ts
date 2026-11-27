@@ -34,6 +34,7 @@ export interface PracticeQuestionItem {
   subtopic: string;
   difficulty: string;
   stem: string;
+  imageUrl: string | null;
   options: QuizOptions;
   hint: string;
   correctOption: "A" | "B" | "C" | "D" | "E" | null;
@@ -447,6 +448,7 @@ export async function createPracticePack(
       subtopic: q.subtopic,
       difficulty: q.difficulty,
       stem: q.stem,
+      imageUrl: q.imageUrl ?? null,
       options: q.options,
       hint: q.hint,
       correctOption: normalizeOption(q.correctOption),
@@ -663,6 +665,7 @@ export async function syncPracticeAttempt(
       category,
       subtopic: question.subtopic,
       questionStem: question.stem,
+      imageUrl: question.imageUrl ?? null,
       options: question.options,
       correctOption: question.correctOption,
       scoringRubric: question.scoringRubric,
@@ -678,6 +681,7 @@ export async function syncPracticeAttempt(
     .onConflictDoUpdate({
       target: [quizAttempts.sessionId, quizAttempts.questionId],
       set: {
+        imageUrl: question.imageUrl ?? null,
         userAnswer: input.selectedOption,
         scoreEarned,
         usedHint: sql`${quizAttempts.usedHint} OR ${Boolean(input.usedHint)}`,

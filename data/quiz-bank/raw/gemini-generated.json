@@ -497,5 +497,278 @@
       "title": "Keputusan Kepala Badan Pengembangan dan Pembinaan Bahasa Nomor 0424/I/BS.00.01/2022 tentang Ejaan Bahasa Indonesia yang Disempurnakan Edisi V",
       "url": "https://ejaan.kemdikbud.go.id"
     }
+  },
+  {
+    "slug": "twk-sejarah-pergerakan-001",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-sejarah-pergerakan-nasional-1908"],
+    "reasoningChain": "Mengacu pada materi twk-sejarah-pergerakan-nasional-1908, Politik Etis (terutama program edukasi) awalnya dirancang kolonial Belanda demi mencetak pegawai administrasi pribumi bergaji rendah. Namun kebijakan itu menjadi bumerang (senjata makan tuan) karena kaum terpelajar bumiputra justru memperoleh akses pemikiran modern, pers, dan kemampuan organisasi untuk membangun gerakan nasional terstruktur yang melampaui sekat daerah. Dengan demikian, dampak strategis utama yang tidak diperhitungkan kolonial Belanda adalah lahirnya golongan intelektual bumiputra yang memelopori organisasi pergerakan modern dan kesadaran kebangsaan (opsi C). Opsi A keliru karena Politik Etis bukan bertujuan memerdekakan Indonesia; B keliru karena perlawanan pasca-1908 tidak bergantung pada tokoh karismatik tunggal; D keliru karena sistem tanam paksa sudah dihapus jauh sebelum 1908; E keliru karena pemerintah kolonial tidak pernah membubarkan sekolah pribumi secara total untuk mendirikan parlemen berdaulat.",
+    "stem": "Kebijakan Politik Etis pada awal abad ke-20, khususnya program edukasi, semula dirancang pemerintah kolonial Belanda untuk memenuhi kebutuhan tenaga administratif rendahan bagi perkebunan dan birokrasi Hindia Belanda. Akan tetapi, dalam lintasan sejarah kebangsaan pasca-1908, program tersebut justru menjadi bumerang bagi kekuasaan kolonial karena...",
+    "options": {
+      "A": "Pemerintah Belanda sejak awal berniat mempersiapkan tokoh pribumi untuk mengambil alih kedaulatan pemerintahan secara bertahap.",
+      "B": "Lulusan sekolah kolonial langsung menghimpun pasukan bersenjata kedaerahan yang bergantung pada seorang pemimpin karismatik.",
+      "C": "Program edukasi melahirkan kaum terpelajar bumiputra yang membangun organisasi modern dan kesadaran nasional lintas wilayah.",
+      "D": "Kebijakan tersebut memaksa pemerintah kolonial menerapkan kembali sistem tanam paksa di seluruh pulau luar Jawa secara serentak.",
+      "E": "Seluruh lulusan pendidikan Barat diangkat menjadi anggota parlemen berdaulat yang berwenang mencabut kewenangan gubernur jenderal."
+    },
+    "hint": "Pikirkan kontradiksi antara tujuan awal kolonial mencetak tenaga kerja murah dan hasil sosial-politik dari munculnya kaum terpelajar bumiputra.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Politik Etis dirancang untuk melayani kepentingan ekonomi dan administrasi kolonial Belanda, bukan mempersiapkan kemerdekaan Indonesia.",
+      "B": "Salah. Perlawanan fisik kedaerahan yang bergantung pada tokoh karismatik justru merupakan ciri perjuangan sebelum 1908.",
+      "C": "Benar. Akses pendidikan melahirkan kaum intelektual yang mengubah strategi perlawanan menjadi terorganisasi, berkesinambungan, dan berwawasan nasional.",
+      "D": "Salah. Sistem tanam paksa (Cultuurstelsel) telah berakhir pada paruh kedua abad ke-19 sebelum Politik Etis dijalankan.",
+      "E": "Salah. Lembaga perwakilan masa kolonial (Volksraad) tidak pernah berdaulat penuh apalagi berwenang mencabut kuasa gubernur jenderal."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Kajian Sejarah Pergerakan Nasional Indonesia dan Kurikulum SKD BKN"
+    }
+  },
+  {
+    "slug": "twk-sejarah-pergerakan-002",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-sejarah-pergerakan-nasional-1908"],
+    "reasoningChain": "Mengacu pada materi twk-sejarah-pergerakan-nasional-1908, Indische Partij yang didirikan pada 25 Desember 1912 oleh Tiga Serangkai (Douwes Dekker, Tjipto Mangoenkoesoemo, Soewardi Soerjaningrat) memiliki perbedaan fundamental dibandingkan Budi Utomo (1908) dan Sarekat Islam (1911–1912). Budi Utomo pada fase awal berfokus pada pendidikan dan kebudayaan Jawa-Madura, sedangkan Sarekat Islam bermula dari solidaritas ekonomi-sosial pedagang. Sebaliknya, Indische Partij tampil sebagai organisasi politik pertama yang secara tegas menuntut kemerdekaan Hindia Belanda dengan konsep kebangsaan inklusif (Indiers) lintas ras dan golongan sehingga cepat dilarang kolonial (opsi A). Opsi B salah menukar peran Budi Utomo dengan Indische Partij; C salah karena Indische Partij justru bersifat inklusif lintas golongan bukan eksklusif bangsawan; D salah menyebut sifat kooperatif pasif; E salah karena Indische Partij berdiri di Hindia Belanda, bukan organisasi pelajar di Eropa.",
+    "stem": "Dalam perkembangan awal pergerakan nasional Indonesia, Indische Partij yang digagas Tiga Serangkai pada tahun 1912 menghadapi pelarangan dan pengasingan tokoh-tokohnya jauh lebih cepat oleh pemerintah kolonial dibandingkan Budi Utomo yang berdiri lebih dulu pada 1908. Faktor pembeda paling mendasar yang menjelaskan sikap represif pemerintah kolonial terhadap Indische Partij adalah...",
+    "options": {
+      "A": "Indische Partij tampil sebagai partai politik inklusif pertama yang secara terbuka menuntut kemerdekaan penuh Hindia Belanda.",
+      "B": "Budi Utomo sejak awal sudah melakukan boikot perdagangan internasional, sedangkan Indische Partij hanya bergerak di bidang seni.",
+      "C": "Indische Partij membatasi keanggotaannya secara eksklusif bagi kaum bangsawan Jawa sehingga memicu kecemburuan penguasa lokal.",
+      "D": "Indische Partij menempuh jalur kooperatif sepenuhnya dengan kolonial sambil menolak keterlibatan golongan Indo-Eropa di dalamnya.",
+      "E": "Seluruh kegiatan Indische Partij dikendalikan dari luar negeri oleh mahasiswa Indonesia di Eropa sehingga sulit diawasi langsung."
+    },
+    "hint": "Bandingkan ruang gerak awal pendidikan-kebudayaan Budi Utomo dengan agenda politik terbuka serta gagasan kebangsaan lintas golongan milik Tiga Serangkai.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Tuntutan politik kemerdekaan yang terbuka dan gagasan kebangsaan inklusif (Indiers) menjadikan Indische Partij dianggap ancaman langsung oleh kolonial.",
+      "B": "Salah. Sifat keduanya justru terbalik: Budi Utomo bermula di ranah pendidikan-budaya, sedangkan Indische Partij terang-terangan bergerak di jalur politik.",
+      "C": "Salah. Keanggotaan Indische Partij justru sangat inklusif bagi siapa saja yang menganggap Hindia sebagai tanah airnya, bukan eksklusif bangsawan Jawa.",
+      "D": "Salah. Indische Partij bersifat nonkooperatif radikal terhadap kolonialisme dan justru merangkul golongan Indo-Eropa yang berpihak pada kemerdekaan.",
+      "E": "Salah. Organisasi pelajar yang berpusat di Belanda adalah Perhimpunan Indonesia, bukan Indische Partij."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Kajian Sejarah Pergerakan Nasional Indonesia dan Kurikulum SKD BKN"
+    }
+  },
+  {
+    "slug": "twk-sejarah-pergerakan-003",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-sejarah-pergerakan-nasional-1908"],
+    "reasoningChain": "Mengacu pada materi twk-sejarah-pergerakan-nasional-1908, Manifesto Politik 1925 yang dirumuskan Perhimpunan Indonesia (Mohammad Hatta dkk.) di Belanda bertumpu pada empat asas utama: persatuan nasional, solidaritas, nonkooperasi, dan swadaya (berdiri di atas kekuatan sendiri). Prinsip nonkooperasi dan swadaya tersebut tidak berarti menolak diplomasi atau jejaring internasional—justru Perhimpunan Indonesia gencar mempopulerkan nama 'Indonesia' di forum Eropa—melainkan menolak ketergantungan pada janji kemerdekaan dari pemerintah kolonial Belanda karena kemerdekaan harus direbut dengan kemandirian bangsa sendiri (opsi D). Opsi A keliru menafsirkan nonkooperasi sebagai penolakan seluruh diplomasi luar negeri; B keliru menuntut bubarnya organisasi dalam negeri; C keliru menyamakan swadaya dengan kolaborasi birokrasi kolonial; E keliru membatasi asas persatuan pada satu etnis atau pulau tertentu.",
+    "stem": "Pada tahun 1925, Perhimpunan Indonesia di Belanda mengeluarkan Manifesto Politik yang memuat empat prinsip perjuangan: persatuan nasional, solidaritas, nonkooperasi, dan swadaya. Pemaknaan paling tepat atas asas nonkooperasi dan swadaya dalam manifesto tersebut sekaligus relevansinya terhadap strategi pergerakan nasional adalah...",
+    "options": {
+      "A": "Menolak seluruh bentuk diplomasi internasional di Eropa agar perjuangan kemerdekaan hanya berlangsung secara tertutup di dalam negeri.",
+      "B": "Membubarkan seluruh organisasi pergerakan di Hindia Belanda yang belum menggunakan bahasa Belanda dalam rapat resminya.",
+      "C": "Mengajukan kerja sama administratif dengan gubernur jenderal agar mahasiswa pribumi memperoleh kursi jabatan tinggi di birokrasi.",
+      "D": "Menolak bergantung pada janji kolonial Belanda dan membangun kemandirian bangsa sembari tetap menggalang dukungan internasional.",
+      "E": "Membatasi solidaritas politik hanya bagi mahasiswa asal Pulau Jawa dan Sumatra agar konsolidasi gerakan lebih mudah dikendalikan."
+    },
+    "hint": "Bedakan sikap menolak ketergantungan pada pemerintah kolonial dengan keterbukaan menggalang simpati forum internasional bagi nama Indonesia.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Perhimpunan Indonesia justru aktif berdiplomasi di kongres-kongres internasional Eropa untuk memperkenalkan eksistensi bangsa Indonesia.",
+      "B": "Salah. Manifesto 1925 justru mendorong persatuan seluruh elemen pergerakan nasional dan penggunaan identitas Indonesia, bukan bahasa kolonial.",
+      "C": "Salah. Meminta jabatan birokrasi kolonial justru bertentangan langsung dengan semangat asas nonkooperasi terhadap kekuasaan penjajah.",
+      "D": "Benar. Nonkooperasi dan swadaya menegaskan kemerdekaan tidak diminta sebagai belas kasihan kolonial, melainkan diperjuangkan secara mandiri sambil membangun simpati dunia.",
+      "E": "Salah. Asas persatuan nasional dan solidaritas menembus sekat kedaerahan dan menjadi inspirasi langsung bagi Kongres Pemuda II tahun 1928."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Kajian Sejarah Pergerakan Nasional Indonesia dan Kurikulum SKD BKN"
+    }
+  },
+  {
+    "slug": "twk-sejarah-bpupki-ppki-004",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-sejarah-bpupki-piagam-jakarta-ppki"],
+    "reasoningChain": "Mengacu pada materi twk-sejarah-bpupki-piagam-jakarta-ppki, pada pagi 18 Agustus 1945 menjelang Sidang I PPKI, Mohammad Hatta menyampaikan keberatan wakil masyarakat Indonesia Timur terhadap tujuh kata dalam Piagam Jakarta. Melalui musyawarah singkat bersama tokoh-tokoh Islam (Ki Bagus Hadikusumo, Wahid Hasjim, Kasman Singodimedjo, Teuku Mohammad Hasan), disepakati perubahan sila pertama menjadi 'Ketuhanan Yang Maha Esa'. Apabila secara kontrafaktual kompromi kenegarawanan tersebut gagal dan forum tetap memaksakan rumusan awal lewat suara mayoritas, risiko paling kritis bagi RI yang baru berusia satu hari adalah retaknya persatuan nasional dan potensi pemisahan diri wilayah Indonesia Timur yang mengancam keutuhan negara (opsi B). Opsi A keliru karena BPUPKI sudah bubar 7 Agustus 1945; C keliru karena keputusan perubahan justru mencegah konflik internal bukan memicu perang dengan Jepang; D keliru karena penetapan 8 provinsi baru terjadi pada Sidang II PPKI 19 Agustus; E keliru karena perubahan dilakukan lewat musyawarah bukan penundaan proklamasi yang sudah terjadi 17 Agustus.",
+    "stem": "Menjelang pembukaan Sidang I PPKI pada 18 Agustus 1945, Mohammad Hatta berdialog dengan sejumlah tokoh Islam seperti Ki Bagus Hadikusumo dan Wahid Hasjim hingga dicapai kesepakatan mengubah tujuh kata pada sila pertama Piagam Jakarta menjadi \"Ketuhanan Yang Maha Esa\". Apabila kompromi kenegarawanan tersebut gagal tercapai dan rumusan lama dipaksakan, dampak strategis paling mengancam bagi Republik Indonesia saat itu adalah...",
+    "options": {
+      "A": "BPUPKI terpaksa dihidupkan kembali oleh pemerintah militer Jepang untuk menyusun ulang naskah proklamasi kemerdekaan.",
+      "B": "Terjadinya keretakan integrasi bangsa serta risiko berpisahnya wilayah Indonesia Timur dari negara yang baru diproklamasikan.",
+      "C": "Tentara Jepang segera membatalkan penyerahannya kepada Sekutu dan membentuk pemerintahan militer darurat di Jakarta.",
+      "D": "Sidang PPKI tidak lagi berwenang menetapkan pembagian delapan provinsi maupun membentuk dua belas kementerian negara.",
+      "E": "Pembacaan teks Proklamasi Kemerdekaan harus ditunda hingga seluruh perwakilan daerah menyepakati mekanisme pemungutan suara."
+    },
+    "hint": "Ingat latar belakang keberatan perwakilan daerah tertentu yang disampaikan kepada Mohammad Hatta tepat sehari setelah Proklamasi Kemerdekaan.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. BPUPKI telah resmi dibubarkan sejak 7 Agustus 1945 dan Jepang sendiri sudah menyerah kepada Sekutu pada 15 Agustus 1945.",
+      "B": "Benar. Kesediaan tokoh Islam dan nasionalis bermusyawarah menyelamatkan keutuhan wilayah Indonesia Timur dan mencegah disintegrasi negara baru.",
+      "C": "Salah. Kapitulasi Jepang kepada Sekutu pada 15 Agustus 1945 merupakan peristiwa geopolitik global yang tidak dipengaruhi sidang PPKI.",
+      "D": "Salah. Pembentukan 12 kementerian dan 8 provinsi berlangsung pada Sidang II PPKI tanggal 19 Agustus 1945 setelah konsolidasi dasar negara tuntas.",
+      "E": "Salah. Proklamasi Kemerdekaan sudah dibacakan pada 17 Agustus 1945, sehari sebelum Sidang I PPKI berlangsung."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Risalah Sidang BPUPKI-PPKI dan Pembukaan UUD NRI Tahun 1945",
+      "url": "https://bphn.go.id/data/documents/uud_1945.pdf"
+    }
+  },
+  {
+    "slug": "twk-sejarah-bpupki-ppki-005",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-sejarah-bpupki-piagam-jakarta-ppki"],
+    "reasoningChain": "Mengacu pada materi twk-sejarah-bpupki-piagam-jakarta-ppki, pascaproklamasi sebelum Sidang I PPKI tanggal 18 Agustus 1945 dimulai, Soekarno atas persetujuan para tokoh menambah 6 anggota baru PPKI (termasuk perwakilan golongan muda dan tokoh nasionalis seperti Wiranatakusumah, Ki Hajar Dewantara, Kasman Singodimedjo, Sayuti Melik, Iwa Kusumasumantri, dan Ahmad Soebardjo) tanpa meminta izin kepada pemerintah militer Jepang. Langkah politik tersebut bertujuan mentransformasikan PPKI dari lembaga bentukan Jepang menjadi badan komite nasional yang mencerminkan representasi mandiri bangsa Indonesia sehingga keputusan pengesahan UUD 1945 dan pemilihan Presiden-Wapres memiliki legitimasi kedaulatan penuh (opsi E). Opsi A keliru karena bukan untuk mematuhi kuota Jepang; B keliru karena BPUPKI tidak digabung ke PPKI; C keliru karena tidak ada syarat kuorum dari Sekutu; D keliru karena pembentukan 8 provinsi tidak mensyaratkan tambahan 6 anggota tersebut untuk mewakili masing-masing provinsi.",
+    "stem": "Sebelum Sidang I PPKI resmi dibuka pada 18 Agustus 1945, Soekarno menambah enam anggota baru ke dalam susunan keanggotaan PPKI—termasuk unsur golongan muda dan tokoh nasionalis—tanpa meminta persetujuan pemerintah militer Jepang. Signifikansi ketatanegaraan paling mendasar dari penambahan anggota secara mandiri tersebut adalah...",
+    "options": {
+      "A": "Memenuhi batas kuorum administratif yang disyaratkan oleh panglima tentara Jepang agar sidang pengesahan diakui sah.",
+      "B": "Menggabungkan kembali seluruh anggota BPUPKI yang telah dibubarkan supaya perumusan Piagam Jakarta dapat diulang.",
+      "C": "Mengikuti rekomendasi resmi perwakilan Sekutu yang mensyaratkan keterlibatan tokoh muda sebelum pemilihan kepala negara.",
+      "D": "Memastikan setiap calon gubernur untuk delapan provinsi baru langsung duduk sebagai pengurus inti komite pusat.",
+      "E": "Menegaskan transformasi PPKI dari panitia bentukan Jepang menjadi badan nasional mandiri yang berlegitimasi kedaulatan rakyat."
+    },
+    "hint": "Kaitkan tindakan menambah anggota tanpa izin Jepang dengan upaya menghapus kesan bahwa lembaga pengesah UUD 1945 adalah bentukan penjajah.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Penambahan enam anggota justru dilakukan secara sepihak tanpa meminta persetujuan ataupun mengikuti aturan kuorum Jepang.",
+      "B": "Salah. BPUPKI sudah selesai tugasnya pada 7 Agustus 1945 dan tidak pernah digabungkan kembali ke dalam struktur PPKI.",
+      "C": "Salah. Pasukan Sekutu belum tiba di Jakarta pada 18 Agustus 1945 dan tidak pernah mengeluarkan rekomendasi susunan keanggotaan PPKI.",
+      "D": "Salah. Enam anggota baru tersebut mencakup tokoh golongan muda dan nasionalis, bukan penunjukan delapan calon gubernur provinsi.",
+      "E": "Benar. Penambahan anggota secara mandiri melepaskan PPKI dari bayang-bayang Jepang dan menjadikannya badan representatif nasional yang sah."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Risalah Sidang BPUPKI-PPKI dan Pembukaan UUD NRI Tahun 1945",
+      "url": "https://bphn.go.id/data/documents/uud_1945.pdf"
+    }
+  },
+  {
+    "slug": "twk-sejarah-bpupki-ppki-006",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-sejarah-bpupki-piagam-jakarta-ppki"],
+    "reasoningChain": "Mengacu pada materi twk-sejarah-bpupki-piagam-jakarta-ppki, kandidat sering tertukar antara peran BPUPKI (pra-proklamasi: merumuskan rancangan dasar negara dan rancangan UUD), Sidang I PPKI 18 Agustus 1945 (mengesahkan UUD 1945, memilih Soekarno-Hatta sebagai Presiden dan Wapres, membentuk KNIP), serta Sidang II PPKI 19 Agustus 1945 (membentuk 12 kementerian dan membagi wilayah RI menjadi 8 provinsi). Dari evaluasi lima pernyataan dalam skenario diskusi sejarah: pernyataan yang paling akurat membedakan mandat dan hasil sidang kedua lembaga adalah bahwa BPUPKI hanya bertugas menyelidiki serta merancang dasar negara dan batang tubuh UUD, sedangkan pengesahan UUD 1945, pemilihan Presiden-Wapres, dan pembentukan KNIP ditetapkan pada Sidang I PPKI 18 Agustus 1945 (opsi C). Opsi A keliru menyebut BPUPKI mengesahkan UUD; B keliru memindahkan 12 kementerian & 8 provinsi ke Sidang I PPKI; D keliru menyebut Panitia Sembilan memilih Presiden; E keliru menyebut PPKI merumuskan Piagam Jakarta 22 Juni.",
+    "stem": "Dalam sesi telaah sejarah ketatanegaraan di sebuah instansi pendidikan kedinasan, peserta diminta membedakan secara presisi mandat BPUPKI, Sidang I PPKI (18 Agustus 1945), dan Sidang II PPKI (19 Agustus 1945). Pernyataan yang seluruh fakta kronologis serta kewenangan lembaganya tepat adalah...",
+    "options": {
+      "A": "BPUPKI mengesahkan UUD 1945 pada Sidang II tanggal 17 Juli 1945, sedangkan PPKI hanya bertugas menyusun Piagam Jakarta.",
+      "B": "Sidang I PPKI tanggal 18 Agustus 1945 menetapkan pembagian delapan provinsi sekaligus membentuk dua belas kementerian negara.",
+      "C": "BPUPKI merumuskan rancangan dasar negara dan UUD, sedangkan Sidang I PPKI mengesahkan UUD, memilih Presiden-Wapres, serta membentuk KNIP.",
+      "D": "Panitia Sembilan di bawah PPKI memilih Soekarno dan Hatta secara aklamasi sebelum rancangan batang tubuh UUD selesai dibahas.",
+      "E": "PPKI merumuskan naskah Piagam Jakarta pada 22 Juni 1945, lalu menyerahkannya kepada BPUPKI untuk disahkan pada 18 Agustus 1945."
+    },
+    "hint": "Pisahkan fungsi perancangan pra-proklamasi, tiga keputusan pokok Sidang I PPKI, serta keputusan penataan pemerintahan pada Sidang II PPKI.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Sidang II BPUPKI hanya menghasilkan rancangan UUD (bukan pengesahan), dan Piagam Jakarta disusun Panitia Sembilan di masa BPUPKI.",
+      "B": "Salah. Pembentukan 12 kementerian dan pembagian 8 provinsi merupakan hasil Sidang II PPKI pada 19 Agustus 1945, bukan Sidang I.",
+      "C": "Benar. BPUPKI menjalankan fungsi perumusan rancangan pra-proklamasi, sementara Sidang I PPKI mengesahkan UUD 1945, memilih Presiden-Wapres, dan membentuk KNIP.",
+      "D": "Salah. Panitia Sembilan dibentuk dalam kerangka kerja BPUPKI untuk merumuskan Piagam Jakarta, bukan memilih Presiden dan Wakil Presiden.",
+      "E": "Salah. Kronologi dan lembaganya terbalik: Piagam Jakarta dirumuskan 22 Juni 1945 pada masa BPUPKI, sedangkan pengesahan dilakukan PPKI pada 18 Agustus 1945."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Risalah Sidang BPUPKI-PPKI dan Pembukaan UUD NRI Tahun 1945",
+      "url": "https://bphn.go.id/data/documents/uud_1945.pdf"
+    }
+  },
+  {
+    "slug": "twk-sejarah-diplomasi-007",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-sejarah-diplomasi-kedaulatan-kmb"],
+    "reasoningChain": "Mengacu pada materi twk-sejarah-diplomasi-kedaulatan-kmb, saat Belanda melancarkan Agresi Militer II pada 19 Desember 1948, menduduki ibu kota Yogyakarta, dan menawan Soekarno-Hatta, Belanda menyebarkan propaganda di PBB bahwa Republik Indonesia telah tamat. Mandat resmi kabinet kepada Sjafruddin Prawiranegara untuk membentuk Pemerintahan Darurat RI (PDRI) di Bukittinggi—yang kemudian diperkuat Serangan Umum 1 Maret 1949—berfungsi krusial mematahkan klaim Belanda dan mempertahankan keberlanjutan eksistensi pemerintahan RI secara de facto dan de jure di mata dunia internasional sehingga posisi tawar diplomasi menuju Roem-Royen dan KMB tetap terjaga (opsi A). Opsi B keliru karena PDRI dibentuk berdasarkan mandat sah Soekarno-Hatta, bukan kudeta; C keliru karena PDRI tidak menandatangani KMB secara langsung (mandat dikembalikan ke Soekarno-Hatta setelah Roem-Royen); D keliru karena PDRI justru mempertahankan kedaulatan RI bukan menyetujui RIS sepihak; E keliru karena Garis Van Mook adalah dampak Perjanjian Renville Januari 1948, sebelum Agresi Militer II.",
+    "stem": "Ketika Belanda melancarkan Agresi Militer II pada 19 Desember 1948, menduduki Yogyakarta, serta menawan Soekarno dan Mohammad Hatta, Sjafruddin Prawiranegara segera membentuk Pemerintahan Darurat Republik Indonesia (PDRI) di Bukittinggi berdasarkan mandat resmi kabinet. Peran geopolitik paling menentukan dari keberadaan PDRI yang diperkuat Serangan Umum 1 Maret 1949 adalah...",
+    "options": {
+      "A": "Mematahkan propaganda Belanda di PBB bahwa RI telah lenyap serta menjaga kesinambungan kedaulatan pemerintahan secara sah.",
+      "B": "Mengambil alih kekuasaan secara sepihak di luar kendali Soekarno-Hatta untuk memindahkan ibu kota permanen ke Sumatra Barat.",
+      "C": "Menandatangani langsung naskah pengakuan kedaulatan KMB di Den Haag mewakili seluruh negara bagian bentukan Belanda.",
+      "D": "Menyetujui pembubaran TNI dan penggabungan wilayah Sumatra ke dalam sistem pemerintahan federal bentukan Van Mook.",
+      "E": "Menetapkan Garis Demarkasi Van Mook agar pasukan Divisi Siliwangi segera melakukan hijrah keluar dari kantong gerilya."
+    },
+    "hint": "Hubungkan pendudukan ibu kota Yogyakarta dan klaim propaganda Belanda di forum internasional dengan syarat berdirinya pemerintahan yang berdaulat.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. PDRI membuktikan eksistensi pemerintahan RI tidak pernah vakum secara de facto maupun de jure, sehingga memperkuat tekanan PBB menuju Roem-Royen dan KMB.",
+      "B": "Salah. Pembentukan PDRI didasarkan pada telegram mandat resmi kabinet Soekarno-Hatta sebelum ditawan, bukan pengambilalihan sepihak.",
+      "C": "Salah. Setelah pemerintahan RI kembali ke Yogyakarta lewat Perjanjian Roem-Royen, Sjafruddin menyerahkan kembali mandat kepada Soekarno-Hatta sebelum KMB.",
+      "D": "Salah. PDRI bersama TNI justru memimpin perlawanan gerilya mempertahankan keutuhan RI dan menolak skema negara boneka Van Mook.",
+      "E": "Salah. Garis Van Mook dan hijrahnya Divisi Siliwangi merupakan konsekuensi Perjanjian Renville pada Januari 1948, bukan kebijakan PDRI."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Kajian Sejarah Diplomasi Mempertahankan Kemerdekaan Indonesia 1945-1950"
+    }
+  },
+  {
+    "slug": "twk-sejarah-diplomasi-008",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-sejarah-diplomasi-kedaulatan-kmb"],
+    "reasoningChain": "Mengacu pada materi twk-sejarah-diplomasi-kedaulatan-kmb, meskipun Perjanjian Linggarjati (1947) dan Perjanjian Renville (1948) secara teritorial tampak merugikan karena mempersempit wilayah de facto RI (hingga Garis Van Mook pada Renville), kedua perundingan tersebut berperan strategis di kancah internasional: (1) menarik konflik RI–Belanda dari sekadar 'urusan dalam negeri Belanda' menjadi sengketa internasional yang diawasi PBB melalui KTN/UNCI, dan (2) pelanggaran Belanda lewat Agresi Militer I dan II justru membuka mata dunia serta mempercepat isolasi diplomatik terhadap Belanda menuju KMB (opsi D). Opsi A keliru karena Belanda justru melanggar kedua perjanjian tersebut; B keliru karena Renville tidak mengembalikan wilayah Irian Barat; C keliru karena Linggarjati hanya mengakui de facto Jawa-Madura-Sumatra bukan seluruh wilayah Hindia Belanda; E keliru karena perjuangan gerilya TNI tetap berjalan berdampingan dengan jalur diplomasi.",
+    "stem": "Secara teritorial, Perjanjian Linggarjati (1947) dan Perjanjian Renville (1948) mempersempit wilayah kekuasaan de facto Republik Indonesia hingga menyisakan sebagian Jawa dan Sumatra di belakang Garis Van Mook. Meski demikian, keputusan para pemimpin bangsa tetap menempuh jalur diplomasi tersebut dinilai strategis karena...",
+    "options": {
+      "A": "Belanda langsung mematuhi seluruh isi perjanjian tanpa pernah lagi melancarkan operasi militer terhadap wilayah Republik.",
+      "B": "Perjanjian Renville secara eksplisit langsung menyerahkan kedaulatan penuh atas wilayah Irian Barat kepada pemerintah RI.",
+      "C": "Perjanjian Linggarjati langsung menghasilkan pengakuan de jure penuh atas seluruh bekas wilayah Hindia Belanda oleh PBB.",
+      "D": "Jalur diplomasi menginternasionalisasi konflik di PBB sehingga pelanggaran agresi Belanda memicu tekanan dunia menuju KMB.",
+      "E": "Seluruh pasukan gerilya TNI di daerah kantong sepakat melucuti senjata agar konflik diselesaikan murni oleh pemerintah Belanda."
+    },
+    "hint": "Tinjau dampak politis di forum PBB ketika sengketa Indonesia–Belanda berubah dari klaim urusan domestik Belanda menjadi agenda internasional.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Belanda melanggar Linggarjati melalui Agresi Militer I (1947) dan melanggar Renville melalui Agresi Militer II (1948).",
+      "B": "Salah. Status Irian Barat justru masih ditunda penyelesaiannya bahkan hingga Konferensi Meja Bundar pada akhir 1949.",
+      "C": "Salah. Linggarjati hanya memuat pengakuan de facto Belanda atas Jawa, Madura, dan Sumatra, bukan pengakuan de jure menyeluruh.",
+      "D": "Benar. Diplomasi membawa konflik ke panggung PBB (melalui KTN dan UNCI) sehingga agresi Belanda berbalik menekan posisi internasional Belanda sendiri.",
+      "E": "Salah. Perjuangan mempertahankan kemerdekaan memadukan sinergi diplomasi dan perlawanan bersenjata gerilya, bukan pelucutan senjata sukarela."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Kajian Sejarah Diplomasi Mempertahankan Kemerdekaan Indonesia 1945-1950"
+    }
+  },
+  {
+    "slug": "twk-sejarah-diplomasi-009",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": ["twk-sejarah-diplomasi-kedaulatan-kmb"],
+    "reasoningChain": "Mengacu pada materi twk-sejarah-diplomasi-kedaulatan-kmb, hasil Konferensi Meja Bundar (pengakuan kedaulatan 27 Desember 1949) merupakan taktik kompromi diplomatik: Indonesia menerima sementara bentuk Republik Indonesia Serikat (RIS) demi mengamankan pengakuan kedaulatan penuh dari Belanda dan dunia internasional. Setelah kedaulatan berada di tangan bangsa sendiri, muncul tuntutan kuat rakyat di berbagai negara bagian untuk kembali bersatu. Mohammad Natsir kemudian mengajukan Mosi Integral Natsir pada 3 April 1950 di parlemen RIS yang membuka jalan konstitusional, damai, dan bermartabat bagi peleburan negara-negara bagian kembali menjadi NKRI pada 17 Agustus 1950 (opsi B). Opsi A keliru karena KMB tidak langsung menetapkan bentuk NKRI; C keliru karena Mosi Integral ditempuh lewat jalur parlemen damai bukan operasi militer antarnegara bagian; D keliru karena status Irian Barat baru diselesaikan kemudian melalui Trikora dan Perjanjian New York 1962; E keliru karena pembubaran RIS tidak meminta persetujuan ulang pemerintah Belanda.",
+    "stem": "Pengakuan kedaulatan melalui Konferensi Meja Bundar pada 27 Desember 1949 mensyaratkan bentuk negara Republik Indonesia Serikat (RIS), yang sebelumnya kerap dipandang sebagai taktik politik pecah belah Belanda. Namun hanya dalam kurun delapan bulan, Indonesia berhasil kembali ke bentuk Negara Kesatuan Republik Indonesia (NKRI) pada 17 Agustus 1950 melalui Mosi Integral Mohammad Natsir. Pelajaran strategis ketatanegaraan paling tepat dari rangkaian peristiwa tersebut adalah...",
+    "options": {
+      "A": "Hasil KMB sejak semula sudah menetapkan bentuk negara kesatuan sehingga parlemen RIS tidak pernah menjalankan sidang legislasi.",
+      "B": "Kompromi taktis menerima RIS demi pengakuan kedaulatan berhasil dipulihkan menjadi NKRI lewat jalan parlemen konstitusional damai.",
+      "C": "Pengembalian bentuk NKRI pada tahun 1950 ditempuh melalui operasi militer terpadu untuk menaklukkan seluruh negara bagian federal.",
+      "D": "Mosi Integral Natsir secara otomatis menyelesaikan sengketa wilayah Irian Barat tanpa memerlukan perundingan lanjutan dengan Belanda.",
+      "E": "Pembubaran negara bagian RIS baru sah berlaku setelah parlemen Belanda meratifikasi ulang perubahan konstitusi sementara Indonesia."
+    },
+    "hint": "Perhatikan bagaimana taktik kompromi dalam pengakuan kedaulatan 1949 dilanjutkan dengan konsolidasi konstitusional di parlemen pada April 1950.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. KMB menetapkan bentuk negara federal RIS; kembalinya ke NKRI baru terjadi pada 17 Agustus 1950 setelah proses konstitusional di parlemen RIS.",
+      "B": "Benar. Menerima RIS sementara adalah strategi mengamankan pengakuan kedaulatan, lalu Mosi Integral Natsir memulihkan NKRI secara damai dan konstitusional.",
+      "C": "Salah. Mosi Integral Natsir memfasilitasi penyatuan negara-negara bagian melalui jalur politik parlementer yang damai, bukan perang saudara.",
+      "D": "Salah. Persoalan Irian Barat belum terselesaikan pada tahun 1950 dan baru tuntas pada dekade 1960-an melalui diplomasi dan Perjanjian New York.",
+      "E": "Salah. Setelah pengakuan kedaulatan 27 Desember 1949, perubahan bentuk negara menjadi NKRI merupakan urusan kedaulatan internal Indonesia sendiri."
+    },
+    "source": {
+      "type": "manual",
+      "title": "Kajian Sejarah Diplomasi Mempertahankan Kemerdekaan Indonesia 1945-1950"
+    }
   }
 ]

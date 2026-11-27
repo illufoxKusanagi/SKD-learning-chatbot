@@ -898,5 +898,1165 @@
       "D": "Poin 1 — Pengesahan tanpa kompetensi dan evaluasi yang sah dapat membahayakan keselamatan pengguna gedung.",
       "E": "Poin 5 — Mengakui batas keahlian, memastikan keterlibatan tenaga berwenang, dan tetap memberikan kontribusi profesional terhadap penyelesaian tugas."
     }
+  },
+  {
+    "slug": "tiu-verbal-analogi-kuratorial-011",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hubungan Kurator : Koleksi adalah profesi atau peran terhadap objek yang dikelola. Kurator mengelola dan menyeleksi koleksi, sedangkan arsiparis mengelola dan menjaga arsip. Hubungan ini bukan sekadar pengguna terhadap objek, melainkan tanggung jawab profesional terhadap objek pengelolaan.",
+    "stem": "Kurator : Koleksi memiliki hubungan yang paling sepadan dengan ...",
+    "options": {
+      "A": "Hakim : Persidangan",
+      "B": "Bendahara : Anggaran",
+      "C": "Diplomat : Perjanjian",
+      "D": "Arsiparis : Arsip",
+      "E": "Juru ukur : Peta"
+    },
+    "hint": "Perhatikan hubungan antara peran profesional dan objek yang menjadi tanggung jawab pengelolaannya.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Hakim memimpin atau memutus perkara dalam persidangan, tetapi bukan mengelola persidangan sebagai suatu koleksi objek.",
+      "B": "Bendahara mengelola anggaran, tetapi pasangan kurator dan koleksi lebih dekat dengan pengelolaan serta pemeliharaan kumpulan objek.",
+      "C": "Diplomat menjalankan hubungan diplomatik dan negosiasi, sedangkan perjanjian merupakan salah satu hasil pekerjaannya.",
+      "D": "Arsiparis mengelola, memelihara, dan menjaga arsip sebagaimana kurator bertanggung jawab mengelola koleksi.",
+      "E": "Juru ukur menghasilkan atau menggunakan peta berdasarkan pengukuran, bukan bertanggung jawab mengelola kumpulan objek."
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-instrumen-altimeter-012",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Kompas merupakan instrumen yang menunjukkan arah, sedangkan altimeter merupakan instrumen yang mengukur ketinggian. Hubungan analogi adalah instrumen terhadap parameter utama yang diukur atau ditunjukkan. Pilihan lain merupakan besaran berbeda yang memerlukan instrumen pengukuran tersendiri.",
+    "stem": "Kompas : Arah memiliki hubungan yang paling sepadan dengan Altimeter : ...",
+    "options": {
+      "A": "Suhu",
+      "B": "Ketinggian",
+      "C": "Tekanan",
+      "D": "Kelembapan",
+      "E": "Kecepatan"
+    },
+    "hint": "Identifikasi fungsi utama masing-masing instrumen berdasarkan parameter yang dihasilkannya.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Suhu merupakan parameter yang diukur menggunakan termometer, bukan altimeter.",
+      "B": "Altimeter mengukur ketinggian suatu objek atau lokasi, sehingga hubungannya sesuai dengan kompas yang menunjukkan arah.",
+      "C": "Tekanan diukur menggunakan barometer atau instrumen pengukur tekanan yang sesuai, bukan altimeter.",
+      "D": "Kelembapan diukur menggunakan higrometer, sehingga bukan parameter utama altimeter.",
+      "E": "Kecepatan diukur menggunakan instrumen seperti speedometer atau anemometer sesuai objeknya, bukan altimeter."
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-agenda-surat-013",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Premis pertama menyatakan bahwa semua dokumen yang disetujui pejabat memperoleh nomor agenda. Premis kedua menyatakan sebagian surat usulan termasuk dokumen yang disetujui pejabat. Dengan silogisme kategoris, sebagian surat usulan tersebut pasti memperoleh nomor agenda. Premis ketiga tidak mengubah relasi himpunan tersebut.",
+    "stem": "Dalam pengelolaan persuratan sebuah instansi berlaku ketentuan berikut:\n\n1. Semua dokumen yang disetujui pejabat memperoleh nomor agenda.\n2. Sebagian surat usulan merupakan dokumen yang disetujui pejabat.\n3. Tidak ada dokumen yang belum diverifikasi yang boleh diarsipkan sebagai dokumen final.\n\nKesimpulan yang pasti benar adalah ...",
+    "options": {
+      "A": "Semua surat usulan memperoleh nomor agenda.",
+      "B": "Semua dokumen yang memperoleh nomor agenda merupakan surat usulan.",
+      "C": "Sebagian surat usulan memperoleh nomor agenda.",
+      "D": "Semua dokumen yang diarsipkan sebagai final merupakan surat usulan.",
+      "E": "Sebagian dokumen yang belum diverifikasi memperoleh nomor agenda."
+    },
+    "hint": "Hubungkan kelompok yang hanya sebagian anggotanya memenuhi suatu kondisi dengan kelompok yang memiliki sifat universal.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Premis kedua hanya menyebut sebagian surat usulan yang disetujui, sehingga tidak membuktikan bahwa seluruh surat usulan memperoleh nomor agenda.",
+      "B": "Implikasi bahwa dokumen yang disetujui memperoleh nomor agenda tidak dapat dibalik menjadi seluruh pemilik nomor agenda harus berupa surat usulan.",
+      "C": "Sebagian surat usulan disetujui pejabat dan setiap dokumen yang disetujui memperoleh nomor agenda, sehingga sebagian surat usulan pasti beragenda.",
+      "D": "Tidak ada premis yang menyatakan bahwa seluruh dokumen final merupakan surat usulan.",
+      "E": "Premis ketiga melarang dokumen yang belum diverifikasi diarsipkan sebagai final, tetapi tidak menghubungkannya dengan kepemilikan nomor agenda."
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-pelatihan-verifikator-014",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Semua pegawai yang menjadi verifikator telah mengikuti pelatihan pengadaan. Sebagian pegawai biro umum menjadi verifikator. Oleh karena itu, sebagian pegawai biro umum pasti mengikuti pelatihan pengadaan. Premis bahwa pegawai yang belum mengikuti pelatihan tidak boleh menjadi ketua evaluasi tidak membenarkan pembalikan implikasi.",
+    "stem": "Sebuah instansi menerapkan ketentuan berikut:\n\n1. Semua pegawai yang bertugas sebagai verifikator telah mengikuti pelatihan pengadaan.\n2. Sebagian pegawai biro umum bertugas sebagai verifikator.\n3. Pegawai yang belum mengikuti pelatihan pengadaan tidak boleh menjadi ketua evaluasi.\n\nKesimpulan yang dapat ditarik secara logis adalah ...",
+    "options": {
+      "A": "Semua pegawai biro umum telah mengikuti pelatihan pengadaan.",
+      "B": "Semua pegawai yang mengikuti pelatihan pengadaan merupakan verifikator.",
+      "C": "Sebagian pegawai biro umum telah mengikuti pelatihan pengadaan.",
+      "D": "Semua ketua evaluasi merupakan pegawai biro umum.",
+      "E": "Sebagian pegawai yang menjadi verifikator belum mengikuti pelatihan."
+    },
+    "hint": "Gunakan relasi antara kelompok pegawai yang memenuhi suatu fungsi dan persyaratan universal yang berlaku pada fungsi tersebut.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Premis kedua hanya menyatakan sebagian pegawai biro umum menjadi verifikator, bukan semuanya.",
+      "B": "Premis pertama tidak dapat dibalik karena pegawai yang mengikuti pelatihan belum tentu semuanya menjadi verifikator.",
+      "C": "Sebagian pegawai biro umum adalah verifikator dan seluruh verifikator mengikuti pelatihan, sehingga sebagian pegawai biro umum pasti terlatih.",
+      "D": "Tidak ada premis yang menghubungkan jabatan ketua evaluasi secara eksklusif dengan keanggotaan biro umum.",
+      "E": "Pernyataan ini bertentangan dengan premis pertama yang menyatakan seluruh verifikator telah mengikuti pelatihan."
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-jadwal-inspeksi-015",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Lima hari menyediakan lima posisi berurutan. Kirana telah ditetapkan pada Rabu dan Nanda pada Jumat. Karena Bagas harus tampil sebelum Kirana dan Ratri harus tampil sebelum Bagas, keduanya menempati Senin dan Selasa secara berurutan. Dengan demikian, Ratri pada Senin, Bagas pada Selasa, Kirana pada Rabu, dan Yudha pada Kamis.",
+    "stem": "Lima pegawai, yaitu Ratri, Bagas, Kirana, Yudha, dan Nanda, dijadwalkan melakukan inspeksi satu orang per hari dari Senin sampai Jumat. Ketentuannya sebagai berikut:\n\n- Kirana bertugas pada hari Rabu.\n- Nanda bertugas pada hari Jumat.\n- Ratri bertugas sebelum Bagas.\n- Bagas bertugas sebelum Kirana.\n\nSiapakah yang bertugas pada hari Selasa?",
+    "options": {
+      "A": "Bagas",
+      "B": "Ratri",
+      "C": "Yudha",
+      "D": "Kirana",
+      "E": "Nanda"
+    },
+    "hint": "Tempatkan jadwal yang sudah pasti terlebih dahulu, lalu gunakan hubungan urutan untuk mengisi posisi yang tersisa.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Ratri harus sebelum Bagas dan Bagas harus sebelum Kirana pada Rabu, sehingga Ratri berada pada Senin dan Bagas pada Selasa.",
+      "B": "Ratri menempati Senin karena harus tampil sebelum Bagas dan keduanya harus mendahului Kirana yang bertugas Rabu.",
+      "C": "Yudha menempati Kamis karena Rabu sudah ditempati Kirana dan Jumat ditempati Nanda.",
+      "D": "Kirana telah ditetapkan bertugas pada hari Rabu, bukan Selasa.",
+      "E": "Nanda telah ditetapkan bertugas pada hari Jumat, bukan Selasa."
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-urutan-proses-016",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan P adalah pemeriksaan identitas, Q pencocokan dokumen, R input data, S persetujuan supervisor, dan T penerbitan nomor. P harus tepat sebelum Q, Q sebelum R, dan R sebelum S. T selalu terakhir. Rangkaian tersebut menghasilkan urutan tunggal P-Q-R-S-T. Dengan demikian, pekerjaan pada urutan ketiga adalah input data.",
+    "stem": "Sebuah unit administrasi menerapkan lima tahap pemrosesan dokumen, yaitu pemeriksaan identitas (P), pencocokan dokumen (Q), input data (R), persetujuan supervisor (S), dan penerbitan nomor (T). Ketentuan urutannya adalah:\n\n- P harus dilakukan tepat sebelum Q.\n- Q harus dilakukan sebelum R.\n- R harus dilakukan sebelum S.\n- T selalu menjadi tahap terakhir.\n\nTahap apakah yang harus dilakukan pada urutan ketiga?",
+    "options": {
+      "A": "Pemeriksaan identitas.",
+      "B": "Pencocokan dokumen.",
+      "C": "Input data.",
+      "D": "Persetujuan supervisor.",
+      "E": "Penerbitan nomor."
+    },
+    "hint": "Susun urutan berdasarkan ketergantungan antartahap, kemudian identifikasi posisi yang diminta.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pemeriksaan identitas merupakan tahap pertama karena harus berlangsung tepat sebelum pencocokan dokumen.",
+      "B": "Pencocokan dokumen merupakan tahap kedua karena harus langsung mengikuti pemeriksaan identitas.",
+      "C": "Input data merupakan tahap ketiga setelah pemeriksaan identitas dan pencocokan dokumen, serta sebelum persetujuan supervisor.",
+      "D": "Persetujuan supervisor merupakan tahap keempat karena harus dilakukan setelah input data.",
+      "E": "Penerbitan nomor merupakan tahap terakhir sesuai ketentuan urutan yang diberikan."
+    }
+  },
+  {
+    "slug": "tiu-numerik-deret-kuadrat-selisih-017",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret 2, 6, 15, 31, 56 memiliki selisih berturut-turut 4, 9, 16, dan 25. Selisih tersebut membentuk kuadrat bilangan berurutan, yaitu 2², 3², 4², dan 5². Selisih berikutnya adalah 6² = 36. Maka suku berikutnya adalah 56 + 36 = 92.",
+    "stem": "Perhatikan deret bilangan berikut: 2, 6, 15, 31, 56, ... Angka yang paling tepat untuk melengkapi deret tersebut adalah ...",
+    "options": {
+      "A": "92",
+      "B": "90",
+      "C": "94",
+      "D": "96",
+      "E": "98"
+    },
+    "hint": "Periksa pola selisih antarsuku dan cari hubungan matematis yang membentuk selisih tersebut.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Selisihnya adalah 4, 9, 16, 25, kemudian 36. Jadi angka selanjutnya ialah 56 + 36 = 92.",
+      "B": "Angka 90 menghasilkan selisih 34, padahal pola selisih berikutnya adalah kuadrat 6, yaitu 36.",
+      "C": "Angka 94 menghasilkan selisih 38 yang tidak mengikuti pola kuadrat bilangan berurutan.",
+      "D": "Angka 96 menghasilkan selisih 40 sehingga tidak sesuai dengan kelanjutan pola selisih kuadrat.",
+      "E": "Angka 98 menghasilkan selisih 42, bukan 36 sebagaimana yang ditentukan oleh pola."
+    }
+  },
+  {
+    "slug": "tiu-numerik-perbandingan-komposisi-018",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hitung kedua besaran secara mandiri. X = 40% × 360 + 25 = 144 + 25 = 169. Y = 3/4 × 220 = 165. Karena 169 lebih besar daripada 165, maka X > Y. Perhitungan harus menyelesaikan seluruh operasi sebelum melakukan perbandingan.",
+    "stem": "Diketahui dua besaran sebagai berikut:\n\nX = 40% dari 360 ditambah 25\nY = 3/4 dari 220\n\nHubungan yang benar antara kedua besaran tersebut adalah ...",
+    "options": {
+      "A": "X lebih kecil daripada Y.",
+      "B": "X sama dengan Y.",
+      "C": "X lebih besar daripada Y.",
+      "D": "X merupakan dua kali Y.",
+      "E": "Hubungan keduanya tidak dapat ditentukan."
+    },
+    "hint": "Selesaikan semua operasi pada masing-masing besaran sebelum membandingkan hasilnya.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "X bernilai 169 sedangkan Y bernilai 165, sehingga pernyataan bahwa X lebih kecil tidak sesuai.",
+      "B": "Kedua hasil berbeda, yaitu 169 dan 165, sehingga tidak dapat dinyatakan sama.",
+      "C": "X = 0,4 × 360 + 25 = 169, sedangkan Y = 0,75 × 220 = 165. Oleh karena itu, X lebih besar daripada Y.",
+      "D": "Dua kali Y adalah 330, bukan 169, sehingga hubungan tersebut tidak benar.",
+      "E": "Seluruh nilai dan operasi telah diberikan secara lengkap, sehingga hubungan kedua besaran dapat ditentukan."
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-diskon-beruntun-019",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Harga awal adalah Rp1.200.000. Diskon pertama 20% menghasilkan Rp960.000. Diskon kedua sebesar 10% dihitung dari harga setelah diskon pertama, yaitu Rp96.000. Harga akhir = Rp960.000 - Rp96.000 = Rp864.000. Diskon berurutan 20% dan 10% setara dengan diskon efektif 28%, bukan 30%.",
+    "stem": "Sebuah perangkat elektronik memiliki harga awal Rp1.200.000. Toko memberikan diskon pertama sebesar 20%, kemudian memberikan diskon tambahan sebesar 10% dari harga setelah potongan pertama. Berapakah harga akhir perangkat tersebut?",
+    "options": {
+      "A": "Rp840.000",
+      "B": "Rp864.000",
+      "C": "Rp880.000",
+      "D": "Rp900.000",
+      "E": "Rp960.000"
+    },
+    "hint": "Diskon kedua dihitung berdasarkan harga yang sudah dikurangi diskon pertama, bukan harga awal.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Nilai ini setara dengan pengurangan 30% langsung dari harga awal, padahal diskon diberikan secara berurutan.",
+      "B": "Setelah diskon 20%, harga menjadi Rp960.000. Diskon tambahan 10% adalah Rp96.000, sehingga harga akhir Rp864.000.",
+      "C": "Nilai ini tidak diperoleh dari pengurangan 10% terhadap harga setelah diskon pertama sebesar Rp960.000.",
+      "D": "Harga Rp900.000 tidak sesuai dengan penerapan diskon beruntun 20% kemudian 10%.",
+      "E": "Rp960.000 merupakan harga setelah diskon pertama saja dan belum dikurangi diskon tambahan 10%."
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-pompa-bersamaan-020",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Pompa pertama mengisi 1/6 bak per jam, pompa kedua 1/9 bak per jam, dan kebocoran membuang 1/18 bak per jam. Laju bersih = 1/6 + 1/9 - 1/18 = 3/18 + 2/18 - 1/18 = 4/18 = 2/9 bak per jam. Waktu pengisian satu bak adalah 1 ÷ 2/9 = 9/2 = 4,5 jam.",
+    "stem": "Sebuah bak air kosong diisi menggunakan dua pompa. Pompa pertama mampu mengisi bak penuh dalam 6 jam, sedangkan pompa kedua memerlukan 9 jam. Pada saat yang sama, terdapat kebocoran yang mengeluarkan air setara dengan 1/18 kapasitas bak setiap jam. Jika kedua pompa dan kebocoran bekerja bersamaan dengan laju tetap, berapa lama bak akan terisi penuh?",
+    "options": {
+      "A": "3 jam.",
+      "B": "3,5 jam.",
+      "C": "4 jam.",
+      "D": "5 jam.",
+      "E": "4,5 jam."
+    },
+    "hint": "Gunakan laju pengisian bersih dengan memperhitungkan seluruh aliran yang masuk dan keluar setiap jam.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Dalam 3 jam, pengisian bersih baru mencapai 3 × 2/9 = 2/3 kapasitas bak, sehingga belum penuh.",
+      "B": "Dalam 3,5 jam, pengisian bersih baru mencapai 7/9 kapasitas bak, sehingga masih kurang dari satu bak.",
+      "C": "Dalam 4 jam, pengisian bersih mencapai 8/9 kapasitas bak, sehingga belum penuh.",
+      "D": "Dalam 5 jam, pengisian bersih mencapai 10/9 kapasitas bak, sehingga waktu yang diperlukan terlalu lama.",
+      "E": "Laju bersih adalah 2/9 bak per jam. Waktu pengisian penuh = 1 ÷ 2/9 = 4,5 jam."
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-akomodasi-komunikasi-011",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Berorientasi Pelayanan dalam ASN BerAKHLAK. Hierarki operasional 5 > 4 > 3 > 2 > 1 mengutamakan aksesibilitas dan penyelesaian kebutuhan warga secara langsung (5), kemudian dukungan yang baik tetapi belum sepenuhnya menyelesaikan kendala (4), bantuan terbatas (3), respons administratif tanpa akomodasi memadai (2), dan pengabaian kebutuhan warga (1).",
+    "stem": "Anda bertugas pada loket pelayanan administrasi di sebuah kantor pemerintah. Seorang warga penyandang tunarungu datang untuk mengurus dokumen penting, tetapi petugas loket tidak memahami bahasa isyarat. Warga tersebut kesulitan memahami penjelasan prosedur dan tenggat pengurusan. Bagaimana Anda sebaiknya bertindak?",
+    "options": {
+      "A": "Menyediakan komunikasi tertulis yang jelas, mengupayakan bantuan penerjemah yang tersedia, dan memastikan warga memahami seluruh tahapan pelayanan.",
+      "B": "Memberikan lembar panduan prosedur dan meminta warga membacanya terlebih dahulu sebelum melanjutkan pengurusan dokumen.",
+      "C": "Meminta bantuan pegawai lain yang mengenal warga tersebut untuk menjelaskan tahapan pelayanan secara informal.",
+      "D": "Menjelaskan bahwa pelayanan mengikuti prosedur standar dan menyarankan warga datang bersama pendamping pada kunjungan berikutnya.",
+      "E": "Meminta warga menunggu sampai petugas yang mampu berkomunikasi dengan bahasa isyarat tersedia tanpa memberikan perkiraan waktu."
+    },
+    "hint": "Pertimbangkan akses komunikasi, kesetaraan pelayanan, serta kepastian informasi bagi seluruh masyarakat.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 4,
+      "C": 3,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Menggabungkan komunikasi yang aksesibel, bantuan yang sesuai, dan verifikasi pemahaman sehingga warga dapat memperoleh pelayanan setara.",
+      "B": "Poin 4 — Panduan tertulis membantu pemahaman mandiri, tetapi belum tentu cukup untuk menjawab pertanyaan dan memastikan prosedur dipahami.",
+      "C": "Poin 3 — Bantuan pegawai lain dapat membantu, tetapi belum memastikan tersedianya dukungan komunikasi yang tepat dan konsisten.",
+      "D": "Poin 2 — Informasi prosedur tetap diberikan, tetapi pemohon dibebani kewajiban membawa pendamping tanpa upaya akomodasi dari instansi.",
+      "E": "Poin 1 — Membuat warga menunggu tanpa kepastian dan tidak menawarkan alternatif komunikasi yang dapat digunakan segera."
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-koreksi-pembayaran-012",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Berorientasi Pelayanan. Skor 5 mengutamakan penanganan keluhan berbasis bukti, penghentian kesalahan berulang, koordinasi koreksi transaksi, dan kepastian tindak lanjut. Skor 4 memberikan penyelesaian sementara yang proaktif, skor 3 mengarahkan keluhan tanpa mengawasi hasil, skor 2 hanya menyampaikan penjelasan, dan skor 1 mengabaikan kerugian pemohon.",
+    "stem": "Di loket pembayaran sebuah rumah sakit daerah, seorang pasien menunjukkan bukti bahwa biaya administrasi yang sama telah ditagihkan dua kali. Petugas sebelumnya menyatakan transaksi sudah sesuai sistem, tetapi pasien membawa dua bukti pembayaran dengan nomor layanan yang sama. Sebagai petugas penanggung jawab loket, apa tindakan Anda?",
+    "options": {
+      "A": "Menjelaskan bahwa sistem pembayaran biasanya telah diverifikasi dan meminta pasien menghubungi bagian keuangan pada hari kerja berikutnya.",
+      "B": "Mencatat keluhan pasien dan menyerahkan nomor kontak bagian keuangan agar pasien dapat meminta pemeriksaan transaksi lebih lanjut.",
+      "C": "Meminta pasien menunggu sampai seluruh transaksi pada hari tersebut selesai diproses sebelum dilakukan pemeriksaan terhadap bukti pembayarannya.",
+      "D": "Memverifikasi kedua bukti, menghentikan potensi penagihan ganda, berkoordinasi untuk koreksi resmi, dan memberikan nomor pelacakan pengaduan.",
+      "E": "Menyarankan pasien mengabaikan salah satu bukti pembayaran selama tidak ada tagihan tambahan yang muncul pada kunjungan berikutnya."
+    },
+    "hint": "Nilai tindakan berdasarkan tanggung jawab terhadap bukti transaksi dan kepastian penyelesaian keluhan masyarakat.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 4,
+      "C": 2,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Memberikan penjelasan yang cukup, tetapi belum menindaklanjuti bukti transaksi dan belum menyediakan mekanisme koreksi.",
+      "B": "Poin 4 — Mengarahkan keluhan ke unit yang berwenang merupakan tindakan proaktif, tetapi belum memastikan proses penyelesaian berjalan.",
+      "C": "Poin 2 — Penundaan tanpa pemeriksaan awal memperpanjang ketidakpastian dan tidak menunjukkan respons terhadap bukti yang sudah tersedia.",
+      "D": "Poin 5 — Memastikan pemeriksaan berbasis bukti, mencegah kesalahan berulang, dan memberikan kepastian tindak lanjut sesuai prosedur keuangan.",
+      "E": "Poin 1 — Mengabaikan indikasi kerugian masyarakat dan membebankan risiko kesalahan transaksi kepada pasien."
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-sinkronisasi-proyek-infrastruktur-011",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kolaboratif dalam ASN BerAKHLAK. Skor 5 menekankan koordinasi aktif antarinstansi, penyelarasan jadwal, pembagian tanggung jawab, dan keputusan bersama. Skor 4 memiliki koordinasi tetapi belum mengintegrasikan seluruh kebutuhan teknis, skor 3 mengatasi bagian tertentu, skor 2 hanya menyampaikan masalah, dan skor 1 mengabaikan dampak pekerjaan terhadap pihak lain.",
+    "stem": "Anda menjadi anggota tim perencanaan rehabilitasi jalan kabupaten. Jadwal pengaspalan yang disusun dinas pekerjaan umum ternyata bertepatan dengan pekerjaan penggantian pipa air oleh perusahaan daerah. Jika kedua proyek berjalan bersamaan, akses masyarakat akan terganggu dan sebagian pekerjaan berpotensi harus dibongkar kembali. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Melanjutkan pekerjaan sesuai jadwal dinas karena anggaran dan target penyelesaian telah ditetapkan sebelumnya.",
+      "B": "Memfasilitasi koordinasi teknis kedua pihak, menyusun jadwal terpadu, membagi tanggung jawab, dan menyampaikan pengaturan akses kepada masyarakat.",
+      "C": "Meminta perusahaan daerah mengubah jadwal pekerjaan pipanya agar pekerjaan pengaspalan tidak mengalami keterlambatan.",
+      "D": "Menyampaikan potensi benturan pekerjaan kepada pimpinan dan menunggu keputusan mengenai instansi yang harus mengalah.",
+      "E": "Menyelesaikan pekerjaan pengaspalan terlebih dahulu dan meminta perusahaan daerah menyesuaikan pekerjaan pipanya setelah jalan selesai."
+    },
+    "hint": "Perhatikan dampak ketergantungan pekerjaan dan manfaat penyelarasan rencana antarorganisasi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 2,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Menjaga target unit sendiri, tetapi mengabaikan ketergantungan pekerjaan dan potensi pemborosan anggaran bersama.",
+      "B": "Poin 5 — Menghasilkan sinergi melalui perencanaan bersama, pembagian tanggung jawab, dan perlindungan kepentingan masyarakat.",
+      "C": "Poin 2 — Menawarkan penyesuaian jadwal, tetapi bersifat sepihak dan belum mempertimbangkan kebutuhan teknis perusahaan daerah.",
+      "D": "Poin 4 — Eskalasi kepada pimpinan tepat ketika diperlukan, tetapi belum mengupayakan penyelesaian kolaboratif di tingkat teknis.",
+      "E": "Poin 1 — Berpotensi menyebabkan pekerjaan yang telah selesai dibongkar kembali dan meningkatkan pemborosan sumber daya."
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-kolaborasi-pelatihan-012",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kolaboratif. Skor 5 mengutamakan penyelesaian bersama melalui pembagian peran dan penyelarasan kepentingan mitra. Skor 4 menunjukkan komunikasi dan alternatif yang baik tetapi belum memiliki kesepakatan kerja lengkap, skor 3 menyelesaikan tanggung jawab sendiri, skor 2 mengandalkan keputusan pimpinan tanpa inisiatif, dan skor 1 menyalahkan mitra.",
+    "stem": "Anda menjadi koordinator pelatihan peningkatan kapasitas aparatur yang melibatkan perguruan tinggi dan beberapa instansi daerah. Dua narasumber utama membatalkan kehadiran secara bersamaan karena perubahan jadwal mendadak. Para peserta sudah melakukan perjalanan dari berbagai wilayah dan anggaran kegiatan telah digunakan. Tindakan paling tepat adalah ...",
+    "options": {
+      "A": "Menunda seluruh kegiatan dan meminta peserta kembali pada tanggal baru setelah seluruh narasumber dapat hadir.",
+      "B": "Meminta panitia menjalankan materi yang tersedia tanpa mengubah susunan acara agar kegiatan tetap dianggap terlaksana.",
+      "C": "Menyampaikan pembatalan kepada peserta dan menunggu keputusan pimpinan mengenai kelanjutan program pelatihan.",
+      "D": "Menghubungi narasumber pengganti dari lingkungan instansi sendiri dan melanjutkan agenda yang masih dapat dilaksanakan.",
+      "E": "Berkoordinasi dengan mitra untuk menyesuaikan agenda, membagi pengisian materi, dan menyepakati tindak lanjut bagi sesi yang tertunda."
+    },
+    "hint": "Pertimbangkan bagaimana tujuan kegiatan tetap tercapai melalui penyesuaian peran bersama para pihak.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 1,
+      "D": 4,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Penjadwalan ulang dapat menjadi alternatif, tetapi mengabaikan kebutuhan peserta yang telah hadir dan belum mengeksplorasi solusi bersama.",
+      "B": "Poin 3 — Menjaga kegiatan tetap berjalan, tetapi belum memastikan materi yang disampaikan memenuhi tujuan pembelajaran.",
+      "C": "Poin 1 — Menyerahkan masalah tanpa inisiatif koordinasi memperbesar ketidakpastian bagi peserta dan mitra.",
+      "D": "Poin 4 — Mencari pengganti dan melanjutkan agenda menunjukkan inisiatif, tetapi ruang kolaborasi dengan perguruan tinggi belum dimanfaatkan sepenuhnya.",
+      "E": "Poin 5 — Mengintegrasikan sumber daya para mitra, menyepakati penyesuaian, serta menjaga keberlanjutan dan kualitas kegiatan."
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-ruang-publik-aspirasi-007",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Harmonis dalam ASN BerAKHLAK. Skor 5 mencerminkan penghormatan terhadap keberagaman aspirasi, partisipasi yang seimbang, dan pencarian solusi yang adil. Skor 4 menerima perbedaan tetapi belum menjamin keterwakilan kelompok, skor 3 menampung sebagian aspirasi, skor 2 mengikuti suara mayoritas tanpa evaluasi, dan skor 1 memaksakan kepentingan kelompok tertentu.",
+    "stem": "Anda menjadi fasilitator musyawarah warga untuk menentukan penggunaan sebuah gedung milik pemerintah daerah. Kelompok pemuda menginginkan ruang olahraga dan kegiatan kreatif, sedangkan kelompok lanjut usia mengusulkan ruang pertemuan dan aktivitas sosial. Kedua pihak mulai saling menyalahkan karena merasa kebutuhannya kurang diperhatikan. Tindakan Anda adalah ...",
+    "options": {
+      "A": "Mengutamakan usulan kelompok dengan jumlah anggota paling banyak agar keputusan dapat segera ditetapkan.",
+      "B": "Meminta masing-masing kelompok menyampaikan usulan tertulis dan menyerahkan keputusan akhir kepada pimpinan wilayah.",
+      "C": "Memfasilitasi dialog yang setara, memetakan kebutuhan kedua kelompok, dan merancang penggunaan ruang berdasarkan kapasitas serta jadwal bersama.",
+      "D": "Membagi gedung menjadi dua bagian tanpa mendiskusikan kebutuhan fasilitas dan jadwal penggunaannya lebih lanjut.",
+      "E": "Menetapkan penggunaan gedung sesuai fungsi awal agar perbedaan aspirasi masyarakat tidak memperlambat keputusan."
+    },
+    "hint": "Cari pendekatan yang menjaga penghormatan terhadap perbedaan sekaligus mengupayakan kepentingan bersama.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 4,
+      "C": 5,
+      "D": 3,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menggunakan suara mayoritas tanpa dialog dapat membuat kebutuhan kelompok lain tidak memperoleh perhatian yang layak.",
+      "B": "Poin 4 — Memberi kesempatan menyampaikan aspirasi menunjukkan keterbukaan, tetapi belum memfasilitasi penyelesaian perbedaan secara langsung.",
+      "C": "Poin 5 — Memastikan partisipasi yang seimbang, memahami kebutuhan, dan menghasilkan pengaturan fasilitas yang mempertimbangkan seluruh pengguna.",
+      "D": "Poin 3 — Pembagian ruang merupakan kompromi awal, tetapi belum mempertimbangkan kelayakan fasilitas dan kebutuhan operasional.",
+      "E": "Poin 1 — Memaksakan kondisi awal tanpa mendengarkan aspirasi berpotensi memperkuat konflik dan ketidakpuasan masyarakat."
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-pengungsian-kebutuhan-komunitas-008",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Harmonis. Skor 5 menekankan penghormatan terhadap kebutuhan beragam warga dan penyesuaian layanan yang adil tanpa mengurangi standar keselamatan. Skor 4 memberikan pilihan yang cukup baik tetapi belum melibatkan penerima bantuan secara langsung, skor 3 memenuhi kebutuhan umum, skor 2 menggunakan pendekatan seragam, dan skor 1 mengabaikan kebutuhan khusus masyarakat.",
+    "stem": "Anda ditugaskan mengoordinasikan distribusi konsumsi di tempat pengungsian bencana. Warga berasal dari latar belakang budaya yang beragam dan memiliki kebiasaan konsumsi berbeda. Sebagian warga mengeluhkan menu yang disediakan, sementara persediaan bahan pangan terbatas. Langkah yang paling tepat adalah ...",
+    "options": {
+      "A": "Menyediakan menu yang sama bagi semua warga agar distribusi lebih sederhana dan tidak menimbulkan perbedaan perlakuan.",
+      "B": "Mendata kebutuhan konsumsi berdasarkan kondisi warga, mengidentifikasi alternatif pangan yang tersedia, dan melibatkan perwakilan warga dalam pengaturan distribusi.",
+      "C": "Memberikan kesempatan kepada warga untuk membawa makanan sendiri apabila tidak cocok dengan menu dari posko pengungsian.",
+      "D": "Mengutamakan permintaan kelompok warga terbanyak agar bahan pangan yang terbatas dapat didistribusikan secara efisien.",
+      "E": "Meminta warga menerima menu yang tersedia karena keterbatasan kondisi darurat tidak memungkinkan penyesuaian kebutuhan."
+    },
+    "hint": "Pertimbangkan prinsip kesetaraan yang tidak selalu berarti memberikan perlakuan identik kepada setiap orang.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 4,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Keseragaman membantu efisiensi, tetapi belum tentu menghormati kebutuhan konsumsi yang berbeda di antara para pengungsi.",
+      "B": "Poin 5 — Menghasilkan distribusi yang lebih inklusif melalui pemetaan kebutuhan, penggunaan sumber daya secara realistis, dan partisipasi warga.",
+      "C": "Poin 4 — Memberikan ruang pilihan kepada warga, tetapi belum menjamin akses pangan yang setara bagi mereka yang tidak memiliki alternatif.",
+      "D": "Poin 2 — Efisiensi distribusi diperhatikan, tetapi kebutuhan kelompok minoritas berpotensi terabaikan.",
+      "E": "Poin 1 — Mengabaikan aspirasi dan kebutuhan warga tanpa mengupayakan penyesuaian yang masih memungkinkan."
+    }
+  },
+  {
+    "slug": "tkp-tik-insiden-salah-kirim-data-009",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Adaptif dengan tanggung jawab keamanan informasi. Skor 5 mengutamakan mitigasi insiden, pelaporan cepat, dokumentasi, dan pencegahan dampak lanjutan. Skor 4 melakukan penanganan awal tetapi belum mencakup seluruh prosedur, skor 3 memberi tahu pihak terkait secara terbatas, skor 2 hanya mencoba memperbaiki kesalahan secara mandiri, dan skor 1 menyembunyikan insiden.",
+    "stem": "Saat mengirimkan laporan pekerjaan, Anda secara tidak sengaja mengirimkan lampiran berisi data pribadi masyarakat kepada alamat surel eksternal yang bukan penerima yang dimaksud. Anda baru menyadari kesalahan tersebut beberapa menit setelah pengiriman. Apa tindakan paling tepat?",
+    "options": {
+      "A": "Mengirimkan surel tambahan yang meminta penerima salah mengabaikan pesan sebelumnya dan menghapus lampiran.",
+      "B": "Menghapus salinan surel dari kotak keluar dan membuat ulang laporan menggunakan alamat penerima yang benar.",
+      "C": "Menunggu respons penerima yang salah untuk memastikan apakah lampiran sudah dibuka sebelum melaporkan kejadian tersebut.",
+      "D": "Melakukan upaya penarikan jika tersedia, segera melapor kepada pengelola keamanan informasi, dan mendokumentasikan insiden sesuai prosedur.",
+      "E": "Memberi tahu atasan langsung secara informal dan meminta arahan sebelum melakukan tindakan lain terhadap surel tersebut."
+    },
+    "hint": "Perhatikan pentingnya pengendalian dampak, transparansi insiden, dan pemenuhan prosedur keamanan informasi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 1,
+      "D": 5,
+      "E": 4
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Meminta penghapusan dapat membantu, tetapi belum memastikan bahwa insiden ditangani dan terdokumentasi melalui mekanisme keamanan resmi.",
+      "B": "Poin 2 — Memperbaiki laporan untuk penggunaan berikutnya tidak mengendalikan data yang sudah terkirim ke pihak yang salah.",
+      "C": "Poin 1 — Menunda pelaporan memperbesar risiko paparan data dan menghambat tindakan mitigasi oleh pihak berwenang.",
+      "D": "Poin 5 — Menggabungkan pengendalian awal, eskalasi tepat waktu, dan dokumentasi sehingga risiko kebocoran dapat ditangani secara sistematis.",
+      "E": "Poin 4 — Melibatkan atasan merupakan langkah bertanggung jawab, tetapi perlu dilanjutkan dengan pelaporan segera kepada pengelola keamanan informasi."
+    }
+  },
+  {
+    "slug": "tkp-tik-kelangsungan-layanan-offline-010",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Adaptif dalam ASN BerAKHLAK. Skor 5 mengutamakan keberlanjutan pelayanan melalui prosedur alternatif yang disetujui, pengamanan catatan, dan sinkronisasi setelah sistem pulih. Skor 4 menggunakan prosedur alternatif tetapi belum menata seluruh proses pencatatan, skor 3 mempertahankan layanan secara terbatas, skor 2 menghentikan layanan tanpa mengevaluasi alternatif, dan skor 1 menggunakan teknologi tidak aman.",
+    "stem": "Sistem informasi pada sebuah kantor pelayanan daerah tidak dapat diakses selama beberapa jam karena gangguan pusat data. Masyarakat tetap membutuhkan surat keterangan yang harus diterbitkan pada hari itu. Instansi telah memiliki prosedur pelayanan darurat yang memungkinkan pencatatan sementara secara luring. Apa tindakan yang paling tepat?",
+    "options": {
+      "A": "Menghentikan seluruh pelayanan sampai pusat data kembali normal untuk menghindari perbedaan catatan transaksi.",
+      "B": "Mengaktifkan prosedur luring resmi, mencatat setiap transaksi dengan identitas dan nomor kendali, serta menyinkronkan data setelah sistem pulih.",
+      "C": "Meminta pegawai menyimpan data permohonan pada perangkat masing-masing agar pelayanan tetap berjalan selama gangguan.",
+      "D": "Mengutamakan permohonan yang dianggap mendesak dan menunda pencatatan administratif sampai aplikasi dapat digunakan kembali.",
+      "E": "Membagikan formulir kosong kepada masyarakat tanpa memberikan nomor kendali agar pengisian dokumen dapat dilakukan lebih cepat."
+    },
+    "hint": "Perhatikan bagaimana layanan dapat terus berjalan melalui mekanisme cadangan yang menjaga integritas dan keterlacakan data.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 5,
+      "C": 1,
+      "D": 4,
+      "E": 3
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menghindari ketidaksesuaian data, tetapi mengabaikan prosedur darurat yang tersedia dan menghentikan akses pelayanan.",
+      "B": "Poin 5 — Memanfaatkan mekanisme alternatif yang sah, menjaga keterlacakan transaksi, dan memastikan integrasi data setelah sistem normal.",
+      "C": "Poin 1 — Penyimpanan pada perangkat pribadi berpotensi menimbulkan kebocoran data dan menghilangkan kendali administratif.",
+      "D": "Poin 4 — Memprioritaskan kebutuhan mendesak membantu masyarakat, tetapi penundaan pencatatan dapat menimbulkan kehilangan informasi.",
+      "E": "Poin 3 — Formulir membantu pelayanan sementara, tetapi tanpa nomor kendali proses pelacakan dan pengawasan menjadi lemah."
+    }
+  },
+  {
+    "slug": "tkp-anti-radikalisme-evaluasi-mitra-pelatihan-011",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Loyal, yang mencakup komitmen terhadap Pancasila, UUD NRI 1945, NKRI, dan perlindungan persatuan bangsa. Skor 5 mengutamakan verifikasi objektif, pelaporan melalui mekanisme resmi, dan pencegahan risiko kekerasan. Skor 4 melakukan klarifikasi serta penolakan kerja sama secara tepat tetapi belum melakukan eskalasi, skor 3 menunda keputusan untuk verifikasi, skor 2 membiarkan kegiatan tanpa pemeriksaan memadai, dan skor 1 tetap mendukung kegiatan yang mengajarkan kekerasan.",
+    "stem": "Anda menjadi anggota tim seleksi penyedia pelatihan bagi aparatur. Dalam pemeriksaan materi salah satu calon penyedia, ditemukan bagian presentasi yang mengagungkan tindakan kekerasan terhadap kelompok tertentu dan mengajak peserta membenarkan penggunaan kekerasan untuk mencapai tujuan organisasi. Bagaimana Anda bertindak?",
+    "options": {
+      "A": "Menerima materi tersebut karena penyedia telah memenuhi persyaratan administrasi dan memiliki pengalaman pelatihan yang cukup.",
+      "B": "Meminta penyedia menghapus bagian materi yang kontroversial tanpa melakukan pemeriksaan lebih lanjut terhadap tujuan pelatihan.",
+      "C": "Menunda penilaian dan meminta seluruh anggota tim membaca kembali materi sebelum menyepakati keputusan seleksi.",
+      "D": "Menyampaikan keberatan dalam rapat seleksi dan meminta pimpinan menentukan apakah materi tersebut dapat digunakan.",
+      "E": "Mendokumentasikan temuan, melakukan verifikasi objektif, dan melaporkannya melalui mekanisme yang berwenang sebelum menetapkan kelayakan kerja sama."
+    },
+    "hint": "Bedakan perbedaan pendapat yang sah dari materi yang secara eksplisit membenarkan kekerasan dan menimbulkan risiko bagi persatuan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 4,
+      "D": 1,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Persyaratan administrasi tidak cukup untuk mengabaikan substansi materi yang membenarkan kekerasan.",
+      "B": "Poin 3 — Meminta koreksi merupakan langkah awal, tetapi belum memeriksa secara objektif apakah masalah hanya berupa bagian presentasi atau mencerminkan tujuan kegiatan.",
+      "C": "Poin 4 — Pemeriksaan bersama dapat meningkatkan objektivitas keputusan, tetapi belum memberikan langkah tindak lanjut terhadap temuan yang sudah teridentifikasi.",
+      "D": "Poin 1 — Menyerahkan keputusan tanpa melakukan dokumentasi dan pemeriksaan temuan membuat risiko tidak ditangani secara memadai.",
+      "E": "Poin 5 — Menjaga objektivitas, akuntabilitas, dan kepentingan bangsa dengan melibatkan mekanisme berwenang tanpa membuat kesimpulan sepihak."
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-akurasi-capaian-kinerja-011",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kompeten dan Akuntabel. Skor 5 mengutamakan akurasi data, transparansi kondisi sebenarnya, pemeriksaan bukti, dan solusi perbaikan yang dapat dipertanggungjawabkan. Skor 4 menyampaikan kendala serta alternatif, skor 3 mempertahankan catatan tanpa menawarkan rencana lengkap, skor 2 mengikuti arahan tanpa verifikasi, dan skor 1 memanipulasi informasi kinerja.",
+    "stem": "Anda bertugas menyusun laporan capaian kinerja triwulanan sebuah unit pemerintah. Data dari sistem menunjukkan bahwa target baru tercapai 92%, sedangkan atasan meminta Anda menuliskan 100% agar laporan unit terlihat memenuhi target evaluasi. Atasan beralasan bahwa sebagian pekerjaan akan selesai dalam beberapa hari berikutnya. Sikap yang paling tepat adalah ...",
+    "options": {
+      "A": "Mengikuti arahan atasan karena selisih capaian diperkirakan akan tertutup sebelum proses evaluasi selesai.",
+      "B": "Menolak permintaan tersebut tanpa memberikan penjelasan lebih lanjut agar tidak terlibat dalam perubahan data laporan.",
+      "C": "Memastikan angka sesuai bukti aktual, menjelaskan capaian dan pekerjaan tertunda, serta menyusun rencana percepatan yang terukur.",
+      "D": "Menunda penyusunan laporan sampai seluruh pekerjaan selesai agar angka capaian tidak perlu diperbaiki kemudian.",
+      "E": "Mencantumkan capaian 100% dengan catatan bahwa angka tersebut masih merupakan proyeksi penyelesaian pekerjaan."
+    },
+    "hint": "Perhatikan perbedaan antara hasil aktual, proyeksi, dan kewajiban menyampaikan informasi kinerja secara akuntabel.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 5,
+      "D": 1,
+      "E": 4
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Perkiraan penyelesaian tidak dapat menggantikan data aktual sehingga tindakan ini berisiko menghasilkan laporan yang tidak akurat.",
+      "B": "Poin 3 — Menolak perubahan yang tidak sesuai bukti merupakan langkah benar, tetapi belum memberikan solusi dan penjelasan profesional.",
+      "C": "Poin 5 — Menjaga integritas laporan melalui data terverifikasi sekaligus memberikan solusi perbaikan yang dapat diukur dan dipertanggungjawabkan.",
+      "D": "Poin 1 — Penundaan tanpa dasar prosedural menghambat pelaporan dan tidak menyelesaikan tekanan untuk mengubah angka capaian.",
+      "E": "Poin 4 — Membedakan proyeksi dari hasil aktual merupakan upaya transparansi, tetapi angka capaian tetap harus dilaporkan sesuai realisasi yang telah diverifikasi."
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-prototipe-021",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Prototipe merupakan bentuk awal atau model percobaan yang dikembangkan sebelum produk akhir dibuat. Draf merupakan bentuk awal naskah yang disempurnakan menjadi naskah final. Hubungan keduanya adalah representasi awal terhadap hasil akhir yang dikembangkan melalui proses penyempurnaan.",
+    "stem": "Prototipe : Produk akhir memiliki hubungan yang paling sepadan dengan ...",
+    "options": {
+      "A": "Draf : Naskah final.",
+      "B": "Arsip : Dokumen lama.",
+      "C": "Indeks : Halaman buku.",
+      "D": "Kuitansi : Transaksi pembayaran.",
+      "E": "Meterai : Perjanjian hukum."
+    },
+    "hint": "Perhatikan hubungan antara bentuk awal suatu hasil kerja dan produk yang telah disempurnakan.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Draf merupakan bentuk awal yang dikembangkan menjadi naskah final, sebagaimana prototipe dikembangkan menjadi produk akhir.",
+      "B": "Arsip merupakan kumpulan dokumen yang disimpan, bukan bentuk awal yang disempurnakan menjadi dokumen lain.",
+      "C": "Indeks merupakan petunjuk untuk menemukan informasi dalam buku, bukan rancangan awal halaman buku.",
+      "D": "Kuitansi merupakan bukti pembayaran setelah transaksi, bukan rancangan awal dari transaksi tersebut.",
+      "E": "Meterai merupakan unsur formalitas dokumen tertentu dan bukan bentuk awal yang dikembangkan menjadi perjanjian."
+    }
+  },
+  {
+    "slug": "tiu-verbal-analogi-kalibrasi-validasi-022",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Kalibrasi merupakan proses untuk memastikan ketepatan hasil pengukuran suatu instrumen. Validasi merupakan proses untuk memastikan keabsahan suatu data atau hasil. Hubungannya adalah tindakan pemeriksaan atau penyesuaian terhadap objek untuk memastikan kualitas tertentu.",
+    "stem": "Kalibrasi : Ketepatan pengukuran memiliki hubungan yang paling sepadan dengan ...",
+    "options": {
+      "A": "Inventarisasi : Jumlah persediaan.",
+      "B": "Distribusi : Lokasi penyimpanan.",
+      "C": "Dokumentasi : Ruang administrasi.",
+      "D": "Evaluasi : Jadwal kegiatan.",
+      "E": "Validasi : Keabsahan data."
+    },
+    "hint": "Identifikasi proses yang bertujuan memastikan kualitas atau kelayakan suatu hasil.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Inventarisasi mencatat jumlah persediaan, tetapi tidak secara langsung memastikan ketepatan suatu hasil pengukuran.",
+      "B": "Distribusi mengatur penyaluran barang, sedangkan lokasi penyimpanan merupakan salah satu unsur pengelolaan logistik.",
+      "C": "Dokumentasi menghasilkan catatan kegiatan, bukan proses pemeriksaan untuk memastikan kualitas suatu hasil.",
+      "D": "Evaluasi menilai pelaksanaan kegiatan, tetapi jadwal bukan kualitas hasil yang secara langsung dipastikan melalui proses tersebut.",
+      "E": "Validasi memeriksa keabsahan data sebagaimana kalibrasi memastikan ketepatan pengukuran instrumen."
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-pengelolaan-aset-023",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Premis pertama menyatakan bahwa seluruh pegawai pengelola aset negara mengikuti pelatihan pengelolaan aset. Premis kedua menyatakan sebagian pegawai keuangan daerah merupakan pengelola aset negara. Dengan menerapkan hubungan himpunan, sebagian pegawai keuangan daerah pasti mengikuti pelatihan tersebut. Premis ketiga tidak mengubah kesimpulan mengenai keikutsertaan pelatihan.",
+    "stem": "Dalam suatu instansi berlaku ketentuan berikut:\n\n1. Semua pegawai yang mengelola aset negara telah mengikuti pelatihan pengelolaan aset.\n2. Sebagian pegawai bagian keuangan daerah bertugas mengelola aset negara.\n3. Setiap peserta pelatihan pengelolaan aset wajib mengikuti evaluasi kompetensi.\n\nKesimpulan yang pasti benar adalah ...",
+    "options": {
+      "A": "Semua pegawai bagian keuangan daerah mengikuti pelatihan pengelolaan aset.",
+      "B": "Sebagian pegawai bagian keuangan daerah telah mengikuti pelatihan pengelolaan aset.",
+      "C": "Semua peserta pelatihan pengelolaan aset merupakan pengelola aset negara.",
+      "D": "Sebagian pegawai bagian keuangan daerah tidak wajib mengikuti evaluasi kompetensi.",
+      "E": "Semua pengelola aset negara merupakan pegawai bagian keuangan daerah."
+    },
+    "hint": "Hubungkan kelompok yang hanya sebagian anggotanya memiliki suatu fungsi dengan persyaratan universal yang berlaku pada fungsi tersebut.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Premis kedua hanya menyebut sebagian pegawai keuangan daerah yang mengelola aset, bukan seluruh pegawai bagian tersebut.",
+      "B": "Sebagian pegawai keuangan daerah merupakan pengelola aset dan seluruh pengelola aset mengikuti pelatihan, sehingga sebagian pegawai tersebut pasti terlatih.",
+      "C": "Premis universal hanya menyatakan pengelola aset mengikuti pelatihan, bukan bahwa seluruh peserta pelatihan adalah pengelola aset.",
+      "D": "Tidak ada informasi yang menyatakan sebagian pegawai tersebut bebas dari evaluasi kompetensi setelah mengikuti pelatihan.",
+      "E": "Tidak ada premis yang menyatakan bahwa seluruh pengelola aset negara berasal dari bagian keuangan daerah."
+    }
+  },
+  {
+    "slug": "tiu-verbal-silogisme-inspeksi-dokumen-024",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Premis pertama menyatakan sebagian laporan inspeksi merupakan dokumen mendesak. Seluruh dokumen mendesak harus diperiksa oleh bagian hukum. Tidak satu pun dokumen yang diperiksa bagian hukum dapat dirilis sebelum memperoleh persetujuan. Oleh karena itu, sebagian laporan inspeksi pasti diperiksa bagian hukum dan tidak dapat dirilis sebelum memperoleh persetujuan.",
+    "stem": "Sebuah instansi menerapkan ketentuan berikut:\n\n1. Sebagian laporan inspeksi merupakan dokumen mendesak.\n2. Semua dokumen mendesak wajib diperiksa oleh bagian hukum.\n3. Tidak ada dokumen yang telah diperiksa bagian hukum yang boleh dirilis sebelum mendapat persetujuan.\n\nKesimpulan yang dapat dipastikan benar adalah ...",
+    "options": {
+      "A": "Semua laporan inspeksi merupakan dokumen mendesak.",
+      "B": "Semua dokumen yang diperiksa bagian hukum merupakan laporan inspeksi.",
+      "C": "Sebagian laporan inspeksi dapat dirilis sebelum memperoleh persetujuan.",
+      "D": "Sebagian laporan inspeksi diperiksa bagian hukum dan tidak dapat dirilis sebelum memperoleh persetujuan.",
+      "E": "Tidak ada laporan inspeksi yang dapat diperiksa oleh bagian hukum."
+    },
+    "hint": "Gunakan hubungan berantai antara kelompok dokumen dan perhatikan konsekuensi yang berlaku setelah pemeriksaan.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Premis pertama hanya menyatakan sebagian laporan inspeksi termasuk dokumen mendesak, bukan seluruhnya.",
+      "B": "Hubungan bahwa seluruh dokumen mendesak diperiksa bagian hukum tidak dapat dibalik menjadi semua dokumen yang diperiksa harus merupakan dokumen mendesak.",
+      "C": "Kesimpulan tersebut bertentangan dengan ketentuan bahwa dokumen yang diperiksa bagian hukum tidak boleh dirilis sebelum mendapat persetujuan.",
+      "D": "Sebagian laporan inspeksi merupakan dokumen mendesak, seluruh dokumen mendesak diperiksa bagian hukum, dan dokumen tersebut tidak boleh dirilis sebelum persetujuan.",
+      "E": "Premis kedua justru menunjukkan bahwa seluruh dokumen mendesak wajib diperiksa bagian hukum."
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-jadwal-inspeksi-025",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Kirana menempati Rabu dan Nanda menempati Jumat. Karena Bagas harus sebelum Kirana, Bagas hanya dapat menempati Senin atau Selasa. Ratri harus sebelum Bagas. Satu-satunya susunan yang memenuhi seluruh ketentuan adalah Ratri Senin, Bagas Selasa, Kirana Rabu, Yudha Kamis, dan Nanda Jumat.",
+    "stem": "Lima pegawai, yaitu Ratri, Bagas, Kirana, Yudha, dan Nanda, dijadwalkan melakukan inspeksi satu orang per hari dari Senin sampai Jumat. Ketentuannya adalah:\n\n- Kirana bertugas pada hari Rabu.\n- Nanda bertugas pada hari Jumat.\n- Ratri bertugas sebelum Bagas.\n- Bagas bertugas sebelum Kirana.\n\nSiapakah yang bertugas pada hari Selasa?",
+    "options": {
+      "A": "Ratri.",
+      "B": "Yudha.",
+      "C": "Bagas.",
+      "D": "Kirana.",
+      "E": "Nanda."
+    },
+    "hint": "Tempatkan jadwal yang sudah pasti terlebih dahulu, kemudian gunakan hubungan urutan untuk mengisi posisi yang tersisa.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Ratri harus tampil sebelum Bagas, sehingga menempati posisi Senin dalam susunan yang memenuhi seluruh ketentuan.",
+      "B": "Yudha menempati Kamis karena Rabu sudah ditempati Kirana dan Jumat ditempati Nanda.",
+      "C": "Ratri harus sebelum Bagas dan Bagas harus sebelum Kirana pada Rabu, sehingga Bagas menempati Selasa.",
+      "D": "Kirana telah ditetapkan pada hari Rabu berdasarkan ketentuan pertama.",
+      "E": "Nanda telah ditetapkan pada hari Jumat berdasarkan ketentuan kedua."
+    }
+  },
+  {
+    "slug": "tiu-verbal-analitis-susunan-kursi-026",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Aulia harus tepat di sebelah kiri Bima, sehingga keduanya membentuk blok AB. Damar harus tepat di sebelah kiri Citra, sehingga membentuk blok DC. Eka berada di kursi kelima. Karena Aulia harus berada di sebelah kiri Damar, urutan blok AB harus mendahului DC. Satu-satunya susunan adalah Aulia, Bima, Damar, Citra, Eka.",
+    "stem": "Lima pegawai duduk berjajar pada lima kursi yang menghadap ke depan. Ketentuannya adalah:\n\n- Aulia duduk tepat di sebelah kiri Bima.\n- Damar duduk tepat di sebelah kiri Citra.\n- Eka duduk pada kursi paling kanan.\n- Aulia duduk di sebelah kiri Damar.\n\nSiapakah yang menempati kursi keempat dari kiri?",
+    "options": {
+      "A": "Citra.",
+      "B": "Bima.",
+      "C": "Aulia.",
+      "D": "Damar.",
+      "E": "Eka."
+    },
+    "hint": "Gabungkan setiap pasangan yang harus berdampingan, lalu perhatikan batas kursi paling kanan.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Urutan yang memenuhi seluruh syarat adalah Aulia, Bima, Damar, Citra, Eka. Dengan demikian, kursi keempat ditempati Citra.",
+      "B": "Bima berada pada kursi kedua karena harus tepat di sebelah kanan Aulia.",
+      "C": "Aulia berada pada kursi pertama agar dapat mendahului pasangan Damar dan Citra.",
+      "D": "Damar berada pada kursi ketiga sebagai orang yang harus tepat di sebelah kiri Citra.",
+      "E": "Eka berada pada kursi kelima sesuai ketentuan bahwa ia menempati posisi paling kanan."
+    }
+  },
+  {
+    "slug": "tiu-numerik-deret-pola-selang-seling-027",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Deret memiliki dua pola yang berjalan berselang-seling. Suku pada posisi ganjil adalah 5, 10, 20, 40 yang selalu dikalikan dua. Suku pada posisi genap adalah 12, 24, 48 yang juga selalu dikalikan dua. Oleh karena itu, suku kedelapan adalah 48 × 2 = 96.",
+    "stem": "Perhatikan deret berikut: 5, 12, 10, 24, 20, 48, 40, ... Angka berikutnya yang paling tepat adalah ...",
+    "options": {
+      "A": "80",
+      "B": "96",
+      "C": "88",
+      "D": "92",
+      "E": "100"
+    },
+    "hint": "Pisahkan suku berdasarkan posisi ganjil dan genap untuk memeriksa apakah terdapat dua pola berbeda.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Pola posisi genap mengharuskan 48 dikalikan dua, bukan ditambahkan dengan nilai yang menghasilkan 80.",
+      "B": "Suku genap adalah 12, 24, 48, sehingga suku berikutnya adalah 48 × 2 = 96.",
+      "C": "Angka 88 tidak mengikuti pola perkalian dua pada deret posisi genap.",
+      "D": "Angka 92 tidak memenuhi kelanjutan pola 12, 24, 48 yang meningkat dengan rasio dua.",
+      "E": "Angka 100 tidak sesuai dengan hasil penggandaan suku genap terakhir, yaitu 48."
+    }
+  },
+  {
+    "slug": "tiu-numerik-perbandingan-kuantitatif-komposisi-028",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Hitung setiap besaran secara terpisah. X = 40% × 360 + 25 = 144 + 25 = 169. Y = 3/4 × 220 = 165. Perbandingan hasil menunjukkan 169 > 165. Operasi penjumlahan pada X harus diselesaikan setelah menghitung persentasenya.",
+    "stem": "Diketahui dua besaran berikut:\n\nX = 40% dari 360, kemudian ditambah 25.\nY = 3/4 dari 220.\n\nHubungan yang benar antara X dan Y adalah ...",
+    "options": {
+      "A": "X lebih kecil daripada Y.",
+      "B": "X sama dengan Y.",
+      "C": "X lebih besar daripada Y.",
+      "D": "X dua kali lebih besar daripada Y.",
+      "E": "Hubungan keduanya tidak dapat ditentukan."
+    },
+    "hint": "Selesaikan seluruh operasi pada masing-masing besaran sebelum membandingkan hasil akhirnya.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "X bernilai 169 dan Y bernilai 165, sehingga pernyataan bahwa X lebih kecil tidak sesuai dengan hasil perhitungan.",
+      "B": "Kedua besaran berbeda, yaitu 169 dan 165, sehingga tidak dapat dinyatakan sama.",
+      "C": "X = 0,4 × 360 + 25 = 169, sedangkan Y = 0,75 × 220 = 165. Jadi X lebih besar daripada Y.",
+      "D": "Dua kali Y adalah 330, bukan 169, sehingga X tidak dua kali lebih besar daripada Y.",
+      "E": "Seluruh nilai dan operasi telah diberikan secara lengkap sehingga hubungan kedua besaran dapat ditentukan."
+    }
+  },
+  {
+    "slug": "tiu-numerik-aritmetika-sosial-laba-distribusi-029",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total modal adalah 80 × Rp125.000 = Rp10.000.000. Pendapatan dari 50 unit pertama adalah 50 × Rp160.000 = Rp8.000.000. Tiga puluh unit sisanya menghasilkan 30 × Rp120.000 = Rp3.600.000. Total pendapatan Rp11.600.000. Keuntungan Rp1.600.000, sehingga persentase keuntungan terhadap modal adalah 1.600.000/10.000.000 × 100% = 16%.",
+    "stem": "Sebuah koperasi membeli 80 unit perlengkapan kantor dengan harga Rp125.000 per unit. Sebanyak 50 unit dijual dengan harga Rp160.000 per unit, sedangkan 30 unit sisanya dijual dengan harga Rp120.000 per unit karena adanya penurunan permintaan. Berapakah persentase keuntungan koperasi terhadap total modal?",
+    "options": {
+      "A": "12%.",
+      "B": "14%.",
+      "C": "18%.",
+      "D": "16%.",
+      "E": "20%."
+    },
+    "hint": "Hitung total modal dan pendapatan dari kedua kelompok barang secara terpisah sebelum menentukan persentase keuntungan.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Keuntungan 12% dari modal berarti Rp1.200.000, sedangkan selisih pendapatan dan modal sebenarnya Rp1.600.000.",
+      "B": "Persentase 14% menghasilkan keuntungan Rp1.400.000, tidak sesuai dengan hasil penjualan kedua kelompok barang.",
+      "C": "Persentase 18% menghasilkan keuntungan Rp1.800.000, lebih besar daripada keuntungan aktual Rp1.600.000.",
+      "D": "Total pendapatan Rp11.600.000 dikurangi modal Rp10.000.000 menghasilkan keuntungan Rp1.600.000 atau 16% dari modal.",
+      "E": "Persentase 20% menghasilkan keuntungan Rp2.000.000, padahal pendapatan aktual hanya menghasilkan keuntungan Rp1.600.000."
+    }
+  },
+  {
+    "slug": "tiu-numerik-soal-cerita-kejar-kendaraan-030",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Kendaraan pertama berangkat pukul 06.30 dengan kecepatan 48 km/jam. Ketika kendaraan kedua berangkat pukul 08.00, kendaraan pertama telah berjalan selama 1,5 jam dan menempuh 72 km. Selisih kecepatan kendaraan adalah 72 - 48 = 24 km/jam. Waktu menyusul adalah 72/24 = 3 jam setelah kendaraan kedua berangkat.",
+    "stem": "Kendaraan dinas pertama berangkat dari sebuah kota pada pukul 06.30 dengan kecepatan tetap 48 km/jam. Kendaraan dinas kedua berangkat dari kota yang sama dan melalui jalur yang sama pada pukul 08.00 dengan kecepatan tetap 72 km/jam. Apabila keduanya bergerak searah tanpa berhenti, berapa lama waktu yang dibutuhkan kendaraan kedua untuk menyusul kendaraan pertama sejak keberangkatannya sendiri?",
+    "options": {
+      "A": "2 jam.",
+      "B": "2,5 jam.",
+      "C": "3,5 jam.",
+      "D": "4 jam.",
+      "E": "3 jam."
+    },
+    "hint": "Hitung jarak keunggulan kendaraan pertama terlebih dahulu, kemudian gunakan selisih kecepatan kedua kendaraan.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Dalam 2 jam kendaraan kedua hanya memperoleh keunggulan 48 km, sedangkan jarak awal yang harus dikejar adalah 72 km.",
+      "B": "Dalam 2,5 jam selisih jarak hanya 60 km, sehingga kendaraan kedua belum menyusul kendaraan pertama.",
+      "C": "Dalam 3,5 jam kendaraan kedua sudah melampaui titik pertemuan yang seharusnya terjadi setelah 3 jam.",
+      "D": "Dalam 4 jam kendaraan kedua telah melewati titik penyusulan karena selisih kecepatan kedua kendaraan tetap 24 km/jam.",
+      "E": "Kendaraan pertama memiliki keunggulan 72 km dan selisih kecepatan 24 km/jam, sehingga waktu penyusulan adalah 72 ÷ 24 = 3 jam."
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-koreksi-dokumen-013",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Berorientasi Pelayanan dalam ASN BerAKHLAK. Urutan penilaian 5 > 4 > 3 > 2 > 1 mengutamakan penyelesaian kebutuhan masyarakat secara cepat, akurat, dan transparan. Tindakan terbaik harus memeriksa bukti, menjalankan koreksi sesuai kewenangan, dan memberi kepastian tindak lanjut. Respons pasif atau sekadar memberikan informasi memperoleh nilai lebih rendah.",
+    "stem": "Seorang pemohon izin usaha menerima dokumen yang telah diterbitkan, tetapi menemukan kesalahan penulisan alamat lokasi usaha. Ia membutuhkan dokumen yang benar untuk mengikuti proses administrasi pada hari berikutnya. Sistem menunjukkan bahwa dokumen tersebut sudah masuk arsip penerbitan. Sebagai petugas pelayanan, apa yang Anda lakukan?",
+    "options": {
+      "A": "Meminta pemohon mengajukan permohonan baru karena dokumen yang telah diarsipkan tidak dapat langsung diubah.",
+      "B": "Memberikan alamat unit pengaduan dan meminta pemohon menghubungi bagian tersebut untuk menanyakan prosedur koreksi.",
+      "C": "Memverifikasi bukti, mengoordinasikan koreksi resmi sesuai kewenangan, serta memberi kepastian proses dan waktu tindak lanjut.",
+      "D": "Menjelaskan bahwa kesalahan penulisan biasanya dapat diperbaiki dan menyarankan pemohon menunggu pemberitahuan berikutnya.",
+      "E": "Meminta pemohon menggunakan dokumen tersebut terlebih dahulu sambil menunggu pembaruan data dari sistem penerbitan."
+    },
+    "hint": "Utamakan ketepatan dokumen, kewenangan koreksi, dan kepastian waktu penyelesaian kebutuhan masyarakat.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 5,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menawarkan jalur administrasi baru, tetapi belum memeriksa apakah koreksi dapat diselesaikan melalui mekanisme resmi yang lebih efisien.",
+      "B": "Poin 3 — Memberikan informasi jalur pengaduan, tetapi belum mengambil inisiatif memastikan masalah pemohon ditangani.",
+      "C": "Poin 5 — Memastikan bukti, mempercepat koreksi sesuai kewenangan, dan memberikan kepastian tindak lanjut yang dibutuhkan pemohon.",
+      "D": "Poin 4 — Memberikan informasi yang menenangkan, tetapi belum memastikan proses koreksi berlangsung dan belum memberikan estimasi penyelesaian.",
+      "E": "Poin 1 — Membiarkan dokumen yang diketahui keliru digunakan dalam proses administrasi lain dan berpotensi menimbulkan masalah lanjutan."
+    }
+  },
+  {
+    "slug": "tkp-pelayanan-publik-pendampingan-subsidi-014",
+    "category": "TKP",
+    "subtopic": "Pelayanan Publik",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Berorientasi Pelayanan. Skor 5 mengutamakan akses pelayanan yang mudah, pendampingan sesuai kebutuhan, dan kepatuhan terhadap persyaratan. Skor 4 menyediakan petunjuk yang cukup membantu tetapi belum menyelesaikan seluruh kendala, skor 3 memberikan bantuan terbatas, skor 2 hanya menekankan kelengkapan administratif, dan skor 1 mengabaikan kebutuhan warga.",
+    "stem": "Di kantor dinas sosial, beberapa warga datang untuk mengajukan bantuan pemulihan ekonomi. Sebagian pemohon memiliki keterbatasan kemampuan membaca formulir dan berulang kali salah mengisi bagian persyaratan. Antrean mulai panjang dan petugas lain meminta Anda mempercepat proses. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Mendampingi pengisian bagian yang sulit, menjelaskan persyaratan dengan bahasa sederhana, serta menjaga proses verifikasi tetap tertib.",
+      "B": "Membagikan contoh formulir yang telah terisi agar warga dapat menyalin format pengisian secara mandiri.",
+      "C": "Meminta anggota keluarga pemohon mengisi formulir agar petugas tidak perlu mengulang penjelasan persyaratan.",
+      "D": "Menjelaskan bahwa formulir wajib diisi secara lengkap dan mengarahkan pemohon yang salah mengisi untuk mengulang dari awal.",
+      "E": "Meminta warga mempelajari petunjuk pada papan informasi sebelum kembali mengajukan formulir kepada petugas."
+    },
+    "hint": "Pertimbangkan bagaimana persyaratan pelayanan dapat tetap terpenuhi tanpa mengabaikan hambatan yang dialami pemohon.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 5,
+      "B": 4,
+      "C": 3,
+      "D": 2,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 5 — Mengurangi hambatan pemahaman secara langsung sambil mempertahankan ketepatan pemeriksaan dokumen dan ketertiban antrean.",
+      "B": "Poin 4 — Contoh formulir membantu pemohon belajar mandiri, tetapi belum memastikan mereka mampu mengisi setiap bagian dengan benar.",
+      "C": "Poin 3 — Bantuan keluarga dapat mendukung proses, tetapi tanggung jawab pendampingan pelayanan tetap belum dilaksanakan secara optimal.",
+      "D": "Poin 2 — Menjaga kelengkapan persyaratan, tetapi tidak mengupayakan bantuan untuk mengatasi kesulitan yang dialami masyarakat.",
+      "E": "Poin 1 — Mengalihkan tanggung jawab pendampingan kepada warga tanpa memastikan informasi dapat dipahami dan diterapkan."
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-standarisasi-indikator-013",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kolaboratif dalam ASN BerAKHLAK. Skor 5 mengutamakan penyamaan definisi, metode pengukuran, sumber data, dan tanggung jawab bersama. Skor 4 mengupayakan koordinasi rutin, skor 3 melaporkan data masing-masing tanpa integrasi, skor 2 mengandalkan keputusan satu unit, dan skor 1 menyalahkan unit lain.",
+    "stem": "Anda terlibat dalam penyusunan laporan capaian program lintas dinas. Setiap dinas menggunakan definisi yang berbeda untuk menghitung jumlah penerima manfaat sehingga hasil laporan gabungan tidak konsisten. Batas waktu penyampaian laporan semakin dekat. Apa tindakan terbaik?",
+    "options": {
+      "A": "Menggunakan indikator dari dinas dengan jumlah penerima manfaat terbesar agar laporan dapat segera diselesaikan.",
+      "B": "Meminta setiap dinas mengirimkan ulang data berdasarkan format pelaporan yang telah ditetapkan oleh sekretariat.",
+      "C": "Menyampaikan perbedaan angka kepada pimpinan dan menunggu keputusan mengenai indikator yang akan dipakai.",
+      "D": "Menggabungkan seluruh angka yang tersedia dan menambahkan catatan bahwa metode penghitungan tiap dinas berbeda.",
+      "E": "Memfasilitasi kesepakatan definisi indikator, sumber data, metode verifikasi, dan penanggung jawab bersama sebelum finalisasi laporan."
+    },
+    "hint": "Fokus pada penyelarasan dasar pengukuran agar hasil kerja berbagai pihak dapat dibandingkan secara konsisten.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 4,
+      "C": 3,
+      "D": 1,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Mempercepat penyusunan laporan, tetapi memilih satu angka tanpa kesepakatan dapat mengabaikan data dan metode dinas lain.",
+      "B": "Poin 4 — Format seragam membantu koordinasi, tetapi belum menyelesaikan perbedaan definisi yang menjadi akar ketidakkonsistenan.",
+      "C": "Poin 3 — Melibatkan pimpinan merupakan langkah administratif, tetapi belum memanfaatkan ruang kerja sama untuk membangun kesepakatan teknis.",
+      "D": "Poin 1 — Menggabungkan angka yang tidak sebanding menghasilkan laporan yang berpotensi menyesatkan dan sulit dipertanggungjawabkan.",
+      "E": "Poin 5 — Membangun pemahaman dan standar bersama sehingga seluruh instansi bekerja berdasarkan definisi serta metode yang konsisten."
+    }
+  },
+  {
+    "slug": "tkp-jejaring-kerja-pendampingan-pascaprogram-014",
+    "category": "TKP",
+    "subtopic": "Jejaring Kerja",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kolaboratif. Skor 5 mengutamakan kesinambungan koordinasi, pembagian peran, mekanisme serah terima, dan tujuan pelayanan bersama. Skor 4 memberikan komunikasi lanjutan tetapi belum membangun sistem pengelolaan tanggung jawab, skor 3 melakukan serah terima administratif, skor 2 mengirim informasi secara terbatas, dan skor 1 mengabaikan kesinambungan pekerjaan.",
+    "stem": "Anda menjadi koordinator program pemberdayaan UMKM yang akan memasuki tahap pendampingan lanjutan. Pada tahap berikutnya, tanggung jawab akan berpindah dari dinas koperasi kepada tim pendamping dari perguruan tinggi. Namun, catatan perkembangan peserta dan jadwal tindak lanjut belum terdokumentasi secara seragam. Apa yang sebaiknya dilakukan?",
+    "options": {
+      "A": "Mengirimkan laporan akhir kegiatan kepada perguruan tinggi dan meminta tim baru memulai pendampingan berdasarkan hasil laporan tersebut.",
+      "B": "Menyusun mekanisme serah terima bersama, menyepakati format perkembangan peserta, pembagian peran, dan jadwal evaluasi lintas tim.",
+      "C": "Meminta dinas koperasi menyelesaikan seluruh catatan internal sebelum perguruan tinggi mulai melakukan kegiatan berikutnya.",
+      "D": "Mempertemukan koordinator kedua tim untuk menjelaskan perkembangan program dan memberikan kontak peserta yang telah terdaftar.",
+      "E": "Menghentikan komunikasi setelah laporan akhir disetujui karena tahap pendampingan berikutnya menjadi tanggung jawab perguruan tinggi."
+    },
+    "hint": "Perhatikan bagaimana informasi, tanggung jawab, dan tujuan program tetap terhubung ketika pelaksana kegiatan berganti.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 5,
+      "C": 2,
+      "D": 4,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Laporan akhir memberikan informasi awal, tetapi belum memastikan kelengkapan data peserta dan pembagian tanggung jawab lanjutan.",
+      "B": "Poin 5 — Menjaga kesinambungan program melalui kesepakatan data, tanggung jawab, jadwal, dan evaluasi bersama.",
+      "C": "Poin 2 — Menjaga ketertiban pencatatan internal, tetapi dapat menunda pendampingan karena belum membangun proses transisi bersama.",
+      "D": "Poin 4 — Pertemuan dan pertukaran informasi membantu koordinasi, tetapi belum menjamin mekanisme tindak lanjut dan akuntabilitas tiap tim.",
+      "E": "Poin 1 — Menghentikan komunikasi dapat mengakibatkan hilangnya informasi penting dan terputusnya kesinambungan pendampingan."
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-pemulihan-kepercayaan-warga-009",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Harmonis dalam ASN BerAKHLAK. Skor 5 mengutamakan penghormatan terhadap pengalaman masyarakat, dialog inklusif, komunikasi transparan, dan komitmen yang realistis. Skor 4 melibatkan tokoh masyarakat, skor 3 memberikan informasi satu arah, skor 2 memaksakan jadwal dan mekanisme instansi, dan skor 1 mengabaikan kekecewaan warga.",
+    "stem": "Anda ditugaskan melakukan sosialisasi program perbaikan fasilitas umum di sebuah desa. Sebagian warga menolak menghadiri kegiatan karena program pemerintah sebelumnya pernah dijanjikan tetapi tidak terlaksana. Mereka menganggap sosialisasi kali ini hanya akan mengulang janji lama. Bagaimana Anda menyikapinya?",
+    "options": {
+      "A": "Menjelaskan bahwa program telah memperoleh dukungan anggaran dan meminta warga tetap hadir sesuai undangan resmi.",
+      "B": "Meminta kepala desa mengundang warga kembali agar sosialisasi dapat berjalan sesuai jadwal yang telah ditentukan.",
+      "C": "Mengirimkan ringkasan program melalui papan pengumuman agar warga memperoleh informasi tanpa harus menghadiri pertemuan.",
+      "D": "Mendengarkan pengalaman warga, menjelaskan kondisi dan batas program secara terbuka, serta menyepakati mekanisme pemantauan bersama.",
+      "E": "Mengalihkan kegiatan ke lokasi lain agar penolakan sebagian warga tidak menghambat jadwal sosialisasi."
+    },
+    "hint": "Pertimbangkan bagaimana kepercayaan dapat dibangun melalui penghormatan terhadap pengalaman dan keterbukaan komunikasi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 2,
+      "C": 4,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Informasi mengenai anggaran dapat meningkatkan pemahaman, tetapi belum menjawab pengalaman warga terkait janji sebelumnya.",
+      "B": "Poin 2 — Memanfaatkan peran kepala desa membantu komunikasi, tetapi belum menyelesaikan persoalan kepercayaan masyarakat.",
+      "C": "Poin 4 — Menyediakan informasi tertulis memperluas akses, tetapi komunikasi satu arah belum memberi ruang bagi aspirasi dan pengawasan warga.",
+      "D": "Poin 5 — Menghargai pengalaman masyarakat, membangun transparansi, dan menciptakan mekanisme akuntabilitas yang melibatkan warga.",
+      "E": "Poin 1 — Menghindari kelompok yang menyampaikan keberatan justru memperbesar jarak komunikasi dan menghambat partisipasi masyarakat."
+    }
+  },
+  {
+    "slug": "tkp-sosial-budaya-partisipasi-generasi-010",
+    "category": "TKP",
+    "subtopic": "Sosial Budaya",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Harmonis. Skor 5 mengutamakan penghormatan terhadap setiap anggota, fasilitasi partisipasi yang adil, dan pemanfaatan perspektif yang berbeda. Skor 4 memberikan kesempatan berbicara tetapi belum mengubah pola interaksi, skor 3 memberi dukungan secara informal, skor 2 membiarkan dominasi berlanjut, dan skor 1 memperkuat stereotip antargenerasi.",
+    "stem": "Dalam rapat penyusunan program pelayanan digital, pegawai muda beberapa kali mencoba menyampaikan gagasan, tetapi pendapatnya selalu dipotong oleh pegawai senior. Diskusi akhirnya didominasi oleh pihak yang lebih lama bekerja, padahal program tersebut juga ditujukan bagi pengguna dengan kebiasaan digital yang beragam. Sebagai fasilitator rapat, apa tindakan Anda?",
+    "options": {
+      "A": "Memberikan kesempatan kepada pegawai muda untuk menyampaikan gagasan secara tertulis setelah rapat selesai.",
+      "B": "Membiarkan pegawai senior memimpin pembahasan karena mereka memiliki pengalaman kerja yang lebih panjang.",
+      "C": "Mengatur giliran bicara secara seimbang dan meminta setiap peserta menilai gagasan berdasarkan kebutuhan pengguna serta bukti yang tersedia.",
+      "D": "Mengadakan diskusi khusus pegawai muda agar mereka dapat menyampaikan gagasan tanpa interupsi dari pegawai senior.",
+      "E": "Mengingatkan peserta agar menjaga kesopanan tanpa mengubah tata cara diskusi yang sudah berlangsung."
+    },
+    "hint": "Bedakan penghormatan terhadap pengalaman kerja dengan pemberian kesempatan yang adil bagi setiap anggota tim.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 3,
+      "B": 1,
+      "C": 5,
+      "D": 4,
+      "E": 2
+    },
+    "optionRationales": {
+      "A": "Poin 3 — Gagasan pegawai muda tetap memperoleh ruang, tetapi tidak memperbaiki ketimpangan partisipasi dalam forum bersama.",
+      "B": "Poin 1 — Mengutamakan senioritas dapat memperkuat dominasi dan mengabaikan perspektif lain yang relevan terhadap kebutuhan pengguna.",
+      "C": "Poin 5 — Menjamin kesempatan yang setara dan mengarahkan perbedaan pendapat pada evaluasi gagasan secara objektif.",
+      "D": "Poin 4 — Diskusi terpisah memberi ruang aman, tetapi belum membangun budaya dialog dan kolaborasi lintas generasi.",
+      "E": "Poin 2 — Mengingatkan etika komunikasi berguna, tetapi tidak menyelesaikan pola interaksi yang menyebabkan sebagian peserta terpinggirkan."
+    }
+  },
+  {
+    "slug": "tkp-tik-pengendalian-akses-basis-data-011",
+    "category": "TKP",
+    "subtopic": "TIK",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Adaptif dalam ASN BerAKHLAK. Skor 5 mengutamakan pengendalian akses berbasis kebutuhan kerja, akuntabilitas akun, dan koordinasi dengan pengelola sistem. Skor 4 menyediakan alternatif akses resmi, skor 3 menunda pekerjaan sambil menunggu, skor 2 meminjamkan akses dengan pembatasan tidak memadai, dan skor 1 membagikan kredensial secara bebas.",
+    "stem": "Anda menjadi anggota tim pengelola data kepegawaian. Seorang pegawai dari unit lain meminta kata sandi akun administrator karena perlu mengunduh laporan mendesak. Ia beralasan bahwa proses permohonan akses resmi akan memerlukan waktu beberapa hari. Tindakan yang paling tepat adalah ...",
+    "options": {
+      "A": "Memberikan kata sandi sementara dengan meminta pegawai tersebut menggantinya setelah pekerjaan selesai.",
+      "B": "Mengunduh laporan untuk pegawai tersebut tanpa memeriksa kewenangan atau tujuan penggunaan datanya.",
+      "C": "Menyimpan kata sandi administrator pada dokumen bersama agar pegawai yang membutuhkan dapat mengaksesnya.",
+      "D": "Menolak permintaan tersebut dan membiarkan pegawai menunggu sampai proses administratif selesai.",
+      "E": "Menolak berbagi kredensial, memeriksa kewenangan pemohon, dan mengoordinasikan akses resmi sesuai kebutuhan tugas."
+    },
+    "hint": "Pertimbangkan prinsip hak akses minimum dan pentingnya keterlacakan setiap aktivitas pada sistem informasi.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 1,
+      "D": 4,
+      "E": 5
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Penggantian kata sandi setelah penggunaan tidak menghilangkan risiko penyalahgunaan akun administrator selama akses diberikan.",
+      "B": "Poin 3 — Membantu menyediakan laporan, tetapi belum memverifikasi kewenangan dan tujuan penggunaan informasi kepegawaian.",
+      "C": "Poin 1 — Penyimpanan kredensial bersama menghilangkan kontrol akses individual dan meningkatkan risiko penyalahgunaan sistem.",
+      "D": "Poin 4 — Menjaga keamanan akun, tetapi belum memberikan solusi alternatif untuk memenuhi kebutuhan pekerjaan yang mendesak.",
+      "E": "Poin 5 — Melindungi akun, memastikan kewenangan pemohon, dan tetap mengupayakan akses yang sah serta dapat ditelusuri."
+    }
+  },
+  {
+    "slug": "tkp-anti-radikalisme-kebebasan-berpendapat-012",
+    "category": "TKP",
+    "subtopic": "Anti-Radikalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Loyal, yaitu menjaga komitmen terhadap Pancasila, UUD NRI 1945, NKRI, dan persatuan bangsa. Penilaian tertinggi menuntut sikap objektif yang membedakan kritik kebijakan yang sah dari ajakan kekerasan atau tindakan yang mengancam keselamatan. Kritik tidak boleh otomatis diberi label radikal, sedangkan indikasi ancaman yang kredibel harus ditangani melalui mekanisme berwenang.",
+    "stem": "Dalam forum konsultasi publik, seorang warga menyampaikan kritik yang sangat keras terhadap kebijakan pemerintah daerah. Beberapa peserta meminta agar warga tersebut langsung dilaporkan sebagai penyebar paham radikal. Namun, dalam pernyataannya tidak ditemukan ajakan kekerasan maupun ancaman terhadap kelompok lain. Sebagai ASN yang bertugas mendampingi forum, tindakan Anda adalah ...",
+    "options": {
+      "A": "Menghentikan seluruh kritik dalam forum agar diskusi tidak berkembang menjadi perdebatan yang berpotensi memecah masyarakat.",
+      "B": "Mencatat pernyataan tersebut sebagai indikasi radikalisme dan menyerahkannya kepada pimpinan untuk ditindaklanjuti.",
+      "C": "Membiarkan perdebatan berlangsung tanpa pengaturan karena setiap warga memiliki hak menyampaikan pendapat.",
+      "D": "Menjaga forum tetap tertib, membedakan kritik dari ajakan kekerasan, dan menindaklanjuti ancaman yang nyata melalui prosedur resmi.",
+      "E": "Meminta peserta lain tidak menanggapi kritik agar suasana forum tetap kondusif dan kegiatan dapat segera diselesaikan."
+    },
+    "hint": "Perhatikan batas antara perbedaan pendapat yang sah dan tindakan yang benar-benar mengancam keselamatan atau persatuan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 1,
+      "C": 3,
+      "D": 5,
+      "E": 4
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menjaga ketertiban memang penting, tetapi menghentikan semua kritik dapat membatasi partisipasi publik yang sah.",
+      "B": "Poin 1 — Melabeli kritik sebagai radikalisme tanpa indikator objektif dapat memicu diskriminasi dan penyalahgunaan kewenangan.",
+      "C": "Poin 3 — Memberikan ruang kebebasan berpendapat merupakan sikap terbuka, tetapi belum memastikan diskusi berjalan tertib dan aman.",
+      "D": "Poin 5 — Menjaga keseimbangan antara kebebasan menyampaikan pendapat, ketertiban forum, dan penanganan ancaman secara objektif.",
+      "E": "Poin 4 — Mengendalikan interaksi dapat menjaga suasana forum, tetapi belum menyediakan ruang tanggapan yang sehat dan mekanisme evaluasi ancaman."
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-konflik-kepentingan-vendor-012",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kompeten dan Akuntabel dalam ASN BerAKHLAK. Skor 5 mengutamakan keterbukaan konflik kepentingan, pengunduran diri dari proses yang berpotensi memengaruhi objektivitas, dan pengawasan prosedural. Skor 4 mengungkapkan hubungan tetapi belum sepenuhnya menjaga independensi, skor 3 hanya meminta pendapat atasan, skor 2 tetap terlibat dengan pembatasan informal, dan skor 1 memanfaatkan jabatan untuk kepentingan pribadi.",
+    "stem": "Anda ditunjuk sebagai anggota tim evaluasi penawaran pengadaan perangkat komputer. Setelah dokumen peserta dibuka, Anda mengetahui bahwa salah satu perusahaan peserta dimiliki oleh saudara kandung Anda. Perusahaan tersebut menawarkan harga yang kompetitif dan memenuhi sebagian besar persyaratan teknis. Apa tindakan terbaik?",
+    "options": {
+      "A": "Tetap mengevaluasi penawaran karena hubungan keluarga tidak otomatis membuktikan bahwa perusahaan tersebut melakukan pelanggaran.",
+      "B": "Menyampaikan hubungan keluarga kepada anggota tim lain, tetapi tetap memberikan penilaian selama proses dilakukan secara terbuka.",
+      "C": "Meminta atasan menentukan apakah hubungan tersebut perlu dilaporkan sebelum proses evaluasi dilanjutkan.",
+      "D": "Mengungkapkan potensi konflik kepentingan secara resmi, mengundurkan diri dari penilaian terkait, dan memastikan proses dilanjutkan secara independen.",
+      "E": "Tidak membahas hubungan keluarga tersebut selama penilaian dilakukan berdasarkan dokumen dan kriteria teknis."
+    },
+    "hint": "Perhatikan bagaimana independensi dan persepsi objektivitas dijaga ketika terdapat hubungan pribadi dengan peserta pengadaan.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 3,
+      "C": 4,
+      "D": 5,
+      "E": 1
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Mempertimbangkan kriteria teknis merupakan hal penting, tetapi mengabaikan potensi konflik kepentingan dapat merusak independensi evaluasi.",
+      "B": "Poin 3 — Keterbukaan kepada tim merupakan langkah positif, tetapi keterlibatan tetap dapat memengaruhi objektivitas atau persepsi keadilan.",
+      "C": "Poin 4 — Konsultasi kepada atasan menunjukkan kehati-hatian, tetapi pengungkapan dan pengendalian konflik perlu dilakukan secara resmi.",
+      "D": "Poin 5 — Menjaga transparansi, menghindari pengaruh hubungan pribadi, dan memastikan proses evaluasi tetap independen serta akuntabel.",
+      "E": "Poin 1 — Menyembunyikan hubungan keluarga menciptakan risiko konflik kepentingan dan merusak kepercayaan terhadap proses pengadaan."
+    }
+  },
+  {
+    "slug": "tkp-profesionalisme-adaptasi-perubahan-sop-013",
+    "category": "TKP",
+    "subtopic": "Profesionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Target kompetensi adalah Kompeten dan Adaptif dalam ASN BerAKHLAK. Skor 5 mengutamakan pemeriksaan ketentuan terbaru, pembaruan prosedur kerja, sosialisasi, dan konsistensi penerapan. Skor 4 memperbaiki pekerjaan pribadi tetapi belum menyelaraskan tim, skor 3 menunggu arahan resmi tanpa inisiatif verifikasi, skor 2 mempertahankan prosedur lama karena kebiasaan, dan skor 1 mengabaikan perubahan yang telah berlaku.",
+    "stem": "Anda bekerja pada unit pelayanan perizinan. Sebuah ketentuan terbaru mengubah beberapa persyaratan dokumen dan cara verifikasi. Sebagian rekan masih menggunakan templat lama karena belum terbiasa dengan perubahan tersebut. Anda menemukan bahwa penggunaan templat lama berpotensi membuat permohonan masyarakat dikembalikan secara tidak perlu. Apa yang sebaiknya dilakukan?",
+    "options": {
+      "A": "Tetap menggunakan templat lama sambil menunggu pimpinan memberikan instruksi tertulis mengenai perubahan prosedur.",
+      "B": "Memeriksa ketentuan terbaru, memperbarui templat berdasarkan dasar resmi, dan membantu rekan memahami penerapan prosedur yang berlaku.",
+      "C": "Menggunakan templat baru untuk pekerjaan sendiri tanpa mengubah dokumen atau cara kerja rekan satu unit.",
+      "D": "Menghentikan pemeriksaan permohonan sementara sampai seluruh pegawai menyepakati cara penerapan ketentuan baru.",
+      "E": "Menyampaikan perubahan kepada rekan secara informal dan membiarkan setiap petugas menentukan cara penerapan masing-masing."
+    },
+    "hint": "Pertimbangkan hubungan antara pembelajaran berkelanjutan, ketepatan prosedur, dan konsistensi pelayanan dalam tim.",
+    "correctOption": null,
+    "scoringRubric": {
+      "A": 2,
+      "B": 5,
+      "C": 4,
+      "D": 1,
+      "E": 3
+    },
+    "optionRationales": {
+      "A": "Poin 2 — Menunggu arahan dapat menjaga kehati-hatian, tetapi tidak menunjukkan inisiatif memeriksa dan memahami ketentuan yang telah diterbitkan.",
+      "B": "Poin 5 — Memastikan prosedur berdasarkan ketentuan resmi sekaligus meningkatkan kemampuan tim dan konsistensi kualitas pelayanan.",
+      "C": "Poin 4 — Menyesuaikan pekerjaan sendiri merupakan langkah tepat, tetapi belum mencegah kesalahan yang masih dilakukan oleh rekan satu unit.",
+      "D": "Poin 1 — Menghentikan pelayanan tanpa dasar kebutuhan dapat menghambat masyarakat dan tidak menyelesaikan proses adaptasi tim.",
+      "E": "Poin 3 — Penyampaian informasi membantu rekan, tetapi tanpa verifikasi dan standar penerapan bersama dapat menghasilkan perbedaan prosedur."
+    }
   }
 ]

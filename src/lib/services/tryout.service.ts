@@ -49,6 +49,7 @@ export interface TryoutQuestionMaskedItem {
   category: SkdCategory;
   subtopic: string;
   stem: string;
+  imageUrl: string | null;
   options: QuizOptions;
   selectedOption: OptionKey | null;
   isFlagged: boolean;
@@ -473,6 +474,7 @@ export async function startTryoutSession(input: {
       category: normalizeCategory(q.category),
       subtopic: q.subtopic,
       stem: q.stem,
+      imageUrl: q.imageUrl ?? null,
       options: q.options,
       selectedOption: null,
       isFlagged: false,
@@ -585,6 +587,7 @@ export async function getTryoutSessionState(input: {
       category,
       subtopic: q.subtopic,
       stem: q.stem,
+      imageUrl: q.imageUrl ?? null,
       options: q.options,
       selectedOption,
       isFlagged: flaggedSet.has(q.id),
@@ -739,6 +742,7 @@ export async function updateTryoutProgress(input: {
           category: normalizeCategory(question.category),
           subtopic: question.subtopic,
           questionStem: question.stem,
+          imageUrl: question.imageUrl ?? null,
           options: question.options,
           correctOption: question.correctOption,
           scoringRubric: question.scoringRubric,

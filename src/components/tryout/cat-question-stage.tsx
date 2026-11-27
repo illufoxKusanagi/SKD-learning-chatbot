@@ -10,6 +10,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { FiguralImageFrame } from "@/components/quiz/figural-image-frame";
 import type { OptionKey } from "@/lib/scoring/skd-scoring";
 import type { TryoutQuestionMaskedItem } from "@/lib/services/tryout.service";
 import { cn } from "@/lib/utils";
@@ -81,6 +82,13 @@ export function CatQuestionStage({
         <p className="whitespace-pre-line text-sm leading-relaxed text-foreground sm:text-base">
           {question.stem}
         </p>
+
+        {question.imageUrl && (
+          <FiguralImageFrame
+            src={question.imageUrl}
+            alt={`Ilustrasi soal ${question.number} (${question.subtopic})`}
+          />
+        )}
 
         <div
           role="radiogroup"

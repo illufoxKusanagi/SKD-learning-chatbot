@@ -17,6 +17,7 @@ export interface SkdQuizMetadata {
   category: 'TWK' | 'TIU' | 'TKP';
   subtopic: string;
   questionStem: string;
+  imageUrl?: string | null;
   options: { A: string; B: string; C: string; D: string; E: string };
   correctOption: 'A' | 'B' | 'C' | 'D' | 'E';
   scoringRubric: { A: number; B: number; C: number; D: number; E: number };
@@ -57,7 +58,7 @@ export function detectSkdCategoryAndIntent(
   const twkPattern =
     /\b(twk|wawasan\s+kebangsaan|pancasila|uud|pasal|bhinneka|nkri|bela\s+negara|nasionalisme|integritas|bahasa\s+indonesia|eyd|bpupki|ppki|sejarah)\b/i;
   const tiuPattern =
-    /\b(tiu|inteligensia\s+umum|silogisme|analogi|deret|numerik|berhitung|pecahan|perbandingan|kecepatan|jarak|waktu|kuantitatif|analitis|figural|logika|premis)\b/i;
+    /\b(tiu|inteligensia\s+umum|silogisme|analogi|deret|numerik|berhitung|pecahan|perbandingan|kecepatan|jarak|waktu|kuantitatif|analitis|figural|jaring-jaring|ketidaksamaan\s+gambar|analogi\s+gambar|matriks\s+gambar|logika|premis)\b/i;
   const tkpPattern =
     /\b(tkp|karakteristik\s+pribadi|pelayanan\s+publik|jejaring\s+kerja|sosial\s+budaya|tik|profesionalisme|anti\s+radikalisme|radikalisme|berakhlak|tempat\s+kerja|atasan|rekan\s+kerja|masyarakat)\b/i;
 
@@ -230,6 +231,7 @@ function mapQuizQuestionRowToCandidate(
       category: cat,
       subtopic: qRow.subtopic,
       questionStem: qRow.stem,
+      imageUrl: qRow.imageUrl ?? null,
       options: qRow.options,
       correctOption: resolvedCorrect,
       scoringRubric: resolvedRubric,
@@ -326,6 +328,7 @@ export async function findRelevantContents(
           subtopic: quizQuestions.subtopic,
           reasoningChain: quizQuestions.reasoningChain,
           stem: quizQuestions.stem,
+          imageUrl: quizQuestions.imageUrl,
           options: quizQuestions.options,
           correctOption: quizQuestions.correctOption,
           scoringRubric: quizQuestions.scoringRubric,

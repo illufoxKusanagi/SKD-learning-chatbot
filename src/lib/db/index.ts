@@ -92,6 +92,7 @@ export async function ensureDatabaseSchema(opts: { throwOnError?: boolean } = {}
         difficulty VARCHAR(20) NOT NULL DEFAULT 'hots',
         reasoning_chain TEXT NOT NULL,
         stem TEXT NOT NULL,
+        image_url TEXT,
         options JSONB NOT NULL,
         hint TEXT NOT NULL,
         correct_option VARCHAR(5),
@@ -152,6 +153,7 @@ export async function ensureDatabaseSchema(opts: { throwOnError?: boolean } = {}
         category VARCHAR(10) NOT NULL,
         subtopic TEXT NOT NULL,
         question_stem TEXT NOT NULL,
+        image_url TEXT,
         options JSONB NOT NULL,
         correct_option VARCHAR(5),
         scoring_rubric JSONB,
@@ -197,6 +199,14 @@ export async function ensureDatabaseSchema(opts: { throwOnError?: boolean } = {}
     await db.execute(sql`
       ALTER TABLE quiz_attempts
       ADD COLUMN IF NOT EXISTS used_hint BOOLEAN NOT NULL DEFAULT FALSE
+    `);
+    await db.execute(sql`
+      ALTER TABLE quiz_questions
+      ADD COLUMN IF NOT EXISTS image_url TEXT
+    `);
+    await db.execute(sql`
+      ALTER TABLE quiz_attempts
+      ADD COLUMN IF NOT EXISTS image_url TEXT
     `);
     await db.execute(sql`
       CREATE UNIQUE INDEX IF NOT EXISTS quiz_attempts_session_question_uidx

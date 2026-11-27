@@ -316,7 +316,7 @@ KETENTUAN RESMI UJIAN SKD CPNS:
    - Fokus Materi:
      * Verbal: Analogi kata logis, Silogisme (penarikan kesimpulan modus ponens/tollens/silogisme, kuantor semua/sebagian), dan Analitis (posisi urutan/jadwal/pemetaan kondisi).
      * Numerik: Berhitung Cepat (aljabar, pecahan, persentase), Deret Angka (pola bertingkat, larik Fibonacci, selang-seling), Perbandingan Kuantitatif (senilai, berbalik nilai, pekerja gabungan), dan Soal Cerita (kecepatan rata-rata, jarak, waktu berpapasan/menyusul).
-     * Figural: Analogi gambar, ketidaksamaan (odd-one-out), dan serial pola rotasi/pencerminan.
+     * Figural: Analogi gambar, ketidaksamaan (odd-one-out), dan serial pola rotasi/pencerminan (HANYA dari bank soal bergambar terkurasi; JANGAN pernah mengarang soal Figural berbasis teks/ASCII atau mengarang imageUrl).
    - METODE WAJIB: Selalu sertakan langkah matematis/logis yang runtut dan berikan "💡 Trik Cepat SKD (< 50 detik)" tanpa rumus bertele-tele.
 
 3. TES KARAKTERISTIK PRIBADI (TKP):
@@ -439,7 +439,10 @@ export async function* generateAiResponse(
       options?.ragResult?.unattemptedBenchmark &&
       !options?.lockedQuizEvaluation
     ) {
-      const b = options.ragResult.unattemptedBenchmark;
+      const b: SkdQuizMetadata = {
+        ...options.ragResult.unattemptedBenchmark,
+        imageUrl: options.ragResult.unattemptedBenchmark.imageUrl ?? null,
+      };
       const benchmarkText = `### 📝 Latihan Soal ${b.category} — ${b.subtopic}
 
 ${b.questionStem}
@@ -649,10 +652,11 @@ ${
 
 ATURAN WAJIB:
 1. Buatkan TEPAT 1 soal latihan baru berkualitas tinggi (HOTS).
-2. Tampilkan: Judul soal, narasi soal, dan opsi A sampai E (masing-masing di baris baru).
-3. Minta pengguna menjawab (A, B, C, D, atau E).
-4. DILARANG KERAS MEMBOCORKAN KUNCI JAWABAN ATAU PEMBAHASAN SEKARANG!
-5. Pada akhir respons, lampirkan blok:
+2. KHUSUS TIU: DILARANG KERAS membuat soal Figural (ketidaksamaan gambar, analogi gambar, serial, atau jaring-jaring/spasial) maupun menyertakan field imageUrl saat menyusun variasi baru. Gunakan HANYA subtopik Verbal (Analogi, Silogisme, Analitis) atau Numerik (Deret, Perbandingan Kuantitatif, Aritmetika Sosial, Soal Cerita).
+3. Tampilkan: Judul soal, narasi soal, dan opsi A sampai E (masing-masing di baris baru).
+4. Minta pengguna menjawab (A, B, C, D, atau E).
+5. DILARANG KERAS MEMBOCORKAN KUNCI JAWABAN ATAU PEMBAHASAN SEKARANG!
+6. Pada akhir respons, lampirkan blok:
 <quiz_meta>{"category":"${
         options.ragResult.detectedCategory || 'TWK'
       }","subtopic":"...","questionStem":"...","options":{"A":"...","B":"...","C":"...","D":"...","E":"..."},"correctOption":"...","scoringRubric":{"A":...,"B":...,"C":...,"D":...,"E":...},"rubricRationale":"..."}</quiz_meta>`;
@@ -712,6 +716,20 @@ ATURAN WAJIB:
     console.error('AI generation error:', error);
     throw error;
   }
+}
+
+const FIGURAL_IMAGE_URL_REGEX =
+  /^\/figural\/[a-z0-9-]+\.(png|jpg|jpeg|webp|svg)$/;
+
+function sanitizeExtractedImageUrl(parsed: Record<string, unknown>): string | null {
+  if (
+    typeof parsed.imageUrl === 'string' &&
+    FIGURAL_IMAGE_URL_REGEX.test(parsed.imageUrl) &&
+    Boolean(parsed.ragSourceId)
+  ) {
+    return parsed.imageUrl;
+  }
+  return null;
 }
 
 export function extractQuizMetaFromText(rawText: string): {
@@ -797,6 +815,7 @@ export function extractQuizMetaFromText(rawText: string): {
               category: parsed.category,
               subtopic: parsed.subtopic || 'Umum',
               questionStem: parsed.questionStem,
+              imageUrl: sanitizeExtractedImageUrl(parsed),
               options: {
                 A: String(parsed.options.A),
                 B: String(parsed.options.B),
@@ -815,6 +834,7 @@ export function extractQuizMetaFromText(rawText: string): {
             category: parsed.category,
             subtopic: parsed.subtopic || 'Umum',
             questionStem: parsed.questionStem,
+            imageUrl: sanitizeExtractedImageUrl(parsed),
             options: {
               A: String(parsed.options.A),
               B: String(parsed.options.B),
