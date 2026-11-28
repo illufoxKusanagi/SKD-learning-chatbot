@@ -20,13 +20,19 @@ function createSqlClient(connectionString: string, isWorker: boolean): SqlClient
   return postgres(connectionString, {
     prepare: false,
     fetch_types: false,
-    max: isWorker ? 2 : 5,
+    max: isWorker ? 1 : 5,
     idle_timeout: isWorker ? 2 : 5,
     connect_timeout: 10,
   });
 }
 
 function resolveDbEntry(): DbEntry {
+  const isCloudflareRuntime =
+    (typeof navigator !== "undefined" &&
+      navigator.userAgent === "Cloudflare-Workers") ||
+    typeof (globalThis as { WebSocketPair?: unknown }).WebSocketPair !==
+      "undefined";
+
   try {
     const cfCtx = getCloudflareContext({ async: false });
     if (cfCtx?.ctx) {
@@ -35,16 +41,26 @@ function resolveDbEntry(): DbEntry {
         return cached;
       }
 
-      const envDbUrl = (cfCtx.env as Record<string, unknown> | undefined)
-        ?.DATABASE_URL;
-      const connectionString =
+      const env = cfCtx.env as Record<string, unknown> | undefined;
+      const hyperdrive = env?.HYPERDRIVE as
+        | { connectionString?: unknown }
+        | undefined;
+      const hyperdriveUrl =
+        typeof hyperdrive?.connectionString === "string" &&
+        hyperdrive.connectionString.trim().length > 0
+          ? hyperdrive.connectionString
+          : undefined;
+      const envDbUrl = env?.DATABASE_URL;
+      const workerDbUrl =
         typeof envDbUrl === "string" && envDbUrl.trim().length > 0
           ? envDbUrl
-          : process.env.DATABASE_URL;
+          : undefined;
+      const connectionString =
+        hyperdriveUrl ?? workerDbUrl ?? process.env.DATABASE_URL;
 
       if (!connectionString) {
         throw new Error(
-          "DATABASE_URL is not set in Cloudflare Worker bindings or environment"
+          "HYPERDRIVE or DATABASE_URL is not set in Cloudflare Worker bindings or environment"
         );
       }
 
@@ -54,10 +70,18 @@ function resolveDbEntry(): DbEntry {
       requestDbCache.set(cfCtx.ctx, entry);
       return entry;
     }
+
+    if (isCloudflareRuntime) {
+      throw new Error(
+        "Cloudflare request context is unavailable in Workers runtime"
+      );
+    }
   } catch (error) {
     if (
-      error instanceof Error &&
-      error.message.includes("DATABASE_URL is not set")
+      isCloudflareRuntime ||
+      (error instanceof Error &&
+        (error.message.includes("DATABASE_URL is not set") ||
+          error.message.includes("Cloudflare request context")))
     ) {
       throw error;
     }

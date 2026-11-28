@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { ApiError, withMiddleware } from "@/middleware/api";
+import {
+  ApiError,
+  createRateLimitMiddleware,
+  withMiddleware,
+} from "@/middleware/api";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
 import { db } from "@/lib/db";
@@ -36,7 +40,13 @@ async function meHandler() {
   });
 }
 
-// Edited here: Your original middleware composition approach
+const authMeRateLimit = createRateLimitMiddleware({
+  prefix: "auth-me",
+  windowMs: 60_000,
+  max: 60,
+  guestMax: 30,
+});
+
 export const GET = (request: NextRequest) => {
-  return withMiddleware()(request, meHandler);
+  return withMiddleware(authMeRateLimit)(request, meHandler);
 };

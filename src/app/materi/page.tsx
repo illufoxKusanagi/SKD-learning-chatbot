@@ -51,7 +51,7 @@ export default function MateriPage() {
           <AlertTriangle className="text-warning" />
           <AlertDescription className="flex flex-wrap items-center justify-center gap-1.5 text-xs text-foreground">
             <span>
-              Mode Tamu: Riwayat topik sering salah dihitung dari sesi di perangkat ini.
+              Mode Tamu: Riwayat topik yang perlu diperkuat dihitung dari sesi latihan Anda.
             </span>
             <Link
               href="/auth/login"

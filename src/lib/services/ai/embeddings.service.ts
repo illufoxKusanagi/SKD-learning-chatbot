@@ -1,4 +1,4 @@
-import { GoogleGenAI } from '@google/genai';
+import { GoogleGenAI, type EmbedContentResponse } from '@google/genai';
 
 export type EmbeddingTaskType =
   | 'RETRIEVAL_DOCUMENT'
@@ -48,7 +48,7 @@ export async function generateEmbedding(
     const cleanContent = content.trim().replace(/\s+/g, ' ');
 
     const maxRetries = 2;
-    let result: unknown;
+    let result: EmbedContentResponse | undefined;
     for (let attempt = 0; attempt <= maxRetries; attempt++) {
       try {
         result = await ai.models.embedContent({
@@ -73,18 +73,7 @@ export async function generateEmbedding(
       }
     }
 
-    // Cast to any to handle SDK response variations
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response = result as any;
-    let embedding: number[] | undefined;
-
-    if (response.embeddings?.[0]?.values) {
-      embedding = response.embeddings[0].values;
-    } else if (response.embedding?.values) {
-      embedding = response.embedding.values;
-    } else if (response.embeddings?.values) {
-      embedding = response.embeddings.values;
-    }
+    const embedding = result?.embeddings?.[0]?.values;
 
     if (!embedding || !Array.isArray(embedding) || embedding.length !== 768) {
       throw new Error(
@@ -99,10 +88,9 @@ export async function generateEmbedding(
     }
 
     const validEmbedding = embedding.map((value, index) => {
-      const num =
-        typeof value === 'number' ? value : parseFloat(value as string);
-      if (isNaN(num)) {
-        throw new Error(`Invalid embedding value at index ${index}: ${value}`);
+      const num = typeof value === 'number' ? value : Number(value);
+      if (!Number.isFinite(num)) {
+        throw new Error(`Invalid embedding value at index ${index}: ${String(value)}`);
       }
       return num;
     });
@@ -132,7 +120,7 @@ export async function generateBatchEmbeddings(
   const ai = getGenAIClient();
 
   try {
-    const result = await ai.models.embedContent({
+    const result: EmbedContentResponse = await ai.models.embedContent({
       model: getEmbeddingModel(),
       contents: cleanContents,
       config: {
@@ -141,17 +129,14 @@ export async function generateBatchEmbeddings(
       },
     });
 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const response = result as any;
-    const rawEmbeddings = response.embeddings;
+    const rawEmbeddings = result.embeddings;
 
     if (
       Array.isArray(rawEmbeddings) &&
       rawEmbeddings.length === cleanContents.length
     ) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      return rawEmbeddings.map((item: any, idx: number) => {
-        const values = item?.values || item;
+      return rawEmbeddings.map((item, idx) => {
+        const values = item?.values;
         if (!Array.isArray(values) || values.length !== 768) {
           throw new Error(
             `Batch embedding at index ${idx} has invalid dimensions: ${
@@ -159,10 +144,15 @@ export async function generateBatchEmbeddings(
             }`
           );
         }
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        return values.map((val: any) =>
-          typeof val === 'number' ? val : parseFloat(val)
-        );
+        return values.map((val, valIdx) => {
+          const num = typeof val === 'number' ? val : Number(val);
+          if (!Number.isFinite(num)) {
+            throw new Error(
+              `Invalid batch embedding value at index ${idx}[${valIdx}]: ${String(val)}`
+            );
+          }
+          return num;
+        });
       });
     }
 

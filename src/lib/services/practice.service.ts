@@ -37,10 +37,10 @@ export interface PracticeQuestionItem {
   imageUrl: string | null;
   options: QuizOptions;
   hint: string;
-  correctOption: "A" | "B" | "C" | "D" | "E" | null;
-  scoringRubric: QuizScoringRubric | null;
-  optionRationales: QuizOptions;
-  reasoningChain: string;
+  correctOption?: "A" | "B" | "C" | "D" | "E" | null;
+  scoringRubric?: QuizScoringRubric | null;
+  optionRationales?: QuizOptions | null;
+  reasoningChain?: string | null;
   materials: PracticeQuestionMaterialItem[];
 }
 
@@ -69,6 +69,7 @@ export interface SyncPracticeAttemptInput {
   questionId: string;
   chatId?: string | null;
   userId?: string | null;
+  guestSessionId?: string | null;
   selectedOption: "A" | "B" | "C" | "D" | "E";
   usedHint?: boolean;
   timeSpentSeconds?: number;
@@ -79,8 +80,13 @@ export interface SyncPracticeAttemptResult {
   sessionId: string;
   questionId: string;
   selectedOption: "A" | "B" | "C" | "D" | "E";
+  correctOption: "A" | "B" | "C" | "D" | "E" | null;
+  scoringRubric: QuizScoringRubric | null;
+  optionRationales: QuizOptions;
+  reasoningChain: string;
   scoreEarned: number;
   maxScore: number;
+  isCorrect: boolean;
   sessionCompleted: boolean;
 }
 
@@ -130,6 +136,7 @@ function shuffleArray<T>(items: T[]): T[] {
 
 function buildOwnerConditions(opts: {
   userId: string | null;
+  guestSessionId?: string | null;
   validGuestChatIds: string[];
   validGuestSessionIds: string[];
 }) {
@@ -143,11 +150,25 @@ function buildOwnerConditions(opts: {
       )
     );
   }
+  if (!opts.userId && opts.guestSessionId) {
+    conditions.push(
+      and(
+        eq(quizSessions.guestSessionId, opts.guestSessionId),
+        isNull(quizSessions.userId)
+      )
+    );
+  }
   if (opts.validGuestChatIds.length > 0) {
     conditions.push(
       and(
         inArray(quizAttempts.chatId, opts.validGuestChatIds),
-        eq(conversations.isGuestChat, true)
+        eq(conversations.isGuestChat, true),
+        opts.guestSessionId
+          ? or(
+              eq(conversations.guestSessionId, opts.guestSessionId),
+              isNull(conversations.guestSessionId)
+            )
+          : isNull(conversations.guestSessionId)
       )
     );
   }
@@ -155,7 +176,13 @@ function buildOwnerConditions(opts: {
     conditions.push(
       and(
         inArray(quizAttempts.sessionId, opts.validGuestSessionIds),
-        isNull(quizSessions.userId)
+        isNull(quizSessions.userId),
+        opts.guestSessionId
+          ? or(
+              eq(quizSessions.guestSessionId, opts.guestSessionId),
+              isNull(quizSessions.guestSessionId)
+            )
+          : isNull(quizSessions.guestSessionId)
       )
     );
   }
@@ -175,6 +202,7 @@ export async function createPracticePack(
   }
 
   const userId = isValidUuid(input.userId) ? input.userId.trim() : null;
+  const guestSessionId = userId ? null : (input.guestSessionId?.trim() || null);
   const validQuestionIds = normalizeUuidList(input.questionIds);
   const validGuestChatIds = normalizeUuidList(input.guestChatIds);
   const validGuestSessionIds = normalizeUuidList(input.guestSessionIds);
@@ -274,6 +302,7 @@ export async function createPracticePack(
 
   const ownerConditions = buildOwnerConditions({
     userId,
+    guestSessionId,
     validGuestChatIds,
     validGuestSessionIds,
   });
@@ -431,7 +460,7 @@ export async function createPracticePack(
     .insert(quizSessions)
     .values({
       userId,
-      guestSessionId: input.guestSessionId ?? null,
+      guestSessionId,
       mode: "practice",
       status: "in_progress",
       durationSeconds: null,
@@ -451,10 +480,6 @@ export async function createPracticePack(
       imageUrl: q.imageUrl ?? null,
       options: q.options,
       hint: q.hint,
-      correctOption: normalizeOption(q.correctOption),
-      scoringRubric: q.scoringRubric ?? null,
-      optionRationales: q.optionRationales,
-      reasoningChain: q.reasoningChain,
       materials:
         category === "TWK" ? (materialsByQuestionId.get(q.id) ?? []) : [],
     };
@@ -594,6 +619,17 @@ export async function syncPracticeAttempt(
       "SESSION_ACCESS_DENIED"
     );
   }
+  if (
+    !session.userId &&
+    session.guestSessionId &&
+    session.guestSessionId !== (input.guestSessionId ?? null)
+  ) {
+    throw new ApiError(
+      "Anda tidak memiliki akses ke sesi latihan ini",
+      403,
+      "SESSION_ACCESS_DENIED"
+    );
+  }
 
   if (session.mode !== "practice") {
     throw new ApiError(
@@ -627,7 +663,12 @@ export async function syncPracticeAttempt(
   let validChatId: string | null = null;
   if (isValidUuid(input.chatId)) {
     const [conversation] = await db
-      .select({ id: conversations.id, userId: conversations.userId })
+      .select({
+        id: conversations.id,
+        userId: conversations.userId,
+        isGuestChat: conversations.isGuestChat,
+        guestSessionId: conversations.guestSessionId,
+      })
       .from(conversations)
       .where(eq(conversations.id, input.chatId.trim()))
       .limit(1);
@@ -636,6 +677,17 @@ export async function syncPracticeAttempt(
       throw new ApiError("Chat tidak ditemukan", 404, "CHAT_NOT_FOUND");
     }
     if (conversation.userId && conversation.userId !== actorUserId) {
+      throw new ApiError("Akses ke chat ditolak", 403, "CHAT_ACCESS_DENIED");
+    }
+    if (!conversation.userId && !conversation.isGuestChat) {
+      throw new ApiError("Akses ke chat ditolak", 403, "CHAT_ACCESS_DENIED");
+    }
+    if (
+      !conversation.userId &&
+      conversation.isGuestChat &&
+      conversation.guestSessionId &&
+      conversation.guestSessionId !== (input.guestSessionId ?? null)
+    ) {
       throw new ApiError("Akses ke chat ditolak", 403, "CHAT_ACCESS_DENIED");
     }
     validChatId = conversation.id;
@@ -731,8 +783,13 @@ export async function syncPracticeAttempt(
     sessionId: session.id,
     questionId: question.id,
     selectedOption: input.selectedOption,
+    correctOption: normalizeOption(question.correctOption),
+    scoringRubric: question.scoringRubric ?? null,
+    optionRationales: question.optionRationales,
+    reasoningChain: question.reasoningChain,
     scoreEarned,
     maxScore: 5,
+    isCorrect: scoreEarned === 5,
     sessionCompleted,
   };
 }

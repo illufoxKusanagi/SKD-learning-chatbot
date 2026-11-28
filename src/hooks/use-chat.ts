@@ -346,6 +346,9 @@ export function useChat() {
           activeChatIdRef.current = newChatId;
           recordLastActiveChatId(newChatId);
           recordGuestChatId(newChatId);
+          if (newChatId !== targetChatId && typeof window !== "undefined") {
+            window.dispatchEvent(new CustomEvent("skd:chat-created"));
+          }
         }
 
         if (!response.body) throw new Error("No response body");

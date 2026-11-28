@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
 import { initOpenNextCloudflareForDev } from "@opennextjs/cloudflare";
 
-if (process.env.NODE_ENV === "development") {
+if (
+  process.env.NODE_ENV === "development" &&
+  process.env.ENABLE_CF_DEV === "true"
+) {
   initOpenNextCloudflareForDev();
 }
 

@@ -17,8 +17,6 @@ function HomeContent() {
   const isLoading = status === "loading";
   const user = session?.user;
 
-  console.log("Is authenticated in home page: ", isAuthenticated);
-
   if (isLoading) {
     return (
       <div className="flex h-screen items-center justify-center">
@@ -26,27 +24,6 @@ function HomeContent() {
       </div>
     );
   }
-
-  // const insertTestRagData = async () => {
-  //   setIsDbLoading(true);
-  //   setDbStatus("");
-  //   try {
-  //     const response = await fetch("/api/rag/data", {
-  //       method: "POST",
-  //     });
-  //     const result = await response.json();
-  //     if (response.ok) {
-  //       setDbStatus("Insert rag datas succesful!");
-  //     } else {
-  //       console.error("Error inserting data:", result.error);
-  //       setDbStatus(`Error: ${result.message}`);
-  //     }
-  //   } catch (error) {
-  //     setDbStatus(`Error: ${(error as Error).message}`);
-  //   } finally {
-  //     setIsDbLoading(false);
-  //   }
-  // };
 
   // Home page should be accessible to everyone - no authentication blocking
   return (
@@ -96,15 +73,6 @@ function HomeContent() {
             </Link>
           </span>
         </p>
-        {/* {dbStatus && <p className="text-sm font-medium">{dbStatus}</p>}
-        <Button
-          onClick={insertTestRagData}
-          disabled={isDbLoading}
-          variant="outline"
-        >
-          <Bubbles size="icon" className="m-2" />
-          {isDbLoading ? "Testing..." : "Test Database"}
-        </Button> */}
       </footer>
     </div>
   );

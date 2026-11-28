@@ -1,4 +1,10 @@
-import { GoogleGenAI } from '@google/genai';
+import {
+  GoogleGenAI,
+  type Content,
+  type GenerateContentConfig,
+  type GenerateContentResponse,
+  type ThinkingConfig,
+} from '@google/genai';
 import { SkdRetrievalResult, SkdQuizMetadata } from './rag.service';
 import {
   buildDeepTutorPrompt,
@@ -180,18 +186,33 @@ export function classifyAiStreamError(error: unknown): ClassifiedAiError {
   };
 }
 
-export interface StreamGeminiCascadeOptions {
-  ai?: {
-    models: {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      generateContentStream: (args: any) => Promise<AsyncIterable<any>>;
+export type GeminiStreamChunk =
+  | GenerateContentResponse
+  | {
+      candidates?: Array<{
+        finishReason?: string;
+        content?: {
+          parts?: Array<{ text?: string; thought?: boolean }>;
+        };
+      }>;
+      text?: string;
     };
+
+export interface GeminiStreamClient {
+  models: {
+    generateContentStream: (args: {
+      model: string;
+      contents: Content[] | string;
+      config?: GenerateContentConfig;
+    }) => Promise<AsyncIterable<GeminiStreamChunk>>;
   };
+}
+
+export interface StreamGeminiCascadeOptions {
+  ai?: GeminiStreamClient;
   models?: string[];
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  contents: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  config: any;
+  contents: Content[] | string;
+  config: GenerateContentConfig;
   isQuizRequest?: boolean;
   sleep?: (ms: number) => Promise<void>;
 }
@@ -199,8 +220,7 @@ export interface StreamGeminiCascadeOptions {
 const defaultSleep = (ms: number) =>
   new Promise<void>((resolve) => setTimeout(resolve, ms));
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function extractTextFromChunk(chunk: any): string {
+function extractTextFromChunk(chunk: GeminiStreamChunk): string {
   const parts = chunk?.candidates?.[0]?.content?.parts;
   if (Array.isArray(parts) && parts.length > 0) {
     let text = '';
@@ -230,8 +250,7 @@ export async function* streamGeminiWithCascade(
     const currentModel = modelChain[i];
     const isFallback = i > 0;
     const isGemini25 = currentModel.startsWith('gemini-2.5');
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const baseConfig: Record<string, any> = options.config
+    const baseConfig: GenerateContentConfig = options.config
       ? { ...options.config }
       : {};
 
@@ -239,7 +258,8 @@ export async function* streamGeminiWithCascade(
       delete baseConfig.tools;
       delete baseConfig.thinkingConfig;
       if (isGemini25) {
-        baseConfig.thinkingConfig = { thinkingBudget: 0 };
+        const disabledThinking: ThinkingConfig = { thinkingBudget: 0 };
+        baseConfig.thinkingConfig = disabledThinking;
       }
     } else if (!isGemini25) {
       delete baseConfig.thinkingConfig;
@@ -256,8 +276,7 @@ export async function* streamGeminiWithCascade(
       let accumulatedText = '';
 
       for await (const chunk of response) {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const finishReason = (chunk as any)?.candidates?.[0]?.finishReason;
+        const finishReason = chunk?.candidates?.[0]?.finishReason;
         if (finishReason === 'MAX_TOKENS') {
           sawMaxTokens = true;
           console.warn(
@@ -388,7 +407,7 @@ function cleanHistoricalText(text: string): string {
   return truncateText(cleaned, MAX_HISTORY_TURN_CHARS);
 }
 
-export async function generateChatTitle(message: string): Promise<string> {
+export function generateChatTitle(message: string): string {
   if (!message || typeof message !== 'string') {
     return 'Sesi Belajar SKD';
   }
@@ -557,8 +576,7 @@ Ketentuan:
 2. Berikan trik cepat SKD (< 50 detik) dan analisis ringkas mengapa opsi pengecoh lain kurang tepat atau mengecoh.
 3. Langsung mulai respons dari header "#### ⚡ Trik Cepat (< 50 Detik) & Analisis Pengecoh".`;
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const suppConfig: any = {
+        const suppConfig: GenerateContentConfig = {
           systemInstruction: TURN2_SYSTEM_INSTRUCTION,
           temperature: 0.35,
           maxOutputTokens: 768,
@@ -583,6 +601,7 @@ Ketentuan:
           'Turn-2 supplementary Gemini stream skipped/timed out:',
           suppError
         );
+        yield '\n\n*Catatan: Ringkasan trik cepat tambahan gagal dimuat karena batas waktu/kuota. Pembahasan inti di atas tetap valid.*';
         return;
       }
 
@@ -592,10 +611,7 @@ Ketentuan:
     const ai = getGenAIClient();
 
     // 3. Build multi-turn history cleaned of internal markers and bounded by turns & total chars
-    const historyContents: {
-      role: 'user' | 'model';
-      parts: { text: string }[];
-    }[] = [];
+    const historyContents: Content[] = [];
 
     const rawHistory = options?.history || [];
     const recentHistory = rawHistory.slice(-MAX_HISTORY_TURNS);
@@ -605,14 +621,18 @@ Ketentuan:
       const cleanedText = cleanHistoricalText(turn.content);
       if (!cleanedText) continue;
 
-      if (
-        historyContents.length > 0 &&
-        historyContents[historyContents.length - 1].role === role
-      ) {
-        historyContents[historyContents.length - 1].parts[0].text = truncateText(
-          `${historyContents[historyContents.length - 1].parts[0].text}\n\n${cleanedText}`,
-          MAX_HISTORY_TURN_CHARS
-        );
+      const lastTurn = historyContents[historyContents.length - 1];
+      const lastText = lastTurn?.parts?.[0]?.text;
+      if (lastTurn && lastTurn.role === role && typeof lastText === 'string') {
+        const merged = `${lastText}\n\n${cleanedText}`;
+        lastTurn.parts = [
+          {
+            text:
+              merged.length > MAX_HISTORY_TURN_CHARS
+                ? merged.slice(-MAX_HISTORY_TURN_CHARS)
+                : merged,
+          },
+        ];
       } else {
         historyContents.push({
           role,
@@ -622,12 +642,12 @@ Ketentuan:
     }
 
     let totalHistoryChars = historyContents.reduce(
-      (sum, item) => sum + item.parts[0].text.length,
+      (sum, item) => sum + (item.parts?.[0]?.text?.length ?? 0),
       0
     );
     while (totalHistoryChars > MAX_HISTORY_TOTAL_CHARS && historyContents.length > 0) {
       const removed = historyContents.shift();
-      totalHistoryChars -= removed ? removed.parts[0].text.length : 0;
+      totalHistoryChars -= removed?.parts?.[0]?.text?.length ?? 0;
     }
 
     // 4. Compose current user prompt with deterministic or RAG context
@@ -695,8 +715,7 @@ ATURAN WAJIB:
     const isGemini25 = model.startsWith('gemini-2.5');
 
     // Note: thinkingConfig.thinkingBudget applies only to gemini-2.5-* models.
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const config: any = {
+    const config: GenerateContentConfig = {
       systemInstruction: SKD_SYSTEM_INSTRUCTION,
       temperature: 0.35,
       maxOutputTokens: 4096,

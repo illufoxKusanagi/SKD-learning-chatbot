@@ -1,7 +1,7 @@
 import { sql } from "drizzle-orm";
-import { db, getSqlClient } from "./index";
+import { db } from "./index";
 
-// Ensure pgvector extension, normalized SKD tables, quiz_attempts, rate_limits, and HNSW indexes exist
+// Ensure pgvector extension, core auth/chat/rag tables, normalized SKD tables, quiz_attempts, rate_limits, and HNSW indexes exist
 let schemaInitialized = false;
 
 export async function ensureDatabaseSchema(
@@ -12,7 +12,92 @@ export async function ensureDatabaseSchema(
     // 1. Ensure pgvector extension is enabled
     await db.execute(sql`CREATE EXTENSION IF NOT EXISTS vector`);
 
-    // 2. Ensure study_materials table and indexes exist
+    // 2. Ensure core users, chat_history, messages, and rag_data tables exist
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS users (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        username VARCHAR(50) NOT NULL UNIQUE,
+        email TEXT NOT NULL UNIQUE,
+        role VARCHAR NOT NULL DEFAULT 'user',
+        avatar TEXT,
+        password TEXT NOT NULL,
+        created_at TIMESTAMP NOT NULL DEFAULT NOW(),
+        updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+        last_login TIMESTAMP
+      )
+    `);
+    try {
+      const duplicateEmails = await db.execute(sql`
+        SELECT lower(email) AS normalized_email, COUNT(*)::int AS cnt
+        FROM users
+        GROUP BY lower(email)
+        HAVING COUNT(*) > 1
+        LIMIT 5
+      `);
+      const rows = Array.isArray(duplicateEmails)
+        ? duplicateEmails
+        : ((duplicateEmails as { rows?: unknown[] } | null)?.rows ?? []);
+      if (rows.length > 0) {
+        console.warn(
+          "[DB] Skipping users_email_lower_uidx creation: case-variant duplicate emails detected in users table",
+          rows
+        );
+      } else {
+        await db.execute(sql`
+          CREATE UNIQUE INDEX IF NOT EXISTS users_email_lower_uidx
+          ON users (lower(email))
+        `);
+      }
+    } catch (indexErr) {
+      console.warn(
+        "[DB] Could not ensure users_email_lower_uidx:",
+        indexErr
+      );
+    }
+
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS chat_history (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+        title TEXT NOT NULL,
+        created_at TIMESTAMP DEFAULT NOW(),
+        is_guest_chat BOOLEAN DEFAULT FALSE,
+        guest_session_id TEXT,
+        expires_at TIMESTAMP
+      )
+    `);
+
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS messages (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        chat_id UUID NOT NULL REFERENCES chat_history(id) ON DELETE CASCADE,
+        role VARCHAR(20) NOT NULL,
+        content TEXT NOT NULL,
+        created_at TIMESTAMP NOT NULL DEFAULT NOW()
+      )
+    `);
+
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS rag_data (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        content TEXT NOT NULL,
+        data JSONB NOT NULL,
+        embedding vector(768),
+        title TEXT,
+        source VARCHAR(50) NOT NULL DEFAULT 'internal',
+        external_id VARCHAR(255),
+        is_cached BOOLEAN DEFAULT FALSE,
+        cache_expires_at TIMESTAMP,
+        last_fetched_at TIMESTAMP,
+        similarity_score REAL,
+        fetch_count INTEGER DEFAULT 0,
+        api_response_metadata JSONB,
+        created_at TIMESTAMP DEFAULT NOW(),
+        updated_at TIMESTAMP DEFAULT NOW()
+      )
+    `);
+
+    // 3. Ensure study_materials table and indexes exist
     await db.execute(sql`
       CREATE TABLE IF NOT EXISTS study_materials (
         id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -129,15 +214,19 @@ export async function ensureDatabaseSchema(
     `);
 
     // Safe idempotent migration for existing quiz_attempts tables
-    await getSqlClient()`
-      DO $$
-      BEGIN
-        ALTER TABLE quiz_attempts DROP CONSTRAINT IF EXISTS quiz_attempts_rag_source_id_fkey;
-        ALTER TABLE quiz_attempts ALTER COLUMN rag_source_id TYPE VARCHAR(255) USING rag_source_id::VARCHAR(255);
-      EXCEPTION WHEN OTHERS THEN
-        NULL;
-      END $$;
-    `;
+    try {
+      await db.execute(
+        sql`ALTER TABLE quiz_attempts DROP CONSTRAINT IF EXISTS quiz_attempts_rag_source_id_fkey`
+      );
+      await db.execute(
+        sql`ALTER TABLE quiz_attempts ALTER COLUMN rag_source_id TYPE VARCHAR(255) USING rag_source_id::VARCHAR(255)`
+      );
+    } catch (migrationErr) {
+      console.warn(
+        "[DB] Legacy quiz_attempts rag_source_id migration warning:",
+        migrationErr
+      );
+    }
     await db.execute(
       sql`ALTER TABLE quiz_attempts ALTER COLUMN chat_id DROP NOT NULL`
     );

@@ -1,58 +1,90 @@
 import { db } from '@/lib/db';
 import { conversations, messages } from '@/lib/db/schema';
+import {
+  ApiError,
+  createRateLimitMiddleware,
+  withMiddleware,
+} from '@/middleware/api';
 import { and, eq, inArray, isNotNull, lt } from 'drizzle-orm';
-import { NextResponse } from 'next/server';
+import { NextRequest, NextResponse } from 'next/server';
 
-// This endpoint cleans up expired guest chats
-export async function DELETE() {
-  try {
-    const now = new Date();
+async function verifyCronAuthorization(request: NextRequest): Promise<boolean> {
+  const cronSecret = process.env.CRON_SECRET;
+  const authHeader = request.headers.get('authorization');
 
-    // Find expired guest chats
-    const expiredGuestChats = await db
-      .select({ id: conversations.id })
-      .from(conversations)
-      .where(
-        and(
-          eq(conversations.isGuestChat, true),
-          isNotNull(conversations.expiresAt),
-          lt(conversations.expiresAt, now)
-        )
-      );
+  if (!cronSecret || !authHeader || !authHeader.startsWith('Bearer ')) {
+    return false;
+  }
 
-    if (expiredGuestChats.length === 0) {
-      return NextResponse.json({
-        success: true,
-        message: 'No expired guest chats found',
-        deletedCount: 0,
-      });
-    }
+  const providedToken = authHeader.slice('Bearer '.length);
+  const encoder = new TextEncoder();
+  const [providedHash, expectedHash] = await Promise.all([
+    crypto.subtle.digest('SHA-256', encoder.encode(providedToken)),
+    crypto.subtle.digest('SHA-256', encoder.encode(cronSecret)),
+  ]);
 
-    const expiredIds = expiredGuestChats.map((c) => c.id);
+  const a = new Uint8Array(providedHash);
+  const b = new Uint8Array(expectedHash);
+  let diff = a.length ^ b.length;
+  for (let i = 0; i < Math.min(a.length, b.length); i++) {
+    diff |= a[i] ^ b[i];
+  }
+  return diff === 0;
+}
 
-    await db.transaction(async (tx) => {
-      await tx.delete(messages).where(inArray(messages.chatId, expiredIds));
-      await tx
-        .delete(conversations)
-        .where(inArray(conversations.id, expiredIds));
-    });
+const cleanupRateLimit = createRateLimitMiddleware({
+  prefix: 'cleanup-guest',
+  windowMs: 60_000,
+  max: 5,
+  guestMax: 5,
+});
 
+async function handleCleanupGuestChats(request: NextRequest) {
+  const authorized = await verifyCronAuthorization(request);
+  if (!authorized) {
+    throw new ApiError('Unauthorized', 401, 'UNAUTHORIZED');
+  }
+
+  const now = new Date();
+
+  const expiredGuestChats = await db
+    .select({ id: conversations.id })
+    .from(conversations)
+    .where(
+      and(
+        eq(conversations.isGuestChat, true),
+        isNotNull(conversations.expiresAt),
+        lt(conversations.expiresAt, now)
+      )
+    );
+
+  if (expiredGuestChats.length === 0) {
     return NextResponse.json({
       success: true,
-      message: `Successfully deleted ${expiredGuestChats.length} expired guest chats`,
-      deletedCount: expiredGuestChats.length,
+      message: 'No expired guest chats found',
+      deletedCount: 0,
     });
-  } catch (error) {
-    console.error('Error cleaning up guest chats:', error);
-    return NextResponse.json(
-      {
-        success: false,
-        error: 'Failed to cleanup guest chats',
-      },
-      { status: 500 }
-    );
   }
+
+  const expiredIds = expiredGuestChats.map((c) => c.id);
+
+  await db.transaction(async (tx) => {
+    await tx.delete(messages).where(inArray(messages.chatId, expiredIds));
+    await tx
+      .delete(conversations)
+      .where(inArray(conversations.id, expiredIds));
+  });
+
+  return NextResponse.json({
+    success: true,
+    message: `Successfully deleted ${expiredGuestChats.length} expired guest chats`,
+    deletedCount: expiredGuestChats.length,
+  });
 }
+
+// This endpoint cleans up expired guest chats
+export const DELETE = (request: NextRequest) =>
+  withMiddleware(cleanupRateLimit)(request, handleCleanupGuestChats);
 
 // Health check endpoint
 export async function GET() {

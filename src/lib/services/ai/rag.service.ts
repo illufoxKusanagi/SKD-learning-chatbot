@@ -1,8 +1,9 @@
 import {
-  conversations,
   quizQuestions,
   ragData,
   studyMaterials,
+  type QuizOptions,
+  type QuizScoringRubric,
 } from '@/lib/db/schema';
 import { sql, desc, eq, and, notInArray } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
@@ -178,9 +179,97 @@ function scoreInMemoryEntry(
   return score;
 }
 
+interface QuizQuestionCandidateRow {
+  id: string;
+  slug: string;
+  category: string;
+  subtopic: string;
+  reasoningChain: string;
+  stem: string;
+  imageUrl: string | null;
+  options: QuizOptions;
+  correctOption: string | null;
+  scoringRubric: QuizScoringRubric | null;
+  optionRationales: QuizOptions;
+}
+
+export interface RagDataPayload {
+  category?: 'TWK' | 'TIU' | 'TKP' | 'GENERAL';
+  subtopic?: string;
+  docType?: 'kisi_kisi_rubrik' | 'rumus_trik_cepat' | 'contoh_soal_hots';
+  quizPayload?: SkdQuizMetadata | null;
+}
+
+function isSkdQuizMetadata(value: unknown): value is SkdQuizMetadata {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    return false;
+  }
+  const v = value as Record<string, unknown>;
+  if (
+    (v.category !== 'TWK' && v.category !== 'TIU' && v.category !== 'TKP') ||
+    typeof v.subtopic !== 'string' ||
+    typeof v.questionStem !== 'string' ||
+    (v.correctOption !== 'A' &&
+      v.correctOption !== 'B' &&
+      v.correctOption !== 'C' &&
+      v.correctOption !== 'D' &&
+      v.correctOption !== 'E') ||
+    typeof v.rubricRationale !== 'string'
+  ) {
+    return false;
+  }
+
+  if (!v.options || typeof v.options !== 'object' || Array.isArray(v.options)) {
+    return false;
+  }
+  const opts = v.options as Record<string, unknown>;
+
+  if (
+    !v.scoringRubric ||
+    typeof v.scoringRubric !== 'object' ||
+    Array.isArray(v.scoringRubric)
+  ) {
+    return false;
+  }
+  const rubric = v.scoringRubric as Record<string, unknown>;
+
+  const keys = ['A', 'B', 'C', 'D', 'E'] as const;
+  return keys.every(
+    (key) =>
+      typeof opts[key] === 'string' &&
+      typeof rubric[key] === 'number' &&
+      Number.isFinite(rubric[key])
+  );
+}
+
+function parseRagDataPayload(raw: unknown): RagDataPayload {
+  if (!raw || typeof raw !== 'object' || Array.isArray(raw)) {
+    return {};
+  }
+  const obj = raw as Record<string, unknown>;
+  const category =
+    obj.category === 'TWK' ||
+    obj.category === 'TIU' ||
+    obj.category === 'TKP' ||
+    obj.category === 'GENERAL'
+      ? obj.category
+      : undefined;
+  const subtopic = typeof obj.subtopic === 'string' ? obj.subtopic : undefined;
+  const docType =
+    obj.docType === 'kisi_kisi_rubrik' ||
+    obj.docType === 'rumus_trik_cepat' ||
+    obj.docType === 'contoh_soal_hots'
+      ? obj.docType
+      : undefined;
+  const quizPayload = isSkdQuizMetadata(obj.quizPayload)
+    ? obj.quizPayload
+    : null;
+
+  return { category, subtopic, docType, quizPayload };
+}
+
 function mapQuizQuestionRowToCandidate(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  qRow: any,
+  qRow: QuizQuestionCandidateRow,
   detectedCategory: 'TWK' | 'TIU' | 'TKP' | null,
   queryWords: string[]
 ): RagChunk {
@@ -439,18 +528,10 @@ export async function findRelevantContents(
     }
 
     for (const row of ragRows) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const dataObj = (row.data as any) || {};
-      const cat = (dataObj.category || 'GENERAL') as
-        | 'TWK'
-        | 'TIU'
-        | 'TKP'
-        | 'GENERAL';
-      const sub = dataObj.subtopic || '';
-      const docType = (dataObj.docType || 'kisi_kisi_rubrik') as
-        | 'kisi_kisi_rubrik'
-        | 'rumus_trik_cepat'
-        | 'contoh_soal_hots';
+      const dataObj = parseRagDataPayload(row.data);
+      const cat = dataObj.category ?? 'GENERAL';
+      const sub = dataObj.subtopic ?? '';
+      const docType = dataObj.docType ?? 'kisi_kisi_rubrik';
       let score = Number(row.similarity) || 0;
 
       // Category match boost
@@ -594,94 +675,4 @@ export async function findRelevantContents(
     contextChunks: topChunks,
     formattedContext,
   };
-}
-
-export async function getChatHistoryTitle(
-  chatId: string,
-  userId: string
-): Promise<string> {
-  try {
-    const [chat] = await db
-      .select({
-        title: conversations.title,
-      })
-      .from(conversations)
-      .where(
-        and(eq(conversations.id, chatId), eq(conversations.userId, userId))
-      )
-      .limit(1);
-
-    if (!chat || !chat.title || chat.title.trim() === '') {
-      return `Chat #${chatId}`;
-    }
-
-    return chat.title.trim();
-  } catch (error) {
-    console.error('Failed to get chat history title:', error);
-    return `Chat #${chatId}`;
-  }
-}
-
-export async function getChatHistoryTitleWithAuth(
-  chatId: string,
-  userId: string
-): Promise<{
-  title: string;
-  success: boolean;
-  error?: string;
-}> {
-  try {
-    if (!chatId) {
-      return {
-        title: 'New Chat',
-        success: false,
-        error: 'Invalid chat ID',
-      };
-    }
-    if (!userId) {
-      return {
-        title: `Chat #${chatId}`,
-        success: false,
-        error: 'User ID is required',
-      };
-    }
-
-    const [chat] = await db
-      .select({
-        title: conversations.title,
-      })
-      .from(conversations)
-      .where(
-        and(eq(conversations.id, chatId), eq(conversations.userId, userId))
-      )
-      .limit(1);
-
-    if (!chat) {
-      return {
-        title: `Chat #${chatId}`,
-        success: false,
-        error: 'Chat not found or access denied',
-      };
-    }
-
-    const title = chat.title;
-    if (!title || title.trim() === '') {
-      return {
-        title: `Chat #${chatId}`,
-        success: true,
-      };
-    }
-
-    return {
-      title: title.trim(),
-      success: true,
-    };
-  } catch (error) {
-    console.error('Failed to get chat history title with auth:', error);
-    return {
-      title: `Chat #${chatId}`,
-      success: false,
-      error: error instanceof Error ? error.message : 'Unknown error',
-    };
-  }
 }

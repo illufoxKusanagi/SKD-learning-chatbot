@@ -154,6 +154,7 @@ export interface CheckRateLimitBucketOptions {
   increment?: boolean;
   sliding?: boolean;
   now?: number;
+  failClosed?: boolean;
 }
 
 export const SIGNIN_WINDOW_MS = 10 * 60_000;
@@ -220,17 +221,19 @@ export async function checkRateLimitBucket(
       DO UPDATE SET count = rate_limits.count + 1
     `);
 
-    if (Math.random() < 0.02) {
-      void db
-        .execute(sql`
-          DELETE FROM rate_limits
-          WHERE key = ${key} AND window_start < ${prevWindow}
-        `)
-        .catch(() => {});
-    }
-
     return { blocked: false, retryAfterSeconds: 0 };
   } catch (err) {
+    if (opts?.failClosed) {
+      console.error(
+        '[RateLimit] Failing closed due to DB error:',
+        formatLogError(err)
+      );
+      throw new ApiError(
+        'Layanan pembatasan permintaan sementara tidak tersedia',
+        503,
+        'RATE_LIMIT_UNAVAILABLE'
+      );
+    }
     console.warn(
       '[RateLimit] Skipping rate-limit check due to DB error:',
       formatLogError(err)
@@ -318,31 +321,24 @@ export async function clearSignInPairFailures(
 }
 
 async function cleanupRateLimits(
-  prefix: string,
+  key: string,
   windowMs: number,
-  hasDaily: boolean,
+  dailyKey: string | null,
   now: number
 ): Promise<void> {
   try {
     const windowCutoff = now - 2 * windowMs;
-    if (hasDaily) {
+    await db.execute(sql`
+      DELETE FROM rate_limits
+      WHERE key = ${key}
+        AND window_start < ${windowCutoff}
+    `);
+    if (dailyKey) {
       const dailyCutoff = now - 2 * 86_400_000;
       await db.execute(sql`
         DELETE FROM rate_limits
-        WHERE key LIKE ${prefix + ':%'}
-          AND key NOT LIKE ${'%:daily'}
-          AND window_start < ${windowCutoff}
-      `);
-      await db.execute(sql`
-        DELETE FROM rate_limits
-        WHERE key LIKE ${prefix + ':%:daily'}
+        WHERE key = ${dailyKey}
           AND window_start < ${dailyCutoff}
-      `);
-    } else {
-      await db.execute(sql`
-        DELETE FROM rate_limits
-        WHERE key LIKE ${prefix + ':%'}
-          AND window_start < ${windowCutoff}
       `);
     }
   } catch (error) {
@@ -377,6 +373,7 @@ export function createRateLimitMiddleware(options: RateLimitOptions) {
     const key = isAuthenticated
       ? `${options.prefix}:user:${userId}`
       : `${options.prefix}:ip:${ip}`;
+    const dailyKey = options.daily ? `${key}:daily` : null;
     const limit = isAuthenticated
       ? options.max
       : (options.guestMax ?? options.max);
@@ -384,12 +381,7 @@ export function createRateLimitMiddleware(options: RateLimitOptions) {
     const now = Date.now();
 
     if (Math.random() < 0.01) {
-      await cleanupRateLimits(
-        options.prefix,
-        options.windowMs,
-        Boolean(options.daily),
-        now
-      );
+      await cleanupRateLimits(key, options.windowMs, dailyKey, now);
     }
 
     const checks: Promise<{ blocked: boolean; retryAfterSeconds: number }>[] = [
@@ -397,19 +389,20 @@ export function createRateLimitMiddleware(options: RateLimitOptions) {
         increment: true,
         sliding: true,
         now,
+        failClosed: options.failClosed,
       }),
     ];
 
-    if (options.daily) {
+    if (options.daily && dailyKey) {
       const dailyLimit = isAuthenticated
         ? options.daily.max
         : (options.daily.guestMax ?? options.daily.max);
-      const dailyKey = `${key}:daily`;
       checks.push(
         checkRateLimitBucket(dailyKey, dailyLimit, 86_400_000, {
           increment: true,
           sliding: false,
           now,
+          failClosed: options.failClosed,
         })
       );
     }
@@ -577,6 +570,7 @@ export const commonMiddleware = {
       max: rateLimit?.max ?? 60,
       guestMax: rateLimit?.guestMax,
       daily: rateLimit?.daily,
+      failClosed: rateLimit?.failClosed,
       skipWhen: rateLimit?.skipWhen,
     }),
   ],
@@ -592,6 +586,7 @@ export const commonMiddleware = {
       max: rateLimit?.max ?? 60,
       guestMax: rateLimit?.guestMax,
       daily: rateLimit?.daily,
+      failClosed: rateLimit?.failClosed,
       skipWhen: rateLimit?.skipWhen,
     }),
     createValidationMiddleware(schema),

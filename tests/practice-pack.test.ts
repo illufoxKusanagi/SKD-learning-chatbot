@@ -25,6 +25,8 @@ import {
   createPracticePack,
   syncPracticeAttempt,
 } from "@/lib/services/practice.service";
+import { POST as postPracticePack } from "@/app/api/practice/pack/route";
+import { POST as postPracticeSync } from "@/app/api/practice/sync/route";
 import { GET as getQuizHistory } from "@/app/api/quiz/route";
 
 describe("Practice Pack Pre-Fetch & Background Sync API", () => {
@@ -39,7 +41,7 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
     await closeConnection();
   });
 
-  it("createPracticePack({ count: 10, category: 'TWK' }) creates a quiz_sessions row and returns 10 unmasked TWK questions with preloaded materials", async () => {
+  it("createPracticePack({ count: 10, category: 'TWK' }) creates a quiz_sessions row and returns 10 masked TWK questions with preloaded materials", async () => {
     const pack = await createPracticePack({ count: 10, category: "TWK" });
     expect(pack.sessionId).toBeTruthy();
     createdSessionIds.push(pack.sessionId);
@@ -60,17 +62,16 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
 
     for (const q of pack.questions) {
       expect(q.category).toBe("TWK");
-      expect(q.correctOption).toMatch(/^[A-E]$/);
-      expect(q.scoringRubric).toBeNull();
+      expect("correctOption" in q).toBe(false);
+      expect("scoringRubric" in q).toBe(false);
+      expect("optionRationales" in q).toBe(false);
+      expect("reasoningChain" in q).toBe(false);
       expect(q.hint).toBeTruthy();
-      expect(q.reasoningChain).toBeTruthy();
-      expect(q.optionRationales.A).toBeTruthy();
-      expect(q.optionRationales.E).toBeTruthy();
       expect(q.materials.length).toBeGreaterThanOrEqual(1);
     }
   });
 
-  it("createPracticePack({ count: 10, category: 'TKP' }) returns 10 TKP questions with scoringRubric 1..5, correctOption null, and empty materials", async () => {
+  it("createPracticePack({ count: 10, category: 'TKP' }) masks rubric before answering and reveals scoringRubric 1..5 on syncPracticeAttempt", async () => {
     const pack = await createPracticePack({ count: 10, category: "TKP" });
     expect(pack.sessionId).toBeTruthy();
     createdSessionIds.push(pack.sessionId);
@@ -81,12 +82,26 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
 
     for (const q of pack.questions) {
       expect(q.category).toBe("TKP");
-      expect(q.correctOption).toBeNull();
-      expect(q.scoringRubric).not.toBeNull();
-      const scores = Object.values(q.scoringRubric!).sort((a, b) => a - b);
-      expect(scores).toEqual([1, 2, 3, 4, 5]);
+      expect("correctOption" in q).toBe(false);
+      expect("scoringRubric" in q).toBe(false);
+      expect("optionRationales" in q).toBe(false);
+      expect("reasoningChain" in q).toBe(false);
       expect(q.materials).toEqual([]);
     }
+
+    const revealed = await syncPracticeAttempt({
+      sessionId: pack.sessionId,
+      questionId: pack.questions[0].id,
+      selectedOption: "A",
+    });
+    expect(revealed.correctOption).toBeNull();
+    expect(revealed.scoringRubric).not.toBeNull();
+    const scores = Object.values(revealed.scoringRubric!).sort((a, b) => a - b);
+    expect(scores).toEqual([1, 2, 3, 4, 5]);
+    expect(revealed.optionRationales.A).toBeTruthy();
+    expect(revealed.optionRationales.E).toBeTruthy();
+    expect(revealed.reasoningChain).toBeTruthy();
+    expect(revealed.isCorrect).toBe(revealed.scoreEarned === 5);
   });
 
   it("createPracticePack({ materialSlug: 'twk-uud45-checks-balances-presiden-dpr', count: 10 }) returns only questions linked to that material", async () => {
@@ -111,10 +126,15 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
     createdSessionIds.push(pack.sessionId);
 
     const targetQ1 = pack.questions[0];
+    const [dbQ1] = await db
+      .select({ correctOption: quizQuestions.correctOption })
+      .from(quizQuestions)
+      .where(eq(quizQuestions.id, targetQ1.id))
+      .limit(1);
+    const rightOption = dbQ1.correctOption as "A" | "B" | "C" | "D" | "E";
     const wrongOption = (["A", "B", "C", "D", "E"] as const).find(
-      (opt) => opt !== targetQ1.correctOption
+      (opt) => opt !== rightOption
     )!;
-    const rightOption = targetQ1.correctOption!;
 
     const first = await syncPracticeAttempt({
       sessionId: pack.sessionId,
@@ -124,6 +144,8 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
       timeSpentSeconds: 12,
     });
     expect(first.scoreEarned).toBe(0);
+    expect(first.isCorrect).toBe(false);
+    expect(first.correctOption).toBe(rightOption);
 
     const second = await syncPracticeAttempt({
       sessionId: pack.sessionId,
@@ -134,6 +156,9 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
     });
     expect(second.attemptId).toBe(first.attemptId);
     expect(second.scoreEarned).toBe(5);
+    expect(second.isCorrect).toBe(true);
+    expect(second.reasoningChain).toBeTruthy();
+    expect(second.optionRationales.A).toBeTruthy();
 
     const rowsQ1 = await db
       .select()
@@ -203,8 +228,17 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
 
     const missedQ = pack.questions[0];
     const optimalQ = pack.questions[1];
+    const keyRows = await db
+      .select({
+        id: quizQuestions.id,
+        correctOption: quizQuestions.correctOption,
+      })
+      .from(quizQuestions)
+      .where(inArray(quizQuestions.id, [missedQ.id, optimalQ.id]));
+    const keyById = new Map(keyRows.map((r) => [r.id, r.correctOption!]));
+
     const wrongOption = (["A", "B", "C", "D", "E"] as const).find(
-      (opt) => opt !== missedQ.correctOption
+      (opt) => opt !== keyById.get(missedQ.id)
     )!;
 
     await syncPracticeAttempt({
@@ -215,7 +249,7 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
     await syncPracticeAttempt({
       sessionId: pack.sessionId,
       questionId: optimalQ.id,
-      selectedOption: optimalQ.correctOption!,
+      selectedOption: keyById.get(optimalQ.id) as "A" | "B" | "C" | "D" | "E",
     });
 
     const retryPack = await createPracticePack({
@@ -245,10 +279,16 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
     const pack = await createPracticePack({ count: 10, category: "TWK" });
     createdSessionIds.push(pack.sessionId);
 
+    const [dbQ0] = await db
+      .select({ correctOption: quizQuestions.correctOption })
+      .from(quizQuestions)
+      .where(eq(quizQuestions.id, pack.questions[0].id))
+      .limit(1);
+
     await syncPracticeAttempt({
       sessionId: pack.sessionId,
       questionId: pack.questions[0].id,
-      selectedOption: pack.questions[0].correctOption!,
+      selectedOption: dbQ0.correctOption as "A" | "B" | "C" | "D" | "E",
     });
 
     const emptyRetry = await createPracticePack({
@@ -267,12 +307,26 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
     const pack = await createPracticePack({ count: 10, category: "TIU" });
     createdSessionIds.push(pack.sessionId);
 
+    const keyRows = await db
+      .select({
+        id: quizQuestions.id,
+        correctOption: quizQuestions.correctOption,
+      })
+      .from(quizQuestions)
+      .where(
+        inArray(
+          quizQuestions.id,
+          pack.questions.map((q) => q.id)
+        )
+      );
+    const keyById = new Map(keyRows.map((r) => [r.id, r.correctOption!]));
+
     for (let i = 0; i < pack.questions.length; i++) {
       const q = pack.questions[i];
       const result = await syncPracticeAttempt({
         sessionId: pack.sessionId,
         questionId: q.id,
-        selectedOption: q.correctOption!,
+        selectedOption: keyById.get(q.id) as "A" | "B" | "C" | "D" | "E",
         timeSpentSeconds: 15,
       });
 
@@ -342,5 +396,67 @@ describe("Practice Pack Pre-Fetch & Background Sync API", () => {
       statusCode: 400,
       code: "INVALID_SESSION_MODE",
     });
+  });
+
+  it("POST /api/practice/pack & POST /api/practice/sync enforce signed skd_guest_sid cookie and reveal keys only on sync", async () => {
+    const packRes = await postPracticePack(
+      new NextRequest("http://localhost/api/practice/pack", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ count: 10, category: "TWK" }),
+      })
+    );
+    expect(packRes.status).toBe(200);
+    const setCookie = packRes.headers.get("set-cookie");
+    expect(setCookie).toContain("skd_guest_sid=");
+    const cookiePair = setCookie!.split(";")[0];
+
+    const packBody = await packRes.json();
+    expect(packBody.success).toBe(true);
+    const sessionId = packBody.data.sessionId as string;
+    createdSessionIds.push(sessionId);
+
+    const firstQuestion = packBody.data.questions[0] as Record<string, unknown>;
+    expect("correctOption" in firstQuestion).toBe(false);
+    expect("scoringRubric" in firstQuestion).toBe(false);
+    expect("optionRationales" in firstQuestion).toBe(false);
+    expect("reasoningChain" in firstQuestion).toBe(false);
+
+    // Cross-guest / missing-cookie sync attempt must be rejected with 403
+    const unauthorizedSyncRes = await postPracticeSync(
+      new NextRequest("http://localhost/api/practice/sync", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          sessionId,
+          questionId: firstQuestion.id,
+          selectedOption: "A",
+        }),
+      })
+    );
+    expect(unauthorizedSyncRes.status).toBe(403);
+
+    // Owner sync with matching signed cookie succeeds and reveals answer & rationales
+    const authorizedSyncRes = await postPracticeSync(
+      new NextRequest("http://localhost/api/practice/sync", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          cookie: cookiePair,
+        },
+        body: JSON.stringify({
+          sessionId,
+          questionId: firstQuestion.id,
+          selectedOption: "A",
+        }),
+      })
+    );
+    expect(authorizedSyncRes.status).toBe(200);
+    const syncBody = await authorizedSyncRes.json();
+    expect(syncBody.success).toBe(true);
+    expect(syncBody.data.correctOption).toMatch(/^[A-E]$/);
+    expect(syncBody.data.optionRationales.A).toBeTruthy();
+    expect(syncBody.data.reasoningChain).toBeTruthy();
+    expect(typeof syncBody.data.isCorrect).toBe("boolean");
   });
 });

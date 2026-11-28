@@ -1,3 +1,4 @@
+import { sql } from "drizzle-orm";
 import {
   pgTable,
   text,
@@ -15,17 +16,23 @@ import {
   primaryKey,
 } from "drizzle-orm/pg-core";
 
-export const users = pgTable("users", {
-  id: uuid("id").primaryKey().defaultRandom(),
-  username: varchar("username", { length: 50 }).notNull().unique(),
-  email: text("email").notNull().unique(),
-  role: varchar("role").default("user").notNull(),
-  avatar: text("avatar"),
-  password: text("password").notNull(),
-  createdAt: timestamp("created_at").defaultNow().notNull(),
-  updatedAt: timestamp("updated_at").defaultNow().notNull(),
-  lastLogin: timestamp("last_login"),
-});
+export const users = pgTable(
+  "users",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    username: varchar("username", { length: 50 }).notNull().unique(),
+    email: text("email").notNull().unique(),
+    role: varchar("role").default("user").notNull(),
+    avatar: text("avatar"),
+    password: text("password").notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+    lastLogin: timestamp("last_login"),
+  },
+  (table) => [
+    uniqueIndex("users_email_lower_uidx").on(sql`lower(${table.email})`),
+  ]
+);
 
 export const messages = pgTable("messages", {
   id: uuid("id").defaultRandom().primaryKey(),

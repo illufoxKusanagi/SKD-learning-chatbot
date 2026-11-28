@@ -168,15 +168,29 @@ PostgreSQL with `pgvector` (`vector(768)` + HNSW `vector_cosine_ops` indexes), i
 ## 9. Gemini AI Resilience, RPM/TPM Optimization & 3-Model Fallback
 
 - **`src/lib/services/ai/gemini.service.ts`**:
-  - **0-RPM `generateChatTitle`**: Deterministic Indonesian title formatter (`<= 45` chars, word-boundary truncation, fallback `'Sesi Belajar SKD'`, 0 Gemini calls).
+  - **0-RPM Synchronous `generateChatTitle`**: Deterministic synchronous Indonesian title formatter (`<= 45` chars, word-boundary truncation, fallback `'Sesi Belajar SKD'`, 0 Gemini calls).
   - **Strict `shouldEnableGoogleSearch(userMessage)`**: Requires `ENABLE_GEMINI_GOOGLE_SEARCH === 'true'` AND explicit current-affairs regex (`berita terbaru`, `isu terkini`, `aturan terbaru`, `regulasi terbaru`, `ikn terkini`, `cpns 2025-2029`).
-  - **Token & History Bounds**: History capped to last **8 turns**, **1,600 chars/turn**, **9,000 total chars** (oldest dropped first); default `thinkingBudget` lowered to **256** (`0` on fallback models & Turn-2); Turn-2 supplementary stream uses compact `TURN2_SYSTEM_INSTRUCTION`.
-  - **3-Model Pre-First-Chunk Cascade (`streamGeminiWithCascade`)**: Deduplicated chain `[GENERATIVE_MODEL || 'gemini-2.5-flash', GEMINI_FALLBACK_MODEL || 'gemini-2.5-flash-lite', GEMINI_TERTIARY_MODEL || 'gemini-2.0-flash']`; strips `tools` and disables thinking on fallback models; parses `retry in`/`retryDelay` (`900..3500ms`) or uses jittered backoff (`1000+rand*500ms`, `2000+rand*700ms`) only **before** any text chunk is yielded; guards `MAX_TOKENS` on quiz generation.
+  - **Token & History Bounds**: History capped to last **8 turns**, **1,600 chars/turn**, **9,000 total chars** (oldest dropped first); default `thinkingBudget` lowered to **256** (`0` on fallback models & Turn-2); Turn-2 supplementary stream uses compact `TURN2_SYSTEM_INSTRUCTION` and emits an Indonesian fallback notice (`*Catatan: Ringkasan trik cepat tambahan gagal dimuat karena batas waktu/kuota. Pembahasan inti di atas tetap valid.*`) on timeout/quota failure.
+  - **Typed SDK Integration & 3-Model Pre-First-Chunk Cascade (`streamGeminiWithCascade`)**: Uses official `@google/genai` types (`GenerateContentConfig`, `GenerateContentResponse`, `Content`, `ThinkingConfig`) with zero `any` suppressions; deduplicated chain `[GENERATIVE_MODEL || 'gemini-2.5-flash', GEMINI_FALLBACK_MODEL || 'gemini-2.5-flash-lite', GEMINI_TERTIARY_MODEL || 'gemini-2.0-flash']`; strips `tools` and disables thinking on fallback models; parses `retry in`/`retryDelay` (`900..3500ms`) or uses jittered backoff (`1000+rand*500ms`, `2000+rand*700ms`) only **before** any text chunk is yielded; guards `MAX_TOKENS` on quiz generation.
   - **`classifyAiStreamError`**: Classifies `TOKEN_LIMIT_EXCEEDED` first, then `RATE_LIMITED` (`429` / `RESOURCE_EXHAUSTED` / `RPM` / `TPM` / `RPD` before `503`), then `MODEL_OVERLOADED` (`503`), `STREAM_TIMEOUT`, and `AI_STREAM_ERROR`.
 - **`src/lib/services/ai/rag.service.ts` & `embeddings.service.ts`**:
   - `wantsNewVariation` excludes `"buatkan"` so DB quiz requests hit PostgreSQL `quiz_questions` **before** calling `generateEmbedding` (0-embedding fast path).
   - Filters `dbChunks` with `RAG_SIMILARITY_THRESHOLD` (default `0.42`), caps to **3** chunks, and caps each chunk to **1,600** chars.
-  - `generateEmbedding` retries transient `429`/`503`/`UNAVAILABLE`/`RESOURCE_EXHAUSTED` errors up to 2 times with jittered `900..1400ms` backoff.
+  - `embeddings.service.ts` uses typed `EmbedContentResponse` from `@google/genai` and retries transient `429`/`503`/`UNAVAILABLE`/`RESOURCE_EXHAUSTED` errors up to 2 times with jittered `900..1400ms` backoff; `rag.service.ts` uses typed JSONB payload/row interfaces (`RagDataPayload`, `QuizQuestionCandidateRow`).
 - **`src/app/api/chat/route.ts`, `src/app/api/quiz/route.ts`, `src/hooks/use-chat.ts`**:
-  - `chat` fetches last `10` DB messages and server-verifies `isDuplicateRetriedTurn` before skipping user message insertion/slicing history; `chatRateLimit` (`max: 30`, `guestMax: 20`, `daily: { max: 300, guestMax: 100 }`) skips when `X-Chat-Retry: 1` is sent by `useChat` retry, while bounded `chatRetryRateLimit` (`max: 10`, `guestMax: 6`, `daily: { max: 60, guestMax: 25 }`) caps retries against header spoofing.
+  - `chat` uses `resolveOptionalUserId`, `getOrCreateGuestSession` + `attachGuestCookie` (`skd_guest_sid`), and `readVerifiedGuestId` for guest chat ownership; shares a single streaming `<quiz_meta>` filter (`streamWithQuizMetaFilter`) across Turn-1 and Turn-2; enforces strict `parseQuizOptionChoice` answer syntax matching (`^[A-E]$` and explicit `opsi|pilihan|jawaban|pilih` forms even with `quizAttemptId`); fetches last `10` DB messages and server-verifies `isDuplicateRetriedTurn` before skipping user message insertion/slicing history; `chatRateLimit` (`max: 30`, `guestMax: 20`, `daily: { max: 300, guestMax: 100 }`) skips when `X-Chat-Retry: 1` is sent by `useChat` retry, while bounded `chatRetryRateLimit` (`max: 10`, `guestMax: 6`, `daily: { max: 60, guestMax: 25 }`) caps retries against header spoofing.
   - `POST /api/quiz` (`action: "next"`) queries unattempted validated `quiz_questions` directly first (even without `materialSlug`) before falling back to `findRelevantContents` / `generateAiResponse`.
+
+---
+
+## 10. Security Hardening, Cloudflare Edge Support & Frontend Modularization
+
+- **PBKDF2 Web Crypto Auth (`src/lib/auth/password.ts`, `src/lib/auth.ts`)**:
+  - Uses Web Crypto `PBKDF2` (`SHA-256`, `100,000` iterations, 16-byte random salt, 256-bit key in `pbkdf2_sha256$<iterations>$<salt>$<hash>` format with constant-time comparison) for Edge/Cloudflare Workers compatibility, while verifying legacy `bcryptjs` hashes and transparently rehashing on login (`needsPasswordRehash`).
+- **Signed Guest Session Cookie (`src/lib/auth/guest-session.ts`, `src/lib/auth/optional-session.ts`)**:
+  - Issues and verifies HMAC-SHA256 signed `HttpOnly; SameSite=Lax` cookie `skd_guest_sid` (`<uuid>.<base64url-sig>`, 24h `Max-Age`, `Secure` in production, signed via `NEXTAUTH_SECRET`) across `/api/chat`, `/api/quiz`, `/api/practice/*`, and `/api/tryout/*`, paired with `resolveOptionalUserId` for fail-closed production session handling.
+- **Cloudflare Workers & Hyperdrive Support (`src/lib/db/index.ts`)**:
+  - Uses request-scoped `WeakMap` DB/client caching keyed by `getCloudflareContext({ async: false }).ctx`, resolving `env.HYPERDRIVE.connectionString` first, then `env.DATABASE_URL` and `process.env.DATABASE_URL` (`prepare: false`, `fetch_types: false`, `max: 1`, `idle_timeout: 2`), with a singleton pool fallback on Node.js.
+- **XSS Removal & Modularized Pages**:
+  - Removed `rehype-raw` from chat Markdown rendering to block raw HTML injection / XSS payloads while retaining `remark-gfm`, `remark-breaks`, and `rehype-highlight`.
+  - Modularized `src/app/chat/page.tsx` and `src/app/quiz-history/page.tsx` into focused UI components and hooks.

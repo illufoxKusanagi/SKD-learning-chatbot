@@ -3,7 +3,11 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { db } from "@/lib/db";
 import { users } from "@/lib/db/schema";
 import { eq, or, sql } from "drizzle-orm";
-import { verifyPassword } from "@/lib/auth/password";
+import {
+  hashPassword,
+  needsPasswordRehash,
+  verifyPassword,
+} from "@/lib/auth/password";
 import {
   checkSignInRateLimit,
   clearSignInPairFailures,
@@ -12,6 +16,7 @@ import {
 } from "@/middleware/api";
 
 export const authOptions: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
   session: {
     strategy: "jwt",
   },
@@ -52,11 +57,28 @@ export const authOptions: NextAuthOptions = {
         }
 
         await clearSignInPairFailures(ip, normalizedIdentifier);
-        await db
-          .update(users)
-          .set({ lastLogin: new Date() })
-          .where(eq(users.id, user.id))
-          .catch(() => {});
+        try {
+          const updatePayload: {
+            lastLogin: Date;
+            updatedAt?: Date;
+            password?: string;
+          } = {
+            lastLogin: new Date(),
+          };
+          if (needsPasswordRehash(user.password)) {
+            updatePayload.password = await hashPassword(credentials.password);
+            updatePayload.updatedAt = new Date();
+          }
+          await db
+            .update(users)
+            .set(updatePayload)
+            .where(eq(users.id, user.id));
+        } catch (err) {
+          console.warn(
+            "[Auth] Failed to update lastLogin or rehash password:",
+            err
+          );
+        }
 
         return {
           id: user.id,

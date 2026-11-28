@@ -30,9 +30,9 @@ export function practiceItemToQuizAttempt(
   answer?: PracticeAnswerState,
   sessionId?: string | null
 ): QuizAttemptItem {
-  const isAnswered = Boolean(answer);
+  const isAnswered = Boolean(answer && answer.syncStatus === "synced");
   const resolvedCorrect = isAnswered
-    ? getBestOptionKey(item.correctOption, item.scoringRubric)
+    ? getBestOptionKey(item.correctOption ?? null, item.scoringRubric ?? null)
     : null;
 
   return {
@@ -46,10 +46,10 @@ export function practiceItemToQuizAttempt(
     imageUrl: item.imageUrl ?? null,
     options: item.options,
     correctOption: resolvedCorrect,
-    scoringRubric: isAnswered ? item.scoringRubric : null,
+    scoringRubric: isAnswered ? (item.scoringRubric ?? null) : null,
     rubricRationale: null,
     userAnswer: answer?.selectedOption ?? null,
-    scoreEarned: answer?.scoreEarned ?? null,
+    scoreEarned: isAnswered ? (answer?.scoreEarned ?? null) : null,
     maxScore: 5,
     aiExplanation: null,
     status: isAnswered ? "answered" : "pending",

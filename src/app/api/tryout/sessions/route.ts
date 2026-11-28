@@ -1,7 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
 import { z } from "zod";
-import { authOptions } from "@/lib/auth";
+import {
+  attachGuestCookie,
+  getOrCreateGuestSession,
+  readVerifiedGuestId,
+} from "@/lib/auth/guest-session";
+import { resolveOptionalUserId } from "@/lib/auth/optional-session";
 import {
   listTryoutSessions,
   startTryoutSession,
@@ -44,27 +48,17 @@ function parseSessionIdsParam(raw: string | null): string[] | undefined {
   return items;
 }
 
-async function resolveOptionalUserId(logLabel: string): Promise<string | null> {
-  try {
-    const session = await getServerSession(authOptions);
-    if (session?.user?.id) {
-      return session.user.id;
-    }
-  } catch (authErr) {
-    console.warn(`[${logLabel}] Session retrieval warning:`, authErr);
-  }
-  return null;
-}
-
 async function handleGetTryoutSessions(request: NextRequest) {
   const url = new URL(request.url);
   const guestSessionIds = parseSessionIdsParam(
     url.searchParams.get("sessionIds")
   );
   const userId = await resolveOptionalUserId("GET /api/tryout/sessions");
+  const guestSessionId = userId ? null : await readVerifiedGuestId(request);
 
   const sessions = await listTryoutSessions({
     userId,
+    guestSessionId,
     guestSessionIds,
   });
 
@@ -85,20 +79,30 @@ async function handlePostTryoutSessions(request: NextRequest) {
   const payload = startTryoutSchema.parse(rawBody);
   const userId = await resolveOptionalUserId("POST /api/tryout/sessions");
 
+  let guestSessionId: string | null = null;
+  let setCookieHeader: string | null = null;
+  if (!userId) {
+    const guest = await getOrCreateGuestSession(request);
+    guestSessionId = guest.guestId;
+    setCookieHeader = guest.setCookieHeader;
+  }
+
   const session = await startTryoutSession({
     mode: payload.mode,
     userId,
-    guestSessionId: payload.guestSessionId,
+    guestSessionId,
     guestSessionIds: payload.guestSessionIds,
   });
 
-  return NextResponse.json(
+  const response = NextResponse.json(
     {
       success: true,
       data: session,
     },
     { status: 201 }
   );
+
+  return attachGuestCookie(response, setCookieHeader);
 }
 
 const tryoutSessionsRateLimit = createRateLimitMiddleware({

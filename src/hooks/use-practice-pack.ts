@@ -4,10 +4,10 @@ import { useCallback, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 import type { QuizOptionKey } from "@/components/chat/quiz/quiz-utils";
 import type { PracticeAnswerState } from "@/components/chat/quiz/quiz-utils";
-import { scoreSingleQuestion } from "@/lib/scoring/skd-scoring";
 import type {
   PracticePackResult,
   PracticeQuestionItem,
+  SyncPracticeAttemptResult,
 } from "@/lib/services/practice.service";
 
 const GUEST_PRACTICE_SESSIONS_KEY = "skd_guest_practice_session_ids";
@@ -111,18 +111,40 @@ export function usePracticePack(options: UsePracticePackOptions = {}) {
         });
 
         const json = await res.json().catch(() => ({}));
-        if (!res.ok || !json.success) {
+        if (!res.ok || !json.success || !json.data) {
           throw new Error(json.error || `HTTP ${res.status}`);
         }
 
         if (sessionIdRef.current !== payload.sessionId) return;
+
+        const syncResult = json.data as SyncPracticeAttemptResult;
+
+        setQuestions((prev) => {
+          const next = prev.map((q) =>
+            q.id === payload.questionId
+              ? {
+                  ...q,
+                  correctOption: syncResult.correctOption,
+                  scoringRubric: syncResult.scoringRubric,
+                  optionRationales: syncResult.optionRationales,
+                  reasoningChain: syncResult.reasoningChain,
+                }
+              : q
+          );
+          questionsRef.current = next;
+          return next;
+        });
 
         setAnswers((prev) => {
           const current = prev[payload.questionId];
           if (!current) return prev;
           const updated: Record<string, PracticeAnswerState> = {
             ...prev,
-            [payload.questionId]: { ...current, syncStatus: "synced" },
+            [payload.questionId]: {
+              ...current,
+              scoreEarned: syncResult.scoreEarned,
+              syncStatus: "synced",
+            },
           };
           answersRef.current = updated;
           return updated;
@@ -206,35 +228,40 @@ export function usePracticePack(options: UsePracticePackOptions = {}) {
   const loadPack = useCallback(async (config: LoadPracticePackConfig = {}) => {
     setIsLoadingPack(true);
     try {
-      const params = new URLSearchParams();
-      params.set("count", String(config.count ?? 10));
+      const requestBody: Record<string, unknown> = {
+        count: config.count ?? 10,
+      };
 
       if (config.category && config.category !== "ALL") {
-        params.set("category", config.category);
+        requestBody.category = config.category;
       }
       if (config.subtopic?.trim()) {
-        params.set("subtopic", config.subtopic.trim());
+        requestBody.subtopic = config.subtopic.trim();
       }
       if (config.materialSlug?.trim()) {
-        params.set("materialSlug", config.materialSlug.trim());
+        requestBody.materialSlug = config.materialSlug.trim();
       }
       if (config.wrongOnly) {
-        params.set("wrongOnly", "true");
+        requestBody.wrongOnly = true;
       }
       if (config.questionIds && config.questionIds.length > 0) {
-        params.set("questionIds", config.questionIds.join(","));
+        requestBody.questionIds = config.questionIds;
       }
 
       const guestChatIds = readUuidList(GUEST_CHAT_IDS_KEY);
       if (guestChatIds.length > 0) {
-        params.set("chatIds", guestChatIds.join(","));
+        requestBody.chatIds = guestChatIds;
       }
       const guestSessionIds = readGuestPracticeSessionIds();
       if (guestSessionIds.length > 0) {
-        params.set("sessionIds", guestSessionIds.join(","));
+        requestBody.sessionIds = guestSessionIds;
       }
 
-      const res = await fetch(`/api/practice/pack?${params.toString()}`);
+      const res = await fetch("/api/practice/pack", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(requestBody),
+      });
       const json = await res.json().catch(() => ({}));
       if (!res.ok || !json.success || !json.data) {
         throw new Error(json.error || `Gagal memuat paket latihan (HTTP ${res.status})`);
@@ -282,13 +309,6 @@ export function usePracticePack(options: UsePracticePackOptions = {}) {
       const activeSession = sessionIdRef.current;
       if (!question || !activeSession) return;
 
-      const scoreEarned = scoreSingleQuestion({
-        category: question.category,
-        selectedOption: option,
-        correctOption: question.correctOption,
-        scoringRubric: question.scoringRubric,
-      });
-
       const timeSpentSeconds = Math.max(
         0,
         Math.round((Date.now() - questionEnteredAtRef.current) / 1000)
@@ -297,7 +317,7 @@ export function usePracticePack(options: UsePracticePackOptions = {}) {
 
       const nextEntry: PracticeAnswerState = {
         selectedOption: option,
-        scoreEarned,
+        scoreEarned: 0,
         usedHint,
         timeSpentSeconds,
         syncStatus: "syncing",
@@ -330,15 +350,27 @@ export function usePracticePack(options: UsePracticePackOptions = {}) {
   }, []);
 
   const retryWrongQuestions = useCallback(async () => {
+    const answersList = Object.values(answersRef.current);
+    if (answersList.some((ans) => ans.syncStatus === "syncing")) {
+      toast.info("Menunggu penyimpanan jawaban selesai...");
+      return null;
+    }
+
     const missedIds = questionsRef.current
       .filter((q) => {
         const ans = answersRef.current[q.id];
-        return ans !== undefined && ans.scoreEarned < 5;
+        return ans !== undefined && ans.syncStatus === "synced" && ans.scoreEarned < 5;
       })
       .map((q) => q.id);
 
     if (missedIds.length === 0) {
-      toast.info("Belum ada soal salah atau belum optimal untuk diulang.");
+      if (answersList.some((ans) => ans.syncStatus === "failed")) {
+        toast.info(
+          "Ada jawaban yang gagal tersinkron. Selesaikan sinkronisasi terlebih dahulu atau belum ada soal salah."
+        );
+      } else {
+        toast.info("Belum ada soal salah atau belum optimal untuk diulang.");
+      }
       return null;
     }
 

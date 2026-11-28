@@ -5,10 +5,14 @@ import {
   createRateLimitMiddleware,
   ApiError,
 } from '@/middleware/api';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import { readVerifiedGuestId } from '@/lib/auth/guest-session';
+import { resolveOptionalUserId } from '@/lib/auth/optional-session';
 import { eq, asc, sql } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
+
+const UUID_REGEX =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+const MAX_CHAT_PAGE = 10000;
 
 interface ChatParams {
   chatId: string;
@@ -18,24 +22,27 @@ async function getChatHandler(
   request: NextRequest,
   { params }: { params: Promise<ChatParams> }
 ) {
-  const chatId = (await params).chatId;
-  let userId = null;
-  let isAuthenticated = false;
+  const chatId = (await params).chatId?.trim();
+  if (!chatId || !UUID_REGEX.test(chatId)) {
+    throw new ApiError('ID chat tidak valid', 400, 'INVALID_CHAT_ID');
+  }
 
   const url = new URL(request.url);
-  const page = parseInt(url.searchParams.get('page') || '1');
-  const limit = Math.min(parseInt(url.searchParams.get('limit') || '50'), 100);
+  const rawPage = Number.parseInt(url.searchParams.get('page') || '1', 10);
+  const rawLimit = Number.parseInt(url.searchParams.get('limit') || '50', 10);
+  const page = Number.isFinite(rawPage) ? Math.max(1, rawPage) : 1;
+  if (page > MAX_CHAT_PAGE) {
+    throw new ApiError('Halaman chat tidak valid', 400, 'INVALID_PAGE');
+  }
+  const limit = Number.isFinite(rawLimit)
+    ? Math.min(Math.max(1, rawLimit), 100)
+    : 50;
   const offset = (page - 1) * limit;
 
-  try {
-    const session = await getServerSession(authOptions);
-    if (session?.user) {
-      userId = session.user.id;
-      isAuthenticated = true;
-      console.log(`[GET_CHAT] Authenticated user: ${userId}`);
-    }
-  } catch (error) {
-    console.log(`[GET_CHAT] Session check failed:`, error);
+  const userId = await resolveOptionalUserId('GET_CHAT');
+  const isAuthenticated = Boolean(userId);
+  if (isAuthenticated) {
+    console.log(`[GET_CHAT] Authenticated user: ${userId}`);
   }
 
   try {
@@ -45,6 +52,7 @@ async function getChatHandler(
         title: conversations.title,
         userId: conversations.userId,
         isGuestChat: conversations.isGuestChat,
+        guestSessionId: conversations.guestSessionId,
         expiresAt: conversations.expiresAt,
         createdAt: conversations.createdAt,
       })
@@ -57,6 +65,14 @@ async function getChatHandler(
     }
 
     if (chat.isGuestChat) {
+      const guestId = await readVerifiedGuestId(request);
+      if (chat.guestSessionId && chat.guestSessionId !== guestId) {
+        throw new ApiError(
+          'Anda tidak memiliki akses ke chat ini',
+          403,
+          'CHAT_ACCESS_DENIED'
+        );
+      }
       if (chat.expiresAt && new Date() > chat.expiresAt) {
         throw new ApiError(
           'Chat sementara telah kedaluwarsa',
@@ -89,6 +105,8 @@ async function getChatHandler(
       .from(messages)
       .where(eq(messages.chatId, chatId));
 
+    const totalCount = Number(totalMessages) || 0;
+
     const chatMessages = await db
       .select({
         id: messages.id,
@@ -102,14 +120,14 @@ async function getChatHandler(
       .limit(limit)
       .offset(offset);
 
-    const totalPages = Math.ceil(totalMessages / limit);
+    const totalPages = Math.ceil(totalCount / limit);
 
     console.log(
       `[GET_CHAT] Found ${
         chat.isGuestChat ? 'guest' : 'user'
       } chat ${chatId} with ${
         chatMessages.length
-      }/${totalMessages} messages (page ${page}/${totalPages})`
+      }/${totalCount} messages (page ${page}/${totalPages})`
     );
 
     return NextResponse.json({
@@ -131,7 +149,7 @@ async function getChatHandler(
         pagination: {
           currentPage: page,
           totalPages,
-          totalMessages,
+          totalMessages: totalCount,
           messagesPerPage: limit,
           hasNextPage: page < totalPages,
           hasPreviousPage: page > 1,
@@ -154,20 +172,13 @@ async function deleteChatHandler(
   request: NextRequest,
   { params }: { params: Promise<ChatParams> }
 ) {
-  const chatId = (await params).chatId;
-  let userId = null;
-  let isAuthenticated = false;
-
-  // Try to get user authentication
-  try {
-    const session = await getServerSession(authOptions);
-    if (session?.user) {
-      userId = session.user.id;
-      isAuthenticated = true;
-    }
-  } catch (error) {
-    console.log('Session check failed for delete operation', error);
+  const chatId = (await params).chatId?.trim();
+  if (!chatId || !UUID_REGEX.test(chatId)) {
+    throw new ApiError('ID chat tidak valid', 400, 'INVALID_CHAT_ID');
   }
+
+  const userId = await resolveOptionalUserId('DELETE_CHAT');
+  const isAuthenticated = Boolean(userId);
 
   console.log(
     `[DELETE_CHAT] ${
@@ -181,6 +192,7 @@ async function deleteChatHandler(
       .select({
         userId: conversations.userId,
         isGuestChat: conversations.isGuestChat,
+        guestSessionId: conversations.guestSessionId,
         expiresAt: conversations.expiresAt,
       })
       .from(conversations)
@@ -193,7 +205,14 @@ async function deleteChatHandler(
 
     // Check permissions
     if (chat.isGuestChat) {
-      // Guest chats can be deleted by anyone (for cleanup)
+      const guestId = await readVerifiedGuestId(request);
+      if (chat.guestSessionId && chat.guestSessionId !== guestId) {
+        throw new ApiError(
+          'Anda tidak memiliki akses ke chat ini',
+          403,
+          'CHAT_ACCESS_DENIED'
+        );
+      }
       if (chat.expiresAt && new Date() > chat.expiresAt) {
         console.log('Deleting expired guest chat');
       }
@@ -211,14 +230,16 @@ async function deleteChatHandler(
       }
     }
 
-    // Delete messages first (foreign key constraint)
-    const deletedMessages = await db
-      .delete(messages)
-      .where(eq(messages.chatId, chatId))
-      .returning({ id: messages.id });
+    // Delete messages and conversation atomically
+    const deletedMessages = await db.transaction(async (tx) => {
+      const removedMessages = await tx
+        .delete(messages)
+        .where(eq(messages.chatId, chatId))
+        .returning({ id: messages.id });
 
-    // Delete the chat
-    await db.delete(conversations).where(eq(conversations.id, chatId));
+      await tx.delete(conversations).where(eq(conversations.id, chatId));
+      return removedMessages;
+    });
 
     console.log(
       `[DELETE_CHAT] Deleted ${
@@ -262,8 +283,8 @@ export const GET = (
   request: NextRequest,
   context: { params: Promise<ChatParams> }
 ) => {
-  return withMiddleware(getChatRateLimit)(request, () =>
-    getChatHandler(request, context)
+  return withMiddleware(getChatRateLimit)(request, (req) =>
+    getChatHandler(req, context)
   );
 };
 
@@ -271,7 +292,7 @@ export const DELETE = (
   request: NextRequest,
   context: { params: Promise<ChatParams> }
 ) => {
-  return withMiddleware(deleteChatRateLimit)(request, () =>
-    deleteChatHandler(request, context)
+  return withMiddleware(deleteChatRateLimit)(request, (req) =>
+    deleteChatHandler(req, context)
   );
 };
