@@ -20,8 +20,9 @@ function createSqlClient(connectionString: string, isWorker: boolean): SqlClient
   return postgres(connectionString, {
     prepare: false,
     fetch_types: false,
-    max: isWorker ? 1 : 5,
-    idle_timeout: isWorker ? 2 : 5,
+    max: isWorker ? 3 : 5,
+    idle_timeout: isWorker ? 20 : 5,
+    max_lifetime: isWorker ? 30 : 300,
     connect_timeout: 10,
   });
 }
