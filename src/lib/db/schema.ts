@@ -244,6 +244,39 @@ export const rateLimits = pgTable(
   ]
 );
 
+export const questionAccessLogs = pgTable(
+  "question_access_logs",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    actorKey: text("actor_key").notNull(),
+    userId: uuid("user_id").references(() => users.id, { onDelete: "cascade" }),
+    guestSessionId: text("guest_session_id"),
+    questionId: uuid("question_id")
+      .references(() => quizQuestions.id, { onDelete: "cascade" })
+      .notNull(),
+    category: varchar("category", { length: 10 }).notNull(),
+    isAccessed: boolean("is_accessed").default(true).notNull(),
+    accessCount: integer("access_count").default(1).notNull(),
+    lastAccessedAt: timestamp("last_accessed_at").defaultNow().notNull(),
+    createdAt: timestamp("created_at").defaultNow().notNull(),
+  },
+  (table) => [
+    uniqueIndex("question_access_logs_actor_question_uidx").on(
+      table.actorKey,
+      table.questionId
+    ),
+    index("question_access_logs_actor_cat_accessed_idx").on(
+      table.actorKey,
+      table.category,
+      table.isAccessed
+    ),
+    index("question_access_logs_guest_last_accessed_idx").on(
+      table.guestSessionId,
+      table.lastAccessedAt
+    ),
+  ]
+);
+
 export type InsertUser = typeof users.$inferInsert;
 export type SelectUser = typeof users.$inferSelect;
 
@@ -269,3 +302,6 @@ export type QuizAttempt = typeof quizAttempts.$inferSelect;
 export type NewQuizAttempt = typeof quizAttempts.$inferInsert;
 export type RateLimit = typeof rateLimits.$inferSelect;
 export type NewRateLimit = typeof rateLimits.$inferInsert;
+
+export type QuestionAccessLog = typeof questionAccessLogs.$inferSelect;
+export type NewQuestionAccessLog = typeof questionAccessLogs.$inferInsert;

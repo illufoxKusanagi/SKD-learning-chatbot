@@ -22,6 +22,7 @@ import {
   type TryoutMode,
 } from "@/lib/scoring/skd-scoring";
 import type { PracticeQuestionMaterialItem } from "@/lib/services/practice.service";
+import { pickAndRecordByCategories } from "@/lib/services/question-access.service";
 import { ApiError } from "@/middleware/api";
 
 export interface TryoutBankReadiness {
@@ -168,15 +169,6 @@ function computeRemainingSeconds(
     Math.floor((now.getTime() - session.startedAt.getTime()) / 1000)
   );
   return Math.max(0, durationSeconds - elapsedSeconds);
-}
-
-function shuffleArray<T>(items: T[]): T[] {
-  const arr = [...items];
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [arr[i], arr[j]] = [arr[j], arr[i]];
-  }
-  return arr;
 }
 
 function formatRubricRationale(optionRationales: QuizOptions): string {
@@ -384,93 +376,22 @@ export async function startTryoutSession(input: {
 
   const userId = isValidUuid(input.userId) ? input.userId.trim() : null;
   const guestSessionId = userId ? null : (input.guestSessionId?.trim() || null);
-  const validGuestSessionIds = normalizeUuidList(input.guestSessionIds);
-
-  const attemptedQuestionIds = new Set<string>();
-  const ownerConditions = [];
-  if (userId) {
-    ownerConditions.push(
-      or(eq(quizSessions.userId, userId), eq(quizAttempts.userId, userId))
-    );
-  }
-  if (!userId && guestSessionId) {
-    ownerConditions.push(
-      and(
-        eq(quizSessions.guestSessionId, guestSessionId),
-        isNull(quizSessions.userId)
-      )
-    );
-  }
-  if (validGuestSessionIds.length > 0) {
-    ownerConditions.push(
-      and(
-        inArray(quizSessions.id, validGuestSessionIds),
-        isNull(quizSessions.userId),
-        guestSessionId
-          ? or(
-              eq(quizSessions.guestSessionId, guestSessionId),
-              isNull(quizSessions.guestSessionId)
-            )
-          : isNull(quizSessions.guestSessionId)
-      )
-    );
-  }
-
-  if (ownerConditions.length > 0) {
-    const priorRows = await db
-      .select({ questionId: quizAttempts.questionId })
-      .from(quizAttempts)
-      .innerJoin(quizSessions, eq(quizAttempts.sessionId, quizSessions.id))
-      .where(
-        and(
-          inArray(quizSessions.mode, ["cat_tryout", "mini_tryout"]),
-          ownerConditions.length === 1
-            ? ownerConditions[0]
-            : or(...ownerConditions)
-        )
-      );
-
-    for (const row of priorRows) {
-      if (isValidUuid(row.questionId)) {
-        attemptedQuestionIds.add(row.questionId);
-      }
-    }
-  }
 
   const allValidated = await db
     .select()
     .from(quizQuestions)
     .where(eq(quizQuestions.isValidated, true));
 
-  const byCategory: Record<
-    SkdCategory,
-    (typeof quizQuestions.$inferSelect)[]
-  > = {
-    TWK: [],
-    TIU: [],
-    TKP: [],
-  };
-
-  for (const question of allValidated) {
-    byCategory[normalizeCategory(question.category)].push(question);
-  }
-
   const config = getModeConfig(input.mode);
-  const pickForCategory = (cat: SkdCategory, targetCount: number) => {
-    const pool = byCategory[cat];
-    const unattempted = pool.filter((q) => !attemptedQuestionIds.has(q.id));
-    const attempted = pool.filter((q) => attemptedQuestionIds.has(q.id));
-    return [...shuffleArray(unattempted), ...shuffleArray(attempted)].slice(
-      0,
-      targetCount
-    );
-  };
-
-  const selected = [
-    ...pickForCategory("TWK", config.TWK.count),
-    ...pickForCategory("TIU", config.TIU.count),
-    ...pickForCategory("TKP", config.TKP.count),
-  ];
+  const selected = await pickAndRecordByCategories({
+    actor: { userId, guestSessionId },
+    candidates: allValidated,
+    countsByCategory: {
+      TWK: config.TWK.count,
+      TIU: config.TIU.count,
+      TKP: config.TKP.count,
+    },
+  });
 
   const questionOrder = selected.map((q) => q.id);
   const startedAt = new Date();

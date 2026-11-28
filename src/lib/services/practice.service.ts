@@ -15,6 +15,7 @@ import {
   type OptionKey,
   type SkdCategory,
 } from "@/lib/scoring/skd-scoring";
+import { pickAndRecordFromPool } from "@/lib/services/question-access.service";
 import { ApiError } from "@/middleware/api";
 
 export interface PracticeQuestionMaterialItem {
@@ -369,55 +370,14 @@ export async function createPracticePack(
     }
   }
 
-  const attemptedQuestionIds = new Set<string>();
-  const attemptedSlugs = new Set<string>();
-
-  if (ownerConditions.length > 0 && validQuestionIds.length === 0) {
-    const priorAttempts = await db
-      .select({
-        questionId: quizAttempts.questionId,
-        ragSourceId: quizAttempts.ragSourceId,
-      })
-      .from(quizAttempts)
-      .leftJoin(conversations, eq(quizAttempts.chatId, conversations.id))
-      .leftJoin(quizSessions, eq(quizAttempts.sessionId, quizSessions.id))
-      .where(
-        and(
-          eq(quizAttempts.status, "answered"),
-          ownerConditions.length === 1
-            ? ownerConditions[0]
-            : or(...ownerConditions)
-        )
-      );
-
-    for (const attempt of priorAttempts) {
-      if (isValidUuid(attempt.questionId)) {
-        attemptedQuestionIds.add(attempt.questionId);
-      }
-      if (attempt.ragSourceId?.trim()) {
-        attemptedSlugs.add(attempt.ragSourceId.trim());
-      }
-    }
-  }
-
-  const unattempted: (typeof quizQuestions.$inferSelect)[] = [];
-  const attempted: (typeof quizQuestions.$inferSelect)[] = [];
-
-  for (const question of candidateQuestions) {
-    if (
-      attemptedQuestionIds.has(question.id) ||
-      attemptedSlugs.has(question.slug)
-    ) {
-      attempted.push(question);
-    } else {
-      unattempted.push(question);
-    }
-  }
-
-  const selected = [
-    ...shuffleArray(unattempted),
-    ...shuffleArray(attempted),
-  ].slice(0, count);
+  const selected =
+    !input.wrongOnly && validQuestionIds.length === 0
+      ? await pickAndRecordFromPool({
+          actor: { userId, guestSessionId },
+          candidates: candidateQuestions,
+          needed: count,
+        })
+      : shuffleArray(candidateQuestions).slice(0, count);
 
   const twkQuestionIds = selected
     .filter((q) => normalizeCategory(q.category) === "TWK")
