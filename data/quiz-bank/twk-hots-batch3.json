@@ -1,0 +1,1922 @@
+[
+  {
+    "slug": "twk-nasionalisme-identitas-kedaulatan-b3-001",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-identitas-kedaulatan"
+    ],
+    "reasoningChain": "Nasionalisme Indonesia berlandaskan kesadaran kebangsaan inklusif yang menempatkan kepentingan nasional dan meritokrasi di atas ikatan primordial kedaerahan. Penolakan terhadap pelamar kompeten semata-mata karena berasal dari luar daerah mencerminkan etnosentrisme yang merusak persatuan. Solusi yang tepat harus menjaga standar kompetensi nasional sekaligus membuka pembinaan talenta lokal secara adil.",
+    "stem": "Sebuah pemerintah provinsi merekrut tenaga ahli sistem informasi kesehatan untuk mempercepat digitalisasi puskesmas terpencil. Sejumlah tokoh lokal mendesak panitia agar hanya meloloskan pelamar ber-KTP daerah setempat meskipun nilai kompetensinya jauh di bawah standar, sementara pelamar dari provinsi lain memiliki rekam jejak teknis yang teruji. Sebagai ketua panitia seleksi yang menjunjung nilai nasionalisme, kebijakan paling tepat adalah ...",
+    "options": {
+      "A": "Mempertahankan seleksi berbasis kompetensi yang terbuka bagi seluruh WNI sekaligus mengusulkan program pelatihan intensif bagi putra daerah untuk formasi berikutnya.",
+      "B": "Mengubah syarat administrasi menjadi khusus ber-KTP setempat setelah pendaftaran ditutup guna meredam potensi penolakan sosial di daerah.",
+      "C": "Menurunkan ambang batas kelulusan secara khusus bagi pelamar lokal agar komposisi tim tetap didominasi warga provinsi tersebut.",
+      "D": "Membatalkan seluruh proses rekrutmen dan menyerahkan pekerjaan kepada vendor swasta luar negeri yang dinilai netral dari dinamika lokal.",
+      "E": "Meloloskan pelamar ber-KTP lokal sebagai koordinator utama sambil menugaskan pelamar terbaik dari luar daerah sebagai tenaga pembantu tanpa SK."
+    },
+    "hint": "Bedakan nasionalisme sipil yang inklusif dari primordialisme kedaerahan dalam pelayanan publik.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Seleksi terbuka berbasis kompetensi menegakkan persatuan nasional tanpa diskriminasi wilayah, sementara pelatihan bagi talenta lokal membangun kapasitas daerah secara berkeadilan.",
+      "B": "Salah. Mengubah aturan secara sepihak setelah pendaftaran ditutup melanggar kepastian hukum serta mengutamakan sentimen kedaerahan di atas kepentingan pelayanan publik.",
+      "C": "Salah. Menurunkan standar kompetensi membahayakan kualitas sistem layanan kesehatan masyarakat dan mereduksi profesionalisme birokrasi.",
+      "D": "Salah. Mengalihkan ke vendor asing justru menghindar dari tanggung jawab pembinaan talenta nasional dan mengurangi kemandirian instansi.",
+      "E": "Salah. Pemberian jabatan berdasarkan asal daerah dengan mengorbankan status kepegawaian pelamar terbaik menciptakan ketidakadilan struktural."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK HOTS Penalaran Kebangsaan"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-polugri-bebas-aktif-b3-002",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-polugri-bebas-aktif"
+    ],
+    "reasoningChain": "Politik luar negeri bebas aktif berarti Indonesia tidak memihak blok kekuatan dunia mana pun (bebas) dan aktif memperjuangkan ketertiban serta kemandirian nasional (aktif). Dalam persaingan rantai pasok teknologi semikonduktor antarblok besar, Indonesia tidak boleh terikat klausul eksklusif yang memutus kerja sama dengan pihak lain. Diversifikasi mitra dan penguasaan teknologi domestik menjaga kedaulatan sekaligus kepentingan ekonomi nasional.",
+    "stem": "Dalam forum kerja sama industri strategis, negara adidaya X menawarkan investasi besar pembangunan pabrik manufaktur komponen semikonduktor di Indonesia dengan syarat Indonesia memutus seluruh perjanjian riset teknologi dengan negara Y yang menjadi rival geopolitiknya. Dari perspektif nasionalisme dan politik luar negeri bebas aktif, posisi perundingan paling tepat bagi delegasi Indonesia adalah ...",
+    "options": {
+      "A": "Menerima seluruh klausul eksklusivitas dari negara X karena nilai investasinya lebih besar dibandingkan proyek riset bersama negara Y.",
+      "B": "Menolak klausul pemutusan hubungan dengan negara Y sambil menawarkan skema kemitraan terbuka yang berfokus pada alih teknologi dan kepentingan nasional.",
+      "C": "Membatalkan seluruh kerja sama teknologi dengan kedua negara tersebut agar Indonesia tidak terseret dalam dinamika ekonomi internasional.",
+      "D": "Menandatangani perjanjian eksklusif secara resmi dengan negara X namun tetap melanjutkan proyek riset negara Y melalui perusahaan cangkang.",
+      "E": "Meminta negara X dan negara Y menyelesaikan sengketa dagang mereka terlebih dahulu sebelum Indonesia bersedia hadir dalam forum ekonomi global."
+    },
+    "hint": "Ingat prinsip tidak memihak blok rivalitas sekaligus proaktif memperjuangkan kepentingan nasional.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menerima syarat eksklusivitas geopolitik membuat Indonesia kehilangan kemandirian politik luar negeri dan bergantung pada satu blok kekuatan.",
+      "B": "Benar. Menolak dikte blok rivalitas sambil mendorong alih teknologi mencerminkan prinsip bebas aktif yang berdaulat dan pragmatis demi kepentingan bangsa.",
+      "C": "Salah. Mengisolasi diri dari kerja sama internasional bertentangan dengan sifat aktif dalam politik luar negeri Indonesia.",
+      "D": "Salah. Praktik perjanjian terselubung merusak kredibilitas diplomasi Indonesia serta berisiko memicu sanksi hukum dan dagang.",
+      "E": "Salah. Sikap pasif menunggu negara lain berdamai tidak memanfaatkan posisi tawar strategis Indonesia di kawasan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK HOTS Diplomasi & Kebangsaan"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-hilirisasi-ekonomi-b3-003",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-hilirisasi-kedaulatan-ekonomi-b3"
+    ],
+    "reasoningChain": "Pasal 33 ayat (3) UUD 1945 mengamanatkan pengelolaan kekayaan alam untuk sebesar-besar kemakmuran rakyat. Kebijakan hilirisasi mineral strategis bertujuan meningkatkan nilai tambah domestik, industrialisasi, dan kemandirian ekonomi. Saat menghadapi gugatan dagang internasional, langkah berdaulat bukan mencabut larangan ekspor mentah sepenuhnya, melainkan memperkuat daya saing hukum, instrumen fiskal, dan ekosistem industri hilir berkelanjutan.",
+    "stem": "Kebijakan Indonesia membatasi ekspor bijih mineral mentah untuk mendorong pembangunan smelter dalam negeri digugat di organisasi perdagangan internasional karena dinilai menghambat pasokan bahan baku industri negara maju. Sebagian pelaku usaha domestik mendesak pemerintah mencabut kebijakan itu agar penerimaan ekspor jangka pendek cepat masuk. Langkah kebijakan yang paling selaras dengan nasionalisme ekonomi konstitusional adalah ...",
+    "options": {
+      "A": "Mencabut pembatasan ekspor bijih mentah secara permanen supaya hubungan dagang dengan negara penggugat segera pulih tanpa hambatan.",
+      "B": "Menghentikan seluruh transaksi perdagangan komoditas pertambangan dengan negara penggugat sebagai bentuk pembalasan diplomatik.",
+      "C": "Menempuh pembelaan hukum internasional secara terukur sambil mempercepat pembangunan rantai industri hilir domestik yang ramah lingkungan dan berkeadilan.",
+      "D": "Mengizinkan ekspor bijih mentah tanpa batas kuota selama perusahaan tambang bersedia membayar sumbangan sukarela kepada pemerintah daerah.",
+      "E": "Mengalihkan seluruh kepemilikan smelter nasional kepada konsorsium penggugat agar sengketa perdagangan internasional tidak berlanjut."
+    },
+    "hint": "Kaitkan kemandirian nilai tambah sumber daya alam dengan kepatuhan konstitusi dan diplomasi terukur.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Kembali mengekspor bahan mentah menghilangkan nilai tambah industri nasional dan mengembalikan ketergantungan pada ekspor komoditas primer.",
+      "B": "Salah. Embargo sepihak justru merugikan ekspor produk hilir nasional dan menutup ruang diplomasi ekonomi.",
+      "C": "Benar. Mempertahankan strategi hilirisasi melalui jalur hukum yang sah serta memperkuat ekosistem industri dalam negeri mewujudkan amanat Pasal 33 ayat (3) UUD 1945.",
+      "D": "Salah. Pungutan sukarela tidak menggantikan hilangnya penciptaan lapangan kerja dan alih teknologi dari industrialisasi hilir.",
+      "E": "Salah. Penyerahan kendali aset hilir kepada pihak luar melemahkan kedaulatan ekonomi nasional."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 33 dan UU Minerba tentang Peningkatan Nilai Tambah Mineral"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-kedaulatan-data-b3-004",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-kedaulatan-data-ruang-digital-b3"
+    ],
+    "reasoningChain": "Kedaulatan digital negara menuntut penguasaan penuh atas data strategis warga negara dan instansi publik sesuai kerangka pelindungan data pribadi dan tata kelola sistem elektronik pemerintahan. Menyerahkan penyimpanan data kependudukan ke server di luar yurisdiksi hukum Indonesia tanpa jaminan kendali keamanan membuka risiko kebocoran dan intervensi asing. Opsi yang tepat adalah memanfaatkan infrastruktur pusat data nasional dengan audit keamanan ketat.",
+    "stem": "Sebuah lembaga layanan publik merencanakan integrasi rekam medis dan data kependudukan warga secara daring. Penyedia layanan komputasi awan asing menawarkan kapasitas gratis selama dua tahun dengan syarat seluruh basis data diproses dan disimpan eksklusif di pusat data luar negeri tanpa akses audit bagi otoritas siber nasional. Keputusan kepala lembaga yang paling tepat mencerminkan nasionalisme di era digital adalah ...",
+    "options": {
+      "A": "Menerima penawaran tersebut demi penghematan APBN karena biaya infrastruktur pusat data dalam negeri pada tahun pertama cukup tinggi.",
+      "B": "Menyetujui penyimpanan di luar negeri khusus untuk data warga di daerah terpencil yang infrastrukturnya belum memadai.",
+      "C": "Menyerahkan keputusan lokasi penyimpanan data sepenuhnya kepada vendor aplikasi tanpa mencantumkan klausul yurisdiksi hukum Indonesia.",
+      "D": "Menolak skema penyimpanan eksklusif di luar negeri serta menempatkan data strategis pada infrastruktur berdaulat di dalam negeri dengan standar keamanan teraudit.",
+      "E": "Menyimpan data warga dalam format berkas terbuka di jaringan publik agar semua pihak dapat melakukan pencadangan secara mandiri."
+    },
+    "hint": "Pertimbangkan yurisdiksi hukum nasional dan keamanan data strategis warga negara.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Efisiensi anggaran jangka pendek tidak sebanding dengan hilangnya yurisdiksi dan kendali keamanan atas data strategis warga negara.",
+      "B": "Salah. Memisahkan standar perlindungan data berdasarkan wilayah melanggar prinsip kesetaraan perlindungan hak warga negara.",
+      "C": "Salah. Mengabaikan klausul yurisdiksi hukum nasional melemahkan penegakan hukum jika terjadi insiden kebocoran data.",
+      "D": "Benar. Menempatkan data publik pada infrastruktur di bawah yurisdiksi Indonesia dengan audit keamanan menjaga kedaulatan data dan perlindungan warga.",
+      "E": "Salah. Penyimpanan terbuka di jaringan publik melanggar kerahasiaan data pribadi dan memicu penyalahgunaan masif."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-diplomasi-maritim-b3-005",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-diplomasi-maritim-djuanda-unclos-b3"
+    ],
+    "reasoningChain": "Berdasarkan Deklarasi Djuanda 1957 yang diakui dalam UNCLOS 1982, Indonesia adalah negara kepulauan yang memiliki kedaulatan penuh atas perairan kepulauan dan laut teritorial, sementara kapal asing hanya menikmati hak lintas damai dan hak lintas alur laut kepulauan (ALKI) tanpa melakukan survei militer atau eksploitasi ilegal. Jika kapal riset asing mematikan transponder dan melakukan pemetaan bawah laut di luar koridor izin di perairan kepulauan, penegakan hukum maritim harus dilakukan secara tegas sesuai hukum laut internasional.",
+    "stem": "Kapal patroli maritim mendeteksi kapal riset asing melintasi Alur Laut Kepulauan Indonesia (ALKI), namun mematikan sistem identifikasi otomatis (AIS) dan menurunkan perangkat sonar pemetaan dasar laut tanpa izin pemerintah Indonesia. Kapten kapal asing berdalih tindakan itu dilindungi kebebasan pelayaran internasional. Tindakan otoritas Indonesia yang paling sesuai dengan Deklarasi Djuanda dan UNCLOS 1982 adalah ...",
+    "options": {
+      "A": "Membiarkan kapal tersebut melanjutkan pemetaan karena jalur ALKI berstatus laut lepas yang bebas dieksplorasi negara mana pun.",
+      "B": "Mengeluarkan ultimatum penembakan langsung tanpa peringatan apabila kapal asing tidak meninggalkan perairan dalam sepuluh menit.",
+      "C": "Menyetujui aktivitas pemetaan tersebut sepanjang hasil datanya dibagikan sebagian kepada pemerintah daerah pesisir terdekat.",
+      "D": "Mengalihkan tanggung jawab pengawasan sepenuhnya kepada organisasi maritim internasional karena Indonesia tidak berwenang memeriksa kapal asing.",
+      "E": "Menghentikan aktivitas pemetaan ilegal tersebut secara prosedural, melakukan pemeriksaan sesuai hukum nasional dan UNCLOS, serta menempuh nota diplomatik."
+    },
+    "hint": "Pahami batas hak lintas alur laut kepulauan (ALKI) dalam UNCLOS 1982 bagi kapal asing.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. ALKI bukan laut lepas; kapal asing hanya memiliki hak lintas terus-menerus, langsung, dan secepatnya tanpa melakukan riset atau survei tanpa izin.",
+      "B": "Salah. Penggunaan kekuatan bersenjata langsung tanpa eskalasi prosedural melanggar prinsip proporsionalitas hukum laut internasional.",
+      "C": "Salah. Aktivitas survei tanpa izin resmi pemerintah pusat tetap merupakan pelanggaran hak dan kedaulatan negara pantai/kepulauan.",
+      "D": "Salah. Negara kepulauan memiliki yurisdiksi dan kewenangan penegakan hukum di perairan kepulauannya.",
+      "E": "Benar. Penindakan prosedural di laut yang disertai langkah diplomatik menegakkan kedaulatan negara kepulauan sesuai Deklarasi Djuanda dan UNCLOS 1982."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UNCLOS 1982 (UU Nomor 17 Tahun 1985) dan Deklarasi Djuanda 1957"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-ketahanan-budaya-b3-006",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-ketahanan-budaya-diaspora-global-b3"
+    ],
+    "reasoningChain": "Ketahanan budaya dalam arus globalisasi membutuhkan perlindungan hukum atas ekspresi budaya tradisional dan kekayaan intelektual komunal, bukan sekadar reaksi emosional di media sosial. Ketika motif tenun tradisional diklaim komersial oleh perusahaan luar negeri, respons negara yang efektif meliputi inventarisasi resmi, perlindungan hukum kekayaan intelektual komunal, serta pemberdayaan perajin lokal agar bernilai ekonomi berkelanjutan.",
+    "stem": "Sebuah rumah mode luar negeri mematenkan motif tenun tradisional dari daerah di Indonesia sebagai merek dagang komersial tanpa mencantumkan asal budaya maupun izin komunitas adat setempat. Warganet mendesak pemutusan hubungan budaya dengan negara asal perusahaan tersebut. Respons strategis instansi pemerintah yang paling tepat mencerminkan ketahanan budaya nasional adalah ...",
+    "options": {
+      "A": "Mencatat dan mendaftarkan motif tersebut sebagai kekayaan intelektual komunal, menempuh langkah hukum/diplomasi pelindungan, serta memberdayakan perajin lokal.",
+      "B": "Melarang seluruh masyarakat Indonesia membeli produk mode luar negeri tanpa melakukan pendaftaran resmi warisan budaya nasional.",
+      "C": "Menyalahkan pemerintah daerah setempat karena dianggap gagal mempromosikan motif tenun tersebut ke pasar internasional.",
+      "D": "Membiarkan klaim merek dagang tersebut berlaku agar motif tenun Indonesia lebih cepat dikenal di panggung peragaan busana dunia.",
+      "E": "Mengimbau perajin adat mengganti motif tenun warisan leluhur dengan desain modern baru supaya tidak lagi ditiru pihak asing."
+    },
+    "hint": "Fokus pada perlindungan hukum kekayaan intelektual komunal dan penguatan ekosistem perajin.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Dokumentasi resmi kekayaan intelektual komunal, jalur hukum, dan penguatan ekonomi perajin merupakan wujud nyata perlindungan kedaulatan budaya.",
+      "B": "Salah. Boikot emosional tanpa pencatatan hukum resmi tidak membatalkan klaim komersial pihak asing di yurisdiksi internasional.",
+      "C": "Salah. Saling menyalahkan antarinstansi tidak menyelesaikan sengketa hukum maupun melindungi hak masyarakat adat.",
+      "D": "Salah. Membiarkan komersialisasi tanpa pengakuan asal budaya merugikan hak moral dan ekonomi komunitas pemilik tradisi.",
+      "E": "Salah. Mengganti motif warisan justru menghilangkan identitas budaya asli bangsa akibat tekanan komersial luar."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Ketahanan Budaya Nasional"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-identitas-bahasa-b3-007",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-identitas-kedaulatan"
+    ],
+    "reasoningChain": "UU Nomor 24 Tahun 2009 tentang Bendera, Bahasa, dan Lambang Negara serta Lagu Kebangsaan mengamanatkan penggunaan Bahasa Indonesia pada dokumen resmi, rambu publik, nama gedung, dan informasi layanan umum, dengan bahasa asing sebagai pendamping jika diperlukan. Mengutamakan bahasa Indonesia di ruang publik tanpa menutup akses informasi bagi wisatawan/investor asing mencerminkan jati diri bangsa yang terbuka namun berdaulat.",
+    "stem": "Pengelola kawasan industri terpadu berencana memasang seluruh papan penunjuk jalan, nama gedung, dan panduan keselamatan kerja hanya dalam bahasa asing dengan alasan kawasan tersebut dihuni banyak tenaga ahli mancanegara. Padahal, ribuan pekerja domestik dan warga sekitar juga beraktivitas setiap hari di kawasan itu. Langkah pemerintah daerah yang paling sesuai dengan semangat nasionalisme dan UU Nomor 24 Tahun 2009 adalah ...",
+    "options": {
+      "A": "Menyetujui penggunaan bahasa asing secara tunggal agar kawasan industri terlihat modern dan menarik minat investor baru.",
+      "B": "Mewajibkan penggunaan Bahasa Indonesia sebagai bahasa utama pada penamaan dan informasi publik, serta mengizinkan bahasa asing sebagai pendamping.",
+      "C": "Melarang keras pencantuman bahasa asing dalam bentuk apa pun termasuk pada petunjuk teknis mesin produksi milik perusahaan penanam modal asing.",
+      "D": "Menyerahkan kebijakan bahasa ruang publik sepenuhnya kepada asosiasi pengelola kawasan karena berada di lahan hak guna bangunan swasta.",
+      "E": "Mengganti seluruh informasi di kawasan tersebut menggunakan bahasa daerah setempat saja guna menonjolkan kearifan lokal."
+    },
+    "hint": "Ingat kedudukan Bahasa Indonesia sebagai bahasa negara di ruang publik sekaligus fungsi pendamping bahasa asing.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Peniadaan Bahasa Indonesia pada informasi publik dan keselamatan kerja melanggar UU 24/2009 dan berisiko bagi pekerja domestik.",
+      "B": "Benar. Penempatan Bahasa Indonesia sebagai bahasa utama dengan bahasa asing sebagai pendamping menjaga kedaulatan bahasa negara sekaligus efektivitas komunikasi global.",
+      "C": "Salah. Pelarangan total bahasa asing sebagai pendamping teknis justru menghambat keselamatan kerja tenaga ahli asing dan tidak disyaratkan UU.",
+      "D": "Salah. Ruang publik dan rambu informasi keselamatan tetap tunduk pada regulasi nasional mengenai bahasa negara.",
+      "E": "Salah. Penggunaan bahasa daerah saja tanpa Bahasa Indonesia tidak memenuhi fungsi Bahasa Indonesia sebagai bahasa pemersatu dan bahasa resmi negara."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 24 Tahun 2009 tentang Bendera, Bahasa, dan Lambang Negara, serta Lagu Kebangsaan"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-polugri-kemanusiaan-b3-008",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-polugri-bebas-aktif"
+    ],
+    "reasoningChain": "Pembukaan UUD 1945 alinea keempat menegaskan Indonesia ikut melaksanakan ketertiban dunia berdasarkan kemerdekaan, perdamaian abadi, dan keadilan sosial. Dalam menghadapi krisis kemanusiaan yang melibatkan rivalitas kekuatan besar, politik luar negeri bebas aktif diwujudkan dengan bantuan kemanusiaan netral, dorongan dialog damai melalui forum multilateral, dan penolakan keterlibatan dalam pakta militer.",
+    "stem": "Ketegangan bersenjata di kawasan perairan internasional dekat jalur perdagangan dunia memicu krisis pengungsi sekaligus gangguan pasokan energi. Dua koalisi militer besar mendesak Indonesia bergabung dalam operasi pengawalan bersenjata masing-masing. Sikap diplomasi yang paling tepat mencerminkan amanat Pembukaan UUD 1945 dan prinsip bebas aktif adalah ...",
+    "options": {
+      "A": "Bergabung dalam koalisi militer dengan armada terbesar agar keamanan jalur ekspor komoditas Indonesia langsung terjamin.",
+      "B": "Menolak berkomentar dalam forum internasional mana pun untuk menghindari potensi ketegangan diplomatik dengan kedua koalisi.",
+      "C": "Menginisiasi dialog perdamaian melalui forum multilateral serta menyalurkan bantuan kemanusiaan netral tanpa masuk ke pakta militer mana pun.",
+      "D": "Menawarkan pangkalan laut nasional secara bergantian kepada kedua koalisi militer agar tercipta keseimbangan kekuatan di kawasan.",
+      "E": "Menutup seluruh pelabuhan dagang nasional dari kapal niaga asing sampai sengketa keamanan internasional selesai sepenuhnya."
+    },
+    "hint": "Gabungkan kemandirian non-pakta militer dengan kontribusi aktif bagi perdamaian dan kemanusiaan.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Bergabung dengan pakta militer salah satu blok bertentangan dengan prinsip bebas dari keterikatan aliansi militer.",
+      "B": "Salah. Sikap diam dan pasif mengingkari sifat aktif dalam memperjuangkan perdamaian dunia.",
+      "C": "Benar. Mediasi multilateral dan bantuan kemanusiaan netral tanpa pakta militer mencerminkan politik luar negeri bebas aktif dan amanat Pembukaan UUD 1945.",
+      "D": "Salah. Pemberian pangkalan militer kepada kekuatan asing melanggar kedaulatan teritorial dan prinsip non-blok.",
+      "E": "Salah. Penutupan pelabuhan niaga justru melumpuhkan perekonomian nasional sendiri dan tidak menyelesaikan konflik."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Pembukaan UUD NRI Tahun 1945 Alinea Keempat dan UU Nomor 37 Tahun 1999 tentang Hubungan Luar Negeri"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-hilirisasi-tkdn-b3-009",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-hilirisasi-kedaulatan-ekonomi-b3"
+    ],
+    "reasoningChain": "Kedaulatan ekonomi dan kemandirian industri nasional dibangun melalui pemanfaatan belanja negara untuk produk dalam negeri (P3DN/TKDN) yang memenuhi standar mutu. Memilih produk impor semata karena selisih harga kecil meski industri nasional sudah mampu memproduksi sesuai standar melemahkan rantai pasok domestik. Sebaliknya, preferensi produk ber-TKDN yang tetap diuji mutu dan harganya secara akuntabel memperkuat ketahanan ekonomi nasional.",
+    "stem": "Dalam pengadaan alat kesehatan untuk rumah sakit rujukan nasional, terdapat produk ventilator buatan industri dalam negeri yang telah lolos uji klinis dengan Tingkat Komponen Dalam Negeri (TKDN) tinggi. Namun, produk impor sejenis menawarkan harga lebih murah sebesar lima persen karena subsidi ekspor negara asalnya. Keputusan pejabat pengadaan yang paling mencerminkan nasionalisme ekonomi dan akuntabilitas adalah ...",
+    "options": {
+      "A": "Memilih produk impor seluruhnya karena selisih harga lima persen merupakan satu-satunya ukuran efisiensi penggunaan anggaran negara.",
+      "B": "Memprioritaskan produk dalam negeri yang memenuhi standar mutu klinis sesuai regulasi preferensi TKDN sekaligus melakukan negosiasi harga wajar.",
+      "C": "Membeli produk dalam negeri tanpa memeriksa sertifikat uji klinis dan spesifikasi teknis demi menunjukkan keberpihakan kepada produsen lokal.",
+      "D": "Menunda pengadaan alat kesehatan hingga tahun anggaran berikutnya agar produsen lokal menurunkan harga di bawah harga subsidi asing.",
+      "E": "Memecah paket pengadaan menjadi penunjukan langsung kepada perusahaan afiliasi pejabat agar proses belanja berjalan lebih cepat."
+    },
+    "hint": "Pertimbangkan keseimbangan antara regulasi preferensi produk dalam negeri (TKDN), standar mutu, dan tata kelola pengadaan.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Kebijakan belanja pemerintah tidak hanya menilai harga terendah sesaat, tetapi juga efek berganda ekonomi dan kemandirian industri strategis nasional.",
+      "B": "Benar. Mengutamakan produk dalam negeri berstandar klinis dan ber-TKDN tinggi dengan tetap menjaga kewajaran harga memajukan kemandirian industri serta akuntabilitas anggaran.",
+      "C": "Salah. Mengabaikan uji klinis pada alat kesehatan membahayakan keselamatan pasien dan melanggar prinsip profesionalisme pengadaan.",
+      "D": "Salah. Menunda pemenuhan alat kesehatan penting di rumah sakit rujukan merugikan keselamatan pelayanan publik.",
+      "E": "Salah. Pemecahan paket dan afiliasi pejabat melanggar prinsip persaingan sehat serta memicu tindak pidana korupsi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Kebijakan P3DN dan Kemandirian Ekonomi"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-ruang-digital-hoaks-b3-010",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-kedaulatan-data-ruang-digital-b3"
+    ],
+    "reasoningChain": "Nasionalisme di ruang digital menuntut kecakapan literasi media, penolakan terhadap amplifikasi disinformasi yang memecah belah bangsa, serta pelaporan melalui kanal resmi. Membagikan ulang konten provokatif meskipun disertai bantahan atau ikut berdebat emosional justru menaikkan jangkauan algoritma konten tersebut. Sikap tepat adalah verifikasi fakta, pelaporan ke kanal pengaduan resmi, dan penyebaran konten edukatif terverifikasi dari sumber kredibel.",
+    "stem": "Menjelang pelaksanaan agenda nasional, grup percakapan lingkungan kerja seorang ASN dibanjiri video suntingan berbasis kecerdasan buatan (deepfake) yang menuduh instansi pelayanan publik melakukan diskriminasi bantuan sosial terhadap wilayah tertentu. Rekan-rekan kerja mulai terpancing emosi dan berniat memviralkan video itu di akun pribadi masing-masing disertai komentar bantahan kasar. Tindakan paling tepat yang mencerminkan nasionalisme di ruang digital adalah ...",
+    "options": {
+      "A": "Meneruskan video tersebut ke grup warga sekitar agar masyarakat segera mengetahui bahwa ada pihak yang sedang memfitnah instansi pemerintah.",
+      "B": "Mengomentari langsung unggahan pembuat video dengan nada keras supaya akun anonim tersebut merasa takut dan menghapus kontennya.",
+      "C": "Menghapus seluruh riwayat pesan di grup kantor lalu melarang rekan kerja menggunakan media sosial selama masa agenda nasional berlangsung.",
+      "D": "Melakukan verifikasi sumber resmi, menahan diri agar tidak ikut menyebarkan tautan provokatif, melaporkan konten ke kanal aduan resmi, serta membagikan klarifikasi terverifikasi.",
+      "E": "Membiarkan perdebatan di grup kerja berlangsung bebas karena perbedaan reaksi terhadap berita merupakan bagian dari kebebasan berekspresi."
+    },
+    "hint": "Perhatikan efek algoritma penyebaran konten serta prosedur verifikasi dan klarifikasi resmi.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Meneruskan video suntingan ke ruang publik lain justru memperluas sebaran disinformasi dan memperbesar kepanikan sosial.",
+      "B": "Salah. Berdebat emosional di kolom komentar meningkatkan keterlibatan algoritma sehingga konten provokatif makin banyak tampil.",
+      "C": "Salah. Melarang rekan menggunakan media sosial secara total melampaui kewenangan dan tidak memberi edukasi literasi digital.",
+      "D": "Benar. Memutus rantai penyebaran, melapor ke otoritas berwenang, dan menyebarkan klarifikasi resmi menjaga ketertiban ruang digital nasional.",
+      "E": "Salah. Membiarkan disinformasi yang memicu sentimen diskriminasi wilayah berkembang di lingkungan ASN dapat merusak kohesi sosial."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Nasionalisme di Ruang Digital"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-maritim-perikanan-b3-011",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-diplomasi-maritim-djuanda-unclos-b3"
+    ],
+    "reasoningChain": "Dalam UNCLOS 1982, Indonesia memiliki kedaulatan penuh atas perairan pedalaman, perairan kepulauan, dan laut teritorial hingga 12 mil laut dari garis pangkal kepulauan, serta hak berdaulat (sovereign rights) untuk mengeksplorasi, mengeksploitasi, dan mengelola sumber daya alam di Zona Ekonomi Eksklusif (ZEE) hingga 200 mil laut. Oleh karena itu, klaim sepihak negara asing atas wilayah perikanan tradisional di dalam ZEE Indonesia tidak memiliki dasar hukum dalam UNCLOS 1982.",
+    "stem": "Sebuah armada penangkap ikan asing yang dikawal kapal penjaga pantai negaranya memasuki wilayah Zona Ekonomi Eksklusif (ZEE) Indonesia di Laut Natuna Utara dengan dalih wilayah tersebut merupakan daerah penangkapan ikan tradisional mereka secara historis. Ditinjau dari UNCLOS 1982 dan kedaulatan maritim Indonesia, argumen hukum paling tepat yang mendasari penegakan hak Indonesia adalah ...",
+    "options": {
+      "A": "Klaim historis sepihak tidak dapat menggugurkan hak berdaulat Indonesia untuk mengelola dan memanfaatkan sumber daya hayati di ZEE hingga 200 mil laut.",
+      "B": "Wilayah ZEE Indonesia berstatus wilayah daratan tambahan sehingga setiap kapal asing dilarang melintas meski hanya berlayar damai.",
+      "C": "Indonesia berhak memperluas laut teritorialnya secara sepihak hingga 200 mil laut apabila terdapat potensi sumber daya perikanan strategis.",
+      "D": "Hak pengelolaan ZEE sepenuhnya ditentukan oleh kesepakatan bilateral adat tanpa perlu merujuk pada ketentuan konvensi hukum laut PBB.",
+      "E": "Setiap kapal ikan asing bebas menangkap ikan di ZEE Indonesia asalkan tidak mendekati garis pantai pulau terluar dalam radius 12 mil laut."
+    },
+    "hint": "Bedakan kedaulatan di laut teritorial (12 mil) dengan hak berdaulat di ZEE (200 mil) dalam UNCLOS 1982.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. UNCLOS 1982 mengakui hak berdaulat negara pantai atas sumber daya alam di ZEE sejauh 200 mil laut dan tidak membenarkan klaim historis sepihak yang bertentangan dengannya.",
+      "B": "Salah. Di ZEE, kapal asing tetap memiliki kebebasan bernavigasi, bukan dilarang melintas sama sekali, namun dilarang mengeksploitasi sumber daya tanpa izin.",
+      "C": "Salah. Laut teritorial dibatasi maksimal 12 mil laut menurut UNCLOS 1982, bukan diperluas sepihak menjadi 200 mil laut.",
+      "D": "Salah. Justru UNCLOS 1982 merupakan rezim hukum laut internasional yang mengikat secara global dan diratifikasi Indonesia.",
+      "E": "Salah. Penangkapan ikan di ZEE Indonesia oleh kapal asing tanpa izin merupakan pencurian ikan yang melanggar hak berdaulat Indonesia."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UNCLOS 1982 dan Undang-Undang Nomor 32 Tahun 2014 tentang Kelautan"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-diaspora-riset-b3-012",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-ketahanan-budaya-diaspora-global-b3"
+    ],
+    "reasoningChain": "Nasionalisme ilmuwan dan diaspora Indonesia di kancah global tidak berarti menutup diri dari kolaborasi riset internasional, melainkan memastikan bahwa sumber daya genetik nasional, pengetahuan tradisional, dan hasil riset strategis dilindungi secara adil melalui perjanjian alih material (MTA) dan pembagian manfaat yang sah. Menyerahkan sampel hayati endemik untuk dipatenkan eksklusif oleh entitas asing merugikan kepentingan nasional dan melanggar prinsip pelindungan sumber daya genetik bangsa.",
+    "stem": "Seorang peneliti diaspora Indonesia yang bekerja di laboratorium universitas terkemuka luar negeri diminta membawa sampel tanaman obat endemik dari pedalaman Nusantara oleh rekan riset asingnya. Perusahaan mitra universitas itu menjanjikan dana besar apabila paten tunggal senyawa aktifnya didaftarkan atas nama korporasi asing tersebut tanpa keterlibatan lembaga riset Indonesia. Sikap peneliti yang paling mencerminkan nasionalisme di era globalisasi ilmu pengetahuan adalah ...",
+    "options": {
+      "A": "Membawa sampel tanaman secara diam-diam demi mempercepat penemuan obat baru karena ilmu pengetahuan bersifat universal bagi umat manusia.",
+      "B": "Menolak pengiriman sampel sepihak serta mengarahkan kolaborasi melalui perjanjian riset resmi antarlembaga yang menjamin hak paten dan pembagian manfaat bagi Indonesia.",
+      "C": "Memutus seluruh komunikasi ilmiah dengan akademisi luar negeri agar kekayaan hayati Nusantara tidak diketahui oleh peneliti internasional.",
+      "D": "Mengizinkan pendaftaran paten tunggal oleh korporasi asing asalkan nama peneliti diaspora dicantumkan sebagai penulis pertama publikasi jurnal.",
+      "E": "Menjual sampel tanaman endemik tersebut secara pribadi kepada perusahaan mitra asing sebelum adanya regulasi daerah yang melarangnya."
+    },
+    "hint": "Cari jalan kolaborasi ilmiah yang tetap melindungi kedaulatan sumber daya genetik dan keadilan bagi Indonesia.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pengambilan sumber daya hayati endemik tanpa izin resmi dan perjanjian alih material merupakan praktik biopiracy yang merugikan negara.",
+      "B": "Benar. Kolaborasi riset tetap berjalan secara bermartabat melalui kerangka hukum resmi yang melindungi hak kekayaan intelektual dan pembagian manfaat bagi Indonesia.",
+      "C": "Salah. Isolasi total menghambat kemajuan riset nasional; yang ditolak adalah eksploitasi sepihak, bukan kerja sama ilmiah yang adil.",
+      "D": "Salah. Pencantuman nama pribadi tidak menggantikan hilangnya kedaulatan paten dan manfaat ekonomi bagi masyarakat pemilik sumber daya hayati.",
+      "E": "Salah. Memperjualbelikan plasma nutfah endemik secara pribadi melanggar etika ilmiah dan peraturan pelindungan sumber daya genetik."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Nasionalisme Diaspora dan Riset Strategis"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-hilirisasi-energi-b3-013",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-hilirisasi-kedaulatan-ekonomi-b3"
+    ],
+    "reasoningChain": "Kedaulatan ekonomi melalui hilirisasi transisi energi bukan hanya mengejar pembangunan pabrik pengolahan berorientasi ekspor, melainkan memastikan keterlibatan tenaga kerja terampil lokal, kelestarian lingkungan hidup, dan kemakmuran masyarakat sekitar sesuai Pasal 33 ayat (3) dan (4) UUD 1945 (berkelanjutan dan berwawasan lingkungan). Mengabaikan dampak ekologis dan meminggirkan warga lokal mencederai keadilan sosial yang menjadi tujuan hilirisasi.",
+    "stem": "Pengembangan kawasan industri hilirisasi baterai kendaraan listrik di suatu wilayah pesisir berhasil menarik investasi triliunan rupiah. Namun, limbah pengolahan mengancam wilayah tangkap nelayan tradisional dan sebagian besar posisi teknis menengah ke atas diisi tenaga kerja asing tanpa program transfer keahlian yang terukur. Kebijakan perbaikan yang paling selaras dengan kedaulatan ekonomi berkeadilan adalah ...",
+    "options": {
+      "A": "Menghentikan seluruh proyek industri baterai secara permanen agar kawasan pesisir kembali pada perekonomian tradisional sebelum investasi masuk.",
+      "B": "Membebaskan investor dari kewajiban pengelolaan limbah sementara waktu supaya biaya produksi baterai tetap kompetitif di pasar ekspor.",
+      "C": "Menegakkan standar pengelolaan lingkungan secara ketat, mewajibkan program alih keterampilan terukur bagi pekerja lokal, serta melibatkan UMKM daerah dalam rantai pasok.",
+      "D": "Memindahkan permukiman seluruh nelayan tradisional ke wilayah daratan pedalaman tanpa jaminan mata pencaharian alternatif agar kawasan industri bebas keluhan.",
+      "E": "Memberikan kompensasi uang tunai satu kali kepada nelayan tanpa mewajibkan perbaikan sistem pengolahan limbah industri smelter."
+    },
+    "hint": "Ingat asas ekonomi nasional dalam Pasal 33 ayat (4) UUD 1945: berkelanjutan, berwawasan lingkungan, dan kemandirian.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Penghentian total menghilangkan peluang industrialisasi dan nilai tambah nasional; masalahnya berada pada tata kelola lingkungan dan alih keterampilan.",
+      "B": "Salah. Mengorbankan kelestarian lingkungan dan penghidupan nelayan bertentangan dengan prinsip pembangunan berkelanjutan.",
+      "C": "Benar. Penegakan baku mutu lingkungan, transfer teknologi bagi tenaga kerja nasional, dan integrasi UMKM menyelaraskan hilirisasi dengan keadilan sosial.",
+      "D": "Salah. Relokasi paksa tanpa pemulihan mata pencaharian melanggar hak ekonomi masyarakat pesisir.",
+      "E": "Salah. Kompensasi sesaat tidak memulihkan ekosistem laut yang menjadi sumber penghidupan jangka panjang warga."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 33 Ayat (3) dan Ayat (4)"
+    }
+  },
+  {
+    "slug": "twk-nasionalisme-ruang-digital-umkm-b3-014",
+    "category": "TWK",
+    "subtopic": "Nasionalisme",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nasionalisme-kedaulatan-data-ruang-digital-b3"
+    ],
+    "reasoningChain": "Kedaulatan ekonomi di ruang digital menuntut regulasi yang menciptakan persaingan adil antara pelaku UMKM domestik dan arus produk impor lintas batas yang dijual dengan praktik predatory pricing (banting harga di bawah biaya produksi untuk mematikan pesaing). Kebijakan yang tepat bukan menutup akses teknologi digital, melainkan menegakkan tata niaga e-commerce yang adil, standarisasi produk, kepatuhan pajak/bea masuk, dan penguatan daya saing UMKM nasional.",
+    "stem": "Masuknya barang konsumsi impor secara langsung melalui lokapasar lintas batas dengan harga sangat murah menyebabkan puluhan ribu UMKM tekstil nasional terancam gulung tikar akibat praktik banting harga tidak wajar. Sementara itu, konsumen perkotaan menyukai harga murah tersebut. Langkah kebijakan paling tepat mencerminkan nasionalisme ekonomi di ruang digital adalah ...",
+    "options": {
+      "A": "Memblokir seluruh layanan internet dan transaksi pembayaran digital di Indonesia agar masyarakat kembali berbelanja secara luring saja.",
+      "B": "Membiarkan mekanisme pasar bebas berjalan tanpa pengaturan apa pun karena harga murah selalu menguntungkan kepentingan konsumen.",
+      "C": "Mewajibkan seluruh UMKM tekstil nasional menghentikan produksi dan beralih menjadi penjual ulang produk impor dari platform tersebut.",
+      "D": "Menegakkan regulasi niaga elektronik yang adil terhadap praktik predatory pricing dan kewajiban perpajakan-standar produk impor sambil memfasilitasi digitalisasi UMKM.",
+      "E": "Memberikan subsidi tunai tanpa batas waktu kepada platform asing agar bersedia menaikkan harga jual produk impornya secara sukarela."
+    },
+    "hint": "Cari langkah regulasi perdagangan digital yang adil tanpa mengorbankan transformasi digital UMKM.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menutup ekosistem digital secara total menghambat efisiensi ekonomi modern dan merugikan UMKM yang juga memasarkan produk secara daring.",
+      "B": "Salah. Membiarkan praktik predatory pricing menghancurkan basis produksi nasional dan menciptakan monopoli asing dalam jangka panjang.",
+      "C": "Salah. Mengubah produsen menjadi importir justru mematikan industrialisasi domestik dan penyerapan tenaga kerja lokal.",
+      "D": "Benar. Penegakan aturan niaga elektronik yang setara, standar mutu, kepatuhan bea-pajak, dan pendampingan UMKM menjaga kedaulatan ekonomi digital nasional.",
+      "E": "Salah. Memberi subsidi kepada entitas asing justru membebani anggaran negara tanpa memperkuat daya saing produsen lokal."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Kedaulatan Ekonomi dan Ruang Digital"
+    }
+  },
+  {
+    "slug": "twk-nkri-otonomi-absolut-b3-015",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-otonomi-desentralisasi"
+    ],
+    "reasoningChain": "Menurut Pasal 18 ayat (5) UUD 1945 dan Pasal 10 ayat (1) UU Nomor 23 Tahun 2014 tentang Pemerintahan Daerah, terdapat 6 urusan pemerintahan absolut yang sepenuhnya menjadi kewenangan pemerintah pusat: politik luar negeri, pertahanan, keamanan, yustisi, moneter dan fiskal nasional, serta agama. Pemerintah daerah tidak berwenang menerbitkan peraturan daerah yang mengatur mata uang lokal, perjanjian pertahanan luar negeri, atau pembentukan lembaga peradilan sendiri.",
+    "stem": "Untuk mengatasi kelangkaan likuiditas pascabencana di wilayahnya, sebuah pemerintah kabupaten merancang Peraturan Daerah tentang penerbitan alat pembayaran lokal resmi yang wajib diterima seluruh toko menggantikan rupiah sementara waktu, sekaligus membentuk pengadilan sengketa niaga daerah yang putusannya terpisah dari sistem peradilan nasional. Ditinjau dari konsep otonomi daerah dalam NKRI, rancangan tersebut keliru karena ...",
+    "options": {
+      "A": "Bentuk alat pembayaran lokal harus terlebih dahulu disetujui oleh DPRD provinsi sebelum diberlakukan di tingkat kabupaten.",
+      "B": "Urusan pemerintahan daerah hanya terbatas pada bidang pertanian dan pariwisata sehingga perdagangan tidak boleh diatur daerah.",
+      "C": "Pembentukan lembaga peradilan daerah hanya diperbolehkan apabila anggaran pendapatan asli daerah mengalami surplus tiga tahun berturut-turut.",
+      "D": "Kewenangan tersebut masuk dalam urusan pemerintahan absolut hanya jika wilayah kabupaten berbatasan langsung dengan negara tetangga.",
+      "E": "Moneter dan yustisi merupakan urusan pemerintahan absolut pemerintah pusat yang tidak didesentralisasikan kepada pemerintah daerah."
+    },
+    "hint": "Ingat enam urusan pemerintahan absolut yang tidak diserahkan ke daerah berdasarkan UU 23/2014.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Persetujuan DPRD provinsi tetap tidak membenarkan pemerintah daerah menerbitkan alat pembayaran pengganti rupiah.",
+      "B": "Salah. Pemerintah daerah memiliki berbagai urusan konkuren wajib dan pilihan, termasuk perdagangan lokal sesuai batas kewenangannya.",
+      "C": "Salah. Pembentukan lembaga peradilan bukan soal kondisi surplus APBD, melainkan kewenangan mutlak pemerintah pusat di bidang yustisi.",
+      "D": "Salah. Status urusan pemerintahan absolut berlaku seragam di seluruh wilayah NKRI tanpa bergantung pada letak perbatasan.",
+      "E": "Benar. Sesuai UU 23/2014 Pasal 10, moneter/fiskal nasional dan yustisi adalah urusan absolut pemerintah pusat sehingga tidak boleh diambil alih oleh perda."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 23 Tahun 2014 tentang Pemerintahan Daerah Pasal 10"
+    }
+  },
+  {
+    "slug": "twk-nkri-presidensial-apbn-b3-016",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-sistem-pemerintahan-presidensial-apbn"
+    ],
+    "reasoningChain": "Pasal 23 ayat (2) dan (3) UUD NRI Tahun 1945 mengatur bahwa RUU APBN diajukan oleh Presiden untuk dibahas bersama DPR dengan memperhatikan pertimbangan DPD. Apabila DPR tidak menyetujui rancangan anggaran pendapatan dan belanja negara yang diusulkan oleh Presiden, Pemerintah menjalankan Anggaran Pendapatan dan Belanja Negara tahun yang lalu. Ketentuan ini mencegah kelumpuhan pemerintahan akibat kebuntuan anggaran dalam sistem presidensial.",
+    "stem": "Dalam pembahasan Rancangan Undang-Undang APBN untuk tahun anggaran mendatang, terjadi kebuntuan politik sehingga DPR tidak menyetujui rancangan APBN yang diajukan Presiden hingga batas waktu pengesahan berakhir. Sebagian pengamat mendesak Presiden membubarkan DPR atau menghentikan seluruh gaji aparatur dan belanja layanan publik sampai kesepakatan baru tercapai. Berdasarkan Pasal 23 UUD NRI Tahun 1945, solusi konstitusional yang berlaku dalam sistem presidensial Indonesia adalah ...",
+    "options": {
+      "A": "Pemerintah menjalankan Anggaran Pendapatan dan Belanja Negara tahun yang lalu agar penyelenggaraan negara dan pelayanan publik tetap berjalan.",
+      "B": "Presiden dapat membubarkan DPR melalui keputusan presiden dan segera menyelenggarakan pemilihan umum sela dalam waktu tiga puluh hari.",
+      "C": "Mahkamah Konstitusi mengambil alih fungsi pengesahan RUU APBN menggantikan DPR setelah menerima laporan kegagalan pembahasan dari pemerintah.",
+      "D": "Presiden menetapkan RUU APBN yang ditolak DPR menjadi undang-undang tetap secara sepihak karena kepala pemerintahan memegang kekuasaan eksekutif.",
+      "E": "Seluruh kegiatan pemerintahan pusat dihentikan sementara sampai fraksi-fraksi di DPR menyetujui usulan anggaran pemerintah secara bulat."
+    },
+    "hint": "Cek mekanisme jalan keluar konstitusional pada Pasal 23 ayat (3) UUD NRI Tahun 1945.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Pasal 23 ayat (3) UUD 1945 secara tegas menetapkan bahwa jika DPR tidak menyetujui RAPBN yang diusulkan Presiden, Pemerintah menjalankan APBN tahun yang lalu.",
+      "B": "Salah. Menurut Pasal 7C UUD 1945, Presiden tidak dapat membekukan dan/atau membubarkan Dewan Perwakilan Rakyat.",
+      "C": "Salah. Mahkamah Konstitusi berwenang menguji undang-undang terhadap UUD, bukan mengambil alih kewenangan legislasi anggaran DPR.",
+      "D": "Salah. Presiden tidak dapat mengesahkan APBN baru secara sepihak tanpa persetujuan DPR.",
+      "E": "Salah. Penghentian pemerintahan (shutdown) tidak dikenal dalam konstitusi Indonesia karena sudah ada jaring pengaman APBN tahun lalu."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 Pasal 23 dan Pasal 7C"
+    }
+  },
+  {
+    "slug": "twk-nkri-uu12-ganda-terbatas-b3-017",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-uu12-asas-kewarganegaraan"
+    ],
+    "reasoningChain": "UU Nomor 12 Tahun 2006 tentang Kewarganegaraan RI menganut asas kewarganegaraan tunggal dan kewarganegaraan ganda terbatas bagi anak hasil perkawinan campuran (atau kondisi tertentu Pasal 4 dan Pasal 6). Setelah berusia 18 tahun atau sudah kawin, anak tersebut harus menyatakan memilih salah satu kewarganegaraannya paling lambat 3 tahun setelah berusia 18 tahun (maksimal usia 21 tahun). Jika terlambat melampaui usia 21 tahun tanpa memilih atau tetap menggunakan hak warga negara asing, status WNI-nya hilang sesuai mekanisme UU.",
+    "stem": "Raka adalah anak hasil perkawinan sah antara ibu WNI dan ayah warga negara Jerman sehingga sejak kecil memperoleh status kewarganegaraan ganda terbatas berdasarkan UU Nomor 12 Tahun 2006. Saat ini Raka genap berusia 19 tahun dan berencana melanjutkan studi di Eropa tanpa berniat melepaskan status WNI-nya secara terburu-buru. Ketentuan hukum paling tepat terkait batas waktu dan kewajiban penentuan status kewarganegaraan Raka adalah ...",
+    "options": {
+      "A": "Raka otomatis kehilangan status WNI pada hari ulang tahunnya yang ke-18 karena Indonesia tidak mengenal pengecualian kewarganegaraan ganda.",
+      "B": "Raka wajib menyatakan memilih salah satu kewarganegaraan paling lambat tiga tahun setelah berusia 18 tahun atau sebelum melampaui usia 21 tahun.",
+      "C": "Raka berhak mempertahankan status kewarganegaraan ganda secara permanen seumur hidup sepanjang tetap memiliki paspor Republik Indonesia.",
+      "D": "Raka harus segera melepaskan kewarganegaraan ayahnya sebelum berusia 18 tahun atau langsung dideportasi dari wilayah hukum Indonesia.",
+      "E": "Penentuan pilihan kewarganegaraan Raka sepenuhnya diputuskan oleh kepala perwakilan kedutaan besar tanpa memerlukan pernyataan pribadi dari yang bersangkutan."
+    },
+    "hint": "Perhatikan Pasal 6 UU 12/2006 mengenai batas usia 18 tahun ditambah tenggang waktu 3 tahun bagi anak berkewarganegaraan ganda terbatas.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Anak berusia 18 tahun tidak langsung kehilangan status WNI pada hari itu juga; UU memberi tenggang waktu paling lambat 3 tahun setelah usia 18 tahun untuk memilih.",
+      "B": "Benar. Sesuai Pasal 6 ayat (1) dan (3) UU 12/2006, pernyataan memilih salah satu kewarganegaraan disampaikan paling lambat 3 tahun setelah anak berusia 18 tahun atau sudah kawin.",
+      "C": "Salah. Kewarganegaraan ganda dalam UU 12/2006 bersifat terbatas untuk anak hingga batas waktu pemilihan usia dewasa, bukan permanen seumur hidup.",
+      "D": "Salah. Anak tetap terlindungi oleh status kewarganegaraan ganda terbatas hingga mencapai batas waktu penentuan pilihan di usia 21 tahun.",
+      "E": "Salah. Pernyataan memilih kewarganegaraan merupakan hak dan tindakan hukum pribadi yang disampaikan secara tertulis sesuai prosedur."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 12 Tahun 2006 tentang Kewarganegaraan Republik Indonesia Pasal 6"
+    }
+  },
+  {
+    "slug": "twk-nkri-hkpd-otsus-b3-018",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-hubungan-keuangan-daerah-khusus-istimewa-b3"
+    ],
+    "reasoningChain": "Sesuai Pasal 18A dan 18B UUD 1945 serta UU Nomor 1 Tahun 2022 tentang Hubungan Keuangan antara Pemerintah Pusat dan Pemerintahan Daerah (HKPD), negara mengakui kekhususan dan keistimewaan daerah tertentu disertai transfer dana khusus untuk mengurangi ketimpangan layanan publik. Namun, otonomi khusus tetap berada dalam kerangka NKRI dengan kewajiban akuntabilitas kinerja, bukan otonomi tanpa pengawasan pusat ataupun pemotongan anggaran pelayanan dasar.",
+    "stem": "Audit keuangan menemukan bahwa dana otonomi khusus yang diterima sebuah daerah khusus selama beberapa tahun banyak terserap untuk belanja rutin birokrasi dan pengadaan fasilitas kantor, sementara angka putus sekolah dan layanan kesehatan dasar di wilayah pedalaman masih tertinggal. Dalam kerangka hubungan keuangan pusat-daerah (UU HKPD) dan Pasal 18B UUD 1945, langkah korektif yang paling tepat adalah ...",
+    "options": {
+      "A": "Mencabut seluruh status kekhususan daerah dan menghentikan penyaluran dana transfer daerah secara permanen tanpa masa transisi.",
+      "B": "Membebaskan pemerintah daerah menggunakan dana khusus sesuai selera politik lokal karena kekhususan berarti bebas dari audit pemerintah pusat.",
+      "C": "Menerapkan penyaluran dana berbasis kinerja yang mewajibkan alokasi terukur pada pendidikan, kesehatan, dan infrastruktur dasar dengan pengawasan transparan.",
+      "D": "Mengalihkan seluruh dana otonomi khusus tersebut untuk membiayai proyek infrastruktur pusat di luar provinsi penerima dana.",
+      "E": "Membagikan dana otonomi khusus secara merata dalam bentuk uang tunai per kepala keluarga tanpa program pembangunan fasilitas layanan publik."
+    },
+    "hint": "Ingat tujuan dana kekhususan daerah serta prinsip akuntabilitas berbasis kinerja dalam UU HKPD.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Mencabut status kekhususan secara sepihak mengabaikan pengakuan konstitusional Pasal 18B UUD 1945 dan merugikan warga daerah yang membutuhkan layanan dasar.",
+      "B": "Salah. Kekhususan dalam NKRI tetap tunduk pada prinsip akuntabilitas pengelolaan keuangan negara dan pengawasan nasional.",
+      "C": "Benar. Skema berbasis kinerja (earmarking dan evaluasi capaian) menjamin dana khusus benar-benar memperbaiki pendidikan, kesehatan, dan kesejahteraan warga daerah.",
+      "D": "Salah. Pengalihan dana khusus ke luar wilayah penerima melanggar tujuan afirmatif pembentukan dana otonomi khusus.",
+      "E": "Salah. Pembagian tunai tanpa investasi layanan publik tidak menyelesaikan ketertinggalan struktural pendidikan dan kesehatan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 18B dan UU Nomor 1 Tahun 2022 tentang HKPD"
+    }
+  },
+  {
+    "slug": "twk-nkri-perbatasan-3t-b3-019",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-wawasan-nusantara-kedaulatan-wilayah-perbatasan-b3"
+    ],
+    "reasoningChain": "Wawasan Nusantara memandang wilayah Indonesia sebagai satu kesatuan politik, ekonomi, sosial budaya, dan pertahanan keamanan. Di wilayah perbatasan 3T, warga kerap lebih bergantung pada layanan ekonomi dan transaksi mata uang negara tetangga apabila akses logistik, infrastruktur, dan layanan publik nasional tertinggal. Solusi strategis NKRI adalah membangun kawasan perbatasan sebagai beranda depan negara melalui konektivitas, layanan dasar, dan ekonomi lokal terintegrasi.",
+    "stem": "Masyarakat di sebuah kecamatan perbatasan darat Indonesia diketahui lebih sering berbelanja kebutuhan pokok, menggunakan layanan kesehatan, dan bertransaksi dengan mata uang negara tetangga karena jalan penghubung ke ibu kota kabupaten rusak parah dan harga barang domestik jauh lebih mahal. Pendekatan strategis negara yang paling sesuai dengan konsep Wawasan Nusantara dalam menjaga keutuhan NKRI adalah ...",
+    "options": {
+      "A": "Membangun pos penjagaan bersenjata rapat di sepanjang perbatasan dan melarang warga melintas tanpa membangun akses jalan maupun fasilitas logistik.",
+      "B": "Menutup seluruh pasar rakyat di kecamatan tersebut dan mengenakan denda tinggi kepada setiap warga yang kedapatan memiliki barang kebutuhan dari negara tetangga.",
+      "C": "Merelokasi paksa seluruh penduduk kecamatan perbatasan ke wilayah perkotaan di pulau utama agar ketergantungan ekonomi terhadap negara tetangga hilang.",
+      "D": "Mempercepat pembangunan konektivitas infrastruktur, fasilitas layanan dasar, serta sistem distribusi logistik dan akses rupiah yang kompetitif sebagai beranda depan negara.",
+      "E": "Melegalkan penggunaan mata uang negara tetangga secara permanen di kecamatan perbatasan untuk mempermudah aktivitas perdagangan harian masyarakat."
+    },
+    "hint": "Pikirkan perwujudan satu kesatuan ekonomi dan sosial budaya Wawasan Nusantara di daerah perbatasan.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pendekatan keamanan semata tanpa membenahi akses ekonomi dan layanan publik justru memperberat kesulitan hidup warga perbatasan.",
+      "B": "Salah. Pemberian sanksi saat alternatif pasokan domestik yang terjangkau belum tersedia akan memicu keresahan sosial.",
+      "C": "Salah. Mengosongkan wilayah perbatasan dari penduduk justru melemahkan keberadaan efektif negara dan kedaulatan teritorial.",
+      "D": "Benar. Menjadikan perbatasan sebagai beranda depan melalui konektivitas, layanan publik setara, dan stabilitas pasokan rupiah memperkuat kesatuan ekonomi dan politik NKRI.",
+      "E": "Salah. Pelegalan mata uang asing sebagai alat bayar permanen melemahkan kedaulatan moneter rupiah di wilayah NKRI."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Wawasan Nusantara dan Wilayah Perbatasan"
+    }
+  },
+  {
+    "slug": "twk-nkri-koordinasi-presidensial-b3-020",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-koordinasi-presidensial-pelayanan-lintas-sektor-b3"
+    ],
+    "reasoningChain": "Dalam sistem pemerintahan presidensial di negara kesatuan (Pasal 4 ayat (1) dan Pasal 17 UUD 1945), menteri-menteri adalah pembantu Presiden yang harus bekerja dalam satu garis komando kebijakan nasional, sedangkan pemerintah daerah bersinergi melalui asas pembantuan dan koordinasi. Ketika terjadi ego sektoral antarkementerian dan pemda dalam penanganan krisis pangan atau logistik bencana, mekanisme konstitusionalnya adalah koordinasi lintas sektor di bawah arahan Presiden melalui kementerian koordinator/gugus tugas terpadu, bukan saling menyalahkan atau memutus layanan.",
+    "stem": "Saat terjadi kekeringan panjang yang mengganggu distribusi pangan nasional di beberapa provinsi, dua kementerian teknis saling melempar tanggung jawab soal izin impor darurat dan pengelolaan cadangan beras, sementara sebagian pemerintah daerah menahan stok antarwilayah demi mengamankan daerahnya sendiri. Dalam sistem presidensial NKRI, mekanisme penyelesaian tata kelola paling tepat adalah ...",
+    "options": {
+      "A": "Membiarkan masing-masing kementerian dan pemerintah daerah menjalankan kebijakan terpisah agar mekanisme persaingan internal menghasilkan solusi tercepat.",
+      "B": "Menyerahkan penyelesaian sengketa kebijakan pangan antarkementerian kepada DPR melalui hak angket sebelum stok cadangan beras disalurkan.",
+      "C": "Menghentikan seluruh distribusi beras lintas provinsi hingga masa panen raya berikutnya tiba agar konflik antarpejabat mereda dengan sendirinya.",
+      "D": "Mengganti sistem pemerintahan daerah menjadi otonomi penuh tanpa kewenangan pemerintah pusat dalam urusan ketahanan pangan nasional.",
+      "E": "Mengaktifkan koordinasi kabinet terpadu di bawah kepemimpinan Presiden untuk menyelaraskan satu data pangan, membuka distribusi antardaerah, dan membatalkan ego sektoral."
+    },
+    "hint": "Ingat kedudukan Presiden sebagai pemegang kekuasaan pemerintahan tertinggi dan fungsi koordinasi lintas kementerian/daerah dalam NKRI.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Membiarkan kebijakan saling bertabrakan memperparah kelangkaan pangan dan melanggar kesatuan komando sistem presidensial.",
+      "B": "Salah. Hak angket DPR adalah fungsi pengawasan legislatif, bukan instrumen komando operasional eksekutif untuk mengatasi krisis mendesak.",
+      "C": "Salah. Menahan distribusi pangan antardaerah melanggar kesatuan ekonomi nasional dan mengancam warga di wilayah defisit pangan.",
+      "D": "Salah. Menghapus peran pusat dalam ketahanan pangan nasional bertentangan dengan prinsip negara kesatuan dan solidaritas antarwilayah.",
+      "E": "Benar. Presiden selaku pemegang kekuasaan pemerintahan mengoordinasikan kementerian pembantu dan menyelaraskan distribusi nasional dengan daerah dalam kerangka NKRI."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 4 dan Pasal 17 serta UU Nomor 23 Tahun 2014"
+    }
+  },
+  {
+    "slug": "twk-nkri-otonomi-desentralisasi-b3-021",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-otonomi-desentralisasi"
+    ],
+    "reasoningChain": "Dalam sistem negara kesatuan yang terdesentralisasi (Pasal 18 UUD 1945 dan UU 23/2014), peraturan daerah tidak boleh bertentangan dengan peraturan perundang-undangan yang lebih tinggi maupun kepentingan umum nasional. Sesuai Pasal 24A UUD 1945 dan putusan Mahkamah Konstitusi terkait pengujian perda, mekanisme pembatalan akhir perda tingkat kabupaten/kota maupun provinsi berada pada uji materiil Mahkamah Agung, selain mekanisme evaluasi rancangan perda oleh gubernur/menteri.",
+    "stem": "Sebuah pemerintah kabupaten menerbitkan peraturan daerah tentang pungutan izin keluar-masuk kendaraan logistik antarprovinsi yang melintasi jalan nasional di wilayahnya. Kebijakan ini memicu lonjakan harga kebutuhan pokok di provinsi tetangga, padahal aturan di atasnya melarang hambatan lalu lintas barang antardaerah. Dalam tata hukum NKRI, penilaian paling tepat terhadap kewenangan dan penyelesaian hukum perda tersebut adalah ...",
+    "options": {
+      "A": "Perda tersebut melanggar prinsip kesatuan ekonomi nasional dan dapat diajukan uji materiil ke Mahkamah Agung agar dibatalkan.",
+      "B": "Perda kabupaten tidak dapat diuji lembaga mana pun karena otonomi daerah memberi kekuasaan legislasi setara undang-undang.",
+      "C": "Mahkamah Konstitusi berwenang langsung membekukan perda tersebut karena menyangkut sengketa ekonomi antarpenduduk.",
+      "D": "Gubernur provinsi tetangga dapat menerbitkan peraturan balasan untuk menahan pasokan bahan bakar ke kabupaten pembuat perda.",
+      "E": "Menteri Dalam Negeri wajib membubarkan DPRD kabupaten tersebut secara sepihak karena dianggap melanggar batas otonomi."
+    },
+    "hint": "Bedakan kewenangan uji materiil undang-undang oleh MK dengan uji peraturan di bawah undang-undang oleh MA.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Perda berada di bawah undang-undang sehingga bertentangan dengan kepentingan umum/UU dapat dibatalkan melalui hak uji materiil Mahkamah Agung (Pasal 24A UUD 1945).",
+      "B": "Salah. Otonomi daerah dijalankan dalam koridor NKRI dan tata urutan perundang-undangan, bukan otonomi tanpa batas.",
+      "C": "Salah. Mahkamah Konstitusi hanya menguji undang-undang terhadap UUD 1945, bukan menguji peraturan daerah terhadap undang-undang.",
+      "D": "Salah. Tindakan retaliasi antardaerah memperparah disintegrasi ekonomi nasional dan melanggar hukum.",
+      "E": "Salah. Menteri tidak berwenang membubarkan DPRD yang dipilih langsung oleh rakyat."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 24A dan UU Nomor 23 Tahun 2014 tentang Pemerintahan Daerah"
+    }
+  },
+  {
+    "slug": "twk-nkri-presidensial-hak-prerogatif-b3-022",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-sistem-pemerintahan-presidensial-apbn"
+    ],
+    "reasoningChain": "Salah satu ciri utama sistem pemerintahan presidensial menurut UUD 1945 adalah masa jabatan Presiden tetap (fixed term) dan tidak dapat dijatuhkan hanya melalui mosi tidak percaya parlemen atas perbedaan kebijakan politik. Berdasarkan Pasal 7A dan 7B UUD 1945, pemberhentian Presiden dalam masa jabatan hanya dapat dilakukan oleh MPR atas usul DPR jika terbukti melakukan pelanggaran hukum berat (pengkhianatan negara, korupsi, penyuapan, tindak pidana berat lainnya, atau perbuatan tercela) maupun tidak lagi memenuhi syarat, setelah melalui putusan Mahkamah Konstitusi.",
+    "stem": "Sejumlah fraksi di DPR menolak kebijakan penyesuaian subsidi energi yang diambil pemerintah dan mengancam akan menjatuhkan Presiden melalui mosi tidak percaya karena dinilai tidak lagi sejalan dengan mayoritas suara parlemen. Ditinjau dari sistem pemerintahan presidensial dalam UUD NRI Tahun 1945, konsekuensi ketatanegaraan yang tepat atas ancaman tersebut adalah ...",
+    "options": {
+      "A": "Presiden otomatis harus mengundurkan diri apabila mayoritas anggota DPR menyatakan tidak percaya terhadap kebijakan ekonomi kabinet.",
+      "B": "Mosi tidak percaya tidak dapat memberhentikan Presiden karena pemberhentian di tengah masa jabatan hanya melalui mekanisme pelanggaran hukum yang diputus Mahkamah Konstitusi.",
+      "C": "MPR dapat langsung memberhentikan Presiden melalui sidang istimewa dalam tujuh hari tanpa perlu menunggu pemeriksaan Mahkamah Konstitusi.",
+      "D": "Presiden wajib mengganti seluruh menteri dengan kader partai oposisi agar kabinet memperoleh dukungan suara mayoritas parlemen.",
+      "E": "Dewan Perwakilan Daerah berhak mengambil alih fungsi kepala pemerintahan sementara sampai konflik kebijakan subsidi antara Presiden dan DPR selesai."
+    },
+    "hint": "Ingat syarat konstitusional pemakzulan Presiden pada Pasal 7A dan Pasal 7B UUD NRI Tahun 1945.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Mosi tidak percaya untuk menjatuhkan kepala pemerintahan merupakan ciri sistem parlementer, bukan sistem presidensial Indonesia.",
+      "B": "Benar. Sesuai Pasal 7A dan 7B UUD 1945, DPR tidak dapat menjatuhkan Presiden hanya karena beda kebijakan; usul pemberhentian harus berbasis pelanggaran konstitusional yang diperiksa dan diputus MK terlebih dahulu.",
+      "C": "Salah. MPR tidak dapat memberhentikan Presiden secara langsung tanpa usul DPR yang dilandasi putusan MK.",
+      "D": "Salah. Pengangkatan dan pemberhentian menteri merupakan hak prerogatif Presiden (Pasal 17 UUD 1945).",
+      "E": "Salah. DPD memiliki kewenangan legislasi/pertimbangan terkait daerah, bukan mengambil alih kekuasaan eksekutif Presiden."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Dasar Negara Republik Indonesia Tahun 1945 Pasal 7A dan Pasal 7B"
+    }
+  },
+  {
+    "slug": "twk-nkri-uu12-hilang-wni-b3-023",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-uu12-asas-kewarganegaraan"
+    ],
+    "reasoningChain": "Pasal 23 UU Nomor 12 Tahun 2006 mengatur secara rinci penyebab hilangnya kewarganegaraan RI, antara lain memperoleh kewarganegaraan lain atas kemauan sendiri, masuk dalam dinas tentara asing tanpa izin terlebih dahulu dari Presiden, atau secara sukarela mengangkat sumpah/janji setia kepada negara asing. Namun, bekerja sebagai pegawai profesional di organisasi internasional antarnegara (seperti badan PBB) atau menempuh studi di luar negeri tidak serta-merta menghilangkan status WNI apabila tidak ada ikatan dinas tentara asing atau sumpah setia kepada negara asing.",
+    "stem": "Dua orang WNI menghadapi kasus hukum kewarganegaraan berbeda: Arman mendaftar dan dilantik menjadi prajurit angkatan bersenjata negara asing tanpa izin Presiden RI untuk memperoleh tunjangan tetap, sedangkan Dina bekerja sebagai analis kebijakan sipil di sekretariat lembaga PBB di Jenewa tanpa mengganti paspor maupun bersumpah setia pada negara asing. Berdasarkan Pasal 23 UU Nomor 12 Tahun 2006, status kewarganegaraan keduanya adalah ...",
+    "options": {
+      "A": "Keduanya tetap berstatus WNI sepanjang belum menyatakan melepaskan kewarganegaraan Indonesia secara lisan di kedutaan besar.",
+      "B": "Keduanya otomatis kehilangan status WNI karena bekerja dan menerima penghasilan dari lembaga yang berkedudukan di luar wilayah Indonesia.",
+      "C": "Arman kehilangan kewarganegaraan RI karena masuk dinas tentara asing tanpa izin Presiden, sedangkan Dina tetap berstatus WNI.",
+      "D": "Arman tetap berstatus WNI karena belum memperoleh paspor negara asing, sedangkan Dina kehilangan WNI karena bekerja di lembaga internasional.",
+      "E": "Status keduanya berubah menjadi tanpa kewarganegaraan hingga Mahkamah Agung menerbitkan penetapan perdata kewarganegaraan."
+    },
+    "hint": "Cermati ketentuan Pasal 23 huruf d dan huruf f UU Nomor 12 Tahun 2006 tentang dinas tentara asing tanpa izin Presiden.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Masuk dinas tentara asing tanpa izin Presiden merupakan sebab hukum hilangnya kewarganegaraan RI menurut Pasal 23 huruf d UU 12/2006.",
+      "B": "Salah. Bekerja secara profesional di badan internasional seperti PBB bukan alasan kehilangan kewarganegaraan Indonesia.",
+      "C": "Benar. Pasal 23 huruf d UU 12/2006 menyatakan WNI kehilangan kewarganegaraan jika masuk dinas tentara asing tanpa izin Presiden, sementara pegawai sipil organisasi internasional tetap WNI.",
+      "D": "Salah. Kriterianya terbalik; keterlibatan militer asing tanpa izinlah yang menggugurkan status WNI.",
+      "E": "Salah. Penetapan hukum kewarganegaraan mengikuti ketentuan administratif dan yuridis UU 12/2006, tidak serta-merta menjadikan keduanya apatride."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 12 Tahun 2006 tentang Kewarganegaraan Republik Indonesia Pasal 23"
+    }
+  },
+  {
+    "slug": "twk-nkri-hkpd-pajak-daerah-b3-024",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-hubungan-keuangan-daerah-khusus-istimewa-b3"
+    ],
+    "reasoningChain": "UU Nomor 1 Tahun 2022 tentang HKPD merasionalisasi jenis pajak dan retribusi daerah (closed list) agar daerah tetap dapat mengoptimalkan Pendapatan Asli Daerah (PAD) secara adil tanpa menciptakan ekonomi biaya tinggi yang membebani investasi dan perdagangan nasional. Pemda dilarang memungut pajak/retribusi di luar daftar yang ditetapkan undang-undang. Optimalisasi PAD yang sah dilakukan lewat digitalisasi tata kelola, pemutakhiran basis objek pajak sah, dan peningkatan kualitas layanan publik.",
+    "stem": "Menghadapi keterbatasan fiskal untuk membiayai pembangunan daerah, tim anggaran sebuah pemerintah kota mengusulkan pengenaan pungutan wajib baru atas setiap transaksi pengiriman paket daring yang masuk melalui jasa ekspedisi swasta, meskipun jenis pungutan tersebut tidak tercantum dalam UU HKPD. Sebagai analis kebijakan keuangan daerah yang memahami prinsip hubungan keuangan pusat-daerah, rekomendasi paling tepat adalah ...",
+    "options": {
+      "A": "Menerapkan pungutan baru tersebut melalui peraturan wali kota agar proses penerimaan kas daerah berjalan cepat tanpa menunggu perubahan undang-undang.",
+      "B": "Mengganti nama pungutan menjadi sumbangan partisipasi wajib perusahaan ekspedisi supaya tidak terbaca sebagai jenis pajak daerah baru.",
+      "C": "Mengajukan pinjaman komersial luar negeri secara langsung oleh pemerintah kota tanpa persetujuan pemerintah pusat untuk menutup defisit belanja.",
+      "D": "Menolak usulan pungutan di luar daftar UU HKPD serta mengoptimalkan PAD melalui digitalisasi pemungutan pajak sah dan efisiensi belanja daerah.",
+      "E": "Menghentikan seluruh layanan perizinan usaha ekspedisi di wilayah kota hingga perusahaan swasta bersedia menyetor dana kompensasi rutin."
+    },
+    "hint": "Ingat asas closed list pajak dan retribusi daerah dalam UU Nomor 1 Tahun 2022 (HKPD).",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pemda dilarang menetapkan jenis pajak atau retribusi baru di luar yang diatur dalam UU HKPD.",
+      "B": "Salah. Menyamarkan pungutan ilegal sebagai sumbangan wajib merupakan pelanggaran hukum administrasi dan membebani perekonomian.",
+      "C": "Salah. Pinjaman luar negeri oleh daerah langsung tanpa mekanisme persetujuan pemerintah pusat bertentangan dengan regulasi pengelolaan utang daerah.",
+      "D": "Benar. Kepatuhan terhadap sistem closed list UU HKPD menjaga iklim usaha nasional, sementara digitalisasi pajak sah meningkatkan PAD secara akuntabel.",
+      "E": "Salah. Menahan perizinan untuk memaksa setoran dana mengarah pada penyalahgunaan wewenang dan maladministrasi."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 1 Tahun 2022 tentang Hubungan Keuangan antara Pemerintah Pusat dan Pemerintahan Daerah"
+    }
+  },
+  {
+    "slug": "twk-nkri-wawasan-nusantara-archipelagic-b3-025",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-wawasan-nusantara-kedaulatan-wilayah-perbatasan-b3"
+    ],
+    "reasoningChain": "Pasal 25A UUD NRI Tahun 1945 menegaskan NKRI adalah sebuah negara kepulauan yang berciri Nusantara dengan wilayah yang batas-batas dan hak-haknya ditetapkan dengan undang-undang. Pulau-pulau kecil terluar memiliki nilai strategis dalam penarikan garis pangkal kepulauan (titik dasar) yang menentukan luas perairan dan kedaulatan NKRI. Penguasaan hak milik penuh pulau kecil terluar oleh warga atau korporasi asing membahayakan pertahanan, tata ruang nasional, dan integritas wilayah.",
+    "stem": "Sebuah pulau kecil tidak berpenghuni di gugusan terluar wilayah Nusantara ditawar oleh konsorsium properti asing untuk dibeli secara utuh beserta hak eksklusif pengelolaan perairan sekitarnya sebagai resor tertutup bagi wisatawan mancanegara tanpa pengawasan aparat nasional. Dalam perspektif Pasal 25A UUD NRI Tahun 1945 dan Wawasan Nusantara, alasan strategis terkuat untuk menolak skema tersebut adalah ...",
+    "options": {
+      "A": "Pulau kecil hanya boleh dikembangkan oleh penduduk setempat apabila jumlah penduduknya sudah melampaui seribu kepala keluarga.",
+      "B": "Seluruh wilayah perairan antar pulau terluar Indonesia berstatus kawasan konservasi mutlak yang tertutup bagi kegiatan pariwisata apa pun.",
+      "C": "Pemerintah daerah provinsi memiliki hak tunggal menjual aset pulau terluar hanya jika hasil penjualannya dibagi rata dengan kementerian terkait.",
+      "D": "Pulau terluar dilarang memiliki jaringan komunikasi atau akses transportasi umum guna menghindari kedatangan wisatawan dari luar daerah.",
+      "E": "Pulau kecil terluar menentukan titik pangkal kedaulatan negara kepulauan sehingga penguasaan eksklusif asing tanpa kendali negara mengancam keutuhan NKRI."
+    },
+    "hint": "Pahami fungsi titik dasar pulau terluar bagi batas negara kepulauan dalam Pasal 25A UUD 1945.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pemanfaatan pulau kecil yang sah dan terkendali oleh negara tidak mensyaratkan jumlah penduduk minimal seribu kepala keluarga.",
+      "B": "Salah. Pariwisata berkelanjutan di pulau kecil diperbolehkan sepanjang tunduk pada kedaulatan negara, tata ruang, dan aturan pertanahan nasional.",
+      "C": "Salah. Kedaulatan wilayah dan pulau terluar tidak boleh diperjualbelikan atau dilepaskan penguasaannya oleh pemerintah daerah maupun pusat.",
+      "D": "Salah. Justru konektivitas dan kehadiran negara di pulau terluar penting untuk menjaga kedaulatan.",
+      "E": "Benar. Pulau kecil terluar menjadi bagian vital garis pangkal negara kepulauan (Pasal 25A UUD 1945) serta pertahanan wilayah sehingga tidak boleh dikuasai eksklusif oleh pihak asing."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 25A dan UU Nomor 1 Tahun 2014 tentang Pengelolaan Wilayah Pesisir dan Pulau-Pulau Kecil"
+    }
+  },
+  {
+    "slug": "twk-nkri-koordinasi-presidensial-spbe-b3-026",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-koordinasi-presidensial-pelayanan-lintas-sektor-b3"
+    ],
+    "reasoningChain": "Efektivitas negara kesatuan modern dalam sistem pemerintahan presidensial menuntut interoperabilitas data dan pelayanan publik lintas kementerian, lembaga, dan pemerintah daerah (SPBE/Satu Data Indonesia). Pembangunan ribuan aplikasi terpisah yang tidak saling terhubung memboroskan anggaran dan menimbulkan ketimpangan serta duplikasi bantuan sosial. Solusi tata kelola terbaik adalah mengintegrasikan sistem ke dalam portal/data terpadu nasional sambil melindungi keamanan dan hak akses data.",
+    "stem": "Hasil evaluasi layanan publik menunjukkan pemerintah daerah dan kementerian membangun lebih dari dua ratus aplikasi bantuan sosial yang tidak saling terhubung, sehingga satu warga berpenghasilan tinggi tercatat menerima bantuan ganda sementara warga miskin di perbatasan luput dari pendataan. Langkah reformasi birokrasi paling tepat dalam kerangka koordinasi lintas sektor NKRI adalah ...",
+    "options": {
+      "A": "Mengintegrasikan basis data melalui standar Satu Data dan Sistem Pemerintahan Berbasis Elektronik (SPBE) terpadu antara pusat dan daerah.",
+      "B": "Mewajibkan setiap kecamatan mengembangkan aplikasi pendataan mandiri agar kondisi kemiskinan lokal tidak bercampur dengan data nasional.",
+      "C": "Menghentikan penyaluran seluruh program bantuan sosial selama dua tahun sampai seluruh aplikasi daerah dihapus satu per satu.",
+      "D": "Menyerahkan pendataan dan pencairan seluruh bantuan sosial nasional kepada lembaga survei komersial tanpa melibatkan data kependudukan negara.",
+      "E": "Membiarkan setiap instansi mempertahankan aplikasi masing-masing demi menghargai kreativitas inovasi teknologi di tingkat daerah."
+    },
+    "hint": "Fokus pada interoperabilitas pusat-daerah melalui standar data nasional dan layanan terpadu.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Integrasi lintas kementerian dan pemda melalui Satu Data dan SPBE menghilangkan tumpang tindih data, menghemat anggaran, serta memastikan bantuan tepat sasaran di seluruh NKRI.",
+      "B": "Salah. Menambah aplikasi terpisah per kecamatan justru memperparah fragmentasi data dan ketidaksinkronan layanan.",
+      "C": "Salah. Menghentikan bantuan sosial merugikan kelompok rentan yang bergantung pada jaring pengaman sosial negara.",
+      "D": "Salah. Data kependudukan resmi negara tetap menjadi fondasi akuntabilitas penyelenggaraan jaminan sosial.",
+      "E": "Salah. Inovasi aplikasi yang tidak interoperabel memboroskan APBN/APBD dan menurunkan kualitas pelayanan publik."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Koordinasi Pelayanan Lintas Sektor dan SPBE"
+    }
+  },
+  {
+    "slug": "twk-nkri-uu12-ius-soli-terbatas-b3-027",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - NKRI",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-nkri-uu12-asas-kewarganegaraan"
+    ],
+    "reasoningChain": "Meskipun Indonesia menganut asas utama *ius sanguinis* (berdasarkan keturunan), UU Nomor 12 Tahun 2006 juga menerapkan asas *ius soli* secara terbatas (kelahiran di wilayah RI) untuk mencegah seseorang menjadi tanpa kewarganegaraan (*apatride*). Berdasarkan Pasal 4 huruf j dan k UU 12/2006, anak yang lahir di wilayah Indonesia dari orang tua yang tidak jelas status kewarganegaraannya, atau dari orang tua yang negaranya menganut murni *ius soli* sehingga anaknya tidak memperoleh kewarganegaraan orang tuanya, berhak menjadi WNI.",
+    "stem": "Sepasang suami istri warga negara X yang negaranya hanya menganut asas kewarganegaraan berdasarkan tempat kelahiran (ius soli) murni melahirkan seorang anak saat menetap sementara secara sah di Indonesia. Karena lahir di luar wilayah negara X, hukum negara X menolak memberikan kewarganegaraan kepada bayi tersebut. Berdasarkan asas kewarganegaraan dalam UU Nomor 12 Tahun 2006, status hukum bayi tersebut adalah ...",
+    "options": {
+      "A": "Menjadi tanpa kewarganegaraan (apatride) secara permanen karena kedua orang tuanya bukan warga negara Indonesia.",
+      "B": "Memperoleh kewarganegaraan Republik Indonesia berdasarkan penerapan asas ius soli terbatas guna mencegah keadaan tanpa kewarganegaraan.",
+      "C": "Otomatis memiliki kewarganegaraan ganda permanen antara Indonesia dan negara X hingga berusia dewasa.",
+      "D": "Wajib dideportasi ke negara X segera setelah lahir supaya pemerintah Indonesia tidak terbebani administrasi kependudukan.",
+      "E": "Hanya dapat mengajukan permohonan naturalisasi setelah tinggal terus-menerus di Indonesia selama sepuluh tahun berturut-turut."
+    },
+    "hint": "Ingat tujuan penerapan asas ius soli terbatas pada Pasal 4 huruf i, j, dan k UU Nomor 12 Tahun 2006.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. UU 12/2006 secara khusus mencegah kondisi apatride melalui penerapan ius soli terbatas.",
+      "B": "Benar. Sesuai Pasal 4 huruf k UU 12/2006, anak yang lahir di wilayah RI yang pada waktu lahir tidak mendapat kewarganegaraan ayah atau ibunya menjadi WNI agar tidak apatride.",
+      "C": "Salah. Negara X menolak memberi kewarganegaraan kepada bayi tersebut sehingga tidak terjadi kewarganegaraan ganda.",
+      "D": "Salah. Anak yang lahir sah di Indonesia dalam kondisi tersebut dilindungi status kewarganegaraannya oleh hukum Indonesia.",
+      "E": "Salah. Status WNI diberikan langsung oleh ketentuan Pasal 4 UU 12/2006 sejak lahir, bukan menunggu naturalisasi sepuluh tahun."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 12 Tahun 2006 tentang Kewarganegaraan Republik Indonesia Pasal 4"
+    }
+  },
+  {
+    "slug": "twk-integritas-antikorupsi-pengadaan-b3-028",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-antikorupsi-asn"
+    ],
+    "reasoningChain": "Integritas pengadaan barang dan jasa pemerintah menuntut transparansi, persaingan sehat, serta spesifikasi teknis yang netral berbasis fungsi, bukan mengarah kepada satu merek atau dipecah-pecah untuk menghindari lelang terbuka. Tekanan pimpinan agar paket dipecah menjadi penunjukan langsung demi percepatan penyerapan anggaran merupakan bentuk maladministrasi yang membuka celah korupsi pengadaan.",
+    "stem": "Menjelang akhir tahun anggaran, seorang Pejabat Pembuat Komitmen (PPK) diminta oleh atasannya memecah satu paket pengadaan perangkat jaringan kantor senilai Rp1,2 miliar menjadi enam paket pengadaan langsung di bawah Rp200 juta agar prosesnya cepat dan dapat dikerjakan rekanan binaan kantor tanpa tender terbuka. Sikap paling tepat yang mencerminkan integritas antikorupsi ASN adalah ...",
+    "options": {
+      "A": "Melaksanakan perintah atasan memecah paket karena target penyerapan anggaran akhir tahun merupakan indikator kinerja utama instansi.",
+      "B": "Menyetujui pemecahan paket dengan syarat keenam rekanan yang dipilih tidak memiliki hubungan keluarga langsung dengan pimpinan.",
+      "C": "Menolak pemecahan paket pengadaan secara tegas, menjelaskan ketentuan larangan pemecahan paket guna menghindari tender, dan menempuh mekanisme pengadaan sah sesuai aturan.",
+      "D": "Meminta staf pelaksana menandatangani dokumen pemecahan paket agar tanggung jawab administratif tidak melekat langsung pada PPK.",
+      "E": "Mengalihkan seluruh anggaran perangkat jaringan tersebut menjadi honorarium tim pengadaan supaya dana terserap habis sebelum tutup buku."
+    },
+    "hint": "Ingat larangan memecah paket untuk menghindari tender terbuka dalam tata kelola pengadaan pemerintah.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Target penyerapan anggaran tidak membenarkan pelanggaran prosedur pengadaan yang membuka peluang korupsi dan persaingan tidak sehat.",
+      "B": "Salah. Pemecahan paket untuk menghindari mekanisme tender tetap melanggar aturan meski penyedianya bukan keluarga pimpinan.",
+      "C": "Benar. Menolak perintah yang melanggar aturan pengadaan dan memilih prosedur sah menjaga akuntabilitas, integritas, dan persaingan sehat.",
+      "D": "Salah. Mengalihkan tanda tangan ke bawahan adalah perilaku tidak bertanggung jawab dan tetap melanggar hukum.",
+      "E": "Salah. Mengubah belanja modal/barang menjadi honorarium fiktif merupakan penyimpangan anggaran yang berpotensi tindak pidana korupsi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Integritas Pengadaan Barang dan Jasa"
+    }
+  },
+  {
+    "slug": "twk-integritas-netralitas-asn-pilkada-b3-029",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-netralitas-disiplin-asn"
+    ],
+    "reasoningChain": "UU Nomor 20 Tahun 2023 tentang ASN mewajibkan setiap pegawai ASN menjaga netralitas dan bebas dari pengaruh serta intervensi semua golongan dan partai politik. Penggunaan fasilitas negara, program bantuan sosial pemerintah, maupun mobilisasi ASN untuk menguntungkan bakal calon petahana dalam pilkada melanggar asas netralitas dan disiplin ASN. Penolakan profesional harus disertai dokumentasi dan pelaporan melalui kanal pengawasan yang berwenang bila ada tekanan.",
+    "stem": "Menjelang pemilihan kepala daerah, seorang camat berstatus ASN diperintahkan oleh kepala daerah petahana agar menginstruksikan seluruh lurah di wilayahnya menyelipkan stiker pasangan calon petahana ke dalam paket bantuan pangan pemerintah daerah dan mengarahkan penerima bantuan pada acara resmi kecamatan. Langkah paling tepat mencerminkan integritas dan netralitas ASN adalah ...",
+    "options": {
+      "A": "Mematuhi instruksi tersebut di luar jam dinas supaya tidak melanggar aturan jam kerja sekaligus menjaga loyalitas terhadap pimpinan daerah.",
+      "B": "Menyerahkan pelaksanaan instruksi kepada staf honorer kecamatan agar pegawai berstatus ASN tidak terlihat secara langsung di lapangan.",
+      "C": "Melaksanakan pemasangan stiker hanya di kelurahan yang tingkat dukungannya rendah sebagai bentuk kompromi agar mutasi jabatan tidak terjadi.",
+      "D": "Menolak dengan santun dan tegas instruksi politisasi bantuan pemerintah, memastikan penyaluran sesuai sasaran netral, serta mendokumentasikan tekanan bila perlu dilaporkan.",
+      "E": "Menghentikan pembagian bantuan pangan masyarakat miskin seluruhnya sampai tahapan pemungutan suara pilkada selesai dilaksanakan."
+    },
+    "hint": "Ingat kewajiban netralitas ASN dalam UU 20/2023 dan larangan politisasi program maupun fasilitas negara.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Netralitas ASN berlaku melekat baik di dalam maupun di luar jam kerja, dan program pemerintah tidak boleh dipolitisasi.",
+      "B": "Salah. Memanfaatkan staf honorer untuk menyalahgunakan fasilitas dan program negara tetap merupakan pelanggaran integritas jabatan.",
+      "C": "Salah. Kompromi terhadap politisasi bantuan publik melanggar sumpah jabatan dan kode etik ASN.",
+      "D": "Benar. Menolak politisasi program publik serta menjaga penyaluran bantuan tetap netral menegakkan asas netralitas dan integritas ASN.",
+      "E": "Salah. Menghentikan bantuan bagi warga miskin yang berhak merugikan pelayanan publik; yang dihentikan adalah muatan politiknya."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 20 Tahun 2023 tentang Aparatur Sipil Negara"
+    }
+  },
+  {
+    "slug": "twk-integritas-gratifikasi-vs-suap-b3-030",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-gratifikasi-suap-pemerasan-tipikor-b3"
+    ],
+    "reasoningChain": "Pasal 12B dan 12C UU Nomor 20 Tahun 2001 jo. UU 31/1999 menetapkan bahwa setiap gratifikasi kepada pegawai negeri atau penyelenggara negara dianggap pemberian suap apabila berhubungan dengan jabatannya dan berlawanan dengan kewajiban atau tugasnya. Namun, ketentuan pidana gratifikasi tidak berlaku jika penerima melaporkannya kepada KPK paling lambat 30 hari kerja terhitung sejak tanggal gratifikasi diterima (atau melalui UPG instansi untuk diteruskan ke KPK). Jika barang dikirim ke rumah tanpa sepengetahuan pejabat, pejabat tidak boleh memakainya atau diam saja.",
+    "stem": "Seorang pejabat perizinan lingkungan menerima kiriman paket logam mulia yang dititipkan kurir di pos satpam rumahnya dari perusahaan tambang yang berkas izinnya baru saja ia terbitkan secara sah minggu lalu, disertai kartu ucapan terima kasih tanpa ada kesepakatan transaksi sebelumnya. Tindakan hukum dan etis paling tepat sesuai Pasal 12B dan 12C UU Nomor 20 Tahun 2001 adalah ...",
+    "options": {
+      "A": "Menyimpan logam mulia tersebut sebagai bentuk rezeki sah karena izin perusahaan telah diterbitkan sesuai prosedur tanpa ada kesepakatan imbalan sebelumnya.",
+      "B": "Menjual logam mulia tersebut lalu menyumbangkan seluruh hasil penjualannya ke panti asuhan setempat tanpa perlu membuat laporan administrasi.",
+      "C": "Mengembalikan paket melalui kurir pribadi sambil berpesan agar perusahaan cukup menyalurkannya sebagai dana CSR lingkungan saja.",
+      "D": "Menyerahkan logam mulia tersebut kepada kepala kantor untuk dibagi merata kepada seluruh pegawai bagian perizinan sebagai bonus kinerja.",
+      "E": "Menolak atau melaporkan penerimaan gratifikasi tersebut kepada Unit Pengendalian Gratifikasi (UPG) atau KPK paling lambat 30 hari kerja sejak diterima."
+    },
+    "hint": "Ingat mekanisme dan tenggat waktu pelaporan gratifikasi pada Pasal 12C UU Nomor 20 Tahun 2001.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pemberian yang berkaitan dengan jabatan tetap dikategorikan sebagai gratifikasi yang dianggap suap meskipun diberikan setelah proses izin selesai tanpa janji awal.",
+      "B": "Salah. Menyumbangkan barang gratifikasi tanpa melaporkannya ke KPK/UPG tidak menghapus status pelanggaran hukum atas kepemilikan gratifikasi.",
+      "C": "Salah. Pengembalian diam-diam tanpa pencatatan resmi tidak memenuhi kewajiban akuntabilitas pelaporan gratifikasi; apalagi mengarahkan penyaluran tertentu.",
+      "D": "Salah. Membagikan barang gratifikasi kepada rekan kantor tetap melanggar ketentuan antikorupsi.",
+      "E": "Benar. Sesuai Pasal 12C UU 20/2001, pelaporan ke KPK/UPG maksimal 30 hari kerja sejak diterima melepaskan penerima dari ancaman pidana gratifikasi."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 20 Tahun 2001 tentang Pemberantasan Tindak Pidana Korupsi Pasal 12B dan 12C"
+    }
+  },
+  {
+    "slug": "twk-integritas-whistleblowing-internal-b3-031",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-whistleblowing-perlindungan-pelapor-b3"
+    ],
+    "reasoningChain": "Sistem pelaporan pelanggaran (Whistleblowing System / WBS) dirancang untuk memfasilitasi pengungkapan dugaan korupsi atau penyalahgunaan wewenang secara akuntabel dengan menjamin kerahasiaan identitas dan perlindungan hukum bagi pelapor. Membocorkan dokumen mentah ke media sosial tanpa mekanisme resmi berisiko memicu pencemaran nama baik, hilangnya barang bukti oleh pelaku, dan tidak memberi perlindungan hukum. Sikap integritas yang tepat adalah mengumpulkan bukti valid dan melapor lewat saluran WBS inspektorat/APH.",
+    "stem": "Seorang staf akuntansi di rumah sakit daerah menemukan kejanggalan berupa pembayaran pengadaan obat fiktif yang disetujui oleh pejabat keuangan dan direktur. Ia khawatir jika melapor secara terbuka akan dipecat, tetapi rekan dekatnya menyarankan mengunggah foto salinan faktur tersebut secara anonim ke media sosial agar viral. Tindakan berintegritas paling tepat yang harus diambil staf tersebut adalah ...",
+    "options": {
+      "A": "Mengamankan bukti transaksi secara sah lalu melaporkannya melalui Whistleblowing System (WBS) resmi inspektorat atau aparat penegak hukum yang menjamin kerahasiaan pelapor.",
+      "B": "Mengunggah salinan dokumen keuangan ke akun media sosial anonim supaya tekanan publik memaksa direktur mengakui kesalahan.",
+      "C": "Menyimpan dokumen kejanggalan tersebut sebagai arsip pribadi tanpa melaporkannya demi menjaga keharmonisan suasana kerja rumah sakit.",
+      "D": "Mengonfrontasi langsung pejabat keuangan dengan ancaman akan membuka kasus jika dirinya tidak mendapatkan kenaikan tunjangan kinerja.",
+      "E": "Menghapus catatan kejanggalan pada sistem pembukuan agar tidak menimbulkan temuan saat pemeriksaan audit eksternal berlangsung."
+    },
+    "hint": "Pertimbangkan efektivitas pembuktian hukum serta perlindungan kerahasiaan pelapor melalui jalur resmi.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Pelaporan terstruktur dengan bukti sah melalui WBS resmi menjamin kerahasiaan identitas pelapor sekaligus mempermudah audit investigatif aparat berwenang.",
+      "B": "Salah. Membocorkan dokumen ke media sosial dapat membuat pelaku menghilangkan barang bukti serta membuat pelapor rentan tuntutan hukum.",
+      "C": "Salah. Mendiamkan indikasi korupsi membiarkan kerugian keuangan negara dan layanan kesehatan terus berlanjut.",
+      "D": "Salah. Mengancam pejabat demi imbalan pribadi merupakan tindakan pemerasan yang juga melanggar hukum.",
+      "E": "Salah. Menghapus catatan transaksi fiktif berarti ikut serta menghalangi penyidikan dan melakukan pemalsuan akuntansi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Integritas dan Whistleblowing System"
+    }
+  },
+  {
+    "slug": "twk-integritas-benturan-kepentingan-b3-032",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-kode-etik-benturan-kepentingan-uu20-b3"
+    ],
+    "reasoningChain": "Benturan kepentingan (conflict of interest) terjadi ketika pejabat publik memiliki kepentingan pribadi, keluarga, atau afiliasi yang dapat memengaruhi objektivitas dalam mengambil keputusan jabatan. Walaupun secara subjektif pejabat merasa mampu bertindak adil, prinsip integritas dan kode etik ASN mewajibkan deklarasi tertulis dan penarikan diri (recusal) dari proses penilaian atau pengambilan keputusan tersebut.",
+    "stem": "Seorang pegawai ASN ditunjuk menjadi ketua tim penilai kelayakan penerima dana hibah riset daerah. Saat memeriksa daftar proposal masuk, ia mengetahui bahwa salah satu perusahaan rintisan pengusul dimiliki oleh saudara kandungnya sendiri. Meskipun proposal saudara kandungnya memang memiliki kualitas teknis yang baik, tindakan paling tepat sesuai prinsip pengendalian benturan kepentingan adalah ...",
+    "options": {
+      "A": "Tetap menilai seluruh proposal secara normal termasuk milik saudara kandungnya dengan berjanji di dalam hati akan memberikan skor secara objektif.",
+      "B": "Mendeklarasikan adanya hubungan afiliasi keluarga secara tertulis kepada pimpinan serta mengundurkan diri dari proses penilaian agar dinilai oleh tim independen.",
+      "C": "Meminta saudara kandungnya mengganti nama pemilik perusahaan di akta notaris dengan nama kenalan lain supaya proses penilaian tetap berjalan mulus.",
+      "D": "Langsung menggugurkan proposal milik saudara kandungnya tanpa memeriksa substansi agar terhindar dari tuduhan nepotisme.",
+      "E": "Menurunkan skor proposal milik saudara kandungnya secara sengaja sedikit di bawah ambang batas lulus sebagai bentuk kehati-hatian."
+    },
+    "hint": "Ingat prosedur standar penanganan benturan kepentingan: deklarasi terbuka dan penarikan diri (recusal).",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pengakuan objektif secara subjektif tidak menghilangkan potensi dan persepsi konflik kepentingan di mata hukum maupun publik.",
+      "B": "Benar. Deklarasi tertulis dan pengunduran diri dari posisi penilai (recusal) menjaga keadilan bagi seluruh peserta serta integritas keputusan instansi.",
+      "C": "Salah. Mengganti nama pemilik secara formalitas (nominee) adalah manipulasi administrasi untuk menyembunyikan benturan kepentingan.",
+      "D": "Salah. Menggugurkan proposal secara sepihak tanpa alasan substansial juga melanggar keadilan administratif; cukup tarik diri dari penilai.",
+      "E": "Salah. Memanipulasi nilai turun secara tidak objektif sama tidak profesionalnya dengan menaikkan nilai."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 20 Tahun 2023 tentang ASN dan Pedoman Penanganan Benturan Kepentingan"
+    }
+  },
+  {
+    "slug": "twk-integritas-transparansi-lhkpn-b3-033",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-transparansi-pengadaan-lhkpn-akuntabilitas-b3"
+    ],
+    "reasoningChain": "Laporan Harta Kekayaan Penyelenggara Negara (LHKPN) sesuai UU Nomor 28 Tahun 1999 berfungsi sebagai instrumen transparansi, pencegahan korupsi, dan pengujian kewajaran profil kekayaan pejabat. Menyembunyikan aset dengan meminjam nama orang lain atau menunda pelaporan menghancurkan akuntabilitas publik. Jika ada aset warisan atau harta pasangan yang menjadi bagian pelaporan wajib LHKPN, penyelenggara negara harus melaporkannya secara lengkap, jujur, dan tepat waktu.",
+    "stem": "Seorang pejabat eselon baru saja diangkat menjadi kepala dinas yang wajib menyampaikan Laporan Harta Kekayaan Penyelenggara Negara (LHKPN). Ia memiliki beberapa bidang tanah warisan dan kepemilikan saham atas nama pasangannya yang nilainya signifikan. Rekan kerjanya menyarankan agar aset tersebut tidak dicantumkan supaya tidak memancing sorotan publik atas tingginya total kekayaan. Sikap paling tepat mencerminkan integritas akuntabilitas adalah ...",
+    "options": {
+      "A": "Mencantumkan sebagian kecil aset saja agar jumlah total kekayaan terlihat sederhana dan selaras dengan besaran gaji pokok bulanan.",
+      "B": "Mengalihkan sementara hak milik tanah warisan ke atas nama kerabat jauh sebelum mengisi formulir LHKPN agar tidak perlu dilaporkan.",
+      "C": "Melaporkan seluruh harta kekayaan milik pribadi maupun pasangan secara lengkap, akurat, dan tepat waktu disertai keterangan asal-usul yang sah.",
+      "D": "Menunda pengiriman LHKPN hingga akhir masa jabatan supaya tidak perlu memperbarui data aset setiap tahun.",
+      "E": "Mengisi nilai seluruh aset berdasarkan taksiran terendah sepihak di bawah harga pasar agar tidak menimbulkan kecurigaan pemeriksa."
+    },
+    "hint": "Pahami fungsi LHKPN sebagai bukti keterbukaan dan kewajaran asal-usul kekayaan penyelenggara negara.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menyembunyikan sebagian harta dalam LHKPN melanggar kewajiban kejujuran dan justru menimbulkan dugaan pelanggaran apabila terungkap.",
+      "B": "Salah. Mengalihkan nama kepemilikan untuk menyembunyikan aset menunjukkan itikad buruk yang mencederai transparansi.",
+      "C": "Benar. Pelaporan LHKPN secara lengkap, jujur, dan dilengkapi asal-usul sah (seperti warisan) menunjukkan akuntabilitas dan integritas penyelenggara negara.",
+      "D": "Salah. LHKPN wajib disampaikan secara periodik dan saat awal/akhir menjabat sesuai ketentuan batas waktu.",
+      "E": "Salah. Manipulasi nilai taksiran di bawah kewajaran mengurangi validitas dan akurasi laporan kekayaan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 28 Tahun 1999 tentang Penyelenggara Negara yang Bersih dan Bebas dari KKN"
+    }
+  },
+  {
+    "slug": "twk-integritas-disiplin-absensi-b3-034",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-netralitas-disiplin-asn"
+    ],
+    "reasoningChain": "Berdasarkan PP Nomor 94 Tahun 2021 tentang Disiplin PNS, setiap aparatur wajib menaati ketentuan jam kerja serta memelihara barang milik negara dan hanya menggunakannya untuk kepentingan dinas. Memalsukan catatan kehadiran (termasuk melalui aplikasi atau celah teknis) serta memakai kendaraan dinas untuk kepentingan wisata pribadi merupakan pelanggaran disiplin dan penyalahgunaan aset negara, walaupun dilakukan bersama rekan atau seizin lisan kepala subbagian.",
+    "stem": "Menjelang libur panjang akhir pekan, seorang kepala subbagian mengajak timnya meninggalkan kantor tiga jam lebih awal sebelum jam pulang resmi menggunakan aplikasi manipulasi lokasi presensi daring, serta meminjamkan mobil operasional dinas untuk perjalanan wisata keluarga staf ke luar kota dengan alasan seluruh pekerjaan minggu itu sudah selesai. Sikap paling tepat bagi anggota tim yang menjunjung disiplin dan integritas ASN adalah ...",
+    "options": {
+      "A": "Ikut pulang lebih awal dan memanfaatkan kendaraan dinas karena ajakan datang langsung dari atasan dan pekerjaan sudah tuntas.",
+      "B": "Menolak ajakan manipulasi presensi tanpa ikut wisata, namun tetap membiarkan rekan lain memakai mobil dinas agar hubungan kerja tetap hangat.",
+      "C": "Melaporkan kejadian itu secara terbuka di grup WhatsApp alumni kampus agar atasan merasa malu dan membatalkan rencananya.",
+      "D": "Menolak manipulasi presensi maupun penggunaan mobil dinas untuk kepentingan pribadi, tetap bekerja sesuai jam dinas, dan mengingatkan secara etis sesuai PP Disiplin ASN.",
+      "E": "Mengajukan izin sakit fiktif pada hari tersebut supaya tidak terlibat dalam pelanggaran presensi maupun pemakaian mobil dinas."
+    },
+    "hint": "Ingat larangan manipulasi presensi dan penyalahgunaan barang milik negara dalam PP Nomor 94 Tahun 2021.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Perintah atau ajakan atasan yang melanggar aturan disiplin dan pemanfaatan barang milik negara tidak boleh diikuti.",
+      "B": "Salah. Bersikap permisif terhadap penyalahgunaan aset operasional dinas tidak mencerminkan integritas kepedulian atas keuangan/aset negara.",
+      "C": "Salah. Menyebarkan urusan internal kantor ke forum alumni tidak etis dan bukan jalur pembinaan disiplin resmi.",
+      "D": "Benar. Menolak kecurangan presensi, menjaga aset negara hanya untuk kepentingan dinas, dan mengingatkan secara etis mencerminkan disiplin dan integritas ASN.",
+      "E": "Salah. Membuat izin sakit palsu justru menambah pelanggaran integritas dan kejujuran."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Peraturan Pemerintah Nomor 94 Tahun 2021 tentang Disiplin Pegawai Negeri Sipil"
+    }
+  },
+  {
+    "slug": "twk-integritas-pemerasan-layanan-b3-035",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-gratifikasi-suap-pemerasan-tipikor-b3"
+    ],
+    "reasoningChain": "Dalam UU Tipikor (Pasal 12 huruf e UU 20/2001), tindak pidana pemerasan dalam jabatan terjadi apabila pegawai negeri atau penyelenggara negara dengan maksud menguntungkan diri sendiri atau orang lain secara melawan hukum, atau dengan menyalahgunakan kekuasaannya memaksa seseorang memberikan sesuatu, membayar, atau menerima pembayaran dengan potongan. Berbeda dengan suap (kesepakatan transaksional dua arah) atau gratifikasi (pemberian sukarela terkait jabatan), dalam pemerasan inisiatif paksaan datang dari pejabat yang menyandera hak layanan warga.",
+    "stem": "Seorang pelaku usaha mikro telah melengkapi seluruh dokumen persyaratan izin edar pangan sesuai standar resmi dan membayar retribusi sesuai tarif penerimaan negara. Namun, petugas verifikator sengaja menahan penerbitan sertifikat izin selama dua bulan dan mengatakan berkas akan ditolak kecuali pemohon menyetor biaya tambahan percepatan secara tunai di luar ketentuan resmi. Berdasarkan UU Nomor 20 Tahun 2001 tentang Tipikor, perbuatan petugas tersebut dikategorikan sebagai ...",
+    "options": {
+      "A": "Gratifikasi wajar sebagai bentuk apresiasi atas beban kerja petugas verifikator yang memeriksa banyak berkas.",
+      "B": "Kesalahan administrasi ringan yang cukup diselesaikan dengan mengembalikan kelebihan uang apabila pemohon mengajukan keberatan.",
+      "C": "Suap pasif murni karena pelaku usaha yang berinisiatif menawarkan imbalan supaya sertifikatnya terbit lebih cepat dari antrean.",
+      "D": "Pungutan retribusi tambahan daerah yang sah selama hasil uang tunai tersebut disetorkan ke kas koperasi pegawai kantor.",
+      "E": "Pemerasan dalam jabatan (Pasal 12 huruf e) karena pejabat menyalahgunakan wewenang untuk memaksa pemohon membayar di luar haknya."
+    },
+    "hint": "Bedakan unsur paksaan sepihak oleh pejabat terhadap pemohon layanan dengan suap dua arah dan gratifikasi sukarela.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Tidak ada gratifikasi yang wajar ketika pemohon dipaksa menyerahkan uang dengan ancaman penolakan hak layanannya.",
+      "B": "Salah. Menahan hak layanan publik disertai permintaan uang paksa adalah tindak pidana korupsi, bukan sekadar kelalaian administrasi.",
+      "C": "Salah. Inisiatif paksaan justru berasal dari pejabat yang menyandera penerbitan izin, bukan tawaran sukarela pemohon.",
+      "D": "Salah. Pungutan tanpa dasar peraturan perundang-undangan tetap ilegal meskipun masuk ke kas koperasi internal.",
+      "E": "Benar. Sesuai Pasal 12 huruf e UU 20/2001, menyalahgunakan kekuasaan untuk memaksa seseorang membayar sesuatu secara melawan hukum adalah tindak pidana pemerasan dalam jabatan."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 20 Tahun 2001 tentang Pemberantasan Tindak Pidana Korupsi Pasal 12 Huruf e"
+    }
+  },
+  {
+    "slug": "twk-integritas-antikorupsi-spj-fiktif-b3-036",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-antikorupsi-asn"
+    ],
+    "reasoningChain": "Kejujuran dan akuntabilitas pengelolaan keuangan negara melarang pembuatan surat pertanggungjawaban (SPJ) fiktif, penggelembungan biaya (mark-up), maupun perjalanan dinas fiktif dengan alasan apa pun, termasuk untuk menutupi kegiatan kantor lain yang tidak memiliki mata anggaran. Jika terdapat kebutuhan riil operasional, solusinya adalah mekanisme revisi anggaran yang sah, bukan merekayasa dokumen bukti pengeluaran.",
+    "stem": "Seorang bendahara pengeluaran diminta oleh kepala unit kerja menandatangani kuitansi perjalanan dinas fiktif ke luar provinsi bagi empat pegawai dengan dalih dananya akan digunakan untuk membiayai konsumsi rapat koordinasi yang tidak tertampung dalam pos anggaran tahun berjalan. Sikap paling tepat yang mencerminkan integritas dan akuntabilitas keuangan negara adalah ...",
+    "options": {
+      "A": "Menolak menandatangani serta memproses pencairan dokumen perjalanan dinas fiktif dan menyarankan penggunaan mekanisme revisi anggaran resmi untuk kebutuhan rapat yang sah.",
+      "B": "Memproses kuitansi fiktif tersebut asalkan kepala unit kerja membuat surat pernyataan pribadi siap menanggung risiko apabila diperiksa auditor.",
+      "C": "Mengurangi jumlah pegawai dalam perjalanan dinas fiktif menjadi dua orang saja agar nilai nominal temuannya tidak terlalu besar.",
+      "D": "Meminta penyedia jasa katering menerbitkan faktur belanja alat tulis kantor sebagai pengganti kuitansi konsumsi rapat yang belum dianggarkan.",
+      "E": "Menyisihkan dana perjalanan dinas fiktif tersebut ke rekening pribadi bendahara terlebih dahulu supaya mudah diawasi penggunaannya."
+    },
+    "hint": "Pertimbangkan prinsip akuntabilitas berbasis bukti riil serta mekanisme sah revisi anggaran.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Menolak pembuatan SPJ fiktif dan mengarahkan pada revisi anggaran yang legal mencegah tindak pidana korupsi dan menjaga integritas tata kelola keuangan.",
+      "B": "Salah. Surat pernyataan pribadi tidak menghapus pertanggungjawaban hukum atas pencairan anggaran negara berbasis dokumen palsu.",
+      "C": "Salah. Mengurangi nominal tidak mengubah sifat perbuatan memalsukan pertanggungjawaban keuangan negara.",
+      "D": "Salah. Mengganti objek belanja menjadi alat tulis kantor tetap merupakan pemalsuan bukti pertanggungjawaban.",
+      "E": "Salah. Memindahkan uang negara ke rekening pribadi bendahara melanggar aturan pengelolaan kas negara."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Integritas Pengelolaan Keuangan Negara"
+    }
+  },
+  {
+    "slug": "twk-integritas-whistleblowing-intimidasi-b3-037",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-whistleblowing-perlindungan-pelapor-b3"
+    ],
+    "reasoningChain": "Keberhasilan sistem pelaporan pelanggaran sangat bergantung pada perlindungan hukum dan jaminan karier bagi pelapor (whistleblower) dari tindakan pembalasan (retaliasi) berupa intimidasi, mutasi sewenang-wenang, atau penilaian kinerja tidak objektif. Ketika pelapor mengalami ancaman pembalasan dari pihak terlapor, instrumen hukum Indonesia menyediakan perlindungan melalui Aparat Pengawasan Intern Pemerintah (APIP), Komisi ASN/BKN terkait kepegawaian, serta Lembaga Perlindungan Saksi dan Korban (LPSK).",
+    "stem": "Setelah melaporkan dugaan manipulasi nilai proyek oleh pejabat pembuat komitmen melalui sistem pelaporan pelanggaran resmi, seorang analis anggaran mendadak menerima surat ancaman mutasi ke unit terpencil dan penurunan skor kinerja tanpa dasar evaluasi objektif dari atasan yang terkait dengan pihak terlapor. Langkah berintegritas dan prosedural paling tepat bagi pelapor adalah ...",
+    "options": {
+      "A": "Mencabut laporan dugaan manipulasi proyek tersebut secepatnya agar status kepegawaian dan posisinya di kantor kembali aman.",
+      "B": "Menyimpan bukti tindakan intimidasi dan mutasi tidak prosedural lalu mengajukan permohonan perlindungan pelapor ke instansi pengawas internal, otoritas kepegawaian, atau LPSK.",
+      "C": "Melakukan aksi mogok kerja individu dan menolak seluruh penugasan kantor sampai pejabat terlapor diberhentikan dari jabatannya.",
+      "D": "Membayar sejumlah uang kepada staf kepegawaian agar surat keputusan mutasi tersebut dibatalkan secara diam-diam tanpa diketahui pimpinan.",
+      "E": "Membalas tekanan tersebut dengan membocorkan data pribadi keluarga pejabat terlapor ke forum publik daring."
+    },
+    "hint": "Ingat hak perlindungan hukum bagi whistleblower terhadap tindakan pembalasan (retaliasi) kepegawaian.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Mencabut laporan akibat intimidasi justru membiarkan praktik korupsi berlangsung tanpa koreksi.",
+      "B": "Benar. Mendokumentasikan retaliasi dan mengakses mekanisme perlindungan resmi (APIP/BKN/LPSK) menjaga integritas proses penegakan hukum sekaligus melindungi hak pelapor.",
+      "C": "Salah. Mogok kerja tanpa prosedur melanggar disiplin ASN dan dapat merugikan posisi hukum pelapor sendiri.",
+      "D": "Salah. Memberi suap kepada staf kepegawaian merupakan pelanggaran integritas baru.",
+      "E": "Salah. Menyebarkan data pribadi keluarga pihak lain (doxing) melanggar UU PDP dan etika."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UU Nomor 31 Tahun 2014 tentang Perlindungan Saksi dan Korban serta Mekanisme WBS ASN"
+    }
+  },
+  {
+    "slug": "twk-integritas-kode-etik-data-rahasia-b3-038",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-kode-etik-benturan-kepentingan-uu20-b3"
+    ],
+    "reasoningChain": "Kode etik dan kode perilaku ASN dalam UU Nomor 20 Tahun 2023 mewajibkan pegawai menjaga rahasia jabatan dan informasi strategis negara yang bersifat tertutup, termasuk Harga Perkiraan Sendiri (HPS) sebelum diumumkan atau dokumen evaluasi penawaran tender sebelum penetapan. Membocorkan informasi rahasia tersebut kepada teman dekat atau rekanan tertentu merusak prinsip keadilan kompetisi dan melanggar hukum pidana maupun etik ASN.",
+    "stem": "Seorang anggota kelompok kerja pemilihan pengadaan barang diminta secara pribadi oleh sahabat lamanya semasa kuliah untuk membocorkan rincian rincian teknis dokumen penawaran milik pesaing serta nilai pagu rahasia evaluasi agar perusahaan sahabatnya dapat menyesuaikan penawaran menjelang batas akhir pemasukan dokumen. Tindakan paling tepat sesuai kode etik ASN adalah ...",
+    "options": {
+      "A": "Memberikan kisaran angka secara lisan tanpa dokumen tertulis supaya tidak meninggalkan jejak digital namun tetap membantu sahabat.",
+      "B": "Mengirimkan dokumen penawaran pesaing setelah menghapus nama perusahaan pemiliknya agar dianggap hanya sebagai bahan pembelajaran.",
+      "C": "Menolak tegas permintaan tersebut, menjaga kerahasiaan data tender sesuai sumpah jabatan, serta mencatat potensi percobaan intervensi sesuai prosedur.",
+      "D": "Meminta sahabatnya mengundurkan diri dari lelang lalu menawarkan diri menjadi konsultan pribadi perusahaan sahabat tersebut pada proyek berikutnya.",
+      "E": "Menyetujui permintaan tersebut dengan syarat perusahaan sahabatnya tidak boleh menawarkan harga di atas harga perkiraan sendiri."
+    },
+    "hint": "Ingat kewajiban menjaga kerahasiaan informasi jabatan yang tertutup dalam kode etik ASN.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Membocorkan informasi tertutup secara lisan tetap melanggar kode etik kerahasiaan jabatan dan merusak persaingan adil.",
+      "B": "Salah. Menghapus nama perusahaan tidak menghilangkan sifat rahasia substansi dokumen penawaran peserta lain.",
+      "C": "Benar. Menolak intervensi dan menjaga kerahasiaan dokumen lelang mewujudkan nilai dasar integritas serta profesionalisme ASN.",
+      "D": "Salah. Menjadi konsultan rekanan yang berpotensi mengikuti pengadaan di instansinya memicu benturan kepentingan.",
+      "E": "Salah. Mematuhi batas harga tidak membenarkan tindakan membocorkan rahasia dokumen pesaing."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 20 Tahun 2023 tentang Aparatur Sipil Negara"
+    }
+  },
+  {
+    "slug": "twk-integritas-transparansi-eproc-b3-039",
+    "category": "TWK",
+    "subtopic": "Integritas",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-integritas-transparansi-pengadaan-lhkpn-akuntabilitas-b3"
+    ],
+    "reasoningChain": "Akuntabilitas dan keterbukaan informasi publik (UU No. 14 Tahun 2008 tentang Keterbukaan Informasi Publik) menuntut instansi pemerintah memublikasikan informasi pengadaan publik (seperti rencana umum pengadaan, nilai kontrak, nama pemenang, dan progres realisasi) secara terbuka melalui portal resmi, sembari tetap mengecualikan data yang dilindungi hukum seperti rahasia dagang/kekayaan intelektual atau data pribadi sensitif. Menutup seluruh informasi nilai kontrak dengan alasan keamanan internal bertentangan dengan prinsip transparansi antikorupsi.",
+    "stem": "Kelompok masyarakat pemantau anggaran meminta data nilai kontrak, nama penyedia pemenang, serta laporan realisasi fisik pembangunan jalan kabupaten melalui permohonan informasi resmi. Namun, pejabat pengelola informasi berencana menolak seluruh permohonan itu dengan dalih dokumen pengadaan bersifat rahasia internal instansi. Evaluasi paling tepat terhadap rencana penolakan tersebut adalah ...",
+    "options": {
+      "A": "Tepat, karena seluruh dokumen kontrak pemerintah otomatis termasuk informasi yang dikecualikan demi mencegah kegaduhan publik.",
+      "B": "Tepat, karena masyarakat umum hanya boleh melihat hasil fisik jalan tanpa perlu mengetahui nilai kontrak dan nama penyedia.",
+      "C": "Keliru, sehingga instansi wajib menyerahkan seluruh berkas termasuk salinan KTP direksi dan rahasia formula teknis hak paten penyedia tanpa seleksi.",
+      "D": "Keliru, karena nilai kontrak, pemenang, dan realisasi fisik merupakan informasi publik yang wajib dibuka secara transparan dengan tetap melindungi data pribadi atau rahasia dagang yang dikecualikan.",
+      "E": "Tepat apabila nilai proyeknya berada di bawah lima miliar rupiah karena pengawasan publik hanya berlaku untuk proyek strategis nasional."
+    },
+    "hint": "Seimbangkan kewajiban transparansi kontrak publik menurut UU KIP dengan perlindungan informasi yang dikecualikan secara hukum.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Dokumen rencana pengadaan, nilai kontrak, dan realisasi anggaran publik pada prinsipnya merupakan informasi terbuka untuk akuntabilitas.",
+      "B": "Salah. Hak publik untuk mengawasi penggunaan anggaran negara mencakup informasi nilai kontrak, pemenang, dan capaian realisasi.",
+      "C": "Salah. Keterbukaan informasi publik tetap dibatasi oleh pengecualian hukum terhadap data pribadi sensitif dan rahasia dagang/HAKI.",
+      "D": "Benar. Membuka informasi pengadaan yang bersifat publik sambil menyaring data pribadi/rahasia dagang yang dikecualikan memenuhi prinsip transparansi dan kepastian hukum.",
+      "E": "Salah. Kewajiban transparansi pengelolaan anggaran publik berlaku untuk seluruh belanja pemerintah tanpa batasan nilai lima miliar rupiah."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 14 Tahun 2008 tentang Keterbukaan Informasi Publik"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-integrasi-kebinekaan-b3-040",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-integrasi-kebinekaan"
+    ],
+    "reasoningChain": "Semboyan Bhinneka Tunggal Ika memadukan pengakuan terhadap keragaman identitas budaya dan agama (bhinneka) dengan komitmen pada kesetaraan hak warga negara dan persatuan nasional (tunggal ika). Dalam pengelolaan sekolah negeri yang dibiayai negara untuk seluruh warga negara, aturan tata tertib tidak boleh memaksakan atribut keagamaan tertentu kepada siswa yang berbeda keyakinan maupun melarang siswa menjalankan atribut keyakinan yang diakui.",
+    "stem": "Sebuah sekolah menengah negeri di daerah yang mayoritas penduduknya menganut agama tertentu menerbitkan surat edaran yang mewajibkan seluruh siswi tanpa memandang latar belakang agamanya mengenakan atribut busana keagamaan mayoritas pada hari-hari tertentu dengan alasan keseragaman disiplin sekolah. Kebijakan yang paling mencerminkan semangat Bhinneka Tunggal Ika dan hak konstitusional warga adalah ...",
+    "options": {
+      "A": "Mempertahankan kewajiban seragam beratribut agama mayoritas tersebut karena aturan sekolah negeri harus mengikuti aspirasi mayoritas daerah setempat.",
+      "B": "Melarang seluruh siswi termasuk yang beragama mayoritas mengenakan atribut keagamaan apa pun di sekolah agar keseragaman tampil identik.",
+      "C": "Mengelompokkan siswa berdasarkan agama ke dalam kelas dan jam belajar yang terpisah supaya aturan berpakaian mudah diseragamkan.",
+      "D": "Memberikan sanksi pengurangan nilai sikap bagi siswi minoritas yang menolak mengenakan atribut keagamaan mayoritas demi menegakkan tata tertib.",
+      "E": "Mencabut kewajiban pemaksaan atribut keagamaan tertentu bagi pemeluk agama lain serta menjamin kebebasan siswa mengenakan atau tidak mengenakan atribut sesuai keyakinannya."
+    },
+    "hint": "Bedakan penyeragaman paksa dengan kesetaraan yang menghormati keragaman keyakinan di ruang publik negara.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Sekolah negeri sebagai institusi publik wajib melayani seluruh warga negara tanpa memaksakan identitas keagamaan mayoritas kepada pemeluk lain.",
+      "B": "Salah. Melarang pemeluk agama mengenakan atribut yang diyakininya juga melanggar hak kebebasan menjalankan ibadah/keyakinan.",
+      "C": "Salah. Pemisahan kelas berdasarkan agama (segregasi) bertentangan dengan semangat integrasi sosial Bhinneka Tunggal Ika.",
+      "D": "Salah. Penjatuhan sanksi terhadap kebebasan berkeyakinan merupakan tindakan diskriminatif yang bertentangan dengan konstitusi.",
+      "E": "Benar. Menjamin kebebasan siswa tanpa pemaksaan maupun pelarangan atribut keyakinan mencerminkan persatuan dalam keberagaman (Bhinneka Tunggal Ika)."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 28E dan Permendikbudristek tentang Pakaian Seragam Sekolah"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-moderasi-rumah-ibadah-b3-041",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-moderasi-kebebasan-beragama"
+    ],
+    "reasoningChain": "Pasal 28E dan Pasal 29 ayat (2) UUD NRI Tahun 1945 menjamin kemerdekaan tiap-tiap penduduk untuk memeluk agamanya masing-masing dan beribadat menurut agamanya dan kepercayaannya. Ketika muncul keberatan sebagian warga terhadap rencana pembangunan rumah ibadah yang telah memenuhi syarat administratif, pemerintah daerah dan aparat keamanan wajib memfasilitasi dialog moderasi beragama sekaligus melindungi hak konstitusional pemeluk agama dari tekanan atau tindakan persekusi massa.",
+    "stem": "Panitia pembangunan rumah ibadah umat minoritas di suatu kecamatan telah melengkapi seluruh syarat administratif dan rekomendasi resmi Forum Kerukunan Umat Beragama (FKUB). Namun, sekelompok warga melancarkan protes menolak pembangunan dengan alasan khawatir mengubah karakter lingkungan. Sikap pemerintah daerah paling tepat sesuai prinsip moderasi beragama dan Bhinneka Tunggal Ika adalah ...",
+    "options": {
+      "A": "Memfasilitasi dialog terbuka bersama FKUB dan tokoh masyarakat sambil tetap menjamin perlindungan hukum atas hak beribadah sesuai persyaratan sah yang telah dipenuhi.",
+      "B": "Membekukan izin pembangunan yang sudah terbit secara permanen demi mengikuti desakan kelompok penolak agar situasi kecamatan tenang.",
+      "C": "Menyerahkan penentuan boleh atau tidaknya pembangunan rumah ibadah melalui pemungutan suara warga sekitar tanpa mengacu pada hak konstitusional.",
+      "D": "Meminta umat minoritas beribadah secara diam-diam di rumah masing-masing tanpa perlu mendirikan sarana ibadah bersama selamanya.",
+      "E": "Menangkap seluruh warga yang menyampaikan aspirasi keberatan tanpa membuka ruang mediasi dan penjelasan aturan bersama FKUB."
+    },
+    "hint": "Seimbangkan jaminan hak konstitusional beribadah (Pasal 29 ayat 2 UUD 1945) dengan pendekatan dialog dan kepastian hukum.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Dialog konstruktif bersama FKUB meredakan kesalahpahaman sosial, sementara perlindungan hukum memastikan hak konstitusional beribadah tidak tunduk pada tekanan massa.",
+      "B": "Salah. Membatalkan izin sah akibat tekanan sepihak mengingkari jaminan konstitusional kebebasan beribadah.",
+      "C": "Salah. Hak asasi warga untuk beribadah tidak boleh digugurkan oleh suara mayoritas lokal.",
+      "D": "Salah. Memaksa kelompok minoritas menyembunyikan ibadah mencederai kesetaraan warga negara.",
+      "E": "Salah. Pendekatan represif tanpa mediasi dialog justru memperdalam ketegangan sosial antarwarga."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 28E dan Pasal 29 Ayat (2)"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-resolusi-konflik-adat-b3-042",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-resolusi-konflik-kohesi-multikultural-b3"
+    ],
+    "reasoningChain": "Resolusi konflik multikultural antara masyarakat adat setempat dan komunitas pendatang menuntut pengakuan terhadap hak ulayat/kearifan lokal (Pasal 18B ayat (2) UUD 1945) sekaligus perlindungan hak berusaha warga pendatang dalam kerangka hukum nasional. Mengusir pendatang melanggar persatuan NKRI, sedangkan mengabaikan tata adat memicu gesekan. Solusi berkeadilan dibangun melalui mediasi partisipatif, kejelasan batas legal, dan tata kelola ekonomi bersama.",
+    "stem": "Perselisihan terbuka terjadi antara komunitas nelayan pendatang yang menggunakan alat tangkap modern dan masyarakat adat pesisir yang selama turun-temurun menjaga zona larangan tangkap tradisional pada musim tertentu. Kedua pihak saling mengklaim hak akses laut hingga nyaris memicu bentrok fisik. Langkah resolusi konflik paling tepat mencerminkan kohesi multikultural Bhinneka Tunggal Ika adalah ...",
+    "options": {
+      "A": "Mengusir seluruh nelayan pendatang dari wilayah kabupaten karena dianggap tidak menghormati tradisi masyarakat adat setempat.",
+      "B": "Memediasi perwakilan adat dan nelayan pendatang untuk menyepakati zonasi tangkap berkelanjutan yang menghormati kearifan lokal sekaligus menjamin ruang usaha bersama sesuai aturan.",
+      "C": "Menghapus seluruh ketentuan zona larangan tangkap adat agar seluruh perairan dapat dieksploitasi bebas oleh kapal modern sepanjang tahun.",
+      "D": "Membiarkan kedua kelompok bersaing bebas di laut karena konflik perebutan sumber daya alam akan selesai dengan mekanisme pasar.",
+      "E": "Melarang seluruh warga dari luar provinsi bekerja sebagai nelayan di wilayah perairan kabupaten tersebut secara permanen."
+    },
+    "hint": "Cari titik temu hukum dan budaya antara pelindungan kearifan lokal (Pasal 18B ayat 2) dan kohesi warga lintas daerah.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pengusiran warga antarwilayah merusak integrasi bangsa dan hak warga negara mencari penghidupan di seluruh Indonesia.",
+      "B": "Benar. Mediasi yang menghormati hukum adat konservasi laut sekaligus menata ruang tangkap adil bagi pendatang menjaga kohesi sosial dan keberlanjutan ekologi.",
+      "C": "Salah. Menghapus kearifan adat konservasi merusak ekosistem laut dan melanggar pengakuan hak masyarakat hukum adat dalam UUD 1945.",
+      "D": "Salah. Membiarkan gesekan berpotensi memicu konflik kekerasan horizontal.",
+      "E": "Salah. Diskriminasi berdasarkan asal provinsi bertentangan dengan prinsip negara kesatuan dan Bhinneka Tunggal Ika."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 18B Ayat (2) dan UU Nomor 7 Tahun 2012 tentang Penanganan Konflik Sosial"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-inklusi-disabilitas-layanan-b3-043",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-inklusi-disabilitas-kesetaraan-layanan-b3"
+    ],
+    "reasoningChain": "UU Nomor 8 Tahun 2016 tentang Penyandang Disabilitas menggeser paradigma pelayanan dari pendekatan belas kasihan (charity-based) menjadi pendekatan berbasis hak asasi dan kesetaraan (rights-based). Instansi pelayanan publik wajib menyediakan aksesibilitas fisik (jalur landai/taktil) maupun nonfisik (juru bahasa isyarat, laman ramah pembaca layar) sebagai pemenuhan hak dasar warga dalam keberagaman kondisi manusia, bukan meminta pemohon disabilitas mewakilkan urusannya kepada orang lain.",
+    "stem": "Kantor pelayanan terpadu satu pintu di sebuah kota membangun gedung baru berlantai empat dengan desain megah, tetapi belum menyediakan lift ramah kursi roda, papan penunjuk braille, maupun petugas atau sistem antrean ramah penyandang disabilitas sensorik. Saat warga tunanetra dan pengguna kursi roda kesulitan mengurus izin usaha, petugas menyarankan agar mereka cukup mewakilkan pengurusan kepada kerabat yang sehat. Kebijakan perbaikan yang paling sesuai dengan semangat Bhinneka Tunggal Ika dan UU Penyandang Disabilitas adalah ...",
+    "options": {
+      "A": "Menyediakan loket khusus di halaman parkir terbuka tanpa perlu memodifikasi fasilitas bangunan utama agar biaya renovasi tidak membengkak.",
+      "B": "Membebaskan penyandang disabilitas dari seluruh kewajiban administrasi perizinan sebagai bentuk rasa iba tanpa memperbaiki akses layanan.",
+      "C": "Memenuhi standar aksesibilitas fisik dan informasi layanan publik secara menyeluruh serta melatih petugas memberikan pendampingan setara berbasis hak.",
+      "D": "Menerbitkan surat edaran agar penyandang disabilitas wajib membawa surat kuasa pendamping setiap kali mengakses layanan pemerintahan.",
+      "E": "Mengalihkan pelayanan bagi penyandang disabilitas ke rumah sakit daerah agar ditangani bersamaan dengan layanan kesehatan."
+    },
+    "hint": "Ingat pergeseran paradigma UU Nomor 8 Tahun 2016 dari belas kasihan menuju pemenuhan hak aksesibilitas yang setara.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Penempatan loket di luar gedung utama menciptakan segregasi layanan yang tidak setara dan tidak bermartabat.",
+      "B": "Salah. Pendekatan iba tanpa memperbaiki sistem aksesibilitas melanggar prinsip kemandirian dan kepastian hukum bagi warga disabilitas.",
+      "C": "Benar. Pemenuhan aksesibilitas fisik, digital/informasi, dan kompetensi layanan petugas menegakkan kesetaraan hak warga dalam keragaman sesuai UU 8/2016.",
+      "D": "Salah. Mewajibkan pendampingan kuasa justru membatasi kemandirian penyandang disabilitas dalam mengakses hak publik.",
+      "E": "Salah. Layanan administrasi publik adalah urusan instansi perizinan, bukan disabilitas sebagai persoalan medis di rumah sakit."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 8 Tahun 2016 tentang Penyandang Disabilitas"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-integrasi-bahasa-daerah-b3-044",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-integrasi-kebinekaan"
+    ],
+    "reasoningChain": "Pasal 32 ayat (2) UUD 1945 menghormati dan memelihara bahasa daerah sebagai kekayaan budaya nasional, sedangkan Pasal 36 menetapkan bahasa negara ialah Bahasa Indonesia. Dalam pelayanan publik atau rapat resmi instansi yang pesertanya multietnis, penggunaan bahasa daerah dalam forum resmi maupun loket pelayanan terhadap warga yang tidak memahaminya dapat menimbulkan eksklusi. Praktik inklusif memakai Bahasa Indonesia dalam layanan resmi dan forum kerja, serta tetap melestarikan bahasa daerah secara kontekstual.",
+    "stem": "Dalam rapat koordinasi lintas unit di sebuah kantor pelayanan publik yang pegawainya berasal dari berbagai suku di Indonesia, beberapa pegawai senior terbiasa berdiskusi dan menyampaikan keputusan rapat menggunakan bahasa daerah mayoritas setempat sehingga pegawai dari daerah lain serta warga pendatang di loket layanan kerap tidak memahami arahan teknis yang diberikan. Sikap paling tepat mencerminkan integrasi dalam kebinekaan adalah ...",
+    "options": {
+      "A": "Mewajibkan seluruh pegawai pendatang mengikuti ujian kelancaran bahasa daerah setempat sebagai syarat penilaian kinerja tahunan.",
+      "B": "Melarang seluruh pegawai menggunakan bahasa daerah sama sekali bahkan saat jam istirahat maupun percakapan kekeluargaan pribadi.",
+      "C": "Membentuk tim kerja terpisah berdasarkan kesamaan asal daerah dan bahasa ibu supaya komunikasi internal berjalan lebih cepat.",
+      "D": "Membiasakan penggunaan Bahasa Indonesia yang komunikatif dalam rapat resmi serta pelayanan publik sambil tetap menghormati pelestarian bahasa daerah pada ruang budaya yang tepat.",
+      "E": "Membiarkan penggunaan bahasa daerah di loket pelayanan resmi karena pendatang seharusnya menyesuaikan diri sepenuhnya dengan budaya mayoritas."
+    },
+    "hint": "Pahami fungsi pemersatu Bahasa Indonesia di forum resmi/pelayanan tanpa mematikan pelestarian bahasa daerah.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Mengaitkan penilaian kinerja ASN dengan penguasaan bahasa daerah tertentu bersifat diskriminatif dan menghambat mobilitas talenta nasional.",
+      "B": "Salah. Melarang bahasa daerah dalam interaksi kultural pribadi bertentangan dengan Pasal 32 ayat (2) UUD 1945.",
+      "C": "Salah. Pemisahan tim kerja berdasarkan suku justru menumbuhkan eksklusivisme dan merusak integrasi organisasi.",
+      "D": "Benar. Menggunakan Bahasa Indonesia pada forum dinas dan layanan publik menjamin inklusi semua warga, sembari tetap menghargai bahasa daerah sebagai kekayaan budaya.",
+      "E": "Salah. Loket pelayanan negara wajib dipahami setiap warga Indonesia dari latar belakang daerah mana pun."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 32 Ayat (2) dan Pasal 36"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-moderasi-cuti-ibadah-b3-045",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-moderasi-kebebasan-beragama"
+    ],
+    "reasoningChain": "Moderasi beragama di lingkungan kerja birokrasi diwujudkan melalui sikap toleran, adil, dan tidak memaksakan jadwal atau kegiatan kantor yang berbenturan dengan waktu ibadah pokok serta hari besar keagamaan pegawai yang beragam. Pimpinan unit kerja yang inklusif mengatur jadwal rapat penting, penugasan piket, dan kegiatan kebersamaan secara bergantian atau fleksibel agar setiap pegawai dapat menunaikan kewajiban agamanya tanpa mengorbankan hak layanan publik.",
+    "stem": "Kepala bagian operasional di sebuah instansi pusat rutin menjadwalkan rapat evaluasi wajib dan jam makan bersama tim tepat pada waktu ibadah mingguan pegawai beragama minoritas, serta menolak permohonan tukar jadwal piket hari raya keagamaan dengan alasan keterbatasan personel. Tindakan perbaikan tata kelola kerja paling tepat sesuai prinsip moderasi beragama adalah ...",
+    "options": {
+      "A": "Menghapus seluruh izin penyesuaian jadwal ibadah agar seluruh pegawai diperlakukan seragam tanpa pengecualian latar belakang agama.",
+      "B": "Memindahkan pegawai beragama minoritas ke unit arsip terpisah agar jadwal rapat tim utama tidak lagi terganggu oleh waktu ibadah mereka.",
+      "C": "Mengizinkan pegawai minoritas tidak mengikuti rapat evaluasi namun otomatis memotong tunjangan kinerja mereka pada jam tersebut.",
+      "D": "Mewajibkan seluruh staf mengikuti agenda rapat terlebih dahulu karena kewajiban kedinasan harus selalu mengalahkan waktu ibadah pokok.",
+      "E": "Menyusun jadwal rapat di luar waktu ibadah wajib seluruh agama serta menerapkan sistem rotasi piket hari raya yang adil dan partisipatif."
+    },
+    "hint": "Cari manajemen waktu kerja yang mengakomodasi kewajiban ibadah seluruh umat beragama secara adil tanpa diskriminasi.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Penyeragaman kaku yang mengabaikan kebutuhan ibadah justru menciptakan diskriminasi tidak langsung bagi kelompok minoritas.",
+      "B": "Salah. Memindahkan pegawai ke unit terpisah karena identitas agamanya melanggar prinsip kesetaraan dan keadilan ASN.",
+      "C": "Salah. Memotong hak kinerja ketika pegawai menunaikan ibadah karena jadwal rapat tidak sensitif waktu ibadah adalah bentuk ketidakadilan.",
+      "D": "Salah. Rapat internal dapat diatur waktunya tanpa perlu membenturkan kewajiban kerja dengan waktu ibadah pokok pegawai.",
+      "E": "Benar. Penjadwalan sensitif waktu ibadah dan rotasi piket hari raya yang adil mencerminkan moderasi beragama dan inklusivitas Bhinneka Tunggal Ika."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Moderasi Beragama di Lingkungan Kerja ASN"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-resolusi-konflik-digital-sara-b3-046",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-resolusi-konflik-kohesi-multikultural-b3"
+    ],
+    "reasoningChain": "Konflik horizontal bernuansa SARA sering bermula dari perselisihan individu atau kriminal murni yang kemudian dipelintir di media sosial menjadi konflik antarsuku atau antaragama. Dalam kerangka UU Nomor 7 Tahun 2012 tentang Penanganan Konflik Sosial dan nilai Bhinneka Tunggal Ika, respon efektif ialah menghentikan penyebaran narasi provokatif, memastikan penegakan hukum secara individual dan objektif atas pelaku pelanggaran hukum, serta melibatkan tokoh lintas elemen untuk menenangkan warga.",
+    "stem": "Perselisihan lalu lintas antara dua pengendara di pasar kabupaten berujung pemukulan. Rekaman kejadian itu dipotong dan disebarkan di media sosial dengan narasi provokatif seolah-olah terjadi penyerangan kelompok etnis tertentu terhadap etnis lainnya, sehingga memicu mobilisasi massa di dua desa bertetangga. Langkah penanganan paling tepat mencerminkan resolusi konflik Bhinneka Tunggal Ika adalah ...",
+    "options": {
+      "A": "Melokalisasi perkara sebagai tindak pidana individu yang diproses hukum secara objektif, mengklarifikasi fakta secara terbuka, dan menggandeng tokoh lintas etnis mendinginkan massa.",
+      "B": "Menyelesaikan kasus pemukulan melalui kesepakatan damai tertutup tanpa proses hukum lalu meminta kedua kelompok menghapus semua unggahan media sosial.",
+      "C": "Mengirimkan selebaran imbauan agar warga pendatang sementara waktu meninggalkan pasar supaya tidak memancing emosi warga desa lain.",
+      "D": "Menahan pelaku dari kelompok minoritas saja secara terbuka demi segera memuaskan tuntutan massa kelompok mayoritas di lapangan.",
+      "E": "Membiarkan tokoh kedua desa menyelesaikan pengerahan massa sendiri tanpa keterlibatan aparat penegak hukum dan pemerintah daerah."
+    },
+    "hint": "Pisahkan tanggung jawab pidana individu dari narasi generalisasi kelompok SARA.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Menegakkan hukum secara individual mencegah generalisasi SARA, sementara klarifikasi cepat dan dialog tokoh lintas etnis memulihkan kohesi sosial.",
+      "B": "Salah. Penyelesaian tertutup tanpa kejelasan fakta dan keadilan hukum sering meninggalkan kecurigaan dan tidak menghentikan disinformasi.",
+      "C": "Salah. Mengungsikan warga berdasarkan latar belakang etnis justru membenarkan segregasi dan mencederai rasa aman warga negara.",
+      "D": "Salah. Penegakan hukum yang tunduk pada tekanan massa dan diskriminatif menghancurkan prinsip keadilan hukum.",
+      "E": "Salah. Negara berkewajiban hadir mencegah bentrokan fisik dan menjaga ketertiban umum."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 7 Tahun 2012 tentang Penanganan Konflik Sosial"
+    }
+  },
+  {
+    "slug": "twk-bhinneka-inklusi-disabilitas-seleksi-b3-047",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Bhinneka Tunggal Ika",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bhinneka-inklusi-disabilitas-kesetaraan-layanan-b3"
+    ],
+    "reasoningChain": "Akomodasi yang layak (reasonable accommodation) bagi penyandang disabilitas dalam rekrutmen dan lingkungan kerja (UU 8/2016 dan regulasi seleksi ASN) bukan berarti menurunkan standar kompetensi substantif, melainkan menyesuaikan sarana prasarana ujian dan alat bantu kerja (misalnya perangkat lunak pembaca layar bagi tunanetra atau aksesibilitas ruang uji) agar mereka berkompetisi secara adil dan berkontribusi optimal.",
+    "stem": "Seorang pelamar formasi penyandang disabilitas tunanetra lolos seleksi administrasi jabatan analis kebijakan publik di sebuah kementerian, tetapi panitia lokal belum menyiapkan perangkat lunak pembaca layar pada komputer ujian dan berencana membatalkan keikutsertaannya dengan alasan keterbatasan teknis. Tindakan panitia yang paling sesuai dengan prinsip kesetaraan dan akomodasi yang layak adalah ...",
+    "options": {
+      "A": "Meluluskan pelamar tersebut langsung tanpa mengikuti ujian kompetensi agar instansi tetap memenuhi kuota afirmasi disabilitas.",
+      "B": "Menyediakan akomodasi yang layak berupa perangkat bantu pembaca layar atau pendampingan teknis sesuai standar sehingga pelamar dapat mengikuti ujian kompetensi secara setara.",
+      "C": "Mengganti formasi disabilitas tersebut menjadi formasi umum di tengah tahapan seleksi karena dianggap terlalu rumit secara teknis.",
+      "D": "Meminta pelamar membawa pengawas pribadi dari keluarganya untuk membacakan soal tanpa verifikasi netralitas panitia.",
+      "E": "Membatalkan kelulusan administrasi pelamar dengan menambahkan syarat baru harus mampu membaca layar standar tanpa alat bantu."
+    },
+    "hint": "Ingat konsep akomodasi yang layak: menyediakan sarana pendukung agar kompetisi kompetensi berlangsung adil.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Meluluskan tanpa uji kompetensi mencederai prinsip meritokrasi serta merendahkan kapabilitas penyandang disabilitas.",
+      "B": "Benar. Penyediaan akomodasi yang layak memungkinkan peserta disabilitas menunjukkan kompetensinya secara adil dan bermartabat sesuai UU 8/2016.",
+      "C": "Salah. Menghapus formasi disabilitas di tengah proses melanggar hak konstitusional dan kuota afirmasi yang ditetapkan undang-undang.",
+      "D": "Salah. Pendamping ujian harus netral dan terstandar oleh panitia guna menjaga integritas seleksi.",
+      "E": "Salah. Mengubah syarat secara sepihak untuk menyingkirkan peserta disabilitas merupakan bentuk diskriminasi."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 8 Tahun 2016 tentang Penyandang Disabilitas dan UU ASN"
+    }
+  },
+  {
+    "slug": "twk-pancasila-pengamalan-sila4-musyawarah-b3-048",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-pengamalan-kontekstual"
+    ],
+    "reasoningChain": "Kelima sila Pancasila merupakan satu kesatuan organis yang saling menjiwai. Pengamalan Sila Keempat (Kerakyatan yang dipimpin oleh hikmat kebijaksanaan dalam permusyawaratan/perwakilan) bukan sekadar pemungutan suara (voting) yang memenangkan suara terbanyak, melainkan musyawarah mufakat yang dijiwai Sila Ketiga (persatuan) dan Sila Kelima (keadilan sosial), sehingga aspirasi kelompok minoritas/rentan tetap terlindungi.",
+    "stem": "Dalam musyawarah desa untuk menentukan lokasi pembangunan tempat pengolahan sampah terpadu, sebagian besar warga di empat dusun pusat sepakat menempatkannya tepat di pinggir sumber mata air satu dusun terpencil yang jumlah penduduknya paling sedikit. Kepala desa berniat langsung mengetok palu berdasarkan suara terbanyak karena peserta terbanyak sudah setuju. Keputusan paling tepat mencerminkan Sila Keempat Pancasila yang berjiwa Sila Kedua dan Kelima adalah ...",
+    "options": {
+      "A": "Mengesahkan lokasi di dekat sumber air dusun terpencil tersebut karena suara terbanyak dalam forum desa merupakan wujud mutlak demokrasi.",
+      "B": "Membatalkan proyek pengolahan sampah selamanya sehingga desa tidak perlu lagi membahas persoalan pengelolaan limbah lingkungan.",
+      "C": "Melanjutkan musyawarah dengan kajian teknis lingkungan untuk mencari lokasi alternatif yang tidak mencemari sumber air dusun mana pun serta menjamin keadilan bagi seluruh warga.",
+      "D": "Memerintahkan aparat desa menentukan lokasi secara tertutup tanpa melibatkan warga dusun mana pun agar tidak terjadi perdebatan panjang.",
+      "E": "Meminta warga dusun terpencil menyetujui lokasi tersebut dengan imbalan pembebasan iuran kebersihan selama satu tahun."
+    },
+    "hint": "Ingat bahwa demokrasi Pancasila mengutamakan hikmat kebijaksanaan dan keadilan sosial, bukan tirani mayoritas.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Mengorbankan hak atas air bersih warga dusun minoritas lewat suara mayoritas mencerminkan tirani mayoritas, bukan hikmat kebijaksanaan Sila Keempat.",
+      "B": "Salah. Membatalkan program pengelolaan sampah tidak menyelesaikan kebutuhan sanitasi seluruh desa.",
+      "C": "Benar. Mengedepankan musyawarah berbasis kajian objektif demi melindungi hak hidup dan keadilan semua dusun mewujudkan kesatuan nilai Sila ke-2, ke-3, ke-4, dan ke-5.",
+      "D": "Salah. Pengambilan keputusan sepihak tanpa partisipasi warga bertentangan dengan prinsip permusyawaratan.",
+      "E": "Salah. Pembebasan iuran sesaat tidak menggantikan kerugian kesehatan akibat pencemaran sumber air bersih."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Pengamalan Kontekstual Pancasila"
+    }
+  },
+  {
+    "slug": "twk-pancasila-nilai-instrumental-dilema-b3-049",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-nilai-instrumental-dilema"
+    ],
+    "reasoningChain": "Sebagai ideologi terbuka, Pancasila memiliki tiga tingkatan nilai: nilai dasar (lima sila yang tetap/universal), nilai instrumental (penjabaran ke dalam UUD 1945, undang-undang, dan peraturan pelaksana), serta nilai praksis (penerapan nyata sehari-hari). Nilai instrumental tidak boleh menyimpang dari nilai dasar. Ketika sebuah aturan teknis (nilai instrumental) di lapangan justru menghambat pemenuhan nilai kemanusiaan (nilai dasar), aparatur wajib menolong secara manusiawi dalam koridor hukum darurat sekaligus mengusulkan revisi aturan teknis tersebut.",
+    "stem": "Seorang ibu hamil berisiko tinggi dari keluarga tidak mampu datang ke puskesmas terpencil dalam kondisi darurat persalinan, tetapi kartu identitas kependudukannya hilang saat banjir sehingga tidak terbaca oleh sistem verifikasi administrasi baru yang mewajibkan syarat kartu fisik sebelum tindakan medis non-igd. Petugas administrasi bersikeras menolak pendaftaran sesuai petunjuk teknis, padahal nyawa pasien terancam. Analisis paling tepat menurut hierarki nilai Pancasila (nilai dasar, instrumental, dan praksis) adalah ...",
+    "options": {
+      "A": "Petugas harus tetap menolak pasien sampai kartu fisik dicetak ulang karena nilai instrumental aturan teknis lebih mengikat daripada pertimbangan kemanusiaan.",
+      "B": "Sistem aturan teknis dapat diabaikan selamanya untuk seluruh pasien tanpa pencatatan administrasi apa pun agar tidak menyulitkan warga.",
+      "C": "Pasien diminta menandatangani surat pengunduran diri dari hak layanan kesehatan negara sebelum kembali ke rumah untuk mencari berkas.",
+      "D": "Menyelamatkan nyawa ibu dan bayi terlebih dahulu melalui prosedur darurat kemanusiaan sambil memverifikasi data secara paralel dan mengevaluasi aturan teknis yang kaku.",
+      "E": "Membebankan seluruh biaya persalinan secara komersial penuh kepada keluarga pasien sebagai hukuman atas kelalaian menjaga kartu identitas."
+    },
+    "hint": "Pahami hubungan nilai dasar kemanusiaan (Sila ke-2) sebagai sumber arah bagi nilai instrumental dan nilai praksis.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Menempatkan aturan teknis kaku di atas keselamatan nyawa manusia menyalahi nilai dasar Sila Kedua Pancasila.",
+      "B": "Salah. Administrasi tetap diperlukan untuk akuntabilitas setelah penanganan darurat keselamatan pasien selesai dilakukan.",
+      "C": "Salah. Mengabaikan pasien dalam kondisi darurat persalinan melanggar etika medis, hukum kesehatan, dan kemanusiaan.",
+      "D": "Benar. Mendahulukan keselamatan jiwa mencerminkan nilai praksis yang setia pada nilai dasar kemanusiaan, sambil melakukan perbaikan pada nilai instrumental yang kaku.",
+      "E": "Salah. Mengenakan tarif hukuman kepada korban bencana justru bertentangan dengan nilai keadilan sosial."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Nilai Dasar, Instrumental, dan Praksis Pancasila"
+    }
+  },
+  {
+    "slug": "twk-pancasila-etika-ai-algoritma-b3-050",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-etika-teknologi-kecerdasan-buatan-b3"
+    ],
+    "reasoningChain": "Pemanfaatan kecerdasan buatan (AI) dalam kebijakan publik harus tunduk pada etika Pancasila, khususnya Sila Kedua (kemanusiaan yang adil dan beradab) dan Sila Kelima (keadilan sosial). Algoritma yang dilatih dengan data historis timpang dapat mereproduksi bias diskriminatif (misalnya menyingkirkan keluarga miskin di wilayah 3T yang tidak memiliki jejak kredit digital). Oleh karena itu, keputusan berdampak sosial tinggi tetap memerlukan audit bias, transparansi, dan pengawasan manusia (human-in-the-loop).",
+    "stem": "Sebuah lembaga pembiayaan sosial mengembangkan sistem kecerdasan buatan (AI) otomatis untuk menyaring penerima bantuan modal usaha mikro. Setelah dievaluasi, algoritma tersebut secara sistematis menolak pengajuan warga dari daerah pedalaman yang belum memiliki riwayat transaksi perbankan digital, meskipun secara faktual mereka produktif dan sangat membutuhkan. Dalam perspektif etika teknologi berbasis Pancasila, tindakan korektif yang paling tepat adalah ...",
+    "options": {
+      "A": "Membiarkan keputusan otomatis AI berjalan tanpa koreksi karena sistem komputer dianggap selalu lebih objektif dan bebas prasangka manusia.",
+      "B": "Menghapus seluruh penggunaan teknologi informasi dalam penyaluran modal usaha dan kembali sepenuhnya pada pencatatan kertas manual.",
+      "C": "Mewajibkan warga pedalaman membeli perangkat telepon pintar terlebih dahulu sebelum berhak mengajukan permohonan bantuan modal usaha.",
+      "D": "Menyamarkan kriteria penolakan algoritma di laman publik agar masyarakat pedalaman tidak mengetahui alasan permohonan mereka ditolak.",
+      "E": "Melakukan audit bias data latih algoritma, memadukan indikator sosial-ekonomi yang adil, serta menerapkan verifikasi manusia bagi kelompok rentan yang terdampak kesenjangan digital."
+    },
+    "hint": "Kaitkan keadilan sosial (Sila ke-5) dan martabat manusia (Sila ke-2) terhadap bias data dalam sistem AI.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Algoritma AI dapat mewarisi bias dari data latih yang timpang sehingga justru memperlebar ketidakadilan sosial.",
+      "B": "Salah. Menolak teknologi sepenuhnya tidak solutif; yang dibutuhkan adalah tata kelola AI yang etis dan inklusif.",
+      "C": "Salah. Membebankan syarat kepemilikan gawai kepada kelompok miskin memperparah eksklusi ekonomi.",
+      "D": "Salah. Menyembunyikan kriteria algoritma menghilangkan akuntabilitas dan hak warga atas kejelasan keputusan publik.",
+      "E": "Benar. Audit bias data dan keterlibatan verifikasi manusia (human-in-the-loop) memastikan teknologi bekerja untuk keadilan sosial dan kemanusiaan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Etika Kecerdasan Buatan Berbasis Pancasila"
+    }
+  },
+  {
+    "slug": "twk-pancasila-demokrasi-ekonomi-pasal33-b3-051",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-demokrasi-ekonomi-pasal33-keadilan-sosial-b3"
+    ],
+    "reasoningChain": "Sila Kelima Pancasila (Keadilan Sosial bagi Seluruh Rakyat Indonesia) dijabarkan dalam Pasal 33 ayat (2) dan (3) UUD 1945 bahwa cabang-cabang produksi yang penting bagi negara dan menguasai hajat hidup orang banyak dikuasai oleh negara untuk sebesar-besar kemakmuran rakyat. Privatisasi total sumber air minum kota kepada pihak swasta yang berorientasi laba tanpa kendali tarif dan akses bagi warga miskin bertentangan dengan prinsip demokrasi ekonomi Pancasila.",
+    "stem": "Menghadapi defisit anggaran pemeliharaan jaringan air bersih, pemerintah daerah berencana menjual hak penguasaan penuh seluruh sumber mata air utama dan pengelolaan PDAM kepada perusahaan swasta asing tanpa klausul batas tarif maupun kewajiban layanan bagi warga prasejahtera, dengan alasan mekanisme pasar bebas lebih efisien. Berdasarkan Sila Kelima Pancasila dan Pasal 33 UUD 1945, evaluasi paling tepat terhadap rencana tersebut adalah ...",
+    "options": {
+      "A": "Keliru, karena air merupakan cabang produksi yang menguasai hajat hidup orang banyak sehingga kendali penguasaan dan jaminan akses adil wajib tetap berada di tangan negara.",
+      "B": "Tepat, karena keterlibatan modal swasta penuh secara otomatis membebaskan pemerintah daerah dari tanggung jawab pemenuhan hak dasar air bersih.",
+      "C": "Keliru hanya apabila perusahaan pemenang berasal dari luar negeri, namun tetap sah secara konstitusi jika dikuasai penuh oleh satu konglomerasi swasta domestik.",
+      "D": "Tepat selama harga air bagi kelompok masyarakat prasejahtera diserahkan sepenuhnya kepada mekanisme penawaran dan permintaan pasar.",
+      "E": "Keliru kecuali pemerintah daerah membagikan dividen penjualan aset sumber air tersebut satu kali kepada setiap kepala keluarga."
+    },
+    "hint": "Ingat amanat Pasal 33 ayat (2) dan (3) UUD 1945 mengenai penguasaan cabang produksi yang menguasai hajat hidup orang banyak.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Sesuai Pasal 33 ayat (2)-(3) UUD 1945 dan Sila Kelima, negara tetap harus memegang kendali penguasaan atas air guna menjamin keterjangkauan dan keadilan sosial.",
+      "B": "Salah. Negara tidak boleh melepaskan tanggung jawab konstitusional dalam memenuhi kebutuhan dasar rakyat atas air bersih.",
+      "C": "Salah. Monopoli penguasaan hajat hidup orang banyak oleh swasta domestik tanpa kendali negara tetap bertentangan dengan Pasal 33 UUD 1945.",
+      "D": "Salah. Menyerahkan tarif air pokok sepenuhnya pada mekanisme pasar bebas berpotensi memiskinkan kelompok rentan.",
+      "E": "Salah. Pembagian tunai satu kali tidak membenarkan pelepasan permanen hak penguasaan negara atas sumber daya air."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 33 Ayat (2) dan Ayat (3) serta Sila Kelima Pancasila"
+    }
+  },
+  {
+    "slug": "twk-pancasila-pengamalan-sila2-kemanusiaan-b3-052",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-pengamalan-kontekstual"
+    ],
+    "reasoningChain": "Sila Kedua Pancasila (Kemanusiaan yang Adil dan Beradab) menegaskan pengakuan persamaan derajat, persamaan hak dan kewajiban asasi setiap manusia tanpa membedakan suku, keturunan, agama, status ekonomi, maupun kondisi kesehatannya, serta menumbuhkan sikap saling mencintai dan bertenggang rasa. Dalam penanganan pengungsi bencana atau kelompok rentan yang terdampak wabah, penolakan warga karena stigma berlebihan harus diatasi melalui edukasi berbasis fakta medis dan perlindungan martabat kemanusiaan.",
+    "stem": "Ketika sekelompok penyintas tanah longsor dari desa tetangga hendak ditempatkan di balai pengungsian sementara milik pemerintah kecamatan, sejumlah warga sekitar menolak kedatangan mereka karena beredar kabar tidak berdasar bahwa para penyintas membawa penyakit menular dan berisiko merebut jatah bantuan lokal. Sikap paling tepat seorang relawan ASN yang mengamalkan Sila Kedua Pancasila adalah ...",
+    "options": {
+      "A": "Membiarkan para penyintas mendirikan tenda darurat di tepi jurang di luar kecamatan agar warga sekitar tidak merasa terganggu.",
+      "B": "Memberikan edukasi berbasis pemeriksaan kesehatan resmi untuk meluruskan stigma, memastikan layanan pengungsian yang bermartabat bagi penyintas, serta menata distribusi bantuan secara adil.",
+      "C": "Mengirimkan bantuan mie instan ke desa asal yang masih tertimbun longsor tanpa menyediakan tempat berteduh sementara bagi para penyintas.",
+      "D": "Memisahkan pengungsi berdasarkan tingkat penghasilan sebelum bencana supaya warga sekitar hanya menerima penyintas yang mampu menyewa kamar.",
+      "E": "Mengutamakan penolakan warga sekitar sebagai alasan sah untuk menutup balai pengungsian pemerintah kecamatan selama masa tanggap darurat."
+    },
+    "hint": "Fokus pada penghapusan stigma, perlindungan martabat manusia, dan keadilan penanganan pengungsi bencana.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Membiarkan penyintas di area berbahaya mengingkari prinsip kemanusiaan dan kewajiban perlindungan warga.",
+      "B": "Benar. Meluruskan hoaks medis secara objektif dan menjamin hunian darurat yang manusiawi serta distribusi adil mengamalkan Sila Kedua Pancasila.",
+      "C": "Salah. Penyaluran logistik tidak menggantikan kebutuhan mendesak atas tempat perlindungan yang aman.",
+      "D": "Salah. Membedakan perlakuan korban bencana berdasarkan status ekonomi bertentangan dengan persamaan derajat manusia.",
+      "E": "Salah. Balai fasilitas publik negara wajib dioptimalkan bagi keselamatan warga terdampak bencana."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Pengamalan Sila Kedua Pancasila"
+    }
+  },
+  {
+    "slug": "twk-pancasila-etika-teknologi-privasi-b3-053",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-etika-teknologi-kecerdasan-buatan-b3"
+    ],
+    "reasoningChain": "Penggunaan teknologi pengawasan cerdas (smart surveillance dan pengenalan wajah berbasis AI) di ruang publik kota harus menyeimbangkan ketertiban umum dengan penghormatan atas martabat manusia, hak privasi, dan keadilan hukum (Sila Kedua dan Kelima Pancasila serta Pasal 28G UUD 1945). Pemasangan sistem pengawasan massal tanpa dasar hukum jelas, tanpa batas retensi data, dan tanpa mekanisme koreksi jika terjadi salah identifikasi berpotensi melanggar hak asasi warga.",
+    "stem": "Pemerintah kota berencana memasang kamera pengenalan wajah otomatis berbasis kecerdasan buatan di seluruh taman kota dan stasiun yang terhubung langsung dengan sistem pemblokiran otomatis layanan publik bagi warga yang terdeteksi melakukan pelanggaran ketertiban ringan, tanpa mekanisme verifikasi petugas maupun hak keberatan warga bila sistem keliru mengenali wajah. Kritik etis berbasis Pancasila yang paling tepat terhadap rancangan tersebut adalah ...",
+    "options": {
+      "A": "Teknologi pengenalan wajah seharusnya dilarang di seluruh Indonesia termasuk di bandara internasional maupun sistem imigrasi negara.",
+      "B": "Pemblokiran otomatis oleh mesin boleh langsung diterapkan asalkan kamera tersebut dibeli dari produsen teknologi dalam negeri.",
+      "C": "Penerapan sistem pengawasan cerdas wajib disertai dasar hukum jelas, pelindungan data pribadi, pembatasan proporsional, serta verifikasi manusia dan hak koreksi demi menjaga martabat warga.",
+      "D": "Kamera pengawasan hanya perlu dipasang di kawasan permukiman berpenghasilan rendah yang dianggap memiliki kerawanan sosial lebih tinggi.",
+      "E": "Warga yang keliru dikenali oleh sistem kecerdasan buatan cukup menerima permintaan maaf tertulis tanpa perlu memulihkan akses layanan publiknya."
+    },
+    "hint": "Ingat keseimbangan keamanan publik dengan perlindungan privasi, proporsionalitas, dan hak pemulihan warga.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pelarangan total pada fungsi keimigrasian/keamanan strategis tidak proporsional; yang dituntut adalah tata kelola etis dan hukumnya.",
+      "B": "Salah. Asal produsen tidak menggugurkan pelanggaran hak privasi dan potensi salah sanksi otomatis tanpa due process.",
+      "C": "Benar. Pengawasan cerdas harus tunduk pada legalitas, proporsionalitas, pelindungan data, dan mekanisme koreksi manusia agar selaras dengan Sila ke-2 dan ke-5 Pancasila.",
+      "D": "Salah. Menargetkan pengawasan hanya ke kawasan miskin merupakan bentuk diskriminasi sosial.",
+      "E": "Salah. Menolak memulihkan hak layanan warga akibat kesalahan sistem melanggar keadilan hukum."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 28G dan UU Nomor 27 Tahun 2022 tentang Pelindungan Data Pribadi"
+    }
+  },
+  {
+    "slug": "twk-pancasila-demokrasi-ekonomi-koperasi-b3-054",
+    "category": "TWK",
+    "subtopic": "Pilar Negara - Pancasila",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-pancasila-demokrasi-ekonomi-pasal33-keadilan-sosial-b3"
+    ],
+    "reasoningChain": "Pasal 33 ayat (1) UUD 1945 menegaskan perekonomian disusun sebagai usaha bersama berdasar atas asas kekeluargaan, yang selaras dengan Sila Kelima Pancasila tentang keadilan sosial. Ketika petani kecil terjebak praktik monopsoni tengkulak dan rentenir dengan bunga mencekik, penguatan koperasi produksi dan distribusi yang dikelola transparan, didukung akses pembiayaan formal serta kepastian pasar, mampu memulihkan posisi tawar petani secara berkelanjutan.",
+    "stem": "Petani kopi di sebuah kabupaten pegunungan terus mengalami kerugian meski harga jual kopi di pasar perkotaan meningkat tajam, karena mereka terikat utang modal tanam dengan tengkulak tunggal yang memaksa pembelian panen jauh di bawah harga wajar. Kebijakan pemberdayaan ekonomi daerah yang paling sesuai dengan demokrasi ekonomi Pancasila dan Pasal 33 ayat (1) UUD 1945 adalah ...",
+    "options": {
+      "A": "Membebaskan praktik monopsoni tengkulak berjalan alami karena kesepakatan utang-piutang pribadi tidak boleh disentuh kebijakan ekonomi daerah.",
+      "B": "Melarang seluruh petani menjual hasil panen ke luar kabupaten lalu menunjuk satu perusahaan daerah membeli kopi dengan harga tetap yang juga rendah.",
+      "C": "Memberikan bantuan uang tunai konsumtif setiap menjelang panen tanpa membenahi akses modal tanam maupun rantai pemasaran petani.",
+      "D": "Mendorong pembentukan dan penguatan koperasi petani yang profesional dengan akses pembiayaan resmi bunga rendah serta kemitraan pasar langsung yang transparan.",
+      "E": "Mengubah seluruh lahan kebun kopi rakyat menjadi kawasan perkebunan milik pemodal besar supaya efisiensi produksi meningkat."
+    },
+    "hint": "Ingat prinsip usaha bersama berdasar atas asas kekeluargaan (Pasal 33 ayat 1 UUD 1945) untuk memutus ketimpangan rantai pasok.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Membiarkan praktik monopsoni yang menjerat petani kecil melanggengkan ketimpangan struktural dan bertentangan dengan keadilan sosial.",
+      "B": "Salah. Mengganti monopsoni swasta dengan monopsoni daerah berharga rendah tidak meningkatkan kesejahteraan petani.",
+      "C": "Salah. Bantuan konsumtif sesaat tidak memutus ketergantungan modal petani pada tengkulak.",
+      "D": "Benar. Penguatan koperasi modern yang ditopang akses pembiayaan formal dan rantai pasok adil mewujudkan asas kekeluargaan dan keadilan sosial.",
+      "E": "Salah. Mengalihfungsikan kepemilikan lahan rakyat ke pemodal besar menghilangkan kemandirian ekonomi petani kecil."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "UUD NRI Tahun 1945 Pasal 33 Ayat (1) dan UU Perkoperasian"
+    }
+  },
+  {
+    "slug": "twk-bahasa-ide-pokok-serapan-eyd5-b3-055",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-ide-pokok-koherensi-kata-serapan-eyd5-b3"
+    ],
+    "reasoningChain": "Untuk menentukan ide pokok dan keutuhan koherensi paragraf analitis, carilah gagasan payung yang mencakup seluruh kalimat penjelas, bukan sekadar rincian contoh. Selain itu, berdasarkan EYD Edisi V dan KBBI, kata serapan baku yang tepat adalah 'analisis' (bukan 'analisa'), 'sistem' (bukan 'sistim'), 'kualitas' (bukan 'kwalitas'), dan 'efektivitas' (bukan 'efektifitas'), serta penulisan gabungan kata 'tanggung jawab' dipisah apabila tidak mendapat imbuhan gabungan depan-belakang sekaligus.",
+    "stem": "Cermati paragraf berikut!\n(1) Transformasi layanan publik berbasis digital menuntut penataan ulang tata kelola data instansi pemerintah secara menyeluruh. (2) Tanpa standarisasi format, pertukaran informasi antarlembaga sering terhambat oleh duplikasi berkas kependudukan. (3) Selain itu, analisis risiko keamanan siber mutlak dilakukan secara berkala guna menjaga kepercayaan warga. (4) Oleh sebab itu, keterpaduan sistem dan pengawasan keamanan menjadi penentu keberhasilan digitalisasi birokrasi.\n\nManakah pernyataan paling tepat mengenai gagasan utama serta ketepatan ejaan serapan (EYD V dan KBBI) pada paragraf tersebut?",
+    "options": {
+      "A": "Gagasan utamanya adalah bahaya duplikasi berkas kependudukan; kata 'analisis' seharusnya ditulis 'analisa' agar sesuai ragam ilmiah.",
+      "B": "Gagasan utamanya hanya membahas kewajiban audit keamanan siber; kata 'berkala' harus ditulis serangkai sebagai bentuk terikat.",
+      "C": "Gagasan utamanya berada di kalimat (2); kata 'sistem' menurut KBBI dan EYD V seharusnya diganti dengan bentuk baku 'sistim'.",
+      "D": "Gagasan utamanya adalah penolakan terhadap layanan digital; seluruh kata serapan dalam paragraf tersebut sudah tidak baku.",
+      "E": "Gagasan utamanya ialah urgensi penataan tata kelola data menyeluruh dalam transformasi layanan digital; bentuk kata 'analisis' dan 'sistem' sudah baku, sedangkan 'standarisasi' semestinya ditulis 'standardisasi'."
+    },
+    "hint": "Periksa kalimat utama yang merangkum seluruh rincian paragraf serta cek bentuk baku kata 'analisis', 'sistem', dan 'standardisasi' di KBBI.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Duplikasi berkas hanya rincian kalimat penjelas (2), dan bentuk bakunya adalah 'analisis', bukan 'analisa'.",
+      "B": "Salah. Keamanan siber hanya salah satu aspek pendukung dalam kalimat (3), bukan gagasan utama seluruh paragraf.",
+      "C": "Salah. Kalimat (2) adalah kalimat penjelas, dan bentuk bakunya menurut KBBI adalah 'sistem', bukan 'sistim'.",
+      "D": "Salah. Paragraf tidak menolak layanan digital, melainkan menekankan syarat tata kelola data dan keamanannya.",
+      "E": "Benar. Kalimat (1) memuat gagasan utama yang dipertegas di kalimat (4); kata 'analisis' dan 'sistem' sudah baku, sementara bentuk baku dari 'standarisasi' dalam KBBI adalah 'standardisasi'."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "EYD Edisi V (Keputusan Kepala Badan Bahasa No. 0424/I/BS.00.01/2022) dan KBBI Daring"
+    }
+  },
+  {
+    "slug": "twk-bahasa-kalimat-efektif-eyd5-b3-056",
+    "category": "TWK",
+    "subtopic": "Bahasa Indonesia",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bahasa-eyd5-kalimat-efektif-baku"
+    ],
+    "reasoningChain": "Kalimat efektif dalam naskah dinas harus memiliki struktur jelas (subjek-predikat tidak rancu oleh preposisi di awal subjek), bebas pleonasme/pemborosan (seperti 'para peserta-peserta', 'agar supaya', 'demi untuk'), serta tidak menggunakan konjungsi berpasangan yang tidak tepat (misalnya 'meskipun... tetapi...' atau 'karena... maka...'). Menurut EYD Edisi V, partikel 'pun' yang bermakna 'juga/apa saja' pada 'apa pun' dan 'siapa pun' ditulis terpisah, sementara 'walaupun', 'meskipun', 'adapun', dan 'sekalipun' ditulis serangkai; huruf kapital pada jabatan hanya dipakai jika diikuti nama orang/instansi/tempat atau sebagai sapaan.",
+    "stem": "Perhatikan kalimat rancu dalam draf surat edaran dinas berikut:\n\"Meskipun banyak dari para pegawai-pegawai di berbagai unit kerja sudah memahami aturan baru, namun siapa pun yang belum mengisi formulir pelaporan tetap diwajibkan untuk segera melengkapinya sebelum akhir bulan.\"\n\nPerbaikan kalimat agar efektif sekaligus sepenuhnya tepat menurut kaidah EYD Edisi V adalah ...",
+    "options": {
+      "A": "Meskipun banyak pegawai di berbagai unit kerja sudah memahami aturan baru, siapa pun yang belum mengisi formulir pelaporan tetap wajib melengkapinya sebelum akhir bulan.",
+      "B": "Meskipun banyak dari para pegawai di berbagai unit kerja sudah memahami aturan baru, namun siapapun yang belum mengisi formulir pelaporan tetap diwajibkan melengkapinya sebelum akhir bulan.",
+      "C": "Walaupun banyak pegawai-pegawai di berbagai unit kerja sudah memahami aturan baru, tetapi siapa pun yang belum mengisi formulir pelaporan tetap wajib melengkapinya sebelum akhir bulan.",
+      "D": "Meskipun banyak para pegawai di berbagai unit kerja sudah memahami aturan baru, siapa pun yang belum mengisi formulir pelaporan wajib untuk segera melengkapinya sebelum akhir bulan.",
+      "E": "Walaupun dari pegawai-pegawai di berbagai unit kerja sudah memahami aturan baru, namun siapapun yang belum mengisi formulir pelaporan tetap diwajibkan melengkapinya sebelum akhir bulan."
+    },
+    "hint": "Hapus konjungsi ganda ('meskipun... namun/tetapi'), hindari pleonasme jamak ('banyak dari para pegawai-pegawai'), dan cek penulisan 'siapa pun' dalam EYD V.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Menghilangkan konjungsi ganda ('meskipun... namun'), membuang pleonasme ('banyak dari para pegawai-pegawai' menjadi 'banyak pegawai'), dan menulis 'siapa pun' terpisah sesuai EYD V.",
+      "B": "Salah. Masih mempertahankan konjungsi ganda 'meskipun... namun', pemborosan 'banyak dari para', dan penulisan serangkai 'siapapun' yang keliru.",
+      "C": "Salah. Masih menggunakan konjungsi ganda 'walaupun... tetapi' serta pengulangan jamak yang mubazir 'banyak pegawai-pegawai'.",
+      "D": "Salah. Frasa 'banyak para pegawai' masih mengandung pleonasme bentuk jamak ganda.",
+      "E": "Salah. Mengandung konjungsi ganda 'walaupun... namun', preposisi rancu di depan subjek, reduplikasi mubazir, dan 'siapapun' yang tidak terpisah."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "EYD Edisi V tentang Penulisan Partikel Pun dan Kaidah Kalimat Efektif Bahasa Indonesia"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-siber-pangan-psdn-b3-057",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-ketahanan-siber-pangan-energi-psdn-b3"
+    ],
+    "reasoningChain": "Berdasarkan UU Nomor 23 Tahun 2019 tentang Pengelolaan Sumber Daya Nasional untuk Pertahanan Negara (PSDN), bela negara dapat diwujudkan melalui pendidikan kewarganegaraan, pelatihan dasar kemiliteran wajib, pengabdian sebagai prajurit TNI, dan pengabdian sesuai profesi, serta didukung oleh Komponen Cadangan (bersifat sukarela dari warga negara, sumber daya alam/buatan, dan sarana prasarana nasional) dan Komponen Pendukung (seperti tenaga ahli siber, insinyur energi, dan sistem ketahanan pangan). Penetapan atau pengajuan profesi strategis untuk pertahanan siber sipil dilakukan secara terkoordinasi, terlatih, dan tetap berada di bawah koridor hukum.",
+    "stem": "Gangguan siber terstruktur berulang kali menargetkan sistem kendali pembangkit listrik nasional dan jaringan distribusi pupuk bersubsidi pada musim tanam serentak. Sejumlah pakar keamanan siber sipil ingin berkontribusi memperkuat pertahanan negara tanpa meninggalkan profesi mereka, sementara sebagian kelompok mengusulkan agar warga sipil bebas melakukan serangan siber balik ke server luar negeri secara mandiri. Langkah paling tepat sesuai prinsip bela negara dan UU Nomor 23 Tahun 2019 (PSDN) adalah ...",
+    "options": {
+      "A": "Membiarkan para peretas sukarelawan melancarkan serangan siber balasan secara bebas tanpa koordinasi otoritas pertahanan dan siber negara.",
+      "B": "Mengorganisasikan kontribusi tenaga ahli siber sebagai pengabdian profesi dan komponen pendukung/cadangan terlatih di bawah koordinasi otoritas pertahanan dan siber nasional.",
+      "C": "Mewajibkan seluruh tenaga ahli teknologi informasi meninggalkan pekerjaannya di sektor energi dan pangan untuk masuk dinas militer penuh waktu.",
+      "D": "Memutuskan seluruh jaringan digital pembangkit listrik dan distribusi pupuk dari sistem komputer secara permanen demi menghindari ancaman siber.",
+      "E": "Menyerahkan pengamanan infrastruktur vital energi dan pangan sepenuhnya kepada perusahaan keamanan siber komersial luar negeri."
+    },
+    "hint": "Ingat peran pengabdian profesi dan Komponen Pendukung/Cadangan yang terkoordinasi resmi dalam UU Nomor 23 Tahun 2019 (PSDN).",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Serangan balasan liar oleh individu sipil tanpa komando negara berisiko melanggar hukum internasional dan memicu eskalasi konflik diplomatik.",
+      "B": "Benar. Pengorganisasian ahli siber dalam kerangka pengabdian profesi dan Komponen Pendukung/Cadangan terkoordinasi resmi menjaga kedaulatan siber, energi, dan pangan sesuai UU PSDN.",
+      "C": "Salah. Pengabdian sesuai profesi dan komponen pendukung justru memanfaatkan keahlian profesional tanpa memaksa seluruh ahli keluar dari sektor vital sipil.",
+      "D": "Salah. Memutus seluruh sistem kendali digital justru melumpuhkan efisiensi distribusi energi dan logistik nasional.",
+      "E": "Salah. Menyerahkan kendali keamanan infrastruktur vital negara ke entitas asing membahayakan kemandirian pertahanan nasional."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Undang-Undang Nomor 23 Tahun 2019 tentang Pengelolaan Sumber Daya Nasional untuk Pertahanan Negara"
+    }
+  },
+  {
+    "slug": "twk-bela-negara-astagatra-ancaman-hibrida-b3-058",
+    "category": "TWK",
+    "subtopic": "Bela Negara",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-bela-negara-astagatra-ancaman-hibrida"
+    ],
+    "reasoningChain": "Doktrin ketahanan nasional Indonesia memadukan delapan aspek (Astagatra): tiga gatra alamiah (Trigatra: geografi, kekayaan alam, dan demografi) serta lima gatra sosial (Pancagatra: ideologi, politik, ekonomi, sosial budaya, dan pertahanan keamanan). Ancaman hibrida menggabungkan serangan nonmiliter (disinformasi media sosial, sabotase ekonomi/rantai pasok, serangan siber) dengan tekanan keamanan secara serentak. Oleh sebab itu, respons bela negara tidak cukup hanya mengandalkan pengamanan fisik militer, melainkan sinergi lintas gatra yang memperkuat ketahanan ekonomi, literasi informasi, dan kohesi sosial.",
+    "stem": "Sebuah negara mengalami kombinasi serangan siber terhadap sistem pembayaran perbankan nasional secara bersamaan dengan kampanye disinformasi terorganisasi yang memicu kepanikan warga untuk menarik dana besar-besaran (bank run) dan memborong bahan pangan pokok. Ditinjau dari perspektif ketahanan nasional (Astagatra) dalam menghadapi ancaman hibrida, strategi respons yang paling komprehensif adalah ...",
+    "options": {
+      "A": "Menurunkan pasukan bersenjata untuk menutup seluruh pasar tradisional tanpa memulihkan sistem perbankan maupun memberi klarifikasi informasi publik.",
+      "B": "Menangani gangguan perbankan hanya sebagai masalah teknis internal bank swasta tanpa mengaitkannya dengan ketahanan nasional.",
+      "C": "Mengintegrasikan pemulihan keamanan siber sistem keuangan, jaminan stabilitas pasokan pangan-likuiditas, serta komunikasi publik terverifikasi lintas gatra untuk memulihkan kepercayaan sosial.",
+      "D": "Menutup seluruh media massa nasional selama sebulan penuh agar masyarakat tidak mendengar berita tentang gangguan transaksi keuangan.",
+      "E": "Membekukan seluruh rekening tabungan warga secara permanen tanpa batas waktu sebagai solusi tunggal mencegah penarikan dana."
+    },
+    "hint": "Analisis keterkaitan gatra pertahanan keamanan, ekonomi, dan sosial budaya dalam konsep Astagatra terhadap ancaman hibrida.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Penutupan pasar secara fisik tanpa menangani serangan siber keuangan dan kepanikan informasi tidak menyentuh akar ancaman hibrida.",
+      "B": "Salah. Ancaman hibrida menyasar stabilitas nasional lintas sektor, bukan sekadar urusan internal perbankan komersial.",
+      "C": "Benar. Sinergi pertahanan siber (hankam), stabilitas pasokan dan sistem bayar (ekonomi), serta komunikasi publik penangkal kepanikan (sosial-politik) mencerminkan ketahanan Astagatra.",
+      "D": "Salah. Menutup media massa resmi justru menyuburkan rumor liar dan memperparah kepanikan publik.",
+      "E": "Salah. Pembekuan rekening tanpa penjelasan dan pemulihan sistem akan menghancurkan kepercayaan ekonomi nasional."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Ketahanan Nasional Astagatra dan Ancaman Hibrida"
+    }
+  },
+  {
+    "slug": "twk-sejarah-diplomasi-linggarjati-kmb-b3-059",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-sejarah-diplomasi-linggarjati-renville-kmb-b3"
+    ],
+    "reasoningChain": "Rangkaian diplomasi revolusi kemerdekaan (Linggarjati 1946/1947, Renville 1948, dan KMB 1949) menunjukkan tarik-ulur antara pengorbanan konsesi sementara dan upaya memperoleh pengakuan kedaulatan internasional. Linggarjati mengakui RI secara de facto hanya atas Jawa, Madura, dan Sumatra; Renville kian mempersempit wilayah akibat Garis Van Mook serta memaksa hijrah pasukan TNI; sedangkan KMB menghasilkan pengakuan kedaulatan dari Belanda pada Desember 1949 dalam bentuk negara serikat (RIS) yang segera dibubarkan oleh gerakan persatuan rakyat untuk kembali ke NKRI pada 17 Agustus 1950.",
+    "stem": "Dalam sejarah perjuangan mempertahankan kemerdekaan (1946–1950), hasil Perundingan Linggarjati, Perjanjian Renville, dan Konferensi Meja Bundar (KMB) kerap memicu gejolak politik domestik karena harus menerima kompromi wilayah maupun bentuk negara serikat (RIS). Makna strategis terdalam dari dinamika diplomasi tersebut bagi ketahanan bangsa Indonesia hingga kembali ke NKRI pada 17 Agustus 1950 adalah ...",
+    "options": {
+      "A": "Perjuangan diplomasi sepenuhnya gagal membawa manfaat apa pun sehingga kemerdekaan Indonesia baru diakui dunia setelah Dekrit Presiden 1959.",
+      "B": "Bentuk negara serikat (RIS) hasil KMB terbukti paling ideal sehingga dipertahankan sampai era Reformasi sebagai dasar otonomi daerah.",
+      "C": "Perjanjian Renville memperluas wilayah kekuasaan de facto Republik Indonesia hingga mencakup seluruh Kalimantan dan Indonesia bagian timur.",
+      "D": "Diplomasi digunakan sebagai taktik meraih pengakuan kedaulatan internasional sembari tetap menjaga spirit persatuan yang akhirnya mendorong rakyat membubarkan RIS kembali ke NKRI.",
+      "E": "Seluruh hasil perundingan Linggarjati hingga KMB memaksa pembubaran Tentara Nasional Indonesia dan penghapusan UUD 1945 secara permanen."
+    },
+    "hint": "Kaitkan fungsi strategis pengakuan kedaulatan internasional dalam KMB dengan kehendak rakyat kembali ke NKRI pada 17 Agustus 1950.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pengakuan kedaulatan formal oleh Belanda dan dunia internasional tercapai melalui KMB pada 27 Desember 1949, bukan setelah 1959.",
+      "B": "Salah. Negara serikat RIS hanya bertahan kurang dari delapan bulan sebelum dibubarkan kembali menjadi NKRI pada 17 Agustus 1950.",
+      "C": "Salah. Justru Perjanjian Renville mempersempit wilayah de facto RI dengan diterapkannya Garis Demarkasi Van Mook.",
+      "D": "Benar. Para pendiri bangsa memanfaatkan celah diplomasi untuk mengamankan pengakuan kedaulatan, sementara kekuatan persatuan rakyat mengembalikan bentuk negara menjadi NKRI.",
+      "E": "Salah. TNI tetap eksis (menjadi inti APRIS dan kemudian TNI kembali) dan semangat konstitusi proklamasi tetap hidup hingga kembali ke UUD 1945."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Simulasi FR SKD CPNS TWK Sejarah Diplomasi Revolusi Kemerdekaan"
+    }
+  },
+  {
+    "slug": "twk-sejarah-konstituante-dekrit-reformasi-b3-060",
+    "category": "TWK",
+    "subtopic": "Sejarah Kebangsaan",
+    "difficulty": "hots",
+    "materialSlugs": [
+      "twk-sejarah-konstituante-dekrit-reformasi"
+    ],
+    "reasoningChain": "Kegagalan Badan Konstituante hasil Pemilu 1955 menyepakati dasar negara dan UUD baru memicu krisis ketatanegaraan sehingga Presiden Soekarno mengeluarkan Dekrit Presiden 5 Juli 1959 (pembubaran Konstituante, berlakunya kembali UUD 1945 dan tidak berlakunya UUDS 1950, serta pembentukan MPRS dan DPAS). Namun, praktik UUD 1945 sebelum amandemen kemudian menyisakan celah sentralisasi kekuasaan eksekutif tanpa batas masa jabatan presiden yang tegas, sehingga era Reformasi 1998 melakukan empat kali amandemen UUD 1945 (1999–2002) untuk membatasi masa jabatan presiden, memperkuat checks and balances, dan menjamin HAM.",
+    "stem": "Dekrit Presiden 5 Juli 1959 mengakhiri kebuntuan Badan Konstituante dan memberlakukan kembali UUD 1945. Namun, dalam perjalanan sejarah pasca-Dekrit hingga 1998, struktur UUD 1945 sebelum perubahan memunculkan konsentrasi kekuasaan eksekutif yang sangat dominan tanpa mekanisme pembatasan masa jabatan presiden yang tegas. Pelajaran konstitusional terpenting yang diwujudkan melalui amendemen UUD NRI Tahun 1945 pada era Reformasi adalah ...",
+    "options": {
+      "A": "Mengembalikan sistem pemerintahan parlementer seperti masa UUDS 1950 agar perdana menteri dapat dijatuhkan parlemen setiap saat.",
+      "B": "Menghapus seluruh kewenangan Presiden sebagai kepala pemerintahan serta menyerahkan seluruh kekuasaan eksekutif kepada MPR.",
+      "C": "Membubarkan Dewan Perwakilan Rakyat apabila gagal mencapai kesepakatan undang-undang dalam satu masa sidang.",
+      "D": "Menetapkan masa jabatan presiden seumur hidup sepanjang memperoleh persetujuan dari pimpinan lembaga tinggi negara.",
+      "E": "Memperkuat sistem presidensial yang demokratis melalui pembatasan masa jabatan presiden maksimal dua periode, penguatan checks and balances, dan jaminan hak asasi manusia."
+    },
+    "hint": "Bandingkan celah kekuasaan sentralistis pra-1998 dengan substansi utama empat tahap Amendemen UUD 1945 (1999–2002).",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Amendemen era Reformasi justru memurnikan dan memperkuat sistem presidensial, bukan kembali ke sistem parlementer UUDS 1950.",
+      "B": "Salah. Amendemen menempatkan Presiden tetap sebagai pemegang kekuasaan pemerintahan yang dipilih langsung rakyat, sekaligus membatasi dominasinya lewat mekanisme berimbang.",
+      "C": "Salah. Pasal 7C hasil amendemen justru melarang Presiden membekukan dan/atau membubarkan DPR.",
+      "D": "Salah. Pembatasan masa jabatan presiden maksimal dua periode (Pasal 7) merupakan koreksi utama terhadap praktik kekuasaan tanpa batas di masa lalu.",
+      "E": "Benar. Perubahan UUD 1945 (1999–2002) membatasi masa jabatan presiden, menata checks and balances (MK, DPR, DPD, BPK), serta memperluas jaminan konstitusional HAM."
+    },
+    "source": {
+      "type": "regulation",
+      "title": "Dekrit Presiden 5 Juli 1959 dan Risalah Perubahan UUD NRI Tahun 1945 (1999–2002)"
+    }
+  }
+]

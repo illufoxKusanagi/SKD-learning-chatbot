@@ -19,6 +19,8 @@ PostgreSQL with `pgvector` (`vector(768)` + HNSW `vector_cosine_ops` indexes), i
 - **`quiz_attempts`**:
   - `id` (UUID PK), `chat_id` (FK -> `chat_history.id`), `session_id` (FK -> `quiz_sessions.id`), `question_id` (FK -> `quiz_questions.id`, `ON DELETE SET NULL`), `user_id` (FK -> `users.id`), `rag_source_id`, `category`, `subtopic`, `question_stem`, `options`, `correct_option`, `scoring_rubric`, `rubric_rationale`, `user_answer`, `score_earned`, `max_score` (default 5), `ai_explanation`, `status`, `time_spent_seconds`, `used_hint`, `created_at`, `answered_at`.
   - Unique index: `quiz_attempts_session_question_uidx` (`session_id`, `question_id`).
+- **`question_access_logs`**:
+  - `id` (UUID PK), `actor_key` (text: `user:<uuid>` or `guest:<uuid>`), `user_id` (FK -> `users.id`), `guest_session_id` (text), `question_id` (FK -> `quiz_questions.id`, `ON DELETE CASCADE`), `category` (`TWK` | `TIU` | `TKP`), `is_accessed` (boolean), `access_count` (int), `last_accessed_at` (timestamp), with RLS enabled and 24h expired guest log cleanup.
 - **`rate_limits`**:
   - Composite PK (`key`, `window_start`), `count` (int).
 - **Existing Core Tables**: `users`, `chat_history` (`conversations`), `messages`, `rag_data` (`vector(768)` + HNSW cosine + `rag_data_external_id_uidx`).
@@ -69,15 +71,12 @@ PostgreSQL with `pgvector` (`vector(768)` + HNSW `vector_cosine_ops` indexes), i
 
 ## 5. Current Seeded Counts (PostgreSQL + `data/` — Full 110q CAT Ready)
 
-- **`study_materials`**: **27** TWK materials (all 27 embedded with 768-d vectors)
-  - `data/materials/twk-core.json`: 9 (1 per canonical TWK subtopic)
-  - `data/materials/twk-staged.json`: 7 (promoted from `data/study-material-bank/raw/`)
-  - `data/materials/twk-notes.json`: 11 (synthesized from verified TWK study notes)
-- **`quiz_questions`**: **142** validated HOTS questions (`56 TWK / 41 TIU / 45 TKP` — Full 110q CAT Ready; 0 Figural; 3 legacy Figural questions excluded)
-  - `TWK` (`data/quiz-bank/twk-bank.json` [44] + `data/quiz-bank/twk-notes-bank.json` [12]): **56** (26 promoted from `raw/`, 18 migrated from `legacy/`, 12 notes-grounded HOTS)
-  - `TIU` (`data/quiz-bank/tiu-bank.json`): **41** (20 promoted from `raw/`, 21 migrated from `legacy/`)
-  - `TKP` (`data/quiz-bank/tkp-bank.json` [38] + `data/quiz-bank/tkp-supplement-bank.json` [7]): **45** (20 promoted from `raw/`, 18 migrated from `legacy/`, 7 HOTS supplement)
-- **`quiz_question_materials`**: **57** TWK question-to-material links
+- **`study_materials`**: **55** TWK materials (all 55 embedded with 768-d vectors, including `data/materials/twk-hots-batch3.json` [+18])
+- **`quiz_questions`**: **405** validated HOTS questions (`125 TWK / 155 TIU / 125 TKP` — Full 110q CAT Ready, including 36 TIU Figural diagrams in `tiu-figural.json` and +150 Batch 3 HOTS items in `data/quiz-bank/{twk,tiu,tkp}-hots-batch3.json`: +60 TWK, +45 TIU, +45 TKP)
+  - `TWK`: **125** (including +60 in `data/quiz-bank/twk-hots-batch3.json`)
+  - `TIU`: **155** (including 36 Figural diagrams in `tiu-figural.json` and +45 in `data/quiz-bank/tiu-hots-batch3.json`)
+  - `TKP`: **125** (including +45 in `data/quiz-bank/tkp-hots-batch3.json`)
+- **`quiz_question_materials`**: **126** TWK question-to-material links
 
 ---
 
@@ -165,21 +164,23 @@ PostgreSQL with `pgvector` (`vector(768)` + HNSW `vector_cosine_ops` indexes), i
 
 ---
 
-## 9. Gemini AI Resilience, RPM/TPM Optimization & 3-Model Fallback
+## 9. Gemini AI Resilience, Domain Guardrails & Multi-Quiz Chat Packs
 
 - **`src/lib/services/ai/gemini.service.ts`**:
+  - **2-Model `.env` Cascade (`streamGeminiWithCascade`)**: Uses official `@google/genai` types (`GenerateContentConfig`, `GenerateContentResponse`, `Content`) with zero `any` types; deduplicated cascade `[GENERATIVE_MODEL || FALLBACK_GENERATIVE_MODEL, FALLBACK_GENERATIVE_MODEL]` defaulting to `GENERATIVE_MODEL="gemini-4-hydrogen"` and `FALLBACK_GENERATIVE_MODEL="gemini-3.5-flash-lite"`; strips `tools` on fallback, parses `retry in`/`retryDelay` (`900..3500ms`) or uses jittered backoff only **before** any text chunk is yielded, guards `MAX_TOKENS` on quiz generation, and formats Cloudflare Workers-readable error logs (`[name (status)]: message`).
+  - **Strict SKD Scope & Curated-Only Quiz Constraint**: `SKD_SYSTEM_INSTRUCTION` enforces strict SKD CPNS domain boundaries, anti-prompt-injection rules, and forbids fabricating multiple-choice questions (`A–E`) or `<quiz_meta>` blocks in chat text; `QUIZ_GENERATION_INSTRUCTION` and LLM quiz-generation prompts are removed. All single and batch quizzes in `/api/chat` (including `"soal baru"` / `wantsNewVariation` requests, which prepend an accuracy notice) and `/api/quiz` (`action: "next"`) are served exclusively from validated `quiz_questions` via `question-access.service.ts` (zero LLM-invented quizzes; `isBlockedInjection` triggers a deterministic polite Indonesian refusal before any model call).
   - **0-RPM Synchronous `generateChatTitle`**: Deterministic synchronous Indonesian title formatter (`<= 45` chars, word-boundary truncation, fallback `'Sesi Belajar SKD'`, 0 Gemini calls).
   - **Strict `shouldEnableGoogleSearch(userMessage)`**: Requires `ENABLE_GEMINI_GOOGLE_SEARCH === 'true'` AND explicit current-affairs regex (`berita terbaru`, `isu terkini`, `aturan terbaru`, `regulasi terbaru`, `ikn terkini`, `cpns 2025-2029`).
-  - **Token & History Bounds**: History capped to last **8 turns**, **1,600 chars/turn**, **9,000 total chars** (oldest dropped first); default `thinkingBudget` lowered to **256** (`0` on fallback models & Turn-2); Turn-2 supplementary stream uses compact `TURN2_SYSTEM_INSTRUCTION` and emits an Indonesian fallback notice (`*Catatan: Ringkasan trik cepat tambahan gagal dimuat karena batas waktu/kuota. Pembahasan inti di atas tetap valid.*`) on timeout/quota failure.
-  - **Typed SDK Integration & 3-Model Pre-First-Chunk Cascade (`streamGeminiWithCascade`)**: Uses official `@google/genai` types (`GenerateContentConfig`, `GenerateContentResponse`, `Content`, `ThinkingConfig`) with zero `any` suppressions; deduplicated chain `[GENERATIVE_MODEL || 'gemini-2.5-flash', GEMINI_FALLBACK_MODEL || 'gemini-2.5-flash-lite', GEMINI_TERTIARY_MODEL || 'gemini-2.0-flash']`; strips `tools` and disables thinking on fallback models; parses `retry in`/`retryDelay` (`900..3500ms`) or uses jittered backoff (`1000+rand*500ms`, `2000+rand*700ms`) only **before** any text chunk is yielded; guards `MAX_TOKENS` on quiz generation.
+  - **Token & History Bounds**: History cleaned of `<!--QUIZ_ATTEMPT:...-->`, `<!--QUIZ_EVAL:...-->`, `<!--QUIZ_PACK:...-->`, `<!--CHAT_ERROR:...-->`, and `<quiz_meta>` markers, capped to last **8 turns**, **1,600 chars/turn**, **9,000 total chars**; Turn-2 supplementary stream uses compact `TURN2_SYSTEM_INSTRUCTION` and emits an Indonesian fallback notice (`*Catatan: Ringkasan trik cepat tambahan gagal dimuat karena batas waktu/kuota. Pembahasan inti di atas tetap valid.*`) on timeout/quota failure.
   - **`classifyAiStreamError`**: Classifies `TOKEN_LIMIT_EXCEEDED` first, then `RATE_LIMITED` (`429` / `RESOURCE_EXHAUSTED` / `RPM` / `TPM` / `RPD` before `503`), then `MODEL_OVERLOADED` (`503`), `STREAM_TIMEOUT`, and `AI_STREAM_ERROR`.
-- **`src/lib/services/ai/rag.service.ts` & `embeddings.service.ts`**:
-  - `wantsNewVariation` excludes `"buatkan"` so DB quiz requests hit PostgreSQL `quiz_questions` **before** calling `generateEmbedding` (0-embedding fast path).
-  - Filters `dbChunks` with `RAG_SIMILARITY_THRESHOLD` (default `0.42`), caps to **3** chunks, and caps each chunk to **1,600** chars.
-  - `embeddings.service.ts` uses typed `EmbedContentResponse` from `@google/genai` and retries transient `429`/`503`/`UNAVAILABLE`/`RESOURCE_EXHAUSTED` errors up to 2 times with jittered `900..1400ms` backoff; `rag.service.ts` uses typed JSONB payload/row interfaces (`RagDataPayload`, `QuizQuestionCandidateRow`).
-- **`src/app/api/chat/route.ts`, `src/app/api/quiz/route.ts`, `src/hooks/use-chat.ts`**:
-  - `chat` uses `resolveOptionalUserId`, `getOrCreateGuestSession` + `attachGuestCookie` (`skd_guest_sid`), and `readVerifiedGuestId` for guest chat ownership; shares a single streaming `<quiz_meta>` filter (`streamWithQuizMetaFilter`) across Turn-1 and Turn-2; enforces strict `parseQuizOptionChoice` answer syntax matching (`^[A-E]$` and explicit `opsi|pilihan|jawaban|pilih` forms even with `quizAttemptId`); fetches last `10` DB messages and server-verifies `isDuplicateRetriedTurn` before skipping user message insertion/slicing history; `chatRateLimit` (`max: 30`, `guestMax: 20`, `daily: { max: 300, guestMax: 100 }`) skips when `X-Chat-Retry: 1` is sent by `useChat` retry, while bounded `chatRetryRateLimit` (`max: 10`, `guestMax: 6`, `daily: { max: 60, guestMax: 25 }`) caps retries against header spoofing.
-  - `POST /api/quiz` (`action: "next"`) queries unattempted validated `quiz_questions` directly first (even without `materialSlug`) before falling back to `findRelevantContents` / `generateAiResponse`.
+- **`src/lib/services/question-access.service.ts`, `quiz-intent.ts`, `rag.service.ts` & `embeddings.service.ts`**:
+  - `question-access.service.ts` exports `pickAndRecordFromPool` and `pickAndRecordByCategories` backed by `question_access_logs`: prioritizes `is_accessed = false` items with subtopic diversity, silently resets `is_accessed = false` for the pool/category when `unaccessed < needed` (cycle wrap-around), and atomically upserts `is_accessed = true` + `access_count + 1` across Chat, `/api/quiz`, `practice.service.ts`, and `tryout.service.ts`.
+  - `quiz-intent.ts` handles bilingual prompt-injection detection (`isPromptInjectionAttempt` / `isBlockedInjection`), strict SKD-only follow-up inheritance (`FOLLOW_UP_PATTERN` guard preventing off-topic queries from inheriting prior subtest history), and per-category quiz count parsing (`TWK`/`TIU`/`TKP`) proportionally capped at `MAX_CHAT_QUIZ_BATCH = 30` with an explicit AI cap notice when `> 30` is requested.
+  - `rag.service.ts` short-circuits immediately on `isBlockedInjection`, queries up to 260 validated `quiz_questions` in 1 fast DB call (0 embeddings) for **all** `isQuizRequest` turns (including `wantsNewVariation`) using `pickAndRecordByCategories` / `pickAndRecordFromPool` and populating `questionId`, filters `dbChunks` with `RAG_SIMILARITY_THRESHOLD` (default `0.42`, capped to **3** chunks / **1,600** chars), and filters in-memory `SKD_KNOWLEDGE_BASE` fallback/supplement chunks to `similarity >= 0.25`.
+  - `embeddings.service.ts` uses typed `EmbedContentResponse` from `@google/genai` and retries transient `429`/`503`/`UNAVAILABLE`/`RESOURCE_EXHAUSTED` errors up to 2 times with jittered `900..1400ms` backoff.
+- **`src/app/api/chat/route.ts`, `src/app/api/quiz/route.ts`, `src/hooks/use-chat.ts` & `src/components/chat/quiz-deck-card.tsx`**:
+  - `chat` uses `resolveOptionalUserId`, `getOrCreateGuestSession` (`resolvedGuestSessionId`) + `attachGuestCookie` (`skd_guest_sid`), and `readVerifiedGuestId` for guest chat ownership; persists both single-question (`<!--QUIZ_ATTEMPT:id-->`) and multi-question (`<!--QUIZ_PACK:id1,id2,...-->`) curated quizzes directly from `ragResult.unattemptedBenchmarks` with `question_id` populated on `quiz_attempts` (rendered via `src/components/chat/quiz-deck-card.tsx`); enforces strict `parseQuizOptionChoice` answer syntax matching (`^[A-E]$` and explicit `opsi|pilihan|jawaban|pilih` forms even with `quizAttemptId`); fetches last `10` DB messages and server-verifies `isDuplicateRetriedTurn` before skipping user message insertion/slicing history; `chatRateLimit` (`max: 30`, `guestMax: 20`, `daily: { max: 300, guestMax: 100 }`) skips when `X-Chat-Retry: 1` is sent by `useChat` retry, while bounded `chatRetryRateLimit` (`max: 10`, `guestMax: 6`, `daily: { max: 60, guestMax: 25 }`) caps retries against header spoofing.
+  - `POST /api/quiz` (`action: "next"`) resolves `effectiveGuestSessionId`, queries validated `quiz_questions` (supporting `materialSlug`, `category`, and `subtopic`), and selects 1 question exclusively via `pickAndRecordFromPool` (0 Gemini calls, 0 LLM hallucinations).
 
 ---
 
