@@ -17,17 +17,12 @@ let nodeSqlClient: SqlClient | null = null;
 let nodeDbInstance: DbInstance | null = null;
 
 function createSqlClient(connectionString: string, isWorker: boolean): SqlClient {
-  const needsSsl =
-    /\.supabase\.(co|com)\b/i.test(connectionString) &&
-    !/sslmode=/i.test(connectionString);
-
   return postgres(connectionString, {
     prepare: false,
     fetch_types: false,
     max: isWorker ? 2 : 5,
     idle_timeout: isWorker ? 2 : 5,
     connect_timeout: 10,
-    ...(needsSsl ? { ssl: "require" } : {}),
   });
 }
 

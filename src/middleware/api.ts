@@ -231,7 +231,10 @@ export async function checkRateLimitBucket(
 
     return { blocked: false, retryAfterSeconds: 0 };
   } catch (err) {
-    console.warn('[RateLimit] Skipping rate-limit check due to DB error:', err);
+    console.warn(
+      '[RateLimit] Skipping rate-limit check due to DB error:',
+      formatLogError(err)
+    );
     return { blocked: false, retryAfterSeconds: 0 };
   }
 }
@@ -307,7 +310,10 @@ export async function clearSignInPairFailures(
   try {
     await db.execute(sql`DELETE FROM rate_limits WHERE key = ${pairKey}`);
   } catch (err) {
-    console.warn('[RateLimit] Skipping sign-in pair clear due to DB error:', err);
+    console.warn(
+      '[RateLimit] Skipping sign-in pair clear due to DB error:',
+      formatLogError(err)
+    );
   }
 }
 
@@ -427,8 +433,81 @@ export function createRateLimitMiddleware(options: RateLimitOptions) {
   };
 }
 
+function sanitizeErrorText(text: string): string {
+  return text
+    .replace(/\nparams:[\s\S]*?(?=\n\s+at\s|$)/g, '\nparams: [redacted]')
+    .replace(/(postgres(?:ql)?:\/\/[^:\s/@]+:)[^@\s/]+(@)/gi, '$1[redacted]$2');
+}
+
+function formatLogError(error: unknown): string {
+  if (error === null || typeof error !== 'object') {
+    return sanitizeErrorText(String(error));
+  }
+
+  const err = error as {
+    name?: unknown;
+    message?: unknown;
+    code?: unknown;
+    cause?: unknown;
+    stack?: unknown;
+  };
+
+  const name = typeof err.name === 'string' ? err.name : 'Error';
+  const message =
+    typeof err.message === 'string' ? sanitizeErrorText(err.message) : '';
+  const code =
+    typeof err.code === 'string' || typeof err.code === 'number'
+      ? String(err.code)
+      : undefined;
+
+  const parts: string[] = [`${name}${code ? ` [${code}]` : ''}: ${message}`];
+
+  let currentCause = err.cause;
+  let depth = 0;
+  while (currentCause && typeof currentCause === 'object' && depth < 3) {
+    const c = currentCause as {
+      name?: unknown;
+      message?: unknown;
+      code?: unknown;
+      detail?: unknown;
+      cause?: unknown;
+    };
+    const cName = typeof c.name === 'string' ? c.name : undefined;
+    const cCode =
+      typeof c.code === 'string' || typeof c.code === 'number'
+        ? String(c.code)
+        : undefined;
+    const cMessage =
+      typeof c.message === 'string' ? sanitizeErrorText(c.message) : undefined;
+    const cDetail =
+      typeof c.detail === 'string' ? sanitizeErrorText(c.detail) : undefined;
+
+    const causeSummary = [
+      cName,
+      cCode ? `code=${cCode}` : undefined,
+      cMessage,
+      cDetail ? `detail=${cDetail}` : undefined,
+    ]
+      .filter(Boolean)
+      .join(' | ');
+
+    if (causeSummary) {
+      parts.push(`cause: ${causeSummary}`);
+    }
+
+    currentCause = c.cause;
+    depth += 1;
+  }
+
+  if (typeof err.stack === 'string') {
+    parts.push(sanitizeErrorText(err.stack));
+  }
+
+  return parts.join('\n');
+}
+
 export function handleApiError(error: unknown): NextResponse {
-  console.error('API Error:', error);
+  console.error('API Error:', formatLogError(error));
 
   if (error instanceof ApiError) {
     const headers: Record<string, string> = {};
