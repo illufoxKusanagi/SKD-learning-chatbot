@@ -8,6 +8,7 @@ import { AlertTriangle, RotateCcw } from 'lucide-react';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { QuizCard, QuizCardSkeleton } from '@/components/chat/quiz-card';
+import { QuizDeckCard } from '@/components/chat/quiz-deck-card';
 import {
   stripRedundantQuizMarkdown,
   type ChatStreamErrorPayload,
@@ -21,7 +22,9 @@ import { cn } from '@/lib/utils';
 export interface TextBubbleProps extends Message {
   isThinking?: boolean;
   hasAttemptMarker?: boolean;
+  hasPackMarker?: boolean;
   matchedQuiz?: QuizAttemptItem;
+  matchedQuizPack?: QuizAttemptItem[];
   isLoadingQuiz?: boolean;
   onSelectQuizOption?: (quizId: string, option: QuizOptionKey) => void;
   onOpenCanvas?: (quizId: string) => void;
@@ -40,7 +43,9 @@ export function TextBubble({
   content,
   isThinking = false,
   hasAttemptMarker = false,
+  hasPackMarker = false,
   matchedQuiz,
+  matchedQuizPack,
   isLoadingQuiz = false,
   onSelectQuizOption,
   onOpenCanvas,
@@ -154,6 +159,36 @@ export function TextBubble({
         </Alert>
       )}
 
+      {!isUser && matchedQuizPack && matchedQuizPack.length > 0 && (
+        <div className="w-full max-w-2xl">
+          {matchedQuizPack.length > 1 ? (
+            <QuizDeckCard
+              quizzes={matchedQuizPack}
+              onSelectOption={onSelectQuizOption}
+              onOpenCanvas={onOpenCanvas}
+              onAskTutor={onAskTutor}
+              gradingQuizId={gradingQuizId}
+              gradingOption={gradingOption}
+              isChatLoading={isChatLoading}
+            />
+          ) : (
+            <QuizCard
+              quiz={matchedQuizPack[0]}
+              onSelectOption={onSelectQuizOption}
+              onOpenCanvas={onOpenCanvas}
+              onAskTutor={onAskTutor}
+              onNextQuiz={onNextQuiz}
+              gradingOption={
+                gradingQuizId === matchedQuizPack[0].id ? gradingOption : null
+              }
+              isGrading={gradingQuizId === matchedQuizPack[0].id}
+              isGeneratingNext={isGeneratingNext}
+              isChatLoading={isChatLoading}
+            />
+          )}
+        </div>
+      )}
+
       {!isUser && matchedQuiz && (
         <div className="w-full max-w-2xl">
           <QuizCard
@@ -172,11 +207,15 @@ export function TextBubble({
         </div>
       )}
 
-      {!isUser && !matchedQuiz && hasAttemptMarker && isLoadingQuiz && (
-        <div className="w-full max-w-2xl">
-          <QuizCardSkeleton />
-        </div>
-      )}
+      {!isUser &&
+        ((!matchedQuiz && hasAttemptMarker) ||
+          ((!matchedQuizPack || matchedQuizPack.length === 0) &&
+            hasPackMarker)) &&
+        isLoadingQuiz && (
+          <div className="w-full max-w-2xl">
+            <QuizCardSkeleton />
+          </div>
+        )}
     </div>
   );
 }

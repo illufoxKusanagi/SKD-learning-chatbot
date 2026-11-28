@@ -278,6 +278,34 @@ export async function ensureDatabaseSchema(
       )
     `);
 
+    // 7b. Ensure question_access_logs table and indexes exist
+    await db.execute(sql`
+      CREATE TABLE IF NOT EXISTS question_access_logs (
+        id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+        actor_key TEXT NOT NULL,
+        user_id UUID REFERENCES users(id) ON DELETE CASCADE,
+        guest_session_id TEXT,
+        question_id UUID NOT NULL REFERENCES quiz_questions(id) ON DELETE CASCADE,
+        category VARCHAR(10) NOT NULL,
+        is_accessed BOOLEAN NOT NULL DEFAULT TRUE,
+        access_count INTEGER NOT NULL DEFAULT 1,
+        last_accessed_at TIMESTAMP NOT NULL DEFAULT NOW(),
+        created_at TIMESTAMP NOT NULL DEFAULT NOW()
+      )
+    `);
+    await db.execute(sql`
+      CREATE UNIQUE INDEX IF NOT EXISTS question_access_logs_actor_question_uidx
+      ON question_access_logs (actor_key, question_id)
+    `);
+    await db.execute(sql`
+      CREATE INDEX IF NOT EXISTS question_access_logs_actor_cat_accessed_idx
+      ON question_access_logs (actor_key, category, is_accessed)
+    `);
+    await db.execute(sql`
+      CREATE INDEX IF NOT EXISTS question_access_logs_guest_last_accessed_idx
+      ON question_access_logs (guest_session_id, last_accessed_at)
+    `);
+
     // 8. Ensure HNSW cosine index on rag_data.embedding exists
     try {
       await db.execute(sql`

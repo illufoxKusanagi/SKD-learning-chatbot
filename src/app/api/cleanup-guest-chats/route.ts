@@ -1,11 +1,11 @@
 import { db } from '@/lib/db';
-import { conversations, messages } from '@/lib/db/schema';
+import { conversations, messages, questionAccessLogs } from '@/lib/db/schema';
 import {
   ApiError,
   createRateLimitMiddleware,
   withMiddleware,
 } from '@/middleware/api';
-import { and, eq, inArray, isNotNull, lt } from 'drizzle-orm';
+import { and, eq, inArray, isNotNull, isNull, lt } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 
 async function verifyCronAuthorization(request: NextRequest): Promise<boolean> {
@@ -46,6 +46,7 @@ async function handleCleanupGuestChats(request: NextRequest) {
   }
 
   const now = new Date();
+  const guestAccessCutoff = new Date(now.getTime() - 24 * 60 * 60 * 1000);
 
   const expiredGuestChats = await db
     .select({ id: conversations.id })
@@ -59,26 +60,49 @@ async function handleCleanupGuestChats(request: NextRequest) {
     );
 
   if (expiredGuestChats.length === 0) {
+    const deletedAccessLogs = await db
+      .delete(questionAccessLogs)
+      .where(
+        and(
+          isNull(questionAccessLogs.userId),
+          lt(questionAccessLogs.lastAccessedAt, guestAccessCutoff)
+        )
+      )
+      .returning({ id: questionAccessLogs.id });
+
     return NextResponse.json({
       success: true,
       message: 'No expired guest chats found',
       deletedCount: 0,
+      deletedGuestAccessLogsCount: deletedAccessLogs.length,
     });
   }
 
   const expiredIds = expiredGuestChats.map((c) => c.id);
+  let deletedGuestAccessLogsCount = 0;
 
   await db.transaction(async (tx) => {
     await tx.delete(messages).where(inArray(messages.chatId, expiredIds));
     await tx
       .delete(conversations)
       .where(inArray(conversations.id, expiredIds));
+    const deletedAccessLogs = await tx
+      .delete(questionAccessLogs)
+      .where(
+        and(
+          isNull(questionAccessLogs.userId),
+          lt(questionAccessLogs.lastAccessedAt, guestAccessCutoff)
+        )
+      )
+      .returning({ id: questionAccessLogs.id });
+    deletedGuestAccessLogsCount = deletedAccessLogs.length;
   });
 
   return NextResponse.json({
     success: true,
     message: `Successfully deleted ${expiredGuestChats.length} expired guest chats`,
     deletedCount: expiredGuestChats.length,
+    deletedGuestAccessLogsCount,
   });
 }
 

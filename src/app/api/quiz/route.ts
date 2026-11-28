@@ -15,21 +15,15 @@ import {
 } from '@/lib/auth/guest-session';
 import { resolveOptionalUserId } from '@/lib/auth/optional-session';
 import { NextRequest, NextResponse } from 'next/server';
-import { eq, and, or, inArray, notInArray, isNull, desc } from 'drizzle-orm';
+import { eq, and, or, inArray, isNull, desc } from 'drizzle-orm';
 import z from 'zod';
 import {
   ApiError,
   withMiddleware,
   createRateLimitMiddleware,
 } from '@/middleware/api';
-import {
-  findRelevantContents,
-  SkdQuizMetadata,
-} from '@/lib/services/ai/rag.service';
-import {
-  generateAiResponse,
-  extractQuizMetaFromText,
-} from '@/lib/services/ai/gemini.service';
+import type { SkdQuizMetadata } from '@/lib/services/ai/rag.service';
+import { pickAndRecordFromPool } from '@/lib/services/question-access.service';
 
 export const maxDuration = 60;
 
@@ -703,41 +697,15 @@ async function handlePostQuiz(request: NextRequest) {
     chatTitle = existingChat.title || chatTitle;
   }
 
-  const [chatQuizzes, userQuizzes] = await Promise.all([
-    conversationId
-      ? db
-          .select({
-            ragSourceId: quizAttempts.ragSourceId,
-            questionId: quizAttempts.questionId,
-          })
-          .from(quizAttempts)
-          .where(eq(quizAttempts.chatId, conversationId))
-      : Promise.resolve(
-          [] as { ragSourceId: string | null; questionId: string | null }[]
-        ),
-    authUserId
-      ? db
-          .select({
-            ragSourceId: quizAttempts.ragSourceId,
-            questionId: quizAttempts.questionId,
-          })
-          .from(quizAttempts)
-          .where(eq(quizAttempts.userId, authUserId))
-      : Promise.resolve(
-          [] as { ragSourceId: string | null; questionId: string | null }[]
-        ),
-  ]);
-
-  const attemptedSourceSet = new Set<string>();
-  const attemptedQuestionIdSet = new Set<string>();
-  for (const q of [...chatQuizzes, ...userQuizzes]) {
-    if (q.ragSourceId) attemptedSourceSet.add(q.ragSourceId);
-    if (q.questionId) attemptedQuestionIdSet.add(q.questionId);
+  let effectiveGuestSessionId: string | null = guestId;
+  let newGuestSetCookie: string | null = null;
+  if (!authUserId && !effectiveGuestSessionId) {
+    const guest = await getOrCreateGuestSession(request);
+    effectiveGuestSessionId = guest.guestId;
+    newGuestSetCookie = guest.setCookieHeader;
   }
-  const attemptedSourceIds = Array.from(attemptedSourceSet);
 
-  let quizMeta: SkdQuizMetadata | null = null;
-  let chosenQuestionId: string | null = null;
+  let pool: (typeof quizQuestions.$inferSelect)[] = [];
   let resolvedSubtopicFilter = payload.subtopic;
 
   if (payload.materialSlug) {
@@ -783,7 +751,7 @@ async function handlePostQuiz(request: NextRequest) {
         )
       );
 
-    let pool = linkedRows.map((r) => r.question);
+    pool = linkedRows.map((r) => r.question);
     if (pool.length === 0) {
       pool = await db
         .select()
@@ -796,21 +764,7 @@ async function handlePostQuiz(request: NextRequest) {
           )
         );
     }
-
-    if (pool.length > 0) {
-      const unattemptedPool = pool.filter(
-        (q) => !attemptedSourceSet.has(q.slug) && !attemptedQuestionIdSet.has(q.id)
-      );
-      const candidates = unattemptedPool.length > 0 ? unattemptedPool : pool;
-      const chosen = candidates[Math.floor(Math.random() * candidates.length)];
-
-      chosenQuestionId = chosen.id;
-      quizMeta = buildQuizMetaFromQuestionRow(chosen);
-    }
-  }
-
-  if (!quizMeta) {
-    // Zero-Gemini direct DB bank lookup before falling back to RAG/Gemini
+  } else {
     const directConditions = [eq(quizQuestions.isValidated, true)];
     if (payload.category) {
       directConditions.push(eq(quizQuestions.category, payload.category));
@@ -818,64 +772,45 @@ async function handlePostQuiz(request: NextRequest) {
     if (resolvedSubtopicFilter) {
       directConditions.push(eq(quizQuestions.subtopic, resolvedSubtopicFilter));
     }
-    if (attemptedSourceIds.length > 0) {
-      directConditions.push(
-        notInArray(quizQuestions.slug, attemptedSourceIds)
-      );
-    }
-    const attemptedQuestionIds = Array.from(attemptedQuestionIdSet);
-    if (attemptedQuestionIds.length > 0) {
-      directConditions.push(
-        notInArray(quizQuestions.id, attemptedQuestionIds)
-      );
-    }
 
-    const directPool = await db
+    pool = await db
       .select()
       .from(quizQuestions)
       .where(and(...directConditions))
-      .limit(60);
+      .limit(500);
 
-    if (directPool.length > 0) {
-      const chosen = directPool[Math.floor(Math.random() * directPool.length)];
-      chosenQuestionId = chosen.id;
-      quizMeta = buildQuizMetaFromQuestionRow(chosen);
-    }
-  }
-
-  if (!quizMeta) {
-    const retrievalQuery = `Berikan 1 soal latihan ${payload.category || 'SKD'} HOTS ${resolvedSubtopicFilter || ''}`.trim();
-    const ragResult = await findRelevantContents(retrievalQuery, {
-      attemptedSourceIds,
-    });
-
-    quizMeta = ragResult.unattemptedBenchmark;
-
-    if (!quizMeta) {
-      let generatedText = '';
-      for await (const chunk of generateAiResponse(retrievalQuery, { ragResult })) {
-        generatedText += chunk;
+    if (pool.length === 0 && resolvedSubtopicFilter) {
+      const fallbackConditions = [eq(quizQuestions.isValidated, true)];
+      if (payload.category) {
+        fallbackConditions.push(eq(quizQuestions.category, payload.category));
       }
-      quizMeta = extractQuizMetaFromText(generatedText).quizMeta;
+      pool = await db
+        .select()
+        .from(quizQuestions)
+        .where(and(...fallbackConditions))
+        .limit(500);
     }
   }
 
-  if (!quizMeta) {
+  const [chosen] = await pickAndRecordFromPool({
+    actor: {
+      userId: authUserId,
+      guestSessionId: effectiveGuestSessionId,
+    },
+    candidates: pool,
+    needed: 1,
+  });
+
+  if (!chosen) {
     throw new ApiError(
-      'Gagal membuat soal baru. Silakan coba lagi.',
-      502,
-      'QUIZ_GENERATION_FAILED'
+      'Bank soal belum tersedia untuk kategori ini.',
+      404,
+      'QUIZ_BANK_EMPTY'
     );
   }
 
-  const resolvedQuizMeta = quizMeta;
-  let newGuestSessionId: string | null = null;
-  let newGuestSetCookie: string | null = null;
-  if (!conversationId && !authUserId) {
-    const guest = await getOrCreateGuestSession(request);
-    newGuestSessionId = guest.guestId;
-    newGuestSetCookie = guest.setCookieHeader;
-  }
+  const chosenQuestionId = chosen.id;
+  const resolvedQuizMeta = buildQuizMetaFromQuestionRow(chosen);
 
   const { created, finalChatId, finalChatTitle } = await db.transaction(
     async (tx) => {
@@ -906,7 +841,7 @@ async function handlePostQuiz(request: NextRequest) {
               title: chatTitle,
               createdAt: new Date(),
               isGuestChat: true,
-              guestSessionId: newGuestSessionId,
+              guestSessionId: effectiveGuestSessionId,
               expiresAt,
             })
             .returning({ id: conversations.id, title: conversations.title });

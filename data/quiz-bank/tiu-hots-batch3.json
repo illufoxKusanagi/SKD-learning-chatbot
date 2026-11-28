@@ -1,0 +1,1352 @@
+[
+  {
+    "slug": "tiu-kuantitatif-proyek-berhenti-b3-001",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total beban kerja rencana awal adalah 40 × 18 = 720 orang-hari. Setelah 12 hari bekerja, beban tersisa adalah (40 - 12) × 18 = 28 × 18 = 504 orang-hari. Karena proyek berhenti 4 hari, sisa hari aktif tinggal 28 - 4 = 24 hari. Jumlah pekerja yang dibutuhkan pada sisa waktu adalah 504 / 24 = 21 orang, sehingga tambahan pekerja P = 21 - 18 = 3 orang. Trik < 50 detik: P = (pekerja awal × hari berhenti) / sisa hari aktif = (18 × 4) / (40 - 12 - 4) = 72 / 24 = 3. Karena P = 3 dan Q = 2, maka P > Q.",
+    "stem": "Suatu proyek pembangunan jembatan direncanakan selesai dalam 40 hari oleh 18 pekerja dengan laju kerja konstan. Setelah berjalan selama 12 hari, proyek dihentikan selama 4 hari akibat cuaca ekstrem. Agar proyek tetap selesai tepat waktu sesuai jadwal semula, P menyatakan jumlah pekerja tambahan yang diperlukan, sedangkan Q = 2 pekerja. Hubungan antara kuantitas P dan Q yang paling tepat adalah ...",
+    "options": {
+      "A": "P > Q",
+      "B": "P < Q",
+      "C": "P = Q",
+      "D": "P = 2Q",
+      "E": "Hubungan P dan Q tidak dapat ditentukan"
+    },
+    "hint": "Gunakan prinsip beban kerja konstan (orang × hari) hanya pada sisa waktu setelah proyek dihentikan.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Nilai P = (18 × 4) / (40 - 12 - 4) = 72 / 24 = 3 pekerja, sedangkan Q = 2 pekerja, sehingga P > Q.",
+      "B": "Salah. P bernilai 3 dan Q bernilai 2, sehingga P tidak lebih kecil daripada Q.",
+      "C": "Salah. Nilai P = 3 tidak sama dengan Q = 2.",
+      "D": "Salah. Nilai 2Q adalah 4, sedangkan P = 3 sehingga P = 2Q tidak terpenuhi.",
+      "E": "Salah. Kedua kuantitas memiliki nilai pasti (P = 3 dan Q = 2) sehingga hubungannya dapat ditentukan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-kuantitatif-pertidaksamaan-tanda-b3-002",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Karena x dan y bilangan bulat dengan -6 < x < -2 dan -5 < y < -1, maka himpunan nilai x yang mungkin adalah {-5, -4, -3} dan y adalah {-4, -3, -2}. Untuk memaksimumkan (x^2 - y^2), kita harus memaksimumkan x^2 dan meminimumkan y^2. Nilai maksimum x^2 terjadi saat x = -5, yaitu (-5)^2 = 25. Nilai minimum y^2 terjadi saat y = -2, yaitu (-2)^2 = 4. Jadi P = 25 - 4 = 21. Trik < 50 detik: untuk kuadrat bilangan negatif, nilai terbesar justru berasal dari bilangan paling negatif (x = -5) dan nilai terkecil dari yang paling dekat ke nol (y = -2). Karena P = 21 dan Q = 25, diperoleh P < Q.",
+    "stem": "Diketahui x dan y adalah bilangan bulat yang memenuhi -6 < x < -2 dan -5 < y < -1. Jika P menyatakan nilai maksimum dari (x² - y²) dan Q = 25, manakah hubungan yang tepat antara kuantitas P dan Q?",
+    "options": {
+      "A": "P > Q",
+      "B": "P < Q",
+      "C": "P = Q",
+      "D": "P - Q = 4",
+      "E": "Hubungan P dan Q tidak dapat ditentukan"
+    },
+    "hint": "Uji batas bilangan bulat negatif yang menghasilkan kuadrat terbesar untuk x dan kuadrat terkecil untuk y.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Nilai maksimum x² - y² adalah (-5)² - (-2)² = 25 - 4 = 21, yang lebih kecil dari Q = 25.",
+      "B": "Benar. Nilai P = 25 - 4 = 21 dan Q = 25, sehingga P < Q.",
+      "C": "Salah. Kekeliruan menganggap y dapat bernilai 0 akan menghasilkan P = 25, padahal syaratnya -5 < y < -1.",
+      "D": "Salah. Nilai P - Q = 21 - 25 = -4, bukan 4.",
+      "E": "Salah. Nilai maksimum P dapat ditentukan secara tunggal sebesar 21 karena batas x dan y berupa bilangan bulat."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-kuantitatif-eksponen-persen-b3-003",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Ubah persentase istimewa menjadi pecahan: 37,5% = 3/8. Maka P = (3/8 × 640) + (1/3 × 180) = (3 × 80) + 60 = 240 + 60 = 300. Untuk Q, gunakan tripel Pythagoras (3, 4, 5) kelipatan 10: akar kuadrat dari (30^2 + 40^2) = 50, sehingga Q = 50 × 6 = 300. Trik < 50 detik: langsung konversi 37,5% -> 3/8 dan ingat tripel Pythagoras 30-40-50. Diperoleh P = 300 dan Q = 300, jadi P = Q.",
+    "stem": "Diketahui P = (37,5% dari 640) + (1/3 dari 180) dan Q = 6 × √(30² + 40²). Hubungan yang paling tepat antara kuantitas P dan Q adalah ...",
+    "options": {
+      "A": "P > Q",
+      "B": "P < Q",
+      "C": "P = Q",
+      "D": "P + Q = 500",
+      "E": "Hubungan P dan Q tidak dapat ditentukan"
+    },
+    "hint": "Konversikan 37,5% ke pecahan biasa dan gunakan tripel Pythagoras untuk menyederhanakan bentuk akar.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Hasil perhitungan menunjukkan P = 300 dan Q = 300, bukan P > Q.",
+      "B": "Salah. Nilai P = 300 sama besar dengan Q = 300.",
+      "C": "Benar. P = (3/8 × 640) + 60 = 240 + 60 = 300, dan Q = 6 × 50 = 300, sehingga P = Q.",
+      "D": "Salah. Jumlah P + Q adalah 300 + 300 = 600, bukan 500.",
+      "E": "Salah. Kedua kuantitas bernilai konstan sebesar 300."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-kuantitatif-perbandingan-aljabar-b3-004",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Sederhanakan pangkat pecahan pada P: 27^(2/3) = (3^3)^(2/3) = 3^2 = 9, dan 4^(1/2) = 2, sehingga P = 9 × 2 = 18. Untuk Q, 25% = 1/4, maka Q = 1/4 × 48 = 12. Bandingkan rasio P : Q = 18 : 12 = 3 : 2, yang ekuivalen dengan 2P = 3Q (karena 2 × 18 = 36 dan 3 × 12 = 36). Trik < 50 detik: ubah 27 menjadi 3^3 dan 25% menjadi 1/4, lalu periksa perbandingan silang rasio 18 : 12 = 3 : 2 sehingga 2P = 3Q.",
+    "stem": "Diketahui P = 27^(2/3) × 4^(1/2) dan Q = 25% dari 48. Hubungan persamaan yang paling tepat antara kuantitas P dan Q adalah ...",
+    "options": {
+      "A": "P = Q",
+      "B": "P < Q",
+      "C": "3P = 2Q",
+      "D": "2P = 3Q",
+      "E": "Hubungan P dan Q tidak dapat ditentukan"
+    },
+    "hint": "Ubah bilangan pokok ke bentuk pangkat prima dan nyatakan 25% sebagai pecahan untuk mencari rasio P : Q.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Nilai P = 18 tidak sama dengan Q = 12.",
+      "B": "Salah. Nilai P = 18 lebih besar dari Q = 12.",
+      "C": "Salah. 3P = 54 sedangkan 2Q = 24, sehingga rasio terbalik.",
+      "D": "Benar. P = 9 × 2 = 18 dan Q = 12, sehingga 2P = 36 = 3Q.",
+      "E": "Salah. Nilai P dan Q merupakan konstanta eksak sehingga hubungannya dapat ditentukan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-kuantitatif-variabel-tak-tentu-b3-005",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Uji dua pasangan nilai (x, y) yang sama-sama memenuhi syarat x, y bilangan real tak nol, 3x + 4y = 24, dan x < 6. Kasus 1: pilih x = 4 (< 6), maka 12 + 4y = 24 sehingga y = 3; diperoleh P = 4^2 = 16 dan Q = 3^2 = 9, jadi P > Q. Kasus 2: pilih x = -4 (< 6), maka -12 + 4y = 24 sehingga y = 9; diperoleh P = (-4)^2 = 16 dan Q = 9^2 = 81, jadi P < Q. Trik < 50 detik: begitu batas bawah x tidak dibatasi (boleh negatif besar), x^2 dan y^2 dapat menghasilkan P > Q maupun P < Q, sehingga hubungan tidak dapat ditentukan.",
+    "stem": "Diketahui x dan y adalah bilangan real tak nol yang memenuhi persamaan 3x + 4y = 24 dengan syarat x < 6. Jika P = x² dan Q = y², manakah hubungan antara kuantitas P dan Q?",
+    "options": {
+      "A": "P > Q",
+      "B": "P < Q",
+      "C": "P = Q",
+      "D": "P + Q = 25",
+      "E": "Hubungan P dan Q tidak dapat ditentukan"
+    },
+    "hint": "Coba substitusikan minimal dua nilai x berbeda yang kurang dari 6 (termasuk bilangan negatif) lalu bandingkan P dan Q.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Saat x = 4 dan y = 3 memang P > Q (16 > 9), namun tidak berlaku untuk x = -4 dan y = 9 (16 < 81).",
+      "B": "Salah. Saat x = -4 dan y = 9 memang P < Q, namun saat x = 4 dan y = 3 justru P > Q.",
+      "C": "Salah. P = Q hanya terjadi pada titik tertentu ketika x = y = 24/7, bukan untuk semua pasangan (x, y).",
+      "D": "Salah. P + Q = 25 hanya terjadi pada kasus x = 4, y = 3, sedangkan untuk x = -4, y = 9 nilai P + Q = 97.",
+      "E": "Benar. Karena terdapat pasangan nilai yang menghasilkan P > Q (x = 4, y = 3) maupun P < Q (x = -4, y = 9), hubungan P dan Q tidak dapat ditentukan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-kuantitatif-kenaikan-diskon-simetris-b3-006",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan harga awal adalah P > 0. Setelah dinaikkan x%, harganya menjadi P(1 + x/100). Setelah didiskon x% dari harga baru tersebut, harga akhir Q = P(1 + x/100)(1 - x/100) = P(1 - x^2/10.000). Karena 0 < x < 100, maka 0 < x^2/10.000 < 1 sehingga faktor pengali (1 - x^2/10.000) selalu bernilai kurang dari 1. Akibatnya Q < P atau P > Q. Trik < 50 detik: kenaikan x% lalu penurunan x% selalu menghasilkan penurunan bersih sebesar (x^2/100)% karena basis diskon lebih besar daripada basis kenaikan, sehingga harga awal P pasti lebih besar dari harga akhir Q.",
+    "stem": "Sebuah toko menaikkan harga awal suatu produk sebesar x% (dengan 0 < x < 100), kemudian memberikan diskon sebesar x% dari harga setelah kenaikan tersebut. Jika P menyatakan harga awal produk dan Q menyatakan harga akhir setelah diskon, hubungan antara kuantitas P dan Q adalah ...",
+    "options": {
+      "A": "P > Q",
+      "B": "P < Q",
+      "C": "P = Q",
+      "D": "P = 2Q",
+      "E": "Hubungan P dan Q tidak dapat ditentukan"
+    },
+    "hint": "Gunakan identitas selisih kuadrat (1 + r)(1 - r) = 1 - r² atau uji dengan nilai sederhana seperti x = 20 dan P = 100.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Q = P(1 - x²/10.000) dengan 0 < x < 100 dan P > 0, sehingga faktor pengalinya selalu kurang dari 1 dan berakibat P > Q.",
+      "B": "Salah. Diskon diterapkan terhadap harga yang sudah lebih tinggi sehingga potongan nominalnya lebih besar daripada kenaikan awalnya.",
+      "C": "Salah. Jebakan umum menganggap +x% dan -x% saling meniadakan, padahal persentase keduanya memiliki basis harga yang berbeda.",
+      "D": "Salah. Nilai Q bergantung pada x dan tidak selalu tepat setengah dari P.",
+      "E": "Salah. Meskipun x belum diketahui nilainya, batas 0 < x < 100 sudah menjamin Q selalu lebih kecil daripada P."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-kuantitatif-pangkat-basis-besar-b3-007",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Samakan eksponen kedua bilangan menggunakan FPB dari 90, 30, dan 60, yaitu 30. Ubah P = 2^90 × 3^30 = (2^3)^30 × 3^30 = 8^30 × 3^30 = (8 × 3)^30 = 24^30. Ubah Q = 5^60 = (5^2)^30 = 25^30. Karena pangkat keduanya sudah sama (30 > 0) dan 24 < 25, maka 24^30 < 25^30 sehingga P < Q. Trik < 50 detik: bagi semua pangkat dengan FPB = 30 sehingga tinggal membandingkan basis efektif 2^3 × 3 = 24 terhadap 5^2 = 25.",
+    "stem": "Diketahui P = 2^90 × 3^30 dan Q = 5^60. Hubungan yang paling tepat antara kuantitas P dan Q adalah ...",
+    "options": {
+      "A": "P > Q",
+      "B": "P < Q",
+      "C": "P = Q",
+      "D": "2P = Q",
+      "E": "Hubungan P dan Q tidak dapat ditentukan"
+    },
+    "hint": "Cari FPB dari seluruh eksponen (90, 30, dan 60) agar kedua kuantitas dapat ditulis dengan pangkat yang sama.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Basis efektif P setelah penyamaan pangkat adalah 2³ × 3 = 24, lebih kecil daripada basis efektif Q yaitu 5² = 25.",
+      "B": "Benar. P = (2³ × 3)^30 = 24^30 sedangkan Q = (5²)^30 = 25^30, sehingga P < Q.",
+      "C": "Salah. Nilai 24^30 tidak sama dengan 25^30.",
+      "D": "Salah. Rasio Q/P = (25/24)^30 bukanlah 2.",
+      "E": "Salah. Kedua kuantitas merupakan bilangan bulat positif eksak yang dapat dibandingkan langsung."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-kuantitatif-kerja-gabungan-parsial-b3-008",
+    "category": "TIU",
+    "subtopic": "Numerik - Perbandingan Kuantitatif",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Diketahui laju gabungan 1/A + 1/B = 1/6. Ketika Mesin A bekerja 4 jam lalu Mesin B bekerja 10 jam untuk menyelesaikan 1 batch, persamaannya adalah 4/A + 10/B = 1. Pecah menjadi 4(1/A + 1/B) + 6/B = 1. Substitusi 1/A + 1/B = 1/6 menghasilkan 4/6 + 6/B = 1 -> 2/3 + 6/B = 1 -> 6/B = 1/3 -> B = 18 jam. Selanjutnya 1/A = 1/6 - 1/18 = 2/18 = 1/9 -> A = 9 jam. Jadi P = 18 jam dan Q = 2 × 9 = 18 jam, sehingga P = Q. Trik < 50 detik: anggap 4 jam pertama keduanya bekerja bersama (4/6 = 2/3 batch), maka sisa 1/3 batch dikerjakan B sendirian dalam 10 - 4 = 6 jam sehingga B = 18 jam dan A = 9 jam.",
+    "stem": "Mesin A dan Mesin B bekerja bersama-sama dapat menuntaskan 1 batch produksi dalam 6 jam. Jika Mesin A dinyalakan sendirian selama 4 jam lalu dimatikan, Mesin B memerlukan waktu 10 jam untuk menuntaskan sisa batch tersebut. Jika P adalah waktu Mesin B bekerja sendirian dari awal hingga tuntas 1 batch dan Q adalah dua kali waktu Mesin A bekerja sendirian dari awal hingga tuntas 1 batch, hubungan antara P dan Q adalah ...",
+    "options": {
+      "A": "P > Q",
+      "B": "P < Q",
+      "C": "P = Q",
+      "D": "P = 2Q",
+      "E": "Hubungan P dan Q tidak dapat ditentukan"
+    },
+    "hint": "Kelompokkan 4 jam kerja A dan 4 jam kerja B sebagai kerja gabungan terlebih dahulu, lalu hitung sisa beban yang diselesaikan B.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Mesin B memerlukan 18 jam (P = 18) dan Mesin A memerlukan 9 jam sehingga Q = 2 × 9 = 18.",
+      "B": "Salah. Nilai P = 18 tidak lebih kecil daripada Q = 18.",
+      "C": "Benar. Dari 4/6 + 6/B = 1 diperoleh B = 18 jam dan A = 9 jam, maka P = 18 dan Q = 2(9) = 18, sehingga P = Q.",
+      "D": "Salah. Hubungan P = 2A berlaku untuk waktu Mesin A (A), bukan untuk Q yang sudah bernilai 2A.",
+      "E": "Salah. Sistem dua persamaan linear dalam 1/A dan 1/B menghasilkan nilai tunggal A = 9 dan B = 18."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-deret-bertingkat-tiga-b3-009",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Periksa selisih tingkat pertama antar suku: 5 - 3 = 2, 11 - 5 = 6, 23 - 11 = 12, 43 - 23 = 20, 73 - 43 = 30. Selisih tingkat pertama membentuk barisan 2, 6, 12, 20, 30. Periksa selisih tingkat kedua: 6 - 2 = 4, 12 - 6 = 6, 20 - 12 = 8, 30 - 20 = 10 (naik konstan +2, atau tingkat ketiga = +2). Maka selisih tingkat kedua berikutnya adalah 12 dan 14, sehingga selisih tingkat pertama berikutnya menjadi 30 + 12 = 42 dan 42 + 14 = 56. Suku berikutnya: 73 + 42 = 115 dan 115 + 56 = 171. Trik < 50 detik: kenali pola tingkat pertama 1×2, 2×3, 3×4, 4×5, 5×6, sehingga dua penambah berikutnya langsung 6×7 = 42 dan 7×8 = 56.",
+    "stem": "Perhatikan pola barisan bilangan berikut: 3, 5, 11, 23, 43, 73, ..., .... Dua bilangan yang tepat untuk melengkapi barisan tersebut adalah ...",
+    "options": {
+      "A": "113, 167",
+      "B": "115, 169",
+      "C": "117, 173",
+      "D": "115, 171",
+      "E": "119, 175"
+    },
+    "hint": "Hitung selisih tingkat pertama lalu periksa kembali selisih tingkat keduanya untuk menemukan pola penambah.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Penambah setelah 30 seharusnya 42 (30 + 12), bukan 40.",
+      "B": "Salah. Suku pertama benar 115, tetapi suku kedua seharusnya 115 + 56 = 171, bukan 169.",
+      "C": "Salah. Terjadi kelebihan +2 pada penjumlahan selisih tingkat kedua.",
+      "D": "Benar. Selisih bertingkatnya adalah 2, 6, 12, 20, 30, 42, 56 (bertambah 4, 6, 8, 10, 12, 14), sehingga 73 + 42 = 115 dan 115 + 56 = 171.",
+      "E": "Salah. Nilai 119 mengasumsikan penambah 46 yang tidak sesuai pola tingkat kedua."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-deret-larik-tiga-b3-010",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Barisan terdiri atas tiga sub-deret berselang (larik tiga). Sub-deret ke-1 (posisi 1, 4, 7, 10): 4, 9, 16, ... merupakan bilangan kuadrat 2^2, 3^2, 4^2, sehingga posisi ke-10 adalah 5^2 = 25 (atau selisih +5, +7, +9). Sub-deret ke-2 (posisi 2, 5, 8, 11): 50, 44, 37, ... memiliki selisih -6, -7, sehingga berikutnya -8 yaitu 37 - 8 = 29. Sub-deret ke-3 (posisi 3, 6, 9): 3, 6, 12 (selalu dikali 2). Trik < 50 detik: lihat angka yang melompat jauh (4, 50, 3, 9, 44, 6) sebagai tanda deret larik 3, lalu fokus hanya pada sub-deret posisi ke-10 dan ke-11.",
+    "stem": "Tentukan dua bilangan berikutnya dari barisan: 4, 50, 3, 9, 44, 6, 16, 37, 12, ..., ...",
+    "options": {
+      "A": "23, 30",
+      "B": "24, 29",
+      "C": "25, 31",
+      "D": "27, 28",
+      "E": "25, 29"
+    },
+    "hint": "Pisahkan barisan menjadi tiga sub-deret dengan melompati dua suku sekaligus untuk setiap kelompok.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pola sub-deret pertama adalah kuadrat (4, 9, 16, 25) dan sub-deret kedua menurun -6, -7, -8 menjadi 29.",
+      "B": "Salah. Suku posisi ke-10 mengikuti 4, 9, 16 yang selisihnya ganjil berurutan (+5, +7, +9), bukan +8.",
+      "C": "Salah. Suku posisi ke-11 seharusnya 37 - 8 = 29, bukan 31.",
+      "D": "Salah. Baik 27 maupun 28 tidak mengikuti pola bilangan kuadrat maupun pengurangan bertingkat.",
+      "E": "Benar. Posisi ke-10 mengikuti pola 2², 3², 4², 5² = 25 dan posisi ke-11 mengikuti pola 50 (-6) 44 (-7) 37 (-8) 29."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-deret-kali-kurang-selang-b3-011",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Amati operasi bergantian antara perkalian dan pengurangan yang angkanya meningkat teratur: 5 × 2 = 10; 10 - 4 = 6; 6 × 3 = 18; 18 - 6 = 12; 12 × 4 = 48; 48 - 8 = 40. Pola pengali adalah ×2, ×3, ×4, sehingga berikutnya ×5; sedangkan pola pengurang adalah -4, -6, -8, sehingga berikutnya -10. Maka 40 × 5 = 200 dan 200 - 10 = 190. Trik < 50 detik: pasangkan dua suku berdekatan yang turun sedikit (10->6, 18->12, 48->40) untuk langsung melihat pengurang -4, -6, -8 dan pengali ×2, ×3, ×4.",
+    "stem": "Dua bilangan yang tepat untuk melanjutkan barisan: 5, 10, 6, 18, 12, 48, 40, ..., ... adalah ...",
+    "options": {
+      "A": "200, 190",
+      "B": "160, 150",
+      "C": "200, 192",
+      "D": "190, 180",
+      "E": "240, 230"
+    },
+    "hint": "Perhatikan pola naik-turun bergantian: pasangan operasi perkalian dan pengurangan memiliki bilangan operasi yang ikut membesar.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Setelah operasi ×4 dan -8, langkah berikutnya adalah 40 × 5 = 200 dan 200 - 10 = 190.",
+      "B": "Salah. Mengalikan 40 dengan 4 mengabaikan pola pengali yang naik dari ×2, ×3, ×4 menjadi ×5.",
+      "C": "Salah. Pengurangan setelah 200 seharusnya -10 (mengikuti -4, -6, -8, -10), bukan -8.",
+      "D": "Salah. Hasil 40 × 5 adalah 200, bukan 190.",
+      "E": "Salah. Mengalikan 40 dengan 6 melompati pengali ×5."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-deret-fibonacci-modifikasi-b3-012",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Periksa hubungan penjumlahan dua suku sebelumnya: 1 + 3 + 2 = 6; 3 + 6 + 2 = 11; 6 + 11 + 2 = 19; 11 + 19 + 2 = 32. Jadi berlaku aturan Fibonacci termodifikasi a_n = a_(n-1) + a_(n-2) + 2. Dengan aturan yang sama, suku ke-7 adalah 19 + 32 + 2 = 53, dan suku ke-8 adalah 32 + 53 + 2 = 87. Cara lain: selisih antar suku adalah 2, 3, 5, 8, 13 (barisan Fibonacci), sehingga selisih berikutnya 21 (32 + 21 = 53) dan 34 (53 + 34 = 87). Trik < 50 detik: cek selisih 2, 3, 5, 8, 13 yang langsung membentuk barisan Fibonacci sehingga tinggal tambah +21 lalu +34.",
+    "stem": "Barisan bilangan 1, 3, 6, 11, 19, 32, ..., ... memiliki pola tertentu. Dua bilangan berikutnya yang tepat adalah ...",
+    "options": {
+      "A": "51, 83",
+      "B": "53, 87",
+      "C": "53, 85",
+      "D": "55, 89",
+      "E": "52, 86"
+    },
+    "hint": "Amati selisih antar suku atau coba jumlahkan dua suku berurutan lalu lihat selisihnya dengan suku berikutnya.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Lupa menambahkan konstanta +2 pada aturan penjumlahan dua suku sebelumnya (19 + 32 = 51).",
+      "B": "Benar. Selisihnya membentuk barisan Fibonacci (2, 3, 5, 8, 13, 21, 34) atau a_n = a_(n-1) + a_(n-2) + 2, sehingga menghasilkan 53 dan 87.",
+      "C": "Salah. Suku pertama benar 53, tetapi suku kedua seharusnya 32 + 53 + 2 = 87, bukan 85.",
+      "D": "Salah. Nilai 55 berasal dari selisih +23, padahal selisih Fibonacci setelah 8 dan 13 adalah 21.",
+      "E": "Salah. Penambahan +20 pada 32 tidak konsisten dengan pola Fibonacci pada selisih."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-deret-desimal-kali-kurang-b3-013",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Telusuri operasi dari kiri ke kanan pada barisan desimal: 1,5 × 2 = 3; 3 - 0,5 = 2,5; 2,5 × 3 = 7,5; 7,5 - 0,5 = 7; 7 × 4 = 28; 28 - 0,5 = 27,5. Terlihat jelas pola berselang: dikali bilangan bulat naik (×2, ×3, ×4, ...) lalu selalu dikurangi konstan 0,5. Setelah -0,5 pada 28 -> 27,5, operasi berikutnya adalah ×5, sehingga 27,5 × 5 = 137,5. Trik < 50 detik: fokus pada bagian setelah koma yang muncul setiap dua langkah (-0,5), lalu hitung 27,5 × 5 = (27 × 5) + (0,5 × 5) = 135 + 2,5 = 137,5.",
+    "stem": "Bilangan yang tepat untuk melengkapi pola deret desimal: 1,5; 3; 2,5; 7,5; 7; 28; 27,5; ... adalah ...",
+    "options": {
+      "A": "110",
+      "B": "135,5",
+      "C": "137,5",
+      "D": "140",
+      "E": "138,5"
+    },
+    "hint": "Perhatikan pergantian operasi perkalian bertingkat dengan pengurangan bilangan desimal tetap.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Mengalikan 27,5 dengan 4 tidak melanjutkan kenaikan pengali ×2, ×3, ×4 menjadi ×5.",
+      "B": "Salah. 27 × 5 = 135 dan 0,5 × 5 = 2,5, sehingga jumlahnya 137,5 bukan 135,5.",
+      "C": "Benar. Pola operasinya adalah ×2, -0,5, ×3, -0,5, ×4, -0,5, ×5, sehingga 27,5 × 5 = 137,5.",
+      "D": "Salah. Nilai 140 berasal dari 28 × 5, mengabaikan pengurangan -0,5 sebelumnya.",
+      "E": "Salah. Hasil perkalian 0,5 × 5 adalah 2,5 bukan 3,5."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-deret-pecahan-kombinasi-b3-014",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Pisahkan pola pembilang dan penyebut karena seluruh pecahan sudah dalam bentuk paling sederhana. Pembilang: 2, 3, 5, 8, 13 mengikuti pola Fibonacci (2 + 3 = 5; 3 + 5 = 8; 5 + 8 = 13), sehingga pembilang berikutnya adalah 8 + 13 = 21. Penyebut: 3, 5, 9, 17, 33 memiliki selisih +2, +4, +8, +16 (kelipatan 2 setiap langkah), sehingga penyebut berikutnya adalah 33 + 32 = 65 (atau 2 × 33 - 1 = 65). Maka pecahan berikutnya adalah 21/65 (tidak dapat disederhanakan karena FPB(21, 65) = 1). Trik < 50 detik: cek pembilang Fibonacci (21) dan penyebut (×2 - 1 -> 65).",
+    "stem": "Pecahan yang tepat untuk melanjutkan barisan 2/3, 3/5, 5/9, 8/17, 13/33, ... adalah ...",
+    "options": {
+      "A": "21/63",
+      "B": "19/65",
+      "C": "21/64",
+      "D": "21/65",
+      "E": "22/65"
+    },
+    "hint": "Pisahkan analisis antara barisan pembilang dan barisan penyebut secara terpisah.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Penyebut berikutnya adalah 33 + 32 = 65 (atau 2 × 33 - 1), bukan 63.",
+      "B": "Salah. Pembilang mengikuti barisan Fibonacci (8 + 13 = 21), bukan pertambahan tetap +6 menjadi 19.",
+      "C": "Salah. 64 adalah kelipatan pangkat dua murni, sedangkan penyebut di deret selalu lebih 1 dari 2^n (2^n + 1).",
+      "D": "Benar. Pembilang mengikuti Fibonacci (8 + 13 = 21) dan penyebut bertambah +2, +4, +8, +16, +32 (33 + 32 = 65), menghasilkan 21/65.",
+      "E": "Salah. Pembilang 22 tidak sesuai dengan penjumlahan dua pembilang sebelumnya."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-deret-kuadrat-kubik-selang-b3-015",
+    "category": "TIU",
+    "subtopic": "Numerik - Deret",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Barisan menggunakan pola larik dua (dua sub-deret berselang) dengan titik kosong di tengah. Sub-deret ganjil (posisi 1, 3, 5, 7, 9): 0, 7, 26, [posisi 7], 124 mengikuti pola bilangan kubik dikurangi 1, yaitu 1^3 - 1 = 0, 2^3 - 1 = 7, 3^3 - 1 = 26, sehingga posisi ke-7 adalah 4^3 - 1 = 63, dan terverifikasi pada posisi ke-9 yaitu 5^3 - 1 = 124. Sub-deret genap (posisi 2, 4, 6, 8): 100, 88, [posisi 6], 58 memiliki selisih -12, -14, -16: 100 - 12 = 88, lalu posisi ke-6 = 88 - 14 = 74, terverifikasi 74 - 16 = 58. Jadi dua bilangan berurutan untuk posisi ke-6 dan ke-7 adalah 74 dan 63. Trik < 50 detik: langsung cek sub-deret ganjil 0, 7, 26, ..., 124 sebagai n^3 - 1 -> 63 dan sub-deret genap 100, 88, ..., 58 berselisih -12, -14, -16 -> 74.",
+    "stem": "Perhatikan barisan berikut yang memiliki dua suku hilang di tengah: 0, 100, 7, 88, 26, ..., ..., 58, 124. Dua bilangan yang tepat secara berurutan untuk mengisi bagian kosong tersebut adalah ...",
+    "options": {
+      "A": "76 dan 64",
+      "B": "72 dan 63",
+      "C": "74 dan 65",
+      "D": "76 dan 63",
+      "E": "74 dan 63"
+    },
+    "hint": "Pisahkan posisi genap dan posisi ganjil; perhatikan pola pangkat tiga di sekitar angka 0, 7, 26, dan 124.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Posisi ke-6 seharusnya 88 - 14 = 74 dan posisi ke-7 seharusnya 4³ - 1 = 63, bukan 64.",
+      "B": "Salah. Pengurangan pada posisi genap membesar (-12, -14, -16), sehingga 88 - 14 = 74, bukan 72.",
+      "C": "Salah. Posisi ke-7 mengikuti 4³ - 1 = 63, bukan 65.",
+      "D": "Salah. Selisih 100 ke 88 adalah -12, sehingga langkah berikutnya -14 menghasilkan 74 bukan 76.",
+      "E": "Benar. Posisi ke-6 (genap) adalah 88 - 14 = 74 (lalu 74 - 16 = 58) dan posisi ke-7 (ganjil) adalah 4³ - 1 = 63."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-aritmetika-diskon-bertingkat-ppn-b3-016",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Diskon bertingkat 30% + 20% bukan berarti diskon 50%, melainkan faktor bayar (1 - 0,30) × (1 - 0,20) = 0,70 × 0,80 = 0,56 dari harga label awal X. Setelah dikenai pajak 10% dari harga setelah diskon, total yang dibayar menjadi 0,56X × 1,10 = 0,616X. Karena total pembayaran Rp770.000, maka 0,616X = 770.000 -> X = 770.000 / 0,616 = 1.250.000. Trik < 50 detik: balikkan proses secara berurutan: sebelum pajak = 770.000 / 1,1 = 700.000; sebelum diskon 20% = 700.000 / 0,8 = 875.000; sebelum diskon 30% = 875.000 / 0,7 = Rp1.250.000.",
+    "stem": "Sebuah perangkat elektronik dijual dengan diskon bertingkat sebesar 30% + 20%, kemudian harga setelah diskon tersebut dikenai pajak pertambahan nilai sebesar 10%. Jika seorang pembeli membayar tepat Rp770.000 untuk perangkat tersebut, harga label awal sebelum diskon dan pajak adalah ...",
+    "options": {
+      "A": "Rp1.250.000",
+      "B": "Rp1.400.000",
+      "C": "Rp1.350.000",
+      "D": "Rp1.150.000",
+      "E": "Rp1.540.000"
+    },
+    "hint": "Kerjakan mundur dari harga bayar akhir dengan membagi berturut-turut oleh faktor (1 + pajak) dan masing-masing faktor (1 - diskon).",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Harga sebelum pajak = 770.000 / 1,1 = Rp700.000, lalu dibagi (0,7 × 0,8 = 0,56) menghasilkan Rp1.250.000.",
+      "B": "Salah. Nilai Rp1.400.000 berasal dari kesalahan menjumlahkan diskon 30% + 20% menjadi 50% (700.000 / 0,5).",
+      "C": "Salah. Faktor pengali gabungan 0,7 × 0,8 = 0,56, bukan sekitar 0,518.",
+      "D": "Salah. Tidak sesuai dengan pembalikan diskon bertingkat dan pajak 10%.",
+      "E": "Salah. Nilai Rp1.540.000 hanya membagi Rp770.000 dengan 0,5 dan mengabaikan pajak 10%."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-aritmetika-campuran-stok-rusak-b3-017",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total modal = harga beli + biaya angkut = Rp1.800.000 + Rp200.000 = Rp2.000.000. Dari 100 kg buah, sebanyak 15% membusuk = 15 kg, sehingga buah yang layak jual tersisa 85 kg. Sebanyak 50 kg dijual Rp28.000/kg menghasilkan Rp1.400.000, dan sisanya 85 - 50 = 35 kg dijual Rp24.000/kg menghasilkan 35 × 24.000 = Rp840.000. Total penerimaan = 1.400.000 + 840.000 = Rp2.240.000. Keuntungan bersih = 2.240.000 - 2.000.000 = Rp240.000, sehingga persentase keuntungan = (240.000 / 2.000.000) × 100% = 12%. Trik < 50 detik: gunakan basis Rp2.000.000 (tiap Rp20.000 = 1%), hitung pendapatan 1.400.000 + 840.000 = 2.240.000 -> selisih Rp240.000 / 20.000 = untung 12%.",
+    "stem": "Seorang pedagang membeli 100 kg buah apel seharga Rp1.800.000 dengan biaya angkut tambahan Rp200.000. Setelah disortir, ternyata 15% dari apel tersebut membusuk dan tidak laku dijual. Sebanyak 50 kg apel kualitas baik dijual seharga Rp28.000/kg, sedangkan sisa apel yang masih layak dijual seharga Rp24.000/kg. Persentase keuntungan atau kerugian total pedagang tersebut terhadap seluruh modalnya adalah ...",
+    "options": {
+      "A": "Untung 10%",
+      "B": "Untung 12%",
+      "C": "Untung 15%",
+      "D": "Rugi 12%",
+      "E": "Untung 24%"
+    },
+    "hint": "Jumlahkan harga beli dan biaya angkut sebagai modal total, lalu kurangi stok yang membusuk sebelum menghitung hasil penjualan.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Sisa apel yang layak setelah 15% busuk dan 50 kg terjual adalah 35 kg (bukan 33 kg atau harga lebih rendah).",
+      "B": "Benar. Modal total Rp2.000.000, pendapatan = (50 × 28.000) + (35 × 24.000) = Rp2.240.000, sehingga untung Rp240.000 atau 12%.",
+      "C": "Salah. Untung 15% membutuhkan total pendapatan Rp2.300.000.",
+      "D": "Salah. Total penjualan Rp2.240.000 lebih besar daripada modal Rp2.000.000 sehingga pedagang untung, bukan rugi.",
+      "E": "Salah. Keuntungan Rp240.000 dibandingkan terhadap modal Rp2.000.000 adalah 12%, bukan 24%."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-aritmetika-markup-vs-margin-b3-018",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Perhatikan perbedaan margin (berbasis harga jual) dan markup (berbasis harga beli). Karena margin 25% dihitung dari harga jual J, maka modal beli B = (100% - 25%)J = 75%J = (3/4)J. Diketahui B = Rp600.000, sehingga J = (4/3) × 600.000 = Rp800.000. Setelah diberi diskon 10% dari harga jual yang ditetapkan, harga jual akhir menjadi 90% × Rp800.000 = Rp720.000. Keuntungan bersih sebenarnya adalah Rp720.000 - Rp600.000 = Rp120.000. Trik < 50 detik: margin 25% dari harga jual setara dengan markup 1/3 dari modal (Rp600.000 -> Rp800.000), lalu diskon 10% memotong Rp80.000 dari potensi laba Rp200.000 sehingga tersisa Rp120.000.",
+    "stem": "Sebuah toko menetapkan harga jual suatu barang dengan mengambil margin keuntungan sebesar 25% dari harga jualnya (bukan dari harga beli). Jika modal pembelian barang tersebut adalah Rp600.000, kemudian toko memberikan diskon 10% dari harga jual yang telah ditetapkan, besar keuntungan bersih yang sebenarnya diperoleh toko adalah ...",
+    "options": {
+      "A": "Rp75.000",
+      "B": "Rp90.000",
+      "C": "Rp120.000",
+      "D": "Rp150.000",
+      "E": "Rp180.000"
+    },
+    "hint": "Jika margin adalah 25% dari harga jual, maka harga beli mewakili 75% dari harga jual sebelum diskon.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Nilai Rp75.000 muncul jika salah menganggap harga jual awal = 125% × Rp600.000 = Rp750.000 lalu didiskon 10% menjadi Rp675.000.",
+      "B": "Salah. Potongan diskon 10% dari Rp800.000 adalah Rp80.000 dari laba awal Rp200.000, menyisakan Rp120.000.",
+      "C": "Benar. Harga jual awal = 600.000 / 0,75 = Rp800.000; setelah diskon 10% menjadi Rp720.000, sehingga laba bersih Rp120.000.",
+      "D": "Salah. Rp150.000 adalah 25% dari harga beli, belum memperhitungkan basis harga jual maupun diskon 10%.",
+      "E": "Salah. Rp180.000 keliru mengurangi laba Rp200.000 hanya dengan 10% dari laba, bukan 10% dari harga jual."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-aritmetika-bunga-angsuran-b3-019",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total seluruh angsuran yang dibayarkan selama 16 bulan adalah 16 × Rp1.062.500 = Rp17.000.000. Total bunga selama 16 bulan = Rp17.000.000 - Rp15.000.000 = Rp2.000.000. Dengan rumus bunga tunggal B = M × (p/100) × (t/12), diperoleh 2.000.000 = 15.000.000 × (p/100) × (16/12). Sederhanakan: 2/15 = (p/100) × (4/3), maka p/100 = (2/15) × (3/4) = 6/60 = 1/10, sehingga p = 10% per tahun. Trik < 50 detik: kalikan 16 × 1.062.500 = 17 juta (bunga 2 juta); bunga 12 bulan = (12/16) × 2 juta = 1,5 juta -> 1,5 / 15 = 10%.",
+    "stem": "Ibu Sari meminjam dana di koperasi sebesar Rp15.000.000 dan melunasinya dengan angsuran tetap sebesar Rp1.062.500 per bulan selama 16 bulan. Jika koperasi tersebut menerapkan sistem bunga tunggal per tahun, besar persentase suku bunga per tahun yang dikenakan adalah ...",
+    "options": {
+      "A": "8%",
+      "B": "9%",
+      "C": "12%",
+      "D": "10%",
+      "E": "13,33%"
+    },
+    "hint": "Hitung total bunga selama 16 bulan, lalu konversikan menjadi bunga selama 12 bulan sebelum dibagi pokok pinjaman.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Suku bunga 8% per tahun selama 16 bulan hanya menghasilkan bunga Rp1.600.000.",
+      "B": "Salah. Suku bunga 9% per tahun selama 16 bulan menghasilkan bunga Rp1.800.000.",
+      "C": "Salah. Suku bunga 12% per tahun selama 16 bulan menghasilkan bunga Rp2.400.000.",
+      "D": "Benar. Total bayar Rp17.000.000 menghasilkan bunga 16 bulan sebesar Rp2.000.000, setara Rp1.500.000 per tahun atau 10% dari Rp15.000.000.",
+      "E": "Salah. Nilai 13,33% adalah total persentase bunga selama 16 bulan, bukan suku bunga per tahun (12 bulan)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-aritmetika-bruto-tara-neto-b3-020",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total bruto 5 karung beras = 5 × 50 kg = 250 kg. Karena tara 2%, maka total neto beras = 98% × 250 kg = 245 kg. Beras bersih tersebut dikemas menjadi 245 / 5 = 49 kantong kemasan 5 kg. Modal beli per kantong = Rp2.940.000 / 49 = Rp60.000. Karena dijual Rp69.000 per kantong, keuntungan per kantong = Rp69.000 - Rp60.000 = Rp9.000. Persentase keuntungan = (9.000 / 60.000) × 100% = 15%. Trik < 50 detik: neto 98% × 250 = 245 kg (49 kantong); modal per kantong 2.940/49 = 60 ribu, untung 9 ribu -> 9/60 = 15%.",
+    "stem": "Seorang pedagang membeli 5 karung beras yang masing-masing bertuliskan bruto 50 kg dan tara 2% dengan total harga beli Rp2.940.000. Seluruh beras bersih tersebut dikemas ulang menjadi kantong kemasan 5 kg, lalu dijual seharga Rp69.000 per kantong. Persentase keuntungan pedagang tersebut adalah ...",
+    "options": {
+      "A": "10%",
+      "B": "12%",
+      "C": "12,5%",
+      "D": "14%",
+      "E": "15%"
+    },
+    "hint": "Cari total berat bersih (neto) setelah dikurangi tara 2%, bagi dengan 5 kg untuk memperoleh banyak kantong, lalu bandingkan modal dan harga jual per kantong.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Keuntungan 10% terjadi jika harga jual per kantong Rp66.000.",
+      "B": "Salah. Mengasumsikan 50 kantong tanpa mengurangi tara 2% menghasilkan modal Rp58.800/kantong, bukan 12%.",
+      "C": "Salah. Rasio untung terhadap harga beli adalah 9.000 / 60.000 = 15%, bukan 12,5%.",
+      "D": "Salah. Total hasil jual 49 × 69.000 = Rp3.381.000 menghasilkan laba Rp441.000 atau tepat 15%.",
+      "E": "Benar. Neto = 98% × 250 kg = 245 kg (49 kantong), modal per kantong Rp60.000, untung Rp9.000 per kantong = 15%."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-aritmetika-alokasi-investasi-b3-021",
+    "category": "TIU",
+    "subtopic": "Numerik - Aritmetika Sosial",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan dana di instrumen pertama = x dan di instrumen kedua = y, sehingga x + y = 20.000.000 dan 0,08x + 0,12y = 2.080.000. Kalikan persamaan kedua dengan 25 agar bulat: 2x + 3y = 52.000.000. Kurangi dengan 2(x + y) = 40.000.000, diperoleh y = Rp12.000.000. Trik < 50 detik (metode rata-rata/aligasi): imbal hasil rata-rata = 2.080.000 / 20.000.000 = 10,4%. Jarak ke 8% adalah 2,4% dan ke 12% adalah 1,6%. Rasio dana instrumen pertama : kedua = 1,6 : 2,4 = 2 : 3, sehingga dana instrumen kedua = (3/5) × Rp20.000.000 = Rp12.000.000.",
+    "stem": "Bu Rina menginvestasikan total dana Rp20.000.000 ke dalam dua instrumen selama 1 tahun. Instrumen pertama memberikan imbal hasil 8% per tahun, sedangkan instrumen kedua memberikan 12% per tahun. Jika total imbal hasil yang diterima setelah 1 tahun adalah Rp2.080.000, besar dana yang ditempatkan pada instrumen kedua adalah ...",
+    "options": {
+      "A": "Rp12.000.000",
+      "B": "Rp8.000.000",
+      "C": "Rp10.000.000",
+      "D": "Rp14.000.000",
+      "E": "Rp15.000.000"
+    },
+    "hint": "Gunakan SPLDV atau bandingkan selisih persentase imbal hasil rata-rata terhadap 8% dan 12% (aturan aligasi).",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Jika Rp12.000.000 di instrumen 12% (hasil Rp1.440.000) dan Rp8.000.000 di instrumen 8% (hasil Rp640.000), totalnya tepat Rp2.080.000.",
+      "B": "Salah. Rp8.000.000 adalah dana pada instrumen pertama (8%), bukan instrumen kedua (12%).",
+      "C": "Salah. Pembagian sama rata Rp10.000.000 menghasilkan imbal hasil Rp2.000.000.",
+      "D": "Salah. Jika Rp14.000.000 di instrumen 12% dan Rp6.000.000 di 8%, total hasil menjadi Rp2.160.000.",
+      "E": "Salah. Jika Rp15.000.000 di instrumen 12% dan Rp5.000.000 di 8%, total hasil menjadi Rp2.200.000."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-cerita-menyusul-jarak-waktu-b3-022",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Dimas berangkat pukul 07.20 WIB dan Riko baru berangkat 40 menit kemudian (pukul 08.00 WIB). Dalam selang 40 menit (2/3 jam), Dimas sudah menempuh jarak awal = 54 × (2/3) = 36 km. Kecepatan relatif Riko menyusul Dimas = 72 - 54 = 18 km/jam. Waktu yang dibutuhkan Riko setelah pukul 08.00 WIB = 36 / 18 = 2 jam, sehingga tepat menyusul pada pukul 08.00 + 2 jam = 10.00 WIB. Jarak dari Kota M = 72 × 2 = 144 km. Trik < 50 detik: jarak kejar = 54 × (2/3) = 36 km; selisih kecepatan = 18 km/jam -> butuh 2 jam setelah Riko jalan (08.00 + 2 = 10.00 WIB, jarak 72 × 2 = 144 km).",
+    "stem": "Dimas berangkat mengendarai sepeda motor dari Kota M menuju Kota N pada pukul 07.20 WIB dengan kecepatan rata-rata 54 km/jam. Empat puluh menit kemudian, Riko menyusul dari Kota M melalui rute yang sama dengan kecepatan rata-rata 72 km/jam. Pada pukul berapa dan pada jarak berapa kilometer dari Kota M Riko tepat menyusul Dimas?",
+    "options": {
+      "A": "Pukul 09.40 WIB pada jarak 120 km",
+      "B": "Pukul 10.00 WIB pada jarak 144 km",
+      "C": "Pukul 10.20 WIB pada jarak 144 km",
+      "D": "Pukul 10.00 WIB pada jarak 162 km",
+      "E": "Pukul 09.20 WIB pada jarak 108 km"
+    },
+    "hint": "Hitung jarak awal yang sudah ditempuh Dimas selama 40 menit, lalu bagi dengan selisih kecepatan kedua pengendara.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pada pukul 09.40 WIB Riko baru menempuh 1 jam 40 menit (120 km), sedangkan Dimas sudah 2 jam 20 menit (126 km).",
+      "B": "Benar. Selisih jarak awal 54 × (40/60) = 36 km terkejar dalam 36 / (72 - 54) = 2 jam setelah pukul 08.00 WIB, yakni pukul 10.00 WIB pada jarak 144 km.",
+      "C": "Salah. Menambahkan 2 jam ke waktu berangkat Dimas (07.20) bukan ke waktu berangkat Riko (08.00) merupakan kekeliruan waktu acuan.",
+      "D": "Salah. Pada jarak 162 km Dimas memerlukan 3 jam (pukul 10.20 WIB), bukan pukul 10.00 WIB.",
+      "E": "Salah. Pada pukul 09.20 WIB Dimas baru menempuh 108 km sedangkan Riko baru 1 jam 20 menit (96 km)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-cerita-berpapasan-istirahat-b3-023",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan kedua bus berpapasan pada pukul T (dalam jam setelah 00.00). Karena Bus A berangkat pukul 06.00 dan sempat berhenti 30 menit (0,5 jam) sebelum berpapasan, lama berkendara efektif Bus A adalah (T - 6 - 0,5) = (T - 6,5) jam. Bus B berangkat pukul 07.00 tanpa berhenti, sehingga lama berkendaranya (T - 7) jam. Persamaan jarak: 60(T - 6,5) + 80(T - 7) = 380 -> 60T - 390 + 80T - 560 = 380 -> 140T = 1.330 -> T = 9,5 atau pukul 09.30 WIB. Trik < 50 detik: selisih waktu gerak efektif Bus A terhadap Bus B hanya 1 jam - 0,5 jam = 0,5 jam (jarak awal 60 × 0,5 = 30 km). Sisa jarak 380 - 30 = 350 km dibagi (60 + 80) = 2,5 jam setelah pukul 07.00 -> 09.30 WIB.",
+    "stem": "Jarak antara Kota P dan Kota Q adalah 380 km. Bus A berangkat dari Kota P menuju Kota Q pada pukul 06.00 WIB dengan kecepatan konstan 60 km/jam dan berhenti beristirahat selama 30 menit sebelum berpapasan. Bus B berangkat dari Kota Q menuju Kota P melalui jalur yang sama pada pukul 07.00 WIB dengan kecepatan konstan 80 km/jam tanpa berhenti. Pada pukul berapa kedua bus tersebut berpapasan?",
+    "options": {
+      "A": "Pukul 09.00 WIB",
+      "B": "Pukul 09.15 WIB",
+      "C": "Pukul 09.30 WIB",
+      "D": "Pukul 09.45 WIB",
+      "E": "Pukul 10.00 WIB"
+    },
+    "hint": "Kurangkan durasi istirahat Bus A dari selisih waktu keberangkatannya agar diperoleh jarak tempuh awal efektif sebelum pukul 07.00 WIB.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pada pukul 09.00 WIB, jarak tempuh A (2,5 × 60 = 150 km) ditambah B (2 × 80 = 160 km) baru 310 km.",
+      "B": "Salah. Mengabaikan jeda istirahat 30 menit membuat sisa jarak dianggap 320 km dan menghasilkan sekitar pukul 09.17 WIB.",
+      "C": "Benar. Pada pukul 09.30 WIB, Bus A berkendara efektif 3 jam (180 km) dan Bus B berkendara 2,5 jam (200 km), berjumlah tepat 380 km.",
+      "D": "Salah. Pada pukul 09.45 WIB total jarak tempuh keduanya sudah melampaui 380 km menjadi 415 km.",
+      "E": "Salah. Pada pukul 10.00 WIB total jarak tempuh keduanya mencapai 450 km."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-cerita-pipa-isi-kuras-b3-024",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Laju pengisian Pipa K = +1/4 tandon/jam, Pipa L = +1/6 tandon/jam, dan laju pengosongan Pipa M = -1/12 tandon/jam. Selama 1 jam pertama (hanya K dan L terbuka), volume yang terisi = 1/4 + 1/6 = 5/12 tandon, sehingga sisa yang harus diisi adalah 1 - 5/12 = 7/12 tandon. Setelah Pipa M ikut dibuka, laju bersih gabungan = 1/4 + 1/6 - 1/12 = (3 + 2 - 1)/12 = 4/12 = 1/3 tandon/jam. Waktu pengisian sisa = (7/12) / (1/3) = 7/4 jam = 1 jam 45 menit. Total waktu = 1 jam + 1 jam 45 menit = 2 jam 45 menit. Trik < 50 detik: jam pertama isi 5/12, sisa 7/12 dengan laju bersih 4/12 per jam -> butuh 7/4 = 1,75 jam lagi -> total 2,75 jam.",
+    "stem": "Sebuah tandon air kosong dilengkapi dua pipa pengisi (Pipa K dan Pipa L) serta satu pipa pembuangan (Pipa M). Pipa K dapat mengisi penuh tandon dalam 4 jam, Pipa L dalam 6 jam, sedangkan Pipa M dapat mengosongkan tandon penuh dalam 12 jam. Jika mula-mula hanya Pipa K dan Pipa L dibuka bersama selama 1 jam, lalu Pipa M ikut dibuka hingga tandon penuh, total waktu yang diperlukan dari awal hingga tandon terisi penuh adalah ...",
+    "options": {
+      "A": "1 jam 45 menit",
+      "B": "2 jam 15 menit",
+      "C": "2 jam 30 menit",
+      "D": "2 jam 45 menit",
+      "E": "3 jam 00 menit"
+    },
+    "hint": "Hitung bagian tandon yang terisi pada 1 jam pertama, lalu bagi sisa bagiannya dengan laju gabungan (K + L - M).",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. 1 jam 45 menit hanya merupakan durasi fase kedua setelah Pipa M dibuka, belum ditambah 1 jam fase awal.",
+      "B": "Salah. Terjadi kesalahan penjumlahan pecahan laju bersih atau sisa volume tandon.",
+      "C": "Salah. Menghitung sisa waktu sebesar 1,5 jam padahal 7/12 dibagi 4/12 adalah 7/4 = 1,75 jam.",
+      "D": "Benar. Fase 1 mengisi 5/12 tandon dalam 1 jam; sisa 7/12 diisi pada laju 1/3 per jam selama 1 jam 45 menit, sehingga totalnya 2 jam 45 menit.",
+      "E": "Salah. 3 jam adalah waktu pengisian jika ketiga pipa dibuka bersamaan sejak awal tanpa jeda 1 jam."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-cerita-rata-rata-susulan-b3-025",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Jumlah nilai awal 30 siswa = 30 × 74 = 2.220. Setelah 4 siswa susulan bergabung (total 34 siswa), jumlah nilai baru = 34 × 75 = 2.550. Jumlah nilai keempat siswa susulan = 2.550 - 2.220 = 330. Karena salah satu dari keempat siswa tersebut memperoleh nilai 69, maka jumlah nilai 3 siswa susulan lainnya = 330 - 69 = 261. Jadi rata-rata nilai 3 siswa lainnya = 261 / 3 = 87. Trik < 50 detik (metode selisih rata-rata): untuk menaikkan rata-rata 30 siswa sebesar +1, 4 siswa baru harus menyumbang total (4 × 75) + (30 × 1) = 330; kurangi 69 lalu bagi 3 -> 261 / 3 = 87.",
+    "stem": "Rata-rata nilai ujian di suatu kelas yang terdiri atas 30 siswa adalah 74. Setelah 4 siswa mengikuti ujian susulan dan nilai mereka digabungkan, rata-rata kelas meningkat menjadi 75. Jika salah satu dari 4 siswa susulan tersebut memperoleh nilai 69, rata-rata nilai dari 3 siswa susulan lainnya adalah ...",
+    "options": {
+      "A": "82,5",
+      "B": "84",
+      "C": "85",
+      "D": "86",
+      "E": "87"
+    },
+    "hint": "Cari selisih jumlah total nilai seluruh kelas sesudah dan sebelum ujian susulan, lalu kurangi nilai 69.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. 82,5 adalah rata-rata dari keempat siswa susulan (330 / 4), bukan 3 siswa lainnya.",
+      "B": "Salah. Tidak sesuai dengan pengurangan 330 - 69 = 261 yang dibagi 3.",
+      "C": "Salah. Menghasilkan jumlah 4 siswa 324 yang hanya menaikkan rata-rata menjadi sekitar 74,8.",
+      "D": "Salah. Selisih nilai total 2.550 - 2.220 adalah 330, bukan 327.",
+      "E": "Benar. Total nilai 4 siswa susulan = (34 × 75) - (30 × 74) = 330; dikurangi 69 menjadi 261, lalu dibagi 3 menghasilkan 87."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-cerita-kombinatorika-syarat-b3-026",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Akan dipilih 4 orang dari 6 pria dan 4 wanita dengan syarat minimal 2 wanita, dan 2 pria tertentu (Bima dan Candra) tidak boleh terpilih bersamaan. Hitung terlebih dahulu total cara tanpa larangan Bima-Candra: (1) 2 wanita + 2 pria = C(4,2) × C(6,2) = 6 × 15 = 90; (2) 3 wanita + 1 pria = C(4,3) × C(6,1) = 4 × 6 = 24; (3) 4 wanita + 0 pria = C(4,4) × C(6,0) = 1 × 1 = 1. Jumlah total = 90 + 24 + 1 = 115 cara. Sekarang hitung kasus terlarang di mana Bima DAN Candra terpilih bersama: sisa 2 kursi wajib diisi wanita = C(4,2) = 6 cara. Jadi banyak susunan yang sah = 115 - 6 = 109 cara. Trik < 50 detik: pakai metode komplemen — hitung total minimal 2 wanita (90 + 24 + 1 = 115), lalu kurangi kasus Bima & Candra masuk bersama (C(4,2) = 6) -> 109.",
+    "stem": "Dari 6 calon pengurus pria dan 4 calon pengurus wanita, akan dibentuk sebuah panitia inti beranggotakan 4 orang yang terdiri atas sedikitnya 2 wanita. Jika 2 orang pria tertentu, yakni Bima dan Candra, tidak boleh berada bersama-sama dalam panitia tersebut, banyak cara pembentukan panitia yang mungkin adalah ...",
+    "options": {
+      "A": "109",
+      "B": "115",
+      "C": "108",
+      "D": "84",
+      "E": "120"
+    },
+    "hint": "Hitung seluruh kombinasi panitia dengan minimal 2 wanita terlebih dahulu, lalu kurangkan kasus ketika Bima dan Candra sama-sama terpilih.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Total kombinasi minimal 2 wanita = 6×15 + 4×6 + 1 = 115, dikurangi 6 kasus terlarang ketika Bima dan Candra masuk bersama, hasilnya 109.",
+      "B": "Salah. 115 adalah total kombinasi sebelum mengeluarkan kasus Bima dan Candra terpilih bersamaan.",
+      "C": "Salah. 108 melupakan komposisi 4 wanita + 0 pria (1 cara).",
+      "D": "Salah. 84 hanya menghitung komposisi tepat 2 wanita + 2 pria tanpa komposisi 3 wanita dan 4 wanita.",
+      "E": "Salah. 120 melampaui batas kombinasi valid yang tersedia."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-cerita-transfer-uang-mundur-b3-027",
+    "category": "TIU",
+    "subtopic": "Numerik - Soal Cerita",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Total uang ketiganya tetap Rp540.000 sehingga pada kondisi akhir masing-masing memegang Rp540.000 / 3 = Rp180.000. Kerjakan mundur dari tahap terakhir: sebelum Hani memberikan 1/5 bagian uangnya kepada Intan, sisa uang Hani adalah 4/5 bagian = Rp180.000, sehingga uang Hani tepat sebelum memberi Intan adalah Rp180.000 × (5/4) = Rp225.000 (berarti Hani memberi Rp45.000 kepada Intan). Pada tahap pertama, Galih memberikan 1/4 bagian uang awalnya kepada Hani dan menyisakan 3/4 bagian = Rp180.000, maka uang awal Galih = Rp180.000 × (4/3) = Rp240.000 (berarti Galih memberi Rp60.000 kepada Hani). Jadi uang awal Hani = Rp225.000 - Rp60.000 = Rp165.000. Trik < 50 detik: akhir masing-masing 180 ribu -> sebelum bagi 1/5, Hani = 180 × 5/4 = 225 ribu; Galih awal = 180 × 4/3 = 240 ribu (beri 60 ribu) -> Hani awal = 225 - 60 = Rp165.000.",
+    "stem": "Jumlah uang Galih, Hani, dan Intan mula-mula adalah Rp540.000. Pertama, Galih memberikan 1/4 bagian uangnya kepada Hani. Setelah itu, Hani memberikan 1/5 bagian dari total uang yang dimilikinya saat itu kepada Intan. Setelah kedua perpindahan tersebut, uang mereka bertiga menjadi sama banyak. Besar uang Hani mula-mula adalah ...",
+    "options": {
+      "A": "Rp135.000",
+      "B": "Rp165.000",
+      "C": "Rp180.000",
+      "D": "Rp225.000",
+      "E": "Rp240.000"
+    },
+    "hint": "Tentukan uang masing-masing pada kondisi akhir (540.000 / 3), lalu runut mundur mulai dari pemberian Hani ke Intan.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Rp135.000 adalah besar uang awal Intan (180.000 - 45.000), bukan uang awal Hani.",
+      "B": "Benar. Galih awal Rp240.000 (memberi Rp60.000), Hani sebelum memberi Intan Rp225.000, sehingga uang awal Hani = 225.000 - 60.000 = Rp165.000.",
+      "C": "Salah. Rp180.000 adalah besar uang masing-masing setelah semua perpindahan selesai.",
+      "D": "Salah. Rp225.000 adalah uang Hani sesudah menerima kiriman dari Galih, belum dikurangi Rp60.000.",
+      "E": "Salah. Rp240.000 adalah besar uang awal Galih."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analitis-meja-bundar-enam-b3-028",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Tempatkan 6 kursi melingkar (1 sampai 6). Dari aturan (1), Fajar di kursi 1 dan Intan tepat berhadapan di kursi 4. Dari aturan (2), Gina berada tepat di antara Fajar dan Hadi, sehingga urutan bersebelahannya membentuk Fajar(1) - Gina(2) - Hadi(3) - Intan(4) (atau simetri cerminnya). Tersisa kursi 5 (di samping Intan) dan kursi 6 (di samping Fajar). Dari aturan (3), Kartika tidak bersebelahan dengan Intan maupun Hadi, sehingga Kartika tidak boleh di kursi 5 (bersebelahan dengan Intan); maka Kartika wajib menempati kursi 6, dan Joko menempati kursi 5. Pada susunan melingkar ini (maupun pencerminannya), pasangan berhadapan adalah (Fajar, Intan), (Gina, Joko), dan (Hadi, Kartika). Trik < 50 detik: kunci posisi berhadapan Fajar-Intan, taruh Gina-Hadi di satu sisi, lalu paksa Kartika menjauh dari Intan -> Kartika otomatis berhadapan dengan Hadi.",
+    "stem": "Enam orang panitia—Fajar, Gina, Hadi, Intan, Joko, dan Kartika—duduk mengelilingi satu meja bundar dengan enam kursi yang berjarak sama menghadap ke pusat meja. Diketahui ketentuan berikut:\n1. Fajar duduk tepat berhadapan dengan Intan.\n2. Gina duduk tepat di antara Fajar dan Hadi.\n3. Kartika tidak duduk bersebelahan dengan Intan maupun Hadi.\n4. Joko menempati satu kursi yang tersisa.\n\nBerdasarkan ketentuan tersebut, pernyataan yang pasti benar adalah ...",
+    "options": {
+      "A": "Gina duduk tepat berhadapan dengan Kartika.",
+      "B": "Joko duduk bersebelahan dengan Hadi.",
+      "C": "Hadi duduk tepat berhadapan dengan Kartika.",
+      "D": "Kartika duduk di antara Hadi dan Fajar.",
+      "E": "Intan duduk di antara Gina dan Joko."
+    },
+    "hint": "Gambarkan 6 titik melingkar, kunci pasangan yang berhadapan lebih dulu, lalu tempatkan Kartika menjauhi kursi yang bertetangga dengan Intan.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Gina duduk tepat berhadapan dengan Joko, bukan dengan Kartika.",
+      "B": "Salah. Joko duduk di antara Intan dan Kartika sehingga tidak bersebelahan dengan Hadi.",
+      "C": "Benar. Urutan melingkarnya adalah Fajar - Gina - Hadi - Intan - Joko - Kartika, sehingga Hadi tepat berhadapan dengan Kartika.",
+      "D": "Salah. Kartika duduk di antara Joko dan Fajar, serta dilarang bersebelahan dengan Hadi.",
+      "E": "Salah. Intan duduk di antara Hadi dan Joko, sedangkan Gina di antara Fajar dan Hadi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analitis-jadwal-inspeksi-b3-029",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Dari aturan (6) dan (1), Keuangan tidak di Sabtu maka Keuangan wajib di Senin (hari ke-1). Dari aturan (3) melalui kontraposisi, karena Keuangan tidak di Sabtu maka Operasional tidak mungkin di Rabu. Dari aturan (4), Humas di Jumat (hari ke-5). Hari tersisa untuk Logistik, Hukum, Operasional, dan SDM adalah Selasa (2), Rabu (3), Kamis (4), dan Sabtu (6). Karena Logistik tepat satu hari sebelum Hukum (aturan 2), pasangan berurutan hanya bisa (Selasa, Rabu) atau (Rabu, Kamis). Jika (Rabu, Kamis), sisa hari {Selasa, Sabtu} tidak dapat memenuhi aturan SDM = Operasional + 2 hari (6 - 2 = 4 ≠ 2). Oleh sebab itu Logistik = Selasa, Hukum = Rabu, dan sisa {Kamis, Sabtu} memenuhi Operasional = Kamis dan SDM = Sabtu (4 + 2 = 6, sekaligus Operasional ≠ Rabu). Trik < 50 detik: Keuangan = Senin -> Operasional ≠ Rabu; cek pasangan berurutan Logistik-Hukum hanya cocok di Selasa-Rabu agar sisa Kamis & Sabtu berselisih 2 hari.",
+    "stem": "Tim auditor menjadwalkan inspeksi terhadap enam divisi—Keuangan, Logistik, SDM, Hukum, Humas, dan Operasional—masing-masing tepat satu hari dari Senin hingga Sabtu dengan aturan:\n1. Keuangan diinspeksi pada hari Senin atau Sabtu.\n2. Logistik diinspeksi tepat satu hari sebelum Hukum.\n3. Jika Operasional diinspeksi pada hari Rabu, maka Keuangan diinspeksi pada hari Sabtu.\n4. Humas diinspeksi pada hari Jumat.\n5. SDM diinspeksi tepat dua hari setelah Operasional.\n6. Keuangan tidak diinspeksi pada hari Sabtu.\n\nUrutan divisi yang diinspeksi pada hari Selasa, Rabu, dan Kamis secara berturut-turut adalah ...",
+    "options": {
+      "A": "Logistik, Operasional, Hukum",
+      "B": "Operasional, Hukum, Logistik",
+      "C": "Hukum, Logistik, Operasional",
+      "D": "Logistik, Hukum, Operasional",
+      "E": "SDM, Logistik, Hukum"
+    },
+    "hint": "Tetapkan hari pasti bagi Keuangan dan Humas terlebih dahulu, gunakan kontraposisi pada aturan ketiga, lalu uji dua kemungkinan pasangan Logistik-Hukum.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Aturan mengharuskan Logistik tepat satu hari sebelum Hukum tanpa diselingi Operasional.",
+      "B": "Salah. Jika Operasional Selasa maka SDM Kamis dan Hukum-Logistik tidak mungkin berurutan di sisa Rabu-Sabtu.",
+      "C": "Salah. Urutannya terbalik karena Logistik harus mendahului Hukum.",
+      "D": "Benar. Jadwal tunggal yang memenuhi seluruh syarat adalah Senin: Keuangan, Selasa: Logistik, Rabu: Hukum, Kamis: Operasional, Jumat: Humas, Sabtu: SDM.",
+      "E": "Salah. SDM tidak mungkin di hari Selasa karena harus berada tepat dua hari setelah Operasional."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analitis-ranking-bersyarat-b3-030",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Dari aturan (1) dan (2), Nando tepat di atas Laras, lalu tepat di bawah Laras berturut-turut adalah Panji dan Miko tanpa sisipan siapa pun. Ini membentuk satu blok berurutan dari tinggi ke rendah: (Nando - Laras - Panji - Miko). Dari aturan (3) dan (4), Raka berada di bawah Miko, Olin berada di bawah Raka, dan Qori berada tepat satu peringkat di bawah Olin; artinya ada sedikitnya 3 peserta (Raka, Olin, Qori) yang berperingkat lebih rendah daripada Miko. Karena total ada 7 peserta dan di atas Miko sudah ada 3 peserta (Nando, Laras, Panji), satu-satunya posisi bagi Miko adalah peringkat ke-4. Dengan demikian urutan lengkap dari ke-1 hingga ke-7 adalah: 1. Nando, 2. Laras, 3. Panji, 4. Miko, 5. Raka, 6. Olin, 7. Qori. Trik < 50 detik: gabungkan blok 4 orang di atas (Nando-Laras-Panji-Miko) dan rantai 3 orang di bawah Miko (Raka > Olin > Qori) sehingga total pas 7 posisi dan Panji = ke-3, Olin = ke-6.",
+    "stem": "Tujuh peserta seleksi—Laras, Miko, Nando, Olin, Panji, Qori, dan Raka—memperoleh peringkat ke-1 (tertinggi) sampai ke-7 (terendah) tanpa ada nilai yang sama, dengan ketentuan:\n1. Nando menempati tepat satu peringkat di atas Laras.\n2. Secara berturut-turut dari tinggi ke rendah tanpa diselingi peserta lain, peringkat Laras disusul oleh Panji, lalu Miko.\n3. Peringkat Raka lebih rendah daripada Miko, tetapi lebih tinggi daripada Olin.\n4. Qori menempati tepat satu peringkat di bawah Olin.\n\nPeserta yang menempati peringkat ke-3 dan ke-6 secara berturut-turut adalah ...",
+    "options": {
+      "A": "Laras dan Raka",
+      "B": "Panji dan Raka",
+      "C": "Miko dan Olin",
+      "D": "Laras dan Olin",
+      "E": "Panji dan Olin"
+    },
+    "hint": "Susun blok 4 peserta yang berurutan (Nando sampai Miko) dan hitung berapa peserta yang wajib berada di bawah Miko.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Laras berada di peringkat ke-2 dan Raka berada di peringkat ke-5.",
+      "B": "Salah. Panji benar di peringkat ke-3, tetapi Raka berada di peringkat ke-5 (di atas Olin).",
+      "C": "Salah. Miko berada di peringkat ke-4, bukan ke-3.",
+      "D": "Salah. Laras berada di peringkat ke-2 karena peringkat ke-1 ditempati Nando.",
+      "E": "Benar. Urutan tunggal ke-1 sampai ke-7 adalah Nando, Laras, Panji, Miko, Raka, Olin, Qori, sehingga peringkat ke-3 adalah Panji dan ke-6 adalah Olin."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analitis-meja-persegi-enam-b3-031",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Dari aturan (1), Lutfi menempati kursi tengah Selatan (S2) dan Maya menempati kursi tengah Utara (U2). Dari aturan (3), Kiki berada di ujung barat (U1 atau S1), namun tidak bersebelahan dengan Lutfi (S2); karena S1 bersebelahan dengan S2, maka Kiki wajib berada di U1 (ujung barat Utara). Dari aturan (2), Putra duduk bersebelahan dengan Maya (U2); karena U1 sudah ditempati Kiki, Putra wajib menempati U3 (ujung timur Utara). Karena Oki berhadapan dengan Putra (U3), Oki menempati S3 (ujung timur Selatan). Akhirnya Nisa menempati satu-satunya kursi tersisa yaitu S1 (ujung barat Selatan). Trik < 50 detik: kunci Lutfi=S2 dan Maya=U2, tolak Kiki dari S1 (tetangga S2) -> Kiki=U1, maka Putra=U3, Oki=S3, Nisa=S1.",
+    "stem": "Enam pegawai—Kiki, Lutfi, Maya, Nisa, Oki, dan Putra—duduk pada dua deretan kursi yang saling berhadapan: deretan Utara (tiga kursi dari barat ke timur) dan deretan Selatan (tiga kursi dari barat ke timur yang masing-masing tepat berhadapan dengan kursi deretan Utara). Diketahui aturan berikut:\n1. Lutfi duduk di kursi tengah deretan Selatan dan tepat berhadapan dengan Maya.\n2. Putra duduk bersebelahan dengan Maya, sedangkan Oki duduk tepat berhadapan dengan Putra.\n3. Kiki duduk di kursi ujung barat, tetapi tidak bersebelahan dengan Lutfi.\n4. Nisa menempati kursi yang tersisa.\n\nPasangan pegawai yang duduk di ujung timur deretan Utara dan ujung barat deretan Selatan secara berturut-turut adalah ...",
+    "options": {
+      "A": "Putra dan Nisa",
+      "B": "Oki dan Nisa",
+      "C": "Kiki dan Oki",
+      "D": "Putra dan Kiki",
+      "E": "Oki dan Kiki"
+    },
+    "hint": "Tempatkan Lutfi dan Maya di posisi tengah terlebih dahulu, lalu gunakan larangan bertetangga dengan Lutfi untuk menentukan deretan Kiki.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Deretan Utara (barat ke timur) adalah Kiki, Maya, Putra; deretan Selatan (barat ke timur) adalah Nisa, Lutfi, Oki, sehingga ujung timur Utara adalah Putra dan ujung barat Selatan adalah Nisa.",
+      "B": "Salah. Oki duduk di ujung timur deretan Selatan, bukan deretan Utara.",
+      "C": "Salah. Kiki duduk di ujung barat Utara dan Oki di ujung timur Selatan.",
+      "D": "Salah. Kiki duduk di ujung barat Utara, sedangkan ujung barat Selatan ditempati Nisa.",
+      "E": "Salah. Kedua posisi pada pilihan ini tertukar antara ujung timur Selatan dan ujung barat Utara."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analitis-penugasan-tim-bersyarat-b3-032",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Uji seluruh kemungkinan tim beranggotakan 4 orang dari 6 kandidat. Kasus 1 (Dika terpilih): dari syarat (2) Eka wajib masuk dan Feri dilarang masuk; dari syarat (4) karena Eka masuk maka Indra dilarang masuk. Dengan tersingkirnya Feri dan Indra, tim wajib berisi 4 orang tersisa yaitu {Dika, Eka, Gita, Hana} (memenuhi syarat 3 dan 5). Kasus 2 (Dika tidak terpilih): tersisa 5 kandidat {Eka, Feri, Gita, Hana, Indra} dan harus memilih 4 (hanya 1 orang boleh gugur). Karena syarat (4) melarang Eka dan Indra bersama, salah satu dari Eka atau Indra wajib gugur, sehingga 3 kandidat lain yaitu Feri, Gita, dan Hana wajib seluruhnya terpilih. Kombinasi valid yang mungkin adalah {Feri, Gita, Hana, Indra} atau {Eka, Feri, Gita, Hana}. Pada ketiga komposisi valid tersebut, Gita dan Hana selalu hadir. Trik < 50 detik: bagi dua kasus Dika masuk (Feri & Indra gugur -> sisa Gita & Hana wajib) vs Dika tidak masuk (salah satu Eka/Indra gugur -> Feri, Gita, Hana wajib).",
+    "stem": "Suatu instansi akan membentuk tim tugas beranggotakan tepat 4 orang dari enam kandidat: Dika, Eka, Feri, Gita, Hana, dan Indra. Pembentukan tim wajib mematuhi aturan:\n1. Jika Dika dipilih, maka Eka harus dipilih, tetapi Feri tidak boleh dipilih.\n2. Jika Gita tidak dipilih, maka Hana juga tidak boleh dipilih.\n3. Eka dan Indra tidak dapat berada dalam tim yang sama.\n4. Feri hanya dapat dipilih apabila Hana juga dipilih.\n\nPasangan kandidat yang PASTI selalu terpilih ke dalam tim pada setiap komposisi yang memenuhi seluruh aturan tersebut adalah ...",
+    "options": {
+      "A": "Dika dan Eka",
+      "B": "Gita dan Hana",
+      "C": "Eka dan Hana",
+      "D": "Feri dan Gita",
+      "E": "Feri dan Hana"
+    },
+    "hint": "Bagi analisis menjadi dua skenario (Dika terpilih dan Dika tidak terpilih), lalu cari irisan anggota yang muncul di semua komposisi tim yang sah.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Komposisi {Feri, Gita, Hana, Indra} sah tanpa menyertakan Dika maupun Eka.",
+      "B": "Benar. Ketiga komposisi tim yang sah adalah {Dika, Eka, Gita, Hana}, {Feri, Gita, Hana, Indra}, dan {Eka, Feri, Gita, Hana}; hanya Gita dan Hana yang selalu ada di ketiganya.",
+      "C": "Salah. Eka tidak terpilih pada komposisi {Feri, Gita, Hana, Indra}.",
+      "D": "Salah. Feri dilarang masuk pada komposisi {Dika, Eka, Gita, Hana}.",
+      "E": "Salah. Feri tidak selalu terpilih karena jika Dika masuk, Feri wajib dicoret."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analitis-urutan-presentasi-b3-033",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Gabungkan aturan (2) dan (4): Galuh tepat sebelum Farhan, dan Farhan tepat sebelum Elsa, membentuk blok berurutan 3 orang (Galuh - Farhan - Elsa). Dari aturan (3) dan (5), Darma hanya boleh di urutan ke-1 atau ke-6, tetapi bukan ke-1, sehingga Darma wajib di urutan ke-6. Dari aturan (1), Bintang dan Citra harus tampil setelah Elsa (Elsa < Bintang < Citra). Karena urutan ke-6 sudah diisi Darma, kedua tempat setelah Elsa hanya mungkin berada pada urutan ke-4 dan ke-5. Akibatnya blok (Galuh - Farhan - Elsa) wajib menempati urutan ke-1, ke-2, dan ke-3, disusul Bintang (ke-4), Citra (ke-5), dan Darma (ke-6). Trik < 50 detik: gabungkan blok Galuh-Farhan-Elsa, kunci Darma = ke-6, lalu tempatkan Bintang dan Citra di ke-4 dan ke-5.",
+    "stem": "Enam narasumber—Bintang, Citra, Darma, Elsa, Farhan, dan Galuh—dijadwalkan tampil berurutan dari giliran ke-1 hingga ke-6 dengan ketentuan:\n1. Elsa tampil lebih dulu daripada Bintang, sedangkan Bintang tampil lebih dulu daripada Citra.\n2. Galuh tampil tepat satu urutan sebelum Farhan.\n3. Darma tampil pada urutan ke-1 atau ke-6.\n4. Farhan tampil tepat satu urutan sebelum Elsa.\n5. Darma tidak tampil pada urutan ke-1.\n\nNarasumber yang tampil pada urutan ke-3 dan ke-5 secara berturut-turut adalah ...",
+    "options": {
+      "A": "Farhan dan Citra",
+      "B": "Elsa dan Bintang",
+      "C": "Elsa dan Citra",
+      "D": "Galuh dan Darma",
+      "E": "Bintang dan Darma"
+    },
+    "hint": "Rangkai aturan mengenai Galuh, Farhan, dan Elsa menjadi satu blok tiga urutan berturut-turut, lalu kunci posisi Darma terlebih dahulu.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Farhan tampil pada urutan ke-2 tepat sebelum Elsa pada urutan ke-3.",
+      "B": "Salah. Bintang tampil pada urutan ke-4, sedangkan urutan ke-5 diisi Citra.",
+      "C": "Benar. Urutan tunggal ke-1 sampai ke-6 adalah Galuh, Farhan, Elsa, Bintang, Citra, Darma, sehingga ke-3 adalah Elsa dan ke-5 adalah Citra.",
+      "D": "Salah. Galuh tampil pada urutan ke-1 dan Darma pada urutan ke-6.",
+      "E": "Salah. Bintang tampil pada urutan ke-4 dan Darma pada urutan ke-6."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analitis-lantai-gedung-b3-034",
+    "category": "TIU",
+    "subtopic": "Verbal - Analitis",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Dari aturan (2) dan (3), Bendahara di lantai ganjil lebih rendah daripada Diklat dan keduanya dipisahkan tepat oleh satu lantai yang ditempati Arsip; hal ini membentuk blok tiga lantai berurutan dari bawah ke atas: (Bendahara, Arsip, Diklat). Karena Bendahara di lantai ganjil (1, 3, atau 5) dan blok butuh 3 lantai (maksimal lantai 6), lantai awal hanya mungkin 1 atau 3. Jika Bendahara = Lantai 3, Arsip = Lantai 4, Diklat = Lantai 5, maka aturan (4) memaksa Humas berada di Lantai 6 (paling atas), yang melanggar larangan bahwa Humas bukan di lantai paling atas. Oleh karena itu wajib Bendahara = Lantai 1, Arsip = Lantai 2, Diklat = Lantai 3, dan Humas = Lantai 4. Dua lantai tersisa (5 dan 6) ditempati oleh Teknologi (Lantai 5) dan Riset (Lantai 6) sesuai aturan (1). Trik < 50 detik: blok (Bendahara-Arsip-Diklat) tidak bisa mulai di Lantai 3 karena mendorong Humas ke Lantai 6; jadi wajib di 1-2-3, Humas=4, Teknologi=5, Riset=6.",
+    "stem": "Suatu gedung kantor memiliki enam lantai (Lantai 1 terendah hingga Lantai 6 tertinggi) yang masing-masing ditempati tepat satu unit berbeda—Arsip, Bendahara, Diklat, Humas, Riset, dan Teknologi—dengan aturan:\n1. Unit Riset menempati tepat satu lantai di atas unit Teknologi.\n2. Unit Bendahara menempati lantai bernomor ganjil dan berada lebih rendah daripada unit Diklat.\n3. Terdapat tepat satu lantai di antara Bendahara dan Diklat, dan lantai pemisah tersebut ditempati oleh unit Arsip.\n4. Unit Humas berada tepat satu lantai di atas unit Diklat, dan tidak berada di lantai paling atas.\n\nUnit yang menempati Lantai 2 dan Lantai 5 secara berturut-turut adalah ...",
+    "options": {
+      "A": "Diklat dan Teknologi",
+      "B": "Arsip dan Humas",
+      "C": "Bendahara dan Riset",
+      "D": "Arsip dan Teknologi",
+      "E": "Diklat dan Riset"
+    },
+    "hint": "Susun blok tiga lantai (Bendahara - Arsip - Diklat) dan uji apakah lantai 3 memungkinkan syarat posisi Humas terpenuhi.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Diklat menempati Lantai 3, sedangkan Lantai 2 ditempati Arsip.",
+      "B": "Salah. Humas menempati Lantai 4 tepat di atas Diklat, bukan Lantai 5.",
+      "C": "Salah. Bendahara menempati Lantai 1 dan Riset menempati Lantai 6.",
+      "D": "Benar. Susunan dari Lantai 1 ke Lantai 6 adalah Bendahara, Arsip, Diklat, Humas, Teknologi, Riset; jadi Lantai 2 = Arsip dan Lantai 5 = Teknologi.",
+      "E": "Salah. Diklat di Lantai 3 dan Riset di Lantai 6."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-silogisme-tiga-premis-kontraposisi-b3-035",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan L = lolos seleksi kompetensi bidang, P = ditempatkan di unit pelayanan publik, E = mengikuti pelatihan etika profesi, B = pegawai angkatan baru. Premis (1): L -> P. Premis (2): P -> E. Dengan silogisme hipotetis diperoleh L -> E, yang kontraposisinya adalah ~E -> ~L (yang tidak mengikuti pelatihan etika profesi berarti tidak lolos seleksi kompetensi bidang). Premis (3): Sebagian B adalah ~E. Gabungkan dengan ~E -> ~L menghasilkan: Sebagian pegawai angkatan baru tidak lolos seleksi kompetensi bidang. Trik < 50 detik: rantai Semua (L -> P -> E) dibalik kontraposisi (~E -> ~L), lalu adanya kata 'Sebagian' pada premis ketiga mengunci kesimpulan wajib memuat 'Sebagian'.",
+    "stem": "Perhatikan tiga premis berikut:\n1. Semua pegawai yang lolos seleksi kompetensi bidang ditempatkan di unit pelayanan publik.\n2. Semua pegawai yang ditempatkan di unit pelayanan publik wajib mengikuti pelatihan etika profesi.\n3. Sebagian pegawai angkatan baru tidak mengikuti pelatihan etika profesi.\n\nKesimpulan yang paling sah secara logika formal adalah ...",
+    "options": {
+      "A": "Semua pegawai angkatan baru tidak lolos seleksi kompetensi bidang.",
+      "B": "Sebagian pegawai yang mengikuti pelatihan etika profesi adalah pegawai angkatan baru.",
+      "C": "Semua pegawai unit pelayanan publik merupakan pegawai yang lolos seleksi kompetensi bidang.",
+      "D": "Sebagian pegawai yang lolos seleksi kompetensi bidang tidak mengikuti pelatihan etika profesi.",
+      "E": "Sebagian pegawai angkatan baru tidak lolos seleksi kompetensi bidang."
+    },
+    "hint": "Gabungkan dua premis universal menjadi satu implikasi, ubah ke bentuk kontraposisinya, lalu hubungkan dengan premis berkuantor 'sebagian'.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Premis ketiga hanya menyebut 'sebagian', sehingga penarikan kesimpulan 'semua' melanggar hukum kuantor.",
+      "B": "Salah. Tidak ada premis yang menjamin irisan antara pegawai angkatan baru dan peserta pelatihan etika profesi; seluruh pegawai angkatan baru bisa saja tidak mengikuti pelatihan.",
+      "C": "Salah. Membalikkan implikasi 'jika L maka P' menjadi 'jika P maka L' adalah kesalahan konvers.",
+      "D": "Salah. Pernyataan ini bertentangan langsung dengan rantai premis (1) dan (2).",
+      "E": "Benar. Dari L -> P -> E diperoleh kontraposisi ~E -> ~L; karena sebagian pegawai angkatan baru adalah ~E, mereka pasti tidak lolos seleksi kompetensi bidang (~L)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-silogisme-demorgan-negasi-b3-036",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan S = proyek infrastruktur selesai tepat waktu, H = anggaran daerah dapat dihemat, M = kualitas jalan meningkat, D = kontraktor dikenai denda keterlambatan. Premis (1): S -> (H v M). Premis (2): ~H ^ ~M. Berdasarkan hukum De Morgan, ~H ^ ~M ekuivalen dengan ~(H v M). Dengan Modus Tollens pada Premis (1), karena ~(H v M) benar, maka ~S benar (proyek infrastruktur tidak selesai tepat waktu). Selanjutnya Premis (3) adalah ~S -> D. Dengan Modus Ponens dari ~S, diperoleh D benar (kontraktor dikenai denda keterlambatan). Kesimpulan sah: ~S ^ D. Trik < 50 detik: ubah '~H dan ~M' menjadi negasi dari '(H atau M)' via De Morgan -> picu Modus Tollens pada premis 1 (~S) -> picu Modus Ponens pada premis 3 (D).",
+    "stem": "Diketahui tiga premis berikut:\n1. Jika proyek infrastruktur selesai tepat waktu, maka anggaran daerah dapat dihemat atau kualitas jalan meningkat.\n2. Ternyata anggaran daerah tidak dapat dihemat dan kualitas jalan tidak meningkat.\n3. Jika proyek infrastruktur tidak selesai tepat waktu, maka kontraktor dikenai denda keterlambatan.\n\nKesimpulan yang pasti benar berdasarkan ketiga premis tersebut adalah ...",
+    "options": {
+      "A": "Proyek infrastruktur tidak selesai tepat waktu dan kontraktor dikenai denda keterlambatan.",
+      "B": "Proyek infrastruktur selesai tepat waktu meskipun kontraktor dikenai denda keterlambatan.",
+      "C": "Jika kontraktor dikenai denda keterlambatan, maka proyek infrastruktur selesai tepat waktu.",
+      "D": "Anggaran daerah dapat dihemat atau kontraktor tidak dikenai denda keterlambatan.",
+      "E": "Tidak dapat ditarik kesimpulan karena premis pertama berbentuk disjungsi."
+    },
+    "hint": "Gunakan hukum De Morgan untuk melihat bahwa negasi dari kedua akibat disjungsi pada premis pertama terjadi pada premis kedua.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Melalui hukum De Morgan (~H ^ ~M ≡ ~(H v M)) dan Modus Tollens, proyek tidak selesai tepat waktu (~S), yang lewat premis (3) memastikan kontraktor dikenai denda (D).",
+      "B": "Salah. Kesimpulan ini bertentangan dengan hasil Modus Tollens yang menyatakan proyek tidak selesai tepat waktu.",
+      "C": "Salah. Premis ketiga justru menyatakan ~S -> D, bukan D -> S.",
+      "D": "Salah. Premis kedua menegaskan anggaran tidak dapat dihemat (~H) dan deduksi menghasilkan kontraktor didenda (D).",
+      "E": "Salah. Disjungsi pada konsekuen tetap dapat diingkari secara utuh oleh konjungsi dua negasinya."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-silogisme-konjungsi-demorgan-b3-037",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan A = diterima menjadi auditor internal, S = memiliki sertifikasi audit, P = pernah terlibat pelanggaran kode etik, U = ditempatkan di divisi administrasi umum. Premis (1): A -> (S ^ ~P). Premis (2): Rendra mengalami P. Karena P benar, maka ~P salah, sehingga konjungsi (S ^ ~P) bernilai salah (hukum De Morgan: ~S v P bernilai benar). Dengan Modus Tollens pada Premis (1), disimpulkan ~A (Rendra tidak diterima menjadi auditor internal). Premis (3): ~A -> U. Dengan Modus Ponens, disimpulkan U (Rendra ditempatkan di divisi administrasi umum). Perhatikan bahwa tidak ada informasi apakah Rendra memiliki sertifikasi audit (S) atau tidak. Trik < 50 detik: syarat konjungsi 'S dan tidak P' gagal total cukup karena P terjadi -> Rendra gagal auditor (~A) -> masuk divisi administrasi umum (U).",
+    "stem": "Perhatikan pernyataan berikut:\n1. Jika seseorang diterima menjadi auditor internal, maka ia memiliki sertifikasi audit dan tidak pernah terlibat pelanggaran kode etik.\n2. Rendra tercatat pernah terlibat pelanggaran kode etik.\n3. Setiap pelamar yang tidak diterima menjadi auditor internal ditempatkan di divisi administrasi umum.\n\nKesimpulan yang sah berdasarkan seluruh pernyataan tersebut adalah ...",
+    "options": {
+      "A": "Rendra diterima menjadi auditor internal apabila ia memiliki sertifikasi audit.",
+      "B": "Rendra tidak diterima menjadi auditor internal dan ditempatkan di divisi administrasi umum.",
+      "C": "Rendra tidak memiliki sertifikasi audit sehingga ditempatkan di divisi administrasi umum.",
+      "D": "Sebagian karyawan divisi administrasi umum memiliki sertifikasi audit, termasuk Rendra.",
+      "E": "Rendra masih dapat diterima menjadi auditor internal asalkan memiliki sertifikasi audit."
+    },
+    "hint": "Sebuah pernyataan konjungsi ('... dan ...') bernilai salah apabila salah satu unsurnya saja sudah diingkari.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Syarat tidak pernah terlibat pelanggaran kode etik sudah dilanggar oleh Rendra sehingga kepemilikan sertifikasi saja tidak cukup.",
+      "B": "Benar. Karena Rendra pernah melanggar kode etik, konsekuen (S ^ ~P) gagal; lewat Modus Tollens ia tidak diterima sebagai auditor internal, lalu lewat premis (3) ia ditempatkan di divisi administrasi umum.",
+      "C": "Salah. Premis tidak memberikan informasi mengenai apakah Rendra memiliki sertifikasi audit atau tidak.",
+      "D": "Salah. Kepemilikan sertifikasi audit pada diri Rendra maupun karyawan administrasi umum lain tidak dapat dipastikan dari premis.",
+      "E": "Salah. Bertentangan dengan premis pertama yang mensyaratkan keduanya (konjungsi) secara bersamaan."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-silogisme-negasi-ganda-partikular-b3-038",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Terjemahkan premis dengan ekuivalensi kuantor. Premis (1): 'Tidak ada peneliti yang tidak menguasai analisis statistik' (negasi ganda) ekuivalen dengan 'Semua peneliti menguasai analisis statistik' (Peneliti -> Statistik). Premis (2): 'Tidak ada orang yang menguasai analisis statistik menolak perangkat lunak olah data' ekuivalen dengan 'Semua orang yang menguasai analisis statistik tidak menolak perangkat lunak olah data' (Statistik -> ~Menolak). Gabungkan (1) dan (2): Peneliti -> ~Menolak. Premis (3): 'Sebagian peserta seminar nasional adalah peneliti di lembaga riset tersebut' (Sebagian Peserta -> Peneliti). Dengan silogisme partikular diperoleh: Sebagian peserta seminar nasional tidak menolak penggunaan perangkat lunak olah data. Trik < 50 detik: ubah 'Tidak ada A yang tidak B' menjadi 'Semua A adalah B', hubungkan ke 'tidak menolak', lalu kawinkan dengan 'Sebagian peserta' -> kesimpulan wajib pakai 'Sebagian'.",
+    "stem": "Cermati premis-premis berikut:\n1. Tidak ada peneliti di lembaga riset tersebut yang tidak menguasai analisis statistik.\n2. Tidak ada orang yang menguasai analisis statistik menolak penggunaan perangkat lunak olah data.\n3. Sebagian peserta seminar nasional merupakan peneliti di lembaga riset tersebut.\n\nKesimpulan yang pasti benar adalah ...",
+    "options": {
+      "A": "Semua peserta seminar nasional menguasai analisis statistik.",
+      "B": "Sebagian peneliti di lembaga riset tersebut menolak penggunaan perangkat lunak olah data.",
+      "C": "Sebagian peserta seminar nasional tidak menolak penggunaan perangkat lunak olah data.",
+      "D": "Semua orang yang tidak menolak penggunaan perangkat lunak olah data adalah peneliti.",
+      "E": "Tidak ada peserta seminar nasional yang menolak penggunaan perangkat lunak olah data."
+    },
+    "hint": "Sederhanakan bentuk negasi ganda ('Tidak ada ... yang tidak ...') menjadi kuantor universal positif ('Semua ... adalah ...') terlebih dahulu.",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Hanya sebagian peserta seminar nasional yang diketahui merupakan peneliti.",
+      "B": "Salah. Bertentangan dengan gabungan premis (1) dan (2) yang membuktikan semua peneliti tidak menolak perangkat lunak olah data.",
+      "C": "Benar. Semua peneliti menguasai statistik dan tidak menolak perangkat lunak olah data; karena sebagian peserta seminar adalah peneliti, sebagian peserta seminar tersebut tidak menolak perangkat lunak olah data.",
+      "D": "Salah. Membalikkan 'Semua peneliti tidak menolak' menjadi 'Semua yang tidak menolak adalah peneliti' adalah sesat pikir konvers.",
+      "E": "Salah. Kesimpulan universal 'Tidak ada' mengabaikan fakta bahwa hanya sebagian peserta seminar yang merupakan peneliti."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-silogisme-ekuivalensi-majemuk-b3-039",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Nyatakan kalimat dalam logika proposisi: A = sistem cadangan listrik aktif, G = generator menyala, S = layanan server tetap beroperasi, H = data transaksi hilang (sehingga ~H = data transaksi tidak hilang). Kalimat asal berbentuk (A v G) -> (S ^ ~H). Suatu implikasi p -> q selalu ekuivalen dengan kontraposisinya yaitu ~q -> ~p. Jadi bentuk ekuivalennya adalah ~(S ^ ~H) -> ~(A v G). Terapkan hukum De Morgan pada kedua sisi: ~(S ^ ~H) ≡ (~S v H) ('layanan server tidak beroperasi atau data transaksi hilang'), dan ~(A v G) ≡ (~A ^ ~G) ('sistem cadangan listrik tidak aktif dan generator tidak menyala'). Trik < 50 detik: balik posisi (sebab <-> akibat), negasikan semua unsur, dan tukar setiap kata penghubung 'atau' <-> 'dan'.",
+    "stem": "Pernyataan yang memiliki nilai kebenaran setara (ekuivalen) dengan kalimat: 'Jika sistem cadangan listrik aktif atau generator menyala, maka layanan server tetap beroperasi dan data transaksi tidak hilang' adalah ...",
+    "options": {
+      "A": "Jika sistem cadangan listrik tidak aktif atau generator tidak menyala, maka layanan server tidak beroperasi dan data transaksi hilang.",
+      "B": "Jika layanan server tidak beroperasi dan data transaksi hilang, maka sistem cadangan listrik tidak aktif atau generator tidak menyala.",
+      "C": "Jika layanan server tetap beroperasi dan data transaksi tidak hilang, maka sistem cadangan listrik aktif atau generator menyala.",
+      "D": "Jika layanan server tidak beroperasi atau data transaksi hilang, maka sistem cadangan listrik tidak aktif dan generator tidak menyala.",
+      "E": "Sistem cadangan listrik aktif dan generator menyala, atau layanan server tetap beroperasi dan data transaksi tidak hilang."
+    },
+    "hint": "Cari bentuk kontraposisi (~q -> ~p) dengan membalik urutan implikasi sekaligus menerapkan hukum De Morgan pada kata hubung 'dan' serta 'atau'.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Mengingkari premis tanpa membalik posisi (~p -> ~q) adalah bentuk invers yang tidak ekuivalen, sekaligus keliru mempertahankan kata hubung.",
+      "B": "Salah. Kata hubung pada kedua sisi tidak diubah sesuai hukum De Morgan ('dan' seharusnya menjadi 'atau' di depan, dan 'atau' menjadi 'dan' di belakang).",
+      "C": "Salah. Membalik posisi tanpa negasi (q -> p) adalah konvers yang tidak ekuivalen dengan implikasi asal.",
+      "D": "Benar. Kontraposisi dari (A v G) -> (S ^ ~H) adalah ~(S ^ ~H) -> ~(A v G), yang lewat De Morgan menjadi (~S v H) -> (~A ^ ~G).",
+      "E": "Salah. Ekuivalensi disjungtif (p -> q ≡ ~p v q) menuntut negasi penuh pada anteseden, bukan mempertahankannya sebagai pernyataan positif."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-silogisme-tidak-semua-tiga-premis-b3-040",
+    "category": "TIU",
+    "subtopic": "Verbal - Silogisme",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Misalkan A = anggota tim audit, L = telah menyerahkan laporan harta kekayaan sebelum tenggat, K = pegawai divisi keuangan, T = ditunda pencairan tunjangan kinerjanya. Premis (1): A -> L, dengan kontraposisi ~L -> ~A. Premis (2): 'Tidak semua K adalah L' secara logika formal ekuivalen dengan 'Sebagian K adalah ~L' (ada pegawai divisi keuangan yang belum menyerahkan laporan sebelum tenggat). Premis (3): ~L -> T. Gabungkan Sebagian K -> ~L dengan dua implikasi universal (~L -> ~A dan ~L -> T), maka untuk sebagian pegawai divisi keuangan tersebut berlaku sekaligus ~A dan T. Trik < 50 detik: ubah 'Tidak semua K = L' menjadi 'Sebagian K = ~L', lalu terapkan dua akibat dari ~L: bukan tim audit (~A) dan ditunda tunjangannya (T).",
+    "stem": "Perhatikan ketiga premis berikut:\n1. Semua anggota tim audit telah menyerahkan laporan harta kekayaan sebelum tenggat waktu.\n2. Tidak semua pegawai divisi keuangan telah menyerahkan laporan harta kekayaan sebelum tenggat waktu.\n3. Semua pegawai yang belum menyerahkan laporan harta kekayaan sebelum tenggat waktu ditunda pencairan tunjangan kinerjanya.\n\nKesimpulan yang pasti benar berdasarkan seluruh premis tersebut adalah ...",
+    "options": {
+      "A": "Semua pegawai divisi keuangan bukan anggota tim audit.",
+      "B": "Sebagian anggota tim audit ditunda pencairan tunjangan kinerjanya.",
+      "C": "Tidak ada pegawai divisi keuangan yang menjadi anggota tim audit.",
+      "D": "Semua pegawai yang ditunda pencairan tunjangan kinerjanya berasal dari divisi keuangan.",
+      "E": "Sebagian pegawai divisi keuangan bukan anggota tim audit dan ditunda pencairan tunjangan kinerjanya."
+    },
+    "hint": "Ingat bahwa ungkapan 'Tidak semua X bersifat Y' dalam logika formal bermakna 'Sebagian X tidak bersifat Y'.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Hanya sebagian pegawai divisi keuangan yang diketahui belum menyerahkan laporan, bukan semuanya.",
+      "B": "Salah. Karena semua anggota tim audit sudah menyerahkan laporan, tidak ada anggota tim audit yang terkena penundaan berdasarkan premis.",
+      "C": "Salah. Pegawai divisi keuangan yang sudah menyerahkan laporan masih mungkin menjadi anggota tim audit.",
+      "D": "Salah. Penundaan berlaku bagi siapa pun yang belum melapor (~L -> T), tidak terbatas pada divisi keuangan.",
+      "E": "Benar. 'Tidak semua K adalah L' berarti sebagian K adalah ~L; lewat kontraposisi premis (1) dan premis (3), mereka pasti bukan tim audit (~A) dan ditunda tunjangannya (T)."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analogi-kalimat-otoritas-vonis-b3-041",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Bedah struktur peran dan relasi fungsional kalimat pokok: [Hakim = otoritas penegak aturan yang netral] + [menjatuhkan vonis = menetapkan keputusan/sanksi resmi] + berdasarkan [fakta persidangan = bukti pelanggaran/kejadian terverifikasi] + di [ruang pengadilan = arena institusi resmi]. Pilihan A memetakan pola yang identik: [Wasit = otoritas penegak aturan yang netral] + [memberikan kartu merah = menetapkan keputusan/sanksi resmi] + berdasarkan [pelanggaran pemain = bukti kejadian] + di [lapangan pertandingan = arena resmi]. Pilihan lain menyimpang pada peran subjek (pembela/penuntut/pelaksana layanan) atau ketiadaan dasar bukti keputusan. Trik < 50 detik: kunci pola 'otoritas penengah + sanksi resmi + berdasarkan bukti/pelanggaran + di arena resmi'.",
+    "stem": "Hubungan objek dan pola fungsional pada kalimat 'Hakim menjatuhkan vonis berdasarkan fakta persidangan di ruang pengadilan' paling setara dengan kalimat ...",
+    "options": {
+      "A": "Wasit memberikan kartu merah berdasarkan pelanggaran pemain di lapangan pertandingan.",
+      "B": "Jaksa membacakan tuntutan kepada terdakwa sebelum sidang ditutup oleh panitera.",
+      "C": "Pengacara menyusun pembelaan hukum agar kliennya terbebas dari dakwaan jaksa.",
+      "D": "Polisi mengatur lalu lintas di persimpangan jalan pada jam sibuk pagi hari.",
+      "E": "Dokter menuliskan resep obat untuk pasien yang sedang dirawat di ruang inap."
+    },
+    "hint": "Cocokkan peran subjek sebagai pengambil keputusan/sanksi yang sah, dasar bukti yang digunakan, dan lokasi resminya.",
+    "correctOption": "A",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Benar. Wasit (otoritas netral) menetapkan sanksi resmi (kartu merah) berdasarkan bukti kejadian (pelanggaran) di lokasi resmi (lapangan), setara dengan Hakim-vonis-fakta-pengadilan.",
+      "B": "Salah. Jaksa berperan sebagai pihak penuntut, bukan otoritas pemutus akhir, dan kalimat ini menggunakan penanda waktu, bukan dasar pembuktian.",
+      "C": "Salah. Pengacara berperan membela salah satu pihak dengan klausa tujuan, bukan menjatuhkan keputusan objektif berbasis fakta.",
+      "D": "Salah. Kalimat menggambarkan pengaturan ketertiban umum menurut waktu, bukan penetapan sanksi berbasis bukti.",
+      "E": "Salah. Hubungan dokter-resep-pasien merupakan tindakan penyembuhan medis terhadap penerima layanan, bukan putusan atas bukti pelanggaran."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analogi-kalimat-mitigasi-pelindung-b3-042",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Analisis fungsi kausal kalimat pokok: [Tanggul beton = penghalang fisik pelindung] + dibangun di [tepi sungai = zona batas alami] + untuk [menahan luapan air = mitigasi ancaman limpasan] + ketika [debit hujan meningkat = pemicu kondisi ekstrem]. Pilihan B menunjukkan pemetaan paling tepat: [Sabuk hijau mangrove = penghalang fisik/ekologis pelindung] + ditanam di [pesisir pantai = zona batas alami] + untuk [meredam gelombang pasang = mitigasi ancaman limpasan air] + saat [badai melanda = pemicu kondisi ekstrem]. Pilihan D mengecoh karena waduk menampung cadangan saat kekurangan air (kemarau), bukan menahan ancaman luapan. Trik < 50 detik: fokus pada fungsi 'penghalang di zona batas untuk meredam ancaman berlebih saat kondisi ekstrem'.",
+    "stem": "Hubungan fungsional antarunsur pada kalimat 'Tanggul beton dibangun di sepanjang tepi sungai untuk menahan luapan air ketika debit hujan meningkat' setara dengan kalimat ...",
+    "options": {
+      "A": "Jembatan gantung dibangun di atas jurang untuk menghubungkan dua desa yang terisolasi.",
+      "B": "Sabuk hijau mangrove ditanam di pesisir pantai untuk meredam gelombang pasang saat badai melanda.",
+      "C": "Menara pemancar didirikan di puncak bukit untuk memperluas jangkauan sinyal seluler warga.",
+      "D": "Waduk buatan digali di kawasan hulu untuk menampung cadangan irigasi selama musim kemarau tiba.",
+      "E": "Lampu lalu lintas dipasang di persimpangan jalan untuk mengatur giliran kendaraan yang melintas."
+    },
+    "hint": "Perhatikan relasi antara struktur penahan di garis batas dan tujuannya untuk mencegah dampak bahaya saat pemicu ekstrem muncul.",
+    "correctOption": "B",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Jembatan berfungsi menghubungkan akses transportasi, bukan menahan ancaman bencana.",
+      "B": "Benar. Sabuk mangrove di pesisir pantai berfungsi sebagai struktur mitigasi untuk meredam gelombang pasang saat badai, identik dengan tanggul sungai saat hujan deras.",
+      "C": "Salah. Menara pemancar bertujuan meningkatkan cakupan layanan komunikasi, bukan membendung ancaman.",
+      "D": "Salah. Waduk menyimpan cadangan sumber daya untuk mengantisipasi kekeringan, bukan menahan luapan berlebih saat puncak bahaya.",
+      "E": "Salah. Lampu lalu lintas mengatur keteraturan arus kendaraan, bukan struktur penahan di zona batas alam."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analogi-kalimat-verifikasi-alat-b3-043",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Petakan urutan logis dan alat pada kalimat utama: [Kurator = ahli penilai kualitas] + [memeriksa keaslian lukisan = memverifikasi kelayakan/autentisitas objek] + dengan [mikroskop = instrumen uji teknis] + sebelum [memamerkannya di galeri seni = merilisnya ke ruang publik/tujuan]. Pilihan C memiliki kesetaraan penuh: [Apoteker = ahli penilai kualitas] + [menguji kemurnian bahan obat = memverifikasi kelayakan/kemurnian objek] + dengan [spektrometer = instrumen uji teknis] + sebelum [mendistribusikannya ke apotek = merilisnya ke tujuan publik]. Pilihan D salah urutan waktu ('setelah menutup') dan tidak menguji mutu objek sebelum rilis. Trik < 50 detik: cocokkan pola 'ahli + verifikasi mutu dengan instrumen teknis + sebelum dirilis/didistribusikan'.",
+    "stem": "Hubungan peran, alat, dan urutan proses pada kalimat 'Kurator memeriksa keaslian lukisan dengan mikroskop sebelum memamerkannya di galeri seni' paling sepadan dengan kalimat ...",
+    "options": {
+      "A": "Pelukis mencampur cat minyak di atas palet sebelum menggoreskannya ke atas kanvas putih.",
+      "B": "Pengunjung memotret patung kuno menggunakan ponsel saat berkeliling di dalam museum.",
+      "C": "Apoteker menguji kemurnian bahan obat dengan spektrometer sebelum mendistribusikannya ke apotek.",
+      "D": "Kasir menghitung uang tunai dengan mesin penghitung setelah menutup loket pembayaran harian.",
+      "E": "Kolektor membeli barang antik melalui lelang daring tanpa melihat wujud aslinya secara langsung."
+    },
+    "hint": "Perhatikan siapa yang melakukan pemeriksaan (ahli penilai, bukan pembuat atau konsumen) dan posisi waktunya (sebelum diedarkan atau dipamerkan).",
+    "correctOption": "C",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Pelukis adalah pembuat karya yang menyiapkan bahan, bukan ahli penguji keaslian/mutu sebelum pameran.",
+      "B": "Salah. Pengunjung hanya mendokumentasikan objek pameran yang sudah dipajang, bukan melakukan inspeksi pra-rilis.",
+      "C": "Benar. Apoteker menguji kemurnian objek menggunakan instrumen ilmiah (spektrometer) sebagai kontrol mutu sebelum diedarkan ke apotek.",
+      "D": "Salah. Penghitungan uang dilakukan sesudah aktivitas loket ditutup, bukan inspeksi kelayakan sebelum rilis.",
+      "E": "Salah. Kalimat justru menyatakan ketiadaan pemeriksaan fisik menggunakan alat apa pun."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analogi-kalimat-kausal-berantai-b3-044",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Kalimat pokok menggambarkan rantai sebab-akibat tiga tahap (cost-push cascade): [1. Kenaikan harga bahan bakar = guncangan biaya input hulu] -> memicu [2. ongkos distribusi melambung = kenaikan biaya proses antara] -> sehingga [3. harga pangan di pasar ikut terkerek = kenaikan harga produk akhir di hilir]. Pilihan D mereplikasi rantai tiga tahap yang sama persis: [1. Kelangkaan pasokan cip semikonduktor = guncangan input hulu] -> menyebabkan [2. biaya perakitan komponen naik = kenaikan biaya proses antara] -> sehingga [3. harga jual gawai ikut meningkat = kenaikan harga produk akhir di hilir]. Pilihan B dan C hanya memiliki dua tahap kausal dan bukan eskalasi biaya berantai. Trik < 50 detik: cari kalimat dengan 3 mata rantai sebab-akibat negatif berjenjang (hulu -> biaya antara -> harga hilir).",
+    "stem": "Pola hubungan sebab-akibat berantai pada kalimat 'Kenaikan harga bahan bakar memicu ongkos distribusi melambung sehingga harga pangan di pasar ikut terkerek' paling setara dengan kalimat ...",
+    "options": {
+      "A": "Penurunan suku bunga pinjaman membuat nasabah segera melunasi cicilan kredit rumah lebih awal.",
+      "B": "Pembangunan jalan tol baru memangkas waktu tempuh perjalanan antarprovinsi menjadi jauh lebih singkat.",
+      "C": "Pemadaman listrik sementara menghentikan aktivitas mesin pabrik selama kurang lebih dua jam.",
+      "D": "Kelangkaan pasokan cip semikonduktor menyebabkan biaya perakitan komponen naik sehingga harga jual gawai ikut meningkat.",
+      "E": "Pemberian subsidi pupuk bertujuan membantu petani menekan biaya tanam pada awal musim hujan."
+    },
+    "hint": "Identifikasi rantai kausal tiga tingkat: gangguan di hulu menaikkan biaya antara, lalu mendorong kenaikan harga produk akhir.",
+    "correctOption": "D",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Hanya memuat hubungan dua tahap dan tidak menggambarkan rantai kenaikan biaya dari hulu ke hilir.",
+      "B": "Salah. Hanya memuat dua tahap sebab-akibat (pembangunan tol -> waktu tempuh singkat) berupa efisiensi positif.",
+      "C": "Salah. Hanya memuat dua tahap langsung (listrik padam -> mesin berhenti), tanpa tahap perantara dan dampak harga hilir.",
+      "D": "Benar. Memuat rantai sebab-akibat tiga tingkat yang identik: gangguan input hulu (kelangkaan cip) -> biaya antara (perakitan naik) -> harga hilir (harga gawai meningkat).",
+      "E": "Salah. Kalimat menyatakan tujuan kebijakan ('bertujuan membantu'), bukan rantai sebab-akibat ekonomi tiga tahap."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  },
+  {
+    "slug": "tiu-analogi-kalimat-transformasi-tahapan-b3-045",
+    "category": "TIU",
+    "subtopic": "Verbal - Analogi",
+    "difficulty": "hots",
+    "materialSlugs": [],
+    "reasoningChain": "Petakan pola transformasi pada kalimat utama: [Biji kakao = bahan mentah nabati] + mengalami [serangkaian proses pengolahan berurutan: difermentasi, disangrai, digiling] + hingga berubah wujud menjadi [bubuk cokelat siap seduh = produk akhir siap seduh]. Pilihan E memiliki kesetaraan menyeluruh: [Daun teh = bahan mentah nabati] + mengalami [serangkaian proses pengolahan berurutan: dilayukan, digulung, dikeringkan] + hingga berubah wujud menjadi [teh seduh siap konsumsi = produk akhir siap seduh]. Pilihan A, B, C, dan D hanya melibatkan pemotongan, pemindahan, penyajian langsung, atau pengemasan tanpa transformasi bertahap menjadi produk olahan baru. Trik < 50 detik: cocokkan pola 'bahan mentah nabati + 3 tahap pemrosesan berurutan + berubah menjadi produk olahan siap seduh'.",
+    "stem": "Hubungan transformasi proses pada kalimat 'Biji kakao difermentasi lalu disangrai dan digiling hingga berubah menjadi bubuk cokelat siap seduh' paling setara dengan kalimat ...",
+    "options": {
+      "A": "Kayu jati dipotong menjadi balok panjang lalu dikirim menuju gudang penyimpanan material.",
+      "B": "Air laut dialirkan ke petak tambak lalu ditampung hingga menggenangi seluruh area pesisir.",
+      "C": "Buah jeruk dikupas kulitnya lalu langsung disajikan di atas piring sebagai hidangan penutup.",
+      "D": "Kain batik dilipat rapi lalu dimasukkan ke dalam kotak kemasan sebelum dikirim kepada pemesan.",
+      "E": "Daun teh dilayukan lalu digulung dan dikeringkan hingga berubah menjadi teh seduh siap konsumsi."
+    },
+    "hint": "Cari kalimat yang menggambarkan perubahan wujud suatu bahan baku nabati melalui beberapa tahap pengolahan berurutan menjadi produk siap seduh.",
+    "correctOption": "E",
+    "scoringRubric": null,
+    "optionRationales": {
+      "A": "Salah. Kayu hanya dipotong dan dipindahkan ke gudang, tidak diolah bertahap menjadi produk konsumsi.",
+      "B": "Salah. Air laut hanya dialirkan dan ditampung, tidak mengalami transformasi pengolahan hingga menjadi produk akhir.",
+      "C": "Salah. Buah hanya dikupas dan langsung disajikan tanpa rangkaian pemrosesan pengubah wujud.",
+      "D": "Salah. Melipat dan mengemas hanyalah proses pengepakan produk yang sudah jadi, bukan pengolahan bahan baku.",
+      "E": "Benar. Daun teh (bahan mentah nabati) melalui tiga tahap pemrosesan berurutan (dilayukan, digulung, dikeringkan) hingga menjadi produk seduh siap konsumsi."
+    },
+    "source": {
+      "type": "tryout",
+      "title": "Kompilasi Pola HOTS SKD BKN & TPA Kedinasan"
+    }
+  }
+]

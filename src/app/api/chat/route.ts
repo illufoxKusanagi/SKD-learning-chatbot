@@ -151,6 +151,7 @@ async function handleChatPost(request: NextRequest) {
 
   let conversationId = chatId;
   let guestSetCookie: string | null = null;
+  let resolvedGuestSessionId: string | null = null;
 
   // Manage conversation for authenticated vs guest user
   if (userId) {
@@ -194,6 +195,7 @@ async function handleChatPost(request: NextRequest) {
       if (!conversationId) {
         const guest = await getOrCreateGuestSession(request);
         guestSetCookie = guest.setCookieHeader;
+        resolvedGuestSessionId = guest.guestId;
         const expiresAt = new Date();
         expiresAt.setDate(expiresAt.getDate() + 1);
 
@@ -210,7 +212,7 @@ async function handleChatPost(request: NextRequest) {
           .returning({ id: conversations.id });
         conversationId = newGuestChat.id;
       } else {
-        const guestId = await readVerifiedGuestId(request);
+        let guestId = await readVerifiedGuestId(request);
         const [existingChat] = await db
           .select({
             isGuestChat: conversations.isGuestChat,
@@ -248,6 +250,13 @@ async function handleChatPost(request: NextRequest) {
             'CHAT_EXPIRED'
           );
         }
+
+        if (!guestId) {
+          const createdGuest = await getOrCreateGuestSession(request);
+          guestId = createdGuest.guestId;
+          guestSetCookie = createdGuest.setCookieHeader;
+        }
+        resolvedGuestSessionId = existingChat.guestSessionId || guestId;
       }
     } catch (error) {
       if (error instanceof ApiError) throw error;
@@ -256,8 +265,8 @@ async function handleChatPost(request: NextRequest) {
     }
   }
 
-  // 1. Parallelise independent reads: conversation history, conversation quizzes, and user quizzes
-  const [recentDbMessages, chatQuizzes, userQuizzes] = await Promise.all([
+  // 1. Parallelise independent reads: conversation history and conversation quizzes
+  const [recentDbMessages, chatQuizzes] = await Promise.all([
     db
       .select({
         role: messages.role,
@@ -273,12 +282,6 @@ async function handleChatPost(request: NextRequest) {
       .from(quizAttempts)
       .where(eq(quizAttempts.chatId, conversationId))
       .orderBy(desc(quizAttempts.createdAt)),
-    userId
-      ? db
-          .select({ ragSourceId: quizAttempts.ragSourceId })
-          .from(quizAttempts)
-          .where(eq(quizAttempts.userId, userId))
-      : Promise.resolve([] as { ragSourceId: string | null }[]),
   ]);
 
   const latestDbMessage = recentDbMessages[0];
@@ -308,20 +311,34 @@ async function handleChatPost(request: NextRequest) {
     const markerId = lastBotMsg?.content.match(
       /<!--QUIZ_ATTEMPT:([a-f0-9-]+)-->/i
     )?.[1];
-    pendingQuiz = markerId
-      ? chatQuizzes.find((q) => q.id === markerId && q.status === 'pending') ||
-        null
-      : null;
+    if (markerId) {
+      pendingQuiz =
+        chatQuizzes.find((q) => q.id === markerId && q.status === 'pending') ||
+        null;
+    } else {
+      const packMatch = lastBotMsg?.content.match(
+        /<!--QUIZ_PACK:([a-f0-9,-]+)-->/i
+      )?.[1];
+      if (packMatch) {
+        const packIds = packMatch
+          .split(',')
+          .map((id) => id.trim())
+          .filter(Boolean);
+        for (const id of packIds) {
+          const match = chatQuizzes.find(
+            (q) => q.id === id && q.status === 'pending'
+          );
+          if (match) {
+            pendingQuiz = match;
+            break;
+          }
+        }
+      }
+    }
   }
 
   const attemptedSourceSet = new Set<string>();
   for (const q of chatQuizzes) {
-    if (q.ragSourceId) {
-      attemptedSourceSet.add(q.ragSourceId);
-    }
-  }
-
-  for (const q of userQuizzes) {
     if (q.ragSourceId) {
       attemptedSourceSet.add(q.ragSourceId);
     }
@@ -485,6 +502,8 @@ async function handleChatPost(request: NextRequest) {
             : await findRelevantContents(message, {
                 history,
                 attemptedSourceIds,
+                userId,
+                guestSessionId: resolvedGuestSessionId,
               });
 
           const generator = generateAiResponse(
@@ -500,36 +519,85 @@ async function handleChatPost(request: NextRequest) {
             encoder
           );
 
-          const { visibleText, quizMeta } =
-            extractQuizMetaFromText(rawAccumulated);
+          const { visibleText } = extractQuizMetaFromText(rawAccumulated);
+
+          const benchmarks =
+            ragResult?.isQuizRequest &&
+            Array.isArray(ragResult.unattemptedBenchmarks)
+              ? ragResult.unattemptedBenchmarks
+              : [];
 
           let finalBotContent = visibleText;
-          let insertedQuizId: string | null = null;
-          if (quizMeta) {
-            if (
-              ragResult?.unattemptedBenchmark?.ragSourceId &&
-              !quizMeta.ragSourceId
-            ) {
-              quizMeta.ragSourceId = ragResult.unattemptedBenchmark.ragSourceId;
+          if (benchmarks.length > 1) {
+            let insertedPackIds: string[] = [];
+            await db.transaction(async (tx) => {
+              const baseTimeMs = Date.now();
+              const insertedRows = await tx
+                .insert(quizAttempts)
+                .values(
+                  benchmarks.map((q, idx) => ({
+                    chatId: conversationId,
+                    questionId: q.questionId ?? null,
+                    userId: userId ?? null,
+                    ragSourceId: q.ragSourceId
+                      ? String(q.ragSourceId).slice(0, 255)
+                      : null,
+                    category: q.category,
+                    subtopic: q.subtopic,
+                    questionStem: q.questionStem,
+                    imageUrl: q.imageUrl ?? null,
+                    options: q.options,
+                    correctOption: q.correctOption,
+                    scoringRubric: q.scoringRubric,
+                    rubricRationale: q.rubricRationale,
+                    maxScore: 5,
+                    status: 'pending',
+                    createdAt: new Date(baseTimeMs + idx),
+                  }))
+                )
+                .returning({ id: quizAttempts.id });
+
+              insertedPackIds = insertedRows.map((row) => row.id);
+              const packMarker = `\n\n<!--QUIZ_PACK:${insertedPackIds.join(',')}-->`;
+              finalBotContent = `${visibleText}${packMarker}`;
+
+              await tx.insert(messages).values({
+                chatId: conversationId,
+                role: 'bot',
+                content: finalBotContent,
+                createdAt: new Date(),
+              });
+            });
+
+            if (insertedPackIds.length > 0) {
+              controller.enqueue(
+                encoder.encode(
+                  `\n\n<!--QUIZ_PACK:${insertedPackIds.join(',')}-->`
+                )
+              );
             }
+          } else if (benchmarks.length === 1) {
+            const singleQuiz = benchmarks[0];
+            let insertedQuizId: string | null = null;
 
             await db.transaction(async (tx) => {
               const [insertedQuiz] = await tx
                 .insert(quizAttempts)
                 .values({
                   chatId: conversationId,
+                  questionId: singleQuiz.questionId ?? null,
                   userId: userId ?? null,
-                  ragSourceId: quizMeta.ragSourceId
-                    ? String(quizMeta.ragSourceId).slice(0, 255)
+                  ragSourceId: singleQuiz.ragSourceId
+                    ? String(singleQuiz.ragSourceId).slice(0, 255)
                     : null,
-                  category: quizMeta.category,
-                  subtopic: quizMeta.subtopic,
-                  questionStem: quizMeta.questionStem,
-                  imageUrl: quizMeta.imageUrl ?? null,
-                  options: quizMeta.options,
-                  correctOption: quizMeta.correctOption,
-                  scoringRubric: quizMeta.scoringRubric,
-                  rubricRationale: quizMeta.rubricRationale,
+                  category: singleQuiz.category,
+                  subtopic: singleQuiz.subtopic,
+                  questionStem: singleQuiz.questionStem,
+                  imageUrl: singleQuiz.imageUrl ?? null,
+                  options: singleQuiz.options,
+                  correctOption: singleQuiz.correctOption,
+                  scoringRubric: singleQuiz.scoringRubric,
+                  rubricRationale: singleQuiz.rubricRationale,
                   maxScore: 5,
                   status: 'pending',
                 })
@@ -564,7 +632,28 @@ async function handleChatPost(request: NextRequest) {
           controller.close();
         }
       } catch (streamError) {
-        console.error('Streaming error in chat route:', streamError);
+        const errRecord =
+          streamError && typeof streamError === 'object'
+            ? (streamError as {
+                name?: unknown;
+                status?: unknown;
+                message?: unknown;
+              })
+            : null;
+        const errName =
+          typeof errRecord?.name === 'string' ? errRecord.name : 'Error';
+        const errStatus =
+          typeof errRecord?.status === 'number' ||
+          typeof errRecord?.status === 'string'
+            ? ` (status=${errRecord.status})`
+            : '';
+        const errMessage =
+          typeof errRecord?.message === 'string'
+            ? errRecord.message
+            : String(streamError);
+        console.error(
+          `Streaming error in chat route: [${errName}${errStatus}] ${errMessage}`
+        );
         if (isAnsweringPendingQuiz && pendingQuiz && !explanationPersisted) {
           await db
             .update(quizAttempts)
