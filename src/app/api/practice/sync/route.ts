@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
 import { z } from "zod";
-import { authOptions } from "@/lib/auth";
+import { readVerifiedGuestId } from "@/lib/auth/guest-session";
+import { resolveOptionalUserId } from "@/lib/auth/optional-session";
 import { syncPracticeAttempt } from "@/lib/services/practice.service";
 import {
   ApiError,
@@ -27,25 +27,15 @@ async function handlePostPracticeSync(request: NextRequest) {
   }
 
   const payload = practiceSyncSchema.parse(rawBody);
-
-  let userId: string | null = null;
-  try {
-    const session = await getServerSession(authOptions);
-    if (session?.user?.id) {
-      userId = session.user.id;
-    }
-  } catch (authErr) {
-    console.warn(
-      "[POST /api/practice/sync] Session retrieval warning:",
-      authErr
-    );
-  }
+  const userId = await resolveOptionalUserId("POST /api/practice/sync");
+  const guestSessionId = userId ? null : await readVerifiedGuestId(request);
 
   const result = await syncPracticeAttempt({
     sessionId: payload.sessionId,
     questionId: payload.questionId,
     chatId: payload.chatId,
     userId,
+    guestSessionId,
     selectedOption: payload.selectedOption,
     usedHint: payload.usedHint,
     timeSpentSeconds: payload.timeSpentSeconds,

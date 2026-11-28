@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import {
@@ -57,6 +57,16 @@ type FormData = z.infer<typeof formSchema>;
 export default function RegisterPage() {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const redirectTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (redirectTimerRef.current) {
+        clearTimeout(redirectTimerRef.current);
+      }
+    };
+  }, []);
+
   const form = useForm<FormData>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -101,15 +111,20 @@ export default function RegisterPage() {
         ) {
           form.setError('username', { message: result.error });
         }
-        form.setError('root', {
-          message: result.error || 'Registrasi gagal. Silakan coba lagi.',
-        });
-        throw new Error(result.error || 'Registrasi gagal. Silakan coba lagi.');
+        const errorMessage =
+          result.error || 'Registrasi gagal. Silakan coba lagi.';
+        form.setError('root', { message: errorMessage });
+        toast.error(errorMessage);
+        return;
       }
+
       toast.success(
         'Akun berhasil dibuat! Anda akan dialihkan ke halaman login.'
       );
-      setTimeout(() => {
+      if (redirectTimerRef.current) {
+        clearTimeout(redirectTimerRef.current);
+      }
+      redirectTimerRef.current = setTimeout(() => {
         router.push('/auth/login');
       }, 2000);
     } catch (error) {

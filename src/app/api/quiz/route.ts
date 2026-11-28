@@ -8,8 +8,12 @@ import {
   quizSessions,
   studyMaterials,
 } from '@/lib/db/schema';
-import { authOptions } from '@/lib/auth';
-import { getServerSession } from 'next-auth';
+import {
+  attachGuestCookie,
+  getOrCreateGuestSession,
+  readVerifiedGuestId,
+} from '@/lib/auth/guest-session';
+import { resolveOptionalUserId } from '@/lib/auth/optional-session';
 import { NextRequest, NextResponse } from 'next/server';
 import { eq, and, or, inArray, notInArray, isNull, desc } from 'drizzle-orm';
 import z from 'zod';
@@ -191,16 +195,9 @@ async function handleGetQuizzes(request: NextRequest) {
     }
   }
 
-  // Retrieve user session
-  let authUserId: string | null = null;
-  try {
-    const session = await getServerSession(authOptions);
-    if (session?.user?.id) {
-      authUserId = session.user.id;
-    }
-  } catch (authErr) {
-    console.warn('[GET /api/quiz] Session retrieval warning:', authErr);
-  }
+  // Retrieve user session and guest session
+  const authUserId = await resolveOptionalUserId('GET /api/quiz');
+  const guestId = authUserId ? null : await readVerifiedGuestId(request);
 
   type JoinedRow = {
     quiz: typeof quizAttempts.$inferSelect;
@@ -217,6 +214,7 @@ async function handleGetQuizzes(request: NextRequest) {
         userId: conversations.userId,
         title: conversations.title,
         isGuestChat: conversations.isGuestChat,
+        guestSessionId: conversations.guestSessionId,
       })
       .from(conversations)
       .where(eq(conversations.id, chatId))
@@ -227,6 +225,26 @@ async function handleGetQuizzes(request: NextRequest) {
     }
 
     if (conversation.userId && conversation.userId !== authUserId) {
+      throw new ApiError(
+        'Anda tidak memiliki akses ke kuis chat ini',
+        403,
+        'CHAT_ACCESS_DENIED'
+      );
+    }
+
+    if (!conversation.userId && !conversation.isGuestChat) {
+      throw new ApiError(
+        'Anda tidak memiliki akses ke kuis chat ini',
+        403,
+        'CHAT_ACCESS_DENIED'
+      );
+    }
+
+    if (
+      conversation.isGuestChat &&
+      conversation.guestSessionId &&
+      conversation.guestSessionId !== guestId
+    ) {
       throw new ApiError(
         'Anda tidak memiliki akses ke kuis chat ini',
         403,
@@ -268,7 +286,13 @@ async function handleGetQuizzes(request: NextRequest) {
       guestConditions.push(
         and(
           inArray(quizAttempts.chatId, chatIds),
-          eq(conversations.isGuestChat, true)
+          eq(conversations.isGuestChat, true),
+          guestId
+            ? or(
+                eq(conversations.guestSessionId, guestId),
+                isNull(conversations.guestSessionId)
+              )
+            : isNull(conversations.guestSessionId)
         )
       );
     }
@@ -276,7 +300,13 @@ async function handleGetQuizzes(request: NextRequest) {
       guestConditions.push(
         and(
           inArray(quizAttempts.sessionId, sessionIds),
-          isNull(quizSessions.userId)
+          isNull(quizSessions.userId),
+          guestId
+            ? or(
+                eq(quizSessions.guestSessionId, guestId),
+                isNull(quizSessions.guestSessionId)
+              )
+            : isNull(quizSessions.guestSessionId)
         )
       );
     }
@@ -485,15 +515,8 @@ async function handlePostQuiz(request: NextRequest) {
 
   const payload = quizPostSchema.parse(rawBody);
 
-  let authUserId: string | null = null;
-  try {
-    const session = await getServerSession(authOptions);
-    if (session?.user?.id) {
-      authUserId = session.user.id;
-    }
-  } catch (authErr) {
-    console.warn('[POST /api/quiz] Session retrieval warning:', authErr);
-  }
+  const authUserId = await resolveOptionalUserId('POST /api/quiz');
+  const guestId = authUserId ? null : await readVerifiedGuestId(request);
 
   if (payload.action === 'grade') {
     const [row] = await db
@@ -502,6 +525,7 @@ async function handlePostQuiz(request: NextRequest) {
         chatTitle: conversations.title,
         chatUserId: conversations.userId,
         isGuestChat: conversations.isGuestChat,
+        chatGuestSessionId: conversations.guestSessionId,
         expiresAt: conversations.expiresAt,
       })
       .from(quizAttempts)
@@ -522,6 +546,18 @@ async function handlePostQuiz(request: NextRequest) {
     }
 
     if (!row.chatUserId && !row.isGuestChat) {
+      throw new ApiError(
+        'Anda tidak memiliki akses ke kuis chat ini',
+        403,
+        'CHAT_ACCESS_DENIED'
+      );
+    }
+
+    if (
+      row.isGuestChat &&
+      row.chatGuestSessionId &&
+      row.chatGuestSessionId !== guestId
+    ) {
       throw new ApiError(
         'Anda tidak memiliki akses ke kuis chat ini',
         403,
@@ -613,6 +649,7 @@ async function handlePostQuiz(request: NextRequest) {
         userId: conversations.userId,
         title: conversations.title,
         isGuestChat: conversations.isGuestChat,
+        guestSessionId: conversations.guestSessionId,
         expiresAt: conversations.expiresAt,
       })
       .from(conversations)
@@ -634,6 +671,18 @@ async function handlePostQuiz(request: NextRequest) {
     if (!existingChat.userId && !existingChat.isGuestChat) {
       throw new ApiError(
         'Akses ditolak ke chat pengguna terdaftar',
+        403,
+        'CHAT_ACCESS_DENIED'
+      );
+    }
+
+    if (
+      existingChat.isGuestChat &&
+      existingChat.guestSessionId &&
+      existingChat.guestSessionId !== guestId
+    ) {
+      throw new ApiError(
+        'Anda tidak memiliki akses ke chat ini',
         403,
         'CHAT_ACCESS_DENIED'
       );
@@ -820,6 +869,13 @@ async function handlePostQuiz(request: NextRequest) {
   }
 
   const resolvedQuizMeta = quizMeta;
+  let newGuestSessionId: string | null = null;
+  let newGuestSetCookie: string | null = null;
+  if (!conversationId && !authUserId) {
+    const guest = await getOrCreateGuestSession(request);
+    newGuestSessionId = guest.guestId;
+    newGuestSetCookie = guest.setCookieHeader;
+  }
 
   const { created, finalChatId, finalChatTitle } = await db.transaction(
     async (tx) => {
@@ -840,9 +896,6 @@ async function handlePostQuiz(request: NextRequest) {
           finalChatId = newChat.id;
           finalChatTitle = newChat.title || chatTitle;
         } else {
-          const guestSessionId = `guest_${Date.now()}_${Math.random()
-            .toString(36)
-            .substring(7)}`;
           const expiresAt = new Date();
           expiresAt.setDate(expiresAt.getDate() + 1);
 
@@ -853,7 +906,7 @@ async function handlePostQuiz(request: NextRequest) {
               title: chatTitle,
               createdAt: new Date(),
               isGuestChat: true,
-              guestSessionId,
+              guestSessionId: newGuestSessionId,
               expiresAt,
             })
             .returning({ id: conversations.id, title: conversations.title });
@@ -900,13 +953,15 @@ async function handlePostQuiz(request: NextRequest) {
     }
   );
 
-  return NextResponse.json({
+  const response = NextResponse.json({
     success: true,
     data: {
       quiz: sanitizeQuizAttempt(created, finalChatTitle),
       chatId: finalChatId,
     },
   });
+
+  return attachGuestCookie(response, newGuestSetCookie);
 }
 
 const quizRateLimit = createRateLimitMiddleware({

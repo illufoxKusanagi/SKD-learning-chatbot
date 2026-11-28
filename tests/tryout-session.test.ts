@@ -308,12 +308,18 @@ describe("CAT Readiness Guard & Persistent Exam Session Engine", () => {
       })
     );
     expect(startRes.status).toBe(201);
+    const setCookie = startRes.headers.get("set-cookie");
+    expect(setCookie).toContain("skd_guest_sid=");
+    const cookiePair = setCookie!.split(";")[0];
+
     const startBody = await startSessionRouteBody(startRes);
     const sessionId = startBody.data.id as string;
     createdSessionIds.push(sessionId);
 
     const listRes = await listSessionsRoute(
-      new NextRequest(`http://localhost/api/tryout/sessions?sessionIds=${sessionId}`)
+      new NextRequest(`http://localhost/api/tryout/sessions?sessionIds=${sessionId}`, {
+        headers: { cookie: cookiePair },
+      })
     );
     expect(listRes.status).toBe(200);
     const listBody = await listRes.json();
@@ -321,10 +327,34 @@ describe("CAT Readiness Guard & Persistent Exam Session Engine", () => {
     expect(listBody.data.some((s: { id: string }) => s.id === sessionId)).toBe(true);
 
     const q1Id = startBody.data.questions[0].id as string;
-    const patchRes = await patchSessionProgressRoute(
+
+    // Cross-guest / missing-cookie access must return 403
+    const unauthGetRes = await getSessionDetailRoute(
+      new NextRequest(`http://localhost/api/tryout/sessions/${sessionId}`),
+      { params: Promise.resolve({ id: sessionId }) }
+    );
+    expect(unauthGetRes.status).toBe(403);
+
+    const unauthPatchRes = await patchSessionProgressRoute(
       new NextRequest(`http://localhost/api/tryout/sessions/${sessionId}`, {
         method: "PATCH",
         headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          questionId: q1Id,
+          selectedOption: "C",
+        }),
+      }),
+      { params: Promise.resolve({ id: sessionId }) }
+    );
+    expect(unauthPatchRes.status).toBe(403);
+
+    const patchRes = await patchSessionProgressRoute(
+      new NextRequest(`http://localhost/api/tryout/sessions/${sessionId}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          cookie: cookiePair,
+        },
         body: JSON.stringify({
           questionId: q1Id,
           selectedOption: "C",
@@ -342,7 +372,10 @@ describe("CAT Readiness Guard & Persistent Exam Session Engine", () => {
     const finishRes = await postSessionActionRoute(
       new NextRequest(`http://localhost/api/tryout/sessions/${sessionId}`, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          cookie: cookiePair,
+        },
         body: JSON.stringify({ action: "finish" }),
       }),
       { params: Promise.resolve({ id: sessionId }) }
@@ -353,7 +386,9 @@ describe("CAT Readiness Guard & Persistent Exam Session Engine", () => {
     expect(finishBody.data.scoreSummary).not.toBeNull();
 
     const getCompletedRes = await getSessionDetailRoute(
-      new NextRequest(`http://localhost/api/tryout/sessions/${sessionId}`),
+      new NextRequest(`http://localhost/api/tryout/sessions/${sessionId}`, {
+        headers: { cookie: cookiePair },
+      }),
       { params: Promise.resolve({ id: sessionId }) }
     );
     expect(getCompletedRes.status).toBe(200);

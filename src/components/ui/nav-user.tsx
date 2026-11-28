@@ -1,11 +1,14 @@
 "use client";
 
-import { ChevronsUpDown, LogOut, Settings, User } from "lucide-react";
-
+import Link from "next/link";
+import { signOut } from "next-auth/react";
+import { ChevronsUpDown, HelpCircle, History, LogOut } from "lucide-react";
+import { toast } from "sonner";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
@@ -14,9 +17,20 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import Link from "next/link";
-import { signOut } from "next-auth/react";
-import { toast } from "sonner";
+
+function getInitials(name: string): string {
+  const parts = name.trim().split(/\s+/).filter(Boolean);
+  if (parts.length >= 2) {
+    const first = Array.from(parts[0])[0] ?? "";
+    const second = Array.from(parts[1])[0] ?? "";
+    return `${first}${second}`.toUpperCase() || "US";
+  }
+  if (parts.length === 1) {
+    const cleaned = parts[0];
+    return Array.from(cleaned).slice(0, 2).join("").toUpperCase() || "US";
+  }
+  return "US";
+}
 
 export function NavUser({
   user,
@@ -24,9 +38,11 @@ export function NavUser({
   user: {
     name: string;
     email: string;
-    avatar: string;
+    avatar?: string;
   };
 }) {
+  const initials = getInitials(user.name);
+
   const handleLogout = () => {
     toast("Apakah anda yakin?", {
       description: "Anda akan login lagi nanti",
@@ -36,6 +52,7 @@ export function NavUser({
       },
     });
   };
+
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -45,9 +62,11 @@ export function NavUser({
               size="lg"
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
-              <Avatar className="h-8 w-8 rounded-lg">
-                <AvatarImage src={user.avatar} alt={user.name} />
-                <AvatarFallback className="rounded-lg">IK</AvatarFallback>
+              <Avatar className="size-8 rounded-lg">
+                {user.avatar ? (
+                  <AvatarImage src={user.avatar} alt={user.name} />
+                ) : null}
+                <AvatarFallback className="rounded-lg">{initials}</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate body-small-regular">{user.name}</span>
@@ -64,22 +83,24 @@ export function NavUser({
             align="end"
             sideOffset={4}
           >
-            <DropdownMenuItem asChild>
-              <Link href="/profile">
-                <User className="h-4 w-4 mr-2" />
-                Profile
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem asChild>
-              <Link href="/settings">
-                <Settings className="h-4 w-4 mr-2" />
-                Settings
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem className="flex flex-row" onClick={handleLogout}>
-              <LogOut className="h-4 w-4 mr-2" />
-              Log out
-            </DropdownMenuItem>
+            <DropdownMenuGroup>
+              <DropdownMenuItem asChild>
+                <Link href="/quiz-history">
+                  <History className="size-4" />
+                  Riwayat Latihan SKD
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/help">
+                  <HelpCircle className="size-4" />
+                  Pusat Bantuan
+                </Link>
+              </DropdownMenuItem>
+              <DropdownMenuItem onClick={handleLogout}>
+                <LogOut className="size-4" />
+                Log out
+              </DropdownMenuItem>
+            </DropdownMenuGroup>
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarMenuItem>

@@ -7,8 +7,12 @@ import {
   withMiddleware,
   createRateLimitMiddleware,
 } from '@/middleware/api';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import {
+  attachGuestCookie,
+  getOrCreateGuestSession,
+  readVerifiedGuestId,
+} from '@/lib/auth/guest-session';
+import { resolveOptionalUserId } from '@/lib/auth/optional-session';
 import { eq, desc, and } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 import z from 'zod';
@@ -48,7 +52,11 @@ function parseQuizOptionChoice(
   const trimmed = message.trim();
 
   if (hasExplicitQuizId) {
-    const match = trimmed.match(/\b([A-E])\b/i) ?? trimmed.match(/^([A-E])/i);
+    const match =
+      trimmed.match(/^([A-E])[.)!?]*$/i) ??
+      trimmed.match(
+        /^(?:opsi|pilihan|jawaban(?:\s+saya)?|pilih)\s*:?\s*([A-E])[.)!?]?$/i
+      );
     return match ? (match[1].toUpperCase() as QuizOption) : null;
   }
 
@@ -73,22 +81,56 @@ function parseQuizOptionChoice(
   return match ? (match[1].toUpperCase() as QuizOption) : null;
 }
 
-async function persistGeneratedTitle(
-  conversationId: string,
-  titlePromise: Promise<string> | null
-): Promise<void> {
-  if (!titlePromise) return;
-  try {
-    const title = await titlePromise;
-    if (title) {
-      await db
-        .update(conversations)
-        .set({ title })
-        .where(eq(conversations.id, conversationId));
+async function streamWithQuizMetaFilter(
+  generator: AsyncIterable<string>,
+  controller: ReadableStreamDefaultController<Uint8Array>,
+  encoder: TextEncoder
+): Promise<string> {
+  let rawAccumulated = '';
+  let streamedLength = 0;
+
+  for await (const chunk of generator) {
+    rawAccumulated += chunk;
+    const metaIdx = rawAccumulated.search(/<quiz_meta/i);
+
+    if (metaIdx !== -1) {
+      if (metaIdx > streamedLength) {
+        controller.enqueue(
+          encoder.encode(rawAccumulated.slice(streamedLength, metaIdx))
+        );
+        streamedLength = metaIdx;
+      }
+    } else {
+      // Hold back last 12 chars if containing '<' to avoid partial <quiz_meta tag leaks
+      const tail = rawAccumulated.slice(-12);
+      const lastLtIdx = tail.lastIndexOf('<');
+      if (lastLtIdx !== -1) {
+        const safeBoundary =
+          rawAccumulated.length - (tail.length - lastLtIdx);
+        if (safeBoundary > streamedLength) {
+          controller.enqueue(
+            encoder.encode(rawAccumulated.slice(streamedLength, safeBoundary))
+          );
+          streamedLength = safeBoundary;
+        }
+      } else if (rawAccumulated.length > streamedLength) {
+        controller.enqueue(
+          encoder.encode(rawAccumulated.slice(streamedLength))
+        );
+        streamedLength = rawAccumulated.length;
+      }
     }
-  } catch (error) {
-    console.error('Failed to persist generated title:', error);
   }
+
+  const untrimmedVisible = rawAccumulated
+    .replace(/<quiz_meta>[\s\S]*?<\/quiz_meta>/gi, '')
+    .replace(/<quiz_meta[\s\S]*$/gi, '')
+    .replace(/<(?:q(?:u(?:i(?:z(?:_(?:m(?:e(?:t(?:a)?)?)?)?)?)?)?)?)?$/i, '');
+  if (untrimmedVisible.length > streamedLength) {
+    controller.enqueue(encoder.encode(untrimmedVisible.slice(streamedLength)));
+  }
+
+  return rawAccumulated;
 }
 
 async function handleChatPost(request: NextRequest) {
@@ -105,68 +147,20 @@ async function handleChatPost(request: NextRequest) {
     isTutorDiscussion,
   } = chatMessageSchema.parse(body);
 
-  // Authenticate user session if available
-  let userId: string | null = null;
-  try {
-    const session = await getServerSession(authOptions);
-    if (session?.user?.id) {
-      userId = session.user.id;
-    }
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error('Error retrieving session in handleChatPost:', {
-        name: error.name,
-        message: error.message,
-        stack: error.stack,
-      });
-
-      const messageLower = error.message.toLowerCase();
-      const isAuthError =
-        error.name === 'AuthError' ||
-        messageLower.includes('auth') ||
-        messageLower.includes('credential') ||
-        messageLower.includes('unauthorized') ||
-        messageLower.includes('forbidden');
-
-      if (!isAuthError) {
-        throw new ApiError(
-          'Failed to retrieve session',
-          500,
-          'SESSION_RETRIEVAL_ERROR'
-        );
-      }
-
-      console.warn(
-        'Proceeding as guest user due to authentication-related session error.'
-      );
-    } else {
-      console.error(
-        'Non-Error value thrown during session retrieval in handleChatPost:',
-        error
-      );
-      throw new ApiError(
-        'Failed to retrieve session',
-        500,
-        'SESSION_RETRIEVAL_ERROR'
-      );
-    }
-  }
+  const userId = await resolveOptionalUserId('POST /api/chat');
 
   let conversationId = chatId;
-  let titlePromise: Promise<string> | null = null;
+  let guestSetCookie: string | null = null;
 
   // Manage conversation for authenticated vs guest user
   if (userId) {
     try {
       if (!conversationId) {
-        titlePromise = generateChatTitle(message);
-        const initialTitle =
-          message.trim().replace(/\s+/g, ' ').slice(0, 40) || 'New Chat';
         const [newChat] = await db
           .insert(conversations)
           .values({
             userId: userId,
-            title: initialTitle,
+            title: generateChatTitle(message),
             createdAt: new Date(),
             isGuestChat: false,
           })
@@ -198,12 +192,8 @@ async function handleChatPost(request: NextRequest) {
   } else {
     try {
       if (!conversationId) {
-        titlePromise = generateChatTitle(message);
-        const initialTitle =
-          message.trim().replace(/\s+/g, ' ').slice(0, 40) || 'Guest Chat';
-        const guestSessionId = `guest_${Date.now()}_${Math.random()
-          .toString(36)
-          .substring(7)}`;
+        const guest = await getOrCreateGuestSession(request);
+        guestSetCookie = guest.setCookieHeader;
         const expiresAt = new Date();
         expiresAt.setDate(expiresAt.getDate() + 1);
 
@@ -211,18 +201,20 @@ async function handleChatPost(request: NextRequest) {
           .insert(conversations)
           .values({
             userId: null,
-            title: initialTitle,
+            title: generateChatTitle(message),
             createdAt: new Date(),
             isGuestChat: true,
-            guestSessionId: guestSessionId,
+            guestSessionId: guest.guestId,
             expiresAt: expiresAt,
           })
           .returning({ id: conversations.id });
         conversationId = newGuestChat.id;
       } else {
+        const guestId = await readVerifiedGuestId(request);
         const [existingChat] = await db
           .select({
             isGuestChat: conversations.isGuestChat,
+            guestSessionId: conversations.guestSessionId,
             expiresAt: conversations.expiresAt,
           })
           .from(conversations)
@@ -235,6 +227,16 @@ async function handleChatPost(request: NextRequest) {
         if (!existingChat.isGuestChat) {
           throw new ApiError(
             'Akses ditolak ke chat pengguna terdaftar',
+            403,
+            'CHAT_ACCESS_DENIED'
+          );
+        }
+        if (
+          existingChat.guestSessionId &&
+          existingChat.guestSessionId !== guestId
+        ) {
+          throw new ApiError(
+            'Anda tidak memiliki akses ke chat ini',
             403,
             'CHAT_ACCESS_DENIED'
           );
@@ -432,11 +434,11 @@ async function handleChatPost(request: NextRequest) {
             lockedQuizEvaluation,
           });
 
-          let fullAiResponse = '';
-          for await (const chunk of generator) {
-            controller.enqueue(encoder.encode(chunk));
-            fullAiResponse += chunk;
-          }
+          const fullAiResponse = await streamWithQuizMetaFilter(
+            generator,
+            controller,
+            encoder
+          );
 
           const { visibleText } = extractQuizMetaFromText(fullAiResponse);
 
@@ -456,8 +458,6 @@ async function handleChatPost(request: NextRequest) {
             content: finalBotContent,
             createdAt: new Date(),
           });
-
-          await persistGeneratedTitle(conversationId, titlePromise);
 
           controller.close();
         } else {
@@ -494,60 +494,14 @@ async function handleChatPost(request: NextRequest) {
               : { history, ragResult }
           );
 
-          let rawAccumulated = '';
-          let streamedLength = 0;
-
-          for await (const chunk of generator) {
-            rawAccumulated += chunk;
-            const metaIdx = rawAccumulated.indexOf('<quiz_meta');
-
-            if (metaIdx !== -1) {
-              if (metaIdx > streamedLength) {
-                const sliceToSend = rawAccumulated.slice(
-                  streamedLength,
-                  metaIdx
-                );
-                controller.enqueue(encoder.encode(sliceToSend));
-                streamedLength = metaIdx;
-              }
-              // Do NOT stream anything from metaIdx onward
-            } else {
-              // Hold back last 12 chars if containing '<' to avoid partial tag leaks
-              const tail = rawAccumulated.slice(-12);
-              const lastLtIdx = tail.lastIndexOf('<');
-              if (lastLtIdx !== -1) {
-                const safeBoundary =
-                  rawAccumulated.length - (tail.length - lastLtIdx);
-                if (safeBoundary > streamedLength) {
-                  const sliceToSend = rawAccumulated.slice(
-                    streamedLength,
-                    safeBoundary
-                  );
-                  controller.enqueue(encoder.encode(sliceToSend));
-                  streamedLength = safeBoundary;
-                }
-              } else {
-                if (rawAccumulated.length > streamedLength) {
-                  const sliceToSend = rawAccumulated.slice(streamedLength);
-                  controller.enqueue(encoder.encode(sliceToSend));
-                  streamedLength = rawAccumulated.length;
-                }
-              }
-            }
-          }
+          const rawAccumulated = await streamWithQuizMetaFilter(
+            generator,
+            controller,
+            encoder
+          );
 
           const { visibleText, quizMeta } =
             extractQuizMetaFromText(rawAccumulated);
-
-          const untrimmedVisible = rawAccumulated
-            .replace(/<quiz_meta>[\s\S]*?<\/quiz_meta>/gi, '')
-            .replace(/<quiz_meta>[\s\S]*$/gi, '');
-          if (untrimmedVisible.length > streamedLength) {
-            controller.enqueue(
-              encoder.encode(untrimmedVisible.slice(streamedLength))
-            );
-            streamedLength = untrimmedVisible.length;
-          }
 
           let finalBotContent = visibleText;
           let insertedQuizId: string | null = null;
@@ -607,8 +561,6 @@ async function handleChatPost(request: NextRequest) {
             });
           }
 
-          await persistGeneratedTitle(conversationId, titlePromise);
-
           controller.close();
         }
       } catch (streamError) {
@@ -640,13 +592,15 @@ async function handleChatPost(request: NextRequest) {
     },
   });
 
-  return new NextResponse(stream, {
+  const response = new NextResponse(stream, {
     headers: {
       'Content-Type': 'text/plain; charset=utf-8',
       'Transfer-Encoding': 'chunked',
       'X-Chat-Id': conversationId || '',
     },
   });
+
+  return attachGuestCookie(response, guestSetCookie);
 }
 
 const chatRateLimit = createRateLimitMiddleware({

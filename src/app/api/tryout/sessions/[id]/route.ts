@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getServerSession } from "next-auth";
 import { z } from "zod";
-import { authOptions } from "@/lib/auth";
+import { readVerifiedGuestId } from "@/lib/auth/guest-session";
+import { resolveOptionalUserId } from "@/lib/auth/optional-session";
 import {
   finalizeTryoutSession,
   getTryoutSessionState,
@@ -30,25 +30,18 @@ const postTryoutActionSchema = z.object({
   action: z.literal("finish"),
 });
 
-async function resolveOptionalUserId(logLabel: string): Promise<string | null> {
-  try {
-    const session = await getServerSession(authOptions);
-    if (session?.user?.id) {
-      return session.user.id;
-    }
-  } catch (authErr) {
-    console.warn(`[${logLabel}] Session retrieval warning:`, authErr);
-  }
-  return null;
-}
-
 async function handleGetTryoutSession(
-  _request: NextRequest,
+  request: NextRequest,
   context: { params: Promise<TryoutSessionParams> }
 ) {
   const { id } = await context.params;
   const userId = await resolveOptionalUserId("GET /api/tryout/sessions/[id]");
-  const state = await getTryoutSessionState({ sessionId: id, userId });
+  const guestSessionId = userId ? null : await readVerifiedGuestId(request);
+  const state = await getTryoutSessionState({
+    sessionId: id,
+    userId,
+    guestSessionId,
+  });
 
   return NextResponse.json({
     success: true,
@@ -70,10 +63,12 @@ async function handlePatchTryoutSession(
 
   const payload = patchTryoutSchema.parse(rawBody);
   const userId = await resolveOptionalUserId("PATCH /api/tryout/sessions/[id]");
+  const guestSessionId = userId ? null : await readVerifiedGuestId(request);
 
   const updated = await updateTryoutProgress({
     sessionId: id,
     userId,
+    guestSessionId,
     questionId: payload.questionId,
     selectedOption: payload.selectedOption,
     isFlagged: payload.isFlagged,
@@ -100,10 +95,12 @@ async function handlePostTryoutSession(
 
   postTryoutActionSchema.parse(rawBody);
   const userId = await resolveOptionalUserId("POST /api/tryout/sessions/[id]");
+  const guestSessionId = userId ? null : await readVerifiedGuestId(request);
 
   const finalized = await finalizeTryoutSession({
     sessionId: id,
     userId,
+    guestSessionId,
   });
 
   return NextResponse.json({

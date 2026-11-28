@@ -9,9 +9,7 @@
     "lint": "next lint",
     "db:ensure-schema": "tsx scripts/ensure-schema.ts",
     "db:seed": "tsx scripts/seed.ts",
-    "db:import-quiz": "tsx scripts/import-quiz-bank.ts",
-    "db:normalize-quiz": "tsx scripts/normalize-quiz-bank.ts",
-    "db:seed:all": "npm run db:ensure-schema && npm run db:seed && npm run db:import-quiz",
+    "db:seed:all": "npm run db:ensure-schema && npm run validate:content && npm run import:content",
     "db:studio": "drizzle-kit studio",
     "db:migrate": "drizzle-kit migrate",
     "db:generate": "drizzle-kit generate",
@@ -20,7 +18,7 @@
     "test:watch": "vitest",
     "validate:content": "tsx scripts/validate-content.ts",
     "import:content": "tsx scripts/import-content.ts",
-    "cf:build": "opennextjs-cloudflare build --dangerouslyUseUnsupportedNextVersion",
+    "cf:build": "opennextjs-cloudflare build",
     "cf:preview": "npm run cf:build && opennextjs-cloudflare preview",
     "cf:deploy": "npm run cf:build && opennextjs-cloudflare deploy"
   },
@@ -46,7 +44,6 @@
     "cmdk": "^1.1.1",
     "dotenv": "^17.2.1",
     "drizzle-orm": "^0.45.4",
-    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.536.0",
     "next": "^15.5.29",
     "next-auth": "^4.24.13",
@@ -59,7 +56,6 @@
     "react-hook-form": "^7.62.0",
     "react-markdown": "^10.1.0",
     "rehype-highlight": "^7.0.2",
-    "rehype-raw": "^7.0.0",
     "remark-breaks": "^4.0.0",
     "remark-gfm": "^4.0.1",
     "sonner": "^2.0.7",
@@ -69,7 +65,6 @@
   "devDependencies": {
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
-    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -84,7 +79,7 @@
     "wrangler": "^4.168.0"
   },
   "overrides": {
-    "postcss": ">=8.5.23",
-    "esbuild": ">=0.25.0"
+    "postcss": "^8.5.23",
+    "esbuild": "^0.25.0"
   }
 }

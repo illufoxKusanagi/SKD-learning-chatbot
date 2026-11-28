@@ -9,7 +9,6 @@ import {
 } from '@/middleware/api';
 import { db } from '@/lib/db';
 import { users } from '@/lib/db/schema';
-import { eq } from 'drizzle-orm';
 import { hashPassword } from '@/lib/auth/password';
 
 const registerSchema = z.object({
@@ -48,36 +47,6 @@ async function registerHandler(
 
   let newUser: typeof users.$inferSelect;
   try {
-    // Check if email already exists
-    const [existingUser] = await db
-      .select()
-      .from(users)
-      .where(eq(users.email, email))
-      .limit(1);
-
-    if (existingUser) {
-      throw new ApiError(
-        'Email sudah terdaftar. Silakan gunakan email lain atau masuk ke akun Anda',
-        409,
-        'EMAIL_ALREADY_EXISTS'
-      );
-    }
-
-    // Check if username exists
-    const [existingUsername] = await db
-      .select()
-      .from(users)
-      .where(eq(users.username, username))
-      .limit(1);
-
-    if (existingUsername) {
-      throw new ApiError(
-        'Username sudah digunakan. Silakan pilih username lain',
-        409,
-        'USERNAME_ALREADY_EXISTS'
-      );
-    }
-
     [newUser] = await db
       .insert(users)
       .values({
@@ -96,11 +65,13 @@ async function registerHandler(
       constraint_name?: string;
       constraint?: string;
       detail?: string;
+      message?: string;
       cause?: {
         code?: string;
         constraint_name?: string;
         constraint?: string;
         detail?: string;
+        message?: string;
       };
     };
     const errorCode = pgError?.code ?? pgError?.cause?.code;
@@ -112,6 +83,8 @@ async function registerHandler(
         pgError?.cause?.constraint ??
         pgError?.detail ??
         pgError?.cause?.detail ??
+        pgError?.message ??
+        pgError?.cause?.message ??
         ''
       ).toLowerCase();
 

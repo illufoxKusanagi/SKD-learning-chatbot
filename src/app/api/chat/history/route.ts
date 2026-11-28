@@ -7,7 +7,7 @@ import {
 } from '@/middleware/api';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
-import { eq, sql } from 'drizzle-orm';
+import { desc, eq, sql } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 
 async function getChatHistoryHandler() {
@@ -42,7 +42,7 @@ async function getChatHistoryHandler() {
       })
       .from(conversations)
       .where(eq(conversations.userId, userId))
-      // .orderBy(desc(conversations.updatedAt))
+      .orderBy(desc(conversations.createdAt))
       .limit(50); // Limit to last 50 chats
 
     console.log(

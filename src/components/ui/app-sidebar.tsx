@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import {
   BookOpen,
@@ -39,59 +39,95 @@ const NAV_ITEMS = [
   { href: "/quiz-history", label: "Riwayat Latihan SKD", icon: History },
 ] as const;
 
-export function AppSidebar() {
+function AppSidebarInner() {
   const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const activeChatId = searchParams.get("id");
   const [conversations, setChatHistory] = useState<ChatHistoryItem[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const requestIdRef = useRef(0);
+  const abortControllerRef = useRef<AbortController | null>(null);
   const { data: session, status } = useSession();
   const isAuthenticated = status === "authenticated";
   const authLoading = status === "loading";
   const user = session?.user;
 
-  const data = {
-    user: {
-      name:
-        user?.name ||
-        (user?.email ? user.email.split("@")[0] : undefined) ||
-        "User",
-      email: user?.email || "guest@example.com",
-      avatar: "/avatars/shadcn.jpg",
-    },
+  const userInfo = {
+    name:
+      user?.name ||
+      (user?.email ? user.email.split("@")[0] : undefined) ||
+      "User",
+    email: user?.email || "guest@example.com",
   };
 
-  useEffect(() => {
-    const fetchChatHistory = async () => {
-      if (authLoading) return;
+  const fetchChatHistory = useCallback(async () => {
+    const requestId = ++requestIdRef.current;
+    abortControllerRef.current?.abort();
 
-      if (!isAuthenticated || !user) {
-        setChatHistory([]);
-        setIsLoading(false);
+    if (authLoading) {
+      abortControllerRef.current = null;
+      return;
+    }
+
+    if (!isAuthenticated || !user) {
+      abortControllerRef.current = null;
+      setChatHistory([]);
+      setIsLoading(false);
+      return;
+    }
+
+    const controller = new AbortController();
+    abortControllerRef.current = controller;
+    setIsLoading(true);
+    try {
+      const response = await fetch("/api/chat/history", {
+        signal: controller.signal,
+      });
+      if (requestId !== requestIdRef.current) return;
+      if (!response.ok) {
+        if (response.status === 401) {
+          console.warn("Unauthorized access to chat history");
+          setChatHistory([]);
+          return;
+        }
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const result = await response.json();
+      if (requestId !== requestIdRef.current) return;
+      setChatHistory(result.data?.chats || []);
+    } catch (error) {
+      if (
+        requestId !== requestIdRef.current ||
+        (error instanceof DOMException && error.name === "AbortError")
+      ) {
         return;
       }
-
-      setIsLoading(true);
-      try {
-        const response = await fetch("/api/chat/history");
-        if (!response.ok) {
-          if (response.status === 401) {
-            console.warn("Unauthorized access to chat history");
-            setChatHistory([]);
-            return;
-          }
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        const result = await response.json();
-        setChatHistory(result.data?.chats || []);
-      } catch (error) {
-        console.error("Failed to fetch chat history:", error);
-        setChatHistory([]);
-      } finally {
+      console.error("Failed to fetch chat history:", error);
+      setChatHistory([]);
+    } finally {
+      if (requestId === requestIdRef.current) {
         setIsLoading(false);
       }
-    };
-
-    fetchChatHistory();
+    }
   }, [isAuthenticated, user, authLoading]);
+
+  useEffect(() => {
+    void fetchChatHistory();
+    return () => {
+      requestIdRef.current += 1;
+      abortControllerRef.current?.abort();
+    };
+  }, [fetchChatHistory]);
+
+  useEffect(() => {
+    const handleChatCreated = () => {
+      void fetchChatHistory();
+    };
+    window.addEventListener("skd:chat-created", handleChatCreated);
+    return () => {
+      window.removeEventListener("skd:chat-created", handleChatCreated);
+    };
+  }, [fetchChatHistory]);
 
   return (
     <Sidebar variant="sidebar" collapsible="icon">
@@ -105,7 +141,9 @@ export function AppSidebar() {
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">Tutor SKD CPNS</span>
-                  <span className="truncate text-xs text-muted-foreground">Personal Mastery</span>
+                  <span className="truncate text-xs text-muted-foreground">
+                    Personal Mastery
+                  </span>
                 </div>
               </Link>
             </SidebarMenuButton>
@@ -120,7 +158,7 @@ export function AppSidebar() {
               <SidebarMenuButton
                 asChild
                 tooltip="Percakapan Baru"
-                className="h-9 bg-primary text-primary-foreground font-medium shadow-xs hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground"
+                className="h-9 bg-primary font-medium text-primary-foreground shadow-xs hover:bg-primary/90 hover:text-primary-foreground active:bg-primary/90 active:text-primary-foreground"
               >
                 <Link href="/chat">
                   <Plus />
@@ -137,7 +175,11 @@ export function AppSidebar() {
             <SidebarMenu>
               {NAV_ITEMS.map(({ href, label, icon: Icon }) => (
                 <SidebarMenuItem key={href}>
-                  <SidebarMenuButton asChild isActive={pathname.startsWith(href)} tooltip={label}>
+                  <SidebarMenuButton
+                    asChild
+                    isActive={pathname.startsWith(href)}
+                    tooltip={label}
+                  >
                     <Link href={href}>
                       <Icon />
                       <span>{label}</span>
@@ -165,7 +207,7 @@ export function AppSidebar() {
                     <SidebarMenuItem key={chat.id}>
                       <SidebarMenuButton
                         asChild
-                        isActive={pathname === `/chat/${chat.id}`}
+                        isActive={pathname === "/chat" && activeChatId === chat.id}
                         tooltip={chat.title}
                       >
                         <Link href={`/chat?id=${chat.id}`}>
@@ -188,8 +230,16 @@ export function AppSidebar() {
       </SidebarContent>
 
       <SidebarFooter className="border-t border-sidebar-border/60 p-2">
-        <NavUser user={data.user} />
+        <NavUser user={userInfo} />
       </SidebarFooter>
     </Sidebar>
+  );
+}
+
+export function AppSidebar() {
+  return (
+    <Suspense fallback={<Sidebar variant="sidebar" collapsible="icon" />}>
+      <AppSidebarInner />
+    </Suspense>
   );
 }

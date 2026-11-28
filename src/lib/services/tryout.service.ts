@@ -185,9 +185,10 @@ function formatRubricRationale(optionRationales: QuizOptions): string {
     .join("\n");
 }
 
-function assertSessionAccess(
+function assertSessionOwner(
   session: QuizSession | undefined,
-  userId?: string | null
+  userId?: string | null,
+  guestSessionId?: string | null
 ): asserts session is QuizSession {
   if (!session) {
     throw new ApiError(
@@ -213,11 +214,24 @@ function assertSessionAccess(
       "SESSION_ACCESS_DENIED"
     );
   }
+
+  if (
+    !session.userId &&
+    session.guestSessionId &&
+    session.guestSessionId !== (guestSessionId ?? null)
+  ) {
+    throw new ApiError(
+      "Anda tidak memiliki akses ke sesi tryout ini",
+      403,
+      "SESSION_ACCESS_DENIED"
+    );
+  }
 }
 
 async function loadSessionOrThrow(
   sessionId: string,
-  userId?: string | null
+  userId?: string | null,
+  guestSessionId?: string | null
 ): Promise<QuizSession> {
   if (!isValidUuid(sessionId)) {
     throw new ApiError(
@@ -233,7 +247,7 @@ async function loadSessionOrThrow(
     .where(eq(quizSessions.id, sessionId.trim()))
     .limit(1);
 
-  assertSessionAccess(session, userId);
+  assertSessionOwner(session, userId, guestSessionId);
   return session;
 }
 
@@ -369,13 +383,8 @@ export async function startTryoutSession(input: {
   }
 
   const userId = isValidUuid(input.userId) ? input.userId.trim() : null;
-  const guestSessionId = isValidUuid(input.guestSessionId)
-    ? input.guestSessionId.trim()
-    : (input.guestSessionId ?? null);
-  const validGuestSessionIds = normalizeUuidList([
-    ...(input.guestSessionIds ?? []),
-    ...(isValidUuid(input.guestSessionId) ? [input.guestSessionId] : []),
-  ]);
+  const guestSessionId = userId ? null : (input.guestSessionId?.trim() || null);
+  const validGuestSessionIds = normalizeUuidList(input.guestSessionIds);
 
   const attemptedQuestionIds = new Set<string>();
   const ownerConditions = [];
@@ -384,11 +393,25 @@ export async function startTryoutSession(input: {
       or(eq(quizSessions.userId, userId), eq(quizAttempts.userId, userId))
     );
   }
+  if (!userId && guestSessionId) {
+    ownerConditions.push(
+      and(
+        eq(quizSessions.guestSessionId, guestSessionId),
+        isNull(quizSessions.userId)
+      )
+    );
+  }
   if (validGuestSessionIds.length > 0) {
     ownerConditions.push(
       and(
         inArray(quizSessions.id, validGuestSessionIds),
-        isNull(quizSessions.userId)
+        isNull(quizSessions.userId),
+        guestSessionId
+          ? or(
+              eq(quizSessions.guestSessionId, guestSessionId),
+              isNull(quizSessions.guestSessionId)
+            )
+          : isNull(quizSessions.guestSessionId)
       )
     );
   }
@@ -503,9 +526,14 @@ export async function startTryoutSession(input: {
 export async function getTryoutSessionState(input: {
   sessionId: string;
   userId?: string | null;
+  guestSessionId?: string | null;
   now?: Date;
 }): Promise<TryoutSessionDetail> {
-  const session = await loadSessionOrThrow(input.sessionId, input.userId);
+  const session = await loadSessionOrThrow(
+    input.sessionId,
+    input.userId,
+    input.guestSessionId
+  );
   const now = input.now ?? new Date();
   const mode = session.mode as TryoutMode;
   const durationSeconds =
@@ -516,6 +544,7 @@ export async function getTryoutSessionState(input: {
     return finalizeTryoutSession({
       sessionId: session.id,
       userId: input.userId,
+      guestSessionId: input.guestSessionId,
       now,
     });
   }
@@ -639,6 +668,7 @@ export async function getTryoutSessionState(input: {
 export async function updateTryoutProgress(input: {
   sessionId: string;
   userId?: string | null;
+  guestSessionId?: string | null;
   questionId: string;
   selectedOption?: OptionKey | null;
   isFlagged?: boolean;
@@ -676,7 +706,7 @@ export async function updateTryoutProgress(input: {
       .where(eq(quizSessions.id, normalizedSessionId))
       .for("update");
 
-    assertSessionAccess(lockedSession, input.userId);
+    assertSessionOwner(lockedSession, input.userId, input.guestSessionId);
 
     const questionOrder = Array.isArray(lockedSession.questionOrder)
       ? lockedSession.questionOrder
@@ -817,6 +847,7 @@ export async function updateTryoutProgress(input: {
     await finalizeTryoutSession({
       sessionId: normalizedSessionId,
       userId: input.userId,
+      guestSessionId: input.guestSessionId,
       now,
     });
     throw new ApiError(
@@ -840,14 +871,20 @@ export async function updateTryoutProgress(input: {
 export async function finalizeTryoutSession(input: {
   sessionId: string;
   userId?: string | null;
+  guestSessionId?: string | null;
   now?: Date;
 }): Promise<TryoutSessionDetail> {
-  const session = await loadSessionOrThrow(input.sessionId, input.userId);
+  const session = await loadSessionOrThrow(
+    input.sessionId,
+    input.userId,
+    input.guestSessionId
+  );
 
   if (session.status === "completed") {
     return getTryoutSessionState({
       sessionId: session.id,
       userId: input.userId,
+      guestSessionId: input.guestSessionId,
       now: input.now,
     });
   }
@@ -958,28 +995,55 @@ export async function finalizeTryoutSession(input: {
   return getTryoutSessionState({
     sessionId: session.id,
     userId: input.userId,
+    guestSessionId: input.guestSessionId,
     now: completedTime,
   });
 }
 
 export async function listTryoutSessions(input: {
   userId?: string | null;
+  guestSessionId?: string | null;
   guestSessionIds?: string[];
   now?: Date;
 }): Promise<TryoutSessionSummaryItem[]> {
   const actorUserId = isValidUuid(input.userId) ? input.userId.trim() : null;
+  const actorGuestSessionId = input.guestSessionId?.trim() || null;
   const validGuestSessionIds = normalizeUuidList(input.guestSessionIds);
 
-  if (!actorUserId && validGuestSessionIds.length === 0) {
+  if (!actorUserId && !actorGuestSessionId && validGuestSessionIds.length === 0) {
     return [];
   }
 
-  const ownerFilter = actorUserId
-    ? eq(quizSessions.userId, actorUserId)
-    : and(
-        inArray(quizSessions.id, validGuestSessionIds),
-        isNull(quizSessions.userId)
+  let ownerFilter;
+  if (actorUserId) {
+    ownerFilter = eq(quizSessions.userId, actorUserId);
+  } else {
+    const guestFilters = [];
+    if (actorGuestSessionId) {
+      guestFilters.push(
+        and(
+          eq(quizSessions.guestSessionId, actorGuestSessionId),
+          isNull(quizSessions.userId)
+        )
       );
+    }
+    if (validGuestSessionIds.length > 0) {
+      guestFilters.push(
+        and(
+          inArray(quizSessions.id, validGuestSessionIds),
+          isNull(quizSessions.userId),
+          actorGuestSessionId
+            ? or(
+                eq(quizSessions.guestSessionId, actorGuestSessionId),
+                isNull(quizSessions.guestSessionId)
+              )
+            : isNull(quizSessions.guestSessionId)
+        )
+      );
+    }
+    ownerFilter =
+      guestFilters.length === 1 ? guestFilters[0] : or(...guestFilters);
+  }
 
   const sessions = await db
     .select()
@@ -1008,6 +1072,7 @@ export async function listTryoutSessions(input: {
       const finalized = await finalizeTryoutSession({
         sessionId: session.id,
         userId: actorUserId,
+        guestSessionId: session.guestSessionId,
         now,
       });
       finalizedById.set(session.id, finalized);

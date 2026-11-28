@@ -7,11 +7,16 @@ import {
   ApiError,
   RequestWithValidation,
 } from '@/middleware/api';
+import { readVerifiedGuestId } from '@/lib/auth/guest-session';
+import { resolveOptionalUserId } from '@/lib/auth/optional-session';
 import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import { eq } from 'drizzle-orm';
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
+
+const UUID_REGEX =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 interface ChatTitleParams {
   chatId: string;
@@ -29,20 +34,13 @@ async function getChatTitleHandler(
   request: NextRequest,
   { params }: { params: Promise<ChatTitleParams> }
 ) {
-  let userId: string | null = null;
-  let isAuthenticated = false;
-
-  try {
-    const session = await getServerSession(authOptions);
-    if (session?.user) {
-      userId = session.user.id;
-      isAuthenticated = true;
-    }
-  } catch (error) {
-    console.log(`[GET_TITLE] Session check failed:`, error);
+  const chatId = (await params).chatId?.trim();
+  if (!chatId || !UUID_REGEX.test(chatId)) {
+    throw new ApiError('ID chat tidak valid', 400, 'INVALID_CHAT_ID');
   }
 
-  const chatId = (await params).chatId;
+  const userId = await resolveOptionalUserId('GET_TITLE');
+  const isAuthenticated = Boolean(userId);
 
   try {
     const [chat] = await db
@@ -50,6 +48,7 @@ async function getChatTitleHandler(
         title: conversations.title,
         userId: conversations.userId,
         isGuestChat: conversations.isGuestChat,
+        guestSessionId: conversations.guestSessionId,
         expiresAt: conversations.expiresAt,
       })
       .from(conversations)
@@ -61,6 +60,14 @@ async function getChatTitleHandler(
     }
 
     if (chat.isGuestChat) {
+      const guestId = await readVerifiedGuestId(request);
+      if (chat.guestSessionId && chat.guestSessionId !== guestId) {
+        throw new ApiError(
+          'Anda tidak memiliki akses ke chat ini',
+          403,
+          'CHAT_ACCESS_DENIED'
+        );
+      }
       if (chat.expiresAt && new Date() > chat.expiresAt) {
         throw new ApiError(
           'Chat sementara telah kedaluwarsa',
@@ -70,7 +77,7 @@ async function getChatTitleHandler(
       }
     } else {
       if (!isAuthenticated || !userId) {
-        return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+        throw new ApiError('Autentikasi diperlukan', 401, 'AUTH_REQUIRED');
       }
 
       if (chat.userId !== userId) {
@@ -100,10 +107,6 @@ async function getChatTitleHandler(
       'Gagal mengambil judul chat',
       500,
       'GET_TITLE_ERROR'
-      //    {
-      //   chatId,
-      //   userId,
-      // }
     );
   }
 }
@@ -115,16 +118,16 @@ async function updateChatTitleHandler(
   const session = await getServerSession(authOptions);
 
   if (!session || !session.user) {
-    return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    throw new ApiError('Autentikasi diperlukan', 401, 'AUTH_REQUIRED');
   }
 
   const userId = session.user.id;
-  const chatId = (await params).chatId;
-  const { title } = request.validatedData || {};
+  const chatId = (await params).chatId?.trim();
+  if (!chatId || !UUID_REGEX.test(chatId)) {
+    throw new ApiError('ID chat tidak valid', 400, 'INVALID_CHAT_ID');
+  }
 
-  // if (isNaN(chatId) || chatId <= 0) {
-  //   throw new ApiError("ID chat tidak valid", 400, "INVALID_CHAT_ID");
-  // }
+  const { title } = request.validatedData || {};
 
   console.log(
     `[UPDATE_TITLE] User ${userId} updating title for chat ${chatId} to: ${title}`
@@ -155,13 +158,11 @@ async function updateChatTitleHandler(
       .update(conversations)
       .set({
         title,
-        // updatedAt: new Date(),
       })
       .where(eq(conversations.id, chatId))
       .returning({
         id: conversations.id,
         title: conversations.title,
-        // updatedAt: conversations.updatedAt,
       });
 
     console.log(`[UPDATE_TITLE] Successfully updated title for chat ${chatId}`);
@@ -172,7 +173,6 @@ async function updateChatTitleHandler(
       data: {
         chatId: updatedChat.id,
         title: updatedChat.title,
-        // updatedAt: updatedChat.updatedAt,
       },
     });
   } catch (error) {
@@ -189,7 +189,6 @@ async function updateChatTitleHandler(
       'Gagal memperbarui judul chat',
       500,
       'UPDATE_TITLE_ERROR'
-      // { chatId, userId, title }
     );
   }
 }

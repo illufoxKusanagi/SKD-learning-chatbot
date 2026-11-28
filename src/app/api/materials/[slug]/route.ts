@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getServerSession } from 'next-auth';
-import { authOptions } from '@/lib/auth';
+import { resolveOptionalUserId } from '@/lib/auth/optional-session';
 import { getStudyMaterialBySlug } from '@/lib/services/material.service';
 import {
   ApiError,
   createRateLimitMiddleware,
   withMiddleware,
 } from '@/middleware/api';
+
+const UUID_REGEX =
+  /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 
 const materialDetailRateLimit = createRateLimitMiddleware({
   prefix: 'materials-detail',
@@ -30,18 +32,11 @@ export async function GET(
           .filter((id) => id.length > 0)
       : undefined;
 
-    let userId: string | null = null;
-    try {
-      const session = await getServerSession(authOptions);
-      if (session?.user?.id) {
-        userId = session.user.id;
-      }
-    } catch (authErr) {
-      console.warn(
-        '[GET /api/materials/[slug]] Session retrieval warning:',
-        authErr
-      );
+    if (guestChatIds?.some((id) => !UUID_REGEX.test(id))) {
+      throw new ApiError('ID chat tidak valid', 400, 'INVALID_CHAT_ID');
     }
+
+    const userId = await resolveOptionalUserId('GET /api/materials/[slug]');
 
     const material = await getStudyMaterialBySlug(slug, {
       userId,
