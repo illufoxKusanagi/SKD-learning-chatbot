@@ -62,12 +62,13 @@ export function ChatHistory({
         {messages.map((msg, index) => {
           if (msg.role === 'bot' && !msg.content && isLoading) return null;
 
-          const { cleanContent, attemptId, quizId, chatError } =
+          const { cleanContent, attemptId, packQuizIds, quizId, chatError } =
             parseMessageQuizMarkers(msg.content);
           if (
             msg.role === 'bot' &&
             !cleanContent &&
             !attemptId &&
+            packQuizIds.length === 0 &&
             !quizId &&
             !chatError
           ) {
@@ -77,6 +78,12 @@ export function ChatHistory({
             msg.role === 'bot' && quizId
               ? quizzes.find((q) => q.id === quizId)
               : undefined;
+          const matchedQuizPack =
+            msg.role === 'bot' && packQuizIds.length > 0
+              ? packQuizIds
+                  .map((id) => quizzes.find((q) => q.id === id))
+                  .filter((q): q is QuizAttemptItem => Boolean(q))
+              : undefined;
 
           return (
             <TextBubble
@@ -85,7 +92,9 @@ export function ChatHistory({
               content={cleanContent}
               timestamp={msg.timestamp}
               hasAttemptMarker={Boolean(attemptId)}
+              hasPackMarker={packQuizIds.length > 0}
               matchedQuiz={matchedQuiz}
+              matchedQuizPack={matchedQuizPack}
               isLoadingQuiz={isLoadingQuizzes}
               onSelectQuizOption={onSelectQuizOption}
               onOpenCanvas={onOpenCanvas}

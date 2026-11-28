@@ -5,15 +5,27 @@ import {
   type QuizOptions,
   type QuizScoringRubric,
 } from '@/lib/db/schema';
-import { sql, desc, eq, and, notInArray } from 'drizzle-orm';
+import { sql, desc, eq, and, inArray } from 'drizzle-orm';
 import { db } from '@/lib/db/index';
 import { generateEmbedding } from './embeddings.service';
 import {
   SKD_KNOWLEDGE_BASE,
   SkdKnowledgeEntry,
 } from '@/lib/datas/skd-knowledge';
+import {
+  detectSkdCategoryAndIntent,
+  type QuizCategoryCounts,
+  type SkdSubtestCategory,
+} from './quiz-intent';
+import {
+  pickAndRecordByCategories,
+  pickAndRecordFromPool,
+} from '@/lib/services/question-access.service';
+
+export { detectSkdCategoryAndIntent } from './quiz-intent';
 
 export interface SkdQuizMetadata {
+  questionId?: string | null;
   ragSourceId?: string;
   category: 'TWK' | 'TIU' | 'TKP';
   subtopic: string;
@@ -40,112 +52,15 @@ export interface SkdRetrievalResult {
   detectedCategory: 'TWK' | 'TIU' | 'TKP' | null;
   isQuizRequest: boolean;
   wantsNewVariation: boolean;
+  requestedQuizCounts: QuizCategoryCounts | null;
+  rawTotalQuizRequested: number;
+  totalQuizRequested: number;
+  wasQuizCapped: boolean;
+  isBlockedInjection: boolean;
   unattemptedBenchmark: SkdQuizMetadata | null;
+  unattemptedBenchmarks: SkdQuizMetadata[];
   contextChunks: RagChunk[];
   formattedContext: string;
-}
-
-export function detectSkdCategoryAndIntent(
-  userQuery: string,
-  history?: { role: string; content: string }[]
-): {
-  detectedCategory: 'TWK' | 'TIU' | 'TKP' | null;
-  isQuizRequest: boolean;
-  wantsNewVariation: boolean;
-  inheritedTopic?: string;
-} {
-  const queryLower = userQuery.toLowerCase();
-
-  const twkPattern =
-    /\b(twk|wawasan\s+kebangsaan|pancasila|uud|pasal|bhinneka|nkri|bela\s+negara|nasionalisme|integritas|bahasa\s+indonesia|eyd|bpupki|ppki|sejarah)\b/i;
-  const tiuPattern =
-    /\b(tiu|inteligensia\s+umum|silogisme|analogi|deret|numerik|berhitung|pecahan|perbandingan|kecepatan|jarak|waktu|kuantitatif|analitis|figural|jaring-jaring|ketidaksamaan\s+gambar|analogi\s+gambar|matriks\s+gambar|logika|premis)\b/i;
-  const tkpPattern =
-    /\b(tkp|karakteristik\s+pribadi|pelayanan\s+publik|jejaring\s+kerja|sosial\s+budaya|tik|profesionalisme|anti\s+radikalisme|radikalisme|berakhlak|tempat\s+kerja|atasan|rekan\s+kerja|masyarakat)\b/i;
-
-  let detectedCategory: 'TWK' | 'TIU' | 'TKP' | null = null;
-  let inheritedTopic = '';
-
-  // 1. Direct explicit category or keyword detection in user query
-  if (/\b(twk|wawasan\s+kebangsaan)\b/i.test(queryLower)) {
-    detectedCategory = 'TWK';
-  } else if (/\b(tiu|inteligensia\s+umum)\b/i.test(queryLower)) {
-    detectedCategory = 'TIU';
-  } else if (/\b(tkp|karakteristik\s+pribadi)\b/i.test(queryLower)) {
-    detectedCategory = 'TKP';
-  } else if (twkPattern.test(queryLower)) {
-    detectedCategory = 'TWK';
-  } else if (tiuPattern.test(queryLower)) {
-    detectedCategory = 'TIU';
-  } else if (tkpPattern.test(queryLower)) {
-    detectedCategory = 'TKP';
-  }
-
-  // 2. Short follow-up query context inheritance from recent turns
-  if (
-    !detectedCategory &&
-    userQuery.trim().length < 60 &&
-    history &&
-    history.length > 0
-  ) {
-    const recentTurns = history.slice(-2);
-    for (let i = recentTurns.length - 1; i >= 0; i--) {
-      const histText = recentTurns[i].content.toLowerCase();
-      if (
-        /\b(twk|wawasan\s+kebangsaan)\b/i.test(histText) ||
-        twkPattern.test(histText)
-      ) {
-        detectedCategory = 'TWK';
-        inheritedTopic = recentTurns[i].content.slice(0, 80);
-        break;
-      }
-      if (
-        /\b(tiu|inteligensia\s+umum)\b/i.test(histText) ||
-        tiuPattern.test(histText)
-      ) {
-        detectedCategory = 'TIU';
-        inheritedTopic = recentTurns[i].content.slice(0, 80);
-        break;
-      }
-      if (
-        /\b(tkp|karakteristik\s+pribadi)\b/i.test(histText) ||
-        tkpPattern.test(histText)
-      ) {
-        detectedCategory = 'TKP';
-        inheritedTopic = recentTurns[i].content.slice(0, 80);
-        break;
-      }
-    }
-  }
-
-  const isGeneralInfoOnly =
-    /^(apa itu skd|apa itu cpns|pengertian skd|informasi skd|passing grade|ambang batas)\??$/i.test(
-      queryLower.trim()
-    );
-
-  const quizRequestPattern =
-    /\b((berikan|beri|kasih|minta|buatkan|mau|ingin|coba)\s+(\d+\s+)?(soal|latihan|kuis|quiz|simulasi)|latihan\s+soal|contoh\s+soal|soal\s+lagi|lanjut\s+soal|(kasih|tes|simulasi)\s+(twk|tiu|tkp|skd))\b/i;
-  const refersToPreviousQuiz =
-    /\b(soal\s+(tadi|ini|sebelumnya|itu|tersebut|barusan)|jawaban\s+(tadi|saya|benar)|kenapa|mengapa|jelaskan|pembahasan|bahas\s+soal)\b/i.test(
-      queryLower
-    );
-
-  const isQuizRequest =
-    !isGeneralInfoOnly &&
-    !refersToPreviousQuiz &&
-    quizRequestPattern.test(queryLower);
-
-  const wantsNewVariation =
-    /\b(variasi\s+baru|soal\s+baru\s+buatan\s+ai|isu\s+terkini|karang\s+soal\s+baru)\b/i.test(
-      queryLower
-    );
-
-  return {
-    detectedCategory,
-    isQuizRequest,
-    wantsNewVariation,
-    inheritedTopic,
-  };
 }
 
 function scoreInMemoryEntry(
@@ -316,6 +231,7 @@ function mapQuizQuestionRowToCandidate(
     docType: 'contoh_soal_hots',
     similarity: score,
     quizPayload: {
+      questionId: qRow.id,
       ragSourceId: canonicalId,
       category: cat,
       subtopic: qRow.subtopic,
@@ -327,6 +243,136 @@ function mapQuizQuestionRowToCandidate(
       rubricRationale,
     },
   };
+}
+
+function shuffleArray<T>(items: T[]): T[] {
+  const arr = [...items];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function orderBySubtopicDiversity(chunks: RagChunk[]): RagChunk[] {
+  const bySubtopic = new Map<string, RagChunk[]>();
+  for (const chunk of shuffleArray(chunks)) {
+    const key = chunk.subtopic || 'Umum';
+    const group = bySubtopic.get(key);
+    if (group) {
+      group.push(chunk);
+    } else {
+      bySubtopic.set(key, [chunk]);
+    }
+  }
+
+  const queues = shuffleArray(Array.from(bySubtopic.values()));
+  const result: RagChunk[] = [];
+  let hasMore = true;
+
+  while (hasMore) {
+    hasMore = false;
+    for (const queue of queues) {
+      const next = queue.shift();
+      if (next) {
+        result.push(next);
+        hasMore = true;
+      }
+    }
+  }
+
+  return result;
+}
+
+function pickFromCategoryPool(
+  pool: RagChunk[],
+  needed: number,
+  attemptedIds: Set<string>,
+  usedSourceIds: Set<string>
+): SkdQuizMetadata[] {
+  if (needed <= 0 || pool.length === 0) {
+    return [];
+  }
+
+  const unattempted: RagChunk[] = [];
+  const attemptedBackfill: RagChunk[] = [];
+
+  for (const chunk of pool) {
+    if (!chunk.quizPayload) continue;
+    const sourceId = chunk.quizPayload.ragSourceId || chunk.id;
+    if (usedSourceIds.has(chunk.id) || usedSourceIds.has(sourceId)) continue;
+
+    if (attemptedIds.has(chunk.id) || attemptedIds.has(sourceId)) {
+      attemptedBackfill.push(chunk);
+    } else {
+      unattempted.push(chunk);
+    }
+  }
+
+  const ordered = [
+    ...orderBySubtopicDiversity(unattempted),
+    ...orderBySubtopicDiversity(attemptedBackfill),
+  ];
+
+  const picked: SkdQuizMetadata[] = [];
+  for (const chunk of ordered) {
+    if (picked.length >= needed) break;
+    if (!chunk.quizPayload) continue;
+
+    const sourceId = chunk.quizPayload.ragSourceId || chunk.id;
+    if (usedSourceIds.has(chunk.id) || usedSourceIds.has(sourceId)) continue;
+
+    usedSourceIds.add(chunk.id);
+    usedSourceIds.add(sourceId);
+    picked.push({
+      ...chunk.quizPayload,
+      ragSourceId: sourceId,
+    });
+  }
+
+  return picked;
+}
+
+function pickMultipleBenchmarksByCounts(
+  candidates: RagChunk[],
+  requestedQuizCounts: QuizCategoryCounts | null,
+  totalQuizRequested: number,
+  detectedCategory: SkdSubtestCategory | null,
+  attemptedIds: Set<string>
+): SkdQuizMetadata[] {
+  const usedSourceIds = new Set<string>();
+
+  if (requestedQuizCounts) {
+    const categoryOrder: readonly SkdSubtestCategory[] = ['TWK', 'TIU', 'TKP'];
+    const picked: SkdQuizMetadata[] = [];
+
+    for (const cat of categoryOrder) {
+      const count = requestedQuizCounts[cat];
+      if (count <= 0) continue;
+      const catPool = candidates.filter(
+        (chunk) => chunk.category === cat && Boolean(chunk.quizPayload)
+      );
+      picked.push(
+        ...pickFromCategoryPool(catPool, count, attemptedIds, usedSourceIds)
+      );
+    }
+
+    return picked;
+  }
+
+  const filteredPool = detectedCategory
+    ? candidates.filter(
+        (chunk) =>
+          chunk.category === detectedCategory && Boolean(chunk.quizPayload)
+      )
+    : candidates.filter((chunk) => Boolean(chunk.quizPayload));
+
+  return pickFromCategoryPool(
+    filteredPool,
+    Math.max(1, totalQuizRequested),
+    attemptedIds,
+    usedSourceIds
+  );
 }
 
 function pickUnattemptedBenchmarkFromCandidates(
@@ -369,10 +415,38 @@ export async function findRelevantContents(
   options?: {
     history?: { role: string; content: string }[];
     attemptedSourceIds?: string[];
+    userId?: string | null;
+    guestSessionId?: string | null;
   }
 ): Promise<SkdRetrievalResult> {
-  const { detectedCategory, isQuizRequest, wantsNewVariation, inheritedTopic } =
-    detectSkdCategoryAndIntent(userQuery, options?.history);
+  const {
+    detectedCategory,
+    isQuizRequest,
+    wantsNewVariation,
+    inheritedTopic,
+    isBlockedInjection,
+    requestedQuizCounts,
+    rawTotalQuizRequested,
+    totalQuizRequested,
+    wasQuizCapped,
+  } = detectSkdCategoryAndIntent(userQuery, options?.history);
+
+  if (isBlockedInjection) {
+    return {
+      detectedCategory: null,
+      isQuizRequest: false,
+      wantsNewVariation: false,
+      requestedQuizCounts: null,
+      rawTotalQuizRequested: 0,
+      totalQuizRequested: 0,
+      wasQuizCapped: false,
+      isBlockedInjection: true,
+      unattemptedBenchmark: null,
+      unattemptedBenchmarks: [],
+      contextChunks: [],
+      formattedContext: '',
+    };
+  }
 
   // Build effective search query with enriched topic context for follow-ups
   const effectiveQuery =
@@ -392,22 +466,16 @@ export async function findRelevantContents(
     .filter((w) => w.length >= 3);
 
   try {
-    const nonEmptyAttemptedSlugs = Array.from(attemptedIds)
-      .map((id) => id.trim())
-      .filter((id) => id.length > 0);
+    // Zero-Embedding Fast Path for validated DB quiz requests (Curated-Only)
+    if (isQuizRequest) {
+      const targetCategories: SkdSubtestCategory[] = requestedQuizCounts
+        ? (['TWK', 'TIU', 'TKP'] as const).filter(
+            (cat) => requestedQuizCounts[cat] > 0
+          )
+        : detectedCategory
+          ? [detectedCategory]
+          : ['TWK', 'TIU', 'TKP'];
 
-    const questionConditions = [eq(quizQuestions.isValidated, true)];
-    if (detectedCategory) {
-      questionConditions.push(eq(quizQuestions.category, detectedCategory));
-    }
-    if (nonEmptyAttemptedSlugs.length > 0) {
-      questionConditions.push(
-        notInArray(quizQuestions.slug, nonEmptyAttemptedSlugs)
-      );
-    }
-
-    // Zero-Embedding Fast Path for validated DB quiz requests
-    if (isQuizRequest && !wantsNewVariation) {
       const questionRows = await db
         .select({
           id: quizQuestions.id,
@@ -423,29 +491,55 @@ export async function findRelevantContents(
           optionRationales: quizQuestions.optionRationales,
         })
         .from(quizQuestions)
-        .where(and(...questionConditions))
-        .limit(60);
+        .where(
+          and(
+            eq(quizQuestions.isValidated, true),
+            inArray(quizQuestions.category, targetCategories)
+          )
+        )
+        .limit(500);
 
-      for (const qRow of questionRows) {
-        validatedQuizCandidates.push(
-          mapQuizQuestionRowToCandidate(qRow, detectedCategory, queryWords)
-        );
-      }
-
-      const fastPicked = pickUnattemptedBenchmarkFromCandidates(
-        validatedQuizCandidates,
-        detectedCategory,
-        attemptedIds
-      );
-      if (fastPicked) {
-        return {
-          detectedCategory,
-          isQuizRequest,
-          wantsNewVariation,
-          unattemptedBenchmark: fastPicked,
-          contextChunks: [],
-          formattedContext: '',
+      if (questionRows.length > 0) {
+        const actor = {
+          userId: options?.userId,
+          guestSessionId: options?.guestSessionId,
         };
+        const selectedRows = requestedQuizCounts
+          ? await pickAndRecordByCategories({
+              actor,
+              candidates: questionRows,
+              countsByCategory: requestedQuizCounts,
+            })
+          : await pickAndRecordFromPool({
+              actor,
+              candidates: questionRows,
+              needed: Math.max(1, totalQuizRequested),
+            });
+
+        const pickedList = selectedRows
+          .map(
+            (qRow) =>
+              mapQuizQuestionRowToCandidate(qRow, detectedCategory, queryWords)
+                .quizPayload
+          )
+          .filter((payload): payload is SkdQuizMetadata => Boolean(payload));
+
+        if (pickedList.length > 0) {
+          return {
+            detectedCategory,
+            isQuizRequest,
+            wantsNewVariation,
+            requestedQuizCounts,
+            rawTotalQuizRequested,
+            totalQuizRequested,
+            wasQuizCapped,
+            isBlockedInjection: false,
+            unattemptedBenchmark: pickedList[0] ?? null,
+            unattemptedBenchmarks: pickedList,
+            contextChunks: [],
+            formattedContext: '',
+          };
+        }
       }
     }
 
@@ -598,6 +692,9 @@ export async function findRelevantContents(
   });
 
   inMemoryCandidates.sort((a, b) => b.similarity - a.similarity);
+  const relevantInMemory = inMemoryCandidates.filter(
+    (mem) => mem.similarity >= 0.25
+  );
 
   // Merge DB and In-Memory candidates
   let contextChunks: RagChunk[] = [];
@@ -608,7 +705,7 @@ export async function findRelevantContents(
 
     // Supplement with high-scoring in-memory items if needed
     const existingTitles = new Set(contextChunks.map((c) => c.title));
-    for (const mem of inMemoryCandidates) {
+    for (const mem of relevantInMemory) {
       if (contextChunks.length >= 6) break;
       if (!existingTitles.has(mem.title)) {
         contextChunks.push(mem);
@@ -621,36 +718,53 @@ export async function findRelevantContents(
       filteredDbChunks.length > 0
         ? [
             ...filteredDbChunks,
-            ...inMemoryCandidates.filter(
+            ...relevantInMemory.filter(
               (mem) =>
                 !filteredDbChunks.some((dbItem) => dbItem.title === mem.title)
             ),
           ]
-        : inMemoryCandidates;
+        : relevantInMemory;
   }
 
   // 3. Dual Question Source Selection (validated quiz_questions first, then legacy rag_data / SKD_KNOWLEDGE_BASE)
   let unattemptedBenchmark: SkdQuizMetadata | null = null;
+  let unattemptedBenchmarks: SkdQuizMetadata[] = [];
 
-  if (isQuizRequest && !wantsNewVariation) {
-    unattemptedBenchmark =
-      pickUnattemptedBenchmarkFromCandidates(
-        validatedQuizCandidates,
-        detectedCategory,
-        attemptedIds
-      ) ??
-      pickUnattemptedBenchmarkFromCandidates(
-        [
-          ...contextChunks.filter(
-            (chunk) => chunk.docType === 'contoh_soal_hots' && chunk.quizPayload
-          ),
-          ...inMemoryCandidates.filter(
-            (mem) => mem.docType === 'contoh_soal_hots' && mem.quizPayload
-          ),
-        ],
+  if (isQuizRequest) {
+    const fallbackPool = [
+      ...contextChunks.filter(
+        (chunk) => chunk.docType === 'contoh_soal_hots' && chunk.quizPayload
+      ),
+      ...inMemoryCandidates.filter(
+        (mem) => mem.docType === 'contoh_soal_hots' && mem.quizPayload
+      ),
+    ];
+
+    if (totalQuizRequested > 1) {
+      unattemptedBenchmarks = pickMultipleBenchmarksByCounts(
+        [...validatedQuizCandidates, ...fallbackPool],
+        requestedQuizCounts,
+        totalQuizRequested,
         detectedCategory,
         attemptedIds
       );
+      unattemptedBenchmark = unattemptedBenchmarks[0] ?? null;
+    } else {
+      unattemptedBenchmark =
+        pickUnattemptedBenchmarkFromCandidates(
+          validatedQuizCandidates,
+          detectedCategory,
+          attemptedIds
+        ) ??
+        pickUnattemptedBenchmarkFromCandidates(
+          fallbackPool,
+          detectedCategory,
+          attemptedIds
+        );
+      unattemptedBenchmarks = unattemptedBenchmark
+        ? [unattemptedBenchmark]
+        : [];
+    }
   }
 
   // 4. Format top 3 chunks for LLM Context (<= 1,600 chars per chunk)
@@ -671,7 +785,13 @@ export async function findRelevantContents(
     detectedCategory,
     isQuizRequest,
     wantsNewVariation,
+    requestedQuizCounts,
+    rawTotalQuizRequested,
+    totalQuizRequested,
+    wasQuizCapped,
+    isBlockedInjection: false,
     unattemptedBenchmark,
+    unattemptedBenchmarks,
     contextChunks: topChunks,
     formattedContext,
   };

@@ -66,6 +66,7 @@ export interface ChatStreamErrorPayload {
 
 export function parseMessageQuizMarkers(content: string) {
   let attemptId: string | null = null;
+  let packQuizIds: string[] = [];
   let evalQuizId: string | null = null;
   let evalOption: QuizOptionKey | null = null;
   let evalScore: number | null = null;
@@ -74,6 +75,14 @@ export function parseMessageQuizMarkers(content: string) {
   const attemptMatch = content.match(/<!--QUIZ_ATTEMPT:([a-f0-9-]+)-->/i);
   if (attemptMatch?.[1]) {
     attemptId = attemptMatch[1];
+  }
+
+  const packMatch = content.match(/<!--QUIZ_PACK:([a-f0-9,-]+)-->/i);
+  if (packMatch?.[1]) {
+    packQuizIds = packMatch[1]
+      .split(",")
+      .map((id) => id.trim())
+      .filter((id) => /^[a-f0-9-]+$/i.test(id));
   }
 
   const evalMatch = content.match(
@@ -112,6 +121,7 @@ export function parseMessageQuizMarkers(content: string) {
 
   const cleanContent = content
     .replace(/<!--QUIZ_ATTEMPT:[^>]+-->/gi, "")
+    .replace(/<!--QUIZ_PACK:[^>]+-->/gi, "")
     .replace(/<!--QUIZ_EVAL:[^>]+-->/gi, "")
     .replace(/<!--CHAT_ERROR:[\s\S]*?-->/gi, "")
     .trim();
@@ -119,6 +129,7 @@ export function parseMessageQuizMarkers(content: string) {
   return {
     cleanContent,
     attemptId,
+    packQuizIds,
     evalQuizId,
     evalOption,
     evalScore,
