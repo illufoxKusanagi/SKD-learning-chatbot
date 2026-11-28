@@ -120,11 +120,8 @@ export function selectQuestionsWithCycleReset<T extends QuestionCandidateBase>(
 }
 
 async function fetchAccessMap(
-  actorKey: string,
-  candidates: readonly QuestionCandidateBase[]
+  actorKey: string
 ): Promise<Map<string, QuestionAccessEntry>> {
-  const candidateIds = Array.from(new Set(candidates.map((c) => c.id)));
-  if (candidateIds.length === 0) return new Map();
   const rows = await db
     .select({
       questionId: questionAccessLogs.questionId,
@@ -133,7 +130,7 @@ async function fetchAccessMap(
       lastAccessedAt: questionAccessLogs.lastAccessedAt,
     })
     .from(questionAccessLogs)
-    .where(and(eq(questionAccessLogs.actorKey, actorKey), inArray(questionAccessLogs.questionId, candidateIds)));
+    .where(eq(questionAccessLogs.actorKey, actorKey));
   return new Map(rows.map((row) => [row.questionId, row]));
 }
 
@@ -187,7 +184,7 @@ export async function pickAndRecordFromPool<T extends QuestionCandidateBase>(par
 }): Promise<T[]> {
   if (params.candidates.length === 0 || params.needed <= 0) return [];
   const actorKey = buildActorKey(params.actor);
-  const accessMap = actorKey ? await fetchAccessMap(actorKey, params.candidates) : new Map<string, QuestionAccessEntry>();
+  const accessMap = actorKey ? await fetchAccessMap(actorKey) : new Map<string, QuestionAccessEntry>();
   const { selected, resetPoolQuestionIds } = selectQuestionsWithCycleReset(params.candidates, params.needed, accessMap);
   if (actorKey) await persistAccessSelection(params.actor, actorKey, selected, resetPoolQuestionIds);
   return selected;
@@ -201,7 +198,7 @@ export async function pickAndRecordByCategories<T extends QuestionCandidateBase>
   const { TWK, TIU, TKP } = params.countsByCategory;
   if (params.candidates.length === 0 || Math.max(0, TWK) + Math.max(0, TIU) + Math.max(0, TKP) <= 0) return [];
   const actorKey = buildActorKey(params.actor);
-  const accessMap = actorKey ? await fetchAccessMap(actorKey, params.candidates) : new Map<string, QuestionAccessEntry>();
+  const accessMap = actorKey ? await fetchAccessMap(actorKey) : new Map<string, QuestionAccessEntry>();
   const allSelected: T[] = [];
   const allResetIds: string[] = [];
 

@@ -12,5 +12,6 @@
     "enabled": true
   },
   "keep_vars": true,
+  "keep_names": false,
   "previews": {}
 }
